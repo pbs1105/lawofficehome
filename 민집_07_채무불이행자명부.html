@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>채무불이행자명부 — 채무자를 신용불량으로 등재시킬 수 있나요?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #333;
+            line-height: 1.8;
+            background-color: #faf8f5;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-family: 'Noto Serif KR', serif;
+            color: #1a2e4a;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1em;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-family: 'Noto Serif KR', serif;
+            color: #1a2e4a;
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #c8a96e;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-family: 'Noto Serif KR', serif;
+            color: #1a2e4a;
+            font-size: 1.3em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        /* 체크리스트 */
+        .checklist {
+            background-color: #f0f8f0;
+            border-left: 4px solid #1a5c2e;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+
+        .checklist ul {
+            list-style: none;
+        }
+
+        .checklist li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #1a5c2e;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        /* 핵심 요약 박스 */
+        .summary-box {
+            background-color: #eef2f8;
+            border-left: 4px solid #2d4a7a;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+
+        .summary-box h3 {
+            color: #2d4a7a;
+            margin-top: 0;
+        }
+
+        /* 경고 박스 */
+        .warning-box {
+            background-color: #fff3e8;
+            border-left: 4px solid #c05000;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .warning-box h4 {
+            color: #c05000;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* 판례 박스 */
+        .case-box {
+            background-color: #f7f4f0;
+            border-left: 4px solid #6b7280;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+
+        /* 상담 CTA */
+        .cta-box {
+            background-color: #fdf6e9;
+            border: 2px solid #c8a96e;
+            padding: 25px;
+            margin: 40px 0;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .cta-box p {
+            font-size: 1.1em;
+            color: #1a2e4a;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            background-color: #1a2e4a;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            background-color: #c8a96e;
+            color: #1a2e4a;
+        }
+
+        /* 절차 흐름 */
+        .process-flow {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 120px;
+            text-align: center;
+            padding: 15px;
+            background-color: white;
+            border-radius: 4px;
+            border: 1px solid #d0d0d0;
+        }
+
+        .step-num {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #1a2e4a;
+            color: white;
+            border-radius: 50%;
+            line-height: 40px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .step-text {
+            font-size: 0.9em;
+            color: #333;
+        }
+
+        .arrow {
+            text-align: center;
+            font-size: 1.5em;
+            color: #c8a96e;
+        }
+
+        /* 테이블 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+        }
+
+        th {
+            background-color: #1a2e4a;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid #1a2e4a;
+        }
+
+        td {
+            padding: 12px;
+            border: 1px solid #e0e0e0;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Q&A */
+        .qa-section {
+            margin: 30px 0;
+        }
+
+        .qa-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: white;
+            border-left: 4px solid #c8a96e;
+            border-radius: 4px;
+        }
+
+        .q-title {
+            font-weight: 600;
+            color: #1a2e4a;
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+
+        .q-title:before {
+            content: "Q. ";
+            color: #c8a96e;
+            font-weight: bold;
+        }
+
+        .a-content {
+            color: #555;
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        .a-content:before {
+            content: "A. ";
+            font-weight: 600;
+            color: #2d4a7a;
+        }
+
+        .qa-note {
+            font-size: 0.9em;
+            color: #999;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        /* 다음으로 확인할 내용 */
+        .related-links {
+            background-color: #eef2f8;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 30px 0;
+        }
+
+        .related-links h3 {
+            color: #2d4a7a;
+            margin-top: 0;
+        }
+
+        .related-links ul {
+            list-style: none;
+        }
+
+        .related-links li {
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .related-links li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #c8a96e;
+            font-weight: bold;
+        }
+
+        .related-links a {
+            color: #2d4a7a;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .related-links a:hover {
+            color: #c8a96e;
+            text-decoration: underline;
+        }
+
+        /* 면책 문구 */
+        .disclaimer {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 4px;
+            border-radius: 2px;
+        }
+
+        .urgent {
+            color: #c05000;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            .process-steps {
+                flex-direction: column;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+                margin: 10px 0;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .cta-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>채무불이행자명부</h1>
+        <p class="subtitle">채무자를 신용불량으로 등재시킬 수 있나요?</p>
+
+        <!-- 이런 분께 필요합니다 -->
+        <section class="checklist">
+            <h3>이런 분께 필요합니다</h3>
+            <ul>
+                <li>판결은 받았는데 채무자가 계속 이행을 미루는 경우</li>
+                <li>강제집행으로도 채무를 회수할 재산이 없는 경우</li>
+                <li>재산명시 절차에서 채무자가 불응하는 경우</li>
+                <li>채무자에게 간접적인 압박을 가하고 싶은 경우</li>
+                <li>채무자의 신용을 제한할 방법을 찾고 있는 경우</li>
+                <li>불성실한 채무자를 공개적으로 공표하고 싶은 경우</li>
+            </ul>
+        </section>
+
+        <!-- 1. 핵심 요약 -->
+        <h2>1. 채무불이행자명부란?</h2>
+
+        <div class="summary-box">
+            <h3>정의 및 목적</h3>
+            <p><strong>채무불이행자명부</strong>는 금전 채무를 이행하지 않는 채무자의 인적 사항(이름, 주소, 주민등록번호 등)을 법원 명부에 등재하는 제도입니다.</p>
+            <ul style="margin-top: 15px; margin-left: 20px;">
+                <li>목적: 불성실한 채무자의 명예와 신용 훼손을 통한 간접 강제</li>
+                <li>효과: 여권 발급 제한, 신용정보기관 통보 등</li>
+                <li>근거: 민사집행법 제70조</li>
+            </ul>
+        </div>
+
+        <p>채무불이행자명부는 강제집행이 실패했거나 실패할 것으로 예상될 때, 채무자에게 신용 제한의 불이익을 주어 자발적 이행을 유도하는 제도입니다.</p>
+
+        <!-- 2. 언제 신청할 수 있나 -->
+        <h2>2. 신청 요건</h2>
+
+        <h3>등재 신청이 가능한 경우</h3>
+
+        <h4>요건 1: 확정된 집행권원 필요</h4>
+        <p><strong>금전 지급을 명한 집행권원이 확정되어야 합니다.</strong> (민집 70조 1항 1호)</p>
+        <ul style="margin: 10px 0 10px 20px;">
+            <li>판결: 확정판결</li>
+            <li>판정: 확정 배상명령, 이행권고결정</li>
+            <li>조정: 확정된 조정조서</li>
+            <li>공증: 공증인이 작성한 집행증서</li>
+            <li>주의: 가집행의 선고가 붙은 판결은 제외</li>
+        </ul>
+
+        <h4>요건 2: 6개월 이내 불이행 (민집 70조 1항 1호)</h4>
+        <p><strong>⚡ 기한: 집행권원 확정(또는 작성) 후 6개월 이내</strong></p>
+        <ul style="margin: 10px 0 10px 20px;">
+            <li>6개월은 이행청구를 할 수 있는 때부터 계산</li>
+            <li>지급 기한이 정해진 경우는 그 기한이 지나야 계산 시작</li>
+            <li>특정 조건이나 기한이 있는 경우는 그 이후부터 계산</li>
+        </ul>
+
+        <h4>요건 3: 재산명시 불응 (민집 70조 1항 2호)</h4>
+        <p>채무자가 재산명시절차에서 다음 중 하나에 해당하면 바로 등재 신청 가능:</p>
+        <ul style="margin: 10px 0 10px 20px;">
+            <li>재산명시기일에 불출석</li>
+            <li>재산목록 제출 거부</li>
+            <li>선서 거부</li>
+            <li>거짓 재산목록 제출</li>
+        </ul>
+
+        <h3>신청 불가 또는 기각 사유</h3>
+
+        <div class="warning-box">
+            <h4>등재 신청이 기각될 수 있는 경우</h4>
+            <p><strong>정당한 이유가 없거나</strong> <strong>쉽게 강제집행을 할 수 있다고 인정될 때</strong> (민집 71조 2항)</p>
+            <ul style="margin-top: 10px; margin-left: 20px;">
+                <li>채무자가 이미 변제한 경우</li>
+                <li>채무자가 보유한 재산으로 쉽게 집행 가능한 경우</li>
+                <li>채무가 소멸시효로 소멸한 경우</li>
+            </ul>
+        </div>
+
+        <!-- 3. 절차 흐름 -->
+        <h2>3. 절차 흐름</h2>
+
+        <div class="process-flow">
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-text">등재신청<br/>(법원 제출)</div>
+                </div>
+                <div class="arrow">→</div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-text">법원 심사<br/>(채무자 심문)</div>
+                </div>
+                <div class="arrow">→</div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-text">등재결정<br/>(또는 기각)</div>
+                </div>
+                <div class="arrow">→</div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div class="step-text">명부에 기록<br/>및 공시</div>
+                </div>
+            </div>
+        </div>
+
+        <h3>신청 절차</h3>
+        <p>채권자가 관할 법원에 등재신청서를 제출하면:</p>
+        <ul style="margin: 10px 0 10px 20px;">
+            <li>법원은 채무자를 심문 (필수는 아니지만 권장)</li>
+            <li>채무의 이행 여부 확인</li>
+            <li>정당한 이유 여부 판단</li>
+            <li>결정으로 등재 또는 기각 결정</li>
+        </ul>
+
+        <h3>등재 결정의 효력</h3>
+        <p>등재 결정이 내려지면:</p>
+        <ul style="margin: 10px 0 10px 20px;">
+            <li>법원이 명부를 작성하여 비치</li>
+            <li>채무자의 주소지 시·구·읍·면에 통보</li>
+            <li>신용정보기관에 통보</li>
+            <li>여권 발급 및 갱신 제한</li>
+        </ul>
+
+        <!-- 4. 등재의 효과 -->
+        <h2>4. 등재의 효과</h2>
+
+        <h3>신용 제한</h3>
+        <ul style="margin: 10px 0 10px 20px;">
+            <li>신용기관에 정보 제공 → 신용도 하락</li>
+            <li>금융거래 제한 (대출 어려움)</li>
+            <li>신용카드 발급 거절</li>
+        </ul>
+
+        <h3>공식 활동 제한</h3>
+        <ul style="margin: 10px 0 10px 20px;">
+            <li>여권 발급·갱신 제한</li>
+            <li>정부 지원 사업 제한</li>
+            <li>공공기관 채용 제한</li>
+        </ul>
+
+        <h3>명부 말소</h3>
+        <p><strong>⚡ 등재 기간: 변제 또는 채무 소멸까지</strong></p>
+        <ul style="margin: 10px 0 10px 20px;">
+            <li>채무자가 채무를 변제하면 말소 신청</li>
+            <li>채무가 소멸시효로 소멸하면 말소</li>
+            <li>법원이 말소 결정</li>
+        </ul>
+
+        <!-- 5. 비용 -->
+        <h2>5. 비용 안내</h2>
+
+        <p>채무불이행자명부 등재 신청에 드는 비용:</p>
+        <ul style="margin: 10px 0 10px 20px;">
+            <li><strong>인지</strong>: 전자문서 900원, 종이문서 1,000원</li>
+            <li><strong>송달료</strong>: 필요시 추가</li>
+        </ul>
+
+        <div class="warning-box">
+            <h4>참고</h4>
+            <p>구체적인 비용은 관할 법원에 문의하시기 바랍니다.</p>
+        </div>
+
+        <!-- 6. Q&A -->
+        <h2>6. 자주 묻는 질문</h2>
+
+        <div class="qa-section">
+            <div class="qa-item">
+                <div class="q-title">채무불이행자명부 등재는 강제집행과 다른 건가요?</div>
+                <div class="a-content">네, 다릅니다. 강제집행은 채무자의 재산을 직접 압류하여 빨아먹는 제도이고, 채무불이행자명부는 채무자의 신용을 제한하여 간접적으로 압박하는 제도입니다. 재산이 없어 강제집행이 불가능한 경우에 효과적입니다.</div>
+                <div class="qa-note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+            </div>
+
+            <div class="qa-item">
+                <div class="q-title">채무불이행자명부 등재 신청서는 어디에 제출하나요?</div>
+                <div class="a-content">신청 사유에 따라 다릅니다.<br/>① 6개월 불이행: 채무자의 주소지 관할 법원<br/>② 재산명시 불응: 재산명시 절차를 실시한 법원<br/>법원마다 담당 부서가 다를 수 있으니 미리 확인하시기 바랍니다.</div>
+                <div class="qa-note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+            </div>
+
+            <div class="qa-item">
+                <div class="q-title">여권 발급 제한이 언제부터 되나요?</div>
+                <div class="a-content">등재 결정이 내려진 후 외교부에 통보되면, 그때부터 여권 발급이 제한됩니다. <span class="urgent">⚡ 통상 등재 후 1-2개월 소요</span></div>
+                <div class="qa-note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+            </div>
+
+            <div class="qa-item">
+                <div class="q-title">등재 결정에 대해 항고할 수 있나요?</div>
+                <div class="a-content">가능합니다. 채무자는 등재 결정에 대해 <strong>즉시항고</strong>를 할 수 있습니다. (민집 71조 3항) 다만 즉시항고는 집행정지의 효력이 없으므로, 항고 중에도 등재가 유지됩니다.</div>
+                <div class="qa-note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+            </div>
+
+            <div class="qa-item">
+                <div class="q-title">채무자가 일부만 변제하면 명부에서 삭제되나요?</div>
+                <div class="a-content">아닙니다. <strong>전액 변제</strong> 또는 채무 소멸의 다른 사유가 생겨야 합니다. 일부 변제는 명부 삭제 사유가 아닙니다.</div>
+                <div class="qa-note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+            </div>
+
+            <div class="qa-item">
+                <div class="q-title">채무불이행자명부 등재가 개인회생이나 파산에 영향을 주나요?</div>
+                <div class="a-content">관련이 있을 수 있습니다. 등재 사실이 개인회생 또는 파산 신청 시 고려될 수 있으며, 채무자의 신용도 판정에 영향을 미칩니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+                <div class="qa-note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+            </div>
+        </div>
+
+        <!-- 다음으로 확인할 내용 -->
+        <div class="related-links">
+            <h3>다음으로 확인할 내용</h3>
+            <ul>
+                <li><a href="민집_05_재산명시.html">재산명시 절차 — 채무자에게 재산을 공개하도록 하는 제도</a></li>
+                <li><a href="민집_06_재산조회.html">재산조회 신청 — 금융기관·관청에서 채무자 재산 찾기</a></li>
+            </ul>
+        </div>
+
+        <!-- 상담 CTA -->
+        <div class="cta-box">
+            <p>이 내용이 해당되시나요? 첫 상담은 무료입니다.</p>
+            <div class="cta-buttons">
+                <button class="cta-btn">☎ 전화: 000-000-0000</button>
+                <button class="cta-btn">💬 카카오톡 상담</button>
+            </div>
+        </div>
+
+        <!-- 면책 문구 -->
+        <div class="disclaimer">
+            <p><strong>면책 문구</strong></p>
+            <p>본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 반드시 법무사와 상담하시기 바랍니다.</p>
+            <p>이 페이지는 2025년 현행 법령 기준으로 작성되었습니다.</p>
+        </div>
+    </div>
+</body>
+</html>

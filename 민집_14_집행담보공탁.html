@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>집행 담보·공탁 — 강제집행 전에 왜 담보를 제공해야 하나요?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #333;
+            background-color: #faf8f5;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            margin-bottom: 40px;
+            border-bottom: 3px solid #c8a96e;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Noto Serif KR', serif;
+            color: #1a2e4a;
+            font-size: 28px;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        h2 {
+            font-family: 'Noto Serif KR', serif;
+            color: #1a2e4a;
+            font-size: 22px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #c8a96e;
+        }
+
+        h3 {
+            font-family: 'Noto Serif KR', serif;
+            color: #2d4a7a;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .checklist {
+            background-color: #f0f8f0;
+            border-left: 4px solid #1a5c2e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .checklist ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .checklist li {
+            padding: 8px 0 8px 30px;
+            position: relative;
+        }
+
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #1a5c2e;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .summary-box {
+            background-color: #eef2f8;
+            border-left: 4px solid #2d4a7a;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .summary-box h3 {
+            margin-top: 0;
+            color: #2d4a7a;
+        }
+
+        .cta-box {
+            background-color: #fdf6e9;
+            border-left: 4px solid #c8a96e;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+
+        .cta-box p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-phone {
+            background-color: #1a2e4a;
+            color: white;
+        }
+
+        .btn-phone:hover {
+            background-color: #2d4a7a;
+            transform: translateY(-2px);
+        }
+
+        .btn-kakao {
+            background-color: #c8a96e;
+            color: white;
+        }
+
+        .btn-kakao:hover {
+            background-color: #b8985e;
+            transform: translateY(-2px);
+        }
+
+        .case-box {
+            background-color: #f0f8f0;
+            border-left: 4px solid #1a5c2e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .case-title {
+            font-weight: 700;
+            color: #1a5c2e;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .precedent-box {
+            background-color: #f7f4f0;
+            border-left: 4px solid #6b7280;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .precedent-title {
+            font-weight: 700;
+            color: #6b7280;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .warning-box {
+            background-color: #fff3e8;
+            border-left: 4px solid #c05000;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .warning-title {
+            font-weight: 700;
+            color: #c05000;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 15px;
+        }
+
+        th {
+            background-color: #2d4a7a;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:nth-child(even) {
+            background-color: #faf8f5;
+        }
+
+        .qa-section {
+            margin-top: 30px;
+        }
+
+        .qa-item {
+            margin-bottom: 25px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+        }
+
+        .qa-item:last-child {
+            border-bottom: none;
+        }
+
+        .q-title {
+            font-weight: 700;
+            color: #1a2e4a;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .q-title:before {
+            content: "Q. ";
+            color: #2d4a7a;
+            font-weight: 700;
+            margin-right: 5px;
+        }
+
+        .a-content {
+            color: #555;
+            line-height: 1.8;
+            padding-left: 20px;
+            border-left: 3px solid #c8a96e;
+        }
+
+        .a-content:before {
+            content: "A. ";
+            font-weight: 700;
+            color: #1a2e4a;
+            margin-right: 5px;
+        }
+
+        .a-note {
+            font-size: 13px;
+            color: #888;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #faf8f5;
+            border-radius: 3px;
+        }
+
+        .related-links {
+            background-color: #eef2f8;
+            padding: 25px;
+            border-radius: 4px;
+            margin: 30px 0;
+        }
+
+        .related-links h3 {
+            margin-top: 0;
+            color: #2d4a7a;
+        }
+
+        .related-links ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .related-links li {
+            padding: 10px 0;
+            border-bottom: 1px solid #d0daf0;
+        }
+
+        .related-links li:last-child {
+            border-bottom: none;
+        }
+
+        .related-links a {
+            color: #2d4a7a;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .related-links a:hover {
+            color: #c8a96e;
+            text-decoration: underline;
+        }
+
+        .disclaimer {
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin: 40px 0 20px 0;
+            font-size: 13px;
+            line-height: 1.7;
+            color: #666;
+            border-radius: 4px;
+        }
+
+        .law-ref {
+            color: #2d4a7a;
+            font-weight: 500;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            background-color: #fff3e8;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+
+        .method-box {
+            background-color: #f0f8f0;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #1a5c2e;
+            border-radius: 3px;
+        }
+
+        .method-box strong {
+            color: #1a5c2e;
+            font-size: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            th, td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>집행 담보·공탁</h1>
+            <p class="subtitle">강제집행 전에 왜 담보를 제공해야 하나요?</p>
+            <p style="color: #666; margin-top: 15px;">잘못된 집행으로 인한 손해를 담보하기 위한 담보 제공 방법과 공탁 절차</p>
+        </header>
+
+        <!-- 이런 분께 필요합니다 -->
+        <section class="section">
+            <h2>이런 분께 필요합니다</h2>
+            <div class="checklist">
+                <ul>
+                    <li>가집행 선고가 붙은 판결로 강제집행을 신청하려는 채권자</li>
+                    <li>집행정지를 신청하면서 담보를 제공해야 하는 경우</li>
+                    <li>공탁소에 일정 금액을 공탁해야 하는 상황인 당사자</li>
+                    <li>담보 제공의 방법(현금, 보증서, 유가증권)을 알고 싶은 경우</li>
+                    <li>공탁금 회수 방법과 공탁 절차를 이해하고 싶은 경우</li>
+                    <li>변제 공탁과 집행 담보 공탁의 차이를 알고 싶은 경우</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 핵심 요약 -->
+        <section class="section">
+            <div class="summary-box">
+                <h3>핵심 요약</h3>
+                <p><strong>집행 담보·보증·공탁</strong>은 집행으로 인한 채무자의 손해를 담보하기 위한 제도입니다.</p>
+                <ul style="margin-top: 15px;">
+                    <li><strong>담보 제공 사유</strong>: 가집행, 집행정지, 가압류·가처분 등</li>
+                    <li><strong>담보 방법</strong>: 현금 공탁, 보증서, 유가증권 등</li>
+                    <li><strong>담보액</strong>: 법원이 채권액의 일정 비율로 결정</li>
+                    <li><strong>공탁금 회수</strong>: 본안 승소 또는 집행 종료 후 회수 절차</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 집행 담보의 의의 및 목적 -->
+        <section class="section">
+            <h2>집행 담보의 의의 및 목적</h2>
+
+            <h3>1. 의의</h3>
+            <p>집행 담보는 집행으로 인해 채무자가 입을 수 있는 손해를 미리 담보하기 위해 채권자(또는 보전청구인)가 제공하는 보증, 금전, 또는 유가증권입니다.</p>
+
+            <h3>2. 목적</h3>
+            <ul>
+                <li><strong>채무자 보호</strong>: 집행이 나중에 취소되거나 채권자가 불승소하는 경우, 잘못된 집행으로 채무자가 입은 손해를 배상하기 위함</li>
+                <li><strong>채권자의 신의성 담보</strong>: 채권자가 부당한 집행을 자제하게 함</li>
+                <li><strong>분쟁 촉진 억제</strong>: 담보를 제공해야 하는 부담으로 악의적 집행을 억제</li>
+            </ul>
+
+            <h3>3. 법적 근거</h3>
+            <ul>
+                <li>민사집행법 제30조 (가집행): 가집행 선고 판결의 경우</li>
+                <li>민사집행법 제15조 (집행정지): 청구이의 중 집행정지 신청 시</li>
+                <li>민사집행법 제287조 (가압류): 가압류 신청 및 집행 시</li>
+            </ul>
+        </section>
+
+        <!-- 담보 제공의 필요한 경우 -->
+        <section class="section">
+            <h2>담보 제공이 필요한 경우</h2>
+
+            <h3>1. 가집행 선고 판결에 의한 집행 (민사집행법 제30조)</h3>
+            <p>1심 판결에 가집행 선고가 붙으면, 판결이 확정되기 전에 강제집행이 가능합니다. 이 경우 당사자의 이해를 균형 있게 보호하기 위해 담보 제공을 요구할 수 있습니다.</p>
+
+            <div class="method-box">
+                <strong>담보 제공 기준:</strong>
+                <ul style="margin: 10px 0 0 0;">
+                    <li>법원이 판결 선고 시 담보액을 정할 수 있음</li>
+                    <li>보통 청구액의 10~20% 범위</li>
+                    <li>채권자가 담보를 제공하지 않으면 집행 불가</li>
+                </ul>
+            </div>
+
+            <h3>2. 집행정지 신청 중 집행 계속 (민사집행법 제15조)</h3>
+            <p>청구이의 소를 제기하면서 집행정지를 신청했으나, 법원이 "담보를 제공하고 집행을 계속"하라고 결정한 경우입니다.</p>
+
+            <h3>3. 가압류·가처분 신청 (민사집행법 제287조, 제300조)</h3>
+            <p>재산을 임시로 보전할 목적으로 가압류 또는 가처분을 신청할 때, 법원이 담보를 요구할 수 있습니다.</p>
+
+            <h3>4. 가처분의 강제집행 (민사집행법 제301조)</h3>
+            <p>가처분 명령(예: "건물을 비워주어야 한다")을 강제 집행할 때 담보가 필요할 수 있습니다.</p>
+        </section>
+
+        <!-- 담보 제공의 방법 -->
+        <section class="section">
+            <h2>담보 제공의 방법</h2>
+
+            <h3>1. 현금 공탁</h3>
+            <p><strong>가장 일반적인 방법</strong>입니다. 채권자가 공탁소에 현금을 공탁합니다:</p>
+            <ul>
+                <li>공탁소: 법원이 지정한 공탁소 (은행 또는 신용금고)</li>
+                <li>공탁금액: 법원이 정한 담보액 전액</li>
+                <li>공탁 방법: 은행 계좌 이체 또는 현금 입금</li>
+                <li>공탁증서: 공탁 후 증서 발급, 법원에 제출</li>
+            </ul>
+
+            <h3>2. 보증서</h3>
+            <p>금전 대신 신용기관의 보증서를 제출합니다:</p>
+            <ul>
+                <li><strong>은행 보증서</strong>: 은행이 발급하는 보증</li>
+                <li><strong>보증보험사 보증서</strong>: 보증보험 회사의 보증</li>
+                <li><strong>이점</strong>: 현금을 공탁할 필요 없이 신용으로 담보 제공</li>
+                <li><strong>수수료</strong>: 보증 기관에 일정 수수료 납부 필요</li>
+            </ul>
+
+            <h3>3. 유가증권</h3>
+            <p>다음의 유가증권으로 담보를 제공할 수 있습니다:</p>
+            <ul>
+                <li>국채, 지방채</li>
+                <li>은행 정기예금증권</li>
+                <li>기타 법원이 인정하는 유가증권</li>
+            </ul>
+
+            <h3>4. 담보의 가액 평가</h3>
+            <p>담보로 제출된 유가증권이나 부동산은 일정 비율로 할인하여 평가됩니다:</p>
+            <ul>
+                <li>국채: 100% (할인 없음)</li>
+                <li>지방채: 95~100%</li>
+                <li>기타 유가증권: 법원 판단에 따라 80~95%</li>
+                <li>부동산: 감정가의 50~70% (경우에 따라)</li>
+            </ul>
+        </section>
+
+        <!-- 담보액의 결정 -->
+        <section class="section">
+            <h2>담보액의 결정</h2>
+
+            <h3>1. 결정 권자</h3>
+            <p>법원(판사)이 다음의 사정을 종합하여 담보액을 결정합니다:</p>
+            <ul>
+                <li>청구 금액의 규모</li>
+                <li>본안 판단의 난이도 및 승소 가능성</li>
+                <li>집행으로 인한 채무자의 예상 손해</li>
+                <li>채권자의 담보 제공 능력</li>
+                <li>당사자 주장</li>
+            </ul>
+
+            <h3>2. 일반적인 담보액 비율</h3>
+            <table>
+                <tr>
+                    <th>경우</th>
+                    <th>담보액 비율</th>
+                    <th>설명</th>
+                </tr>
+                <tr>
+                    <td>가집행 (민사집행법 제30조)</td>
+                    <td>청구액의 10~20%</td>
+                    <td>판사가 필요하다고 인정하는 범위</td>
+                </tr>
+                <tr>
+                    <td>집행정지 (민사집행법 제15조)</td>
+                    <td>청구액의 20~50%</td>
+                    <td>청구이의 승소 가능성에 따라</td>
+                </tr>
+                <tr>
+                    <td>가압류 담보 (민사집행법 제287조)</td>
+                    <td>청구액의 20~30%</td>
+                    <td>보전 필요성에 따라</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- 공탁의 종류 -->
+        <section class="section">
+            <h2>공탁의 종류: 집행 담보 공탁 vs 변제 공탁</h2>
+
+            <table>
+                <tr>
+                    <th>구분</th>
+                    <th>집행 담보 공탁</th>
+                    <th>변제 공탁</th>
+                </tr>
+                <tr>
+                    <td><strong>목적</strong></td>
+                    <td>집행으로 인한 손해 담보</td>
+                    <td>채무 이행 (변제)</td>
+                </tr>
+                <tr>
+                    <td><strong>신청자</strong></td>
+                    <td>채권자 (가집행, 집행정지 시)</td>
+                    <td>채무자</td>
+                </tr>
+                <tr>
+                    <td><strong>공탁액</strong></td>
+                    <td>법원이 정한 담보액</td>
+                    <td>전체 채무액</td>
+                </tr>
+                <tr>
+                    <td><strong>효과</strong></td>
+                    <td>집행이 진행될 수 있게 함</td>
+                    <td>채무 이행으로 인정, 채권 소멸</td>
+                </tr>
+                <tr>
+                    <td><strong>공탁금 회수</strong></td>
+                    <td>본안 결과에 따라</td>
+                    <td>채권자 승인 시 또는 법원 호출</td>
+                </tr>
+                <tr>
+                    <td><strong>법적 근거</strong></td>
+                    <td>민사집행법 제30조, 제15조</td>
+                    <td>민법 제485조</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- 공탁금 회수 방법 -->
+        <section class="section">
+            <h2>공탁금 회수 방법</h2>
+
+            <h3>1. 집행 담보 공탁금의 회수</h3>
+
+            <div class="method-box">
+                <strong>경우 1: 집행 관련 사건에서 채권자 승소</strong>
+                <p style="margin: 10px 0 0 0;">본안 판단에서 채권자가 승소하거나 가집행 판결이 확정되면, 담보로 제공된 공탁금은 채권자에게 반환됩니다.</p>
+            </div>
+
+            <div class="method-box">
+                <strong>경우 2: 집행 관련 사건에서 채권자 패소</strong>
+                <p style="margin: 10px 0 0 0;">청구이의에서 채무자가 승소하거나 가집행 판결이 취소되면, 공탁금은 채무자에게 지급될 수 있습니다. 이는 잘못된 집행으로 인한 손해배상입니다.</p>
+            </div>
+
+            <div class="method-box">
+                <strong>경우 3: 담보 해제 신청</strong>
+                <p style="margin: 10px 0 0 0;">본안 진행 중 상황 변화(예: 합의)로 인해 담보가 더 이상 필요 없으면, 법원에 담보 해제를 신청하여 공탁금 회수 가능합니다.</p>
+            </div>
+
+            <h3>2. 공탁금 회수 절차</h3>
+            <ul>
+                <li><strong>신청</strong>: 법원에 공탁금 회수 신청서 제출</li>
+                <li><strong>필요 서류</strong>: 공탁증서, 판결문 또는 결정문 사본, 주민등록증 등</li>
+                <li><strong>공탁소 영수</strong>: 공탁소에 신청서와 서류 제출</li>
+                <li><strong>공탁금 지급</strong>: 공탁소가 확인 후 지정한 계좌로 입금</li>
+            </ul>
+
+            <h3>3. 변제 공탁금의 회수</h3>
+            <p>채무자가 변제 공탁한 경우, 채권자가 이를 승인하면 즉시 회수 가능합니다:</p>
+            <ul>
+                <li>채권자 승인이 없으면, 공탁금은 채무자 지정 수취인에게 지급</li>
+                <li>채권자와 분쟁이 있으면 법원이 호출을 통해 결정</li>
+            </ul>
+        </section>
+
+        <!-- 실제 사례 -->
+        <section class="section">
+            <h2>실제 사례</h2>
+
+            <div class="case-box">
+                <div class="case-title">사례 1: 가집행 판결의 담보 제공</div>
+                <p>A 채권자가 B 채무자를 상대로 소송을 제기하여 가집행 선고가 붙은 판결을 받았습니다. 법원은 "1억 원의 채무 판결, 가집행 선고, 담보액 1천만 원"이라고 판결했습니다. A가 공탁소에 1천만 원을 현금 공탁하고 공탁증서를 법원에 제출하자, 강제집행이 진행되었습니다. 나중에 항소심에서 A가 승소하여 판결이 확정되면, A의 공탁금 1천만 원이 반환됩니다.</p>
+            </div>
+
+            <div class="case-box">
+                <div class="case-title">사례 2: 집행정지 중 담보 제공</div>
+                <p>C 채권자가 판결을 받아 강제집행 중, D 채무자가 청구이의 소를 제기하고 집행정지를 신청했습니다. 법원이 "담보 2천만 원을 제공하고 집행 계속"이라고 결정하자, D가 보증사로부터 보증서를 발급받아 법원에 제출했습니다. 이후 청구이의 소에서 D가 패소하자, 담보로 제공된 보증서는 효력을 잃고 D는 원래 채무를 이행해야 합니다.</p>
+            </div>
+
+            <div class="case-box">
+                <div class="case-title">사례 3: 가압류의 담보 제공</div>
+                <p>E가 F를 상대로 가압류를 신청하여 F의 부동산에 가압류 결정이 났습니다. F가 손해배상으로 "담보 5천만 원을 제공하면 가압류 해제를 신청하겠다"고 제안했고, E가 현금으로 공탁하였습니다. 그러나 본소송에서 E가 패소하자, 공탁금 5천만 원이 F에게 지급되어 손해배상이 이루어졌습니다.</p>
+            </div>
+        </section>
+
+        <!-- 판례 및 예규 -->
+        <section class="section">
+            <h2>관련 판례 및 예규</h2>
+
+            <div class="precedent-box">
+                <div class="precedent-title">판례 1: 담보액의 합리성</div>
+                <p>법원이 가집행이나 집행정지 시 정한 담보액은 당사자의 구체적 사정(경제 형편, 본안 승소 가능성 등)을 고려하여 합리적이어야 합니다. 과도한 담보를 요구하는 것은 부당합니다. (민사집행법 제30조)</p>
+            </div>
+
+            <div class="precedent-box">
+                <div class="precedent-title">판례 2: 보증서의 효력</div>
+                <p>은행 보증서나 보증보험 보증서를 담보로 제출한 경우, 그 보증서가 유효한지 확인해야 합니다. 만료되었거나 조건이 부맞은 보증서는 유효한 담보가 아닙니다.</p>
+            </div>
+
+            <div class="precedent-box">
+                <div class="precedent-title">판례 3: 공탁금의 처분</div>
+                <p>공탁금은 법원의 결정이 있을 때까지 공탁소가 보관하며, 당사자의 동의 없이는 처분할 수 없습니다. 다만 법원의 호출 결정으로 지급 대상자가 정해집니다. (대판 2005. 10. 13. 2005다39000)</p>
+            </div>
+        </section>
+
+        <!-- 주의사항 -->
+        <section class="section">
+            <div class="warning-box">
+                <div class="warning-title">주의사항</div>
+                <ul>
+                    <li><strong>담보 제공 시기</strong>: 가집행 선고 판결 또는 집행정지 결정을 받은 후 적시에 담보를 제공해야 합니다. 지연하면 집행이 시작되지 않을 수 있습니다.</li>
+                    <li><strong>공탁 절차 엄격성</strong>: 공탁은 정해진 공탁소에만 할 수 있으며, 잘못된 공탁소에 입금하면 유효하지 않습니다. 반드시 확인 후 공탁하세요.</li>
+                    <li><strong>담보액이 부족한 경우</strong>: 공탁 후 추가 담보가 필요하다고 법원이 판단하면, 채권자는 추가 담보를 제공해야 합니다.</li>
+                    <li><strong>본안 진행의 중요성</strong>: 담보는 임시 조치이므로, 본안 소송을 적극적으로 진행하여 빨리 결론을 내야 합니다.</li>
+                    <li><strong>공탁금 회수 시 확인</strong>: 공탁금을 회수할 때는 필요한 모든 서류를 정확히 준비하여 공탁소에 제출하세요.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Q&A -->
+        <section class="section qa-section">
+            <h2>자주 묻는 질문</h2>
+
+            <div class="qa-item">
+                <div class="q-title">담보를 제공하지 않으면 집행이 안 되나요?</div>
+                <div class="a-content">
+                    <p>법원이 담보를 요구하지 않으면 제공할 필요가 없습니다. 가집행이나 집행정지 시에도 법원의 결정에 따라 담보 불필요할 수도 있습니다. 다만 법원이 담보를 명시했으면, 담보 없이는 집행이 진행될 수 없습니다.</p>
+                    <div class="a-note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="q-title">공탁 대신 보증서로 담보를 제공할 수 있나요?</div>
+                <div class="a-content">
+                    <p>네, 현금 공탁 대신 은행 보증서나 보증보험 보증서로 담보를 제공할 수 있습니다. 다만 보증서의 유효성을 법원이 확인하며, 보증 기관에 수수료를 납부해야 합니다.</p>
+                    <div class="a-note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="q-title">공탁금의 이자는 어떻게 되나요?</div>
+                <div class="a-content">
+                    <p>공탁금에는 일반적으로 이자가 붙지 않습니다. 다만 특정 유가증권(예: 정기예금증권)으로 공탁한 경우, 그 이자는 공탁금에 포함됩니다.</p>
+                    <div class="a-note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="q-title">패소했을 때 공탁금이 상대방에게 주어지나요?</div>
+                <div class="a-content">
+                    <p>네, 집행이 부당했거나 가집행 판결이 취소된 경우, 공탁금은 손해배상의 성격으로 상대방(채무자)에게 지급될 수 있습니다. 다만 법원의 구체적인 판단이 필요합니다.</p>
+                    <div class="a-note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="q-title">담보액이 너무 크면 감액을 신청할 수 있나요?</div>
+                <div class="a-content">
+                    <p>네, 담보액이 과도하다고 생각되면 법원에 담보액 감액을 신청할 수 있습니다. 당사자의 경제 형편, 본안 승소 가능성 등을 고려하여 법원이 재결정할 수 있습니다.</p>
+                    <div class="a-note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="q-title">공탁소는 어디에 있고, 어떻게 찾나요?</div>
+                <div class="a-content">
+                    <p>공탁소는 법원이 지정한 은행 또는 신용금고입니다. 관할 법원에 문의하거나 법원 홈페이지에서 해당 지역의 공탁소를 확인할 수 있습니다. 잘못된 곳에 공탁하지 않도록 반드시 확인하세요.</p>
+                    <div class="a-note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 다음으로 확인할 내용 -->
+        <section class="section">
+            <div class="related-links">
+                <h3>다음으로 확인할 내용</h3>
+                <ul>
+                    <li>
+                        <a href="민집_13_집행비용.html">집행비용 — 강제집행에 얼마나 들고, 누가 부담하나요?</a>
+                        <p style="font-size: 13px; color: #888; margin-top: 5px;">집행비용의 범위와 부담 원칙을 이해합니다.</p>
+                    </li>
+                    <li>
+                        <a href="민집_12_집행정지.html">강제집행 정지·취소 — 집행을 일시적으로 멈플 수 있나요?</a>
+                        <p style="font-size: 13px; color: #888; margin-top: 5px;">집행정지와 담보 제공의 관계를 알아봅니다.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 상담 CTA -->
+        <section class="section">
+            <div class="cta-box">
+                <p style="font-size: 18px; font-weight: 600; color: #1a2e4a; margin-bottom: 10px;">이 내용이 해당되시나요?</p>
+                <p>가집행, 집행정지, 가압류 등에서 담보 제공과 공탁 문제는 절차적으로 복잡합니다. 정확한 금액 산정과 적절한 담보 방법을 선택하려면 전문가의 조력이 필수적입니다. 첫 상담은 무료로 진행해드립니다.</p>
+                <div class="cta-buttons">
+                    <a href="tel:000-000-0000" class="btn btn-phone">전화 상담 (000-000-0000)</a>
+                    <a href="javascript:void(0);" class="btn btn-kakao">카카오톡 상담</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 면책 문구 -->
+        <div class="disclaimer">
+            <p><strong>법률 정보 면책 문구</strong></p>
+            <p>본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 반드시 법무사와 상담하시기 바랍니다.</p>
+            <p>이 페이지는 2025년 현행 법령 기준으로 작성되었습니다.</p>
+        </div>
+    </div>
+</body>
+</html>

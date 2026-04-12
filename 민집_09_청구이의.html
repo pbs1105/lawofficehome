@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>청구이의의 소 — 이미 갚았는데 또 집행을 당할 수 있나요?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #333;
+            line-height: 1.8;
+            background-color: #faf8f5;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-family: 'Noto Serif KR', serif;
+            color: #1a2e4a;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1em;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-family: 'Noto Serif KR', serif;
+            color: #1a2e4a;
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #c8a96e;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-family: 'Noto Serif KR', serif;
+            color: #1a2e4a;
+            font-size: 1.3em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        /* 체크리스트 */
+        .checklist {
+            background-color: #f0f8f0;
+            border-left: 4px solid #1a5c2e;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+
+        .checklist ul {
+            list-style: none;
+        }
+
+        .checklist li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #1a5c2e;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        /* 핵심 요약 박스 */
+        .summary-box {
+            background-color: #eef2f8;
+            border-left: 4px solid #2d4a7a;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+
+        .summary-box h3 {
+            color: #2d4a7a;
+            margin-top: 0;
+        }
+
+        /* 경고 박스 */
+        .warning-box {
+            background-color: #fff3e8;
+            border-left: 4px solid #c05000;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .warning-box h4 {
+            color: #c05000;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* 판례 박스 */
+        .case-box {
+            background-color: #f7f4f0;
+            border-left: 4px solid #6b7280;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+
+        /* 상담 CTA */
+        .cta-box {
+            background-color: #fdf6e9;
+            border: 2px solid #c8a96e;
+            padding: 25px;
+            margin: 40px 0;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .cta-box p {
+            font-size: 1.1em;
+            color: #1a2e4a;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            background-color: #1a2e4a;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            background-color: #c8a96e;
+            color: #1a2e4a;
+        }
+
+        /* 테이블 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+        }
+
+        th {
+            background-color: #1a2e4a;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid #1a2e4a;
+        }
+
+        td {
+            padding: 12px;
+            border: 1px solid #e0e0e0;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Q&A */
+        .qa-section {
+            margin: 30px 0;
+        }
+
+        .qa-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: white;
+            border-left: 4px solid #c8a96e;
+            border-radius: 4px;
+        }
+
+        .q-title {
+            font-weight: 600;
+            color: #1a2e4a;
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+
+        .q-title:before {
+            content: "Q. ";
+            color: #c8a96e;
+            font-weight: bold;
+        }
+
+        .a-content {
+            color: #555;
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        .a-content:before {
+            content: "A. ";
+            font-weight: 600;
+            color: #2d4a7a;
+        }
+
+        .qa-note {
+            font-size: 0.9em;
+            color: #999;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        /* 다음으로 확인할 내용 */
+        .related-links {
+            background-color: #eef2f8;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 30px 0;
+        }
+
+        .related-links h3 {
+            color: #2d4a7a;
+            margin-top: 0;
+        }
+
+        .related-links ul {
+            list-style: none;
+        }
+
+        .related-links li {
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .related-links li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #c8a96e;
+            font-weight: bold;
+        }
+
+        .related-links a {
+            color: #2d4a7a;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .related-links a:hover {
+            color: #c8a96e;
+            text-decoration: underline;
+        }
+
+        /* 면책 문구 */
+        .disclaimer {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 4px;
+            border-radius: 2px;
+        }
+
+        .urgent {
+            color: #c05000;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .cta-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>청구이의의 소</h1>
+        <p class="subtitle">"이미 갚았는데 또 집행을 당할 수 있나요?"</p>
+
+        <!-- 이런 분께 필요합니다 -->
+        <section class="checklist">
+            <h3>이런 분께 필요합니다</h3>
+            <ul>
+                <li>판결로 인한 채무를 이미 변제했는데 다시 집행을 당하는 경우</li>
+                <li>채권이 소멸시효로 소멸했는데 강제집행을 당하는 경우</li>
+                <li>화해·합의로 채무가 소멸했는데 집행권원이 살아있는 경우</li>
+                <li>상계로 채무를 소멸시켰는데 집행을 당하는 경우</li>
+                <li>채권자가 채무를 면제했는데 집행을 당하는 경우</li>
+                <li>집행권원의 실체적 효력 자체에 문제가 있는 경우</li>
+            </ul>
+        </section>
+
+        <!-- 1. 핵심 요약 -->
+        <h2>1. 청구이의의 소란?</h2>
+
+        <div class="summary-box">
+            <h3>정의 및 성격</h3>
+            <p><strong>청구이의의 소</strong>는 집행권원의 <strong>실체적 효력</strong> 자체를 다투는 소송입니다. (민사집행법 제44조)</p>
+            <ul style="margin-top: 15px; margin-left: 20px;">
+                <li>다루는 것: 채무 자체의 존부, 채무 소멸 사유</li>
+                <li>절차: 일반 소송 (판결)</li>
+                <li>제기처: 일반 법원</li>
+                <li>근거: 민사집행법 제44조</li>
+            </ul>
+        </div>
+
+        <p>집행권원(판결, 판정 등)의 형식적 효력은 인정하지만, 그 실질적 내용이 잘못되었다며 다투는 제도입니다.</p>
+
+        <!-- 2. 청구이의의 의의 및 법적 근거 -->
+        <h2>2. 법적 근거</h2>
+
+        <p><strong>민사집행법 제44조</strong>에서 규정하고 있습니다:</p>
+        <div class="warning-box">
+            <h4>민집 44조 내용</h4>
+            <p>"집행권원의 기초가 된 청구권이 성립 또는 존속하지 아니하거나, 집행권원의 확정 후 발생한 사유로 인하여 그 청구권이 소멸한 경우에는 채무자는 청구이의의 소로 집행권원의 집행력의 배제를 구할 수 있다"</p>
+        </div>
+
+        <!-- 3. 이의 사유 -->
+        <h2>3. 청구이의의 사유</h2>
+
+        <h3>1) 집행권원 확정 전 발생 사유</h3>
+
+        <p><strong>확정 전: 청구이의 불가능 (기판력으로 다룸)</strong></p>
+        <ul style="margin: 10px 0 10px 20px;">
+            <li>원래 판결·판정 시에 이미 심리됨</li>
+            <li>기판력이 있어서 다시 다툴 수 없음</li>
+        </ul>
+
+        <h3>2) 집행권원 확정 후 발생 사유 (주요)</h3>
+
+        <p><strong>확정 후: 청구이의로 다툼 가능</strong></p>
+
+        <table>
+            <tr>
+                <th>사유</th>
+                <th>설명</th>
+            </tr>
+            <tr>
+                <td><strong>변제</strong></td>
+                <td>채무자가 전액 변제한 경우</td>
+            </tr>
+            <tr>
+                <td><strong>상계</strong></td>
+                <td>채무자가 반대채권으로 상계한 경우</td>
+            </tr>
+            <tr>
+                <td><strong>소멸시효</strong></td>
+                <td>청구권이 소멸시효로 소멸한 경우</td>
+            </tr>
+            <tr>
+                <td><strong>화해</strong></td>
+                <td>채권자와 채무자가 화해·합의한 경우</td>
+            </tr>
+            <tr>
+                <td><strong>면제</strong></td>
+                <td>채권자가 채무를 면제한 경우</td>
+            </tr>
+            <tr>
+                <td><strong>혼동</strong></td>
+                <td>채권자와 채무자의 지위가 합치는 경우 (상속 등)</td>
+            </tr>
+        </table>
+
+        <h3>⚠️ 중요한 제한</h3>
+
+        <div class="warning-box">
+            <h4>변론종결 후 발생 사유만 가능</h4>
+            <p><span class="urgent">확정 후에 발생한 사유만</span> 청구이의로 다툴 수 있습니다. 확정 전에 있었던 사유는 기판력 때문에 다시 다룰 수 없습니다.</p>
+            <p><strong>예:</strong> 판결 후 3개월 뒤 변제 → 청구이의 가능<br/>판결 전에 이미 변제했음 → 청구이의 불가 (판결에서 다룬 사항)</p>
+        </div>
+
+        <!-- 4. 관할 법원 및 절차 -->
+        <h2>4. 소 제기 절차</h2>
+
+        <h3>관할 법원</h3>
+        <p><strong>일반 법원</strong> (민사합의부 또는 판사부)</p>
+        <ul style="margin: 10px 0 10px 20px;">
+            <li>지방법원 또는 고등법원 (소액사건 제외)</li>
+            <li>채무자가 기소된 원심 법원과 동일 (보통)</li>
+        </ul>
+
+        <h3>소송 절차</h3>
+        <p><strong>일반 민사소송과 동일</strong>:</p>
+        <ul style="margin: 10px 0 10px 20px;">
+            <li>소장 제출</li>
+            <li>답변서 제출</li>
+            <li>증거 제출 (변제 영수증, 상계계약서 등)</li>
+            <li>공판</li>
+            <li>판결</li>
+        </ul>
+
+        <!-- 5. 실제 사례 -->
+        <h2>5. 실제 사례</h2>
+
+        <div class="case-box">
+            <h4>사례 1: 변제 후 다시 집행 당함</h4>
+            <p><strong>상황:</strong> A가 B를 상대로 500만 원 손해배상 소송에서 승소했고 판결이 확정되었다. 그 후 A는 B로부터 500만 원을 받았다. 하지만 A는 B를 상대로 강제집행을 신청했고, B는 이미 변제했다며 청구이의의 소를 제기했다.</p>
+            <p><strong>결과:</strong> B의 청구이의 소가 인용되어, A의 강제집행 신청이 기각된다.</p>
+        </div>
+
+        <div class="case-box">
+            <h4>사례 2: 소멸시효로 인한 채무 소멸</h4>
+            <p><strong>상황:</strong> 10년 전 확정판결이 있었지만, 채무자가 지난 10년간 이의 없이 방치했다. 이제 소멸시효가 완성되었다. 채권자가 집행을 신청했고, 채무자는 소멸시효 완성을 사유로 청구이의의 소를 제기했다.</p>
+            <p><strong>결과:</strong> 청구이의 소가 인용되어, 집행권원의 집행력이 배제된다.</p>
+        </div>
+
+        <!-- 6. Q&A -->
+        <h2>6. 자주 묻는 질문</h2>
+
+        <div class="qa-section">
+            <div class="qa-item">
+                <div class="q-title">변제했는데 영수증을 못 받았어요. 어떻게 증명하나요?</div>
+                <div class="a-content">영수증이 없으면 다른 방법으로 증명해야 합니다:<br/>• 은행 이체 기록<br/>• 신용카드 결제 영수증<br/>• 증인 증언<br/>• 채권자의 진술<br/>• 통장 기록<br/>법원이 종합적으로 판단하여 변제 여부를 결정합니다.</div>
+                <div class="qa-note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+            </div>
+
+            <div class="qa-item">
+                <div class="q-title">청구이의의 소와 집행이의신청의 차이가 뭔가요?</div>
+                <div class="a-content"><strong>청구이의의 소:</strong> 실체적 문제 (채무 자체의 존부)<br/>• 예: 이미 변제했음, 채무가 소멸시효 소멸<br/>• 절차: 일반 소송<br/><br/><strong>집행이의신청:</strong> 절차법적 문제 (집행 절차의 위법)<br/>• 예: 통지 불이행, 위법한 압류<br/>• 절차: 신청 (간단)</p>같은 사건이 아니면 둘 다 할 수도 있습니다.</div>
+                <div class="qa-note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+            </div>
+
+            <div class="qa-item">
+                <div class="q-title">청구이의의 소를 제기할 때 집행을 멈출 수 있나요?</div>
+                <div class="a-content"><strong>자동으로는 안 됩니다.</strong> 청구이의의 소를 제기했어도 집행이 자동 중단되지 않으므로, <strong>집행정지를 별도로 신청</strong>해야 합니다. (민집 44조)</p>집행정지를 신청하면서 청구이의의 사유가 타당하다는 점을 소명하면, 법원이 집행정지를 인정할 가능성이 높습니다.</div>
+                <div class="qa-note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+            </div>
+
+            <div class="qa-item">
+                <div class="q-title">상계로 채무를 없앴어도 증명이 필요한가요?</div>
+                <div class="a-content">네, 필요합니다. 상계를 주장하려면:<br/>• 반대채권이 성립했음을 증명<br/>• 반대채권이 유효함을 증명<br/>• 상계의 의사표시 (명시 또는 암묵)<br/>이들을 모두 증명해야 상계가 인정됩니다.</div>
+                <div class="qa-note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+            </div>
+
+            <div class="qa-item">
+                <div class="q-title">청구이의의 소가 패소하면?</div>
+                <div class="a-content">청구이의의 소가 기각되면, 집행권원의 효력이 계속 유지됩니다. 이 경우 항소를 할 수 있습니다. (일반 소송과 동일) 항소로도 패소하면 대법원에 상고할 수 있습니다.</div>
+                <div class="qa-note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+            </div>
+
+            <div class="qa-item">
+                <div class="q-title"><span class="urgent">⚡ 집행정지를 신청할 때의 주의사항</span></div>
+                <div class="a-content">청구이의의 소와 함께 집행정지를 신청할 때, 다음을 유의하세요:<br/>• 청구이의의 소가 받아들여질 만한 이유가 있어야 함<br/>• 집행으로 회복 불가능한 손해가 발생할 위험<br/>• 법원의 재량적 판단<br/>반드시 법무사와 상담하여 준비하시기 바랍니다.</div>
+                <div class="qa-note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+            </div>
+        </div>
+
+        <!-- 다음으로 확인할 내용 -->
+        <div class="related-links">
+            <h3>다음으로 확인할 내용</h3>
+            <ul>
+                <li><a href="민집_08_집행이의.html">집행에 관한 이의신청 — 집행 절차가 잘못됐을 때 대응하는 방법</a></li>
+                <li><a href="민집_12_집행정지.html">집행정지 — 집행 절차를 멈추는 방법</a></li>
+            </ul>
+        </div>
+
+        <!-- 상담 CTA -->
+        <div class="cta-box">
+            <p>이 내용이 해당되시나요? 첫 상담은 무료입니다.</p>
+            <div class="cta-buttons">
+                <button class="cta-btn">☎ 전화: 000-000-0000</button>
+                <button class="cta-btn">💬 카카오톡 상담</button>
+            </div>
+        </div>
+
+        <!-- 면책 문구 -->
+        <div class="disclaimer">
+            <p><strong>면책 문구</strong></p>
+            <p>본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 반드시 법무사와 상담하시기 바랍니다.</p>
+            <p>이 페이지는 2025년 현행 법령 기준으로 작성되었습니다.</p>
+        </div>
+    </div>
+</body>
+</html>
