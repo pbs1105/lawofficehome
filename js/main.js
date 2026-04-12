@@ -415,94 +415,7 @@ const CONTENT_DATA = {
   /* ---- 강제집행 ---- */
   enforcement: {
     label: '강제집행',
-    topics: [
-      {
-        id: 'ef-1', title: '강제집행 개요',
-        meta: '판결 확정 후 강제 이행 절차',
-        sections: [
-          {
-            heading: '1. 강제집행이란?',
-            content: `<p>강제집행은 사법상의 이행청구권을 국가권력으로 실현하는 절차입니다. 법원의 확정판결, 집행판결, 지급명령, 공정증서 등의 <strong>집행권원</strong>에 기재된 사항을 채무자가 이행하지 않을 때 강제로 실현합니다.</p>`
-          },
-          {
-            heading: '2. 집행권원의 종류',
-            content: `<ul>
-              <li>확정된 종국판결</li>
-              <li>가집행선고부 판결</li>
-              <li>확정된 지급명령</li>
-              <li>공정증서(집행인낙 문언 포함)</li>
-              <li>화해조서, 조정조서</li>
-            </ul>`
-          },
-          {
-            heading: '3. 강제집행의 종류',
-            content: `<table class="doc-table"><thead><tr><th>구분</th><th>내용</th></tr></thead><tbody>
-              <tr><td>부동산 집행</td><td>경매신청, 강제관리</td></tr>
-              <tr><td>유체동산 집행</td><td>동산압류·매각</td></tr>
-              <tr><td>채권 집행</td><td>채권압류 및 추심, 전부명령</td></tr>
-              <tr><td>부대체적 작위 집행</td><td>간접강제</td></tr>
-            </tbody></table>`
-          }
-        ],
-        laws: [
-          { name: '민사집행법 제24조', desc: '강제집행의 요건' },
-          { name: '민사집행법 제56조', desc: '집행권원의 종류' },
-        ],
-        forms: []
-      },
-      {
-        id: 'ef-2', title: '부동산 경매신청',
-        meta: '부동산 강제경매 절차',
-        sections: [
-          {
-            heading: '1. 경매 신청',
-            content: `<p>채권자는 채무자 소유의 부동산에 대하여 강제경매를 신청하여 그 매각대금으로 채권을 변제받을 수 있습니다. 신청은 부동산 소재지 관할 지방법원 집행관실 또는 접수창구에 합니다.</p>`
-          },
-          {
-            heading: '2. 경매 진행 절차',
-            content: `<ol class="step-list">
-              <li>경매 신청 (신청수수료 납부)</li>
-              <li>경매개시결정 및 압류등기</li>
-              <li>감정평가 및 최저매각가격 결정</li>
-              <li>매각기일 공고 및 입찰</li>
-              <li>매각허가결정</li>
-              <li>대금납부</li>
-              <li>소유권이전 및 인도명령</li>
-              <li>배당 실시</li>
-            </ol>`
-          }
-        ],
-        laws: [
-          { name: '민사집행법 제78조', desc: '강제경매의 신청' },
-          { name: '민사집행법 제136조', desc: '매각기일 및 개찰' },
-        ],
-        forms: [{ name: '부동산강제경매신청서', size: 'PDF' }]
-      },
-      {
-        id: 'ef-3', title: '채권압류 및 추심',
-        meta: '급여·예금 등 채권 집행',
-        sections: [
-          {
-            heading: '1. 채권압류란?',
-            content: `<p>채권압류는 채무자가 제3채무자(은행, 고용주 등)에 대하여 가지는 채권(예금, 급여, 임대보증금 등)을 압류하여 강제집행하는 절차입니다. 가장 활용도가 높은 집행 방법 중 하나입니다.</p>`
-          },
-          {
-            heading: '2. 압류금지 채권',
-            content: `<div class="warn-box"><div class="warn-title">⚠️ 압류 불가 금액</div>
-              <ul>
-              <li>급여의 경우: 월 300만원 이하는 전액 압류 불가, 300만원~600만원은 1/2 압류 불가</li>
-              <li>퇴직금: 1/2은 압류 불가</li>
-              <li>최저생계비 계좌: 185만원까지 압류 금지</li>
-              </ul></div>`
-          }
-        ],
-        laws: [
-          { name: '민사집행법 제223조', desc: '채권 등에 대한 강제집행' },
-          { name: '민사집행법 제246조', desc: '압류금지채권' },
-        ],
-        forms: [{ name: '채권압류및추심명령신청서', size: 'DOCX' }]
-      }
-    ]
+    get topics() { return typeof ENFORCEMENT_TOPICS !== 'undefined' ? ENFORCEMENT_TOPICS : []; }
   },
 
     /* ---- 상속 ---- */
@@ -11671,75 +11584,86 @@ const CONTENT_DATA = {
   /* ---- 기타 ---- */
   etc: {
     label: '기타',
-    topics: [
+    subcategories: [
       {
-        id: 'et-1', title: '내용증명',
-        meta: '법적 효력 있는 의사표시',
-        sections: [
-          {
-            heading: '1. 내용증명이란?',
-            content: `<p>내용증명은 발송인이 수신인에게 어떠한 내용의 문서를 발송하였는지를 우체국에서 공적으로 증명하는 우편 서비스입니다. 법적으로 내용증명 자체가 강제력을 가지는 것은 아니지만, <strong>의사표시를 한 사실과 내용을 공증</strong>하는 역할을 합니다.</p>
-            <div class="info-box"><div class="info-title">✅ 주요 활용 사례</div><ul>
-            <li>계약 해제·해지 통보</li><li>대금 지급 독촉</li><li>임대차계약 갱신거절 통보</li>
-            <li>소멸시효 중단</li><li>임금 체불 독촉</li></ul></div>`
-          },
-          {
-            heading: '2. 작성 방법',
-            content: `<p>내용증명은 동일한 문서를 <strong>3부</strong> 작성하여, 1부는 우체국 보관, 1부는 발송인 보관, 1부는 수신인에게 발송합니다. 문서의 형식에는 특별한 제한이 없으나, 발신인·수신인 정보, 발송 일자, 구체적인 내용이 포함되어야 합니다.</p>`
-          }
-        ],
-        laws: [
-          { name: '우편법 시행규칙 제25조', desc: '내용증명 취급 방법' },
-          { name: '민법 제174조', desc: '소멸시효 중단(최고)' },
-        ],
-        forms: [{ name: '내용증명 양식', size: 'DOCX' }]
+        id: 'foreign-realestate',
+        name: '외국인등기 부동산등기',
+        get topics() { return typeof FOREIGN_TOPICS !== 'undefined' ? FOREIGN_TOPICS : []; }
       },
       {
-        id: 'et-2', title: '공정증서',
-        meta: '공증인이 작성하는 공문서',
-        sections: [
+        id: 'etc-general',
+        name: '기타 일반',
+        topics: [
           {
-            heading: '1. 공정증서란?',
-            content: `<p>공정증서는 공증인(공증인가 법무법인 또는 공증담당변호사)이 당사자의 촉탁에 의해 법률행위나 사실을 증명하기 위해 작성하는 공문서입니다. 특히 <strong>집행인낙 문언이 포함된 공정증서</strong>는 별도의 소송 없이 집행권원으로 사용할 수 있어 실무상 매우 유용합니다.</p>`
+            id: 'et-1', title: '내용증명',
+            meta: '법적 효력 있는 의사표시',
+            sections: [
+              {
+                heading: '1. 내용증명이란?',
+                content: `<p>내용증명은 발송인이 수신인에게 어떠한 내용의 문서를 발송하였는지를 우체국에서 공적으로 증명하는 우편 서비스입니다. 법적으로 내용증명 자체가 강제력을 가지는 것은 아니지만, <strong>의사표시를 한 사실과 내용을 공증</strong>하는 역할을 합니다.</p>
+                <div class="info-box"><div class="info-title">✅ 주요 활용 사례</div><ul>
+                <li>계약 해제·해지 통보</li><li>대금 지급 독촉</li><li>임대차계약 갱신거절 통보</li>
+                <li>소멸시효 중단</li><li>임금 체불 독촉</li></ul></div>`
+              },
+              {
+                heading: '2. 작성 방법',
+                content: `<p>내용증명은 동일한 문서를 <strong>3부</strong> 작성하여, 1부는 우체국 보관, 1부는 발송인 보관, 1부는 수신인에게 발송합니다. 문서의 형식에는 특별한 제한이 없으나, 발신인·수신인 정보, 발송 일자, 구체적인 내용이 포함되어야 합니다.</p>`
+              }
+            ],
+            laws: [
+              { name: '우편법 시행규칙 제25조', desc: '내용증명 취급 방법' },
+              { name: '민법 제174조', desc: '소멸시효 중단(최고)' },
+            ],
+            forms: [{ name: '내용증명 양식', size: 'DOCX' }]
           },
           {
-            heading: '2. 공정증서의 효력',
-            content: `<ul>
-              <li><strong>증거력</strong>: 진정성립이 추정되어 강력한 증거력</li>
-              <li><strong>집행력</strong>: 집행인낙 문언 포함 시 판결 없이 강제집행 가능</li>
-              <li><strong>소멸시효 연장</strong>: 공정증서상 채권의 소멸시효는 10년</li>
-            </ul>`
-          }
-        ],
-        laws: [
-          { name: '공증인법 제2조', desc: '공증인의 직무' },
-          { name: '민사집행법 제56조 제4호', desc: '공정증서의 집행권원' },
-        ],
-        forms: [{ name: '금전소비대차 공정증서 양식', size: 'DOCX' }]
-      },
-      {
-        id: 'et-3', title: '확정일자',
-        meta: '임차인 보호를 위한 날짜 확인',
-        sections: [
-          {
-            heading: '1. 확정일자란?',
-            content: `<p>확정일자란 임대차계약서가 작성된 날짜를 법적으로 확인받아, 이후 위·변조된 날짜가 아님을 증명받는 제도입니다. 주택임대차보호법상 임차인이 <strong>전입신고 + 확정일자</strong>를 갖추면 후순위 채권자나 담보권자보다 우선하여 보증금을 변제받을 수 있습니다.</p>`
+            id: 'et-2', title: '공정증서',
+            meta: '공증인이 작성하는 공문서',
+            sections: [
+              {
+                heading: '1. 공정증서란?',
+                content: `<p>공정증서는 공증인(공증인가 법무법인 또는 공증담당변호사)이 당사자의 촉탁에 의해 법률행위나 사실을 증명하기 위해 작성하는 공문서입니다. 특히 <strong>집행인낙 문언이 포함된 공정증서</strong>는 별도의 소송 없이 집행권원으로 사용할 수 있어 실무상 매우 유용합니다.</p>`
+              },
+              {
+                heading: '2. 공정증서의 효력',
+                content: `<ul>
+                  <li><strong>증거력</strong>: 진정성립이 추정되어 강력한 증거력</li>
+                  <li><strong>집행력</strong>: 집행인낙 문언 포함 시 판결 없이 강제집행 가능</li>
+                  <li><strong>소멸시효 연장</strong>: 공정증서상 채권의 소멸시효는 10년</li>
+                </ul>`
+              }
+            ],
+            laws: [
+              { name: '공증인법 제2조', desc: '공증인의 직무' },
+              { name: '민사집행법 제56조 제4호', desc: '공정증서의 집행권원' },
+            ],
+            forms: [{ name: '금전소비대차 공정증서 양식', size: 'DOCX' }]
           },
           {
-            heading: '2. 확정일자 받는 방법',
-            content: `<ul>
-              <li>주민센터 방문 신청 (수수료 600원)</li>
-              <li>인터넷 등기소 온라인 신청 (전자계약서 한정)</li>
-              <li>공증사무소 방문</li>
-            </ul>
-            <div class="info-box"><div class="info-title">📌 전월세신고제</div><p>2021년 6월부터 보증금 6,000만원 초과 또는 월세 30만원 초과 임대차계약은 계약 체결 후 30일 이내에 신고하여야 하며, 신고 완료 시 확정일자가 자동 부여됩니다.</p></div>`
+            id: 'et-3', title: '확정일자',
+            meta: '임차인 보호를 위한 날짜 확인',
+            sections: [
+              {
+                heading: '1. 확정일자란?',
+                content: `<p>확정일자란 임대차계약서가 작성된 날짜를 법적으로 확인받아, 이후 위·변조된 날짜가 아님을 증명받는 제도입니다. 주택임대차보호법상 임차인이 <strong>전입신고 + 확정일자</strong>를 갖추면 후순위 채권자나 담보권자보다 우선하여 보증금을 변제받을 수 있습니다.</p>`
+              },
+              {
+                heading: '2. 확정일자 받는 방법',
+                content: `<ul>
+                  <li>주민센터 방문 신청 (수수료 600원)</li>
+                  <li>인터넷 등기소 온라인 신청 (전자계약서 한정)</li>
+                  <li>공증사무소 방문</li>
+                </ul>
+                <div class="info-box"><div class="info-title">📌 전월세신고제</div><p>2021년 6월부터 보증금 6,000만원 초과 또는 월세 30만원 초과 임대차계약은 계약 체결 후 30일 이내에 신고하여야 하며, 신고 완료 시 확정일자가 자동 부여됩니다.</p></div>`
+              }
+            ],
+            laws: [
+              { name: '주택임대차보호법 제3조의2', desc: '우선변제권' },
+              { name: '주택임대차보호법 제6조의3', desc: '임대차 신고제' },
+            ],
+            forms: []
           }
-        ],
-        laws: [
-          { name: '주택임대차보호법 제3조의2', desc: '우선변제권' },
-          { name: '주택임대차보호법 제6조의3', desc: '임대차 신고제' },
-        ],
-        forms: []
+        ]
       }
     ]
   }
@@ -11960,10 +11884,16 @@ const BLOG_DATA = [
 function buildNavbar(activePage) {
   const catLinks = CATEGORIES.map(cat => {
     const data = CONTENT_DATA[cat.id];
-    const topics = data ? data.topics : [];
-    const dropItems = topics.map(t =>
-      `<a href="content.html?cat=${cat.id}&topic=${t.id}">${t.title}</a>`
-    ).join('');
+    let dropItems = '';
+    if (data && data.subcategories) {
+      dropItems = data.subcategories.map(s =>
+        `<a href="content.html?cat=${cat.id}&sub=${s.id}">${s.name}</a>`
+      ).join('');
+    } else if (data && data.topics) {
+      dropItems = data.topics.map(t =>
+        `<a href="content.html?cat=${cat.id}&topic=${t.id}">${t.title}</a>`
+      ).join('');
+    }
     return `
       <li class="nav-item">
         <a href="content.html?cat=${cat.id}" class="nav-link">
@@ -12164,6 +12094,7 @@ window.addEventListener('resize', () => {
 function initContentPage() {
   const params = new URLSearchParams(window.location.search);
   let catId = params.get('cat') || 'realestate';
+  let subId  = params.get('sub');
   let topicId = params.get('topic');
 
   const data = CONTENT_DATA[catId];
@@ -12180,16 +12111,148 @@ function initContentPage() {
   }
 
   // Render TOC & content
-  renderCategoryContent(catId, topicId);
+  if (data && data.subcategories) {
+    renderSubcategoryContent(catId, subId, topicId);
+  } else {
+    renderCategoryContent(catId, topicId);
+  }
 }
 
 function switchCategory(catId) {
-  const newUrl = `content.html?cat=${catId}`;
+  const data = CONTENT_DATA[catId];
+  let newUrl = `content.html?cat=${catId}`;
+  if (data && data.subcategories) {
+    newUrl += `&sub=${data.subcategories[0].id}`;
+  }
   window.history.pushState({}, '', newUrl);
   initContentPage();
   window.scrollTo(0, 0);
 }
 
+/* ── 중분류(subcategory) 렌더링 ─────────────────────────────── */
+function renderSubcategoryContent(catId, selectedSubId, selectedTopicId) {
+  const data = CONTENT_DATA[catId];
+  if (!data || !data.subcategories) return;
+
+  const activeSub = data.subcategories.find(s => s.id === selectedSubId) || data.subcategories[0];
+  const topics = activeSub.topics;
+  const activeTopic = topics.find(t => t.id === selectedTopicId) || topics[0];
+
+  // Update category tabs
+  document.querySelectorAll('.cat-tab').forEach(btn => {
+    const isActive = btn.getAttribute('onclick').includes(`'${catId}'`);
+    btn.classList.toggle('active', isActive);
+  });
+
+  // Render TOC with subcategory tabs + topic list
+  const tocEl = document.getElementById('tocList');
+  if (tocEl) {
+    const subTabsHTML = data.subcategories.map(s => `
+      <button class="sub-tab ${s.id === activeSub.id ? 'active' : ''}"
+        onclick="switchSubCategory('${catId}','${s.id}')">
+        ${s.name}
+      </button>`).join('');
+
+    const topicsHTML = topics.map(t => `
+      <button class="toc-item ${t.id === activeTopic.id ? 'active' : ''}"
+        onclick="selectSubTopic('${catId}','${activeSub.id}','${t.id}')">
+        ${t.title}
+      </button>`).join('');
+
+    tocEl.innerHTML = `
+      <div class="sub-tabs">${subTabsHTML}</div>
+      <div class="toc-topic-list">${topicsHTML}</div>`;
+  }
+
+  // Render breadcrumb
+  const bcEl = document.getElementById('pageBreadcrumb');
+  if (bcEl) {
+    bcEl.innerHTML = `
+      <a href="index.html">홈</a>
+      <span class="sep">›</span>
+      <a href="content.html?cat=${catId}">${data.label}</a>
+      <span class="sep">›</span>
+      <a href="content.html?cat=${catId}&sub=${activeSub.id}">${activeSub.name}</a>
+      <span class="sep">›</span>
+      <span>${activeTopic.title}</span>`;
+  }
+
+  // Render article
+  const articleEl = document.getElementById('articleContent');
+  if (articleEl) {
+    const sectionsHTML = activeTopic.sections.map(s => `
+      <div class="article-section">
+        <h2>${s.heading}</h2>
+        ${s.content}
+      </div>`).join('');
+
+    articleEl.innerHTML = `
+      <div class="article-header">
+        <h1>${activeTopic.title}</h1>
+        <div class="article-meta">
+          <span>📁 ${data.label} › ${activeSub.name}</span>
+          <span>📖 ${activeTopic.meta}</span>
+        </div>
+      </div>
+      ${sectionsHTML}
+      <div style="margin-top:40px;padding:24px;background:var(--accent);border-radius:var(--radius);text-align:center;">
+        <p style="font-weight:600;color:var(--primary);margin-bottom:12px;">더 자세한 내용이 궁금하신가요? 법무사에게 직접 상담받으세요.</p>
+        <button class="btn-primary" onclick="openModal()">📞 무료 상담 신청</button>
+      </div>`;
+  }
+
+  // Render law sidebar
+  const lawEl = document.getElementById('lawList');
+  if (lawEl) {
+    const lawsHTML = activeTopic.laws && activeTopic.laws.length > 0
+      ? activeTopic.laws.map(l => `
+        <div class="law-item">
+          <div class="law-name">📋 ${l.name}</div>
+          <div class="law-desc">${l.desc}</div>
+        </div>`).join('')
+      : '<p style="font-size:0.82rem;color:var(--text-light);padding:0 20px;">관련 법령 없음</p>';
+
+    const formsHTML = activeTopic.forms && activeTopic.forms.length > 0
+      ? activeTopic.forms.map(f => `
+        <div class="form-item">
+          <span class="form-icon">📄</span>
+          <div><div class="form-name">${f.name}</div><div class="form-size">${f.size}</div></div>
+        </div>`).join('')
+      : '<p style="font-size:0.82rem;color:var(--text-light);padding:0 20px;">제공 서식 없음</p>';
+
+    lawEl.innerHTML = `
+      <div class="law-section">
+        <div class="law-section-title">관련 법령</div>
+        ${lawsHTML}
+      </div>
+      <div class="law-section">
+        <div class="law-section-title">참고 서식</div>
+        ${formsHTML}
+        <a class="fee-table-btn" href="https://m.kabl.kr/pageview.kabl?mid=kjaa_page_0202_2_m&menu=data&from=index.kabl" target="_blank" rel="noopener noreferrer">📊 법무사 보수표 보기</a>
+      </div>
+      <div class="sidebar-consult">
+        <h4>전문가 상담</h4>
+        <p>서류 준비부터 등기까지<br>전 과정을 도와드립니다.</p>
+        <button class="btn-white" onclick="openModal()">상담 신청</button>
+      </div>`;
+  }
+}
+
+function switchSubCategory(catId, subId) {
+  const newUrl = `content.html?cat=${catId}&sub=${subId}`;
+  window.history.pushState({}, '', newUrl);
+  renderSubcategoryContent(catId, subId, null);
+  window.scrollTo(0, 0);
+}
+
+function selectSubTopic(catId, subId, topicId) {
+  const newUrl = `content.html?cat=${catId}&sub=${subId}&topic=${topicId}`;
+  window.history.pushState({}, '', newUrl);
+  renderSubcategoryContent(catId, subId, topicId);
+  window.scrollTo(0, 0);
+}
+
+/* ── 단순 카테고리(subcategory 없음) 렌더링 ─────────────────── */
 function renderCategoryContent(catId, selectedTopicId) {
   const data = CONTENT_DATA[catId];
   if (!data) return;
@@ -12253,11 +12316,13 @@ function renderCategoryContent(catId, selectedTopicId) {
   // Render law sidebar
   const lawEl = document.getElementById('lawList');
   if (lawEl) {
-    const lawsHTML = activeTopic.laws.map(l => `
-      <div class="law-item">
-        <div class="law-name">📋 ${l.name}</div>
-        <div class="law-desc">${l.desc}</div>
-      </div>`).join('');
+    const lawsHTML = activeTopic.laws && activeTopic.laws.length > 0
+      ? activeTopic.laws.map(l => `
+        <div class="law-item">
+          <div class="law-name">📋 ${l.name}</div>
+          <div class="law-desc">${l.desc}</div>
+        </div>`).join('')
+      : '<p style="font-size:0.82rem;color:var(--text-light);padding:0 20px;">관련 법령 없음</p>';
 
     const formsHTML = activeTopic.forms && activeTopic.forms.length > 0
       ? activeTopic.forms.map(f => `
