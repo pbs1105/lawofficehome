@@ -3972,5 +3972,833 @@ const ENFORCEMENT_TOPICS = [
     ],
     laws: [],
     forms: []
+  },
+
+  /* ---- 유체동산 강제집행 (콘텐츠3) ---- */
+  {
+    id: 'ef-48',
+    title: '유체동산 강제집행이란? — 판결 후 상대방 물건을 처분하는 방법',
+    meta: '채권자가 집행관을 통해 채무자의 동산을 압류·경매하여 채권을 회수하는 절차를 안내합니다.',
+    sections: [
+      {
+        heading: '이런 분께 필요합니다',
+        content: `<div class="checklist"><ul>
+          <li>법원 판결문·지급명령·공정증서를 받았는데 상대방이 돈을 주지 않는 상황입니다.</li>
+          <li>상대방 명의의 부동산은 없거나 이미 담보가 잡혀 있어 다른 방법을 찾고 있습니다.</li>
+          <li>상대방의 집이나 사업장에 팔 수 있는 물건(가전제품, 재고 등)이 있어 보입니다.</li>
+          <li>강제집행을 어디에 신청해야 하는지, 절차가 어떻게 되는지 전혀 모릅니다.</li>
+          <li>집행 신청 전에 어떤 준비가 필요한지 확인하고 싶습니다.</li>
+        </ul></div>`
+      },
+      {
+        heading: '핵심정리',
+        content: `<div class="summary-box">
+          <span class="label">한눈에 보는 유체동산 강제집행</span>
+          <ul>
+            <li>유체동산 강제집행이란, 채권자가 집행관에게 신청하여 채무자가 점유하는 동산(가전·가구·재고 물품 등)을 압류한 뒤 경매로 처분해 돈을 회수하는 제도입니다.</li>
+            <li>집행기관은 법원이 아닌 <strong>집행관</strong>이며, 집행관은 독립된 사법기관으로 직접 현장에서 압류를 실시합니다.</li>
+            <li>판결문·공정증서 등 집행권원이 있으면 상대방 동의 없이 신청할 수 있고, 신청 후 집행관이 현장에 나가 압류표를 부착하고 경매를 진행합니다.</li>
+          </ul>
+        </div>
+        <h3>전체 절차 흐름</h3>
+        <div class="flow">
+          <div class="flow-item"><div class="flow-num">①</div><div>집행권원 확보</div></div>
+          <div class="flow-item"><div class="flow-num">②</div><div>집행관에게 신청</div></div>
+          <div class="flow-item"><div class="flow-num">③</div><div>현장 압류 실시</div></div>
+          <div class="flow-item"><div class="flow-num">④</div><div>경매(호가경매)</div></div>
+          <div class="flow-item"><div class="flow-num">⑤</div><div>매각대금 수령</div></div>
+        </div>`
+      },
+      {
+        heading: '상세설명',
+        content: `<h3>① 집행권원 — 강제집행의 출발점</h3>
+        <p>유체동산에 대한 강제집행을 신청하려면 먼저 <strong>집행력 있는 집행권원</strong>이 있어야 합니다. 집행권원이란 국가가 강제집행을 허용한 공문서입니다.</p>
+        <table>
+          <thead><tr><th>종류</th><th>내용</th><th>비고</th></tr></thead>
+          <tbody>
+            <tr><td>확정 판결문</td><td>소송에서 이긴 뒤 판결이 확정된 경우</td><td>집행문 부여 필요</td></tr>
+            <tr><td>지급명령</td><td>독촉절차로 발령된 지급명령이 확정된 경우</td><td>집행문 부여 필요</td></tr>
+            <tr><td>공정증서</td><td>공증인이 작성한 집행인낙 공정증서</td><td>집행문 부여 필요</td></tr>
+            <tr><td>가집행 선고부 판결</td><td>판결 미확정이라도 가집행이 선고된 경우</td><td>상소 중에도 집행 가능</td></tr>
+            <tr><td>화해조서·조정조서</td><td>법원 조정·화해 성립 후 작성된 조서</td><td>확정판결과 동일 효력</td></tr>
+          </tbody>
+        </table>
+        <p>집행권원이 있더라도 단독으로 집행할 수는 없고, 법원에서 <strong>집행문을 부여받은 정본</strong>을 집행관에게 제출해야 합니다(민사집행법 제28조).</p>
+        <h3>② 유체동산의 범위 — 어떤 것이 대상인가</h3>
+        <p>민사집행법에서 말하는 '유체동산'은 일반적인 민법상 동산보다 넓은 개념입니다. 민사집행법 제189조에 따르면 다음을 포함합니다.</p>
+        <div class="summary-box">
+          <span class="label">유체동산 집행 대상</span>
+          <ul>
+            <li>일반 동산(가전제품·가구·의류·귀금속·재고 물품·현금 등)</li>
+            <li>등기할 수 없는 토지의 정착물로서 독립하여 거래의 객체가 되는 것</li>
+            <li>토지에서 분리하기 전의 과실로서 1개월 이내에 수확할 수 있는 것</li>
+            <li>유가증권으로서 배서가 금지되지 않은 것 — 어음·수표·상품권 등</li>
+          </ul>
+        </div>
+        <h3>③ 집행기관 — 집행관이 직접 실시</h3>
+        <p>유체동산 강제집행은 <strong>집행관</strong>이 실시합니다(민사집행법 제188조 제1항). 집행관은 법원 소속의 독립적인 사법기관으로, 채권자가 집행관에게 직접 집행을 위임(신청)하면, 집행관이 현장을 방문하여 압류를 실시하고 이후 경매 절차를 진행합니다.</p>
+        <p>부동산 경매와 달리 유체동산 집행은 법원이 아닌 <strong>집행관 사무소에 신청</strong>합니다. 채무자의 주소지나 물건 소재지를 관할하는 지방법원 소속 집행관에게 신청합니다.</p>
+        <div class="case-box">
+          <div class="case-title">📋 실제 상황 예시</div>
+          <p>A씨는 B씨로부터 2,000만 원을 빌려주었는데 B씨가 갚지 않아 소송을 제기하여 승소 판결을 받았습니다. B씨 명의의 부동산은 없고, B씨가 운영하는 음식점에는 냉장고·주방기기·TV 등 집행 가능한 물건이 있습니다. A씨는 판결의 집행문을 받아 B씨 가게 소재지 관할 집행관에게 강제집행을 위임했습니다. 집행관은 현장 방문 후 냉장고·주방기기 등에 압류표를 부착하고 2주 후 호가경매를 진행, A씨는 매각대금에서 채권의 일부를 회수했습니다.</p>
+        </div>
+        <h3>④ 집행의 효력 발생 시점</h3>
+        <p>집행관이 유체동산을 압류한 때부터 압류의 효력이 발생합니다(민사집행법 제188조 제1항). 압류가 이루어지면 채무자는 그 물건을 처분할 수 없게 되고, 제3자가 압류를 무시하고 취득하더라도 보호받지 못합니다.</p>
+        <div class="warn-box">
+          <div class="warn-title">⚠️ 알아두셔야 할 한계</div>
+          <p>유체동산 강제집행으로 회수할 수 있는 금액은 실제 경매에서 낙찰되는 금액에 한정됩니다. 동산은 감가상각이 빠르고 중고 경매 낙찰가가 매우 낮은 경우가 많아, 채권 전액 회수가 어려울 수 있습니다. 또한 채무자가 생활에 꼭 필요한 물건(압류금지물건)은 압류할 수 없으므로, 집행 전에 어떤 물건이 압류 가능한지 검토가 필요합니다.</p>
+        </div>`
+      },
+      {
+        heading: '자주 하는 질문',
+        content: `<div class="qna-item">
+          <div class="qna-q">판결을 받았으면 바로 집행이 가능한가요?</div>
+          <div class="qna-a">
+            <p>판결이 확정되거나 가집행 선고가 있는 경우에 강제집행을 신청할 수 있습니다. 그러나 판결문 자체만으로는 집행할 수 없고, 판결을 내린 법원에서 <strong>집행문</strong>을 부여받아야 합니다. 집행문이 부여된 판결 정본을 '집행력 있는 정본'이라고 하며, 이를 집행관에게 제출해야 집행 위임이 가능합니다.</p>
+            <p class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+          </div>
+        </div>
+        <div class="qna-item">
+          <div class="qna-q">상대방 집이나 가게에 직접 찾아가서 물건을 가져오면 안 되나요?</div>
+          <div class="qna-a">
+            <p>절대로 안 됩니다. 채권자가 스스로 채무자의 물건을 가져가는 행위는 <strong>강도죄 또는 절도죄</strong>에 해당할 수 있으며, 공무원(집행관)을 통하지 않는 자력구제는 법적으로 금지되어 있습니다. 강제집행은 반드시 집행관을 통해 법이 정한 절차에 따라야 합니다.</p>
+            <p class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+          </div>
+        </div>
+        <div class="qna-item">
+          <div class="qna-q">채무자가 다른 사람 명의 물건이라고 주장하면 어떻게 되나요?</div>
+          <div class="qna-a">
+            <p>집행관은 채무자가 점유하고 있는 물건을 압류합니다. 물건의 실제 소유자가 따로 있다면 그 소유자가 <strong>제3자 이의의 소</strong>(민사집행법 제48조)를 제기하여 압류를 취소시킬 수 있습니다. 집행관은 압류를 실시하면서 채무자의 점유 여부 등을 합리적으로 확인해야 합니다.</p>
+            <p class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+          </div>
+        </div>
+        <div class="qna-item">
+          <div class="qna-q">채무자가 압류 후에 물건을 빼돌리면 어떻게 되나요?</div>
+          <div class="qna-a">
+            <p>압류 후에 채무자가 압류된 물건을 임의로 처분하거나 손상·은닉하는 행위는 <strong>강제집행 면탈죄</strong>(형법 제327조)에 해당하여 형사 처벌 대상이 됩니다. 채무자가 물건을 빼돌렸다면 형사 고소와 함께 법무사를 통한 법적 조치를 취하시기 바랍니다.</p>
+            <p class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+          </div>
+        </div>
+        <div class="qna-item">
+          <div class="qna-q">채무자가 집행관이 오는 것을 막으면 어떻게 되나요?</div>
+          <div class="qna-a">
+            <p>집행관은 강제집행을 위해 채무자의 주거·창고·사무소에 들어갈 수 있으며, 필요한 경우 잠긴 문을 열게 하거나 직접 개방하게 할 권한이 있습니다(민사집행법 제5조). 채무자나 제3자가 집행관의 직무 집행을 방해하면 <strong>공무집행방해죄</strong>가 성립할 수 있습니다.</p>
+            <p class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+          </div>
+        </div>
+        <div class="qna-item">
+          <div class="qna-q">유체동산 집행만으로 채권 전액을 받을 수 있나요?</div>
+          <div class="qna-a">
+            <p>현실적으로 동산은 경매에서 시세보다 훨씬 낮은 가격에 낙찰되는 경우가 많아, 채권 전액 회수가 어려울 수 있습니다. 채무자에게 은행 계좌나 급여 채권이 있다면 <strong>채권 압류 및 추심·전부명령</strong>이 더 효과적일 수 있으므로, 법무사와 상담을 통해 가장 효율적인 집행 방법을 찾으시기 바랍니다.</p>
+            <p class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+          </div>
+        </div>`
+      },
+      {
+        heading: '관련 판례',
+        content: `<div class="ruling-box">
+          <div class="ruling-header">집행관의 주의의무와 불법행위 책임</div>
+          <p>집행관은 독립·단독의 사법기관으로서 스스로 법령을 해석하고 집행할 권한이 있습니다. 대법원은 "집행관이 당연히 알아야 할 유체동산 집행에 관한 법규나 필요한 지식을 갖추지 못하였고 또한 조사를 게을리하여 법규의 해석을 그르쳐 타인에게 손해를 가하였다면 불법행위가 성립한다"고 판시하였습니다(대판 2003. 9. 26. 2001다52773).</p>
+          <p><strong>실무적 의미:</strong> 집행관은 압류금지 물건 여부 등을 직권으로 조사·판단해야 하며, 잘못된 집행으로 손해가 발생하면 국가 배상 청구가 가능합니다.</p>
+        </div>
+        <div class="ruling-box">
+          <div class="ruling-header">종물의 독립 압류 가부</div>
+          <p>대법원은 "종물은 주물의 상용에 이바지하는 관계에 있어야 하고, 주물의 상용에 이바지한다 함은 주물 그 자체의 경제적 효용을 다하게 하는 것을 말하는 것으로서 주물의 소유자나 이용자의 상용에 공여되고 있더라도 주물 그 자체의 효용과 직접 관계가 없는 물건은 종물이 아니다"라고 판시하였습니다(대판 1997. 10. 10. 97다3750).</p>
+          <p><strong>실무적 의미:</strong> 부동산에 부속된 물건이라도 주물과 독립적인 거래 대상이 될 수 있으면 유체동산으로 별도 압류가 가능합니다.</p>
+        </div>`
+      },
+      {
+        heading: '주의사항',
+        content: `<div class="warn-box">
+          <div class="warn-title">⚠️ 집행권원 없이 신청 불가</div>
+          <p>집행력 있는 정본(판결문에 집행문 부여)이 없으면 집행관에게 집행 위임 자체가 불가능합니다. 집행문을 미리 발급받아 두어야 합니다.</p>
+        </div>
+        <div class="warn-box">
+          <div class="warn-title">⚠️ 채무자 재산 사전 파악 필요</div>
+          <p>채무자가 점유하는 물건이 없거나 모두 압류금지 물건이라면 집행을 해도 실효가 없습니다. 미리 채무자의 주소지나 사업장을 확인하고, 집행 가능한 물건이 있는지 판단 후 신청하는 것이 효율적입니다.</p>
+        </div>
+        <div class="warn-box">
+          <div class="warn-title">ℹ️ 부부공유 동산도 압류 가능</div>
+          <p>채무자와 배우자의 공유 유체동산으로서 채무자가 점유하거나 배우자와 공동 점유하고 있는 것은, 채무자에 대한 집행권원만으로도 압류할 수 있습니다(민사집행법 제190조).</p>
+        </div>`
+      },
+      {
+        heading: '다음에 확인할 사항',
+        content: `<div class="next-links">
+          <a href="#" class="next-link" data-target="ef-49">
+            <span class="nl-title">압류할 수 있는 물건 vs 압류금지 물건</span>
+            <span class="nl-desc">어떤 물건을 압류할 수 있나요?</span>
+          </a>
+          <a href="#" class="next-link" data-target="ef-50">
+            <span class="nl-title">집행관 신청 절차 및 준비서류</span>
+            <span class="nl-desc">어떻게 신청하고, 무슨 서류가 필요한가요?</span>
+          </a>
+          <a href="#" class="next-link" data-target="ef-52">
+            <span class="nl-title">매각·배당 — 돈은 어떻게 받나요?</span>
+            <span class="nl-desc">경매 후 매각대금 수령 방법</span>
+          </a>
+        </div>`
+      }
+    ],
+    laws: [
+      { name: '민사집행법 제188조', desc: '유체동산 강제집행의 집행기관(집행관)' },
+      { name: '민사집행법 제189조', desc: '유체동산의 범위' },
+      { name: '민사집행법 제28조', desc: '집행문 부여' },
+    ],
+    forms: []
+  },
+
+  {
+    id: 'ef-49',
+    title: '압류할 수 있는 물건 vs 압류금지 물건 — 민사집행법 제195조',
+    meta: '유체동산 집행에서 압류 가능한 물건과 법으로 보호받는 압류금지 물건 16가지를 안내합니다.',
+    sections: [
+      {
+        heading: '이런 분께 필요합니다',
+        content: `<div class="checklist"><ul>
+          <li>채무자의 집이나 사업장을 방문해 압류할 물건이 있는지 미리 확인하고 싶습니다.</li>
+          <li>집행관이 현장에서 "이건 압류 못 합니다"라고 한 이유가 무엇인지 알고 싶습니다.</li>
+          <li>채무자가 "이 물건은 법으로 압류가 안 된다"고 주장하는데 사실인지 확인하고 싶습니다.</li>
+          <li>어떤 물건을 압류하면 실제로 현금화가 가능한지 판단하고 싶습니다.</li>
+          <li>압류금지 물건의 범위를 법원에서 변경할 수 있는지 알고 싶습니다.</li>
+        </ul></div>`
+      },
+      {
+        heading: '핵심정리',
+        content: `<div class="summary-box">
+          <span class="label">압류 가능·불가 한눈에 보기</span>
+          <ul>
+            <li>원칙적으로 채무자가 점유하는 모든 동산은 압류 대상입니다. 그러나 민사집행법 제195조는 채무자의 최저 생활 보장과 직업 유지를 위해 <strong>16가지 유형</strong>의 물건을 압류금지 물건으로 규정합니다.</li>
+            <li>압류금지 규정은 <strong>강행규정</strong>이므로 채권자의 동의나 채무자의 동의 여부와 무관하게 집행관이 직권으로 적용해야 합니다.</li>
+            <li>압류금지 물건에 해당하더라도, 법원에 신청하면 채권자·채무자 쌍방의 사정을 고려하여 그 범위를 변경(확장 또는 축소)할 수 있습니다(민사집행법 제196조).</li>
+          </ul>
+        </div>`
+      },
+      {
+        heading: '상세설명',
+        content: `<h3>① 압류 가능 vs 압류금지 물건 비교</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;">
+          <div style="background:#e8f5e9;border:1px solid #1a5c2e;border-radius:8px;padding:18px 20px;">
+            <div style="font-size:13px;font-weight:700;color:#1a5c2e;margin-bottom:10px;">압류 가능한 물건 (예시)</div>
+            <ul style="list-style:none;padding:0;">
+              <li style="font-size:14px;padding:3px 0 3px 18px;position:relative;"><span style="position:absolute;left:0;color:#1a5c2e;">○</span> 냉장고·세탁기·에어컨 등 가전제품 (대체품 있는 경우)</li>
+              <li style="font-size:14px;padding:3px 0 3px 18px;position:relative;"><span style="position:absolute;left:0;color:#1a5c2e;">○</span> TV·컴퓨터 (업무용이 아닌 경우)</li>
+              <li style="font-size:14px;padding:3px 0 3px 18px;position:relative;"><span style="position:absolute;left:0;color:#1a5c2e;">○</span> 골동품·귀금속·미술품</li>
+              <li style="font-size:14px;padding:3px 0 3px 18px;position:relative;"><span style="position:absolute;left:0;color:#1a5c2e;">○</span> 영업용 재고 물품</li>
+              <li style="font-size:14px;padding:3px 0 3px 18px;position:relative;"><span style="position:absolute;left:0;color:#1a5c2e;">○</span> 어음·수표·상품권 등 유가증권</li>
+              <li style="font-size:14px;padding:3px 0 3px 18px;position:relative;"><span style="position:absolute;left:0;color:#1a5c2e;">○</span> 현금 (생계비 185만 원 초과분)</li>
+            </ul>
+          </div>
+          <div style="background:#fde8e8;border:1px solid #b00;border-radius:8px;padding:18px 20px;">
+            <div style="font-size:13px;font-weight:700;color:#b00;margin-bottom:10px;">압류 금지 물건 (예시)</div>
+            <ul style="list-style:none;padding:0;">
+              <li style="font-size:14px;padding:3px 0 3px 18px;position:relative;"><span style="position:absolute;left:0;color:#b00;">✕</span> 생활 필수 침구·기구·의복</li>
+              <li style="font-size:14px;padding:3px 0 3px 18px;position:relative;"><span style="position:absolute;left:0;color:#b00;">✕</span> 2개월치 식료품·연료·조명재료</li>
+              <li style="font-size:14px;padding:3px 0 3px 18px;position:relative;"><span style="position:absolute;left:0;color:#b00;">✕</span> 생계비 현금 185만 원 이하</li>
+              <li style="font-size:14px;padding:3px 0 3px 18px;position:relative;"><span style="position:absolute;left:0;color:#b00;">✕</span> 농어업인 필수 농기구·어망 등</li>
+              <li style="font-size:14px;padding:3px 0 3px 18px;position:relative;"><span style="position:absolute;left:0;color:#b00;">✕</span> 직업상 필수 도구(재봉기·악기 등)</li>
+              <li style="font-size:14px;padding:3px 0 3px 18px;position:relative;"><span style="position:absolute;left:0;color:#b00;">✕</span> 장애인용 보조기구·경형자동차</li>
+            </ul>
+          </div>
+        </div>
+        <h3>② 압류금지 물건 16가지 — 민사집행법 제195조</h3>
+        <table>
+          <thead><tr><th>호</th><th>압류금지 물건 유형</th><th>주요 내용</th></tr></thead>
+          <tbody>
+            <tr><td>1호</td><td>생활필수품</td><td>채무자·동거 친족의 의복·침구·기구·부엌기구 등 생활필수품</td></tr>
+            <tr><td>2호</td><td>식료품·연료·조명재료</td><td>채무자 등의 생활에 필요한 2개월치 식료품·장작·연탄·가스·전기 등</td></tr>
+            <tr><td>3호</td><td>생계비 현금</td><td>1개월치 생계비 — 현재 <strong>185만 원</strong> (민사집행법 시행령 제2조)</td></tr>
+            <tr><td>4호</td><td>농업용 필수품</td><td>농기구·비료·가축·사료·종자 등</td></tr>
+            <tr><td>5호</td><td>어업용 필수품</td><td>고기잡이 도구·어망·미끼·새끼고기 등</td></tr>
+            <tr><td>6호</td><td>직업상 필수 도구</td><td>전문직·기술자 등에게 없어서는 안 될 제복·도구 등</td></tr>
+            <tr><td>7호</td><td>훈장·명예증표</td><td>채무자 또는 친족이 받은 훈장·포장·기장 등</td></tr>
+            <tr><td>8호</td><td>상례·제사·예배용품</td><td>위패·영정·묘비·경전·불단 등</td></tr>
+            <tr><td>9호</td><td>족보·선조승배 물건</td><td>족보·가승·사진첩 등</td></tr>
+            <tr><td>10호</td><td>도장·문패·간판</td><td>생활·직무에 없어서는 안 될 도장·문패·간판</td></tr>
+            <tr><td>11호</td><td>일기장·상업장부</td><td>생활·직업에 없어서는 안 될 일기장·상업장부 등</td></tr>
+            <tr><td>12호</td><td>미공표 저작·발명물</td><td>아직 공표되지 않은 저작물·발명 관련 물건</td></tr>
+            <tr><td>13호</td><td>교과서·학습용구</td><td>교육·종교기관에서 사용하는 교과서·교리서·학습용구</td></tr>
+            <tr><td>14호</td><td>신체보조기구</td><td>안경·보청기·의치·의수족·지팡이·장애보조용 휠체어 등</td></tr>
+            <tr><td>15호</td><td>장애인용 경형자동차</td><td>자동차관리법에 따른 장애인용 경형자동차</td></tr>
+            <tr><td>16호</td><td>법령상 의무 소방설비 등</td><td>법령에 따라 설비해야 하는 소방설비·경보기구·피난시설 등</td></tr>
+          </tbody>
+        </table>
+        <h3>③ 직업상 필수 도구 (6호) — 실무에서 가장 자주 문제가 되는 항목</h3>
+        <div class="case-box">
+          <div class="case-title">📋 6호 해당 여부 판단 예시</div>
+          <p><strong>해당됨(압류 금지):</strong> 재단사의 재봉기, 음악가의 악기, 의사의 산소호흡기, 사진사의 카메라·약품, 수리업자의 수선 공구, 소규모 음식점·다방 주인의 조리기구(자기 노동이 주인 경우)</p>
+          <p><strong>해당 안 됨(압류 가능):</strong> 대규모 공장 소유주의 기계(물적 설비가 주), 스스로 진료 않고 의사를 고용만 하는 병원 경영자, 음식점의 TV·에어컨·음향기기</p>
+        </div>
+        <h3>④ 생계비 현금 (3호) — 185만 원</h3>
+        <p>채무자가 보유한 현금 중 1개월치 생계비에 해당하는 <strong>185만 원</strong>은 압류가 금지됩니다(민사집행법 시행령 제2조). 이 금액을 초과하는 현금은 압류 가능합니다.</p>
+        <div class="warn-box">
+          <div class="warn-title">⚠️ 압류금지는 강행규정 — 집행관 직권 적용</div>
+          <p>압류금지 규정은 당사자 합의로 배제할 수 없는 강행규정입니다. 집행관은 채권자의 신청 내용이나 채무자의 동의 여부와 관계없이 직권으로 압류금지 여부를 조사해야 합니다.</p>
+        </div>
+        <h3>⑤ 압류금지 범위의 변경 — 법원에 신청 가능</h3>
+        <div class="summary-box">
+          <span class="label">범위 변경의 두 방향</span>
+          <ul>
+            <li><strong>확장 (채무자 신청):</strong> 195조상 압류금지 물건이 아니더라도 채무자 생활형편 등을 고려하여 압류금지 물건으로 지정해 달라고 법원에 신청할 수 있습니다.</li>
+            <li><strong>축소 (채권자 신청):</strong> 195조상 압류금지 물건이지만 채권자의 사정 등을 고려하여 압류가 가능하도록 해달라고 법원에 신청할 수 있습니다.</li>
+          </ul>
+        </div>`
+      },
+      {
+        heading: '자주 하는 질문',
+        content: `<div class="qna-item">
+          <div class="qna-q">채무자의 TV·냉장고 같은 가전제품을 압류할 수 있나요?</div>
+          <div class="qna-a">
+            <p>가전제품은 원칙적으로 압류 대상입니다. 다만 1호의 '생활필수품'에 해당하는지가 문제됩니다. 단 하나밖에 없고 생활에 필수적인 물건이라면 압류가 제한될 수 있지만, 동종의 기능을 하는 물건이 여러 개 있거나 대체 가능하다면 압류가 가능합니다. TV는 일반적으로 생활필수품으로 보기 어려워 압류 대상이 되는 경우가 많습니다.</p>
+            <p class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+          </div>
+        </div>
+        <div class="qna-item">
+          <div class="qna-q">채무자가 사업장에서 쓰는 컴퓨터·프린터도 압류할 수 있나요?</div>
+          <div class="qna-a">
+            <p>채무자가 주로 자기의 정신적·육체적 노동으로 직업이나 영업에 종사하는 경우, 그 업무에 필수적인 컴퓨터·프린터는 6호에 따라 압류가 제한될 수 있습니다. 판단이 어려운 경우에는 집행 전 법무사와 상담하여 전략을 세우는 것이 좋습니다.</p>
+            <p class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+          </div>
+        </div>
+        <div class="qna-item">
+          <div class="qna-q">집행관이 압류금지 물건을 실수로 압류했다면 어떻게 되나요?</div>
+          <div class="qna-a">
+            <p>압류금지 물건에 대한 압류는 당연무효가 아니라, 집행에 관한 이의(민사집행법 제16조)를 통해 법원의 결정으로 취소할 수 있습니다. 이의 신청은 매각 전에 신속히 해야 합니다. 매각된 후에는 매수인이 유효하게 소유권을 취득하므로 물건을 되찾기 어렵습니다.</p>
+            <p class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+          </div>
+        </div>
+        <div class="qna-item">
+          <div class="qna-q">채무자의 배우자 명의 물건도 압류할 수 있나요?</div>
+          <div class="qna-a">
+            <p>민사집행법 제190조는 채무자와 배우자의 공유 유체동산으로서 채무자가 점유하거나 배우자와 공동으로 점유하고 있는 물건은 채무자에 대한 집행권원만으로도 압류할 수 있도록 규정합니다. 집행관은 점유를 기준으로 압류 여부를 판단하므로, 채무자가 점유하는 물건이라면 일단 압류할 수 있습니다.</p>
+            <p class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+          </div>
+        </div>
+        <div class="qna-item">
+          <div class="qna-q">상품권이나 어음·수표도 압류할 수 있나요?</div>
+          <div class="qna-a">
+            <p>네, 가능합니다. 민사집행법 제189조 제2항 제3호는 "유가증권으로서 배서가 금지되지 아니한 것"을 유체동산으로 규정합니다. 따라서 어음·수표·상품권·선하증권 등 배서 가능한 유가증권은 집행관이 점유·압류하여 경매할 수 있습니다.</p>
+            <p class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+          </div>
+        </div>`
+      },
+      {
+        heading: '관련 판례',
+        content: `<div class="ruling-box">
+          <div class="ruling-header">종물의 거래 객체 독립성</div>
+          <p>백화점 건물 지하 2층 기계실에 설치된 전화교환설비는 건물의 종물에 해당하므로 건물이 압류된 후에는 독립하여 유체동산 압류 대상이 되지 않습니다(대판 1993. 8. 13. 92다43142). 반면, 괴목·식재된 수목·임야 내 자연석을 조각한 석불 등은 독립하여 거래의 객체가 될 수 있어 유체동산으로 압류할 수 있습니다.</p>
+          <p><strong>실무적 의미:</strong> 부동산과 함께 있는 물건이라도 독립하여 거래 가능하면 유체동산으로 별도 압류가 가능하나, 주물인 부동산이 먼저 압류된 후에는 종물은 독립 압류 대상이 되지 않습니다.</p>
+        </div>
+        <div class="ruling-box">
+          <div class="ruling-header">압류금지 위반 압류의 효력</div>
+          <p>대법원은 압류금지 규정을 어긴 경우 그 압류는 당연무효가 아니고 집행에 관한 이의(민사집행법 제16조)에 의해 취소할 수 있을 뿐이라고 하였습니다(대판 2003. 9. 26. 2001다52773). 또한 압류금지 물건이 매각된 때에는 매수인은 유효하게 소유권을 취득한다고 판시하였습니다.</p>
+          <p><strong>실무적 의미:</strong> 채무자는 압류금지 물건에 대한 이의를 경매 전에 반드시 제기해야 합니다. 매각 후에는 소유권을 되찾기 어렵습니다.</p>
+        </div>`
+      },
+      {
+        heading: '주의사항',
+        content: `<div class="warn-box">
+          <div class="warn-title">⚠️ 집행 전 현장 파악이 중요합니다</div>
+          <p>막상 집행관이 현장에 가도 압류금지 물건밖에 없거나, 이미 물건이 없어진 경우가 많습니다. 사전에 채무자의 사업장이나 주거지에 압류 가능한 물건이 있는지 파악하고 집행 신청을 해야 불필요한 집행 비용 낭비를 막을 수 있습니다.</p>
+        </div>
+        <div class="warn-box">
+          <div class="warn-title">ℹ️ 생계비 185만 원은 현금에만 적용</div>
+          <p>3호의 생계비 압류 금지는 '현금'에만 적용됩니다. 채무자가 예금·적금·계좌에 보관하는 금전은 채권 집행 방법으로 다루어지며, 별도의 압류금지 규정이 적용됩니다.</p>
+        </div>`
+      }
+    ],
+    laws: [
+      { name: '민사집행법 제195조', desc: '압류금지 동산' },
+      { name: '민사집행법 제196조', desc: '압류금지 동산의 범위 변경' },
+      { name: '민사집행법 시행령 제2조', desc: '생계비 압류금지 금액(185만 원)' },
+    ],
+    forms: []
+  },
+
+  {
+    id: 'ef-50',
+    title: '집행관 신청 절차 및 준비서류 — 유체동산 강제집행',
+    meta: '집행 위임 신청부터 현장 압류·경매까지 단계별 절차와 필요 서류를 안내합니다.',
+    sections: [
+      {
+        heading: '이런 분께 필요합니다',
+        content: `<div class="checklist"><ul>
+          <li>판결문(또는 공정증서)을 가지고 있고, 이제 실제로 집행을 신청하려고 합니다.</li>
+          <li>집행관이 어디에 있는지, 어떻게 찾아가야 하는지 모릅니다.</li>
+          <li>집행 신청에 필요한 서류가 무엇인지 목록을 확인하고 싶습니다.</li>
+          <li>신청 후 집행관이 언제 현장에 오는지, 경매는 어떻게 진행되는지 궁금합니다.</li>
+          <li>집행 비용이 어느 정도 들며 어떻게 납부하는지 알고 싶습니다.</li>
+        </ul></div>`
+      },
+      {
+        heading: '핵심정리',
+        content: `<div class="summary-box">
+          <span class="label">절차 흐름 요약</span>
+          <ul>
+            <li>유체동산 강제집행은 채권자가 집행관(지방법원 소속)에게 서면으로 집행을 위임(신청)함으로써 시작됩니다(민사집행법 제4조).</li>
+            <li>집행관은 신청을 받은 후 수수료·비용 예납을 받고, 채무자 점유 장소로 나가 압류를 실시한 뒤 경매(주로 호가경매)를 진행합니다.</li>
+            <li>⚡ <strong>소멸시효 주의:</strong> 집행권원에 기재된 채권의 소멸시효가 완성되기 전에 집행을 신청해야 합니다. 집행 신청은 시효 중단 사유가 됩니다.</li>
+          </ul>
+        </div>`
+      },
+      {
+        heading: '단계별 상세 절차',
+        content: `<div class="flow">
+          <div class="flow-item">
+            <div class="flow-num">1</div>
+            <div>
+              <strong>집행문 부여 받기 — 신청 전 반드시 필요</strong>
+              <p>판결문·지급명령·공정증서 등 집행권원이 있더라도, <strong>집행문</strong>을 별도로 받아야 집행 신청이 가능합니다(민사집행법 제28조). 판결·지급명령의 경우 판결을 내린 법원의 법원서기관·법원주사보에게, 공정증서는 해당 공증인 사무소에 신청합니다.</p>
+            </div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-num">2</div>
+            <div>
+              <strong>관할 집행관 확인 및 방문</strong>
+              <p>채무자의 주소지 또는 집행할 물건 소재지를 관할하는 지방법원 소속 집행관에게 신청해야 합니다. 집행관 사무소는 해당 지방법원 청사 내에 있습니다.</p>
+            </div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-num">3</div>
+            <div>
+              <strong>집행 신청서 작성 및 제출</strong>
+              <p>유체동산에 대한 강제집행 신청은 반드시 <strong>서면</strong>으로 해야 합니다(민사집행법 제4조). 집행관 사무소에 비치된 '유체동산에 대한 강제집행신청서' 양식을 작성하여 제출합니다.</p>
+              <div class="summary-box" style="margin-top:10px;">
+                <span class="label">신청서에 기재할 사항</span>
+                <ul>
+                  <li>채권자·채무자의 성명(상호)·주소·주민등록번호</li>
+                  <li>집행권원의 표시 (판결 사건번호 등)</li>
+                  <li>청구금액 및 집행 목적물 소재지(채무자 주소)</li>
+                  <li>집행 위임의 취지</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-num">4</div>
+            <div>
+              <strong>첨부서류 제출 및 비용 예납</strong>
+              <p>신청서와 함께 아래 서류를 첨부하고, 집행관이 산정한 수수료 및 비용을 예납해야 합니다(민사집행법 제12조). 예납이 완료되어야 집행 절차가 개시됩니다.</p>
+              <table style="margin-top:10px;">
+                <thead><tr><th>서류명</th><th>발급 기관</th><th>주의사항</th></tr></thead>
+                <tbody>
+                  <tr><td>집행력 있는 정본(집행문 부여된 판결·공정증서)</td><td>판결 법원 / 공증인 사무소</td><td>집행문 부여 받은 것이어야 함</td></tr>
+                  <tr><td>송달증명원 등</td><td>판결 법원</td><td>채무자에게 판결이 송달되었음을 증명</td></tr>
+                  <tr><td>채무자 주소 확인 서류(주민등록초본 등)</td><td>주민센터 / 등기소</td><td>채무자 현재 주소가 정확해야 함</td></tr>
+                  <tr><td>위임장(대리인이 신청하는 경우)</td><td>채권자 작성</td><td>법무사 등 대리인이 신청하는 경우</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-num">5</div>
+            <div>
+              <strong>집행관의 현장 방문 및 압류 실시</strong>
+              <p>집행관은 예납 완료 후 채무자의 주거·사무소·창고 등을 방문하여 채무자가 점유하는 유체동산에 압류표(딱지)를 부착합니다(민사집행법 제188조). 채권자나 대리인은 현장에 동행할 수 있으며, 동행 시 압류 가능한 물건을 직접 확인할 수 있어 효율적입니다.</p>
+              <div class="warn-box" style="margin-top:10px;">
+                <div class="warn-title">⚠️ 현장 동행을 강력히 권장합니다</div>
+                <p>집행관 단독으로 현장에 방문할 경우 압류 가능한 물건을 놓치거나, 채무자의 방해로 집행이 제대로 이루어지지 않는 사례가 있습니다.</p>
+              </div>
+            </div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-num">6</div>
+            <div>
+              <strong>호가경매(매각) 진행</strong>
+              <p>압류 후 집행관은 매각기일을 정하고 호가경매 또는 입찰의 방법으로 압류물을 매각합니다(민사집행법 제199조). 호가경매는 현장에서 여러 매수 희망자가 가격을 불러 최고가에 낙찰하는 방식입니다.</p>
+            </div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-num">7</div>
+            <div>
+              <strong>매각대금 교부 또는 배당</strong>
+              <p>채권자가 한 명이면 집행관이 매각대금을 채권자에게 직접 교부합니다(민사집행법 제201조 제1항). 채권자가 여럿이거나 배당요구가 있는 경우, 배당협의가 이루어지면 협의에 따라, 협의가 안 되면 집행관이 매각대금을 공탁하고 법원이 배당절차를 진행합니다(민사집행법 제222조).</p>
+            </div>
+          </div>
+        </div>
+        <div class="case-box" style="margin-top:24px;">
+          <div class="case-title">📋 실제 진행 사례</div>
+          <p>C씨는 D씨에 대해 3,000만 원의 확정 판결을 받았습니다. D씨가 돈을 주지 않자, C씨는 판결을 내린 법원에서 집행문을 받아 D씨 사업장(음식점) 소재지 관할 집행관 사무소에 강제집행 신청서를 제출했습니다. 집행관은 수수료 예납 후 날짜를 정해 D씨 음식점에 방문, 냉장고·주방기기·현금(185만 원 초과분)에 압류표를 부착했습니다. 2주 후 매각기일에 호가경매를 진행하여 총 350만 원에 낙찰되었고, 집행비용을 공제한 나머지를 C씨에게 교부했습니다.</p>
+        </div>`
+      },
+      {
+        heading: '자주 하는 질문',
+        content: `<div class="qna-item">
+          <div class="qna-q">집행 신청부터 실제 압류까지 얼마나 걸리나요?</div>
+          <div class="qna-a">
+            <p>집행 신청 후 수수료 예납까지 완료하면, 집행관이 일정을 잡아 현장 방문을 합니다. 일반적으로 신청 후 수일~수 주 내에 현장 방문이 이루어지나, 집행관의 업무량에 따라 달라질 수 있습니다. 압류 후 호가경매까지는 통상 1~2주 정도 소요됩니다.</p>
+            <p class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+          </div>
+        </div>
+        <div class="qna-item">
+          <div class="qna-q">채무자가 이사를 가서 주소를 모르면 어떻게 하나요?</div>
+          <div class="qna-a">
+            <p>집행관은 신청서에 기재된 주소를 기준으로 방문합니다. 채무자 주소를 모르는 경우에는 채권자가 채무자의 현재 주소를 확인해야 합니다. 채무자가 주소를 숨기거나 이사를 반복하는 경우에는 법원을 통한 재산 명시 명령·재산 조회 신청을 병행하는 것이 효과적입니다.</p>
+            <p class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+          </div>
+        </div>
+        <div class="qna-item">
+          <div class="qna-q">⚡ 집행 신청 기간에 제한이 있나요?</div>
+          <div class="qna-a">
+            <p>집행권원에 기재된 채권의 <strong>소멸시효</strong>가 완성되기 전에 집행을 신청해야 합니다. 확정 판결에 기한 채권의 소멸시효는 10년이며(민사소송법 제165조), 강제집행 신청(집행 위임)은 소멸시효 중단 사유에 해당합니다(민법 제168조 제2호). ⚡ 이 기간을 넘기면 권리를 잃으므로, 판결 후 오랜 시간이 지났다면 반드시 소멸시효 여부를 먼저 확인하십시오.</p>
+            <p class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+          </div>
+        </div>
+        <div class="qna-item">
+          <div class="qna-q">법무사에게 대리 신청을 맡길 수 있나요?</div>
+          <div class="qna-a">
+            <p>네, 법무사는 유체동산 강제집행 신청에 관한 대리 업무를 수행할 수 있습니다. 법무사에게 위임하면 집행문 부여 신청, 집행관 사무소 방문·서류 제출, 현장 동행, 배당금 수령까지 전 과정을 대리하거나 지원받을 수 있습니다.</p>
+            <p class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+          </div>
+        </div>`
+      },
+      {
+        heading: '주의사항',
+        content: `<div class="warn-box">
+          <div class="warn-title">⚠️ 가장 흔한 실수 1 — 집행문 없이 신청</div>
+          <p>판결문을 가지고 있어도 집행문 부여를 받지 않으면 집행 신청이 수리되지 않습니다. 집행문 부여 신청을 먼저 완료한 후 집행관 사무소를 방문하세요.</p>
+        </div>
+        <div class="warn-box">
+          <div class="warn-title">⚠️ 가장 흔한 실수 2 — 채무자 주소 불명확</div>
+          <p>신청서에 기재한 주소가 채무자의 현재 주소와 다르면 집행관이 현장에 가도 압류를 실시하지 못할 수 있습니다. 신청 전 반드시 최신 주민등록초본 또는 법인등기부등본으로 현재 주소를 확인하세요.</p>
+        </div>
+        <div class="warn-box">
+          <div class="warn-title">⚡ 소멸시효 10년 — 판결 후에도 관리 필요</div>
+          <p>확정 판결 이후 아무 조치를 취하지 않으면 10년 후 소멸시효가 완성됩니다. ⚡ 이 기간을 넘기면 권리를 잃습니다.</p>
+        </div>
+        <div class="warn-box">
+          <div class="warn-title">ℹ️ 압류 물건이 없을 때 — 재산명시·재산조회 신청</div>
+          <p>집행관이 현장을 방문했는데 압류 가능한 물건이 없거나 채무자가 없는 경우, 집행이 불발될 수 있습니다. 법원에 <strong>재산명시 명령</strong>(민사집행법 제61조) 또는 <strong>재산조회 신청</strong>(민사집행법 제74조)을 통해 채무자의 재산을 파악한 뒤 적합한 집행 방법을 선택하세요.</p>
+        </div>`
+      }
+    ],
+    laws: [
+      { name: '민사집행법 제4조', desc: '집행 신청 방법(서면)' },
+      { name: '민사집행법 제12조', desc: '집행비용의 예납' },
+      { name: '민사집행법 제199조', desc: '유체동산의 매각 방법' },
+    ],
+    forms: []
+  },
+
+  {
+    id: 'ef-51',
+    title: '집행관이 왔을 때 — 채무자의 권리와 합법적인 대응 방법',
+    meta: '압류를 막거나 지연할 수 있는 법적 수단인 이의신청·집행정지·범위 변경 방법을 안내합니다.',
+    sections: [
+      {
+        heading: '이런 분께 필요합니다',
+        content: `<div class="checklist"><ul>
+          <li>갑자기 집행관이 찾아와 물건에 압류 딱지를 붙여 당황스럽습니다.</li>
+          <li>압류된 물건 중에 생활에 꼭 필요한 것이 있어 되돌려 받고 싶습니다.</li>
+          <li>압류된 물건이 내 것이 아니거나, 채무 자체에 문제가 있다고 생각합니다.</li>
+          <li>채권자와 협상할 시간을 벌기 위해 집행을 일시적으로 멈출 방법이 있는지 알고 싶습니다.</li>
+          <li>집행관이 요구하는 것 중 거부할 수 있는 것과 없는 것을 구분하고 싶습니다.</li>
+        </ul></div>`
+      },
+      {
+        heading: '핵심정리',
+        content: `<div class="summary-box">
+          <span class="label">채무자가 할 수 있는 것과 할 수 없는 것</span>
+          <ul>
+            <li>집행관이 적법한 집행권원(판결문 등)을 가지고 방문하면, 채무자는 <strong>집행 자체를 거부할 수 없습니다.</strong> 방해하면 공무집행방해죄가 됩니다.</li>
+            <li>그러나 채무자는 <strong>법이 정한 적법한 방법</strong>으로 집행에 이의를 신청하거나, 집행정지를 신청하거나, 압류금지 범위 변경을 신청할 수 있습니다.</li>
+            <li>압류된 물건을 임의로 처분·은닉·손상하면 <strong>형사 처벌</strong>(강제집행 면탈죄, 형법 제327조)을 받을 수 있습니다.</li>
+          </ul>
+        </div>`
+      },
+      {
+        heading: '상세설명',
+        content: `<h3>① 집행관이 왔을 때 — 즉시 해야 할 것과 하지 말아야 할 것</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;">
+          <div style="background:#e8f5e9;border:1px solid #1a5c2e;border-radius:8px;padding:18px 20px;">
+            <div style="font-size:13px;font-weight:700;color:#1a5c2e;margin-bottom:10px;">✔ 합법적으로 할 수 있는 것</div>
+            <ul style="list-style:none;padding:0;">
+              <li style="font-size:14px;padding:3px 0 3px 18px;position:relative;"><span style="position:absolute;left:0;color:#1a5c2e;">○</span> 신분 확인 (집행관 신분증 확인 요청)</li>
+              <li style="font-size:14px;padding:3px 0 3px 18px;position:relative;"><span style="position:absolute;left:0;color:#1a5c2e;">○</span> 어떤 집행권원으로 왔는지 확인</li>
+              <li style="font-size:14px;padding:3px 0 3px 18px;position:relative;"><span style="position:absolute;left:0;color:#1a5c2e;">○</span> 압류금지 물건임을 집행관에게 고지</li>
+              <li style="font-size:14px;padding:3px 0 3px 18px;position:relative;"><span style="position:absolute;left:0;color:#1a5c2e;">○</span> 제3자 소유 물건임을 소명</li>
+              <li style="font-size:14px;padding:3px 0 3px 18px;position:relative;"><span style="position:absolute;left:0;color:#1a5c2e;">○</span> 법무사·변호사에게 즉시 연락</li>
+              <li style="font-size:14px;padding:3px 0 3px 18px;position:relative;"><span style="position:absolute;left:0;color:#1a5c2e;">○</span> 압류 과정 메모·사진 촬영</li>
+            </ul>
+          </div>
+          <div style="background:#fde8e8;border:1px solid #b00;border-radius:8px;padding:18px 20px;">
+            <div style="font-size:13px;font-weight:700;color:#b00;margin-bottom:10px;">✕ 절대 하면 안 되는 것</div>
+            <ul style="list-style:none;padding:0;">
+              <li style="font-size:14px;padding:3px 0 3px 18px;position:relative;"><span style="position:absolute;left:0;color:#b00;">✕</span> 집행관 출입 물리적으로 방해</li>
+              <li style="font-size:14px;padding:3px 0 3px 18px;position:relative;"><span style="position:absolute;left:0;color:#b00;">✕</span> 집행관에 대한 폭언·폭행</li>
+              <li style="font-size:14px;padding:3px 0 3px 18px;position:relative;"><span style="position:absolute;left:0;color:#b00;">✕</span> 압류표(딱지) 무단 제거·훼손</li>
+              <li style="font-size:14px;padding:3px 0 3px 18px;position:relative;"><span style="position:absolute;left:0;color:#b00;">✕</span> 압류된 물건 몰래 처분·은닉·이동</li>
+              <li style="font-size:14px;padding:3px 0 3px 18px;position:relative;"><span style="position:absolute;left:0;color:#b00;">✕</span> 집행관에게 거짓말로 소유권 주장</li>
+            </ul>
+          </div>
+        </div>
+        <h3>② 압류금지 물건 이의 신청</h3>
+        <p>집행관이 민사집행법 제195조의 압류금지 물건을 압류한 경우, 채무자는 <strong>집행에 관한 이의</strong>(민사집행법 제16조)를 압류 실시 법원에 신청하여 해당 압류의 취소를 구할 수 있습니다.</p>
+        <div class="summary-box">
+          <span class="label">집행에 관한 이의 신청 방법</span>
+          <ul>
+            <li>신청 기관: 압류를 실시한 집행관 소속 지방법원</li>
+            <li>신청 방법: 서면으로 신청 (구두 신청도 가능하나 서면 권장)</li>
+            <li>신청 내용: 어떤 물건이 왜 압류금지 물건에 해당하는지 구체적으로 주장·소명</li>
+            <li>⚡ 신청 시기: 경매(매각) 전에 신청해야 합니다. 매각된 이후에는 소유권을 되찾기 어렵습니다.</li>
+          </ul>
+        </div>
+        <h3>③ 압류금지 범위 변경 신청 (채무자)</h3>
+        <p>법으로 정해진 압류금지 물건이 아니더라도, 채무자의 생활 형편이나 직업상 사정을 고려하여 법원에 <strong>압류금지 범위 확장</strong>을 신청할 수 있습니다(민사집행법 제196조 제1항).</p>
+        <h3>④ 집행정지 — 잠시 멈추는 방법</h3>
+        <p>집행에 다툼이 있거나 채무자가 즉시 채무를 변제할 준비 중인 경우, 법원에 <strong>집행정지</strong>를 신청하거나 일정 금액의 담보를 공탁하여 집행을 일시 정지시킬 수 있습니다.</p>
+        <div class="summary-box">
+          <span class="label">집행정지가 인정되는 주요 사유</span>
+          <ul>
+            <li>집행권원이 상소심에서 취소되거나 변경될 가능성이 있는 경우</li>
+            <li>집행 자체에 절차적 하자가 있는 경우</li>
+            <li>채무자가 일정 금액을 담보로 공탁하고 집행정지를 신청하는 경우</li>
+            <li>청구이의의 소를 제기하면서 가처분으로 집행정지를 구하는 경우</li>
+          </ul>
+        </div>
+        <h3>⑤ 청구이의의 소 — 채무 자체에 다툼이 있을 때</h3>
+        <p>판결에서 인정된 채무가 이미 변제되었거나 소멸되었다면, 채무자는 <strong>청구이의의 소</strong>(민사집행법 제44조)를 제기하여 집행권원의 집행력을 배제시킬 수 있습니다.</p>
+        <h3>⑥ 제3자 이의의 소 — 압류된 물건이 내 것이 아닐 때</h3>
+        <p>압류된 물건의 실제 소유자가 따로 있다면, 그 소유자(제3자)가 직접 <strong>제3자 이의의 소</strong>(민사집행법 제48조)를 제기하여 압류의 취소를 구할 수 있습니다.</p>
+        <div class="case-box">
+          <div class="case-title">📋 대응 사례</div>
+          <p>E씨는 F씨에 대한 판결을 가진 채권자가 보낸 집행관이 찾아와 집에 있는 물건에 압류 딱지를 붙이는 것을 목격했습니다. 냉장고·세탁기 등 가전제품과 함께, E씨가 목수로 일하는 데 꼭 필요한 공구 세트(대체품 없음)에도 딱지가 붙었습니다. E씨는 즉시 법무사에게 연락하여, 공구 세트에 대해 민사집행법 제195조 제6호(직업상 필수 도구)를 이유로 집행에 관한 이의를 법원에 신청했습니다. 법원은 이의를 인정하여 공구 세트에 대한 압류를 취소했습니다.</p>
+        </div>`
+      },
+      {
+        heading: '자주 하는 질문',
+        content: `<div class="qna-item">
+          <div class="qna-q">집행관이 왔는데 문을 열어주지 않으면 어떻게 되나요?</div>
+          <div class="qna-a">
+            <p>집행관은 강제집행을 위해 채무자의 주거·창고·사무소에 들어갈 수 있고, 잠긴 문을 열게 하거나 직접 개방할 수 있습니다(민사집행법 제5조). 채무자가 문을 열어주지 않으면 공무집행방해죄가 성립할 수 있고, 결국 강제로 집행이 이루어질 수 있습니다. 다만 집행관은 야간(일몰 후~일출 전)이나 일요일·공휴일에는 원칙적으로 주거에 들어갈 수 없으며(민사집행법 제6조), 예외적으로 채무자 동의나 법원 허가가 있어야 합니다.</p>
+            <p class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+          </div>
+        </div>
+        <div class="qna-item">
+          <div class="qna-q">이미 빚을 갚았는데 집행관이 왔다면 어떻게 해야 하나요?</div>
+          <div class="qna-a">
+            <p>채무를 이미 변제했음에도 채권자가 강제집행을 신청한 경우라면 즉시 변제 사실을 집행관에게 고지하고, 변제 증거(영수증·입금 내역·변제 합의서 등)를 제시하세요. 병행하여 법원에 <strong>청구이의의 소</strong>(민사집행법 제44조)를 제기하고 집행정지 가처분을 신청해야 합니다.</p>
+            <p class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+          </div>
+        </div>
+        <div class="qna-item">
+          <div class="qna-q">⚡ 압류된 물건에 이의를 제기하는 기한이 있나요?</div>
+          <div class="qna-a">
+            <p>집행에 관한 이의 신청 자체에는 별도의 기한이 명시되어 있지 않습니다. 그러나 매각(경매 낙찰)이 이루어지기 전에 신청해야 실효가 있습니다. 압류금지 물건임을 이유로 이의를 제기하여 압류가 취소되더라도, 이미 매각된 경우에는 매수인이 유효하게 소유권을 취득하므로 물건을 되찾기 어렵습니다. ⚡ 이 시점을 넘기면 물건을 회복하기 극히 어렵습니다.</p>
+            <p class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+          </div>
+        </div>
+        <div class="qna-item">
+          <div class="qna-q">채권자와 합의를 해서 집행을 멈추게 할 수 있나요?</div>
+          <div class="qna-a">
+            <p>네, 가장 현실적인 해결책입니다. 채무자가 채권자와 변제 합의를 하고 채권자가 집행 취하 의사를 집행관에게 통보하면 집행이 중단됩니다. 합의 내용은 반드시 서면으로 작성하고, 채권자로부터 집행취하서 또는 영수증을 받아 집행관에게 제출하세요.</p>
+            <p class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+          </div>
+        </div>`
+      },
+      {
+        heading: '관련 판례',
+        content: `<div class="ruling-box">
+          <div class="ruling-header">압류금지 규정 위반 압류의 효력 — 당연무효 아님</div>
+          <p>대법원은 압류금지 규정을 어긴 경우 그 압류는 당연무효가 아니고 집행에 관한 이의(민사집행법 제16조)에 의하여 취소할 수 있을 뿐이라고 판시하였습니다(대판 2003. 9. 26. 2001다52773). 또한 압류금지 물건이 경매에서 매각된 경우 매수인은 유효하게 소유권을 취득한다고 하였습니다.</p>
+          <p><strong>실무적 의미:</strong> 채무자는 압류금지 물건에 대한 이의 신청을 경매 전에 반드시 완료해야 합니다. 매각 후에는 물건을 되찾을 수 없습니다.</p>
+        </div>
+        <div class="ruling-box">
+          <div class="ruling-header">집행관의 직권 조사 의무</div>
+          <p>집행관은 압류금지물건인가 여부를 직권으로 조사해야 하며, 채권자의 신청이나 채무자의 동의·승낙 여부에 관계없이 압류금지물건이면 압류를 거부해야 합니다. 집행관이 고의로 압류금지 규정을 어긴 경우에는 직무상 불법행위가 됩니다(대판 2003. 9. 26. 2001다52773).</p>
+          <p><strong>실무적 의미:</strong> 집행관이 명백히 압류금지 물건을 압류하는 경우, 채무자는 즉시 이의를 제기하고 필요하면 집행관의 불법행위에 대한 손해배상 청구도 검토할 수 있습니다.</p>
+        </div>`
+      },
+      {
+        heading: '주의사항',
+        content: `<div class="warn-box">
+          <div class="warn-title">⚠️ 압류 딱지를 절대 제거하지 마세요</div>
+          <p>압류 딱지를 임의로 떼거나 훼손하는 행위는 강제집행 면탈죄(형법 제327조)가 될 수 있습니다. 압류된 물건에 대해 다툼이 있다면 반드시 법적 절차(이의 신청 등)를 통해야 합니다.</p>
+        </div>
+        <div class="warn-box">
+          <div class="warn-title">⚠️ 압류 물건 처분은 형사 범죄</div>
+          <p>압류된 물건을 다른 사람에게 팔거나, 이동·은닉·손상하면 강제집행 면탈죄(형법 제327조)로 2년 이하의 징역 또는 500만 원 이하의 벌금에 처해질 수 있습니다.</p>
+        </div>
+        <div class="warn-box">
+          <div class="warn-title">⚡ 이의 신청은 매각 전에 신속하게</div>
+          <p>집행에 관한 이의 신청이나 제3자 이의의 소 제기는 매각(경매 낙찰) 전에 이루어져야 효과가 있습니다. ⚡ 이 시점을 넘기면 권리를 잃습니다.</p>
+        </div>
+        <div class="warn-box">
+          <div class="warn-title">ℹ️ 야간·공휴일 집행 제한</div>
+          <p>집행관은 일몰 후부터 일출 전까지, 그리고 일요일·공휴일에는 채무자 주거에 들어갈 수 없습니다(민사집행법 제6조). 단, 채무자의 동의 또는 법원의 허가가 있으면 가능합니다.</p>
+        </div>`
+      }
+    ],
+    laws: [
+      { name: '민사집행법 제16조', desc: '집행에 관한 이의 신청' },
+      { name: '민사집행법 제44조', desc: '청구이의의 소' },
+      { name: '민사집행법 제48조', desc: '제3자 이의의 소' },
+      { name: '형법 제327조', desc: '강제집행 면탈죄' },
+    ],
+    forms: []
+  },
+
+  {
+    id: 'ef-52',
+    title: '매각·배당 — 유체동산 경매 후 돈은 어떻게 받나요?',
+    meta: '호가경매 후 매각대금 교부·배당 절차, 배당요구 방법, 배당이의 기한을 안내합니다.',
+    sections: [
+      {
+        heading: '이런 분께 필요합니다',
+        content: `<div class="checklist"><ul>
+          <li>압류한 물건이 경매에서 낙찰되었는데 돈을 어떻게 받는지 모릅니다.</li>
+          <li>채권자가 여러 명인데 매각대금을 어떻게 나눠 받는지 궁금합니다.</li>
+          <li>배당요구를 해야 한다는 말을 들었는데 언제까지, 어떻게 해야 하는지 모릅니다.</li>
+          <li>경매에서 낙찰 금액이 내 채권보다 적을 때 나머지 채권은 어떻게 되는지 알고 싶습니다.</li>
+          <li>배당 결과에 불만이 있을 때 이의를 제기할 수 있는지 궁금합니다.</li>
+        </ul></div>`
+      },
+      {
+        heading: '핵심정리',
+        content: `<div class="summary-box">
+          <span class="label">매각대금 처리 — 3가지 경우</span>
+          <ul>
+            <li><strong>채권자 1인 + 대금으로 전액 변제 가능:</strong> 집행관이 매각대금을 채권자에게 직접 교부합니다(민사집행법 제201조 제1항).</li>
+            <li><strong>채권자 여럿 + 대금으로 전액 변제 가능:</strong> 집행관이 각 채권자에게 채권액 교부 후 나머지를 채무자에게 교부합니다(민집규칙 제155조 제1항).</li>
+            <li><strong>채권자 여럿 + 대금이 부족한 경우:</strong> 채권자 간 배당협의가 이루어지면 협의대로, 협의 불성립 시 집행관이 매각대금을 공탁하고 법원이 배당절차를 진행합니다(민사집행법 제222조).</li>
+          </ul>
+        </div>`
+      },
+      {
+        heading: '상세설명',
+        content: `<h3>① 호가경매 — 매각 방법의 기본</h3>
+        <p>유체동산의 매각은 원칙적으로 <strong>호가경매</strong> 방식으로 진행됩니다(민집규칙 제145조). 호가경매는 집행관이 매각기일에 현장에서 매수 희망자들의 매수 신청을 받아 최고가에 낙찰하는 방식입니다. 특수한 물건의 경우 법원이 명하는 <strong>특별현금화 방법</strong>을 사용하기도 합니다(민사집행법 제214조).</p>
+        <h3>② 매각대금의 교부 — 채권자 1인인 경우</h3>
+        <p>채권자가 한 명이고 배당요구나 이중압류가 없으면, 집행관은 압류금전(현금 압류)이나 압류물 매각대금을 채권자에게 직접 교부합니다.</p>
+        <div class="summary-box">
+          <span class="label">단독 채권자 교부 금액 계산</span>
+          <ul>
+            <li>매각대금 - 집행비용(집행관 수수료·실비 등) = 채권자에게 교부되는 금액</li>
+            <li>교부금액이 채권액보다 적으면 미수령 채권 부분은 여전히 채무자에게 청구할 수 있습니다.</li>
+            <li>교부금액이 채권액(원금+이자+비용)을 초과하면 나머지는 채무자에게 반환합니다.</li>
+          </ul>
+        </div>
+        <h3>③ 배당요구 — 다른 채권자가 참여하는 방법</h3>
+        <p>압류 채권자 이외의 다른 채권자도 <strong>배당요구</strong>를 하면 매각대금 배당에 참여할 수 있습니다(민사집행법 제217조). 배당요구는 집행관이 정한 <strong>배당요구 종기(終期)</strong>까지 해야 합니다.</p>
+        <div class="warn-box">
+          <div class="warn-title">⚡ 배당요구는 기한 내에!</div>
+          <p>배당요구 종기까지 배당요구를 하지 않으면 해당 집행 절차에서 배당을 받을 수 없습니다(민사집행법 제220조 제1항 제1호). ⚡ 이 기간을 넘기면 배당을 받을 권리를 잃습니다.</p>
+        </div>
+        <h3>④ 이중압류 — 동일 물건에 여러 채권자가 압류한 경우</h3>
+        <p>이미 압류된 유체동산에 다른 채권자가 새로 압류를 신청하면 <strong>이중압류</strong>(민사집행법 제215조)가 됩니다. 이중압류는 선행 압류에 대한 배당요구의 성격을 가지며, 이중압류를 신청한 채권자도 매각대금 배당에 참여할 수 있습니다.</p>
+        <h3>⑤ 매각대금이 부족할 때 — 배당협의와 공탁·배당절차</h3>
+        <div class="flow">
+          <div class="flow-item">
+            <div class="flow-num">1</div>
+            <div>
+              <strong>배당협의 시도</strong>
+              <p>집행관이 채권자들 간 합의를 유도. 모든 채권자가 동의하면 협의 내용대로 배당.</p>
+            </div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-num">2</div>
+            <div>
+              <strong>배당협의 불성립 → 공탁 및 사유신고</strong>
+              <p>협의 실패 시 집행관이 매각대금을 공탁하고 법원에 사유신고(민집 제222조).</p>
+            </div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-num">3</div>
+            <div>
+              <strong>법원의 배당절차 개시</strong>
+              <p>집행법원이 배당기일을 지정하고 배당표를 작성. 각 채권자에게 배당기일 통지.</p>
+            </div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-num">4</div>
+            <div>
+              <strong>배당 실시</strong>
+              <p>배당기일에 법원이 배당표에 따라 각 채권자에게 배당금 교부. 이의가 없으면 그대로 확정.</p>
+            </div>
+          </div>
+        </div>
+        <h3>⑥ 배당 순위 — 누가 먼저 받나</h3>
+        <div class="summary-box">
+          <span class="label">배당 우선순위 개요</span>
+          <ul>
+            <li><strong>1순위:</strong> 집행비용(집행관 수수료·실비 등) — 최우선 공제</li>
+            <li><strong>2순위:</strong> 질권 등 담보권이 설정된 채권자 (설정 순위에 따라)</li>
+            <li><strong>3순위:</strong> 임금·퇴직금 등 최우선 변제권 있는 채권 (근로기준법 등)</li>
+            <li><strong>4순위:</strong> 일반 집행채권자 (압류·배당요구 순서에 따라 안분)</li>
+          </ul>
+        </div>
+        <div class="case-box">
+          <div class="case-title">📋 배당 계산 예시</div>
+          <p>채무자의 물건이 300만 원에 낙찰되었습니다. 집행비용 30만 원을 공제하면 배당 가능 금액은 270만 원입니다. 채권자 A(채권 200만 원)와 채권자 B(채권 150만 원), 총 350만 원의 채권이 있습니다. 배당 가능 금액 270만 원이 부족하므로 채권액 비율로 안분합니다. A는 270만 원 × (200/350) ≒ 154만 원, B는 270만 원 × (150/350) ≒ 116만 원을 배당받습니다. 각자 미수령 채권은 채무자에게 계속 청구할 수 있습니다.</p>
+        </div>`
+      },
+      {
+        heading: '자주 하는 질문',
+        content: `<div class="qna-item">
+          <div class="qna-q">경매 낙찰 금액이 채권 전액에 미치지 못하면 나머지는 어떻게 되나요?</div>
+          <div class="qna-a">
+            <p>매각대금이 채권 전액에 미치지 못하는 경우, 그 부분은 이번 집행 절차에서 회수하지 못합니다. 그러나 채권 자체가 소멸하는 것은 아닙니다. 미회수 채권에 대해서는 채무자의 다른 재산(은행 계좌, 급여, 다른 물건 등)에 대해 별도로 강제집행을 신청할 수 있습니다.</p>
+            <p class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+          </div>
+        </div>
+        <div class="qna-item">
+          <div class="qna-q">⚡ 배당요구는 언제까지 해야 하나요?</div>
+          <div class="qna-a">
+            <p>집행관은 매각기일로부터 역산하여 배당요구 종기를 정하고, 이를 이해관계인에게 고지합니다. 배당요구는 이 종기 전에 집행관에게 서면으로 해야 합니다. 종기 이후에는 배당요구가 허용되지 않으며, 해당 집행에서 배당을 받을 수 없습니다. ⚡ 배당요구 종기를 넘기면 그 사건에서 배당을 받을 권리를 잃습니다.</p>
+            <p class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+          </div>
+        </div>
+        <div class="qna-item">
+          <div class="qna-q">배당 결과가 불공정하다고 느껴지면 이의를 제기할 수 있나요?</div>
+          <div class="qna-a">
+            <p>네, 가능합니다. 법원이 진행하는 배당 절차에서 배당기일에 출석한 채권자는 다른 채권자의 채권 또는 채권 순위에 대해 <strong>배당이의</strong>를 제기할 수 있습니다(민사집행법 제256조 이하). 배당이의 후에도 합의가 안 되면 <strong>배당이의의 소</strong>를 제기하여 법원의 최종 결정을 받을 수 있습니다. 이 소송은 배당기일로부터 1주일 이내에 제기해야 합니다(민사집행법 제256조 제1항). ⚡ 이 기간을 넘기면 배당표가 확정되어 이의를 제기할 수 없습니다.</p>
+            <p class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+          </div>
+        </div>
+        <div class="qna-item">
+          <div class="qna-q">경매가 유찰되면 어떻게 되나요?</div>
+          <div class="qna-a">
+            <p>호가경매에서 최저매각가격 이상으로 매수 신청을 하는 사람이 없으면 경매가 유찰됩니다. 집행관은 유찰된 경우 새로운 매각기일을 정하여 다시 경매를 진행합니다. 반복 유찰이 예상되거나, 특정 물건의 경우 법원에 <strong>특별현금화 방법</strong>(민사집행법 제214조)을 신청하여 전문 경매 기관을 통한 매각을 진행할 수도 있습니다.</p>
+            <p class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+          </div>
+        </div>`
+      },
+      {
+        heading: '관련 판례 및 실무',
+        content: `<div class="ruling-box">
+          <div class="ruling-header">배당협의 불성립 시 공탁 의무</div>
+          <p>유체동산 집행에서 채권자가 경합하고 배당해야 할 금전이 각 채권자를 만족시키기에 부족하며 채권자 사이에 배당협의가 이루어지지 않은 경우, 집행관은 매각대금을 공탁하여야 하고 집행법원은 배당절차를 개시·진행합니다(민사집행법 제222조, 제252조 제1호).</p>
+          <p><strong>실무적 의미:</strong> 집행관이 임의로 특정 채권자에게 유리하게 배당할 수 없으며, 반드시 법원의 배당절차를 거쳐야 합니다.</p>
+        </div>
+        <div class="ruling-box">
+          <div class="ruling-header">집행관의 불법행위 책임</div>
+          <p>집행관은 독립·단독의 사법기관으로서 집행에 필요한 법규 해석 등을 그르쳐 타인에게 손해를 가하면 불법행위 책임을 집니다(대판 2003. 9. 26. 2001다52773). 집행관이 공탁 의무를 위반하거나 배당 절차를 부당하게 진행하는 경우 이에 대한 책임을 물을 수 있습니다.</p>
+          <p><strong>실무적 의미:</strong> 집행관의 위법 행위로 손해가 발생한 경우 집행에 관한 이의(민사집행법 제16조) 또는 손해배상 청구를 통해 권리를 구제받을 수 있습니다.</p>
+        </div>`
+      },
+      {
+        heading: '주의사항',
+        content: `<div class="warn-box">
+          <div class="warn-title">⚠️ 동산 경매 낙찰가는 시세보다 훨씬 낮습니다</div>
+          <p>유체동산은 부동산과 달리 경매에서 시세의 20~30%에 낙찰되는 경우가 많습니다. 채권 회수 목적의 집행을 계획할 때는 이를 현실적으로 감안해야 합니다. 가전제품·가구 등은 특히 낙찰가가 낮으므로, 집행 비용 대비 실제 회수 가능 금액을 사전에 계산해 보는 것이 좋습니다.</p>
+        </div>
+        <div class="warn-box">
+          <div class="warn-title">⚡ 배당이의 소송 기한 — 배당기일로부터 1주일</div>
+          <p>배당기일에서 배당이의를 제기한 경우, 이의의 소를 배당기일로부터 1주일 이내에 제기해야 합니다(민사집행법 제256조 제1항). ⚡ 이 기간을 넘기면 배당표가 확정되어 다툴 수 없습니다.</p>
+        </div>
+        <div class="warn-box">
+          <div class="warn-title">ℹ️ 집행 비용도 채무자에게 청구 가능</div>
+          <p>강제집행에 소요된 집행비용(집행관 수수료·실비·인지대 등)은 채무자가 부담해야 할 집행채무의 일부로 인정됩니다. 매각대금에서 먼저 공제되며, 부족하면 채무자에게 별도 청구할 수 있습니다.</p>
+        </div>`
+      }
+    ],
+    laws: [
+      { name: '민사집행법 제199조', desc: '유체동산의 매각 방법(호가경매)' },
+      { name: '민사집행법 제201조', desc: '매각대금의 교부' },
+      { name: '민사집행법 제217조', desc: '배당요구' },
+      { name: '민사집행법 제222조', desc: '배당협의 불성립 시 공탁' },
+      { name: '민사집행법 제256조', desc: '배당이의 및 배당이의의 소' },
+    ],
+    forms: []
   }
 ]
