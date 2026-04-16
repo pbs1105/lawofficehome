@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find \"C:/Users/pbaes/OneDrive/바탕 화면/homepage\\(claudeCode\\)\" -type f)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(find \"C:/Users/pbaes/OneDrive/바탕 화면/homepage\\(claudeCode\\)\" -type f -o -type d)",
+      "Bash(wc -l \"C:/Users/pbaes/OneDrive/바탕 화면/homepage\\(claudeCode\\)/js/main.js\")",
+      "Bash(wc -l \"C:/Users/pbaes/OneDrive/바탕 화면/homepage\\(claudeCode\\)/css/style.css\")",
+      "Bash(ls -la \"C:/Users/pbaes/OneDrive/바탕 화면/homepage\\(claudeCode\\)/\")",
+      "Bash(ls -laR \"C:/Users/pbaes/OneDrive/바탕 화면/homepage\\(claudeCode\\)/css/\" \"C:/Users/pbaes/OneDrive/바탕 화면/homepage\\(claudeCode\\)/js/\")",
+      "Bash(ls '/c/Users/pbaes/OneDrive/바탕 화면/법무사업무자동화\\(홈피,n8n,노션,클로드\\)/교재스캔\\(ocr\\)/상속/pdf교재파일/상속등기실무pdf/')",
+      "Bash(python3:*)",
+      "Bash(wc -l \"C:\\\\Users\\\\pbaes\\\\OneDrive\\\\바탕 화면\\\\법무사업무자동화\\(홈피,n8n,노션,클로드\\)\\\\homepage\\(claudeCode\\)\\\\css\\\\style.css\")",
+      "Bash(wc -l \"/c/Users/pbaes/OneDrive/바탕 화면/법무사업무자동화\\(홈피,n8n,노션,클로드\\)/homepage\\(claudeCode\\)/js/main.js\")",
+      "Bash(grep -n \"id: ''in-\" \"/c/Users/pbaes/OneDrive/바탕 화면/법무사업무자동화\\(홈피,n8n,노션,클로드\\)/homepage\\(claudeCode\\)/js/main.js\")",
+      "Bash(head -20 echo \"---\" grep -n \"page-wrap\\\\|class=\"\"container\"\"\\\\|<body>\\\\|<footer\\\\|site-footer\\\\|site-header\" \"/c/Users/pbaes/OneDrive/바탕 화면/법무사업무자동화\\(홈피,n8n,노션,클로드\\)/교재스캔\\(ocr\\)/상속/pdf교재파일/상속등기실무pdf/상속_14_보존등기.html\")",
+      "Bash(python update_css.py)"
+    ]
+  }
+}

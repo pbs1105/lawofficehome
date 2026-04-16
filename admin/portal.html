@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>내부 포털 - 박배선법무사 사무소</title>
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body>
+
+  <!-- ========== 상단 헤더 ========== -->
+  <header class="portal-header">
+    <!-- 모바일 사이드바 토글 -->
+    <button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- 로고 -->
+    <div class="ph-logo">
+      <div class="logo-icon">⚖</div>
+      <span class="ph-logo-text">박배선법무사</span>
+    </div>
+    <span class="ph-portal-label">직원 내부 포털</span>
+
+    <!-- 우측: 날짜/시간 + 로그아웃 -->
+    <div class="ph-right">
+      <span class="ph-datetime" id="portalDateTime"></span>
+      <button class="ph-logout" onclick="logout()">로그아웃</button>
+    </div>
+  </header>
+
+  <!-- ========== 메인 레이아웃 ========== -->
+  <div class="portal-layout">
+    <!-- 좌측 사이드바 -->
+    <aside class="sidebar" id="sidebar">
+      <!-- JS에서 renderSidebar()로 채워짐 -->
+    </aside>
+
+    <!-- 모바일 오버레이 -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- 우측 콘텐츠 영역 -->
+    <main class="content-area" id="contentArea">
+      <!-- JS에서 동적으로 채워짐 -->
+    </main>
+  </div>
+
+  <script src="../js/admin.js"></script>
+  <script>
+    // 포털 초기화 (인증 확인 포함)
+    document.addEventListener('DOMContentLoaded', initPortal);
+  </script>
+</body>
+</html>
