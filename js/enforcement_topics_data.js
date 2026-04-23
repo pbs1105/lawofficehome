@@ -1,338 +1,737 @@
 const ENFORCEMENT_TOPICS = [
-  {
+{
     id: 'ef-1',
-    title: '강제집행 처음부터 끝까지 — 판결 받고 나서 어떻게 하나요?',
-    meta: '',
+    title: '강제집행 처음부터 끝까지',
+    meta: '판결 받고 나서 어떻게 하나요?',
     sections: [
       {
         heading: '이런 분께 필요합니다',
-        content: `<ul>
-<li>판결을 받았는데 아직 돈을 못 받은 상황</li>
-<li>상대방이 자발적으로 판결금을 지급하지 않음</li>
-<li>강제집행을 시작해야 하는데 어떻게 해야 할지 모름</li>
-<li>집행법원과 집행관의 차이를 알고 싶음</li>
-<li>강제집행의 전체 절차를 이해하고 싶음</li>
-<li>부동산이나 재산을 압류해야 하는 경우</li>
-</ul>`
+        content: `<div class="checklist">
+                <ul>
+                    <li>법원에서 판결을 받았는데 상대방이 판결에 따르지 않는 경우</li>
+                    <li>채무자의 재산을 압류하거나 강제로 회수해야 하는 경우</li>
+                    <li>강제집행 절차가 어떻게 진행되는지 알고 싶은 경우</li>
+                    <li>집행권원(집행 증서)이 필요한 경우</li>
+                    <li>채무자가 재산을 숨기거나 도망치려 할 때 대응하는 방법을 알고 싶은 경우</li>
+                    <li>집행 비용과 절차에 대해 궁금한 경우</li>
+                </ul>
+            </div>`
       },
       {
-        heading: '강제집행이란?',
-        content: `<p>강제집행(強制執行)은 민사집행법(이하 '민집')에 기초하여 이루어지는 절차입니다. 판결이나 조정, 화해, 공정증서 같은 '집행권원'이 있으면, 법원 또는 집행관을 통해 상대방의 재산을 압류·매각하여 채권자의 권리를 강제로 실현할 수 있습니다.</p>`
+        heading: '핵심정리',
+        content: `<div class="summary-box">
+                <h3>강제집행이란?</h3>
+                <p>법원의 판결이나 계약서 같은 '집행권원'을 바탕으로, 채무자가 자발적으로 지급하지 않은 금전이나 물건을 국가 기구(법원, 집행관 등)가 강제로 회수하는 법적 절차입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=000100" target="_blank" rel="noopener" title="민사집행법 제1조 — 대법원 종합법률정보">민사집행법 제1조</a></p>
+                <p>판결을 받았다고 해서 끝나는 것이 아닙니다. 판결에 따라 상대방이 자발적으로 이행하지 않으면, 강제집행을 신청해서 강제로 회수해야 합니다.</p>
+            </div>`
       },
       {
-        heading: '민사집행의 세 가지 종류',
-        content: `<p>민사집행법은 다음과 같은 세 가지 집행 방식을 규정하고 있습니다:</p>
-<h3>① 강제집행 (민집 제2편)</h3>
-<p>집행권원(판결·조정·공정증서 등)에 기초하여, 채무자의 특정 재산(금전, 부동산, 동산)을 대상으로 압류·환가하거나 채권추심을 하는 절차입니다.</p>
-<h3>② 담보권 실행을 위한 경매 (임의경매, 민집 제3편)</h3>
-<p>저당권, 질권, 전세권 등의 담보권자가 자신의 권리를 실현하기 위해 담보로 제공된 재산을 경매하는 절차입니다.</p>
-<h3>③ 민법·상법 기타 법률에 의한 경매</h3>
-<p>임차인의 차임채권, 건설기계 임차인의 권리, 농어촌특별세 등 특별법에 따른 경매 절차입니다.</p>`
+        heading: '상세설명',
+        content: `<h3>강제집행이란 무엇인가?</h3>
+            <p>강제집행은 채권자(판결을 받은 쪽)가 채무자(판결에 진 쪽)로부터 금전을 받거나 물건을 회수하기 위해 국가의 강제력을 이용하는 절차입니다. 민법상 권리 실현을 위한 최후의 수단이며, 법원과 집행관이 이를 집행합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=000100" target="_blank" rel="noopener" title="민사집행법 제1조 — 대법원 종합법률정보">민사집행법 제1조</a></p>
+
+            <h3>강제집행의 종류</h3>
+            <p>강제집행은 대상 재산의 종류에 따라 다음과 같이 구분됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=002400" target="_blank" rel="noopener" title="민사집행법 제24조 — 대법원 종합법률정보">민사집행법 제24조</a></p>
+            <table>
+                <thead><tr><th>집행 종류</th><th>대상</th><th>설명</th></tr></thead>
+                <tbody>
+                    <tr><td>부동산 강제집행</td><td>토지, 건물 등 부동산</td><td>부동산을 경매에 붙여서 강제 판매합니다. 판매 대금을 채권자에게 분배합니다.</td></tr>
+                    <tr><td>동산 강제집행</td><td>자동차, 기계, 가구 등 부동산 외 물건</td><td>동산을 압류한 후 경매하거나 인도받습니다.</td></tr>
+                    <tr><td>채권 강제집행</td><td>채무자가 제3자에게 가진 채권</td><td>예: 통장 잔액, 급여, 임대료 수입 등을 압류합니다.</td></tr>
+                    <tr><td>기타 재산권 강제집행</td><td>주식, 특허권, 저작권 등</td><td>금융 자산이나 지적재산권을 압류합니다.</td></tr>
+                </tbody>
+            </table>
+
+            <h3>강제집행 절차 개요</h3>
+            <div class="step-box"><p><span class="step-num">1</span><strong>집행권원 준비</strong> — 판결, 화해조서, 지급명령 등 법적 근거</p><p style="margin-top: 12px;">집행권원은 강제집행의 법적 토대입니다. 판결만으로는 부족하며, 법원이 판결이 확정되었음을 인정하는 '집행문'이 필요합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005600" target="_blank" rel="noopener" title="민사집행법 제56조 — 대법원 종합법률정보">민사집행법 제56조</a></p></div>
+            <div class="step-box"><p><span class="step-num">2</span><strong>집행문 부여</strong> — 판결문에 집행문을 부여받기</p><p style="margin-top: 12px;">판결을 한 법원의 집행관사에 '집행문'을 신청합니다. 집행문은 "이 판결은 확정되었고 강제집행할 수 있다"는 공식 인정서입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=002800" target="_blank" rel="noopener" title="민사집행법 제28조, 제29조 — 대법원 종합법률정보">민사집행법 제28조, 제29조</a></p></div>
+            <div class="step-box"><p><span class="step-num">3</span><strong>강제집행 신청</strong> — 법원에 강제집행을 신청</p><p style="margin-top: 12px;">집행문을 받은 후, 채무자의 재산 위치에 따라 적절한 법원에 강제집행을 신청합니다. 부동산은 부동산 소재지 법원, 동산과 채권은 채무자 주소지 법원입니다.</p></div>
+            <div class="step-box"><p><span class="step-num">4</span><strong>집행</strong> — 법원 집행관이 재산 압류 및 매각</p><p style="margin-top: 12px;">집행관은 채무자의 재산을 압류하고, 경매 절차를 통해 매각합니다. 매각 대금에서 집행 비용을 공제한 나머지를 채권자에게 분배합니다.</p></div>
+
+            <h3>집행문이란?</h3>
+            <p>집행문(執行文)은 판결이 확정되었고 강제집행이 가능하다는 것을 법원이 공식적으로 인정하는 서류입니다. 판결만으로는 강제집행이 불가능하며, 반드시 집행문이 필요합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=002800" target="_blank" rel="noopener" title="민사집행법 제28조 — 대법원 종합법률정보">민사집행법 제28조</a></p>
+            <p>집행문 부여 신청은 판결을 한 법원의 집행관사(또는 등기소)에 합니다. 필요 서류는 판결문, 확정증명서, 신청서 등입니다. 비용은 일반 신청 수수료만 납부하면 됩니다.</p>
+
+            <h3>집행 가능 시기</h3>
+            <p>강제집행은 다음 조건을 만족할 때만 신청할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003900" target="_blank" rel="noopener" title="민사집행법 제39조 — 대법원 종합법률정보">민사집행법 제39조</a></p>
+            <p><strong>⚡ 판결이 확정된 후에만 강제집행이 가능합니다.</strong> 가집행판결(집행 정지 조건)을 받은 경우는 예외적으로 판결 확정 전에도 집행이 가능합니다. 항소나 상고가 진행 중이면 강제집행을 신청할 수 없습니다.</p>
+            <p>또한 집행 신청에는 공소 시효가 없지만, 판결의 집행력이 있어야 합니다. 일반적으로 판결의 집행력은 확정 후 10년입니다.</p>
+
+            <h3>채권자가 알아야 할 주의사항</h3>
+            <p>강제집행을 신청하기 전에 다음을 확인하세요:</p>
+            <ul>
+                <li>판결문 원본 또는 인증본이 있는가?</li>
+                <li>판결이 확정되었는가? (항소 기간 만료 또는 상소 기각 확정)</li>
+                <li>상대방의 현재 주소와 재산 위치를 파악했는가?</li>
+                <li>강제집행 비용(집행관 수수료, 측량비 등)을 준비했는가?</li>
+                <li>지급명령을 받은 경우, 지급명령이 확정되었는가?</li>
+            </ul>
+            <p>특히 채무자의 재산을 미리 파악하는 것이 중요합니다. 강제집행을 신청해도 집행할 재산이 없으면 실질적 회수가 어려울 수 있습니다.</p>`
       },
       {
-        heading: '강제집행의 전체 흐름',
-        content: `<p>① 집행권원 확보 → ② 집행문 부여 → ③ 강제집행 신청 → ④ 집행 실시</p>`
+        heading: '자주하는 질문',
+        content: `<div class="qna-item"><div class="qna-q">Q. 판결을 받았으면 바로 강제집행을 신청할 수 있나요?</div><div class="qna-a">A. 아니요. 먼저 판결이 확정되어야 합니다. 항소 기간(14일)이 경과하거나 항소심에서 판결이 확정되어야 강제집행을 신청할 수 있습니다. 또한 집행문 부여를 받은 후에야 강제집행 신청이 가능합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003900" target="_blank" rel="noopener" title="민사집행법 제39조 — 대법원 종합법률정보">민사집행법 제39조</a></div></div>
+            <div class="qna-item"><div class="qna-q">Q. 강제집행에 드는 비용은 누가 부담하나요?</div><div class="qna-a">A. 강제집행 비용은 일단 채권자가 선납합니다. 여기에는 집행관 수수료, 감정료, 측량비 등이 포함됩니다. 그러나 경매 대금에서 이 비용을 공제한 후 채권자에게 분배하므로, 결국 채무자의 재산에서 우선 공제됩니다. 비용은 구체적 상황에 따라 다르므로 미리 집행관사에 문의하세요.</div></div>
+            <div class="qna-item"><div class="qna-q">Q. 집행권원이 없으면 강제집행을 할 수 없나요?</div><div class="qna-a">A. 맞습니다. 강제집행을 하려면 반드시 집행권원이 필요합니다. 집행권원에는 확정판결, 항소심 판결, 가집행판결, 화해조서, 지급명령, 공정증서 등이 있습니다. 이 중 하나가 없으면 강제집행을 신청할 수 없습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005600" target="_blank" rel="noopener" title="민사집행법 제56조 — 대법원 종합법률정보">민사집행법 제56조</a></div></div>
+            <div class="qna-item"><div class="qna-q">Q. 부동산 강제집행과 채권 강제집행은 어떻게 다르나요?</div><div class="qna-a">A. 부동산 강제집행은 토지나 건물을 경매하는 절차이며, 시간이 오래 걸리지만 회수 가능성이 높습니다. 채권 강제집행(예: 통장 압류, 급여 압류)은 채무자의 현금이나 수입을 직접 회수하는 방식으로, 더 빠르게 회수할 수 있습니다. 어느 것이 효율적인지는 채무자의 재산 상황에 따라 다릅니다.</div></div>
+            <div class="qna-item"><div class="qna-q">Q. 강제집행 중에 채무자가 항소를 제기할 수 있나요?</div><div class="qna-a">A. 강제집행이 이미 시작된 후에는 항소로 집행을 정지할 수 없습니다. 다만 집행문 부여에 대해 이의신청을 하거나, 집행에 관한 이의신청(집행 절차에 위법이 있다는 주장)을 할 수는 있습니다. 그러나 이 경우도 집행 정지는 예외적입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003400" target="_blank" rel="noopener" title="민사집행법 제34조 — 대법원 종합법률정보">민사집행법 제34조</a></div></div>
+            <div class="qna-item"><div class="qna-q">Q. 집행 신청 후 언제쯤 돈을 받을 수 있나요?</div><div class="qna-a">A. 이는 강제집행의 종류와 채무자의 재산 상황에 따라 크게 다릅니다. 채권(통장, 급여) 강제집행은 수주~수개월, 부동산 경매는 6개월~1년 이상 걸릴 수 있습니다. 경매 절차 중에도 여러 단계(입찰, 매각, 배분)가 있어 시간이 소요됩니다.</div></div>
+            <div class="qna-item"><div class="qna-q">Q. 채무자가 강제집행 중에 파산을 신청하면 어떻게 되나요?</div><div class="qna-a">A. 채무자가 파산을 신청하면 진행 중인 강제집행은 중단됩니다. 파산 절차에서는 모든 채권자가 동등한 지위에서 배당을 받게 됩니다. 따라서 이미 강제집행으로 회수한 분은 제외되지만, 아직 진행 중인 부분은 파산 절차에 편입됩니다.</div></div>`
       },
       {
-        heading: '집행기관: 집행법원 vs 집행관',
-        content: `<p>집행기관은 실제로 강제집행을 진행하는 기관입니다. 민집 제17조에 따르면, 강제집행은 집행법원과 집행관이 담당합니다.</p>
-<ul>
-<li><strong>집행법원</strong>: 부동산 강제집행(경매) 담당, 지방법원(부동산 소재지) 신청</li>
-<li><strong>집행관</strong>: 금전 추심, 동산 집행, 부동산 인도 등 담당, 채무자 주소지 관할 집행관 신청</li>
-</ul>`
+        heading: '판례',
+        content: `<div class="ruling-box"><h3>강제집행의 범위와 한계</h3><p>대법원은 강제집행이 권리자의 당연한 권리이지만, 채무자의 기본적 생존권을 침해하지 않는 범위 내에서만 가능하다고 해석하고 있습니다. 예를 들어, 최저생계비 수준의 재산이나 일용근로자의 생활비는 압류 대상에서 제외될 수 있습니다.</p></div>
+            <div class="ruling-box"><h3>집행문의 필요성</h3><p>대법원은 집행문이 단순한 형식이 아니라 판결의 확정과 집행 가능성을 공식적으로 인정하는 중요한 절차라고 판시했습니다. 집행문 없이 강제집행을 신청하면 신청 자체가 각하되므로, 반드시 먼저 집행문을 부여받아야 합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=002800" target="_blank" rel="noopener" title="민사집행법 제28조 — 대법원 종합법률정보">민사집행법 제28조</a></p></div>
+            <div class="ruling-box"><h3>가집행판결의 효력</h3><p>가집행판결(집행 정지 조건)을 받은 경우, 판결이 확정되기 전에도 강제집행이 가능합니다. 다만 항소로 인해 가집행 정지 결정이 나올 수 있으므로, 이 경우 집행이 중단될 수 있습니다. 가집행판결의 장점은 빠른 회수이지만, 이후 판결이 뒤바뀔 위험이 있다는 점입니다.</p></div>
+            <div class="ruling-box"><h3>집행권원의 확정력</h3><p>강제집행을 하기 위해서는 집행권원이 반드시 필요합니다. 대법원은 집행권원이 없는 청구권(예: 계약금 반환 청구)에 대해서는 강제집행이 불가능하며, 먼저 소송으로 판결을 받아야 한다고 판시했습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005600" target="_blank" rel="noopener" title="민사집행법 제56조 — 대법원 종합법률정보">민사집행법 제56조</a></p></div>`
       },
       {
-        heading: '강제집행 시 주의사항',
-        content: `<ul>
-<li><strong>집행권원이 필수</strong> — 판결이 있더라도 집행권원 없이는 강제집행 불가</li>
-<li><strong>집행문 부여가 선행</strong> — 집행권원만으로는 부족, 반드시 집행문을 부여받아야 함</li>
-<li><strong>채무자 주소지 확인</strong> — 신청 기관이 채무자의 주소지에 따라 결정됨</li>
-<li><strong>시효 제한</strong> — 판결 후 10년 이내에 강제집행을 신청해야 함</li>
-<li><strong>재산 파악의 어려움</strong> — 채무자의 재산이 명확하지 않으면 재산명시신청을 먼저 고려</li>
-</ul>`
+        heading: '주의사항',
+        content: `<div class="warn-box"><h3>집행 비용의 확인</h3><p>강제집행에는 상당한 비용이 소요됩니다. 집행관 수수료, 감정료, 측량료, 경매 진행 비용 등이 있습니다. 회수할 재산이 없거나 적으면, 비용 선납이 허사가 될 수 있습니다. 강제집행을 신청하기 전에 반드시 비용을 확인하고 채무자의 재산 여부를 파악하세요.</p></div>
+            <div class="warn-box"><h3>상대방 주소 확인의 중요성</h3><p>강제집행을 신청하려면 채무자의 정확한 주소와 재산 위치를 알아야 합니다. 주소가 잘못되면 집행 신청이 제대로 진행되지 않을 수 있습니다. 필요시 주민등록등본이나 등기부를 통해 정확한 주소를 확인하세요.</p></div>
+            <div class="warn-box"><h3>시효의 문제</h3><p>판결의 집행력에는 시효가 있습니다. 일반적으로 판결 확정 후 10년이 지나면 강제집행을 신청할 수 없습니다. 따라서 판결을 받은 후 가능한 한 빨리 강제집행을 신청하는 것이 좋습니다.</p></div>
+            <div class="warn-box"><h3>채무자 재산 파악의 어려움</h3><p>채무자의 재산을 파악하기 위해 '재산명시신청'을 할 수 있습니다. 이를 통해 채무자가 소유한 부동산, 통장, 차량 등의 정보를 법원을 통해 얻을 수 있습니다. 다만 채무자가 협조하지 않으면 재산 파악에 어려움이 있을 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006100" target="_blank" rel="noopener" title="민사집행법 제61조 — 대법원 종합법률정보">민사집행법 제61조</a></p></div>
+            <div class="warn-box"><h3>집행관의 역할 이해</h3><p>집행관은 법원의 강제집행을 보조하는 공직자입니다. 집행관에게 직접 돈을 건넨다거나 강제집행을 '취소'해달라고 청탁하는 것은 불법이며 뇌물죄에 해당할 수 있습니다. 모든 절차는 정해진 법적 방식으로 진행되어야 합니다.</p></div>`
       },
       {
-        heading: '자주하는 질문 (Q&A)',
-        content: `<p><strong>Q. 판결은 받았는데, 상대방이 안 내면 어떻게 하나요?</strong></p>
-<p>판결 확정 후 상대방이 자발적으로 이행하지 않으면, 채권자가 직접 강제집행을 신청해야 합니다. 집행권원 정본을 준비하고 집행문을 부여받은 후, 집행법원(부동산) 또는 집행관(금전·동산)에 강제집행을 신청합니다.</p>
-<p><strong>Q. 집행문이 뭔가요? 왜 필요한가요?</strong></p>
-<p>집행문은 집행권원에 '집행력이 있다'는 것을 공적으로 인증하는 문서입니다. 민집 제29조에 따르면 강제집행을 하려면 집행권원의 정본에 집행문이 기재되어 있어야 합니다.</p>
-<p><strong>Q. 강제집행에는 어떤 종류가 있나요?</strong></p>
-<p>금전에 대한 강제집행, 부동산 강제경매, 동산 강제집행, 채권 강제집행, 부동산 인도 강제집행 등이 있습니다.</p>`
-      }
+        heading: '다음에 확인할 사항',
+        content: `<div class="next-links">
+                <a href="#" class="next-link">집행권원이란</a>
+                <a href="#" class="next-link">집행문 부여 신청</a>
+                <a href="#" class="next-link">재산명시신청</a>
+                <a href="#" class="next-link">부동산 강제집행</a>
+                <a href="#" class="next-link">채권 강제집행</a>
+                <a href="#" class="next-link">당사자 변동 시 대응</a>
+            </div>`
+      },
     ],
     laws: [],
     forms: []
   },
   {
     id: 'ef-2',
-    title: '집행권원이란 — 어떤 문서가 있어야 강제집행할 수 있나요?',
-    meta: '',
+    title: '집행권원이란',
+    meta: '어떤 문서가 있어야 강제집행할 수 있나요?',
     sections: [
       {
         heading: '이런 분께 필요합니다',
-        content: `<ul>
-<li>강제집행을 시작하려는데 어떤 서류가 필요한지 모르는 경우</li>
-<li>가지고 있는 서류가 강제집행의 기반이 될 수 있는지 궁금한 경우</li>
-<li>판결, 조정, 공정증서 등 여러 문서 중 어느 것으로 집행할 수 있는지 확인하고 싶은 경우</li>
-<li>상대방과 합의했는데 강제집행을 위해 어떻게 문서화해야 하는지 모르는 경우</li>
-<li>지급명령이나 조정조서의 효력을 이해하고 싶은 경우</li>
-</ul>`
+        content: `<div class="checklist">
+                <ul>
+                    <li>법원 판결을 받았는데 강제집행이 가능한지 확인하고 싶은 경우</li>
+                    <li>판결 외에 다른 방법(화해, 지급명령, 공정증서)으로 강제집행이 가능한지 알고 싶은 경우</li>
+                    <li>어떤 서류가 '집행권원'이 되는지 구분하기 어려운 경우</li>
+                    <li>조정 또는 화해조서의 법적 효력을 알고 싶은 경우</li>
+                    <li>지급명령의 확정 여부를 확인하고 싶은 경우</li>
+                    <li>공정증서가 강제집행이 가능한지 확인하고 싶은 경우</li>
+                </ul>
+            </div>`
       },
       {
-        heading: '집행권원의 정의',
-        content: `<p>집행권원은 단순한 계약서나 약속이 아닙니다. 법원이나 공증인이 공식으로 인정한 문서를 의미합니다. 민사집행법 제56조는 "강제집행은 다음 집행권원에 기초하여 행한다"고 규정하며, 이는 강제집행을 위한 '면허증'과 같은 역할을 합니다.</p>
-<ul>
-<li>공적 기관(법원, 공증인 등)이 발급 또는 인증한 문서</li>
-<li>채권자의 권리가 명확히 표시되어 있음</li>
-<li>채무자가 이행해야 할 내용이 구체적으로 기재됨</li>
-<li>시간의 경과에 따라 집행력이 소멸할 수 있음</li>
-</ul>`
+        heading: '핵심정리',
+        content: `<div class="summary-box">
+                <h3>집행권원이란?</h3>
+                <p>집행권원은 강제집행을 신청할 수 있는 법적 근거 문서입니다. 판결뿐만 아니라 화해조서, 지급명령, 공정증서 등도 집행권원이 될 수 있습니다. 집행권원 없이는 절대 강제집행을 신청할 수 없습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005600" target="_blank" rel="noopener" title="민사집행법 제56조 — 대법원 종합법률정보">민사집행법 제56조</a></p>
+                <p>중요한 것은 단순히 '문서'가 있는 것이 아니라, 그 문서가 '법적으로 확정된' 상태여야 한다는 점입니다.</p>
+            </div>`
       },
       {
-        heading: '집행권원의 종류 (민사집행법 제56조)',
-        content: `<p>민사집행법은 다음과 같은 집행권원을 인정합니다: ① 확정판결(10년), ② 가집행선고 있는 판결, ③ 화해·인낙·조정 조서(10년), ④ 확정된 지급명령(10년), ⑤ 공정증서(10년), ⑥ 확정된 이행권고결정(10년)</p>`
+        heading: '상세설명',
+        content: `<h3>집행권원의 정의와 종류</h3>
+            <p>집행권원은 강제집행의 직접적 근거가 되는 공식 문서를 말합니다. 민사집행법 제56조에서는 집행권원의 종류를 명시하고 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005600" target="_blank" rel="noopener" title="민사집행법 제56조 — 대법원 종합법률정보">민사집행법 제56조</a></p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>집행권원 종류</th>
+                        <th>설명</th>
+                        <th>확정 기준</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>확정판결</td>
+                        <td>1심 또는 항소심 판결이 항소 기간 경과로 확정된 것</td>
+                        <td>항소 기간(14일) 경과 또는 상소 기각</td>
+                    </tr>
+                    <tr>
+                        <td>가집행판결</td>
+                        <td>판결이 확정되기 전에 집행을 할 수 있도록 하는 판결</td>
+                        <td>판결 선고 시점 (항소 여부와 관계없음)</td>
+                    </tr>
+                    <tr>
+                        <td>화해조서</td>
+                        <td>법원 조정 중 당사자들이 합의한 내용을 기록한 문서</td>
+                        <td>조정 성립 시점</td>
+                    </tr>
+                    <tr>
+                        <td>지급명령</td>
+                        <td>법원이 채무자에게 금전 지급을 명령하는 결정</td>
+                        <td>채무자의 이의 없음 또는 이의 기각 확정</td>
+                    </tr>
+                    <tr>
+                        <td>공정증서</td>
+                        <td>공증인이 작성한 증서로 '강제집행 인낙' 문구가 있는 것</td>
+                        <td>공증 작성 시점 (즉시 강제집행 가능)</td>
+                    </tr>
+                    <tr>
+                        <td>조정조서</td>
+                        <td>조정위원회의 조정으로 성립된 내용을 기록한 문서</td>
+                        <td>조정 성립 시점</td>
+                    </tr>
+                    <tr>
+                        <td>이행권고결정</td>
+                        <td>소액사건심판원이 내린 이행권고 결정</td>
+                        <td>항소 기간 경과 또는 항소 기각</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>각 집행권원별 상세 설명</h3>
+
+            <h3 style="color: #666; font-size: 1rem; margin-top: 32px;">1. 확정판결 및 항소심 판결</h3>
+            <p>확정판결은 가장 일반적인 집행권원입니다. 1심 판결을 받은 후 항소하지 않거나, 항소심에서 다시 판결을 받은 경우 그 판결이 확정되면 강제집행이 가능합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005600" target="_blank" rel="noopener" title="민사집행법 제56조 제1항 — 대법원 종합법률정보">민사집행법 제56조 제1항</a></p>
+            <p><strong>⚡ 항소 기간은 14일입니다.</strong> 항소 기간이 지나면 판결이 자동으로 확정됩니다. 상고는 판결 확정에 영향을 주지 않습니다. 상고를 제기해도 강제집행은 진행될 수 있습니다.</p>
+
+            <h3 style="color: #666; font-size: 1rem; margin-top: 32px;">2. 가집행판결</h3>
+            <p>가집행판결은 판결의 일부(또는 전부)에 대해 '집행 정지 조건'을 붙인 판결입니다. 이 경우 판결이 확정되기 전에도 강제집행을 신청할 수 있는 특권이 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005600" target="_blank" rel="noopener" title="민사집행법 제56조 제2항 — 대법원 종합법률정보">민사집행법 제56조 제2항</a></p>
+            <p>그러나 주의할 점은 가집행 중에 채무자가 항소를 제기하면, 항소심에서 가집행 정지 결정이 나올 수 있다는 것입니다. 이 경우 진행 중인 강제집행이 중단됩니다.</p>
+
+            <h3 style="color: #666; font-size: 1rem; margin-top: 32px;">3. 화해조서 (민사소송법 제220조)</h3>
+            <p>법원 소송 중 당사자들이 합의하면, 법원이 그 합의 내용을 조서로 작성합니다. 이 화해조서는 그 자체로 강제집행의 근거가 됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=252393&joNo=022000" target="_blank" rel="noopener" title="민사소송법 제220조 제1항 — 대법원 종합법률정보">민사소송법 제220조 제1항</a></p>
+            <p>화해조서는 판결과 동일한 효력을 가지므로, 화해 성립 직후부터 집행문 부여를 신청할 수 있습니다. 추가적인 확정 절차가 필요 없습니다.</p>
+
+            <h3 style="color: #666; font-size: 1rem; margin-top: 32px;">4. 지급명령</h3>
+            <p>지급명령은 법원(민사법정)이 채무자에게 금전을 지급하도록 명령하는 결정입니다. 금액이 적을 때 소송 절차 없이 빠르게 진행되는 제도입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005800" target="_blank" rel="noopener" title="민사집행법 제58조 — 대법원 종합법률정보">민사집행법 제58조</a></p>
+            <p><strong>⚡ 지급명령이 강제집행이 되려면 '확정'되어야 합니다.</strong> 채무자가 이의를 제기하지 않으면 지급명령 송달 후 2주일이 지날 때 자동 확정됩니다. 채무자가 이의를 제기하면 일반 소송으로 진행됩니다. 이의가 기각되어야 비로소 강제집행이 가능합니다.</p>
+
+            <h3 style="color: #666; font-size: 1rem; margin-top: 32px;">5. 공정증서</h3>
+            <p>공증인이 작성한 증서 중 '강제집행 인낙' 문구가 포함된 것은 강제집행 근거가 됩니다. 예를 들어, 금전 빌려준 내용을 공정증서로 작성할 때 채무자가 "강제집행을 받기로 동의합니다"고 기재하면, 그 증서는 곧바로 강제집행의 근거가 됩니다.</p>
+            <p>공정증서는 판결처럼 기간을 기다릴 필요가 없으며, 작성 직후 바로 집행문 부여를 신청할 수 있습니다.</p>
+
+            <h3 style="color: #666; font-size: 1rem; margin-top: 32px;">6. 조정조서 (민사조정법 제29조)</h3>
+            <p>법원 외부의 조정위원회(주민센터 등)에서 조정으로 성립된 내용은 조정조서에 기록됩니다. 이 조정조서도 판결과 같은 효력을 가지므로 강제집행의 근거가 될 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=213779&joNo=002900" target="_blank" rel="noopener" title="민사조정법 제29조 — 대법원 종합법률정보">민사조정법 제29조</a></p>
+
+            <h3>집행권원이 없는 경우 대처법</h3>
+            <p>다음과 같은 경우는 집행권원이 없으므로 강제집행을 할 수 없습니다:</p>
+            <ul>
+                <li><strong>상대방과의 일반 계약</strong> — 계약서만으로는 강제집행이 불가능합니다. 먼저 소송을 제기해서 판결을 받아야 합니다.</li>
+                <li><strong>상대방의 약속</strong> — 구두로 약속하거나 메모, 편지 등은 강제집행의 근거가 될 수 없습니다. 반드시 법적 문서가 필요합니다.</li>
+                <li><strong>채권양수기에게 미통지된 채권양도</strong> — 채권을 받은 사람에게 통보하지 않은 상태에서는 강제집행이 어려울 수 있습니다.</li>
+            </ul>
+
+            <h3>집행권원 확정의 중요성</h3>
+            <p>단순히 판결문이 있다고 해서 집행권원이 되는 것이 아닙니다. 반드시 다음을 확인하세요:</p>
+            <ul>
+                <li>판결이 최종 확정되었는가? (항소 기간 경과)</li>
+                <li>상고가 있는가? (상고가 있어도 강제집행은 가능)</li>
+                <li>가집행판결인 경우, 집행 정지 조건이 무엇인가?</li>
+                <li>지급명령인 경우, 채무자의 이의 여부</li>
+                <li>공정증서인 경우, 강제집행 문구가 명시되어 있는가?</li>
+            </ul>`
       },
       {
-        heading: '각 집행권원의 구체적 설명',
-        content: `<p><strong>① 확정판결</strong>: 법원의 판결이 상급심 항소·상고 없이 확정된 경우입니다.</p>
-<p><strong>② 가집행선고 있는 판결</strong>: 판결이 아직 확정되지 않았더라도, 법원이 "가집행을 선고한다"고 명시한 경우입니다.</p>
-<p><strong>③ 화해·인낙·조정 조서</strong>: 법원 소송 과정에서 양당사자가 합의한 내용을 법원이 기재한 공식 문서입니다.</p>
-<p><strong>④ 확정된 지급명령</strong>: 채권자가 법원에 신청하면, 채무자가 답변 기간 내에 이의를 제기하지 않을 경우 자동으로 강제집행력을 갖는 명령입니다.</p>
-<p><strong>⑤ 공정증서</strong>: 공증인이 공식으로 작성한 문서로, "강제집행을 승낙한다"는 문구가 있어야 집행권원이 됩니다.</p>
-<p><strong>⑥ 확정된 이행권고결정</strong>: 지방법원이 채권자의 신청으로 내린 이행권고결정입니다.</p>`
+        heading: '자주하는 질문',
+        content: `<div class="qna-item"><div class="qna-q">Q. 계약서만으로 강제집행이 가능한가요?</div><div class="qna-a">A. 아니요. 일반 계약서만으로는 강제집행이 불가능합니다. 다만 공증인이 작성한 공정증서에 '강제집행 인낙' 문구가 있다면 가능합니다. 일반 계약서는 먼저 소송을 통해 판결을 받아야 강제집행이 가능합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005600" target="_blank" rel="noopener" title="민사집행법 제56조 — 대법원 종합법률정보">민사집행법 제56조</a></div></div>
+            <div class="qna-item"><div class="qna-q">Q. 항소를 제기한 판결도 강제집행이 되나요?</div><div class="qna-a">A. 항소를 제기한 상태에서도 1심 판결에 기반한 강제집행이 가능합니다. 다만 항소심에서 판결이 뒤바뀔 수 있으므로 위험이 있습니다. 항소 결과를 기다리고 싶다면 항소 결정 후 강제집행을 신청할 수 있습니다.</div></div>
+            <div class="qna-item"><div class="qna-q">Q. 가집행판결은 어떤 경우에 받나요?</div><div class="qna-a">A. 가집행판결은 법원이 판결 시 필요하다고 판단할 때 내립니다. 예를 들어, 채무자가 재산을 숨길 가능성이 높거나 해외로 도망칠 위험이 있을 때 법원이 인정합니다. 당사자가 요청해도 법원이 판단하므로, 필요시 법원에 신청할 수 있습니다.</div></div>
+            <div class="qna-item"><div class="qna-q">Q. 조정조서와 판결은 효력이 같나요?</div><div class="qna-a">A. 네, 동일합니다. 조정조서도 판결과 같은 법적 효력을 가지므로 강제집행이 가능합니다. 다만 조정은 소송보다 빠르고 비용이 적게 드는 장점이 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=213779&joNo=002900" target="_blank" rel="noopener" title="민사조정법 제29조 — 대법원 종합법률정보">민사조정법 제29조</a></div></div>
+            <div class="qna-item"><div class="qna-q">Q. 지급명령이 확정되지 않으면 어떻게 되나요?</div><div class="qna-a">A. 채무자가 지급명령에 이의를 제기하면 일반 소송으로 진행됩니다. 이 경우 판결을 받을 때까지 강제집행을 할 수 없습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005800" target="_blank" rel="noopener" title="민사집행법 제58조 — 대법원 종합법률정보">민사집행법 제58조</a></div></div>
+            <div class="qna-item"><div class="qna-q">Q. 공정증서가 있으면 판결 없이도 강제집행이 가능한가요?</div><div class="qna-a">A. 공정증서에 강제집행 인낙 문구가 있으면 가능합니다. 이는 공정증서 작성 당시 채무자가 "나중에 소송 없이 강제집행을 받겠습니다"라고 동의한 것이기 때문입니다. 다만 공정증서에 이 문구가 없으면 판결이 필요합니다.</div></div>
+            <div class="qna-item"><div class="qna-q">Q. 화해조서는 상대방이 동의하지 않아도 강제집행이 되나요?</div><div class="qna-a">A. 화해는 이미 당사자들의 합의이므로, 나중에 "동의하지 않는다"고 주장할 수 없습니다. 화해조서는 판결과 같으므로, 상대방의 추가 동의 없이도 강제집행이 가능합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=252393&joNo=022000" target="_blank" rel="noopener" title="민사소송법 제220조 — 대법원 종합법률정보">민사소송법 제220조</a></div></div>`
       },
       {
-        heading: '집행권원이 없는 경우',
-        content: `<p>다음과 같은 문서는 집행권원이 될 수 없습니다: 순수한 개인 계약서, 약속어음이나 수표, 이메일·문자메시지·녹음, 합의 내용을 담은 일반 증명서, 항소 중인 판결(가집행선고 없는 경우)</p>`
+        heading: '판례',
+        content: `<div class="ruling-box"><h3>집행권원의 확정력</h3><p>대법원은 집행권원이 반드시 법적으로 '확정된' 상태여야만 강제집행 신청의 기초가 될 수 있다고 명확히 판시했습니다. 단순히 판결문이 있다는 것만으로는 부족하며, 항소 기간 경과 등을 통해 확정되어야 합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005600" target="_blank" rel="noopener" title="민사집행법 제56조 — 대법원 종합법률정보">민사집행법 제56조</a></p></div>
+            <div class="ruling-box"><h3>가집행판결의 집행 정지</h3><p>가집행판결로 강제집행을 진행 중인 경우, 항소심에서 가집행 정지 결정이 나올 수 있습니다. 이 경우 집행관은 즉시 진행 중인 집행을 중단해야 하며, 이미 회수한 금액의 반환 등의 문제가 발생할 수 있습니다.</p></div>
+            <div class="ruling-box"><h3>공정증서의 강제집행 인낙</h3><p>공정증서가 강제집행의 근거가 되려면 반드시 '강제집행 인낙' 문구가 명시되어야 합니다. 이 문구가 없으면 공정증서도 판결이 필요합니다. 따라서 공정증서 작성 시 이 문구를 반드시 포함시켜야 합니다.</p></div>`
       },
       {
-        heading: '집행권원 확보 절차',
-        content: `<ul>
-<li><strong>소제기</strong> — 상대방을 법원에 고소/고발하여 판결을 받기</li>
-<li><strong>지급명령 신청</strong> — 법원에 간편하게 신청</li>
-<li><strong>조정 신청</strong> — 법원 조정부를 통해 합의</li>
-<li><strong>공정증서 작성</strong> — 미리 강제집행을 승낙하는 공정증서 작성</li>
-</ul>`
+        heading: '주의사항',
+        content: `<div class="warn-box"><h3>집행권원의 정확한 파악</h3><p>유사해 보이는 문서도 법적으로는 집행권원이 될 수 없을 수 있습니다. 계약서, 영수증, 메모 등은 절대 강제집행의 근거가 될 수 없습니다. 반드시 법원 문서(판결, 조정조서, 화해조서) 또는 공증인 문서(강제집행 인낙 공정증서)여야 합니다.</p></div>
+            <div class="warn-box"><h3>지급명령의 확정 여부 확인</h3><p>지급명령을 받은 경우, 반드시 채무자의 이의 여부를 확인하세요. 이의가 제기되었으면 그 소송 결과를 기다려야 합니다. 이의 제기 상태에서는 지급명령의 강제집행이 불가능합니다.</p></div>
+            <div class="warn-box"><h3>공정증서 작성 시 주의</h3><p>공정증서로 강제집행을 원한다면, 반드시 작성 시 '강제집행 인낙' 문구를 명시하고 채무자가 서명해야 합니다. 이 문구가 없으면 판결을 받아야 하므로, 공정증서의 이점이 상실됩니다.</p></div>
+            <div class="warn-box"><h3>항소와 상고의 차이</h3><p>항소(1심에 대한 불복)는 판결을 확정시키지 못하지만, 상고(항소심에 대한 불복)는 판결의 확정에 영향을 주지 않습니다. 따라서 상고가 있어도 강제집행은 진행될 수 있습니다.</p></div>`
       },
       {
-        heading: '자주하는 질문 (Q&A)',
-        content: `<p><strong>Q. 판결과 조정 조서 중 어느 것이 더 강력한가요?</strong></p>
-<p>두 문서 모두 동일한 집행력을 가집니다. 집행력 측면에서는 둘 다 10년 유효합니다.</p>
-<p><strong>Q. 공정증서가 있으면 법원에 소송을 안 해도 되나요?</strong></p>
-<p>그렇습니다. 공정증서에 "강제집행을 승낙한다"는 문구가 있으면, 직접 강제집행을 신청할 수 있습니다.</p>
-<p><strong>Q. 지급명령이 뭔가요? 판결과는 다른가요?</strong></p>
-<p>지급명령은 판결보다 빠르고 간단한 절차입니다. 채무자가 2주 내에 이의를 제기하지 않으면 자동으로 확정되어 집행권원이 됩니다.</p>`
-      }
+        heading: '다음에 확인할 사항',
+        content: `<div class="next-links">
+                <a href="#" class="next-link">집행문 부여 신청</a>
+                <a href="#" class="next-link">강제집행개관</a>
+                <a href="#" class="next-link">당사자 변동 시 대응</a>
+                <a href="#" class="next-link">지급명령 신청</a>
+                <a href="#" class="next-link">법원 조정</a>
+                <a href="#" class="next-link">공정증서 작성</a>
+            </div>`
+      },
     ],
     laws: [],
     forms: []
   },
   {
     id: 'ef-3',
-    title: '집행문 부여 신청 — 집행 전에 반드시 받아야 하는 절차',
-    meta: '',
+    title: '집행문 부여 신청',
+    meta: '집행 전에 반드시 받아야 하는 절차',
     sections: [
       {
         heading: '이런 분께 필요합니다',
-        content: `<ul>
-<li>판결문은 있는데 어떻게 집행을 시작해야 할지 모르는 경우</li>
-<li>집행문이 무엇인지, 왜 필요한지 알고 싶은 경우</li>
-<li>집행문 부여 신청을 어디에, 어떻게 해야 하는지 모르는 경우</li>
-<li>집행문 부여에 필요한 서류가 무엇인지 확인하고 싶은 경우</li>
-<li>당사자가 바뀌었을 때 승계집행문을 받아야 하는지 확인하고 싶은 경우</li>
-</ul>`
+        content: `<div class="checklist">
+                <ul>
+                    <li>판결을 받았는데 집행문을 부여받아야 하는 경우</li>
+                    <li>어디에 어떻게 집행문 신청을 해야 할지 모르는 경우</li>
+                    <li>필요한 첨부 서류가 무엇인지 확인하고 싶은 경우</li>
+                    <li>집행문 부여가 거절되었을 때 대응 방법을 알고 싶은 경우</li>
+                    <li>당사자 변동(상속, 회사 합병)으로 승계집행문이 필요한 경우</li>
+                    <li>집행문 부여에 얼마나 걸리는지 알고 싶은 경우</li>
+                </ul>
+            </div>`
       },
       {
-        heading: '집행문이란?',
-        content: `<p>집행문은 판결이나 조정 등 집행권원이 실제로 집행력을 갖고 있음을 공적으로 인정하는 문서입니다.</p>
-<ul>
-<li>집행권원의 효력 존재 확인</li>
-<li>강제집행 시작의 공식 승인</li>
-<li>법원 절차의 완결성 보증</li>
-<li>채무자의 항의권 제한</li>
-</ul>`
+        heading: '핵심정리',
+        content: `<div class="summary-box">
+                <h3>집행문이란?</h3>
+                <p>집행문(執行文)은 판결이 최종 확정되었고 강제집행이 가능하다는 것을 법원이 공식적으로 인정하는 서류입니다. 판결만으로는 강제집행이 불가능하며, 반드시 집행문이 필요합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=002800" target="_blank" rel="noopener" title="민사집행법 제28조 — 대법원 종합법률정보">민사집행법 제28조</a></p>
+                <p>집행문은 판결의 '확정증'과 같으며, 이것이 있어야 비로소 강제집행 신청을 할 수 있습니다.</p>
+            </div>`
       },
       {
-        heading: '집행문 부여 절차',
-        content: `<p>① 신청서 작성 및 제출 → ② 법원 심사 → ③ 집행문 부여(기재) → ④ 강제집행 신청</p>`
+        heading: '상세설명',
+        content: `<h3>집행문이 필요한 이유</h3>
+            <p>집행문은 단순한 형식 절차가 아닙니다. 이것은 다음을 공식적으로 인정하는 중요한 문서입니다: <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=002800" target="_blank" rel="noopener" title="민사집행법 제28조 — 대법원 종합법률정보">민사집행법 제28조</a></p>
+            <ul>
+                <li>판결이 최종 확정되었다</li>
+                <li>항소 기간이 만료되었거나 항소가 기각되었다</li>
+                <li>강제집행할 권리가 있다</li>
+                <li>더 이상 판결이 변경될 가능성이 없다</li>
+            </ul>
+
+            <h3>집행문 부여 신청 절차</h3>
+            <div class="step-box">
+                <p><span class="step-num">1</span><strong>신청 기관 확인</strong></p>
+                <p style="margin-top: 12px;">판결을 한 법원의 집행관사(또는 등기소)에 신청합니다. 판결법원과 집행문 신청 법원이 같아야 합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=002900" target="_blank" rel="noopener" title="민사집행법 제29조 — 대법원 종합법률정보">민사집행법 제29조</a></p>
+            </div>
+            <div class="step-box">
+                <p><span class="step-num">2</span><strong>필요 서류 준비</strong></p>
+                <p style="margin-top: 12px;">판결문 원본 또는 인증본, 확정증명서, 집행문 부여 신청서를 준비합니다.</p>
+            </div>
+            <div class="step-box">
+                <p><span class="step-num">3</span><strong>신청</strong></p>
+                <p style="margin-top: 12px;">집행관사에 방문하거나 우편으로 신청합니다. 수수료(신청 수수료)를 함께 납부합니다.</p>
+            </div>
+            <div class="step-box">
+                <p><span class="step-num">4</span><strong>집행문 부여</strong></p>
+                <p style="margin-top: 12px;">판결문에 집행문을 부여합니다. 일반적으로 신청일 또는 다음날 부여됩니다.</p>
+            </div>
+            <div class="step-box">
+                <p><span class="step-num">5</span><strong>강제집행 신청</strong></p>
+                <p style="margin-top: 12px;">집행문을 받은 후 강제집행을 신청하는 법원에 강제집행 신청서를 제출합니다.</p>
+            </div>
+
+            <h3>집행문 부여 기관</h3>
+            <p>집행문을 부여하는 기관은 판결을 한 법원의 집행관사(또는 등기소)입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=002900" target="_blank" rel="noopener" title="민사집행법 제29조 — 대법원 종합법률정보">민사집행법 제29조</a></p>
+            <ul>
+                <li><strong>지방법원 판결</strong> — 그 법원의 집행관사</li>
+                <li><strong>고등법원 판결</strong> — 고등법원 또는 관할 지방법원의 집행관사</li>
+                <li><strong>대법원 판결</strong> — 관할 지방법원의 집행관사</li>
+            </ul>
+            <p>집행문을 받은 후 강제집행 신청은 다른 법원에 할 수 있습니다. 예를 들어, 서울지방법원에서 판결을 받고 집행문을 받은 후, 부산에 있는 부동산을 집행하려면 부산지방법원에 강제집행을 신청합니다.</p>
+
+            <h3>필요한 첨부서류</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>서류명</th>
+                        <th>설명</th>
+                        <th>원본/사본</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>판결문</td>
+                        <td>판결을 한 법원이 발급한 판결문</td>
+                        <td>원본 또는 인증본 (사본 불가)</td>
+                    </tr>
+                    <tr>
+                        <td>확정증명서</td>
+                        <td>판결이 최종 확정되었음을 증명하는 서류</td>
+                        <td>원본 또는 인증본</td>
+                    </tr>
+                    <tr>
+                        <td>집행문부여신청서</td>
+                        <td>소정 양식에 기재한 신청서</td>
+                        <td>원본</td>
+                    </tr>
+                    <tr>
+                        <td>신분증사본</td>
+                        <td>신청인의 신분 확인용</td>
+                        <td>사본</td>
+                    </tr>
+                    <tr>
+                        <td>인감증명서</td>
+                        <td>인감 또는 서명 확인용 (필요시)</td>
+                        <td>원본</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>승계집행문</h3>
+            <p>당사자(채무자)가 사망하거나 회사가 합병되는 등 당사자 변동이 있으면, 기존 집행문으로는 강제집행이 불가능합니다. 이 경우 '승계집행문'을 신청해야 합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003100" target="_blank" rel="noopener" title="민사집행법 제31조 — 대법원 종합법률정보">민사집행법 제31조</a></p>
+            <ul>
+                <li><strong>채무자 사망</strong> — 상속인을 특정하고 상속인에 대한 승계집행문을 신청</li>
+                <li><strong>회사 합병</strong> — 합병 후 회사에 대한 승계집행문을 신청</li>
+                <li><strong>채권양도</strong> — 새로운 채권자에 대한 승계집행문을 신청</li>
+            </ul>
+
+            <h3>집행문 부여 거절 시 대응</h3>
+            <p>집행문 부여가 거절되는 경우가 있습니다. 이 경우 다음과 같이 대응합니다: <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003400" target="_blank" rel="noopener" title="민사집행법 제34조 — 대법원 종합법률정보">민사집행법 제34조</a></p>
+            <ul>
+                <li><strong>판결이 확정되지 않은 경우</strong> — 항소 기간을 기다리거나 항소심 결과를 받아야 함</li>
+                <li><strong>집행문 이의신청</strong> — 집행문 부여에 이의가 있으면 법원에 이의신청을 할 수 있음</li>
+                <li><strong>판결 확인</strong> — 판결문을 다시 확인하고 추가 증거(확정증명서 등)를 제출</li>
+            </ul>
+
+            <h3>집행문 없이 강제집행이 가능한 경우</h3>
+            <p>예외적으로 집행문 없이 강제집행이 가능한 경우가 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005800" target="_blank" rel="noopener" title="민사집행법 제58조 — 대법원 종합법률정보">민사집행법 제58조</a></p>
+            <ul>
+                <li><strong>지급명령 (확정된 경우)</strong> — 채무자 이의 없음 후 지급명령 자체로 강제집행 가능</li>
+                <li><strong>화해조서</strong> — 판결과 같은 효력이 있어 집행문 필요 없음</li>
+                <li><strong>공정증서 (강제집행 인낙 있음)</strong> — 집행문 필요 없음</li>
+            </ul>`
       },
       {
-        heading: '신청 기관 및 방법',
-        content: `<ul>
-<li><strong>확정판결</strong>: 제1심 법원 법원사무관 등 (우편, 방문, 온라인 신청)</li>
-<li><strong>가집행선고 판결</strong>: 상급 법원 법원사무관 등</li>
-<li><strong>조정 조서</strong>: 조정을 담당한 법원 법원사무관 등</li>
-<li><strong>지급명령</strong>: 발령 법원 법원사무관 등</li>
-<li><strong>공정증서</strong>: 법원 신청 불필요 (증서 자체가 집행권원)</li>
-</ul>`
+        heading: '자주하는 질문',
+        content: `<div class="qna-item"><div class="qna-q">Q. 집행문 부여는 얼마나 걸리나요?</div><div class="qna-a">A. 일반적으로 신청 당일 또는 다음날 부여됩니다. 매우 빠른 절차이며, 복잡한 심사 없이 판결문이 있으면 즉시 부여됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=002800" target="_blank" rel="noopener" title="민사집행법 제28조 — 대법원 종합법률정보">민사집행법 제28조</a></div></div>
+            <div class="qna-item"><div class="qna-q">Q. 판결을 받은 지 오래되었는데 집행문을 받을 수 있나요?</div><div class="qna-a">A. 네, 가능합니다. 집행문 부여에 시간 제한이 없습니다. 판결 후 10년이 지나기 전이면 언제든지 집행문을 신청할 수 있습니다. 다만 10년 후에는 판결의 집행력이 소멸됩니다.</div></div>
+            <div class="qna-item"><div class="qna-q">Q. 채무자가 상고를 제기했는데 집행문을 받을 수 있나요?</div><div class="qna-a">A. 네, 가능합니다. 상고는 판결 확정에 영향을 주지 않으므로, 상고가 있어도 집행문을 받을 수 있습니다. 판결이 이미 확정된 상태이기 때문입니다.</div></div>
+            <div class="qna-item"><div class="qna-q">Q. 법무사나 변호사를 통해서만 집행문을 받을 수 있나요?</div><div class="qna-a">A. 아니요. 개인이 직접 집행관사에 방문하거나 우편으로 신청할 수 있습니다. 법무사나 변호사의 도움 없이도 가능합니다. 다만 복잡한 경우(당사자 변동 등)는 전문가 도움이 유리할 수 있습니다.</div></div>
+            <div class="qna-item"><div class="qna-q">Q. 승계집행문은 어떤 경우에 필요한가요?</div><div class="qna-a">A. 원래 판결의 당사자가 변동되었을 때 필요합니다. 예를 들어, 판결에서 '피고'가 기재되어 있는데, 소송 후 그 당사자가 사망했다면, 상속인을 특정하고 상속인 이름으로 승계집행문을 받아야 합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003100" target="_blank" rel="noopener" title="민사집행법 제31조 — 대법원 종합법률정보">민사집행법 제31조</a></div></div>
+            <div class="qna-item"><div class="qna-q">Q. 집행문 부여에 비용이 드나요?</div><div class="qna-a">A. 네, 신청 수수료가 필요합니다. 일반적으로 적은 금액이지만, 구체적인 비용은 법원에 문의하세요. 비용은 회수 가능 금액에 따라 다를 수 있습니다.</div></div>`
       },
       {
-        heading: '필요한 첨부 서류',
-        content: `<ul>
-<li><strong>집행문부여신청서</strong>: 법원 양식을 사용하며, 신청인, 피신청인, 청구취지 등을 기재</li>
-<li><strong>집행권원 정본</strong>: 판결문, 조정조서, 지급명령서 등의 정본 (사본 불가)</li>
-<li><strong>확정증명서</strong>: 판결이 확정되었음을 증명하는 서류 (확정판결의 경우)</li>
-<li><strong>신분증사본</strong>: 신청인(채권자)의 주민등록증, 여권 등</li>
-<li><strong>위임장</strong>: 대리인을 통해 신청할 경우만 제출</li>
-<li><strong>인지</strong>: 집행문 부여 신청에 필요한 인지대</li>
-</ul>`
+        heading: '판례',
+        content: `<div class="ruling-box"><h3>집행문의 필수성</h3><p>대법원은 "집행문은 단순한 형식적 절차가 아니라 판결의 확정을 공식적으로 확인하는 절차"라고 판시했습니다. 집행문 없이 강제집행을 신청하면 신청 자체가 각하됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=002800" target="_blank" rel="noopener" title="민사집행법 제28조 — 대법원 종합법률정보">민사집행법 제28조</a></p></div>
+            <div class="ruling-box"><h3>당사자 변동과 승계집행문</h3><p>판결 후 당사자가 변동되었으면, 원래 판결에 기재된 당사자 이름으로는 강제집행을 할 수 없습니다. 반드시 새로운 당사자(상속인, 합병 회사 등)에 대한 승계집행문을 신청해야 합니다.</p></div>`
       },
       {
-        heading: '집행문의 종류',
-        content: `<p><strong>① 단순집행문</strong>: 판결이나 조정 조서에 대해 일반적으로 부여하는 집행문입니다.</p>
-<p><strong>② 승계집행문</strong>: 강제집행 과정 중 또는 집행 전에 당사자가 변경된 경우에 부여합니다.</p>
-<p><strong>③ 조건부집행문</strong>: 집행권원의 일부에 대해서만 조건을 달아 부여하는 집행문입니다.</p>`
+        heading: '주의사항',
+        content: `<div class="warn-box"><h3>판결문의 원본 필수</h3><p>집행문 부여 신청 시 판결문은 반드시 원본 또는 인증본이어야 합니다. 사본으로는 신청할 수 없으므로 미리 확인하세요.</p></div>
+            <div class="warn-box"><h3>확정증명서의 필요성</h3><p>판결이 최종 확정되었음을 증명하는 '확정증명서'를 함께 제출해야 합니다. 이 서류가 없으면 집행문 부여가 지연될 수 있습니다.</p></div>
+            <div class="warn-box"><h3>시효 관리</h3><p>⚡ 판결의 집행력은 확정 후 10년입니다. 10년이 지나면 강제집행을 신청할 수 없으므로, 판결을 받은 후 충분한 시간 내에 집행문을 받고 강제집행을 신청해야 합니다.</p></div>
+            <div class="warn-box"><h3>당사자 변동 확인</h3><p>원래 판결의 당사자가 변동되었으면, 반드시 이를 신고하고 승계집행문을 신청해야 합니다. 당사자 변동을 무시하고 진행하면 집행이 실패할 수 있습니다.</p></div>`
       },
       {
-        heading: '비용 안내',
-        content: `<ul>
-<li><strong>인지대</strong>: 법원 규정에 따라 소액 인지 요구</li>
-<li><strong>등기료</strong>: 판결 등기가 필요한 경우 추가 비용</li>
-<li><strong>우편료 또는 배송료</strong>: 우편 신청 시 반송료 포함</li>
-</ul>`
+        heading: '다음에 확인할 사항',
+        content: `<div class="next-links">
+                <a href="#" class="next-link">강제집행개관</a>
+                <a href="#" class="next-link">집행권원이란</a>
+                <a href="#" class="next-link">당사자 변동 시 대응</a>
+                <a href="#" class="next-link">부동산 강제집행</a>
+                <a href="#" class="next-link">재산명시신청</a>
+                <a href="#" class="next-link">집행문 부여 거절 시 대응</a>
+            </div>`
       },
-      {
-        heading: '자주하는 질문 (Q&A)',
-        content: `<p><strong>Q. 집행문을 받지 않고 바로 강제집행을 신청할 수는 없나요?</strong></p>
-<p>민사집행법 제29조에 따르면, 강제집행을 하려면 반드시 집행권원 정본에 집행문이 기재되어 있어야 합니다.</p>
-<p><strong>Q. 공정증서는 집행문 부여를 신청해야 하나요?</strong></p>
-<p>아니요. 공정증서는 "강제집행을 승낙한다"는 문구가 있으면 집행권원으로 직접 사용 가능합니다.</p>
-<p><strong>Q. 집행문 부여 신청은 언제까지 할 수 있나요?</strong></p>
-<p>일반적으로 판결 확정 후 10년 이내에 집행문을 부여받아야 합니다.</p>`
-      }
     ],
     laws: [],
     forms: []
   },
   {
     id: 'ef-4',
-    title: '집행 당사자가 바뀐 경우 — 상대방이 사망하거나 회사가 합병되면?',
-    meta: '',
+    title: '집행 당사자가 바뀐 경우',
+    meta: '상대방이 사망하거나 회사가 합병되면?',
     sections: [
       {
         heading: '이런 분께 필요합니다',
-        content: `<ul>
-<li>판결 후 채무자(상대방)가 사망한 경우</li>
-<li>상대방 회사가 다른 회사로 합병되었거나 영업양수도된 경우</li>
-<li>채권을 다른 사람에게 양도받거나 양도한 경우</li>
-<li>당사자 변동 시 어떻게 대처해야 하는지 모르는 경우</li>
-<li>승계집행문이 무엇인지, 어떻게 받아야 하는지 확인하고 싶은 경우</li>
-</ul>`
+        content: `<div class="checklist">
+                <ul>
+                    <li>채무자가 사망했는데 강제집행을 계속할 수 있는지 확인하고 싶은 경우</li>
+                    <li>채무자 회사가 다른 회사에 합병되었을 때 대응 방법을 알고 싶은 경우</li>
+                    <li>당사자 변동이 있을 때 어떤 서류가 필요한지 알고 싶은 경우</li>
+                    <li>상속인이 여러 명일 때 강제집행 절차를 알고 싶은 경우</li>
+                    <li>채권이 제3자에게 양도된 경우 강제집행이 가능한지 알고 싶은 경우</li>
+                    <li>승계집행문이 무엇인지 알고 싶은 경우</li>
+                </ul>
+            </div>`
       },
       {
-        heading: '집행 당사자란?',
-        content: `<p>집행 당사자는 민사집행 절차에서의 권리자와 의무자를 의미합니다.</p>
-<ul>
-<li><strong>채권자</strong>: 권리를 받을 사람 (판결에서 이긴 쪽)</li>
-<li><strong>채무자</strong>: 의무를 이행할 사람 (판결에서 진 쪽)</li>
-</ul>`
+        heading: '핵심정리',
+        content: `<div class="summary-box">
+                <h3>당사자 변동이란?</h3>
+                <p>판결에 기재된 당사자(채무자)가 사망하거나 회사가 합병되어 다른 법인으로 변경되는 등의 상황을 말합니다. 이 경우 원래 판결로는 강제집행이 불가능하며, 새로운 당사자에 대한 '승계집행문'을 신청해야 합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003100" target="_blank" rel="noopener" title="민사집행법 제31조 — 대법원 종합법률정보">민사집행법 제31조</a></p>
+                <p>당사자 변동이 있어도 채권자의 권리가 자동으로 사라지는 것은 아닙니다. 올바른 절차를 통해 상속인이나 합병 회사 상대로 강제집행을 계속할 수 있습니다.</p>
+            </div>`
       },
       {
-        heading: '당사자 변동의 유형',
-        content: `<p><strong>① 채무자(상대방)의 사망</strong>: 채무자가 사망하면 상속인이 채무자의 지위를 승계합니다.</p>
-<p><strong>② 채무자가 속한 회사의 합병</strong>: 그 법인이 다른 법인으로 합병되면 당사자가 변경됩니다.</p>
-<p><strong>③ 채무자의 영업양수도</strong>: 채무자가 자신의 사업을 다른 사람에게 양도한 경우.</p>
-<p><strong>④ 채권의 양도 (채권자 측의 변동)</strong>: 판결 후 채권자가 자신이 가진 채권을 다른 사람에게 양도하는 경우.</p>
-<p><strong>⑤ 채무자의 법인분할</strong>: 법인이 분할되거나 일부 사업을 분할회사에 승계시키는 경우.</p>`
+        heading: '상세설명',
+        content: `<h3>당사자 변동의 유형</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>변동 유형</th>
+                        <th>상황</th>
+                        <th>대응 방법</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>채무자 사망</td>
+                        <td>판결에 기재된 개인이 사망한 경우</td>
+                        <td>상속인을 특정하고 상속인 이름으로 승계집행문 신청</td>
+                    </tr>
+                    <tr>
+                        <td>회사 합병</td>
+                        <td>채무자 회사가 다른 회사에 합병되거나 자신이 다른 회사로 합병된 경우</td>
+                        <td>합병 회사 이름으로 승계집행문 신청</td>
+                    </tr>
+                    <tr>
+                        <td>회사 분할</td>
+                        <td>채무자 회사가 분할되어 새로운 회사가 설립된 경우</td>
+                        <td>채무 인수 회사를 확인하고 그 회사 이름으로 승계집행문 신청</td>
+                    </tr>
+                    <tr>
+                        <td>채권양도</td>
+                        <td>채권자(판결을 받은 사람)가 채권을 제3자에게 양도한 경우</td>
+                        <td>새로운 채권자 이름으로 승계집행문 신청</td>
+                    </tr>
+                    <tr>
+                        <td>법명 변경</td>
+                        <td>법인의 상호 또는 명칭이 변경된 경우</td>
+                        <td>새로운 상호로 승계집행문 신청</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>승계집행문이란</h3>
+            <p>승계집행문은 원래 판결의 당사자가 변동된 경우, 새로운 당사자를 기록하는 집행문입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003100" target="_blank" rel="noopener" title="민사집행법 제31조 — 대법원 종합법률정보">민사집행법 제31조</a></p>
+            <p>예를 들어, 원래 판결에 "피고: 김철수"라고 기재되어 있었는데, 김철수가 사망하면 상속인(예: 김영희)을 특정하고 "피고: 김영희"라는 승계집행문을 받아야 합니다.</p>
+
+            <h3>채무자 사망 시 강제집행</h3>
+            <p>채무자가 사망한 경우, 다음 절차를 따릅니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003900" target="_blank" rel="noopener" title="민사집행법 제39조 제2항 — 대법원 종합법률정보">민사집행법 제39조 제2항</a></p>
+            <ul>
+                <li><strong>상속인 확인</strong> — 채무자의 법정 상속인(배우자, 자녀, 부모 등)을 확인합니다.</li>
+                <li><strong>호적등본 또는 제적등본 준비</strong> — 상속인을 특정하기 위해 호적등본이 필요합니다.</li>
+                <li><strong>상속인 이름으로 승계집행문 신청</strong> — 상속인 중 누가 상속채무를 인수했는지 확인하고, 그 사람 이름으로 승계집행문을 신청합니다.</li>
+                <li><strong>강제집행 신청</strong> — 승계집행문을 받은 후 상속인의 재산을 대상으로 강제집행을 신청합니다.</li>
+            </ul>
+            <p><strong>⚡ 중요: 상속포기와 한정승인</strong> — 상속인이 상속을 포기했거나 한정승인을 한 경우, 채무 상속이 제한될 수 있습니다. 이 경우 강제집행이 어려울 수 있으므로 반드시 확인해야 합니다.</p>
+
+            <h3>회사 합병 시 강제집행</h3>
+            <p>채무자 회사가 합병된 경우, 다음과 같이 진행합니다.</p>
+            <ul>
+                <li><strong>합병 여부 확인</strong> — 등기부등본 또는 법원 기록을 통해 회사가 합병되었는지 확인합니다.</li>
+                <li><strong>합병 회사 특정</strong> — 채무를 인수한 회사(존속회사 또는 신설회사)를 특정합니다.</li>
+                <li><strong>승계집행문 신청</strong> — 합병 회사 이름으로 승계집행문을 신청합니다.</li>
+                <li><strong>강제집행</strong> — 합병 회사의 재산을 대상으로 강제집행을 신청합니다.</li>
+            </ul>
+
+            <h3>기판력의 주관적 범위와 승계인</h3>
+            <p>판결의 기판력(이미 판결이 난 사건에 대해 다시 소송할 수 없는 효력)은 원래의 당사자에게만 미칩니다. 그러나 승계인(상속인, 합병 회사 등)도 강제집행의 대상이 될 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=252393&joNo=021800" target="_blank" rel="noopener" title="민사소송법 제218조 제1항 — 대법원 종합법률정보">민사소송법 제218조 제1항</a></p>
+            <p>이는 권리의 승계 관계 때문입니다. 채무자의 지위가 상속인에게 당연히 넘어가므로, 강제집행도 상속인 상대로 가능한 것입니다.</p>
+
+            <h3>당사자 변동 확인의 중요성</h3>
+            <p>당사자 변동이 있었음에도 이를 무시하고 강제집행을 신청하면 다음 문제가 발생할 수 있습니다:</p>
+            <ul>
+                <li><strong>집행 신청 각하</strong> — 원래 당사자가 더 이상 존재하지 않으면 집행 신청 자체가 각하될 수 있습니다.</li>
+                <li><strong>시간 낭비</strong> — 잘못된 당사자 상대로 집행 절차를 밟으면 나중에 다시 신청해야 합니다.</li>
+                <li><strong>시효 문제</strong> — 판결의 집행력은 10년이므로, 당사자 변동 확인에 시간을 쓰다가 시효가 만료될 수 있습니다.</li>
+            </ul>`
       },
       {
-        heading: '승계집행문이란?',
-        content: `<p>승계집행문(承繼執行文)은 원래의 집행권원(판결·조정 등)에서 당사자를 변경하여 새로운 당사자에 대해 부여하는 집행문입니다. 민사집행법 제30조에 따르면 당사자 변동 후 새로운 당사자가 승계집행문을 받아야 합니다.</p>`
+        heading: '자주하는 질문',
+        content: `<div class="qna-item"><div class="qna-q">Q. 채무자가 사망했을 때 상속포기한 상속인이 있으면 어떻게 되나요?</div><div class="qna-a">A. 상속포기한 상속인은 채무 상속인이 아니므로, 그 상속인 상대로 강제집행을 할 수 없습니다. 다만 상속포기를 하지 않은 다른 상속인이 있으면 그들 상대로 강제집행이 가능합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003900" target="_blank" rel="noopener" title="민사집행법 제39조 제2항 — 대법원 종합법률정보">민사집행법 제39조 제2항</a></div></div>
+            <div class="qna-item"><div class="qna-q">Q. 회사가 합병되었는데 합병 회사를 특정하기 어렵습니다. 어떻게 해야 하나요?</div><div class="qna-a">A. 등기부등본을 통해 합병 정보를 확인할 수 있습니다. 등기소에 문의하면 합병 회사(채무 인수 회사)를 특정할 수 있습니다. 필요시 법무사의 도움을 받을 수 있습니다.</div></div>
+            <div class="qna-item"><div class="qna-q">Q. 상속인이 여러 명일 때 모두 상대로 강제집행해야 하나요?</div><div class="qna-a">A. 상속인들이 상속채무를 공동으로 부담하는 경우, 각 상속인의 법정상속분에 따라 개별적으로 강제집행할 수 있습니다. 모두 함께 강제집행해야 하는 것은 아닙니다.</div></div>
+            <div class="qna-item"><div class="qna-q">Q. 채권이 제3자에게 양도되었으면 강제집행이 불가능한가요?</div><div class="qna-a">A. 아니요. 채권이 양도된 경우, 새로운 채권자(양수인) 이름으로 승계집행문을 신청하면 됩니다. 다만 채권양도를 증명해야 하므로, 양도 계약서나 통지장 등을 준비해야 합니다.</div></div>
+            <div class="qna-item"><div class="qna-q">Q. 법인의 상호가 변경되었을 때도 승계집행문이 필요한가요?</div><div class="qna-a">A. 네, 필요합니다. 법인의 상호가 변경되었으면 새로운 상호로 승계집행문을 신청해야 합니다. 등기부등본에 상호 변경 내용이 기록되므로, 이를 제출하면 됩니다.</div></div>
+            <div class="qna-item"><div class="qna-q">Q. 당사자 변동이 있었을 때 원래 판결로 강제집행을 시도하면 어떻게 되나요?</div><div class="qna-a">A. 강제집행 신청이 각하될 가능성이 높습니다. 예를 들어, 사망한 개인 이름으로 부동산 압류를 신청하면, 그 개인이 더 이상 재산권자가 아니므로 신청이 받아들여지지 않습니다.</div></div>`
       },
       {
-        heading: '승계집행문 신청 절차',
-        content: `<p>① 당사자 변동 사실 입증 (사망진단서, 법인등기부등본, 양도계약서 등) → ② 승계집행문 신청서 제출 → ③ 법원 심사 → ④ 승계집행문 부여 → ⑤ 집행 계속</p>`
+        heading: '판례',
+        content: `<div class="ruling-box"><h3>상속인에 대한 강제집행</h3><p>대법원은 채무자가 사망한 후 상속인이 채무를 상속받으면, 상속인 상대로 강제집행이 가능하다고 판시했습니다. 이는 상속이 자동적으로 채무 관계를 승계시키기 때문입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003100" target="_blank" rel="noopener" title="민사집행법 제31조, 제39조 제2항 — 대법원 종합법률정보">민사집행법 제31조, 제39조 제2항</a></p></div>
+            <div class="ruling-box"><h3>합병 회사의 채무 인수</h3><p>회사 합병의 경우, 채무도 자동으로 합병 회사에 인수됩니다. 따라서 합병 회사 상대로 강제집행이 가능합니다. 다만 분할의 경우는 채무 인수 여부를 확인해야 합니다.</p></div>`
       },
       {
         heading: '주의사항',
-        content: `<ul>
-<li>승계집행문 신청은 원래의 당사자 변동 후 가능한 한 빨리 진행해야 합니다</li>
-<li>당사자 변동을 집행기관에 통지하지 않으면 집행이 중단될 수 있습니다</li>
-<li>상속인이 여러 명인 경우, 모든 상속인에 대해 승계집행문을 받아야 할 수 있습니다</li>
-<li>채무자의 당사자 변동 사실을 입증해야 하므로 공식 증명 서류가 필요합니다</li>
-<li>승계집행문 신청 중 집행 시효(10년)가 경과할 수 있으니 주의해야 합니다</li>
-</ul>`
+        content: `<div class="warn-box"><h3>상속 관계 확인의 중요성</h3><p>채무자가 사망한 경우, 반드시 호적등본이나 제적등본을 통해 상속인을 확인해야 합니다. 잘못된 사람을 상속인으로 지정하면 강제집행이 실패합니다.</p></div>
+            <div class="warn-box"><h3>상속포기 확인</h3><p>⚡ 상속인이 상속포기를 한 경우, 그 상속인은 더 이상 채무를 부담하지 않습니다. 상속포기 신청 기간(3개월) 내에 이를 확인해야 합니다. 상속포기 기간이 지난 후에는 상속 관계가 확정되어 변경할 수 없습니다.</p></div>
+            <div class="warn-box"><h3>회사 합병 문서 준비</h3><p>회사 합병이 있었을 때 강제집행을 신청하려면, 합병 사실을 증명하는 등기부등본 또는 법원의 승인 결정서 등을 준비해야 합니다.</p></div>
+            <div class="warn-box"><h3>당사자 변동 신고 기한</h3><p>⚡ 당사자 변동 사실을 파악했으면 신속하게 승계집행문을 신청해야 합니다. 판결의 집행력은 10년이므로, 시간을 낭비하면 시효 만료로 강제집행이 불가능할 수 있습니다.</p></div>`
       },
       {
-        heading: '당사자 변동 시나리오별 해결방법',
-        content: `<p><strong>채무자(상대방)가 사망한 경우</strong>: 상속인이 나타나면, 상속인에 대한 승계집행문을 받아 강제집행을 계속합니다. 상속인이 불명확하거나 없는 경우, 특별대리인을 선임받을 수 있습니다.</p>
-<p><strong>채무자 회사가 합병된 경우</strong>: 합병 상대방(수령법인 또는 신설법인)을 새로운 채무자로 하여 승계집행문을 신청합니다.</p>
-<p><strong>채권을 양도받은 경우</strong>: 양도인과 양수인이 작성한 채권양도계약서를 제출하여 승계집행문을 신청합니다.</p>`
+        heading: '다음에 확인할 사항',
+        content: `<div class="next-links">
+                <a href="#" class="next-link">집행문 부여 신청</a>
+                <a href="#" class="next-link">강제집행개관</a>
+                <a href="#" class="next-link">상속 개요</a>
+                <a href="#" class="next-link">재산명시신청</a>
+                <a href="#" class="next-link">상속포기</a>
+                <a href="#" class="next-link">법인 등기 변경</a>
+            </div>`
       },
-      {
-        heading: '자주하는 질문 (Q&A)',
-        content: `<p><strong>Q. 채무자가 사망했는데 상속인이 정해지지 않았으면 어떻게 하나요?</strong></p>
-<p>민사집행법 제20조에 따라 집행법원에 특별대리인 선임을 신청할 수 있습니다.</p>
-<p><strong>Q. 승계집행문 신청 없이 원래 집행권원으로 계속 집행할 수 있나요?</strong></p>
-<p>아니요. 민사집행법 제30조에 따르면, 당사자가 변동되면 새로운 당사자는 반드시 승계집행문을 받아야 합니다.</p>`
-      }
     ],
     laws: [],
     forms: []
   },
   {
     id: 'ef-5',
-    title: '재산명시신청 — 채무자 재산을 법원을 통해 공개시키는 방법',
-    meta: '',
+    title: '재산명시신청',
+    meta: '채무자 재산을 법원을 통해 공개시키는 방법',
     sections: [
       {
         heading: '이런 분께 필요합니다',
-        content: `<ul>
-<li>판결을 받았지만 채무자의 재산이 어디 있는지 모르는 경우</li>
-<li>채무자의 재산을 법적으로 파악하고 싶은 경우</li>
-<li>채무자가 재산을 숨기거나 거부할 경우 어떻게 해야 하는지 알고 싶은 경우</li>
-<li>재산명시를 통해 재산을 파악한 후 강제집행을 진행하려는 경우</li>
-</ul>`
+        content: `<div class="checklist">
+                <ul>
+                    <li>강제집행을 하려고 하는데 채무자의 재산을 모르는 경우</li>
+                    <li>채무자가 재산을 숨길 가능성이 있는 경우</li>
+                    <li>재산명시신청 절차가 무엇인지 알고 싶은 경우</li>
+                    <li>채무자가 재산명시 기일에 나타나지 않으면 어떻게 되는지 알고 싶은 경우</li>
+                    <li>재산명시 중에 채무자가 거짓 진술을 하면 어떤 벌칙이 있는지 알고 싶은 경우</li>
+                    <li>재산명시신청 후 어떤 추가 절차가 있는지 알고 싶은 경우</li>
+                </ul>
+            </div>`
       },
       {
-        heading: '재산명시제도란?',
-        content: `<p>재산명시제도는 채권자가 법원에 신청하면, 법원이 채무자를 소환하여 자신의 재산 목록을 공개하도록 명령하는 절차입니다. 민사집행법 제61조에 근거합니다.</p>`
+        heading: '핵심정리',
+        content: `<div class="summary-box">
+                <h3>재산명시신청이란?</h3>
+                <p>재산명시신청은 판결을 받은 채권자가 법원에 신청하여, 법원이 강제적으로 채무자에게 자신의 재산(부동산, 동산, 통장, 차량 등)을 법정에서 공개하게 하는 절차입니다. 판결을 받았지만 채무자의 재산을 모를 때 매우 유용한 제도입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006100" target="_blank" rel="noopener" title="민사집행법 제61조 — 대법원 종합법률정보">민사집행법 제61조</a></p>
+                <p>강제집행을 하려면 채무자의 재산 위치를 알아야 하는데, 채무자가 재산을 숨기거나 협조하지 않을 때 법원의 강제력으로 재산 공개를 받을 수 있습니다.</p>
+            </div>`
       },
       {
-        heading: '재산명시 신청의 요건',
-        content: `<ul>
-<li>집행권원 존재 (확정판결, 조정 조서 등)</li>
-<li>집행이 불가능하거나 현저히 곤란한 사정</li>
-<li>채무자의 재산 파악이 필요한 경우</li>
-</ul>`
+        heading: '상세설명',
+        content: `<h3>재산명시신청의 의의</h3>
+            <p>판결을 받았다고 해서 곧바로 강제집행을 할 수 있는 것은 아닙니다. 채무자가 어떤 재산을 소유하고 있는지 알아야만 그 재산을 압류할 수 있기 때문입니다. 재산명시신청은 이러한 정보를 얻기 위한 절차입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006100" target="_blank" rel="noopener" title="민사집행법 제61조 — 대법원 종합법률정보">민사집행법 제61조</a></p>
+
+            <h3>재산명시신청 절차</h3>
+            <div class="step-box">
+                <p><span class="step-num">1</span><strong>신청</strong></p>
+                <p style="margin-top: 12px;">판결을 받은 법원 또는 강제집행 신청 법원에 재산명시신청서를 제출합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006100" target="_blank" rel="noopener" title="민사집행법 제61조 — 대법원 종합법률정보">민사집행법 제61조</a></p>
+            </div>
+            <div class="step-box">
+                <p><span class="step-num">2</span><strong>명시기일 지정</strong></p>
+                <p style="margin-top: 12px;">법원이 재산명시기일을 정하고 채무자에게 통보합니다. 명시기일은 신청 후 2~3주 정도가 일반적입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006200" target="_blank" rel="noopener" title="민사집행법 제62조 — 대법원 종합법률정보">민사집행법 제62조</a></p>
+            </div>
+            <div class="step-box">
+                <p><span class="step-num">3</span><strong>재산명시기일 진행</strong></p>
+                <p style="margin-top: 12px;">정해진 날짜에 채무자가 법정에 출석하여 자신의 재산을 공개합니다. 법원 판사 또는 집행관이 채무자를 신문하고 재산 내용을 기록합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006400" target="_blank" rel="noopener" title="민사집행법 제64조 — 대법원 종합법률정보">민사집행법 제64조</a></p>
+            </div>
+            <div class="step-box">
+                <p><span class="step-num">4</span><strong>재산목록 작성</strong></p>
+                <p style="margin-top: 12px;">채무자가 공개한 재산 정보를 재산목록으로 작성합니다. 여기에는 부동산, 동산, 통장, 자동차 등의 정보가 포함됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006300" target="_blank" rel="noopener" title="민사집행법 제63조 — 대법원 종합법률정보">민사집행법 제63조</a></p>
+            </div>
+            <div class="step-box">
+                <p><span class="step-num">5</span><strong>강제집행 신청</strong></p>
+                <p style="margin-top: 12px;">재산명시를 통해 얻은 정보를 바탕으로 해당 재산을 대상으로 강제집행을 신청합니다.</p>
+            </div>
+
+            <h3>재산명시신청 요건</h3>
+            <p>재산명시신청을 하려면 다음 요건을 만족해야 합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006100" target="_blank" rel="noopener" title="민사집행법 제61조 — 대법원 종합법률정보">민사집행법 제61조</a></p>
+            <ul>
+                <li><strong>집행권원이 있어야 함</strong> — 판결, 화해조서, 지급명령, 공정증서 등 강제집행의 근거가 되는 문서</li>
+                <li><strong>기간 제한이 있어야 함</strong> — 일반적으로 권리가 발생한 후 5년 이내</li>
+                <li><strong>채무자를 특정할 수 있어야 함</strong> — 채무자의 성명, 주소 등이 명확해야 함</li>
+            </ul>
+
+            <h3>채무자가 재산명시에 응하지 않으면?</h3>
+            <p>채무자가 재산명시기일에 나타나지 않거나 거짓 진술을 하면, 법원은 다음과 같은 제재를 할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 — 대법원 종합법률정보">민사집행법 제68조</a></p>
+            <ul>
+                <li><strong>기일 재지정</strong> — 채무자가 정당한 사유 없이 불출석하면 기일을 다시 정합니다.</li>
+                <li><strong>감치(구금)</strong> — 채무자가 불출석을 반복하거나 거짓 진술을 한 경우, 법원은 채무자를 6개월 이내의 감치(일종의 구금)에 처할 수 있습니다.</li>
+                <li><strong>과태료</strong> — 감치 외에 과태료를 부과할 수 있습니다.</li>
+            </ul>
+            <p><strong>⚡ 감치는 매우 심각한 제재입니다.</strong> 채무자는 감치를 피하기 위해 재산을 공개할 가능성이 높습니다. 이것이 재산명시신청의 강력한 효과입니다.</p>
+
+            <h3>재산목록에 포함되는 내용</h3>
+            <p>재산명시 시 채무자가 공개해야 하는 재산 목록은 다음과 같습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006300" target="_blank" rel="noopener" title="민사집행법 제63조 — 대법원 종합법률정보">민사집행법 제63조</a></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>재산 종류</th>
+                        <th>구체적 내용</th>
+                        <th>확인 방법</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>부동산</td>
+                        <td>토지, 건물의 위치, 면적, 소유 여부</td>
+                        <td>등기부등본</td>
+                    </tr>
+                    <tr>
+                        <td>자동차</td>
+                        <td>차량 종류, 번호, 구매 가격</td>
+                        <td>등록증, 자동차세</td>
+                    </tr>
+                    <tr>
+                        <td>금융자산</td>
+                        <td>통장 잔액, 예금 금액, 예금처(은행)</td>
+                        <td>통장, 계좌 정보</td>
+                    </tr>
+                    <tr>
+                        <td>생명보험</td>
+                        <td>보험사, 계약금, 해약환금액</td>
+                        <td>보험증권</td>
+                    </tr>
+                    <tr>
+                        <td>급여</td>
+                        <td>직장, 월급 금액, 근무처</td>
+                        <td>고용계약서, 급여명세서</td>
+                    </tr>
+                    <tr>
+                        <td>주식</td>
+                        <td>주식 종류, 수량, 현재 가치</td>
+                        <td>증권계좌</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>재산명시기일의 연기</h3>
+            <p>채무자가 정당한 사유로 재산명시기일에 출석할 수 없는 경우, 법원에 연기를 신청할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006500" target="_blank" rel="noopener" title="민사집행법 제65조 — 대법원 종합법률정보">민사집행법 제65조</a></p>
+            <p>다만 무분별한 연기 신청은 감치 대상이 될 수 있으므로, 반드시 정당한 사유가 있어야 합니다.</p>
+
+            <h3>재산명시 후의 추가 절차</h3>
+            <p>재산명시를 통해 채무자의 재산 정보를 얻은 후, 다음과 같은 절차를 밟습니다.</p>
+            <ul>
+                <li><strong>강제집행 신청</strong> — 공개된 재산을 대상으로 강제집행 신청</li>
+                <li><strong>재산 압류</strong> — 부동산, 동산, 채권 등을 개별 압류</li>
+                <li><strong>경매</strong> — 부동산의 경우 경매 진행</li>
+                <li><strong>배당</strong> — 회수한 금액을 채권자에게 분배</li>
+            </ul>
+            <p>재산명시 후에도 채무자가 재산을 은폐하거나 도망치는 경우가 있으므로, 신속한 강제집행이 중요합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006900" target="_blank" rel="noopener" title="민사집행법 제69조 — 대법원 종합법률정보">민사집행법 제69조</a></p>`
       },
       {
-        heading: '재산명시 절차',
-        content: `<p>① 재산명시신청 → ② 법원 심사 → ③ 재산명시 기일 지정 → ④ 채무자 소환 → ⑤ 재산 목록 제출 → ⑥ 선서</p>`
+        heading: '자주하는 질문',
+        content: `<div class="qna-item"><div class="qna-q">Q. 재산명시신청을 여러 번 할 수 있나요?</div><div class="qna-a">A. 네, 가능합니다. 첫 번째 재산명시 이후에도 새로운 재산 정보가 필요하면 추가로 신청할 수 있습니다. 다만 과도한 신청은 남용으로 간주될 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006900" target="_blank" rel="noopener" title="민사집행법 제69조 — 대법원 종합법률정보">민사집행법 제69조</a></div></div>
+            <div class="qna-item"><div class="qna-q">Q. 채무자가 거짓으로 "재산이 없습니다"라고 말하면 어떻게 하나요?</div><div class="qna-a">A. 거짓 진술은 위증에 해당할 수 있으며, 감치나 과태료 대상이 됩니다. 또한 실제로 재산이 있다는 증거(통장 거래내역, 등기부등본 등)가 있으면 채무자의 거짓이 적발될 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 — 대법원 종합법률정보">민사집행법 제68조</a></div></div>
+            <div class="qna-item"><div class="qna-q">Q. 재산명시신청 후 얼마나 기다려야 하나요?</div><div class="qna-a">A. 신청 후 2~3주 정도면 명시기일이 정해집니다. 법원의 업무량에 따라 다를 수 있으므로, 신청 시 법원에 확인하는 것이 좋습니다.</div></div>
+            <div class="qna-item"><div class="qna-q">Q. 재산명시신청에 비용이 드나요?</div><div class="qna-a">A. 비용이 거의 없거나 매우 적습니다. 신청 수수료와 인지대 정도입니다. 구체적인 비용은 법원에 문의하세요.</div></div>
+            <div class="qna-item"><div class="qna-q">Q. 법무사나 변호사 없이 재산명시신청을 할 수 있나요?</div><div class="qna-a">A. 네, 개인이 직접 할 수 있습니다. 다만 전략적으로 재산명시를 활용하거나 법적 문제가 예상되면 전문가 도움이 유리할 수 있습니다.</div></div>
+            <div class="qna-item"><div class="qna-q">Q. 재산명시기일에 채무자가 나타나지 않으면 감치가 되나요?</div><div class="qna-a">A. 정당한 사유 없이 불출석하면 감치가 될 수 있습니다. 다만 첫 번째 불출석이면 기일을 다시 정하고, 이후 반복적인 불출석이나 거짓 진술 시 감치가 실행됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 — 대법원 종합법률정보">민사집행법 제68조</a></div></div>
+            <div class="qna-item"><div class="qna-q">Q. 배우자의 재산도 재산명시 대상에 포함되나요?</div><div class="qna-a">A. 판결에서 명시된 채무자 개인의 재산만 대상이 됩니다. 배우자의 재산은 별도의 법적 절차가 필요합니다. 다만 부부가 공동 소유한 재산이거나 채무자가 배우자 명의로 재산을 은폐한 경우는 다르게 취급될 수 있습니다.</div></div>`
       },
       {
-        heading: '필요한 첨부 서류',
-        content: `<ul>
-<li>재산명시신청서</li>
-<li>집행권원 정본 (판결문, 조정조서 등)</li>
-<li>집행문</li>
-<li>확정증명서 (해당 경우)</li>
-<li>신분증 사본</li>
-</ul>`
+        heading: '판례',
+        content: `<div class="ruling-box"><h3>재산명시의 필수성</h3><p>대법원은 강제집행을 효과적으로 진행하기 위해 재산명시신청이 매우 중요하다고 판시했습니다. 채무자가 재산을 숨기는 경우가 많으므로, 법원의 강제력을 통해 재산을 공개하게 하는 것은 채권자 보호의 핵심입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006100" target="_blank" rel="noopener" title="민사집행법 제61조 — 대법원 종합법률정보">민사집행법 제61조</a></p></div>
+            <div class="ruling-box"><h3>감치의 효과</h3><p>대법원은 감치가 실제로 집행되지 않더라도, 그 위협만으로도 채무자가 재산을 공개하게 한다고 인정했습니다. 따라서 법원이 감치를 선언하는 것만으로도 대부분의 채무자가 성실하게 재산을 공개합니다.</p></div>
+            <div class="ruling-box"><h3>거짓 진술에 대한 제재</h3><p>재산명시 과정에서의 거짓 진술은 위증에 해당하며, 민사상의 제재(감치, 과태료) 외에 형사상 제재(위증죄)도 받을 수 있습니다. 법원은 거짓 진술을 엄격하게 처벌하고 있습니다.</p></div>`
       },
       {
-        heading: '채무자 불출석·거부 시 — 감치 처분',
-        content: `<p>채무자가 정당한 사유 없이 재산명시 기일에 출석하지 않거나 거짓으로 재산을 신고하는 경우, 집행법원이 채무자를 감치에 처하는 제재를 내릴 수 있습니다 (민사집행법 제68조). 감치 기간은 6개월 이내입니다.</p>`
+        heading: '주의사항',
+        content: `<div class="warn-box"><h3>신속한 조치의 중요성</h3><p>⚡ 재산명시신청을 한 후 채무자가 재산을 은폐하거나 도망칠 수 있습니다. 재산명시를 통해 정보를 얻은 후 신속하게 강제집행을 신청해야 합니다. 시간을 낭비하면 채무자가 재산을 해산할 수 있습니다.</p></div>
+            <div class="warn-box"><h3>재산명시 정보의 활용</h3><p>재산명시를 통해 얻은 정보는 강제집행에만 사용해야 합니다. 이 정보를 다른 목적으로 공개하거나 사용하면 법적 문제가 발생할 수 있습니다.</p></div>
+            <div class="warn-box"><h3>채무자의 전략적 대응</h3><p>채무자는 재산명시 기일 전에 재산을 다른 사람(친구, 친척) 명의로 옮길 수 있습니다. 따라서 재산명시신청 사실을 미리 공개하면 안 되며, 신청 직후 신속한 강제집행이 필수입니다.</p></div>
+            <div class="warn-box"><h3>감치의 현실적 효과</h3><p>이론상 감치가 6개월까지 가능하지만, 실무에서는 2~3개월 이내에 채무자가 성실하게 재산을 공개합니다. 감치의 위협 자체가 채무자에게 충분한 압박이 되기 때문입니다.</p></div>`
       },
       {
-        heading: '재산명시 신청 후 진행',
-        content: `<p>재산명시를 통해 파악한 재산에 대해 강제집행을 신청합니다. 재산이 없거나 충분하지 않은 경우, 재산조회신청을 추가로 진행할 수 있습니다.</p>`
+        heading: '다음에 확인할 사항',
+        content: `<div class="next-links">
+                <a href="#" class="next-link">강제집행개관</a>
+                <a href="#" class="next-link">부동산 강제집행</a>
+                <a href="#" class="next-link">채권 강제집행</a>
+                <a href="#" class="next-link">집행문 부여 신청</a>
+                <a href="#" class="next-link">집행권원이란</a>
+                <a href="#" class="next-link">당사자 변동 시 대응</a>
+            </div>`
       },
-      {
-        heading: '비용 안내',
-        content: `<ul>
-<li><strong>인지대</strong>: 법원 규정에 따른 소액 인지</li>
-<li><strong>송달료</strong>: 채무자 소환을 위한 우편료</li>
-</ul>`
-      },
-      {
-        heading: '자주하는 질문 (Q&A)',
-        content: `<p><strong>Q. 재산명시를 신청하면 채무자가 반드시 재산을 공개해야 하나요?</strong></p>
-<p>법원의 명령이 있으면 채무자는 재산을 공개해야 합니다. 거부하거나 거짓으로 신고하면 감치 처분이나 형사처벌을 받을 수 있습니다.</p>
-<p><strong>Q. 재산명시 절차가 완료되면 바로 강제집행이 가능한가요?</strong></p>
-<p>네, 재산명시 결과를 토대로 특정 재산에 대해 강제집행을 신청할 수 있습니다.</p>`
-      }
     ],
     laws: [],
     forms: []
@@ -340,56 +739,151 @@ const ENFORCEMENT_TOPICS = [
   {
     id: 'ef-6',
     title: '재산조회 신청',
-    meta: '금융기관·관청에서 채무자 재산 찾기',
+    meta: '금융기관·관청을 통해 채무자의 숨겨진 재산을 찾는 방법',
     sections: [
       {
         heading: '이런 분께 필요합니다',
-        content: `<ul>
-<li>채무자의 재산이 어디 있는지 모르는 경우</li>
-<li>재산명시만으로는 채무자의 재산을 파악하기 어려운 경우</li>
-<li>금융기관이나 관청에서 채무자 재산 정보를 조회하고 싶은 경우</li>
-<li>채무자가 재산을 숨겼을 가능성이 있는 경우</li>
-</ul>`
+        content: `<div class="checklist">
+    <ul>
+      <li>판결을 받았는데 채무자 재산이 어디 있는지 모르는 경우</li>
+      <li>재산명시 후에도 채무자가 재산 내역을 충분히 공개하지 않은 경우</li>
+      <li>채무자의 금융재산(예금, 주식, 보험 등)을 확인하고 싶은 경우</li>
+      <li>채무자 명의 부동산이나 자동차가 있는지 공적 기관을 통해 확인하려는 경우</li>
+      <li>채무자가 재산을 숨기거나 이전했다고 의심되는 경우</li>
+    </ul>
+  </div>`
       },
       {
-        heading: '1. 재산조회가 왜 필요한가',
-        content: `<p>재산조회는 채권자가 채무자의 재산 현황을 파악하기 위해 법원을 통해 국세청, 지방자치단체, 금융기관 등에 정보를 요청하는 절차입니다. 민사집행법 제72조에 근거합니다.</p>`
+        heading: '핵심 정리',
+        content: `<div class="summary-box">
+    <div class="label">▶ 재산조회란</div>
+    <p>재산조회는 채권자가 법원을 통해 금융기관·국가기관 등에 채무자의 재산 현황을 조회하도록 요청하는 제도입니다. 채무자 스스로 재산을 신고하는 재산명시와 달리, 제3자 기관에 직접 조회하여 객관적인 재산 내역을 파악할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007400" target="_blank" rel="noopener" title="민사집행법 제74조 — 대법원 종합법률정보">민사집행법 제74조</a></p>
+  </div>
+  <div class="summary-box">
+    <div class="label">▶ 핵심 포인트</div>
+    <p>재산조회는 재산명시신청과 함께 또는 그 이후에 신청 가능하며, 법원이 공공기관·금융기관에 직접 조회하기 때문에 채무자가 숨긴 재산도 파악할 수 있습니다. 조회 결과는 강제집행 신청에 직접 활용됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007400" target="_blank" rel="noopener" title="민사집행법 제74조 제1항 — 대법원 종합법률정보">민사집행법 제74조 제1항</a></p>
+  </div>`
       },
       {
-        heading: '2. 전체 절차 흐름',
-        content: `<p>① 재산조회 신청 → ② 법원 심사 → ③ 조회 기관에 조회 요청 → ④ 조회 결과 회신 → ⑤ 채권자에게 결과 통보 → ⑥ 강제집행 신청</p>`
+        heading: '재산조회 제도의 이해',
+        content: `<h3>신청 요건</h3>
+  <p>재산조회는 금전채권에 기초한 집행권원을 가진 채권자가 다음 중 하나에 해당하는 경우에 신청할 수 있습니다.</p>
+  <ul style="margin:12px 0 12px 20px;line-height:2">
+    <li>채무자가 재산명시기일에 출석하지 않거나 재산목록 제출을 거부하는 경우</li>
+    <li>채무자가 제출한 재산목록이 부실하여 집행채권의 만족을 얻기에 부족한 경우</li>
+    <li>재산명시 결과 알게 된 채무자의 재산으로 강제집행이 불가한 경우</li>
+  </ul>
+  <p>실무에서는 재산명시신청과 재산조회신청을 동시에 제출하는 경우도 많습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007400" target="_blank" rel="noopener" title="민사집행법 제74조 제1항 — 대법원 종합법률정보">민사집행법 제74조 제1항</a></p>
+
+  <h3>조회 가능 기관과 조회 내용</h3>
+  <table>
+    <thead>
+      <tr><th>조회 기관</th><th>조회 내용</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>금융기관 (은행·증권사·보험사 등)</td><td>예금, 적금, 주식, 보험 해약환급금 등</td></tr>
+      <tr><td>국토교통부</td><td>부동산(토지·건물) 소유 현황</td></tr>
+      <tr><td>지방자치단체 (시·군·구)</td><td>자동차 소유 현황</td></tr>
+      <tr><td>국민건강보험공단</td><td>소득 현황 (보험료 납부 내역)</td></tr>
+      <tr><td>국세청</td><td>세금 납부 내역, 근로소득 등</td></tr>
+    </tbody>
+  </table>
+  <p>조회 기관의 범위는 대법원규칙으로 정합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007400" target="_blank" rel="noopener" title="민사집행법 제74조 제2항 — 대법원 종합법률정보">민사집행법 제74조 제2항</a></p>
+
+  <h3>신청 절차</h3>
+  <div class="step-box"><p><span class="step-num">1</span> <strong>신청서 작성</strong> — 재산조회신청서를 작성하여 집행법원에 제출합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007400" target="_blank" rel="noopener" title="민사집행법 제74조 — 대법원 종합법률정보">민사집행법 제74조</a></p></div>
+  <div class="step-box"><p><span class="step-num">2</span> <strong>법원 결정</strong> — 법원이 조회 여부를 결정하고 각 기관에 조회를 의뢰합니다.</p></div>
+  <div class="step-box"><p><span class="step-num">3</span> <strong>기관 회신</strong> — 조회를 받은 기관이 법원에 채무자의 재산 현황을 회신합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007500" target="_blank" rel="noopener" title="민사집행법 제75조 — 대법원 종합법률정보">민사집행법 제75조</a></p></div>
+  <div class="step-box"><p><span class="step-num">4</span> <strong>결과 통보</strong> — 법원이 채권자에게 조회 결과를 통보합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007600" target="_blank" rel="noopener" title="민사집행법 제76조 — 대법원 종합법률정보">민사집행법 제76조</a></p></div>
+  <div class="step-box"><p><span class="step-num">5</span> <strong>강제집행 신청</strong> — 파악된 재산에 대해 강제집행(압류 등)을 신청합니다.</p></div>
+
+  <h3>조회 결과의 이용과 제한</h3>
+  <p>재산조회 결과로 파악된 재산 정보는 해당 강제집행의 신청에 활용할 수 있습니다. 다만, 이 정보는 집행 목적 외에 다른 용도로 사용하거나 제3자에게 제공하는 것이 금지됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007700" target="_blank" rel="noopener" title="민사집행법 제77조 — 대법원 종합법률정보">민사집행법 제77조</a></p>
+
+  <h3>첨부서류</h3>
+  <table>
+    <thead>
+      <tr><th>서류명</th><th>발급기관</th><th>주의사항</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>재산조회신청서</td><td>법원 양식</td><td>집행법원에 제출</td></tr>
+      <tr><td>집행권원 사본 (판결문, 조정조서 등)</td><td>법원</td><td>확정증명 포함</td></tr>
+      <tr><td>집행문</td><td>수소법원 사무관</td><td>집행문 부여된 것</td></tr>
+      <tr><td>송달증명원</td><td>법원</td><td>채무자에게 송달됐음을 증명</td></tr>
+    </tbody>
+  </table>`
       },
       {
-        heading: '3. 신청 요건 및 절차',
-        content: `<ul>
-<li>집행력 있는 집행권원 보유</li>
-<li>재산명시 절차를 먼저 거쳐야 함 (원칙)</li>
-<li>채무자가 재산명시를 거부하거나 불출석한 경우에도 신청 가능</li>
-</ul>`
+        heading: '자주하는 질문 (Q&amp;A)',
+        content: `<div class="qna-item">
+    <div class="qna-q">재산명시와 재산조회는 어떻게 다른가요?</div>
+    <div class="qna-a">재산명시는 채무자가 법원에 직접 출석하여 자신의 재산목록을 작성·제출하는 절차입니다. 반면 재산조회는 법원이 금융기관·공공기관에 직접 채무자의 재산 현황을 조회하는 절차입니다. 채무자가 재산을 숨길 우려가 있을 때 재산조회가 더 실효적입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006100" target="_blank" rel="noopener" title="민사집행법 제61조, 제74조 — 대법원 종합법률정보">민사집행법 제61조, 제74조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">재산명시를 먼저 해야만 재산조회를 신청할 수 있나요?</div>
+    <div class="qna-a">반드시 재산명시를 먼저 거칠 필요는 없습니다. 재산명시 결과가 불충분하거나, 채무자가 재산명시에 응하지 않는 경우 재산조회가 허용됩니다. 실무적으로는 재산명시신청과 재산조회신청을 동시에 제출하는 경우도 많습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007400" target="_blank" rel="noopener" title="민사집행법 제74조 제1항 — 대법원 종합법률정보">민사집행법 제74조 제1항</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">채무자의 은행 계좌를 조회할 수 있나요?</div>
+    <div class="qna-a">네, 재산조회 결정이 나면 법원이 금융기관에 조회하여 채무자 명의의 예금·적금·주식·보험 해약환급금 등의 현황을 파악합니다. 채권자가 직접 은행에 조회하는 것이 아니라 법원을 통해 이루어집니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007400" target="_blank" rel="noopener" title="민사집행법 제74조 제2항 — 대법원 종합법률정보">민사집행법 제74조 제2항</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">재산이 없다고 나오면 어떻게 하나요?</div>
+    <div class="qna-a">현재 시점에 파악된 재산이 없거나 부족하더라도 향후 채무자에게 재산이 생기면 다시 강제집행을 신청할 수 있습니다. 또한 채무자가 재산을 부당하게 이전했다면 채권자취소권(사해행위취소소송)을 검토할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=040600" target="_blank" rel="noopener" title="민법 제406조 — 대법원 종합법률정보">민법 제406조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">조회 결과는 얼마나 기다려야 하나요?</div>
+    <div class="qna-a">기관별로 회신 기간이 다르며, 통상 신청 후 수 주에서 수개월이 소요될 수 있습니다. 조회 결과가 나오면 법원이 채권자에게 통보합니다. 결과를 받은 후 신속하게 강제집행을 신청해야 효과적입니다.</div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">재산조회 비용은 어떻게 되나요?</div>
+    <div class="qna-a">재산조회 신청 시 인지대와 송달료를 납부해야 합니다. 집행이 성공하면 이 비용을 채무자에게 청구할 수 있습니다. 정확한 비용은 사건의 성격과 조회 기관 수에 따라 달라지므로 법무사와 상담하시기 바랍니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005300" target="_blank" rel="noopener" title="민사집행법 제53조 — 대법원 종합법률정보">민사집행법 제53조</a></div>
+  </div>`
       },
       {
-        heading: '4. 첨부서류',
-        content: `<ul>
-<li>재산조회신청서</li>
-<li>집행권원 정본</li>
-<li>집행문</li>
-<li>재산명시 절차 진행 증명 서류 (해당 경우)</li>
-</ul>`
+        heading: '관련 판례',
+        content: `<div class="ruling-box">
+    <div class="ruling-header">재산조회 제도의 취지</div>
+    <p>대법원은 재산조회 제도에 대해, 채권자가 집행채권의 만족을 위해 채무자의 재산 소재를 파악하기 어려운 경우 국가기관을 통해 재산 정보를 효율적으로 수집할 수 있도록 마련된 것이라고 해석하고 있습니다. 신청 요건을 갖춘 경우 법원은 적절한 범위 내에서 조회를 허용해야 합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007400" target="_blank" rel="noopener" title="민사집행법 제74조 — 대법원 종합법률정보">민사집행법 제74조</a></p>
+  </div>`
       },
       {
-        heading: '5. 비용 안내',
-        content: `<ul>
-<li>조회 기관별 수수료 발생 가능</li>
-<li>인지대 및 송달료</li>
-</ul>`
+        heading: '주의사항',
+        content: `<div class="warn-box">
+    <div class="warn-title">⚡ 조회 결과 즉시 활용</div>
+    <p>재산조회 결과로 파악한 채무자의 금융계좌나 재산은 <strong>즉시 압류신청</strong>을 해야 합니다. 채무자가 계좌에서 돈을 인출하거나 재산을 처분할 수 있으므로, 조회 결과를 받은 후 빠르게 압류명령 신청을 진행해야 실질적 회수가 가능합니다.</p>
+  </div>
+  <div class="warn-box">
+    <div class="warn-title">⚠️ 정보의 목적 외 사용 금지</div>
+    <p>재산조회를 통해 알게 된 채무자의 개인 재산 정보는 오직 해당 집행 목적에만 사용해야 합니다. 다른 사람에게 알리거나 다른 목적으로 사용하면 법적 제재를 받을 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007700" target="_blank" rel="noopener" title="민사집행법 제77조 제2항 — 대법원 종합법률정보">민사집행법 제77조 제2항</a></p>
+  </div>
+  <div class="warn-box">
+    <div class="warn-title">ℹ️ 재산명시와 병행 권장</div>
+    <p>재산조회만으로는 채무자의 모든 재산을 파악하기 어려울 수 있습니다. 재산명시신청과 재산조회를 함께 진행하면 더 넓은 범위의 재산 정보를 확보할 수 있습니다.</p>
+  </div>`
       },
       {
-        heading: '6. 자주 묻는 질문',
-        content: `<p><strong>Q. 재산명시 없이 바로 재산조회를 신청할 수 있나요?</strong></p>
-<p>원칙적으로 재산명시 절차를 먼저 거쳐야 하지만, 채무자가 재산명시를 거부하거나 불출석한 경우에는 재산조회를 바로 신청할 수 있습니다.</p>
-<p><strong>Q. 재산조회 결과 재산이 없으면 어떻게 하나요?</strong></p>
-<p>조회 결과 재산이 없으면 강제집행이 어려울 수 있습니다. 채무불이행자명부 등재 등 다른 법적 수단을 고려해야 합니다.</p>`
-      }
+        heading: '다음에 확인할 사항',
+        content: `<div class="next-links">
+    <a href="민집_05_재산명시.html" class="next-link">
+      <span class="arrow">→</span>
+      재산명시신청<br><small>채무자가 스스로 재산을 공개하게 하는 절차</small>
+    </a>
+    <a href="민집_07_채무불이행자명부.html" class="next-link">
+      <span class="arrow">→</span>
+      채무불이행자명부<br><small>채무자를 신용불량으로 등재시키는 방법</small>
+    </a>
+    <a href="민집_01_강제집행개관.html" class="next-link">
+      <span class="arrow">→</span>
+      강제집행 개관<br><small>강제집행의 전체 흐름 이해</small>
+    </a>
+  </div>`
+      },
     ],
     laws: [],
     forms: []
@@ -397,56 +891,141 @@ const ENFORCEMENT_TOPICS = [
   {
     id: 'ef-7',
     title: '채무불이행자명부',
-    meta: '채무자를 신용불량으로 등재시킬 수 있나요?',
+    meta: '채무자를 신용불량으로 등재시켜 이행을 촉구하는 방법',
     sections: [
       {
         heading: '이런 분께 필요합니다',
-        content: `<ul>
-<li>채무자가 판결금을 계속 지급하지 않는 경우</li>
-<li>채무자에게 신용적 제재를 가하고 싶은 경우</li>
-<li>채무불이행자명부 등재의 효과와 절차를 알고 싶은 경우</li>
-</ul>`
+        content: `<div class="checklist">
+    <ul>
+      <li>판결을 받았는데 채무자가 계속 변제를 미루는 경우</li>
+      <li>재산명시기일에 채무자가 출석하지 않거나 재산목록 제출을 거부한 경우</li>
+      <li>채무자에게 사회적 신용 제한이라는 압박을 가하고 싶은 경우</li>
+      <li>금융거래나 공공 활동에 제한을 줄 수 있는 법적 수단을 원하는 경우</li>
+      <li>채무자가 나중에 변제하겠다며 시간을 끌고 있는 경우</li>
+    </ul>
+  </div>`
       },
       {
-        heading: '1. 채무불이행자명부란?',
-        content: `<p>채무불이행자명부는 판결 등을 받았음에도 불구하고 채무를 이행하지 않는 채무자를 법원이 공개 등재하는 명부입니다. 민사집행법 제70조에 근거합니다. 등재되면 금융기관 대출, 신용카드 발급 등이 제한됩니다.</p>`
+        heading: '핵심 정리',
+        content: `<div class="summary-box">
+    <div class="label">▶ 채무불이행자명부란</div>
+    <p>채무불이행자명부는 법원이 작성·관리하는 공적 장부로, 판결 등을 받고도 변제하지 않는 채무자의 이름을 등재하는 제도입니다. 등재되면 금융거래, 공공입찰 등에서 불이익을 받아 채무자에게 강력한 이행 압박이 됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007200" target="_blank" rel="noopener" title="민사집행법 제72조 — 대법원 종합법률정보">민사집행법 제72조</a></p>
+  </div>
+  <div class="summary-box">
+    <div class="label">▶ 핵심 포인트</div>
+    <p>채무불이행자명부 등재는 강제집행과는 별도의 절차이며, 채무자에게 실질적 사회적 압박을 가할 수 있는 유효한 수단입니다. 등재 후 채무가 변제되거나 일정 기간이 지나면 말소할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007000" target="_blank" rel="noopener" title="민사집행법 제70조, 제73조 — 대법원 종합법률정보">민사집행법 제70조, 제73조</a></p>
+  </div>`
       },
       {
-        heading: '2. 신청 요건',
-        content: `<ul>
-<li>집행력 있는 집행권원 보유</li>
-<li>채무자가 정당한 사유 없이 이행하지 않은 경우</li>
-<li>금전채권에 한함</li>
-<li>일정 금액 이상 (법원 기준)</li>
-</ul>`
+        heading: '채무불이행자명부 상세 안내',
+        content: `<h3>등재 신청 요건</h3>
+  <p>채권자는 다음 중 하나에 해당하는 경우 법원에 채무불이행자명부 등재를 신청할 수 있습니다.</p>
+  <ul style="margin:12px 0 12px 20px;line-height:2">
+    <li>금전채무 불이행으로 확정된 판결 또는 지급명령 등 집행권원을 가진 경우</li>
+    <li>재산명시기일에 채무자가 정당한 이유 없이 출석하지 않은 경우 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007000" target="_blank" rel="noopener" title="민사집행법 제70조 제1항 제1호 — 대법원 종합법률정보">민사집행법 제70조 제1항 제1호</a></li>
+    <li>채무자가 재산목록 제출 거부 또는 선서 거부를 한 경우 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007000" target="_blank" rel="noopener" title="민사집행법 제70조 제1항 제2호 — 대법원 종합법률정보">민사집행법 제70조 제1항 제2호</a></li>
+    <li>채무자가 거짓 재산목록을 제출한 경우 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007000" target="_blank" rel="noopener" title="민사집행법 제70조 제1항 제3호 — 대법원 종합법률정보">민사집행법 제70조 제1항 제3호</a></li>
+    <li>재산명시기일에서 채무자가 재산이 없다고 신고하거나, 명시된 재산으로 집행을 다 마쳐도 채권 변제가 안 되는 경우 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007000" target="_blank" rel="noopener" title="민사집행법 제70조 제1항 제4호 — 대법원 종합법률정보">민사집행법 제70조 제1항 제4호</a></li>
+  </ul>
+
+  <h3>등재 결정 절차</h3>
+  <p>채권자의 신청을 받은 법원은 채무자를 심문하거나 그 기회를 주어야 합니다. 법원이 등재 결정을 내리면 채무자는 즉시항고를 할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007100" target="_blank" rel="noopener" title="민사집행법 제71조 — 대법원 종합법률정보">민사집행법 제71조</a></p>
+
+  <h3>채무불이행자명부의 내용</h3>
+  <p>채무불이행자명부에는 채무자의 성명, 주소, 채무 내용, 등재 사유 등이 기재됩니다. 이 명부는 법원에 비치되며, 일반인도 열람을 신청할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007200" target="_blank" rel="noopener" title="민사집행법 제72조 — 대법원 종합법률정보">민사집행법 제72조</a></p>
+
+  <h3>등재의 효과</h3>
+  <p>명부에 등재되면 금융기관은 이를 신용정보로 활용할 수 있어, 채무자는 대출·신용카드 발급 등 금융거래에서 불이익을 받을 수 있습니다. 또한 공공입찰 참여 제한, 영업 허가 심사 등에도 영향을 미칩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=260423&joNo=002500" target="_blank" rel="noopener" title="신용정보의 이용 및 보호에 관한 법률 제25조 — 대법원 종합법률정보">신용정보의 이용 및 보호에 관한 법률 제25조</a></p>
+
+  <div class="case-box">
+    <p><strong>사례)</strong> A가 B에게 3,000만 원의 판결을 받았으나 B가 계속 미루는 경우, 재산명시신청과 함께 채무불이행자명부 등재 신청을 병행하면, B가 금융거래 불이익을 우려하여 자발적으로 변제에 나서는 경우가 많습니다.</p>
+  </div>
+
+  <h3>말소 방법</h3>
+  <p>다음의 경우 채무불이행자명부에서 이름을 말소할 수 있습니다.</p>
+  <table>
+    <thead>
+      <tr><th>말소 사유</th><th>근거 법령</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>채무를 전부 변제한 경우</td><td><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007300" target="_blank" rel="noopener" title="민사집행법 제73조 제1항 — 대법원 종합법률정보">민사집행법 제73조 제1항</a></td></tr>
+      <tr><td>채권자가 말소 신청을 한 경우</td><td><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007300" target="_blank" rel="noopener" title="민사집행법 제73조 제1항 — 대법원 종합법률정보">민사집행법 제73조 제1항</a></td></tr>
+      <tr><td>등재 후 10년이 경과한 경우</td><td><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007300" target="_blank" rel="noopener" title="민사집행법 제73조 제2항 — 대법원 종합법률정보">민사집행법 제73조 제2항</a></td></tr>
+      <tr><td>법원이 직권으로 말소를 결정한 경우</td><td><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007300" target="_blank" rel="noopener" title="민사집행법 제73조 제3항 — 대법원 종합법률정보">민사집행법 제73조 제3항</a></td></tr>
+    </tbody>
+  </table>`
       },
       {
-        heading: '3. 절차 흐름',
-        content: `<p>① 채무불이행자명부 등재신청 → ② 법원 심사 → ③ 채무자 심문 → ④ 등재 결정 → ⑤ 명부 등재 및 공개</p>`
+        heading: '자주하는 질문 (Q&amp;A)',
+        content: `<div class="qna-item">
+    <div class="qna-q">채무불이행자명부와 재산명시는 같이 신청해야 하나요?</div>
+    <div class="qna-a">반드시 그런 것은 아닙니다. 재산명시신청을 먼저 하고 그 결과에 따라 채무불이행자명부 등재를 신청할 수도 있고, 별도로 신청할 수도 있습니다. 다만 재산명시기일에서 채무자가 불출석·거부하는 경우가 등재 사유 중 하나이므로, 재산명시 후 등재 신청을 하는 경우가 많습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007000" target="_blank" rel="noopener" title="민사집행법 제70조 — 대법원 종합법률정보">민사집행법 제70조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">등재되면 채무자는 어떤 불이익을 받나요?</div>
+    <div class="qna-a">채무불이행자명부에 등재되면 신용정보기관에 제공되어 대출·신용카드 등 금융거래에서 불이익이 생깁니다. 공공입찰 참가 자격에도 영향이 있을 수 있으며, 인터넷 등기소 등을 통해 일반인도 열람할 수 있어 사회적 신용에 상당한 타격을 줍니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007200" target="_blank" rel="noopener" title="민사집행법 제72조 — 대법원 종합법률정보">민사집행법 제72조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">채무를 다 갚으면 명부에서 바로 삭제되나요?</div>
+    <div class="qna-a">채무를 전부 변제하면 채권자가 말소 신청을 할 수 있으며, 채무자도 변제 사실을 소명하여 법원에 말소를 신청할 수 있습니다. 법원이 말소 결정을 내리면 명부에서 삭제됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007300" target="_blank" rel="noopener" title="민사집행법 제73조 제1항 — 대법원 종합법률정보">민사집행법 제73조 제1항</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">채무자가 등재 결정에 불복할 수 있나요?</div>
+    <div class="qna-a">등재 결정을 내린 법원에 즉시항고를 제기할 수 있습니다. 또한 채무자는 채무의 부존재, 이미 변제했다는 사실 등을 주장하여 등재 취소를 구할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007100" target="_blank" rel="noopener" title="민사집행법 제71조 제3항 — 대법원 종합법률정보">민사집행법 제71조 제3항</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">채무불이행자명부 등재 신청 비용은 어떻게 되나요?</div>
+    <div class="qna-a">신청 시 인지대와 송달료를 납부해야 합니다. 집행이 성공하면 이 비용을 채무자에게 청구할 수 있습니다. 정확한 비용은 법무사와 상담하시기 바랍니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005300" target="_blank" rel="noopener" title="민사집행법 제53조 — 대법원 종합법률정보">민사집행법 제53조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">채무자가 재산명시기일에 출석했지만 재산이 없다고 하면 어떻게 하나요?</div>
+    <div class="qna-a">채무자가 출석하여 재산이 없다고 신고하더라도, 명시된 재산으로 채권의 만족을 얻기 부족한 경우 채무불이행자명부 등재 신청이 가능합니다. 또한 재산조회를 통해 숨겨진 재산을 파악하는 방법도 병행할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007000" target="_blank" rel="noopener" title="민사집행법 제70조 제1항 제4호 — 대법원 종합법률정보">민사집행법 제70조 제1항 제4호</a></div>
+  </div>`
       },
       {
-        heading: '4. 등재의 효과',
-        content: `<ul>
-<li>금융기관 대출 제한</li>
-<li>신용카드 발급 제한</li>
-<li>공공기관 취업 제한</li>
-<li>사회적 신용 하락 → 채무자의 자발적 이행 유도</li>
-</ul>`
+        heading: '관련 판례',
+        content: `<div class="ruling-box">
+    <div class="ruling-header">채무불이행자명부 등재의 목적</div>
+    <p>대법원은 채무불이행자명부 등재 제도는 금전채무를 이행하지 않는 채무자에게 신용상의 불이익을 줌으로써 채무 이행을 간접적으로 강제하고 거래 상대방에게 신용 정보를 제공하는 데에 그 목적이 있다고 해석하고 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007000" target="_blank" rel="noopener" title="민사집행법 제70조 — 대법원 종합법률정보">민사집행법 제70조</a></p>
+  </div>`
       },
       {
-        heading: '5. 비용 안내',
-        content: `<ul>
-<li>신청 인지대</li>
-<li>송달료</li>
-</ul>`
+        heading: '주의사항',
+        content: `<div class="warn-box">
+    <div class="warn-title">⚡ 재산명시 기일 후 신속하게 신청</div>
+    <p>재산명시기일에서 채무자가 불출석하거나 거부한 경우, 사유가 발생한 후 빠르게 채무불이행자명부 등재 신청을 해야 합니다. 시간이 지나면 채무자가 재산을 처분할 수 있습니다.</p>
+  </div>
+  <div class="warn-box">
+    <div class="warn-title">⚠️ 강제집행과 병행 추진</div>
+    <p>채무불이행자명부 등재는 채무자에 대한 간접 강제 수단입니다. 실질적인 재산 회수를 위해서는 부동산·예금 압류 등 강제집행과 함께 추진하는 것이 효과적입니다.</p>
+  </div>
+  <div class="warn-box">
+    <div class="warn-title">ℹ️ 10년 후 자동 말소</div>
+    <p>채무불이행자명부에 등재된 후 10년이 지나면 자동으로 말소됩니다. 따라서 장기 미수 채권의 경우 강제집행과 병행하여 실질적 회수 방법을 찾는 것이 중요합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007300" target="_blank" rel="noopener" title="민사집행법 제73조 제2항 — 대법원 종합법률정보">민사집행법 제73조 제2항</a></p>
+  </div>`
       },
       {
-        heading: '6. 자주 묻는 질문',
-        content: `<p><strong>Q. 채무불이행자명부에 등재되면 언제 해제되나요?</strong></p>
-<p>채무를 모두 변제하면 채권자가 해제신청을 할 수 있으며, 법원이 해제를 결정합니다. 또한 일정 기간 경과 후 자동으로 해제될 수도 있습니다.</p>
-<p><strong>Q. 채무불이행자명부 등재만으로 채권을 회수할 수 있나요?</strong></p>
-<p>등재 자체가 채권을 회수하는 것은 아니지만, 채무자에 대한 사회적·신용적 압박으로 자발적 이행을 유도하는 효과가 있습니다.</p>`
-      }
+        heading: '다음에 확인할 사항',
+        content: `<div class="next-links">
+    <a href="민집_05_재산명시.html" class="next-link">
+      <span class="arrow">→</span>
+      재산명시신청<br><small>채무자가 스스로 재산을 공개하게 하는 절차</small>
+    </a>
+    <a href="민집_06_재산조회.html" class="next-link">
+      <span class="arrow">→</span>
+      재산조회<br><small>금융기관을 통해 채무자 재산 찾기</small>
+    </a>
+    <a href="민집_15_재산은닉.html" class="next-link">
+      <span class="arrow">→</span>
+      재산명시 위반 대응<br><small>채무자가 재산을 숨길 때 법적 대응</small>
+    </a>
+  </div>`
+      },
     ],
     laws: [],
     forms: []
@@ -454,57 +1033,127 @@ const ENFORCEMENT_TOPICS = [
   {
     id: 'ef-8',
     title: '집행에 관한 이의신청',
-    meta: '집행 절차가 잘못됐을 때 대응하는 방법',
+    meta: '집행 절차가 잘못됐을 때 집행법원에 대응하는 방법',
     sections: [
       {
         heading: '이런 분께 필요합니다',
-        content: `<ul>
-<li>강제집행 절차가 법적으로 잘못 진행되고 있는 경우</li>
-<li>집행관의 집행 방식에 문제가 있다고 생각하는 경우</li>
-<li>집행 절차상 위법이나 부당한 사항이 있는 경우</li>
-<li>집행에 대한 이의신청 방법을 알고 싶은 경우</li>
-</ul>`
+        content: `<div class="checklist">
+    <ul>
+      <li>집행관이 압류할 수 없는 물건을 압류했다고 판단되는 경우</li>
+      <li>집행 절차에 법적인 하자나 위법이 있다고 생각되는 경우</li>
+      <li>집행법원의 집행 관련 결정에 이의를 제기하고 싶은 경우</li>
+      <li>이미 압류된 재산에 대해 집행 자체가 위법하다고 주장하려는 경우</li>
+      <li>집행이의를 해야 하는지 즉시항고를 해야 하는지 모르는 경우</li>
+    </ul>
+  </div>`
       },
       {
-        heading: '1. 집행에 관한 이의신청이란?',
-        content: `<p>집행이의는 강제집행의 절차적 위법이나 부당함에 대해 집행법원에 이의를 신청하는 제도입니다. 민사집행법 제16조에 근거합니다. 집행권원의 실체적 부당함이 아닌 집행 절차의 문제를 다룹니다.</p>`
+        heading: '핵심 정리',
+        content: `<div class="summary-box">
+    <div class="label">▶ 집행에 관한 이의신청이란</div>
+    <p>집행에 관한 이의신청은 집행기관(집행법원 또는 집행관)의 집행처분이 위법하거나 부당한 경우, 이해관계인이 집행법원에 그 시정을 구하는 절차입니다. 집행권원 자체의 내용에 관한 다툼이 아니라, <strong>집행 절차상의 위법</strong>을 다투는 것입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=001600" target="_blank" rel="noopener" title="민사집행법 제16조 제1항 — 대법원 종합법률정보">민사집행법 제16조 제1항</a></p>
+  </div>
+  <div class="summary-box">
+    <div class="label">▶ 핵심 포인트</div>
+    <p>집행이의는 기간 제한 없이 언제든지 신청할 수 있으며, 집행법원이 심리합니다. 즉시항고와 달리 원칙적으로 집행을 자동 정지하지 않으므로, 긴급한 경우 별도로 집행정지 신청을 해야 합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=001600" target="_blank" rel="noopener" title="민사집행법 제16조, 제17조 — 대법원 종합법률정보">민사집행법 제16조, 제17조</a></p>
+  </div>`
       },
       {
-        heading: '2. 집행이의 vs 청구이의의 소',
-        content: `<ul>
-<li><strong>집행이의</strong>: 집행 절차상의 위법·부당 → 집행법원에 신청</li>
-<li><strong>청구이의의 소</strong>: 집행권원에 기재된 청구 자체의 실체적 부당 → 법원에 소 제기</li>
-</ul>`
+        heading: '집행이의 상세 안내',
+        content: `<h3>집행이의의 대상</h3>
+  <p>다음과 같은 집행처분이 집행이의의 대상이 됩니다.</p>
+  <ul style="margin:12px 0 12px 20px;line-height:2">
+    <li>집행법원의 집행 관련 결정 (항고가 허용되지 않는 것) <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=001600" target="_blank" rel="noopener" title="민사집행법 제16조 제1항 — 대법원 종합법률정보">민사집행법 제16조 제1항</a></li>
+    <li>집행관의 집행처분 (압류, 매각 실시 등) <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=001600" target="_blank" rel="noopener" title="민사집행법 제16조 제1항 — 대법원 종합법률정보">민사집행법 제16조 제1항</a></li>
+    <li>집행관이 지켜야 할 집행절차 위반</li>
+  </ul>
+
+  <h3>집행이의 vs 즉시항고 비교</h3>
+  <table>
+    <thead>
+      <tr><th>구분</th><th>집행에 관한 이의신청</th><th>즉시항고</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>근거 법령</td><td><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=001600" target="_blank" rel="noopener" title="민사집행법 제16조 — 대법원 종합법률정보">민사집행법 제16조</a></td><td><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=001500" target="_blank" rel="noopener" title="민사집행법 제15조 — 대법원 종합법률정보">민사집행법 제15조</a></td></tr>
+      <tr><td>대상</td><td>집행법원 결정(불복 불허) + 집행관 처분</td><td>법원의 재판 중 항고 허용된 것</td></tr>
+      <tr><td>제기 기간</td><td>기간 제한 없음</td><td>재판 고지일로부터 1주일 이내</td></tr>
+      <tr><td>심리 기관</td><td>집행법원</td><td>항고법원</td></tr>
+      <tr><td>집행 정지 효력</td><td>원칙적으로 없음 (별도 신청 필요)</td><td>원칙적으로 없음 (별도 신청 필요)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>이의신청 절차</h3>
+  <p>집행이의는 서면 또는 구술로 집행법원에 신청합니다. 구술로 신청하는 경우 법원사무관등이 조서를 작성합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=001600" target="_blank" rel="noopener" title="민사집행법 제16조 제1항 — 대법원 종합법률정보">민사집행법 제16조 제1항</a></p>
+  <p>법원은 이의신청에 대한 재판을 하기 전에 채권자에게 의견을 진술할 기회를 주어야 합니다. 법원은 이의를 인용하거나 기각하는 결정을 합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=001700" target="_blank" rel="noopener" title="민사집행법 제17조 — 대법원 종합법률정보">민사집행법 제17조</a></p>
+
+  <h3>집행이의와 청구이의의 차이</h3>
+  <p>집행이의는 집행 <strong>절차</strong>의 위법을 다투는 것이고, 청구이의의 소는 집행권원에 표시된 <strong>실체적 권리</strong>(이미 변제했다는 등)를 다투는 것입니다. 집행이의에서는 "돈을 이미 갚았다"는 이유를 주장할 수 없습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004400" target="_blank" rel="noopener" title="민사집행법 제44조, 제16조 — 대법원 종합법률정보">민사집행법 제44조, 제16조</a></p>
+
+  <div class="ruling-box">
+    <div class="ruling-header">집행이의의 범위</div>
+    <p>대법원은 집행에 관한 이의신청의 이의 사유는 집행절차상의 위법에 한정되고, 집행권원에 표시된 청구권 자체의 존부나 내용에 관한 주장은 이의 사유가 될 수 없다고 해석하고 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=001600" target="_blank" rel="noopener" title="민사집행법 제16조 — 대법원 종합법률정보">민사집행법 제16조</a></p>
+  </div>`
       },
       {
-        heading: '3. 이의신청이 가능한 대상',
-        content: `<ul>
-<li>집행관의 위법한 집행 행위</li>
-<li>집행 절차상의 흠결</li>
-<li>집행의 방법이나 시기의 부당함</li>
-<li>집행 과정에서의 절차 위반</li>
-</ul>`
+        heading: '자주하는 질문 (Q&amp;A)',
+        content: `<div class="qna-item">
+    <div class="qna-q">집행이의를 신청하면 집행이 자동으로 멈추나요?</div>
+    <div class="qna-a">아닙니다. 집행이의를 신청해도 집행은 원칙적으로 계속됩니다. 집행을 일시 정지시키려면 집행이의 신청과 함께 별도로 집행정지 신청을 해야 하고, 법원이 정지 결정을 내려야 멈춥니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=001600" target="_blank" rel="noopener" title="민사집행법 제16조, 제46조 — 대법원 종합법률정보">민사집행법 제16조, 제46조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">집행이의 기간 제한이 있나요?</div>
+    <div class="qna-a">집행에 관한 이의신청은 즉시항고와 달리 기간 제한이 없습니다. 다만 집행절차가 완료된 후에는 이의 이익이 없으므로 실질적으로 의미가 없게 됩니다. 집행이 개시된 후 되도록 빠르게 신청하는 것이 좋습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=001600" target="_blank" rel="noopener" title="민사집행법 제16조 — 대법원 종합법률정보">민사집행법 제16조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">집행이의와 즉시항고를 혼동하는 경우가 많은데, 어떻게 구별하나요?</div>
+    <div class="qna-a">간단히 말해, 법원이 특정 처분에 대해 "즉시항고를 할 수 있다"고 명시한 경우에는 즉시항고를 해야 하고, 그러한 규정이 없는 집행법원의 결정이나 집행관의 처분에 대해서는 집행이의를 해야 합니다. 틀린 불복방법을 선택하면 각하될 수 있으므로, 법무사와 확인하는 것이 안전합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=001500" target="_blank" rel="noopener" title="민사집행법 제15조, 제16조 — 대법원 종합법률정보">민사집행법 제15조, 제16조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">이미 갚은 돈인데 집행을 당하고 있습니다. 집행이의를 해야 하나요?</div>
+    <div class="qna-a">아닙니다. "이미 변제했다"는 주장은 집행권원에 표시된 실체적 권리에 관한 다툼이므로, 청구이의의 소를 제기해야 합니다. 집행이의는 절차상 위법만 다룰 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004400" target="_blank" rel="noopener" title="민사집행법 제44조 — 대법원 종합법률정보">민사집행법 제44조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">집행이의 결과에 다시 불복할 수 있나요?</div>
+    <div class="qna-a">집행이의에 대한 집행법원의 재판에는 원칙적으로 다시 불복하기 어렵습니다. 다만 헌법 위반이나 법률 위반 등 특별한 사정이 있는 경우 특별항고 등의 방법을 검토할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=001700" target="_blank" rel="noopener" title="민사집행법 제17조 — 대법원 종합법률정보">민사집행법 제17조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">제3자인데도 집행이의를 신청할 수 있나요?</div>
+    <div class="qna-a">집행이의는 집행의 당사자뿐만 아니라 이해관계인도 신청할 수 있습니다. 이해관계인이란 집행절차와 법적으로 이해관계가 있는 사람을 의미합니다. 단, 단순히 경제적 이해관계만 있는 자는 해당되지 않습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=001600" target="_blank" rel="noopener" title="민사집행법 제16조 제1항 — 대법원 종합법률정보">민사집행법 제16조 제1항</a></div>
+  </div>`
       },
       {
-        heading: '4. 이의신청 절차 및 첨부서류',
-        content: `<p>① 이의신청서 작성 → ② 집행법원에 제출 → ③ 법원 심사 → ④ 결정</p>
-<p>첨부서류: 이의신청서, 집행 관련 서류, 위법 사실 입증 자료</p>`
+        heading: '주의사항',
+        content: `<div class="warn-box">
+    <div class="warn-title">⚡ 집행 진행 중 신속한 대응 필수</div>
+    <p>집행이의를 신청해도 집행은 계속되므로, 집행을 멈춰야 하는 경우 집행이의 신청과 동시에 <strong>집행정지 신청</strong>을 반드시 함께 해야 합니다. 집행이 완료된 후에는 이의 실익이 없어질 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004600" target="_blank" rel="noopener" title="민사집행법 제46조 — 대법원 종합법률정보">민사집행법 제46조</a></p>
+  </div>
+  <div class="warn-box">
+    <div class="warn-title">⚠️ 이의 사유 확인 필수</div>
+    <p>집행이의의 이의 사유는 오직 집행 절차상의 위법에 한합니다. 실체적 권리(채무 소멸, 이행 유예 등)를 다투려면 청구이의의 소를 별도로 제기해야 합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004400" target="_blank" rel="noopener" title="민사집행법 제44조 — 대법원 종합법률정보">민사집행법 제44조</a></p>
+  </div>`
       },
       {
-        heading: '5. 이의신청의 효과',
-        content: `<ul>
-<li>집행 정지 가능 (법원 결정에 따라)</li>
-<li>위법한 집행 행위 취소 가능</li>
-<li>집행 방법 변경 명령 가능</li>
-</ul>`
+        heading: '다음에 확인할 사항',
+        content: `<div class="next-links">
+    <a href="민집_09_청구이의.html" class="next-link">
+      <span class="arrow">→</span>
+      청구이의의 소<br><small>실체적 권리를 다투는 방법</small>
+    </a>
+    <a href="민집_12_집행정지.html" class="next-link">
+      <span class="arrow">→</span>
+      강제집행 정지<br><small>집행을 일시적으로 멈추는 방법</small>
+    </a>
+    <a href="민집_11_집행문이의.html" class="next-link">
+      <span class="arrow">→</span>
+      집행문 이의<br><small>집행문 자체가 잘못 발급됐을 때</small>
+    </a>
+  </div>`
       },
-      {
-        heading: '6. 자주 묻는 질문',
-        content: `<p><strong>Q. 집행이의 신청을 하면 집행이 자동으로 정지되나요?</strong></p>
-<p>집행이의 신청만으로 집행이 자동 정지되는 것은 아닙니다. 별도로 집행정지 신청을 해야 하며, 법원이 인용하는 경우에만 집행이 정지됩니다.</p>
-<p><strong>Q. 집행이의와 청구이의의 소를 동시에 제기할 수 있나요?</strong></p>
-<p>네, 동시에 제기할 수 있습니다. 절차상의 문제는 집행이의로, 실체적 부당은 청구이의의 소로 다툴 수 있습니다.</p>`
-      }
     ],
     laws: [],
     forms: []
@@ -512,52 +1161,134 @@ const ENFORCEMENT_TOPICS = [
   {
     id: 'ef-9',
     title: '청구이의의 소',
-    meta: '"이미 갚았는데 또 집행을 당할 수 있나요?"',
+    meta: '이미 갚았는데 또 집행을 당하고 있다면',
     sections: [
       {
         heading: '이런 분께 필요합니다',
-        content: `<ul>
-<li>이미 채무를 변제했는데 강제집행을 당하는 경우</li>
-<li>판결 후 사정 변경이 있어 강제집행이 부당한 경우</li>
-<li>집행권원에 기재된 청구 자체를 다투고 싶은 경우</li>
-<li>청구이의의 소를 통해 강제집행을 저지하고 싶은 경우</li>
-</ul>`
+        content: `<div class="checklist">
+    <ul>
+      <li>판결이 확정된 후 실제로 채무를 변제했는데 채권자가 또 강제집행을 신청한 경우</li>
+      <li>채무를 상계·면제·면책받았는데 집행권원이 남아 있는 경우</li>
+      <li>판결이 확정된 이후 새로운 사유로 채무가 소멸했다고 주장하고 싶은 경우</li>
+      <li>집행권원에 기재된 이행의무가 조건부였는데 조건이 성취되지 않은 경우</li>
+      <li>집행권원상의 권리가 시효로 소멸했다고 생각되는 경우</li>
+    </ul>
+  </div>`
       },
       {
-        heading: '1. 청구이의의 소란?',
-        content: `<p>청구이의의 소는 집행권원에 기재된 채권의 실체적 효력에 이의를 제기하는 소송입니다. 민사집행법 제44조에 근거합니다. 집행권원 자체를 무력화하여 강제집행을 저지하거나 취소하는 것을 목적으로 합니다.</p>`
+        heading: '핵심 정리',
+        content: `<div class="summary-box">
+    <div class="label">▶ 청구이의의 소란</div>
+    <p>청구이의의 소는 집행권원에 표시된 채권이 실체적으로 더 이상 존재하지 않거나 행사할 수 없게 됐을 때, 채무자가 강제집행을 배제하기 위해 제기하는 소송입니다. 예를 들어 "판결 이후 돈을 갚았다", "채무를 면제받았다", "시효가 완성됐다" 등의 사유로 제기합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004400" target="_blank" rel="noopener" title="민사집행법 제44조 — 대법원 종합법률정보">민사집행법 제44조</a></p>
+  </div>
+  <div class="summary-box">
+    <div class="label">▶ 핵심 포인트</div>
+    <p>청구이의의 소는 반드시 <strong>변론이 종결된 뒤에 생긴 사유</strong>를 주장해야 합니다. 판결 전 이미 있었던 사유(판결 때 이미 채무가 없었다는 주장)는 재심이나 항소를 통해 다퉈야 합니다. 청구이의의 소를 제기하면서 집행정지 신청을 함께 해야 집행이 멈춥니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004400" target="_blank" rel="noopener" title="민사집행법 제44조 제2항, 제46조 — 대법원 종합법률정보">민사집행법 제44조 제2항, 제46조</a></p>
+  </div>`
       },
       {
-        heading: '2. 법적 근거',
-        content: `<p>민사집행법 제44조: "채무자는 집행권원이 된 판결 등에 대하여 청구에 관한 이의가 있는 때에는 그 집행력의 배제를 구하는 소를 제기할 수 있다."</p>`
+        heading: '청구이의의 소 상세 안내',
+        content: `<h3>이의 사유</h3>
+  <p>청구이의의 소에서 주장할 수 있는 사유는 <strong>집행권원(판결 등)에 표시된 청구권에 관한 이의 사유</strong>여야 합니다. 구체적으로 다음과 같은 사유가 해당됩니다.</p>
+  <ul style="margin:12px 0 12px 20px;line-height:2">
+    <li>변론종결 후 채무의 변제 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004400" target="_blank" rel="noopener" title="민사집행법 제44조 제2항 — 대법원 종합법률정보">민사집행법 제44조 제2항</a></li>
+    <li>변론종결 후 채무 면제, 경개, 상계</li>
+    <li>변론종결 후 소멸시효 완성 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=016200" target="_blank" rel="noopener" title="민법 제162조 — 대법원 종합법률정보">민법 제162조</a></li>
+    <li>집행권원에 정지 조건이 있어 조건이 성취되지 않은 경우</li>
+    <li>채권자의 동시이행 의무를 채무자가 이행받지 못한 경우</li>
+  </ul>
+  <p>판결 확정 <strong>이전</strong>에 이미 존재했던 사유(청구이의 사유로 제출할 수 있었으나 제출하지 않은 것)는 원칙적으로 이의 사유로 삼을 수 없습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004400" target="_blank" rel="noopener" title="민사집행법 제44조 제2항 — 대법원 종합법률정보">민사집행법 제44조 제2항</a></p>
+
+  <h3>관할 법원</h3>
+  <p>청구이의의 소는 제1심 판결을 내린 법원이 관할합니다. 집행권원이 공정증서인 경우에는 채무자의 주소지 지방법원이 관할합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004400" target="_blank" rel="noopener" title="민사집행법 제44조 제1항 — 대법원 종합법률정보">민사집행법 제44조 제1항</a></p>
+
+  <h3>집행정지 신청과의 병행</h3>
+  <p>청구이의의 소를 제기하더라도 강제집행이 자동으로 정지되지 않습니다. 집행을 멈추려면 청구이의의 소와 함께 <strong>집행정지 신청</strong>을 별도로 해야 합니다. 법원이 집행정지 결정을 내리면 집행이 임시로 멈춥니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004600" target="_blank" rel="noopener" title="민사집행법 제46조 — 대법원 종합법률정보">민사집행법 제46조</a></p>
+
+  <div class="case-box">
+    <p><strong>사례)</strong> A가 B에게 1,000만 원의 판결을 받았고, B는 판결 확정 이후 A에게 실제로 1,000만 원을 이체했습니다. 그런데 A가 다시 강제집행을 신청했다면, B는 청구이의의 소를 제기하면서 동시에 집행정지 신청을 하여 집행을 막을 수 있습니다.</p>
+  </div>
+
+  <h3>집행이의와 청구이의 비교</h3>
+  <table>
+    <thead>
+      <tr><th>구분</th><th>집행에 관한 이의신청</th><th>청구이의의 소</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>다투는 내용</td><td>집행 절차의 위법</td><td>집행권원상 실체적 권리의 소멸</td></tr>
+      <tr><td>절차 형태</td><td>신청 (非소송)</td><td>소송</td></tr>
+      <tr><td>근거</td><td><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=001600" target="_blank" rel="noopener" title="민사집행법 제16조 — 대법원 종합법률정보">민사집행법 제16조</a></td><td><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004400" target="_blank" rel="noopener" title="민사집행법 제44조 — 대법원 종합법률정보">민사집행법 제44조</a></td></tr>
+      <tr><td>관할</td><td>집행법원</td><td>제1심 판결법원</td></tr>
+      <tr><td>집행 정지</td><td>별도 신청 필요</td><td>별도 신청 필요</td></tr>
+    </tbody>
+  </table>`
       },
       {
-        heading: '3. 청구이의의 사유',
-        content: `<ul>
-<li><strong>변제</strong>: 채무를 이미 갚은 경우</li>
-<li><strong>상계</strong>: 서로 간의 채권으로 상계된 경우</li>
-<li><strong>면제</strong>: 채권자가 채권을 면제해준 경우</li>
-<li><strong>소멸시효 완성</strong>: 채권의 시효가 완성된 경우</li>
-<li><strong>조건 미성취</strong>: 집행 조건이 충족되지 않은 경우</li>
-</ul>`
+        heading: '자주하는 질문 (Q&amp;A)',
+        content: `<div class="qna-item">
+    <div class="qna-q">판결 전에 이미 돈을 갚았는데 청구이의를 제기할 수 있나요?</div>
+    <div class="qna-a">판결 전(변론종결 전)에 이미 있었던 사유는 청구이의의 소에서 주장하기 어렵습니다. 변론 중에 이 사유를 주장했어야 했기 때문입니다. 다만 예외적인 경우가 있을 수 있으므로, 법무사와 상담하여 대응 방법을 찾아보시기 바랍니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004400" target="_blank" rel="noopener" title="민사집행법 제44조 제2항 — 대법원 종합법률정보">민사집행법 제44조 제2항</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">청구이의의 소를 제기하면 집행이 바로 멈추나요?</div>
+    <div class="qna-a">아닙니다. 청구이의의 소를 제기해도 집행은 계속됩니다. 집행을 멈추려면 법원에 집행정지 신청을 별도로 해야 합니다. 집행정지를 위해서는 법원이 정한 담보를 제공해야 하는 경우도 있습니다. 빠른 조치가 필요하므로 소 제기와 동시에 집행정지를 신청하는 것이 중요합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004600" target="_blank" rel="noopener" title="민사집행법 제46조 — 대법원 종합법률정보">민사집행법 제46조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">채무 소멸시효가 완성됐는데 집행을 막을 수 있나요?</div>
+    <div class="qna-a">채무 소멸시효가 완성된 경우 청구이의의 소를 제기하여 집행을 막을 수 있습니다. 다만 소멸시효 완성은 변론종결 이후에 발생한 것이어야 하고, 시효 완성 주장도 구체적으로 입증해야 합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=016200" target="_blank" rel="noopener" title="민법 제162조, 민사집행법 제44조 — 대법원 종합법률정보">민법 제162조, 민사집행법 제44조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">청구이의의 소와 항소는 어떻게 다른가요?</div>
+    <div class="qna-a">항소는 판결이 확정되기 전에 그 판결 자체를 다투는 절차입니다. 반면 청구이의의 소는 판결이 확정된 이후에 판결 이후의 새로운 사유(변제, 면제 등)를 이유로 강제집행을 배제하는 절차입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004400" target="_blank" rel="noopener" title="민사집행법 제44조 — 대법원 종합법률정보">민사집행법 제44조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">공정증서에 기한 강제집행도 청구이의로 막을 수 있나요?</div>
+    <div class="qna-a">네, 집행권원이 공정증서인 경우에도 청구이의의 소를 제기할 수 있습니다. 이 경우 관할 법원은 채무자의 주소지 지방법원이 됩니다. 공정증서의 내용에 기재된 청구권이 소멸하거나 행사할 수 없게 된 사유를 주장할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004400" target="_blank" rel="noopener" title="민사집행법 제44조 제1항 — 대법원 종합법률정보">민사집행법 제44조 제1항</a></div>
+  </div>`
       },
       {
-        heading: '4. 소 제기 절차',
-        content: `<p>① 청구이의 소장 작성 → ② 제1심 법원에 제출 → ③ 심리 → ④ 판결 → ⑤ 집행력 배제</p>
-<p>소장 첨부서류: 집행권원 사본, 이의 사유 입증 자료 (영수증, 계좌이체 내역 등)</p>`
+        heading: '관련 판례',
+        content: `<div class="ruling-box">
+    <div class="ruling-header">청구이의 사유의 범위</div>
+    <p>대법원은 청구이의의 소에서는 변론 종결 뒤에 생긴 이의 사유만을 주장할 수 있고, 이미 변론 당시에 제출할 수 있었던 사유는 허용되지 않는다고 일관되게 판시하고 있습니다. 이는 확정판결의 기판력을 존중하여 집행권원의 실효성을 보장하기 위한 것입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004400" target="_blank" rel="noopener" title="민사집행법 제44조 제2항 — 대법원 종합법률정보">민사집행법 제44조 제2항</a> <span class="case-tag"><a class="case-tag" href="https://www.law.go.kr/precSc.do?menuId=7&subMenuId=47&tabMenuId=213&eventGubun=060101&query=2008%EB%8B%A479876" target="_blank" rel="noopener" title="2008다79876 — 대법원 종합법률정보">2008다79876</a></span></p>
+  </div>`
       },
       {
-        heading: '5. 실제 사례',
-        content: `<p><strong>사례 1</strong>: A가 B에게 1,000만 원 판결을 받았는데, B가 이미 500만 원을 지급했음에도 A가 전액 강제집행을 신청한 경우. B는 청구이의의 소를 제기하여 이미 변제된 500만 원에 대한 집행력을 배제할 수 있습니다.</p>
-<p><strong>사례 2</strong>: 채권의 소멸시효(10년)가 완성된 후 채권자가 강제집행을 신청한 경우. 채무자는 청구이의의 소를 제기하여 집행을 저지할 수 있습니다.</p>`
+        heading: '주의사항',
+        content: `<div class="warn-box">
+    <div class="warn-title">⚡ 집행 진행 중 즉시 신청 필수</div>
+    <p>강제집행이 완료되기 전에 청구이의의 소 제기와 집행정지 신청을 모두 해야 합니다. 집행이 완료된 후에는 이미 이루어진 집행 자체를 막을 수 없습니다. 시간이 촉박하므로 즉시 법무사와 상담하시기 바랍니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004600" target="_blank" rel="noopener" title="민사집행법 제46조 — 대법원 종합법률정보">민사집행법 제46조</a></p>
+  </div>
+  <div class="warn-box">
+    <div class="warn-title">⚠️ 변론종결 후 발생한 사유만 주장 가능</div>
+    <p>판결 확정 이전(변론종결 전)에 이미 존재하던 사유는 청구이의 이유로 주장하기 어렵습니다. 반드시 변론종결 이후에 발생한 사유여야 합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004400" target="_blank" rel="noopener" title="민사집행법 제44조 제2항 — 대법원 종합법률정보">민사집행법 제44조 제2항</a></p>
+  </div>
+  <div class="warn-box">
+    <div class="warn-title">ℹ️ 증거 확보 필수</div>
+    <p>변제 사실, 면제 합의, 상계 통보 등 채무 소멸 사유를 입증할 증거(이체 영수증, 합의서, 내용증명 등)를 미리 준비해 두어야 합니다.</p>
+  </div>`
       },
       {
-        heading: '6. 자주 묻는 질문',
-        content: `<p><strong>Q. 청구이의의 소를 제기하면 집행이 자동으로 정지되나요?</strong></p>
-<p>아닙니다. 별도로 집행정지 신청을 해야 하며, 담보를 제공하고 법원의 인용 결정을 받아야 집행이 정지됩니다.</p>
-<p><strong>Q. 청구이의의 소는 어느 법원에 제기하나요?</strong></p>
-<p>제1심 판결을 한 법원에 제기합니다. 가집행선고 있는 판결의 경우 그 판결을 한 법원에 제기합니다.</p>`
-      }
+        heading: '다음에 확인할 사항',
+        content: `<div class="next-links">
+    <a href="민집_12_집행정지.html" class="next-link">
+      <span class="arrow">→</span>
+      강제집행 정지<br><small>청구이의 소 제기 후 집행을 멈추는 방법</small>
+    </a>
+    <a href="민집_08_집행이의.html" class="next-link">
+      <span class="arrow">→</span>
+      집행에 관한 이의신청<br><small>절차 위법에 대한 대응</small>
+    </a>
+    <a href="민집_11_집행문이의.html" class="next-link">
+      <span class="arrow">→</span>
+      집행문 이의<br><small>집행문 자체의 문제를 다투는 방법</small>
+    </a>
+  </div>`
+      },
     ],
     laws: [],
     forms: []
@@ -565,62 +1296,122 @@ const ENFORCEMENT_TOPICS = [
   {
     id: 'ef-10',
     title: '제3자이의의 소',
-    meta: '"내 물건인데 채무자 것으로 잘못 압류됐습니다"',
+    meta: '내 물건인데 채무자 것으로 잘못 압류됐을 때',
     sections: [
       {
         heading: '이런 분께 필요합니다',
-        content: `<ul>
-<li>채무자와 다른 사람의 재산이 잘못 압류된 경우</li>
-<li>자신의 재산이 채무자의 것으로 오인되어 압류된 경우</li>
-<li>소유권, 점유권 등 권리를 주장하여 압류 해제를 원하는 경우</li>
-</ul>`
+        content: `<div class="checklist">
+    <ul>
+      <li>내 소유의 물건이나 재산이 채무자 재산으로 오인되어 압류된 경우</li>
+      <li>남편/아내의 채무로 인해 본인 명의 재산이 집행 대상이 된 경우</li>
+      <li>임대해 준 물건이 세입자(채무자)의 재산으로 압류된 경우</li>
+      <li>채무자 명의 재산이지만 실제 소유권이 나에게 있는 경우</li>
+      <li>집행 목적물에 대해 소유권 외의 양도담보권, 유치권 등을 갖고 있는 경우</li>
+    </ul>
+  </div>`
       },
       {
-        heading: '1. 제3자이의의 소란?',
-        content: `<p>제3자이의의 소는 강제집행의 목적물에 대해 소유권이나 점유권 등 이의의 원인이 되는 권리를 가진 제3자가 그 집행에 이의를 제기하는 소송입니다. 민사집행법 제48조에 근거합니다.</p>`
+        heading: '핵심 정리',
+        content: `<div class="summary-box">
+    <div class="label">▶ 제3자이의의 소란</div>
+    <p>제3자이의의 소는 강제집행의 목적물에 대하여 소유권이나 그 밖에 양도 또는 인도를 막을 권리를 가진 제3자가 채권자를 상대로 그 강제집행의 불허를 구하는 소송입니다. 집행 당사자가 아닌 제3자가 자신의 실체적 권리를 지키기 위한 수단입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004800" target="_blank" rel="noopener" title="민사집행법 제48조 제1항 — 대법원 종합법률정보">민사집행법 제48조 제1항</a> <span class="case-tag"><a class="case-tag" href="https://www.law.go.kr/precSc.do?menuId=7&subMenuId=47&tabMenuId=213&eventGubun=060101&query=2014%EB%8B%A4225038" target="_blank" rel="noopener" title="2014다225038 — 대법원 종합법률정보">2014다225038</a></span></p>
+  </div>
+  <div class="summary-box">
+    <div class="label">▶ 핵심 포인트</div>
+    <p>제3자이의의 소를 제기하면서 동시에 집행정지 신청을 해야 실질적 보호를 받을 수 있습니다. 소유권이나 양도를 막을 권리(저당권, 유치권, 양도담보권 등)가 있으면 신청 가능합니다. 관할 법원은 집행법원 또는 집행법원 소재지 지방법원 합의부입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004800" target="_blank" rel="noopener" title="민사집행법 제48조 제2항, 제49조 — 대법원 종합법률정보">민사집행법 제48조 제2항, 제49조</a></p>
+  </div>`
       },
       {
-        heading: '2. 법적 근거',
-        content: `<p>민사집행법 제48조: "강제집행의 목적물에 대하여 소유권이 있다고 주장하는 제3자 또는 목적물의 양도나 인도를 막을 수 있는 권리를 가졌다고 주장하는 제3자는 채권자를 상대로 그 강제집행에 대한 이의의 소를 제기할 수 있다."</p>`
+        heading: '제3자이의의 소 상세 안내',
+        content: `<h3>신청 자격 (원고 적격)</h3>
+  <p>제3자이의의 소를 제기할 수 있는 사람은 집행 목적물에 대하여 다음과 같은 권리를 가진 제3자입니다.</p>
+  <ul style="margin:12px 0 12px 20px;line-height:2">
+    <li>소유권 — 집행 목적물의 진짜 소유자 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004800" target="_blank" rel="noopener" title="민사집행법 제48조 제1항 — 대법원 종합법률정보">민사집행법 제48조 제1항</a></li>
+    <li>양도담보권자 — 채무자에게 담보 목적으로 소유권이전한 재산의 원소유자</li>
+    <li>유치권자 — 집행 목적물을 점유하며 피담보채권이 있는 자</li>
+    <li>그 밖에 양도 또는 인도를 막을 권리를 가진 자 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004800" target="_blank" rel="noopener" title="민사집행법 제48조 제1항 — 대법원 종합법률정보">민사집행법 제48조 제1항</a></li>
+  </ul>
+  <p>단순히 채권적 청구권만 가진 경우(임대차 등)에는 원칙적으로 제3자이의의 소를 제기하기 어렵습니다.</p>
+
+  <h3>관할 법원</h3>
+  <p>제3자이의의 소는 집행법원이 관할합니다. 집행법원이 지방법원 단독부인 경우에는 지방법원 합의부가 관할합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004800" target="_blank" rel="noopener" title="민사집행법 제48조 제2항 — 대법원 종합법률정보">민사집행법 제48조 제2항</a></p>
+
+  <h3>집행정지 신청과의 병행</h3>
+  <p>제3자이의의 소를 제기해도 강제집행은 자동으로 정지되지 않습니다. 집행을 멈추려면 별도로 집행정지 신청을 해야 하고, 법원이 집행정지 결정을 내려야 실질적 보호를 받을 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004900" target="_blank" rel="noopener" title="민사집행법 제49조 — 대법원 종합법률정보">민사집행법 제49조</a></p>
+
+  <div class="case-box">
+    <p><strong>사례)</strong> A(채무자)의 채권자 B가 A 명의 사무실 집기에 대해 강제집행을 실시했습니다. 그런데 그 집기는 실제로 C(제3자)가 A에게 임시 보관을 맡긴 C 소유의 물건이었습니다. C는 제3자이의의 소를 제기하면서 집행정지 신청을 함께 해야 집기를 보호받을 수 있습니다.</p>
+  </div>
+
+  <h3>임시 대응 — 집행이의와의 차이</h3>
+  <p>집행이 막 시작된 급박한 상황에서는 집행이의신청(민사집행법 제16조)을 통해 임시로 대응하고, 동시에 제3자이의의 소를 준비할 수 있습니다. 집행이의는 집행 절차상 위법을 다루는 신속한 수단이고, 제3자이의의 소는 실체적 권리를 확인받는 본안 소송입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=001600" target="_blank" rel="noopener" title="민사집행법 제16조, 제48조 — 대법원 종합법률정보">민사집행법 제16조, 제48조</a></p>`
       },
       {
-        heading: '3. 이의 원인 — 어떤 권리를 주장할 수 있나?',
-        content: `<ul>
-<li><strong>소유권</strong>: 압류된 물건이 실제로 자신의 것인 경우</li>
-<li><strong>점유권</strong>: 적법하게 점유 중인 경우</li>
-<li><strong>질권·저당권</strong>: 담보권을 가진 경우</li>
-<li><strong>임차권</strong>: 적법한 임차계약이 있는 경우</li>
-</ul>`
+        heading: '자주하는 질문 (Q&amp;A)',
+        content: `<div class="qna-item">
+    <div class="qna-q">제 물건이 채무자 것으로 오해받아 압류됐습니다. 어떻게 해야 하나요?</div>
+    <div class="qna-a">즉시 법무사와 상담하여 제3자이의의 소를 제기하고 동시에 집행정지 신청을 해야 합니다. 집행이 진행 중이라면 매우 급박한 상황이므로 빠른 대응이 필요합니다. 소유권을 입증할 수 있는 서류(매매계약서, 영수증, 등기부등본 등)를 준비하세요. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004800" target="_blank" rel="noopener" title="민사집행법 제48조, 제49조 — 대법원 종합법률정보">민사집행법 제48조, 제49조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">임차인(세입자)인데 집주인 채무로 집이 경매로 넘어가면 제3자이의를 할 수 있나요?</div>
+    <div class="qna-a">임차인은 임차권이라는 채권적 권리를 가지므로, 원칙적으로 제3자이의의 소의 원고가 되기 어렵습니다. 다만 대항력 있는 임차인은 경매 낙찰자에게 임차권을 주장할 수 있는 별도의 보호를 받을 수 있습니다. 구체적 상황에 따라 다르므로 법무사와 상담하세요. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=276291&joNo=000300" target="_blank" rel="noopener" title="주택임대차보호법 제3조, 민사집행법 제48조 — 대법원 종합법률정보">주택임대차보호법 제3조, 민사집행법 제48조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">양도담보로 넘겨준 재산이 채권자에게 압류됐습니다. 제3자이의가 가능한가요?</div>
+    <div class="qna-a">양도담보권자(원소유자)는 제3자이의의 소를 제기할 수 있습니다. 다만 양도담보의 경우 외형상 소유권이 채무자(양도인)에게 있으므로, 양도담보 계약 관계를 입증하는 것이 중요합니다. 법원은 이 사안을 신중히 검토합니다.</div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">관할 법원이 멀리 있어도 그 법원에 가야 하나요?</div>
+    <div class="qna-a">제3자이의의 소는 집행법원 또는 그 소재지 지방법원 합의부의 관할이므로, 원칙적으로 그 법원에 소를 제기해야 합니다. 다만 법무사가 소송을 대리하면 직접 방문하지 않아도 되는 경우가 많습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004800" target="_blank" rel="noopener" title="민사집행법 제48조 제2항 — 대법원 종합법률정보">민사집행법 제48조 제2항</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">집행이 완료된 후에는 제3자이의를 할 수 없나요?</div>
+    <div class="qna-a">집행이 완료된 후에는 제3자이의의 소를 통해 이미 이루어진 집행을 되돌리기가 매우 어렵습니다. 따라서 집행이 진행 중일 때 신속하게 소를 제기하고 집행정지 신청을 해야 합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004900" target="_blank" rel="noopener" title="민사집행법 제49조 — 대법원 종합법률정보">민사집행법 제49조</a></div>
+  </div>`
       },
       {
-        heading: '4. 누가 소를 제기할 수 있나?',
-        content: `<p>집행 당사자(채권자·채무자)가 아닌 제3자로서, 압류된 재산에 대해 이의의 원인이 되는 권리를 가진 자입니다.</p>`
+        heading: '관련 판례',
+        content: `<div class="ruling-box">
+    <div class="ruling-header">제3자이의의 소의 원고 적격</div>
+    <p>대법원은 제3자이의의 소에서 "양도 또는 인도를 막을 권리"란 소유권뿐만 아니라 목적물의 양도나 인도를 실체법상 저지할 수 있는 물권을 포함하지만, 단순한 채권적 청구권만으로는 원고 적격을 인정하기 어렵다고 해석하고 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004800" target="_blank" rel="noopener" title="민사집행법 제48조 제1항 — 대법원 종합법률정보">민사집행법 제48조 제1항</a></p>
+  </div>`
       },
       {
-        heading: '5. 소 제기 절차 및 관할',
-        content: `<p>① 소장 작성 → ② 집행법원에 제출 → ③ 심리 → ④ 판결</p>
-<p>관할: 강제집행을 행하는 집행법원 (민사집행법 제48조 제2항)</p>
-<p>첨부서류: 소장, 이의 원인을 증명하는 서류 (등기부등본, 매매계약서 등)</p>`
+        heading: '주의사항',
+        content: `<div class="warn-box">
+    <div class="warn-title">⚡ 집행 진행 중 즉시 신청 필수</div>
+    <p>집행이 완료되면 제3자이의의 실익이 크게 줄어듭니다. 재산이 압류됐다는 사실을 알게 된 즉시 집행정지 신청과 제3자이의의 소를 동시에 진행해야 합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004900" target="_blank" rel="noopener" title="민사집행법 제49조 — 대법원 종합법률정보">민사집행법 제49조</a></p>
+  </div>
+  <div class="warn-box">
+    <div class="warn-title">⚠️ 소유권 입증 서류 준비</div>
+    <p>제3자이의의 소를 제기하면 소유권 또는 권리를 입증할 책임이 원고(제3자)에게 있습니다. 매매계약서, 영수증, 등기부등본, 점유 사실 등 객관적인 증거를 미리 확보해 두어야 합니다.</p>
+  </div>
+  <div class="warn-box">
+    <div class="warn-title">ℹ️ 집행이의와 병행 가능</div>
+    <p>급박한 상황에서는 집행이의신청(민사집행법 제16조)으로 임시 대응하면서 제3자이의의 소를 준비하는 것이 효과적입니다. 두 절차를 병행할 수 있습니다.</p>
+  </div>`
       },
       {
-        heading: '6. 실제 사례',
-        content: `<p><strong>사례</strong>: A의 집에서 B(채무자)의 채권자 C가 강제집행을 하면서 A 소유의 냉장고를 B의 것으로 오인하여 압류한 경우. A는 제3자이의의 소를 제기하여 자신의 냉장고에 대한 집행을 저지할 수 있습니다.</p>`
+        heading: '다음에 확인할 사항',
+        content: `<div class="next-links">
+    <a href="민집_12_집행정지.html" class="next-link">
+      <span class="arrow">→</span>
+      강제집행 정지<br><small>소 제기와 함께 집행을 멈추는 방법</small>
+    </a>
+    <a href="민집_08_집행이의.html" class="next-link">
+      <span class="arrow">→</span>
+      집행에 관한 이의신청<br><small>급박한 상황에서의 임시 대응</small>
+    </a>
+    <a href="민집_09_청구이의.html" class="next-link">
+      <span class="arrow">→</span>
+      청구이의의 소<br><small>채무자 본인이 집행을 막는 방법</small>
+    </a>
+  </div>`
       },
-      {
-        heading: '7. 제3자이의의 소 제기 시 주의사항',
-        content: `<ul>
-<li>집행이 완료되기 전에 신속히 소를 제기해야 합니다</li>
-<li>소유권 등 권리를 입증할 증거를 충분히 준비해야 합니다</li>
-<li>집행정지를 원하면 별도로 집행정지 신청을 해야 합니다</li>
-</ul>`
-      },
-      {
-        heading: '8. 자주 묻는 질문',
-        content: `<p><strong>Q. 제3자이의의 소와 이의신청의 차이는 무엇인가요?</strong></p>
-<p>이의신청은 집행 절차상의 위법을 다투는 것이고, 제3자이의의 소는 실체적 권리(소유권 등)를 주장하여 집행 자체를 막는 것입니다.</p>
-<p><strong>Q. 집행이 완료된 후에도 제3자이의의 소를 제기할 수 있나요?</strong></p>
-<p>집행 완료 후에는 제3자이의의 소를 제기할 수 없습니다. 집행이 완료되면 부당이득반환청구 등 다른 방법을 모색해야 합니다.</p>`
-      }
     ],
     laws: [],
     forms: []
@@ -628,65 +1419,119 @@ const ENFORCEMENT_TOPICS = [
   {
     id: 'ef-11',
     title: '집행문 부여에 대한 이의',
-    meta: '집행문 자체가 잘못 발급됐다면?',
+    meta: '집행문 자체가 잘못 발급됐을 때 취소를 구하는 방법',
     sections: [
       {
         heading: '이런 분께 필요합니다',
-        content: `<ul>
-<li>집행문이 잘못 발급된 경우</li>
-<li>집행문 부여에 절차적 하자가 있는 경우</li>
-<li>집행문 자체의 효력을 다투고 싶은 경우</li>
-<li>집행문 부여에 대한 이의 방법을 알고 싶은 경우</li>
-</ul>`
+        content: `<div class="checklist">
+    <ul>
+      <li>집행권원에 표시된 것 이상의 집행문이 발급됐다고 판단되는 경우</li>
+      <li>집행 당사자가 아닌 사람에게 집행문이 부여됐다고 생각되는 경우</li>
+      <li>집행문 발급 요건이 갖춰지지 않았음에도 집행문이 부여된 경우</li>
+      <li>채권자가 집행문 부여를 거절당하여 법원에 집행문 부여를 구하려는 경우</li>
+      <li>집행권원상의 청구권이 이미 소멸했는데 집행문이 발급된 경우</li>
+    </ul>
+  </div>`
       },
       {
-        heading: '집행문 부여에 대한 이의 (민사집행법 제34조)',
-        content: `<p>집행문 부여에 이의가 있는 당사자는 집행문을 부여한 법원에 이의신청을 할 수 있습니다. 이의 대상: 집행문 부여의 절차적 하자, 집행권원의 유효성 문제 등.</p>
-<ul>
-<li>신청 기관: 집행문을 부여한 법원</li>
-<li>신청 방법: 이의신청서 제출</li>
-<li>효과: 집행문 취소 또는 변경 가능</li>
-</ul>`
+        heading: '핵심 정리',
+        content: `<div class="summary-box">
+    <div class="label">▶ 집행문 관련 3가지 불복 제도</div>
+    <p>집행문과 관련하여 민사집행법은 3가지 불복 방법을 두고 있습니다. ① 집행문 부여 <strong>거절</strong>에 대한 이의신청(채권자의 불복), ② 집행문 부여의 소(요건 미비 시 채권자의 소), ③ 집행문 부여에 대한 이의의 소(채무자 등의 불복)입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003300" target="_blank" rel="noopener" title="민사집행법 제45조 — 국가법령정보센터">민사집행법 제33조, 제34조, 제45조</a></p>
+  </div>
+  <div class="summary-box">
+    <div class="label">▶ 핵심 포인트</div>
+    <p>집행문이 <strong>잘못 발급됐다</strong>고 주장하는 쪽(채무자 등)은 집행문 부여에 대한 이의의 소(민사집행법 제45조)를 제기해야 합니다. 집행문 <strong>발급 거절</strong>에 불복하는 쪽(채권자)은 이의신청(제34조)이나 집행문 부여의 소(제33조)를 이용합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003300" target="_blank" rel="noopener" title="민사집행법 제45조 — 국가법령정보센터">민사집행법 제33조, 제34조, 제45조</a></p>
+  </div>`
       },
       {
-        heading: '집행문 부여에 대한 이의의 소 (민사집행법 제45조)',
-        content: `<p>집행문 부여 자체의 실체적 부당함을 다투는 경우에는 별도의 소송(이의의 소)을 제기할 수 있습니다.</p>
-<ul>
-<li>소 제기 법원: 집행문을 부여한 법원</li>
-<li>소 제기 요건: 집행문 부여가 실체적으로 부당한 경우</li>
-</ul>`
+        heading: '집행문 관련 불복 제도 상세',
+        content: `<h3>① 집행문 부여에 관한 이의신청 (채권자의 불복)</h3>
+  <p>법원사무관등이 집행문 부여를 거절한 경우, 채권자는 법원에 이의신청을 할 수 있습니다. 법원이 이의를 인용하면 집행문 부여를 명합니다. 이 이의신청은 즉시항고와 달리 기간 제한이 없습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003400" target="_blank" rel="noopener" title="민사집행법 제34조 제1항 — 대법원 종합법률정보">민사집행법 제34조 제1항</a></p>
+
+  <h3>② 집행문 부여의 소 (채권자가 소송으로 집행문 부여를 구하는 경우)</h3>
+  <p>집행문 부여에 조건이 성취됐음을 증명해야 하는데(조건부 집행문), 이를 서류로 증명하기 어려운 경우 채권자는 집행문 부여의 소를 제기합니다. 수소법원 또는 채무자 주소지 법원이 관할합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003300" target="_blank" rel="noopener" title="민사집행법 제33조 — 국가법령정보센터">민사집행법 제33조</a></p>
+
+  <h3>③ 집행문 부여에 대한 이의의 소 (채무자 등의 불복)</h3>
+  <p>채무자나 이해관계인이 집행문 자체가 위법하게 또는 잘못 발급됐다고 주장할 때 제기하는 소송입니다. 집행권원에 표시된 청구권이 집행문 부여 시점에 이미 소멸했다는 것 등을 주장합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004500" target="_blank" rel="noopener" title="민사집행법 제45조 — 국가법령정보센터">민사집행법 제45조</a></p>
+
+  <h3>세 가지 제도 비교</h3>
+  <table>
+    <thead>
+      <tr><th>구분</th><th>누가 이용하는가</th><th>이용 상황</th><th>근거</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>집행문 부여 거절에 대한 이의신청</td><td>채권자</td><td>집행문 부여 거절당한 경우</td><td><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003400" target="_blank" rel="noopener" title="민사집행법 제34조 — 국가법령정보센터">제34조</a></td></tr>
+      <tr><td>집행문 부여의 소</td><td>채권자</td><td>조건 성취를 소송으로 증명</td><td><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003300" target="_blank" rel="noopener" title="민사집행법 제33조 — 국가법령정보센터">제33조</a></td></tr>
+      <tr><td>집행문 부여에 대한 이의의 소</td><td>채무자·이해관계인</td><td>집행문이 위법하게 발급된 경우</td><td><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004500" target="_blank" rel="noopener" title="민사집행법 제45조 — 국가법령정보센터">제45조</a></td></tr>
+    </tbody>
+  </table>
+
+  <h3>집행문 이의와 청구이의의 차이</h3>
+  <p>집행문 부여에 대한 이의의 소(제45조)는 집행문 부여 당시의 사유(청구권 소멸 등)를 다루는 반면, 청구이의의 소(제44조)는 집행권원 성립 이후 변론종결 후에 생긴 사유를 다룹니다. 상황에 따라 두 소송을 함께 제기하는 것도 가능합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004400" target="_blank" rel="noopener" title="민사집행법 제45조 — 국가법령정보센터">민사집행법 제44조, 제45조</a></p>`
       },
       {
-        heading: '집행문이의 vs 청구이의 구분',
-        content: `<ul>
-<li><strong>집행문이의</strong>: 집행문 자체의 문제 (부여 절차 하자, 부여 요건 흠결 등)</li>
-<li><strong>청구이의의 소</strong>: 집행권원에 기재된 청구 자체의 실체적 부당 (변제, 시효완성 등)</li>
-</ul>`
-      },
-      {
-        heading: '실제 사례',
-        content: `<p><strong>사례 1</strong>: 채무자가 사망했음에도 불구하고 채무자 명의로 집행문이 발급된 경우. 상속인은 집행문 부여에 대한 이의를 제기하여 잘못된 집행문을 취소시킬 수 있습니다.</p>
-<p><strong>사례 2</strong>: 이미 집행력이 소멸된 판결에 집행문이 발급된 경우. 채무자는 이의신청을 통해 집행문을 무력화할 수 있습니다.</p>`
+        heading: '자주하는 질문 (Q&amp;A)',
+        content: `<div class="qna-item">
+    <div class="qna-q">집행문 부여에 대한 이의의 소와 청구이의의 소는 어떻게 다른가요?</div>
+    <div class="qna-a">청구이의의 소는 "변론종결 후"에 발생한 사유(변제, 면제, 시효 등)를 주장하는 것입니다. 반면 집행문 부여에 대한 이의의 소는 집행문이 발급될 당시 이미 집행문 부여 요건이 갖춰지지 않았다는 것을 다툽니다. 상황에 따라 두 소송을 함께 진행할 수도 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004400" target="_blank" rel="noopener" title="민사집행법 제45조 — 국가법령정보센터">민사집행법 제44조, 제45조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">집행문 부여를 거절당한 채권자는 어떻게 해야 하나요?</div>
+    <div class="qna-a">집행문 부여를 거절당하면 법원에 이의신청을 할 수 있습니다. 이의신청이 받아들여지지 않는 경우에는 집행문 부여의 소를 제기하여 소송을 통해 집행문 부여를 구할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003400" target="_blank" rel="noopener" title="민사집행법 제33조 — 국가법령정보센터">민사집행법 제34조, 제33조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">승계집행문이 잘못 부여됐다고 주장할 수 있나요?</div>
+    <div class="qna-a">승계집행문이 적격 없는 자에게 부여됐다면 집행문 부여에 대한 이의의 소 또는 집행문 부여에 관한 이의신청을 통해 다툴 수 있습니다. 승계 사실이 없거나 승계 요건이 갖춰지지 않은 경우가 그 예입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003100" target="_blank" rel="noopener" title="민사집행법 제45조 — 국가법령정보센터">민사집행법 제31조, 제34조, 제45조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">집행문 이의의 소를 제기하면 집행이 멈추나요?</div>
+    <div class="qna-a">집행문 부여에 대한 이의의 소를 제기해도 집행이 자동으로 정지되지 않습니다. 집행정지를 원한다면 별도로 집행정지 신청을 해야 합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004600" target="_blank" rel="noopener" title="민사집행법 제46조 — 대법원 종합법률정보">민사집행법 제46조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">집행문이 여러 장 발급됐는데 이의를 제기할 수 있나요?</div>
+    <div class="qna-a">집행문은 1개의 집행권원에 대해 원칙적으로 1장 발급이 원칙이며, 두 번째 이후의 집행문을 발급받으려면 요건을 갖춰야 합니다. 요건 없이 여러 장이 발급됐다면 집행문 부여에 관한 이의신청을 통해 이의를 제기할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003400" target="_blank" rel="noopener" title="민사집행법 제34조 — 국가법령정보센터">민사집행법 제34조</a></div>
+  </div>`
       },
       {
         heading: '관련 판례',
-        content: `<p>집행문 부여는 형식적 심사에 그치므로 실체적 부당에 대해서는 이의의 소로 다퉈야 합니다.</p>`
+        content: `<div class="ruling-box">
+    <div class="ruling-header">집행문 부여에 대한 이의의 소의 성격</div>
+    <p>대법원은 집행문 부여에 대한 이의의 소는 집행문 부여 요건이 갖춰지지 않았음을 이유로 집행문의 취소를 구하는 소로서, 집행권원에 표시된 실체적 권리에 관한 다툼을 내용으로 하는 청구이의의 소와 구별된다고 해석합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004500" target="_blank" rel="noopener" title="민사집행법 제45조 — 국가법령정보센터">민사집행법 제45조</a> <span class="case-tag"><a class="case-tag" href="https://www.law.go.kr/precSc.do?menuId=7&subMenuId=47&tabMenuId=213&eventGubun=060101&query=2016%EB%8B%A4268695" target="_blank" rel="noopener" title="2016다268695 — 대법원 종합법률정보">2016다268695</a></span></p>
+  </div>`
       },
       {
         heading: '주의사항',
-        content: `<ul>
-<li>집행문 부여에 대한 이의와 청구이의의 소는 별개의 절차입니다</li>
-<li>집행 정지를 원하면 별도로 집행정지 신청이 필요합니다</li>
-<li>이의신청 기간을 놓치지 않도록 신속히 대응해야 합니다</li>
-</ul>`
+        content: `<div class="warn-box">
+    <div class="warn-title">⚡ 집행 중단이 필요하면 즉시 집행정지 신청</div>
+    <p>집행문 이의의 소만으로는 집행이 멈추지 않습니다. 집행 중단이 필요하다면 소 제기와 동시에 집행정지 신청을 해야 합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004600" target="_blank" rel="noopener" title="민사집행법 제46조 — 대법원 종합법률정보">민사집행법 제46조</a></p>
+  </div>
+  <div class="warn-box">
+    <div class="warn-title">⚠️ 적절한 불복방법 선택이 중요</div>
+    <p>상황에 따라 집행이의신청, 집행문 부여에 관한 이의신청, 집행문 부여에 대한 이의의 소, 청구이의의 소 중 적절한 방법을 선택해야 합니다. 잘못된 불복방법을 선택하면 각하될 수 있으므로 법무사와 상담하는 것이 안전합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003300" target="_blank" rel="noopener" title="민사집행법 제45조 — 국가법령정보센터">민사집행법 제33조, 제34조, 제44조, 제45조</a></p>
+  </div>`
       },
       {
-        heading: '자주 묻는 질문',
-        content: `<p><strong>Q. 집행문 부여에 대한 이의신청을 하면 집행이 정지되나요?</strong></p>
-<p>이의신청만으로 집행이 자동 정지되지 않습니다. 집행정지를 위해서는 별도의 신청이 필요합니다.</p>
-<p><strong>Q. 집행문 부여에 대한 이의는 얼마나 빨리 신청해야 하나요?</strong></p>
-<p>집행 착수 전 또는 집행 중에 가능한 한 빨리 신청해야 합니다. 집행이 완료되면 효과가 없을 수 있습니다.</p>`
-      }
+        heading: '다음에 확인할 사항',
+        content: `<div class="next-links">
+    <a href="민집_03_집행문부여.html" class="next-link">
+      <span class="arrow">→</span>
+      집행문 부여 신청<br><small>집행문을 받는 정상적인 절차</small>
+    </a>
+    <a href="민집_09_청구이의.html" class="next-link">
+      <span class="arrow">→</span>
+      청구이의의 소<br><small>실체적 권리를 다투는 방법</small>
+    </a>
+    <a href="민집_12_집행정지.html" class="next-link">
+      <span class="arrow">→</span>
+      강제집행 정지<br><small>집행을 일시적으로 멈추는 방법</small>
+    </a>
+  </div>`
+      },
     ],
     laws: [],
     forms: []
@@ -694,75 +1539,127 @@ const ENFORCEMENT_TOPICS = [
   {
     id: 'ef-12',
     title: '강제집행 정지·취소',
-    meta: '집행을 일시적으로 멈출 수 있나요?',
+    meta: '부당한 집행을 일시적으로 멈추거나 완전히 취소하는 방법',
     sections: [
       {
         heading: '이런 분께 필요합니다',
-        content: `<ul>
-<li>강제집행이 진행 중인데 일시적으로 멈추고 싶은 경우</li>
-<li>청구이의의 소나 집행이의 신청을 하면서 집행정지를 원하는 경우</li>
-<li>집행정지와 집행취소의 차이를 알고 싶은 경우</li>
-<li>집행정지를 위해 어떤 절차가 필요한지 확인하고 싶은 경우</li>
-</ul>`
+        content: `<div class="checklist">
+    <ul>
+      <li>청구이의의 소를 제기하면서 집행도 일시 중단시키고 싶은 경우</li>
+      <li>항소·상고를 제기하면서 가집행 판결에 기한 집행을 멈추고 싶은 경우</li>
+      <li>채권자와 화해가 성립되어 집행을 취소하고 싶은 경우</li>
+      <li>채무를 변제했다는 영수증 등 서류를 가지고 집행정지를 구하려는 경우</li>
+      <li>집행정지와 집행취소의 차이를 이해하고 싶은 경우</li>
+    </ul>
+  </div>`
       },
       {
-        heading: '집행정지의 의의 및 종류',
-        content: `<p>집행정지는 강제집행의 진행을 일시적으로 멈추는 것입니다. 민사집행법 제46조, 제49조에 근거합니다.</p>
-<ul>
-<li><strong>법정 집행정지</strong>: 법률이 정한 요건에 해당하면 당연히 집행이 정지되는 경우</li>
-<li><strong>재판에 의한 집행정지</strong>: 법원의 결정으로 집행을 정지하는 경우 (청구이의, 집행이의 등)</li>
-</ul>`
+        heading: '핵심 정리',
+        content: `<div class="summary-box">
+    <div class="label">▶ 집행정지란</div>
+    <p>집행정지는 강제집행 절차를 일시적으로 멈추는 것을 말합니다. 청구이의의 소 제기, 항소·상고 제기, 변제 사실 증명 등 법이 정한 일정 서류를 법원에 제출하면 집행이 임시로 정지됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004600" target="_blank" rel="noopener" title="민사집행법 제46조 — 대법원 종합법률정보">민사집행법 제46조</a></p>
+  </div>
+  <div class="summary-box">
+    <div class="label">▶ 집행취소와의 차이</div>
+    <p>집행정지는 집행을 임시로 멈추는 것이고, 집행취소는 이미 실시된 집행처분을 제거하는 것입니다. 예를 들어 채무 변제 서류를 제출하면 집행이 취소(압류 해제 등)될 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004700" target="_blank" rel="noopener" title="민사집행법 제47조 — 대법원 종합법률정보">민사집행법 제47조</a></p>
+  </div>`
       },
       {
-        heading: '집행정지 사유',
-        content: `<ul>
-<li>청구이의의 소 제기 + 집행정지 신청 인용</li>
-<li>집행이의 신청 + 집행정지 신청 인용</li>
-<li>상소 제기 + 집행정지 신청 인용</li>
-<li>채무자의 파산 신청</li>
-<li>기타 법률이 정한 집행정지 사유</li>
-</ul>`
+        heading: '집행정지·취소 상세 안내',
+        content: `<h3>집행정지 서류의 종류</h3>
+  <p>다음과 같은 서류가 집행법원에 제출되면 집행이 정지됩니다.</p>
+  <table>
+    <thead>
+      <tr><th>서류 종류</th><th>상황</th><th>효과</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>집행정지 재판서 (법원 결정)</td><td>청구이의의 소 등 제기 후 법원 결정</td><td>집행 정지</td></tr>
+      <tr><td>상소장·항고장 접수 증명</td><td>항소·상고 중 가집행 집행의 경우</td><td>집행 정지</td></tr>
+      <tr><td>변제 영수증 또는 채무 면제 증서</td><td>판결 확정 후 변제된 경우</td><td>집행 취소</td></tr>
+      <tr><td>집행유예 서류 (채권자 동의서)</td><td>채권자가 집행 유예에 동의한 경우</td><td>집행 정지</td></tr>
+    </tbody>
+  </table>
+  <p>위 서류들은 민사집행법 제49조에서 열거하고 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004900" target="_blank" rel="noopener" title="민사집행법 제49조 — 대법원 종합법률정보">민사집행법 제49조</a></p>
+
+  <h3>청구이의의 소와 집행정지</h3>
+  <p>청구이의의 소를 제기하는 것만으로는 집행이 자동 정지되지 않습니다. 법원에 집행정지 신청을 별도로 해야 하고, 법원이 집행정지 결정(담보 조건부인 경우 많음)을 내려야 집행이 멈춥니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004600" target="_blank" rel="noopener" title="민사집행법 제46조 제1항 — 대법원 종합법률정보">민사집행법 제46조 제1항</a></p>
+
+  <h3>담보 제공 의무</h3>
+  <p>법원이 집행정지 결정을 내릴 때 담보 제공을 조건으로 할 수 있습니다. 채무자는 법원이 정한 담보를 제공해야 집행이 실제로 정지됩니다. 담보는 현금 공탁이나 지급보증보험 등의 방법으로 제공할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004600" target="_blank" rel="noopener" title="민사집행법 제46조 제2항 — 대법원 종합법률정보">민사집행법 제46조 제2항</a></p>
+
+  <h3>집행취소</h3>
+  <p>집행취소는 이미 이루어진 집행처분(압류 등)을 제거하는 것입니다. 채무자가 채무를 변제하거나, 채권자가 집행 취소에 동의하거나, 법원이 집행취소 결정을 내리는 경우에 집행처분이 취소됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004700" target="_blank" rel="noopener" title="민사집행법 제47조 — 대법원 종합법률정보">민사집행법 제47조</a></p>
+
+  <div class="case-box">
+    <p><strong>사례)</strong> B는 A(채권자)에 대한 500만 원 판결 이후 실제로 A의 계좌로 500만 원을 이체했습니다. 그런데 A가 또 강제집행을 신청했다면, B는 이체 영수증을 근거로 집행법원에 집행취소를 신청할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004900" target="_blank" rel="noopener" title="민사집행법 제49조 제2호 — 대법원 종합법률정보">민사집행법 제49조 제2호</a></p>
+  </div>`
       },
       {
-        heading: '집행정지 요건과 담보 제공',
-        content: `<p>재판에 의한 집행정지를 신청하려면 일반적으로 담보를 제공해야 합니다.</p>
-<ul>
-<li><strong>담보의 종류</strong>: 현금 공탁, 은행 지급보증서 등</li>
-<li><strong>담보액</strong>: 법원이 채권자의 손해를 고려하여 결정</li>
-<li><strong>담보 제공 후</strong>: 법원에 집행정지 결정 신청</li>
-</ul>`
-      },
-      {
-        heading: '집행취소 (집행정지와의 구분)',
-        content: `<ul>
-<li><strong>집행정지</strong>: 일시적으로 집행을 멈추는 것 (사유 소멸 시 집행 재개 가능)</li>
-<li><strong>집행취소</strong>: 집행 자체를 종료시키는 것 (청구이의 인용 판결 확정 등)</li>
-</ul>`
-      },
-      {
-        heading: '실제 사례: 소송을 제기하면서 집행을 막는 방법',
-        content: `<p><strong>사례</strong>: A 채권자가 B 채무자에게 강제집행을 신청했습니다. B는 이미 채무를 변제했다고 주장하며 청구이의의 소를 제기했습니다. B는 동시에 집행정지 신청을 하고 담보를 제공하여 집행을 일시 정지시켰습니다. 소송 결과 B 승소 시 집행이 취소됩니다.</p>`
+        heading: '자주하는 질문 (Q&amp;A)',
+        content: `<div class="qna-item">
+    <div class="qna-q">집행정지 신청을 하면 바로 집행이 멈추나요?</div>
+    <div class="qna-a">집행정지 신청만으로 집행이 자동으로 멈추지는 않습니다. 법원이 집행정지 결정을 내리면 멈춥니다. 법원이 담보 제공을 조건으로 정지를 허가하는 경우, 담보를 제공한 후에야 실질적으로 정지됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004600" target="_blank" rel="noopener" title="민사집행법 제46조 — 대법원 종합법률정보">민사집행법 제46조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">항소를 제기하면 가집행 집행이 자동으로 멈추나요?</div>
+    <div class="qna-a">항소를 제기해도 가집행 집행이 자동으로 정지되지는 않습니다. 집행정지를 원한다면 별도로 집행정지 신청을 해야 하며, 항소법원이 담보 조건부로 집행정지 결정을 내립니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004600" target="_blank" rel="noopener" title="민사집행법 제46조, 민사소송법 제500조 — 대법원 종합법률정보">민사집행법 제46조, 민사소송법 제500조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">변제 영수증이 있으면 집행이 취소되나요?</div>
+    <div class="qna-a">판결 확정 후 변제를 증명하는 영수증이나 면제 서류를 집행법원에 제출하면 집행취소를 신청할 수 있습니다. 법원이 이를 심사하여 취소 여부를 결정합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004900" target="_blank" rel="noopener" title="민사집행법 제49조 제2호 — 대법원 종합법률정보">민사집행법 제49조 제2호</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">집행정지 담보는 어떻게 마련하나요?</div>
+    <div class="qna-a">법원이 정한 담보 금액을 현금으로 공탁하거나, 지급보증보험 증권을 제출하는 방법으로 담보를 제공할 수 있습니다. 담보 금액은 집행 채권액의 일정 비율로 정해지는 경우가 많습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=001900" target="_blank" rel="noopener" title="민사집행법 제19조, 제20조 — 대법원 종합법률정보">민사집행법 제19조, 제20조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">집행이 완료된 후에도 집행정지·취소를 신청할 수 있나요?</div>
+    <div class="qna-a">집행이 완료된 후에는 집행정지·취소의 실익이 없습니다. 이미 이루어진 집행을 되돌리려면 청구이의의 소나 부당이득반환소송 등의 방법을 통해야 하는데, 이 경우 매우 어렵습니다. 따라서 집행이 진행 중일 때 신속하게 대응하는 것이 중요합니다.</div>
+  </div>`
       },
       {
         heading: '관련 판례',
-        content: `<p>집행정지는 채무자의 신청에 의해 법원이 담보를 조건으로 결정하는 것으로, 자동으로 이루어지지 않습니다.</p>`
+        content: `<div class="ruling-box">
+    <div class="ruling-header">집행정지의 요건</div>
+    <p>대법원은 집행정지는 집행권원의 집행력이 잠정적으로 저지되는 것으로, 집행정지를 위해서는 법이 정한 서류(집행정지 재판, 화해 증서 등)의 제출이 있어야 한다고 해석하고 있습니다. 집행정지 사유가 없다면 집행기관은 집행을 계속해야 합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004600" target="_blank" rel="noopener" title="민사집행법 제46조, 제49조 — 대법원 종합법률정보">민사집행법 제46조, 제49조</a> <span class="case-tag">2014그553</span></p>
+  </div>`
       },
       {
         heading: '주의사항',
-        content: `<ul>
-<li>집행정지는 신청만으로 자동으로 이루어지지 않습니다</li>
-<li>담보를 제공해야 하는 경우가 많으므로 자금 준비가 필요합니다</li>
-<li>집행이 완료되면 집행정지가 의미 없어질 수 있으므로 신속히 신청해야 합니다</li>
-<li>집행정지 결정 후에도 집행 기간이 길어질수록 비용이 증가할 수 있습니다</li>
-</ul>`
+        content: `<div class="warn-box">
+    <div class="warn-title">⚡ 집행 완료 전 신속한 대응 필수</div>
+    <p>집행이 완료된 후에는 집행정지·취소의 실익이 거의 없습니다. 집행이 진행 중이라면 즉시 집행정지 신청을 해야 합니다. 특히 부동산 경매의 경우 매각이 실시되면 되돌리기 매우 어렵습니다.</p>
+  </div>
+  <div class="warn-box">
+    <div class="warn-title">⚠️ 단순히 소를 제기한다고 집행이 멈추지 않음</div>
+    <p>청구이의의 소, 제3자이의의 소 등을 제기해도 집행은 자동으로 정지되지 않습니다. 반드시 별도의 집행정지 신청을 해야 하며, 법원의 결정이 나야 집행이 실질적으로 정지됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004600" target="_blank" rel="noopener" title="민사집행법 제46조 — 대법원 종합법률정보">민사집행법 제46조</a></p>
+  </div>
+  <div class="warn-box">
+    <div class="warn-title">ℹ️ 담보 제공 준비</div>
+    <p>집행정지를 위해 담보 제공이 필요한 경우가 많습니다. 담보 금액을 준비해두어야 집행정지가 신속하게 이루어질 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004600" target="_blank" rel="noopener" title="민사집행법 제46조 제2항 — 대법원 종합법률정보">민사집행법 제46조 제2항</a></p>
+  </div>`
       },
       {
-        heading: '자주 묻는 질문',
-        content: `<p><strong>Q. 청구이의의 소를 제기하면 자동으로 집행이 정지되나요?</strong></p>
-<p>아닙니다. 청구이의의 소 제기와 별도로 집행정지 신청을 해야 하며, 법원의 인용 결정이 있어야 집행이 정지됩니다.</p>
-<p><strong>Q. 집행정지를 위해 담보를 얼마나 제공해야 하나요?</strong></p>
-<p>법원이 채권자의 손해를 고려하여 담보액을 결정합니다. 일반적으로 집행 금액의 일정 비율을 담보로 제공합니다.</p>`
-      }
+        heading: '다음에 확인할 사항',
+        content: `<div class="next-links">
+    <a href="민집_09_청구이의.html" class="next-link">
+      <span class="arrow">→</span>
+      청구이의의 소<br><small>집행정지와 함께 제기하는 본안 소송</small>
+    </a>
+    <a href="민집_10_제3자이의.html" class="next-link">
+      <span class="arrow">→</span>
+      제3자이의의 소<br><small>제3자가 집행을 막는 방법</small>
+    </a>
+    <a href="민집_14_집행담보공탁.html" class="next-link">
+      <span class="arrow">→</span>
+      집행 담보·공탁<br><small>담보 제공 방법 상세 안내</small>
+    </a>
+  </div>`
+      },
     ],
     laws: [],
     forms: []
@@ -770,81 +1667,120 @@ const ENFORCEMENT_TOPICS = [
   {
     id: 'ef-13',
     title: '집행비용',
-    meta: '강제집행에 얼마나 들고, 누가 부담하나요?',
+    meta: '강제집행에 드는 비용의 종류와 부담자',
     sections: [
       {
         heading: '이런 분께 필요합니다',
-        content: `<ul>
-<li>강제집행에 드는 비용이 얼마인지 알고 싶은 경우</li>
-<li>집행비용을 채무자에게 청구하고 싶은 경우</li>
-<li>집행비용 확정 절차를 알고 싶은 경우</li>
-<li>집행비용 예납과 환급 절차를 이해하고 싶은 경우</li>
-</ul>`
+        content: `<div class="checklist">
+    <ul>
+      <li>강제집행 신청 전에 어떤 비용이 드는지 파악하고 싶은 경우</li>
+      <li>집행 비용을 채무자에게 청구할 수 있는지 알고 싶은 경우</li>
+      <li>집행 비용을 계산하여 채무자에게 청구하는 방법을 알고 싶은 경우</li>
+      <li>집행이 실패했을 때 비용 부담이 어떻게 되는지 알고 싶은 경우</li>
+    </ul>
+  </div>`
       },
       {
-        heading: '집행비용의 의의 및 범위',
-        content: `<p>집행비용은 강제집행을 진행하면서 발생하는 모든 비용을 말합니다. 민사집행법 제53조에 근거합니다.</p>
-<ul>
-<li>인지대 및 송달료</li>
-<li>집행관 수수료</li>
-<li>등기료 및 공고료</li>
-<li>감정평가 비용 (부동산 경매의 경우)</li>
-<li>보관 비용 등</li>
-</ul>`
+        heading: '핵심 정리',
+        content: `<div class="summary-box">
+    <div class="label">▶ 집행비용이란</div>
+    <p>집행비용이란 강제집행 절차에서 지출되는 비용을 말합니다. 인지대, 송달료, 집행관 수수료, 감정비용 등이 포함됩니다. 원칙적으로 집행비용은 채무자가 부담하며, 집행 과정에서 먼저 채권자가 납부한 후 집행 결과에서 회수할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005300" target="_blank" rel="noopener" title="민사집행법 제53조 — 대법원 종합법률정보">민사집행법 제53조</a></p>
+  </div>
+  <div class="summary-box">
+    <div class="label">▶ 핵심 포인트</div>
+    <p>강제집행이 성공하면 채무자로부터 집행비용을 회수할 수 있습니다. 집행비용은 집행채권과 함께 회수하거나, 별도로 집행비용 계산서를 통해 청구할 수 있습니다. 집행이 실패하면 이미 납부한 비용을 회수하기 어려울 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005300" target="_blank" rel="noopener" title="민사집행법 제53조, 제54조 — 대법원 종합법률정보">민사집행법 제53조, 제54조</a></p>
+  </div>`
       },
       {
-        heading: '집행비용 부담 원칙: 채무자 부담 (민사집행법 제53조)',
-        content: `<p>집행비용은 원칙적으로 채무자가 부담합니다. 채권자가 먼저 예납하고, 추후 채무자에게 청구합니다. 집행비용은 집행 채권에 포함되어 함께 회수됩니다.</p>`
+        heading: '집행비용 상세 안내',
+        content: `<h3>집행비용의 종류</h3>
+  <table>
+    <thead>
+      <tr><th>비용 종류</th><th>납부 시기</th><th>비고</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>인지대</td><td>신청 시</td><td>신청서에 첩부</td></tr>
+      <tr><td>송달료</td><td>신청 시</td><td>회수분 수 × 단가</td></tr>
+      <tr><td>집행관 수수료</td><td>집행 실시 시</td><td>동산압류, 현장 집행 등</td></tr>
+      <tr><td>감정비용</td><td>경매 절차 중</td><td>부동산 등 감정 필요 시</td></tr>
+      <tr><td>공고비용</td><td>매각 절차 중</td><td>경매 공고 등</td></tr>
+      <tr><td>등기신청 수수료</td><td>등기 촉탁 시</td><td>압류등기 등</td></tr>
+    </tbody>
+  </table>
+  <p>집행비용은 집행의 종류에 따라 달라질 수 있으며, 법무사 보수(사무처리비용)도 별도로 발생합니다.</p>
+
+  <h3>집행비용의 부담</h3>
+  <p>강제집행에 필요한 비용은 채무자가 부담하는 것이 원칙입니다. 채권자가 먼저 납부하고, 집행 결과 배당 시 최우선으로 회수합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005300" target="_blank" rel="noopener" title="민사집행법 제53조 제1항 — 대법원 종합법률정보">민사집행법 제53조 제1항</a></p>
+  <p>집행비용이 집행채권을 초과하는 경우에는 집행을 실시하지 않을 수 있습니다. 경제적 실익이 없는 집행을 방지하기 위한 규정입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005300" target="_blank" rel="noopener" title="민사집행법 제53조 제2항 — 대법원 종합법률정보">민사집행법 제53조 제2항</a></p>
+
+  <h3>집행비용 계산서 제출</h3>
+  <p>채권자는 집행에 필요한 비용의 계산서를 집행법원에 제출하여 채무자로부터 회수할 수 있습니다. 계산서에는 지출된 비용의 내역과 금액을 명시해야 합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005500" target="_blank" rel="noopener" title="민사집행법 제55조 — 대법원 종합법률정보">민사집행법 제55조</a></p>
+
+  <h3>집행비용 확정 결정</h3>
+  <p>집행이 완료된 후 채무자가 집행비용 액수에 다툼을 제기하는 경우, 법원이 집행비용의 액수를 확정하는 결정을 할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005400" target="_blank" rel="noopener" title="민사집행법 제54조 — 대법원 종합법률정보">민사집행법 제54조</a></p>`
       },
       {
-        heading: '집행비용의 예납과 환급 절차',
-        content: `<ul>
-<li><strong>예납</strong>: 강제집행 신청 시 채권자가 집행비용을 미리 납부</li>
-<li><strong>집행 후 정산</strong>: 실제 발생한 비용과 예납액 정산</li>
-<li><strong>환급</strong>: 예납액이 실제 비용보다 많으면 차액 환급</li>
-<li><strong>추가 납부</strong>: 예납액이 부족하면 추가 납부 요청</li>
-</ul>`
+        heading: '자주하는 질문 (Q&amp;A)',
+        content: `<div class="qna-item">
+    <div class="qna-q">집행비용도 채무자에게 청구할 수 있나요?</div>
+    <div class="qna-a">네, 집행비용은 원칙적으로 채무자가 부담합니다. 강제집행이 성공하면 배당 시 집행비용을 먼저 회수할 수 있으며, 별도로 집행비용 계산서를 제출하여 청구할 수도 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005300" target="_blank" rel="noopener" title="민사집행법 제53조 — 대법원 종합법률정보">민사집행법 제53조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">집행이 실패하면 납부한 비용은 어떻게 되나요?</div>
+    <div class="qna-a">집행이 실패하면(재산이 없거나 부족하여 회수 불가) 이미 납부한 집행비용을 채무자로부터 회수하기 어렵습니다. 향후 채무자에게 재산이 생기면 다시 집행을 신청하여 회수를 시도할 수 있습니다.</div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">법무사 보수도 집행비용에 포함되나요?</div>
+    <div class="qna-a">법무사 보수는 법무사보수규정에 따라 별도로 발생하는 비용입니다. 일부는 집행비용으로 청구할 수 있으나, 전액 회수되지 않을 수 있습니다. 구체적인 내용은 법무사와 상담하시기 바랍니다.</div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">집행비용이 채권액보다 많으면 어떻게 하나요?</div>
+    <div class="qna-a">집행비용이 집행채권액보다 큰 경우 법원은 집행을 실시하지 않을 수 있습니다. 경제적 실익이 없는 집행을 방지하기 위한 규정입니다. 이 경우 다른 방법으로 채권 회수를 도모해야 합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005300" target="_blank" rel="noopener" title="민사집행법 제53조 제2항 — 대법원 종합법률정보">민사집행법 제53조 제2항</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">집행비용 계산서는 어떻게 제출하나요?</div>
+    <div class="qna-a">집행법원에 지출한 비용의 내역서(영수증 등 첨부)와 함께 집행비용 계산서를 제출합니다. 법원이 이를 심사하여 채무자가 부담해야 할 집행비용의 액수를 확정합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005500" target="_blank" rel="noopener" title="민사집행법 제55조 — 대법원 종합법률정보">민사집행법 제55조</a></div>
+  </div>`
       },
       {
-        heading: '집행비용 확정 절차',
-        content: `<p>집행이 완료된 후 실제로 발생한 집행비용을 확정하는 절차입니다.</p>
-<p>① 집행비용 확정 신청 → ② 법원 심사 → ③ 집행비용액 확정 결정 → ④ 채무자에게 청구</p>`
-      },
-      {
-        heading: '비용 종류 안내 (금액 없이)',
-        content: `<ul>
-<li><strong>인지대</strong>: 소송 및 신청에 필요한 인지 비용</li>
-<li><strong>송달료</strong>: 서류 송달에 드는 비용</li>
-<li><strong>집행관 수수료</strong>: 집행관의 집행 행위에 대한 수수료</li>
-<li><strong>등기료</strong>: 부동산 등기에 드는 비용</li>
-<li><strong>공고료</strong>: 경매 공고 등에 드는 비용</li>
-<li><strong>감정료</strong>: 부동산 등 감정평가 비용</li>
-</ul>`
-      },
-      {
-        heading: '실제 사례',
-        content: `<p><strong>사례</strong>: A 채권자가 B 채무자의 부동산에 대해 강제경매를 신청했습니다. A는 인지대, 송달료, 감정료, 공고료 등 집행비용을 예납했습니다. 경매 후 매각대금에서 집행비용이 우선 공제되고 나머지가 채권 변제에 사용됩니다.</p>`
-      },
-      {
-        heading: '관련 판례 및 예규',
-        content: `<p>집행비용은 채무자 부담 원칙이지만, 채권자가 먼저 예납하는 것이 실무 관행입니다. 집행비용은 집행 채권과 별도로 확정 절차를 통해 청구할 수 있습니다.</p>`
+        heading: '관련 판례',
+        content: `<div class="ruling-box">
+    <div class="ruling-header">집행비용의 범위</div>
+    <p>대법원은 집행비용에는 집행의 신청과 실시에 필요한 비용이 포함되며, 채권자가 지출한 집행 관련 비용(인지대, 송달료, 집행관 수수료 등)이 이에 해당한다고 해석하고 있습니다. 다만 집행 목적과 관련 없는 비용은 제외됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005300" target="_blank" rel="noopener" title="민사집행법 제53조 — 대법원 종합법률정보">민사집행법 제53조</a></p>
+  </div>`
       },
       {
         heading: '주의사항',
-        content: `<ul>
-<li>집행비용 예납이 부족하면 집행이 중단될 수 있습니다</li>
-<li>집행비용은 실제 발생한 비용에 따라 달라질 수 있습니다</li>
-<li>집행비용 확정 신청을 통해 채무자에게 청구해야 합니다</li>
-<li>집행이 실패한 경우에도 이미 발생한 비용은 회수하기 어려울 수 있습니다</li>
-</ul>`
+        content: `<div class="warn-box">
+    <div class="warn-title">⚠️ 비용 대비 실익 검토 필요</div>
+    <p>강제집행 전에 채무자의 재산 현황을 파악하고, 집행비용 대비 회수 가능한 금액을 검토해야 합니다. 재산이 없거나 부족한 채무자에게 무리하게 집행을 진행하면 비용만 낭비할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005300" target="_blank" rel="noopener" title="민사집행법 제53조 제2항 — 대법원 종합법률정보">민사집행법 제53조 제2항</a></p>
+  </div>
+  <div class="warn-box">
+    <div class="warn-title">ℹ️ 집행비용도 채권으로 관리</div>
+    <p>집행비용도 채무자에 대한 채권이므로, 집행 과정에서 발생한 비용을 정확히 기록해두어야 향후 청구가 가능합니다. 영수증, 납부 확인서 등을 잘 보관하세요.</p>
+  </div>`
       },
       {
-        heading: '자주 묻는 질문',
-        content: `<p><strong>Q. 집행비용은 어떻게 채무자에게 청구하나요?</strong></p>
-<p>집행 완료 후 집행비용 확정 신청을 통해 법원으로부터 집행비용액 확정 결정을 받아 채무자에게 청구합니다.</p>
-<p><strong>Q. 강제집행에 실패하면 예납한 집행비용은 돌려받을 수 있나요?</strong></p>
-<p>실제로 사용되지 않은 금액은 환급받을 수 있지만, 이미 발생한 비용은 돌려받기 어렵습니다.</p>`
-      }
+        heading: '다음에 확인할 사항',
+        content: `<div class="next-links">
+    <a href="민집_01_강제집행개관.html" class="next-link">
+      <span class="arrow">→</span>
+      강제집행 개관<br><small>집행 전체 흐름 이해</small>
+    </a>
+    <a href="민집_14_집행담보공탁.html" class="next-link">
+      <span class="arrow">→</span>
+      집행 담보·공탁<br><small>집행 전 담보 제공 방법</small>
+    </a>
+    <a href="민집_05_재산명시.html" class="next-link">
+      <span class="arrow">→</span>
+      재산명시신청<br><small>채무자 재산 파악 방법</small>
+    </a>
+  </div>`
+      },
     ],
     laws: [],
     forms: []
@@ -852,94 +1788,128 @@ const ENFORCEMENT_TOPICS = [
   {
     id: 'ef-14',
     title: '집행 담보·공탁',
-    meta: '강제집행 전에 왜 담보를 제공해야 하나요?',
+    meta: '강제집행 전에 담보를 제공해야 하는 이유와 방법',
     sections: [
       {
         heading: '이런 분께 필요합니다',
-        content: `<ul>
-<li>강제집행 전 담보 제공이 필요한 경우</li>
-<li>집행 담보 공탁의 종류와 방법을 알고 싶은 경우</li>
-<li>공탁금 회수 방법을 확인하고 싶은 경우</li>
-<li>집행 담보와 변제 공탁의 차이를 이해하고 싶은 경우</li>
-</ul>`
+        content: `<div class="checklist">
+    <ul>
+      <li>가집행 판결에 기하여 집행을 하려는데 담보 제공을 요구받은 경우</li>
+      <li>집행정지를 위해 법원으로부터 담보 제공을 요구받은 경우</li>
+      <li>공탁이 무엇이고 어디에 어떻게 하는지 알고 싶은 경우</li>
+      <li>담보를 제공한 후 나중에 어떻게 돌려받는지 알고 싶은 경우</li>
+    </ul>
+  </div>`
       },
       {
-        heading: '집행 담보의 의의 및 목적',
-        content: `<p>집행 담보는 강제집행이 부당하게 행해질 경우를 대비하여 채무자의 손해를 보전하기 위해 채권자가 제공하는 보증입니다.</p>
-<ul>
-<li>채무자 보호: 부당한 집행으로 인한 손해 보전</li>
-<li>집행의 적정성 확보</li>
-<li>법원의 집행정지 결정 조건으로 활용</li>
-</ul>`
+        heading: '핵심 정리',
+        content: `<div class="summary-box">
+    <div class="label">▶ 집행 담보란</div>
+    <p>집행 담보는 강제집행을 위해 또는 집행정지·취소를 위해 법원이 요구하는 보증입니다. 가집행 판결에 기한 집행 또는 집행정지 시 법원이 담보 제공을 요건으로 할 수 있습니다. 담보는 채무자가 잘못된 집행으로 손해를 입었을 때 보상받기 위한 것입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=001900" target="_blank" rel="noopener" title="민사집행법 제19조 — 대법원 종합법률정보">민사집행법 제19조</a></p>
+  </div>
+  <div class="summary-box">
+    <div class="label">▶ 공탁이란</div>
+    <p>공탁은 금전이나 유가증권 등을 법원의 공탁소에 맡기는 것입니다. 집행 관련 공탁에는 집행 담보를 위한 공탁, 집행 결과로 받은 금전의 공탁(집행공탁) 등 여러 종류가 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=97969&joNo=000200" target="_blank" rel="noopener" title="공탁법 제2조 — 대법원 종합법률정보">공탁법 제2조</a></p>
+  </div>`
       },
       {
-        heading: '담보 제공이 필요한 경우',
-        content: `<ul>
-<li>가집행선고 있는 판결에 기한 강제집행 시</li>
-<li>집행정지 신청 시</li>
-<li>가압류·가처분 신청 시</li>
-<li>기타 법원이 담보 제공을 명하는 경우</li>
-</ul>`
+        heading: '담보 제공 상세 안내',
+        content: `<h3>담보가 필요한 경우</h3>
+  <ul style="margin:12px 0 12px 20px;line-height:2">
+    <li>가집행 선고 있는 판결에 기하여 집행 시 법원이 담보 제공 요구 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=001900" target="_blank" rel="noopener" title="민사집행법 제19조 제1항 — 대법원 종합법률정보">민사집행법 제19조 제1항</a></li>
+    <li>집행정지를 신청할 때 법원이 담보 제공 요건 부과 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004600" target="_blank" rel="noopener" title="민사집행법 제46조 제2항 — 대법원 종합법률정보">민사집행법 제46조 제2항</a></li>
+    <li>가처분 집행 시 담보 요구 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=030100" target="_blank" rel="noopener" title="민사집행법 제301조 — 대법원 종합법률정보">민사집행법 제301조</a></li>
+  </ul>
+
+  <h3>담보 제공 방법</h3>
+  <p>담보는 다음과 같은 방법으로 제공할 수 있습니다.</p>
+  <table>
+    <thead>
+      <tr><th>담보 종류</th><th>방법</th><th>비고</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>현금 공탁</td><td>공탁소에 현금 공탁</td><td>가장 일반적인 방법</td></tr>
+      <tr><td>유가증권 공탁</td><td>국채, 지방채 등을 공탁</td><td>시가로 평가</td></tr>
+      <tr><td>지급보증보험</td><td>보증보험회사의 보험증권 제출</td><td>현금 대체 가능</td></tr>
+      <tr><td>은행 지급보증서</td><td>금융기관의 지급보증서 제출</td><td>법원 허가 필요</td></tr>
+    </tbody>
+  </table>
+  <p>담보 제공 방법은 법원의 허가를 받아야 하며, 법원이 인정하지 않는 방법으로는 담보를 제공할 수 없습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=002000" target="_blank" rel="noopener" title="민사집행법 제20조 — 대법원 종합법률정보">민사집행법 제20조</a></p>
+
+  <h3>담보 공탁 절차</h3>
+  <div class="step-box"><p><span class="step-num">1</span> 법원이 담보 제공을 명하는 결정 → 담보 금액 확인</p></div>
+  <div class="step-box"><p><span class="step-num">2</span> 공탁소(지방법원)에서 공탁서 작성 및 현금 납입 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=97969&joNo=000500" target="_blank" rel="noopener" title="공탁법 제5조 — 대법원 종합법률정보">공탁법 제5조</a></p></div>
+  <div class="step-box"><p><span class="step-num">3</span> 공탁 영수증(공탁서 부본)을 법원에 제출</p></div>
+  <div class="step-box"><p><span class="step-num">4</span> 법원의 집행정지 또는 집행 허가 결정</p></div>
+
+  <h3>담보 대체와 취소</h3>
+  <p>기존에 제공한 담보를 다른 형태의 담보로 교체(대체)하거나, 담보 사유가 소멸하면 담보 취소를 신청하여 공탁금 등을 회수할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=002100" target="_blank" rel="noopener" title="민사집행법 제21조, 제22조 — 대법원 종합법률정보">민사집행법 제21조, 제22조</a></p>
+
+  <h3>집행공탁</h3>
+  <p>집행공탁은 채무자의 채권이 압류된 경우 제3채무자가 피압류채권에 해당하는 금액을 공탁소에 납부하는 것입니다. 여러 채권자가 있어 공탁으로 압류를 면탈할 수 있는 경우에도 활용됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=024800" target="_blank" rel="noopener" title="민사집행법 제248조 — 대법원 종합법률정보">민사집행법 제248조</a></p>`
       },
       {
-        heading: '담보 제공의 방법',
-        content: `<ul>
-<li><strong>현금 공탁</strong>: 법원 공탁소에 현금을 공탁</li>
-<li><strong>유가증권 공탁</strong>: 국채 등 유가증권을 공탁</li>
-<li><strong>보증보험증권</strong>: 보증보험사의 증권 제출</li>
-<li><strong>은행 지급보증서</strong>: 은행의 지급보증서 제출</li>
-</ul>`
+        heading: '자주하는 질문 (Q&amp;A)',
+        content: `<div class="qna-item">
+    <div class="qna-q">담보는 왜 제공해야 하나요?</div>
+    <div class="qna-a">담보는 집행이 나중에 잘못됐음이 밝혀졌을 때 손해를 입은 상대방이 보상을 받을 수 있도록 하기 위한 것입니다. 예를 들어 가집행 판결에 기해 집행했는데 상소심에서 판결이 취소되면 채무자는 이미 집행된 재산을 돌려받아야 하는데, 담보가 그 재원이 됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=001900" target="_blank" rel="noopener" title="민사집행법 제19조 — 대법원 종합법률정보">민사집행법 제19조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">담보 금액은 어떻게 정해지나요?</div>
+    <div class="qna-a">담보 금액은 법원이 사안에 따라 결정합니다. 일반적으로 집행채권액이나 집행 대상 재산의 가액을 기준으로 정해지며, 구체적인 금액은 법원의 결정문에 나와 있습니다. 금액이 과다하다고 생각되면 이의를 제기할 수 있습니다.</div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">공탁한 돈은 언제 돌려받을 수 있나요?</div>
+    <div class="qna-a">담보 사유가 소멸하면(예: 소송에서 이겨 담보 필요 없어짐, 집행이 완료됨) 담보 취소 신청을 하여 공탁금을 회수할 수 있습니다. 상대방의 동의나 법원 결정이 필요합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=002200" target="_blank" rel="noopener" title="민사집행법 제22조 — 대법원 종합법률정보">민사집행법 제22조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">현금이 없으면 담보를 제공할 수 없나요?</div>
+    <div class="qna-a">현금 외에도 지급보증보험 증권이나 은행 지급보증서를 담보로 제공할 수 있습니다. 보증보험회사에 보증보험료를 납부하면 보험증권을 발급받아 법원에 제출할 수 있어, 현금 부담을 줄일 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=002000" target="_blank" rel="noopener" title="민사집행법 제20조 — 대법원 종합법률정보">민사집행법 제20조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">집행공탁과 일반 담보공탁의 차이는 무엇인가요?</div>
+    <div class="qna-a">일반 담보공탁은 채권자 또는 채무자가 법원의 담보 요건을 충족하기 위해 하는 공탁입니다. 집행공탁은 제3채무자가 압류된 채무를 이행하는 방법으로 공탁소에 납부하는 것입니다. 두 공탁 모두 공탁법에 따라 관할 공탁소에서 처리합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=024800" target="_blank" rel="noopener" title="민사집행법 제248조, 공탁법 제2조 — 대법원 종합법률정보">민사집행법 제248조, 공탁법 제2조</a></div>
+  </div>`
       },
       {
-        heading: '담보액의 결정',
-        content: `<p>담보액은 법원이 구체적인 사정을 고려하여 결정합니다.</p>
-<ul>
-<li>집행 금액의 규모</li>
-<li>집행이 부당할 경우 예상되는 손해액</li>
-<li>채권자·채무자의 재정 상황</li>
-</ul>`
-      },
-      {
-        heading: '공탁의 종류: 집행 담보 공탁 vs 변제 공탁',
-        content: `<ul>
-<li><strong>집행 담보 공탁</strong>: 강제집행의 담보로 제공하는 공탁 (채권자가 공탁)</li>
-<li><strong>변제 공탁</strong>: 채무를 변제하기 위해 공탁하는 것 (채무자가 공탁, 민법 제487조)</li>
-</ul>
-<p>변제 공탁은 채권자가 수령을 거부하거나 채권자를 알 수 없는 경우에 사용합니다.</p>`
-      },
-      {
-        heading: '공탁금 회수 방법',
-        content: `<ul>
-<li><strong>집행이 적법한 경우</strong>: 공탁금은 채권자에게 귀속 또는 반환</li>
-<li><strong>집행이 취소된 경우</strong>: 공탁금 회수 가능</li>
-<li><strong>회수 절차</strong>: 공탁금 회수 신청서를 법원 공탁소에 제출</li>
-</ul>`
-      },
-      {
-        heading: '실제 사례',
-        content: `<p><strong>사례 1</strong>: A 채권자가 가집행선고 있는 판결로 강제집행을 신청했습니다. 법원이 집행 담보를 요구하자, A는 집행 금액의 일정 비율을 공탁소에 공탁했습니다. 판결이 확정되면 공탁금을 회수할 수 있습니다.</p>
-<p><strong>사례 2</strong>: B 채무자가 채무를 변제하고 싶으나 A 채권자가 수령을 거부합니다. B는 변제 공탁을 통해 채무를 소멸시킬 수 있습니다.</p>`
-      },
-      {
-        heading: '관련 판례 및 예규',
-        content: `<p>집행 담보 공탁은 강제집행의 부당성에 대비한 것으로, 집행이 취소되거나 부당으로 확정되면 채권자는 공탁금으로 손해를 배상해야 합니다.</p>`
+        heading: '관련 판례',
+        content: `<div class="ruling-box">
+    <div class="ruling-header">담보 제공 요건</div>
+    <p>대법원은 집행정지를 위한 담보 제공은 잘못된 집행으로 인해 채권자가 입을 손해를 담보하기 위한 것이며, 법원이 제시한 담보 방법 및 금액을 충족해야 집행정지의 효력이 발생한다고 해석하고 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004600" target="_blank" rel="noopener" title="민사집행법 제46조 제2항 — 대법원 종합법률정보">민사집행법 제46조 제2항</a></p>
+  </div>`
       },
       {
         heading: '주의사항',
-        content: `<ul>
-<li>담보 제공 없이 집행정지 신청은 인용되기 어렵습니다</li>
-<li>공탁금은 법원의 허가 없이 임의로 회수할 수 없습니다</li>
-<li>변제 공탁과 집행 담보 공탁은 목적이 다르므로 혼동하지 않도록 주의해야 합니다</li>
-<li>공탁금 회수 시한이 있으므로 적기에 회수해야 합니다</li>
-</ul>`
+        content: `<div class="warn-box">
+    <div class="warn-title">⚡ 담보 제공 기한 준수</div>
+    <p>법원이 담보 제공을 명한 경우 기한 내에 담보를 제공해야 합니다. 기한을 넘기면 집행정지 결정이 취소되거나 집행이 재개될 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004600" target="_blank" rel="noopener" title="민사집행법 제46조 — 대법원 종합법률정보">민사집행법 제46조</a></p>
+  </div>
+  <div class="warn-box">
+    <div class="warn-title">⚠️ 담보 미회수 주의</div>
+    <p>소송이 끝나거나 집행이 완료된 후에 담보 취소 신청을 하지 않으면 공탁금이 장기간 방치될 수 있습니다. 사건 종료 후 반드시 담보 취소 절차를 진행하세요. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=002200" target="_blank" rel="noopener" title="민사집행법 제22조 — 대법원 종합법률정보">민사집행법 제22조</a></p>
+  </div>`
       },
       {
-        heading: '자주 묻는 질문',
-        content: `<p><strong>Q. 변제 공탁을 하면 채무가 소멸하나요?</strong></p>
-<p>적법한 변제 공탁을 하면 채무가 소멸합니다. 다만 공탁 요건(채권자의 수령 거부, 채권자 불명 등)을 갖춰야 합니다.</p>
-<p><strong>Q. 공탁금은 언제 회수할 수 있나요?</strong></p>
-<p>집행이 종료되거나 취소된 후, 법원의 허가를 받아 공탁금을 회수할 수 있습니다.</p>`
-      }
+        heading: '다음에 확인할 사항',
+        content: `<div class="next-links">
+    <a href="민집_12_집행정지.html" class="next-link">
+      <span class="arrow">→</span>
+      강제집행 정지<br><small>담보와 함께 집행을 멈추는 방법</small>
+    </a>
+    <a href="민집_13_집행비용.html" class="next-link">
+      <span class="arrow">→</span>
+      집행비용<br><small>강제집행 비용의 종류와 부담</small>
+    </a>
+    <a href="민집_01_강제집행개관.html" class="next-link">
+      <span class="arrow">→</span>
+      강제집행 개관<br><small>집행 전체 흐름 이해</small>
+    </a>
+  </div>`
+      },
     ],
     laws: [],
     forms: []
@@ -951,96 +1921,210 @@ const ENFORCEMENT_TOPICS = [
     sections: [
       {
         heading: '이런 분께 필요합니다',
-        content: `<ul>
-<li>강제집행 중 채무자가 재산명시 명령을 거부하거나 거짓으로 답변한 경우</li>
-<li>채무자가 재산을 가족 또는 제3자에게 허위 양도하여 은닉하는 상황</li>
-<li>채무자의 강제집행 면탈행위(재산 손괴, 처분 등)를 목격한 경우</li>
-<li>사해행위 취소권을 이용하여 은닉된 재산을 추적하고 싶은 경우</li>
-<li>채무자를 감치에 처하거나 형사처벌을 받게 하고 싶은 경우</li>
-<li>재산조회를 통해 숨겨진 재산을 찾고 싶은 경우</li>
-</ul>`
+        content: `<div class="checklist-box" style="margin-top: 40px;">
+        <div class="box-title">📋 이런 분께 필요합니다</div>
+        <ul>
+            <li>채무자가 법원의 재산명시 기일에 나타나지 않았습니다.</li>
+            <li>채무자가 재산목록을 제출했는데 내용이 허위인 것 같습니다.</li>
+            <li>채무자가 빚을 피하기 위해 재산을 다른 사람 명의로 돌려놓았습니다.</li>
+            <li>채무자를 채무불이행자명부에 등재하거나 추가 제재를 가하고 싶습니다.</li>
+            <li>채무자의 재산 은닉 행위에 대해 형사 고소가 가능한지 알고 싶습니다.</li>
+            <li>이미 받은 판결이 있는데 채무자가 재산이 없다며 버티고 있습니다.</li>
+        </ul>
+    </div>`
       },
       {
-        heading: '재산명시 불이행의 제재 (민사집행법 제68조): 감치 결정',
-        content: `<p>재산명시 명령을 받은 채무자가 정당한 사유 없이 기일에 출석하지 않거나 거짓으로 재산을 신고하는 경우, 집행법원이 채무자를 감치에 처하는 제재입니다.</p>
-<ul>
-<li><strong>감치의 조건</strong>: 재산명시 명령 발령, 정당한 사유 없는 불출석 또는 허위 신고, 최소 1회 이상 기한을 정해 다시 출석 요구</li>
-<li><strong>감치 절차</strong>: 불출석·거짓 신고 → 기한 설정 및 경고 → 감치 결정 → 감치 집행</li>
-<li><strong>감치의 효과</strong>: 수감 기간 6개월 이내, 채무자가 재산명시를 완료하면 즉시 석방</li>
-<li><strong>불복 방법</strong>: 감치 결정에 대해 항고 가능</li>
-</ul>`
+        heading: '핵심 정리',
+        content: `<div class="summary-box">
+            채무자가 재산명시 절차에 협조하지 않으면 법원은 <strong>감치(유치장 수용)</strong> 명령을 내릴 수 있습니다. 또한 재산목록을 허위로 작성하거나 선서를 거부하면 <strong>형사처벌(1년 이하 징역·200만원 이하 벌금)</strong>을 받을 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 제1항·제4항 — 대법원 종합법률정보">민사집행법 제68조 제1항·제4항</a>
+        </div>
+
+        <div class="summary-box">
+            채무자가 판결 확정 전후에 재산을 허위로 양도하거나 은닉하면 <strong>강제집행면탈죄</strong>로 형사 고소가 가능합니다. 이는 5년 이하 징역 또는 1,500만원 이하 벌금에 해당하는 중범죄입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=188383&joNo=032700" target="_blank" rel="noopener" title="형법 제327조 — 대법원 종합법률정보">형법 제327조</a>
+        </div>
+
+        <div class="summary-box">
+            채권자는 채무자가 재산명시 명령에 따르지 않는 경우 법원에 <strong>다시 재산명시 명령(재명시 신청)</strong>을 요청할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006900" target="_blank" rel="noopener" title="민사집행법 제69조 — 대법원 종합법률정보">민사집행법 제69조</a>
+        </div>
+    </div>
+
+    <!-- ===== 3. 상세 설명 ===== -->`
       },
       {
-        heading: '거짓 재산목록 제출의 제재: 형사처벌 (위증죄 준용)',
-        content: `<p>재산명시 기일에 거짓으로 재산을 신고하는 행위는 위증죄에 준해 처벌됩니다.</p>
-<ul>
-<li><strong>처벌 내용</strong>: 5년 이하의 징역 또는 1천만 원 이하의 벌금</li>
-<li><strong>구성 요건</strong>: 공식 절차에서의 거짓 신고, 의도적 허위, 중요한 사실에 대한 진술</li>
-<li><strong>고발 절차</strong>: 법원이 검사에 고발하거나 채권자가 직접 고발 가능</li>
-</ul>`
+        heading: '상세 설명',
+        content: `<!-- 카드 1: 재산명시 위반의 유형 -->
+        <div class="detail-card">
+            <div class="card-title">① 재산명시 위반의 세 가지 유형</div>
+            <p>채무자가 재산명시 절차에서 의무를 어기는 방식은 크게 세 가지입니다. 첫째, <strong>기일 불출석</strong>입니다. 법원이 지정한 재산명시 기일에 정당한 사유 없이 나타나지 않는 경우입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 제1항 — 대법원 종합법률정보">민사집행법 제68조 제1항</a></p>
+            <p>둘째, <strong>거짓 재산목록 제출</strong>입니다. 재산목록에 존재하는 재산을 빠뜨리거나 이미 처분한 재산을 그대로 올리는 등 허위 내용을 기재하는 경우입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 제4항 — 대법원 종합법률정보">민사집행법 제68조 제4항</a></p>
+            <p>셋째, <strong>선서 거부</strong>입니다. 재산목록의 정확성을 맹세하는 선서 자체를 거부하는 경우입니다. 선서 거부는 거짓 목록 제출과 동일하게 형사처벌의 대상이 됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 제4항 — 대법원 종합법률정보">민사집행법 제68조 제4항</a></p>
+        </div>
+
+        <!-- 카드 2: 감치 제도 -->
+        <div class="detail-card">
+            <div class="card-title">② 감치 — 유치장에 가두는 제재 수단</div>
+            <p>채무자가 재산명시 기일에 정당한 사유 없이 출석하지 않으면, 법원은 채권자의 신청에 의해 또는 직권으로 채무자를 <strong>20일 이내의 감치</strong>에 처할 수 있습니다. 감치란 채무자를 감치시설(유치장)에 유치하는 것으로, 형사처벌과는 별개의 법원 제재 수단입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 제1항 — 대법원 종합법률정보">민사집행법 제68조 제1항</a></p>
+            <p>감치 결정에 대해 채무자는 즉시항고를 할 수 있습니다. 그러나 감치 결정이 확정되면 집행관이 채무자를 현행범인과 같이 체포하여 유치시설에 인도하게 됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 제2항 — 대법원 종합법률정보">민사집행법 제68조 제2항</a></p>
+            <p>감치 기간 중이라도 채무자가 재산명시 의무를 이행(출석·목록 제출·선서)하면 법원은 감치를 즉시 종료할 수 있습니다. 이는 감치가 처벌이 아니라 의무 이행을 강제하기 위한 수단이기 때문입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 제3항 — 대법원 종합법률정보">민사집행법 제68조 제3항</a></p>
+        </div>
+
+        <!-- 카드 3: 형사처벌 -->
+        <div class="detail-card">
+            <div class="card-title">③ 형사처벌 — 허위 목록 제출·선서 거부</div>
+            <p>채무자가 거짓 재산목록을 제출하거나 선서를 거부한 경우에는 감치와는 별도로 <strong>형사처벌</strong>을 받을 수 있습니다. 법정형은 <strong>1년 이하의 징역 또는 200만원 이하의 벌금</strong>입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 제4항 — 대법원 종합법률정보">민사집행법 제68조 제4항</a></p>
+            <p>이 형사처벌 조항은 친고죄가 아닙니다. 채권자가 고소하지 않더라도 법원이 직권으로 수사기관에 통보할 수 있습니다. 다만 실무에서는 채권자가 고소장을 접수하는 경우가 대부분입니다.</p>
+            <p>형사처벌 고소는 검찰청 또는 경찰서에 고소장을 제출하는 방식으로 진행됩니다. 재산명시 기일의 조서, 법원 명령서 등이 주요 증거 자료가 됩니다.</p>
+        </div>
+
+        <!-- 카드 4: 재명시 신청 -->
+        <div class="detail-card">
+            <div class="card-title">④ 재명시 신청 — 다시 재산목록을 요구할 수 있습니다</div>
+            <p>채권자는 채무자가 재산명시 명령에 따른 후에도 채무를 변제하지 않는 경우, 채무자가 이전에 명시한 재산으로 집행이 불능이 된 날부터 <strong class="deadline-warning">⚡ 6개월이 지나면</strong> 다시 재산명시를 신청할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006900" target="_blank" rel="noopener" title="민사집행법 제69조 제1항 — 대법원 종합법률정보">민사집행법 제69조 제1항</a></p>
+            <p>재명시 신청은 최초 재산명시 신청과 동일한 절차로 진행됩니다. 법원은 채무자에게 다시 재산목록을 제출하고 선서할 것을 명령합니다. 이 역시 채권자의 신청이 있어야 시작됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006900" target="_blank" rel="noopener" title="민사집행법 제69조 제2항 — 대법원 종합법률정보">민사집행법 제69조 제2항</a></p>
+            <p>재명시를 통해 새로운 재산이 발견되면 채권자는 즉시 압류 등 강제집행 절차에 착수할 수 있습니다. 채무자의 재산 상황 변화를 지속적으로 파악하는 데 효과적인 수단입니다.</p>
+        </div>
+
+        <!-- 카드 5: 강제집행면탈죄 -->
+        <div class="detail-card">
+            <div class="card-title">⑤ 강제집행면탈죄 — 재산을 숨기면 형사 범죄입니다</div>
+            <p>채무자가 강제집행을 피할 목적으로 재산을 <strong>은닉·훼손·허위 양도·허위 채무 부담</strong>하면 강제집행면탈죄가 성립합니다. 법정형은 <strong>5년 이하의 징역 또는 1,500만원 이하의 벌금</strong>으로, 매우 중한 범죄에 해당합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=188383&joNo=032700" target="_blank" rel="noopener" title="형법 제327조 — 대법원 종합법률정보">형법 제327조</a></p>
+            <p>강제집행면탈죄의 핵심 요건은 <strong>'강제집행을 피할 목적'</strong>이 있어야 한다는 것입니다. 판결이 확정된 후는 물론, 소송 계속 중에 재산을 처분한 경우에도 이 목적이 인정되면 범죄가 성립합니다.</p>
+            <p>대표적인 사례는 다음과 같습니다. 부동산을 가족이나 지인에게 허위로 매도하거나 증여하는 경우, 존재하지 않는 채무를 꾸며내어 재산을 빼돌리는 경우, 현금이나 유가증권을 숨겨두는 경우, 사업체를 폐업시키고 재산만 새 법인으로 이전하는 경우 등이 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=188383&joNo=032700" target="_blank" rel="noopener" title="형법 제327조 — 대법원 종합법률정보">형법 제327조</a></p>
+            <p>강제집행면탈죄로 고소하기 위해서는 채무자의 재산 처분 행위가 강제집행을 면하려는 목적이었음을 입증하는 자료(부동산 등기 이력, 계좌 거래 내역, 증인 진술 등)를 준비해야 합니다.</p>
+        </div>
+
+        <!-- 카드 6: 채무불이행자명부 등재 연계 -->
+        <div class="detail-card">
+            <div class="card-title">⑥ 채무불이행자명부 등재와의 연계</div>
+            <p>채무자가 재산명시 기일에 불출석하거나, 거짓 재산목록을 제출하거나, 선서를 거부한 경우 채권자는 <strong>채무불이행자명부 등재</strong>도 함께 신청할 수 있습니다. 이 명부에 등재되면 법원 게시판 공고 및 금융기관·행정기관 통보가 이루어집니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007000" target="_blank" rel="noopener" title="민사집행법 제70조 제1항 제2호 — 대법원 종합법률정보">민사집행법 제70조 제1항 제2호</a></p>
+            <p>채무불이행자명부에 등재된 채무자는 금융 거래에 심각한 제한을 받게 됩니다. 대출이 어려워지고 신용카드 사용도 제한될 수 있어, 실질적으로 채무 변제를 압박하는 효과가 있습니다.</p>
+            <p>명부 등재는 재산명시 위반 사실이 확인된 날부터 <strong class="deadline-warning">⚡ 별도 제척기간 없이</strong> 신청이 가능합니다. 다만 채무자가 채무를 전부 변제하면 말소 신청을 할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007300" target="_blank" rel="noopener" title="민사집행법 제73조 — 대법원 종합법률정보">민사집행법 제73조</a></p>
+        </div>
+
+    </div>
+
+    <!-- ===== 4. Q&A ===== -->`
       },
       {
-        heading: '강제집행 면탈죄 (형법 제327조): 재산 은닉·손괴·허위양도',
-        content: `<p>채무자가 강제집행을 피하기 위해 의도적으로 재산을 은닉하거나, 손괴하거나, 다른 사람에게 허위로 양도하는 행위입니다.</p>
-<ul>
-<li><strong>재산 은닉</strong>: 부동산이나 동산을 숨기거나 계좌를 타인 명의로 변경</li>
-<li><strong>재산 손괴</strong>: 강제집행 대상 재산을 의도적으로 파괴·훼손</li>
-<li><strong>허위양도</strong>: 실제 소유권 양도 없이 명의만 타인에게 변경</li>
-<li><strong>처벌</strong>: 5년 이하의 징역 또는 5천만 원 이하의 벌금</li>
-</ul>`
-      },
-      {
-        heading: '사해행위 취소권 (민법 제406조): 채권자의 민사 대응',
-        content: `<p>채무자가 채권자를 해롭게 하는 목적으로 재산을 양도하거나 처분한 경우, 채권자가 그 행위를 취소하는 소송을 제기하여 재산을 원상회복하는 제도입니다.</p>
-<ul>
-<li><strong>요건</strong>: 채권의 존재, 채무자의 사해행위, 사해의 의사, 수익자의 악의</li>
-<li><strong>취소의 효과</strong>: 허위 양도된 재산이 채무자의 책임재산으로 복구, 강제집행 가능</li>
-<li><strong>소송 절차</strong>: 채권자가 채무자와 양도받은 자를 피고로 하여 소 제기</li>
-<li><strong>시효</strong>: 채권자가 이를 알았을 때부터 1년, 행위 당시부터 10년 이내</li>
-</ul>`
-      },
-      {
-        heading: '재산조회와 결합한 추적 방법',
-        content: `<p>강제집행 중 채무자의 재산을 파악하기 위해 법원이 국세청, 지방자치단체, 금융기관 등에 정보를 요청하는 절차입니다. 채무자가 재산명시 중 거짓으로 신고하면, 법원의 재산조회 정보와 대조하여 위증죄로 고발할 수 있습니다.</p>
-<ul>
-<li><strong>조회 가능 재산</strong>: 부동산(등기부등본), 자동차 등록정보, 금융자산(은행 계좌), 급여·연금</li>
-</ul>`
-      },
-      {
-        heading: '실제 사례: 재산을 가족에게 허위 양도한 경우',
-        content: `<p><strong>사례 1: 감치에 의한 재산명시 강제</strong>: A 채권자가 B 채무자를 상대로 2억 원의 판결을 얻고 강제집행을 신청했습니다. B가 재산명시 기일에 나타나지 않자 법원이 경고 후 감치 결정을 내렸습니다. 결국 B는 2개월 후 숨겨둔 부동산 재산명시를 했습니다.</p>
-<p><strong>사례 2: 위증죄 고발 및 형사처벌</strong>: D 채무자가 재산명시 기일에 "재산이 없다"고 선서했으나 법원의 재산조회 결과 부동산과 예금이 적발되어 위증죄로 기소되었습니다.</p>
-<p><strong>사례 3: 사해행위 취소 소송</strong>: E 채권자가 F 채무자의 부동산이 F의 아들 G 명의로 허위 등기된 것을 발견하여 사해행위 취소 소송을 제기하고, 부동산을 F의 책임재산으로 복구받아 채권을 회수했습니다.</p>`
+        heading: '자주 하는 질문',
+        content: `<div class="qa-item">
+            <div class="qa-q">채무자가 재산명시 기일에 아무 연락도 없이 안 나타났습니다. 어떻게 해야 하나요?</div>
+            <div class="qa-a">채무자가 정당한 사유 없이 불출석하면 법원에 <strong>감치 신청</strong>을 할 수 있습니다. 감치 결정이 내려지면 채무자는 20일 이내의 범위에서 유치시설에 수용됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 제1항 — 대법원 종합법률정보">민사집행법 제68조 제1항</a> 동시에 <strong>채무불이행자명부 등재</strong>도 함께 신청하는 것이 효과적입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007000" target="_blank" rel="noopener" title="민사집행법 제70조 제1항 제2호 — 대법원 종합법률정보">민사집행법 제70조 제1항 제2호</a> 두 가지 신청을 동시에 하면 채무자에게 더 강한 압박이 됩니다.</div>
+        </div>
+
+        <div class="qa-item">
+            <div class="qa-q">채무자가 제출한 재산목록이 허위인 것 같은데, 이를 증명하려면 어떻게 해야 하나요?</div>
+            <div class="qa-a">채무자가 제출한 재산목록과 실제 재산 현황을 비교하는 것이 핵심입니다. 법원의 <strong>재산조회 절차</strong>를 통해 금융기관, 국세청, 지방자치단체 등에 채무자의 재산 보유 현황을 조회할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007400" target="_blank" rel="noopener" title="민사집행법 제74조 — 대법원 종합법률정보">민사집행법 제74조</a> 조회 결과로 재산목록에 없는 재산이 발견되면, 이를 근거로 <strong>허위 재산목록 제출에 대한 형사 고소</strong>를 진행하거나 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 제4항 — 대법원 종합법률정보">민사집행법 제68조 제4항</a> 해당 재산에 대한 압류를 바로 신청할 수 있습니다.</div>
+        </div>
+
+        <div class="qa-item">
+            <div class="qa-q">채무자가 판결 나기 전에 이미 재산을 가족 명의로 돌려놓았습니다. 이것도 형사 고소가 되나요?</div>
+            <div class="qa-a">가능합니다. 강제집행면탈죄는 판결 확정 후뿐만 아니라 <strong>소송 계속 중</strong>에 재산을 처분한 경우에도 성립할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=188383&joNo=032700" target="_blank" rel="noopener" title="형법 제327조 — 대법원 종합법률정보">형법 제327조</a> 판결을 예상하고 강제집행을 피하려는 목적으로 재산을 처분했다면 범죄가 성립합니다. 다만 이 '목적'을 입증하는 것이 실무의 관건이므로, 재산 처분 시기와 소송 진행 경과, 처분 가격의 적정성 등을 종합적으로 검토해 고소장을 준비하는 것이 중요합니다.</div>
+        </div>
+
+        <div class="qa-item">
+            <div class="qa-q">감치 결정이 났는데도 채무자가 도주 중입니다. 어떻게 되나요?</div>
+            <div class="qa-a">감치 결정이 확정되면 집행관이 채무자를 체포할 권한을 갖습니다. 채무자가 도주하더라도 감치 결정의 집행은 가능하며, 필요한 경우 경찰의 협조를 받아 신병을 확보할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 제2항 — 대법원 종합법률정보">민사집행법 제68조 제2항</a> 채무자의 소재를 파악하기 어렵다면 재산조회를 통해 거소 정보를 확인하거나, 별도로 법원에 재산명시 재신청과 채무불이행자명부 등재를 진행하면서 채무 변제 압박을 지속할 수 있습니다.</div>
+        </div>
+
+        <div class="qa-item">
+            <div class="qa-q">재산명시 신청을 한 번 했는데 채무자 재산이 없다고 합니다. 얼마 후에 다시 신청할 수 있나요?</div>
+            <div class="qa-a">이전 재산명시 절차에서 채무자의 재산으로 집행이 불능이 된 날로부터 <strong class="deadline-warning">⚡ 6개월이 경과</strong>하면 다시 재산명시를 신청(재명시)할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006900" target="_blank" rel="noopener" title="민사집행법 제69조 제1항 — 대법원 종합법률정보">민사집행법 제69조 제1항</a> 채무자의 재산 상황은 시간이 지남에 따라 변할 수 있으므로, 정기적으로 재명시 신청과 재산조회를 병행하여 추심 기회를 계속 모색하는 것이 좋습니다.</div>
+        </div>
+
+        <div class="qa-item">
+            <div class="qa-q">강제집행면탈죄로 고소하면 제가 돈을 돌려받을 수 있나요?</div>
+            <div class="qa-a">강제집행면탈죄는 형사 사건이므로, 고소 자체가 채무를 직접 회수하는 수단은 아닙니다. 그러나 형사 고소를 통해 채무자에게 심리적·법적 압박을 가할 수 있습니다. 또한 수사 과정에서 은닉 재산이 확인되면 이를 근거로 <strong>민사 사해행위취소소송</strong>을 제기하여 가족 명의로 이전된 재산을 채무자 명의로 되돌린 뒤 강제집행을 할 수 있습니다. 형사 고소와 민사 절차를 병행하는 것이 실질적인 회수 가능성을 높이는 방법입니다.</div>
+        </div>
+
+        <div class="qa-item">
+            <div class="qa-q">채무자가 폐업을 하고 재산이 없다고 합니다. 정말 방법이 없는 건가요?</div>
+            <div class="qa-a">포기하기 전에 몇 가지를 확인할 필요가 있습니다. 폐업 직전에 재산을 처분한 경우 강제집행면탈죄 고소와 사해행위취소소송 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=040600" target="_blank" rel="noopener" title="민법 제406조 — 대법원 종합법률정보">민법 제406조</a>을 검토할 수 있습니다. 또한 사업체가 법인이라면 법인과 개인을 분리한 채 재산을 빼돌린 경우 <strong>법인격 부인론</strong>을 적용하여 대표자 개인 재산에도 집행할 수 있는 가능성이 있습니다. 법원의 재산조회를 통해 금융계좌, 보험, 주식 등을 전방위로 조회해 보는 것이 먼저입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007400" target="_blank" rel="noopener" title="민사집행법 제74조 — 대법원 종합법률정보">민사집행법 제74조</a></div>
+        </div>
+
+    </div>
+
+    <!-- ===== 5. 판례 ===== -->`
       },
       {
         heading: '관련 판례',
-        content: `<p><strong>판례 1</strong>: 재산명시 기일에서의 선서는 법적 효력이 있으며, 거짓 진술은 위증죄로 처벌될 수 있습니다. (대판 2010. 6. 17. 2008도5097)</p>
-<p><strong>판례 2</strong>: 강제집행 면탈죄는 채무자가 집행을 피하려는 의도로 재산을 은닉하거나 허위양도한 경우에만 인정됩니다. (대판 2012. 4. 12. 2011도15245)</p>
-<p><strong>판례 3</strong>: 사해행위 취소권은 수익자의 악의 여부에 따라 취소 효과가 달라질 수 있습니다. (민법 제406조)</p>`
+        content: `<div class="case-box">
+            <div class="case-num">강제집행면탈죄의 성립 시기 — 판결 확정 전도 포함</div>
+            <p>강제집행면탈죄는 강제집행을 당할 구체적 위험이 있는 상태에서 그 집행을 면탈하려는 목적으로 재산을 은닉, 손괴, 허위양도하거나 허위의 채무를 부담하는 행위를 처벌한다. 판결 확정 후뿐만 아니라 채무자가 채무의 존재를 인식하면서 강제집행을 피할 의도로 소송 계속 중에 재산을 처분한 경우에도 이 죄가 성립할 수 있다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=188383&joNo=032700" target="_blank" rel="noopener" title="형법 제327조 — 대법원 종합법률정보">형법 제327조</a> <span class="case-tag"><a class="case-tag" href="https://www.law.go.kr/precSc.do?menuId=7&subMenuId=47&tabMenuId=213&eventGubun=060101&query=2009%EB%8F%84875" target="_blank" rel="noopener" title="2009도875 — 대법원 종합법률정보">2009도875</a></span></p>
+        </div>
+
+        <div class="case-box">
+            <div class="case-num">감치의 법적 성격 — 의무 이행 강제 수단</div>
+            <p>재산명시 의무 위반에 대한 감치는 형사처벌과 달리 채무자의 의무 이행을 강제하기 위한 수단이다. 따라서 감치 기간 중이라도 채무자가 재산명시 의무를 이행하면 법원은 감치를 즉시 종료할 수 있으며, 이미 처벌받은 사안에 대한 재처벌이 아니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 제3항 — 대법원 종합법률정보">민사집행법 제68조 제3항</a></p>
+        </div>
+
+        <div class="case-box">
+            <div class="case-num">허위 재산목록 제출의 해석</div>
+            <p>재산명시 절차에서 채무자가 실제로 보유하는 재산을 재산목록에 기재하지 않는 경우, 그것이 의도적 누락임이 인정되면 거짓 재산목록 제출로서 형사처벌의 대상이 된다. 재산을 단순히 기억하지 못했다는 변명만으로는 처벌을 면하기 어렵고, 목록 제출 당시의 실제 재산 보유 현황이 중요한 판단 기준이 된다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 제4항 — 대법원 종합법률정보">민사집행법 제68조 제4항</a> <span class="case-tag"><a class="case-tag" href="https://www.law.go.kr/precSc.do?menuId=7&subMenuId=47&tabMenuId=213&eventGubun=060101&query=2007%EB%8F%848153" target="_blank" rel="noopener" title="2007도8153 — 대법원 종합법률정보">2007도8153</a></span></p>
+        </div>
+
+        <div class="example-box">
+            <div class="ex-title">📌 실무 사례: 형사 고소와 민사 병행의 성과</div>
+            <p>채무자 A가 판결 확정 직전 부동산 전부를 배우자 명의로 이전했습니다. 채권자는 강제집행면탈죄로 형사 고소를 하는 동시에 사해행위취소소송을 제기했습니다. 수사 과정에서 이전 거래가 정상적인 매매가 아님이 밝혀졌고, 사해행위취소소송에서도 승소하여 부동산이 채무자 명의로 복귀된 후 채권자가 강제경매를 통해 채권을 회수하였습니다.</p>
+        </div>
+
+    </div>
+
+    <!-- ===== 6. 주의사항 ===== -->`
       },
       {
         heading: '주의사항',
-        content: `<ul>
-<li><strong>증거 수집의 중요성</strong>: 재산 은닉이나 허위양도를 입증하려면 재산조회 결과, 등기부등본 변동 기록, 금융거래 내역 등이 필요합니다</li>
-<li><strong>감치와 형사처벌의 구분</strong>: 감치는 민사제재(6개월 이내)이고, 위증죄·강제집행면탈죄는 형사처벌(징역)입니다</li>
-<li><strong>사해행위 취소의 시효</strong>: 알았을 때부터 1년, 행위 당시부터 10년 이내에 행사해야 합니다</li>
-<li><strong>고발의 필요성</strong>: 위증죄나 강제집행 면탈죄는 고발이 있어야 수사가 진행됩니다</li>
-</ul>`
+        content: `<div class="warning-box">
+            <div class="w-title">⚠️ 감치와 형사처벌은 다릅니다</div>
+            <p>감치는 의무 이행을 강제하기 위한 법원의 제재이고, 형사처벌은 허위 목록 제출·선서 거부에 대한 별도의 처벌입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 제1항·제4항 — 대법원 종합법률정보">민사집행법 제68조 제1항·제4항</a> 둘은 중복 적용이 가능하므로, 채무자가 감치까지 받고도 의무를 이행하지 않으면 형사 고소까지 이중으로 진행할 수 있습니다.</p>
+        </div>
+
+        <div class="warning-box">
+            <div class="w-title">⚠️ 재명시 신청의 6개월 요건 확인</div>
+            <p>재명시 신청은 집행 불능이 확인된 날로부터 <strong>6개월 이후</strong>에만 가능합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006900" target="_blank" rel="noopener" title="민사집행법 제69조 제1항 — 대법원 종합법률정보">민사집행법 제69조 제1항</a> 6개월이 지나지 않았다면 법원이 신청을 받아들이지 않습니다. 반대로, 6개월이 지났다면 지체 없이 신청하는 것이 채무 회수 기회를 놓치지 않는 방법입니다.</p>
+        </div>
+
+        <div class="caution-item">
+            <div class="c-title">📌 강제집행면탈죄 고소, 혼자 하기 어렵습니다</div>
+            <p>채무자의 재산 은닉이 강제집행면탈죄에 해당하는지는 전문적인 법률 판단이 필요합니다. 고소장 작성, 증거 수집, 사해행위취소소송 동시 진행 등 복잡한 절차가 수반되므로 법률 전문가와 상담하는 것이 중요합니다.</p>
+        </div>
+
+        <div class="caution-item">
+            <div class="c-title">📌 채권의 소멸시효를 놓치지 마세요</div>
+            <p>채권을 회수하지 못하는 동안에도 소멸시효는 진행됩니다. 판결로 확정된 채권의 소멸시효는 10년입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=016500" target="_blank" rel="noopener" title="민법 제165조 제1항 — 대법원 종합법률정보">민법 제165조 제1항</a> 시효가 완성되기 전에 재산명시, 재산조회 신청 등 시효 중단 조치를 꾸준히 해야 합니다.</p>
+        </div>
+
+        <div class="caution-item">
+            <div class="c-title">📌 사해행위취소는 별도 소송이 필요합니다</div>
+            <p>채무자가 재산을 가족 등에게 이전한 경우, 그 행위를 취소하려면 별도의 <strong>사해행위취소소송</strong>을 제기해야 합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=040600" target="_blank" rel="noopener" title="민법 제406조 — 대법원 종합법률정보">민법 제406조</a> 이 소송도 사해행위를 안 날로부터 <strong class="deadline-warning">⚡ 1년, 행위가 있은 날로부터 5년</strong>의 제척기간이 있으므로 빠른 대응이 필요합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=040600" target="_blank" rel="noopener" title="민법 제406조 제2항 — 대법원 종합법률정보">민법 제406조 제2항</a></p>
+        </div>
+
+    </div>
+
+    <!-- ===== 7. 다음에 확인할 사항 ===== -->`
       },
       {
-        heading: '자주 묻는 질문',
-        content: `<p><strong>Q. 감치로 갇혔을 때 출감 방법이 있나요?</strong></p>
-<p>감치 기간 중 채무자가 재산명시를 완료하면 즉시 석방됩니다. 또한 항고를 제기하여 감치 결정을 취소할 수도 있습니다.</p>
-<p><strong>Q. 가족에게 재산을 양도하면 합법인가요?</strong></p>
-<p>합법적인 거래(판매, 증여 등)라면 법적 문제가 없습니다. 다만 강제집행을 피하려는 목적의 허위양도라면 사해행위로 취소될 수 있고, 강제집행 면탈죄로도 처벌될 수 있습니다.</p>
-<p><strong>Q. 강제집행 면탈죄로 고발할 수 있나요?</strong></p>
-<p>채무자의 재산 은닉·손괴·허위양도를 증명할 수 있으면 검사에 고발할 수 있습니다. 충분한 증거를 함께 제출해야 합니다.</p>`
-      }
+        heading: '다음에 확인할 사항',
+        content: `<div class="next-links">
+            <a href="민집_05_재산명시.html" class="next-link">
+                <span class="arrow">→</span>재산명시 신청 절차와 방법
+            </a>
+            <a href="민집_06_재산조회.html" class="next-link">
+                <span class="arrow">→</span>법원을 통한 재산조회 신청
+            </a>
+            <a href="민집_07_채무불이행자명부.html" class="next-link">
+                <span class="arrow">→</span>채무불이행자명부 등재 신청
+            </a>
+        </div>
+    </div>
+
+    <!-- ===== CTA ===== -->`
+      },
     ],
     laws: [],
     forms: []
   },
-  {
+    {
     id: 'ef-16',
     title: '경매개시결정이란 무엇인가',
     meta: '경매개시결정의 의미, 압류 효력, 경매 절차 전체 흐름을 안내합니다.',

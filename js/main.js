@@ -12199,19 +12199,14 @@ function renderSubcategoryContent(catId, selectedSubId, selectedTopicId) {
         <p style="font-weight:600;color:var(--primary);margin-bottom:12px;">더 자세한 내용이 궁금하신가요? 법무사에게 직접 상담받으세요.</p>
         <button class="btn-primary" onclick="openModal()">📞 무료 상담 신청</button>
       </div>`;
+    activateLawTags(articleEl);
+    activateCaseNumbers(articleEl);
+    activateCaseTags(articleEl);
   }
 
   // Render law sidebar
   const lawEl = document.getElementById('lawList');
   if (lawEl) {
-    const lawsHTML = activeTopic.laws && activeTopic.laws.length > 0
-      ? activeTopic.laws.map(l => `
-        <div class="law-item">
-          <div class="law-name">📋 ${l.name}</div>
-          <div class="law-desc">${l.desc}</div>
-        </div>`).join('')
-      : '<p style="font-size:0.82rem;color:var(--text-light);padding:0 20px;">관련 법령 없음</p>';
-
     const formsHTML = activeTopic.forms && activeTopic.forms.length > 0
       ? activeTopic.forms.map(f => `
         <div class="form-item">
@@ -12221,10 +12216,6 @@ function renderSubcategoryContent(catId, selectedSubId, selectedTopicId) {
       : '<p style="font-size:0.82rem;color:var(--text-light);padding:0 20px;">제공 서식 없음</p>';
 
     lawEl.innerHTML = `
-      <div class="law-section">
-        <div class="law-section-title">관련 법령</div>
-        ${lawsHTML}
-      </div>
       <div class="law-section">
         <div class="law-section-title">참고 서식</div>
         ${formsHTML}
@@ -12250,6 +12241,80 @@ function selectSubTopic(catId, subId, topicId) {
   window.history.pushState({}, '', newUrl);
   renderSubcategoryContent(catId, subId, topicId);
   window.scrollTo(0, 0);
+}
+
+/* ── 법령 조문 태그 인라인 클릭 활성화 ─────────────────── */
+function buildLawUrl(text) {
+  const trimmed = text.trim();
+  const commaIdx = trimmed.indexOf(',');
+  const effective = commaIdx > 0 ? trimmed.substring(0, commaIdx).trim() : trimmed;
+  const match = effective.match(/^(.+?)\s+(제\d+조)/);
+  if (!match) return null;
+  return `https://www.law.go.kr/법령/${match[1].trim()}/${match[2].trim()}`;
+}
+
+function activateLawTags(containerEl) {
+  containerEl.querySelectorAll('span.law-tag').forEach(span => {
+    const url = buildLawUrl(span.textContent);
+    if (!url) return;
+    const a = document.createElement('a');
+    a.href = url;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.className = span.className;
+    a.textContent = span.textContent;
+    a.title = '법령 조문 보기 (law.go.kr)';
+    span.replaceWith(a);
+  });
+}
+
+function activateCaseNumbers(containerEl) {
+  // 사건번호 패턴: 연도(2~4자리) + 사건기호(한글 1~3자) + 일련번호
+  // 예: 79다1615, 2010다1272, 2014다225809
+  const pattern = /\b(\d{2,4}[가-힣]{1,3}\d+)\b/g;
+
+  function walkNode(node) {
+    if (node.nodeType === Node.TEXT_NODE) {
+      const text = node.textContent;
+      pattern.lastIndex = 0;
+      if (!pattern.test(text)) return;
+      pattern.lastIndex = 0;
+      const frag = document.createDocumentFragment();
+      let last = 0, m;
+      while ((m = pattern.exec(text)) !== null) {
+        frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        const a = document.createElement('a');
+        a.href = `https://casenote.kr/search?q=${encodeURIComponent(m[0])}`;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.className = 'case-num-link';
+        a.textContent = m[0];
+        a.title = '판례 검색 (casenote.kr)';
+        frag.appendChild(a);
+        last = m.index + m[0].length;
+      }
+      frag.appendChild(document.createTextNode(text.slice(last)));
+      node.parentNode.replaceChild(frag, node);
+    } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName !== 'A') {
+      Array.from(node.childNodes).forEach(walkNode);
+    }
+  }
+
+  containerEl.querySelectorAll('.ruling-box').forEach(walkNode);
+}
+
+function activateCaseTags(containerEl) {
+  containerEl.querySelectorAll('span.case-tag').forEach(span => {
+    const caseNum = span.textContent.trim();
+    const a = document.createElement('a');
+    a.href = `https://casenote.kr/search?q=${encodeURIComponent(caseNum)}`;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.className = span.className;
+    a.textContent = span.textContent;
+    a.title = '판례 검색 (casenote.kr)';
+    span.replaceWith(a);
+  });
 }
 
 /* ── 단순 카테고리(subcategory 없음) 렌더링 ─────────────────── */
@@ -12311,19 +12376,14 @@ function renderCategoryContent(catId, selectedTopicId) {
         <p style="font-weight:600;color:var(--primary);margin-bottom:12px;">더 자세한 내용이 궁금하신가요? 법무사에게 직접 상담받으세요.</p>
         <button class="btn-primary" onclick="openModal()">📞 무료 상담 신청</button>
       </div>`;
+    activateLawTags(articleEl);
+    activateCaseNumbers(articleEl);
+    activateCaseTags(articleEl);
   }
 
   // Render law sidebar
   const lawEl = document.getElementById('lawList');
   if (lawEl) {
-    const lawsHTML = activeTopic.laws && activeTopic.laws.length > 0
-      ? activeTopic.laws.map(l => `
-        <div class="law-item">
-          <div class="law-name">📋 ${l.name}</div>
-          <div class="law-desc">${l.desc}</div>
-        </div>`).join('')
-      : '<p style="font-size:0.82rem;color:var(--text-light);padding:0 20px;">관련 법령 없음</p>';
-
     const formsHTML = activeTopic.forms && activeTopic.forms.length > 0
       ? activeTopic.forms.map(f => `
         <div class="form-item">
@@ -12333,10 +12393,6 @@ function renderCategoryContent(catId, selectedTopicId) {
       : '<p style="font-size:0.82rem;color:var(--text-light);padding:0 20px;">제공 서식 없음</p>';
 
     lawEl.innerHTML = `
-      <div class="law-section">
-        <div class="law-section-title">관련 법령</div>
-        ${lawsHTML}
-      </div>
       <div class="law-section">
         <div class="law-section-title">참고 서식</div>
         ${formsHTML}

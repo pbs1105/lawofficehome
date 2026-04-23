@@ -15,7 +15,12 @@
       "Bash(grep -n \"id: ''in-\" \"/c/Users/pbaes/OneDrive/바탕 화면/법무사업무자동화\\(홈피,n8n,노션,클로드\\)/homepage\\(claudeCode\\)/js/main.js\")",
       "Bash(head -20 echo \"---\" grep -n \"page-wrap\\\\|class=\"\"container\"\"\\\\|<body>\\\\|<footer\\\\|site-footer\\\\|site-header\" \"/c/Users/pbaes/OneDrive/바탕 화면/법무사업무자동화\\(홈피,n8n,노션,클로드\\)/교재스캔\\(ocr\\)/상속/pdf교재파일/상속등기실무pdf/상속_14_보존등기.html\")",
       "Bash(python update_css.py)",
-      "Bash(grep -E \"\\\\.html$\")"
+      "Bash(grep -E \"\\\\.html$\")",
+      "Bash(python extract_sections.py)",
+      "Bash(python -c \"import sys; sys.stdout.buffer.write\\(sys.stdin.buffer.read\\(\\)\\)\")",
+      "Bash(python -c ' *)",
+      "Bash(python update_ef_data.py)",
+      "Bash(node --check \"C:/Users/pbaes/OneDrive/바탕 화면/LOAS/homepage\\(claudeCode\\)/js/enforcement_topics_data.js\")"
     ]
   }
 }
