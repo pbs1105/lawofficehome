@@ -20,7 +20,10 @@
       "Bash(python -c \"import sys; sys.stdout.buffer.write\\(sys.stdin.buffer.read\\(\\)\\)\")",
       "Bash(python -c ' *)",
       "Bash(python update_ef_data.py)",
-      "Bash(node --check \"C:/Users/pbaes/OneDrive/바탕 화면/LOAS/homepage\\(claudeCode\\)/js/enforcement_topics_data.js\")"
+      "Bash(node --check \"C:/Users/pbaes/OneDrive/바탕 화면/LOAS/homepage\\(claudeCode\\)/js/enforcement_topics_data.js\")",
+      "Bash(node --check js/enforcement_topics_data.js)",
+      "Bash(python update_enforcement.py)",
+      "Bash(python update_ef_reftags.py)"
     ]
   }
 }

@@ -12006,6 +12006,80 @@ const CONSULT_URLS = {
   corporate: 'https://n8npark.app.n8n.cloud/form/92ea9eaf-074c-474a-b48c-3c30198101f4',
 };
 
+/* ═══════════════════════════════════════════════
+   법령·판례 참조 태그 팝업
+   ═══════════════════════════════════════════════ */
+function buildLawRefPopup() {
+  return `
+    <div id="lawRefOverlay"></div>
+    <div id="lawRefPopup" role="dialog" aria-modal="true">
+      <div class="lrp-header" id="lawRefPopupHeader">
+        <span class="lrp-title" id="lawRefPopupTitle"></span>
+        <button class="lrp-close" id="lawRefPopupClose" aria-label="닫기">✕</button>
+      </div>
+      <div class="lrp-body">
+        <p id="lawRefPopupDesc"></p>
+        <a id="lawRefPopupLink" href="#" target="_blank" rel="noopener noreferrer" class="lrp-link" style="display:none">
+          원문 확인 →
+        </a>
+      </div>
+    </div>
+  `;
+}
+
+function showLawRefPopup(btn) {
+  const type  = btn.dataset.refType;   // 'law' | 'case'
+  const title = btn.dataset.refTitle  || '';
+  const desc  = btn.dataset.refDesc   || '';
+  const url   = btn.dataset.refUrl    || '';
+
+  const header = document.getElementById('lawRefPopupHeader');
+  const titleEl = document.getElementById('lawRefPopupTitle');
+  const descEl  = document.getElementById('lawRefPopupDesc');
+  const linkEl  = document.getElementById('lawRefPopupLink');
+  const overlay = document.getElementById('lawRefOverlay');
+  const popup   = document.getElementById('lawRefPopup');
+
+  if (!popup) return;
+
+  // 유형별 스타일 분기
+  if (type === 'case') {
+    header.className = 'lrp-header case-header';
+    if (linkEl) { linkEl.className = 'lrp-link case-link'; }
+  } else {
+    header.className = 'lrp-header';
+    if (linkEl) { linkEl.className = 'lrp-link'; }
+  }
+
+  titleEl.textContent = title;
+  descEl.textContent  = desc;
+
+  if (url && linkEl) {
+    linkEl.href = url;
+    linkEl.style.display = 'block';
+  } else if (linkEl) {
+    linkEl.style.display = 'none';
+  }
+
+  overlay.classList.add('active');
+  popup.classList.add('active');
+
+  // 닫기 버튼 이벤트 (중복 방지)
+  const closeBtn = document.getElementById('lawRefPopupClose');
+  if (closeBtn) {
+    closeBtn.onclick = closeLawRefPopup;
+  }
+}
+
+function closeLawRefPopup() {
+  const overlay = document.getElementById('lawRefOverlay');
+  const popup   = document.getElementById('lawRefPopup');
+  if (overlay) overlay.classList.remove('active');
+  if (popup)   popup.classList.remove('active');
+}
+
+// 오버레이 클릭 시 닫기 (이벤트 위임 방식으로 DOMContentLoaded에서 등록)
+
 function buildModal() {
   return `
     <div class="modal-overlay" id="consultModal" onclick="closeModalOutside(event)">
@@ -12513,8 +12587,27 @@ document.addEventListener('DOMContentLoaded', () => {
   // Inject modal
   const modalHolder = document.getElementById('modalHolder');
   if (modalHolder) {
-    modalHolder.innerHTML = buildModal();
+    modalHolder.innerHTML = buildModal() + buildLawRefPopup();
   }
+
+  // 법령·판례 태그 팝업 — 이벤트 위임
+  document.addEventListener('click', function(e) {
+    const btn = e.target.closest('[data-ref-type]');
+    if (btn) {
+      e.stopPropagation();
+      showLawRefPopup(btn);
+      return;
+    }
+    // 오버레이 클릭 시 닫기
+    if (e.target.id === 'lawRefOverlay') {
+      closeLawRefPopup();
+    }
+  });
+
+  // ESC 키로 팝업 닫기
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLawRefPopup();
+  });
 
   // Page-specific init
   const bodyId = document.body.id;
