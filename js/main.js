@@ -367,49 +367,7 @@ const CONTENT_DATA = {
   /* ---- 보전처분 ---- */
   preservation: {
     label: '보전처분',
-    topics: [
-      {
-        id: 'pv-1', title: '가압류 신청',
-        meta: '채무자 재산 보전조치',
-        sections: [
-          {
-            heading: '1. 가압류란?',
-            content: `<p>가압류는 금전채권이나 금전으로 환산할 수 있는 채권의 집행을 보전하기 위하여 채무자의 재산을 미리 압류하여 그 처분을 금지하는 보전처분입니다(민사집행법 제276조). 소송 전 또는 소송 중에 채무자가 재산을 처분하는 것을 방지하기 위해 활용합니다.</p>`
-          },
-          {
-            heading: '2. 담보 제공',
-            content: `<p>가압류를 신청하면 법원은 통상 채권금액의 <strong>10~30%</strong>에 해당하는 담보를 제공하도록 명령합니다. 담보는 현금 공탁 또는 보증보험증권으로 제공할 수 있습니다.</p>`
-          }
-        ],
-        laws: [
-          { name: '민사집행법 제276조', desc: '가압류의 의의' },
-          { name: '민사집행법 제279조', desc: '가압류의 방법' },
-        ],
-        forms: [{ name: '부동산가압류신청서', size: 'DOCX' }, { name: '채권가압류신청서', size: 'DOCX' }]
-      },
-      {
-        id: 'pv-2', title: '가처분 신청',
-        meta: '권리관계 보전을 위한 임시 처분',
-        sections: [
-          {
-            heading: '1. 가처분이란?',
-            content: `<p>가처분은 금전채권 이외의 특정물에 대한 청구권이나 권리관계를 보전하기 위하여 현상을 변경하거나 임시의 지위를 정하는 보전처분입니다(민사집행법 제300조). 계쟁물에 관한 가처분과 임시의 지위를 정하기 위한 가처분으로 나뉩니다.</p>`
-          },
-          {
-            heading: '2. 가처분의 종류',
-            content: `<table class="doc-table"><thead><tr><th>종류</th><th>내용</th><th>예시</th></tr></thead><tbody>
-              <tr><td>계쟁물 가처분</td><td>분쟁 대상 물건의 현상 변경 금지</td><td>부동산 처분금지가처분</td></tr>
-              <tr><td>임시의 지위를 정하는 가처분</td><td>다툼 있는 권리관계에 대한 임시 규율</td><td>직위해제 효력정지 가처분, 공사중지 가처분</td></tr>
-            </tbody></table>`
-          }
-        ],
-        laws: [
-          { name: '민사집행법 제300조', desc: '가처분의 요건' },
-          { name: '민사집행법 제301조', desc: '가처분의 방법' },
-        ],
-        forms: [{ name: '부동산처분금지가처분신청서', size: 'DOCX' }]
-      }
-    ]
+    get topics() { return typeof PRESERVATION_TOPICS !== 'undefined' ? PRESERVATION_TOPICS : []; }
   },
 
   /* ---- 강제집행 ---- */
