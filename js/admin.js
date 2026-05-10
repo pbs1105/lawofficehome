@@ -138,6 +138,7 @@ const ADMIN_MENU = [
     icon: '🧮',
     label: '계산기',
     items: [
+      { id: 'calc-comprehensive', label: '공과금·보수 종합 계산기' },
       { id: 'calc-acq', label: '취득세 계산기' },
       { id: 'calc-reg', label: '등록면허세 계산기' },
       { id: 'calc-fee', label: '법무사 보수 계산기' },
@@ -628,6 +629,9 @@ function renderCalculator(calcId) {
   const area = document.getElementById('contentArea');
 
   switch (calcId) {
+    case 'calc-comprehensive':
+      area.innerHTML = `<iframe src="../tools/fee_calculator.html" style="width:100%;height:calc(100vh - 120px);border:none;display:block;" title="공과금·보수 종합 계산기"></iframe>`;
+      break;
     case 'calc-acq':  area.innerHTML = buildAcquisitionTaxCalc(); break;
     case 'calc-reg':  area.innerHTML = buildRegistrationTaxCalc(); break;
     case 'calc-fee':  area.innerHTML = buildLawyerFeeCalc(); break;
