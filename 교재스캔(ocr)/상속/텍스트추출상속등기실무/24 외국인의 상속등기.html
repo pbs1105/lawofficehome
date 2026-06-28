@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>외국인의 상속등기 | 상속등기 실무</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{--navy:#1a2e4a;--navy-light:#2d4a73;--gold:#c9a84c;--gold-light:#e8d5a3;--ivory:#fdf8f0;--ivory-dark:#f5ede0;--text:#2c2c2c;--text-light:#5a5a5a;--blue-box:#e8f0f8;--blue-border:#2d6aa0;--warn-bg:#fff8e1;--warn-border:#f0a500;}
+        *{box-sizing:border-box;margin:0;padding:0;}
+        body{font-family:'Noto Sans KR',sans-serif;background:var(--ivory);color:var(--text);font-size:15px;line-height:1.8;}
+        .page-header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);color:white;padding:40px 24px 32px;text-align:center;}
+        .page-header h1{font-size:2rem;font-weight:700;margin-bottom:8px;}
+        .page-header .subtitle{color:var(--gold-light);font-size:1rem;}
+        .breadcrumb{font-size:0.82rem;color:rgba(255,255,255,0.6);margin-bottom:12px;}
+        .layout{display:grid;grid-template-columns:240px 1fr 300px;gap:0;max-width:1280px;margin:0 auto;}
+        .toc-sidebar{background:var(--navy);color:white;padding:24px 0;position:sticky;top:0;height:100vh;overflow-y:auto;}
+        .toc-sidebar h3{font-size:0.78rem;letter-spacing:2px;color:var(--gold);text-transform:uppercase;padding:0 20px 12px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:8px;}
+        .toc-sidebar ul{list-style:none;}
+        .toc-sidebar ul li a{display:block;padding:9px 20px;font-size:0.85rem;color:rgba(255,255,255,0.75);text-decoration:none;border-left:3px solid transparent;transition:all 0.2s;}
+        .toc-sidebar ul li a:hover,.toc-sidebar ul li a.active{color:white;background:rgba(255,255,255,0.08);border-left-color:var(--gold);}
+        .main-content{padding:40px 48px;min-height:100vh;}
+        .section{margin-bottom:56px;scroll-margin-top:24px;}
+        .section h2{font-size:1.35rem;color:var(--navy);border-bottom:2px solid var(--gold);padding-bottom:10px;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+        .section h2 .sec-num{background:var(--navy);color:var(--gold);font-size:0.78rem;padding:2px 8px;border-radius:12px;}
+        .section h3{font-size:1.05rem;color:var(--navy-light);margin:24px 0 10px;font-weight:600;}
+        .summary-box{background:var(--blue-box);border-left:4px solid var(--blue-border);border-radius:0 8px 8px 0;padding:18px 22px;margin-bottom:20px;}
+        .summary-box strong{color:var(--blue-border);display:block;margin-bottom:6px;font-size:0.9rem;}
+        .detail-content{color:var(--text-light);}
+        .detail-content p{margin-bottom:14px;}
+        .law-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.88rem;}
+        .law-table th{background:var(--navy);color:white;padding:10px 14px;text-align:left;}
+        .law-table td{padding:10px 14px;border-bottom:1px solid #e0d8cc;vertical-align:top;}
+        .law-table tr:nth-child(even) td{background:var(--ivory-dark);}
+        .law-ref{color:var(--blue-border);font-weight:600;cursor:pointer;border-bottom:1px dashed var(--blue-border);font-size:0.9em;}
+        .warn-box{background:var(--warn-bg);border-left:4px solid var(--warn-border);border-radius:0 8px 8px 0;padding:16px 20px;margin:16px 0;}
+        .warn-box strong{color:#c07000;display:block;margin-bottom:6px;}
+        .case-box{background:#f5f5f5;border:1px solid #ddd;border-radius:8px;padding:16px 20px;margin:16px 0;font-size:0.87rem;}
+        .case-box .case-title{font-weight:700;color:var(--navy);margin-bottom:8px;font-size:0.85rem;}
+        .process-steps{margin:16px 0;}
+        .step{display:flex;gap:16px;margin-bottom:16px;align-items:flex-start;}
+        .step-num{background:var(--navy);color:var(--gold);font-weight:700;min-width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;}
+        .step-content .step-title{font-weight:600;color:var(--navy);margin-bottom:4px;}
+        .step-content .step-desc{font-size:0.88rem;color:var(--text-light);}
+        .checklist-box{background:var(--ivory-dark);border:1px solid var(--gold-light);border-radius:10px;padding:20px 24px;margin:24px 0;}
+        .checklist-box h4{color:var(--navy);margin-bottom:14px;font-size:0.95rem;}
+        .checklist-box ul{list-style:none;}
+        .checklist-box ul li{padding:5px 0;font-size:0.88rem;display:flex;gap:10px;}
+        .checklist-box ul li::before{content:"☑";color:var(--gold);}
+        .cta-box{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);color:white;border-radius:12px;padding:28px 32px;margin:32px 0;text-align:center;}
+        .cta-box h3{font-size:1.2rem;margin-bottom:10px;color:var(--gold-light);}
+        .cta-box p{font-size:0.9rem;color:rgba(255,255,255,0.85);margin-bottom:18px;}
+        .cta-btn{background:var(--gold);color:var(--navy);font-weight:700;padding:12px 32px;border-radius:24px;border:none;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;}
+        .next-links{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}
+        .next-link{background:white;border:1px solid #d0c8ba;border-radius:8px;padding:16px;text-decoration:none;color:var(--navy);transition:all 0.2s;display:flex;align-items:center;justify-content:space-between;}
+        .next-link:hover{border-color:var(--gold);box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+        .next-link .label{font-size:0.78rem;color:var(--text-light);}
+        .next-link .title{font-size:0.92rem;font-weight:600;}
+        .next-link .arrow{color:var(--gold);font-size:1.2rem;}
+        .disclaimer{background:#f0f0f0;border-radius:8px;padding:16px 20px;margin-top:40px;font-size:0.8rem;color:#777;line-height:1.6;}
+        .right-sidebar{background:white;border-left:1px solid #e0d8cc;padding:0;position:sticky;top:0;height:100vh;overflow-y:auto;}
+        .sidebar-tabs{display:flex;border-bottom:2px solid var(--navy);}
+        .sidebar-tab{flex:1;padding:12px 8px;text-align:center;font-size:0.82rem;font-weight:600;cursor:pointer;color:var(--text-light);background:var(--ivory);border:none;transition:all 0.2s;}
+        .sidebar-tab.active{background:var(--navy);color:white;}
+        .sidebar-panel{padding:16px;display:none;}
+        .sidebar-panel.active{display:block;}
+        .law-item{border:1px solid #e0d8cc;border-radius:6px;margin-bottom:8px;overflow:hidden;}
+        .law-item-header{background:var(--ivory-dark);padding:10px 14px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:0.83rem;font-weight:600;color:var(--navy);}
+        .law-item-header:hover{background:var(--gold-light);}
+        .law-item-body{display:none;padding:12px 14px;font-size:0.82rem;line-height:1.7;color:var(--text-light);border-top:1px solid #e0d8cc;}
+        .law-item-body.open{display:block;}
+        .practice-section{margin-bottom:16px;}
+        .practice-section h5{font-size:0.82rem;font-weight:700;color:var(--navy);background:var(--ivory-dark);padding:7px 12px;border-radius:4px;margin-bottom:8px;}
+        .practice-section ul{list-style:none;padding:0;}
+        .practice-section ul li{font-size:0.81rem;padding:4px 8px;color:var(--text-light);border-bottom:1px solid #f0ece6;display:flex;gap:6px;}
+        .practice-section ul li::before{content:"•";color:var(--gold);}
+        @media(max-width:900px){.layout{grid-template-columns:1fr;}.toc-sidebar,.right-sidebar{display:none;}.main-content{padding:24px 20px;}.next-links{grid-template-columns:1fr;}}
+    </style>
+</head>
+<body>
+    <div class="page-header">
+        <div class="breadcrumb">상속 · 등기 · 실무</div>
+        <h1>외국인의 상속등기</h1>
+        <p class="subtitle">국제사법과 외국 서류의 인증 절차</p>
+    </div>
+
+    <div class="layout">
+        <div class="toc-sidebar">
+            <h3>목차</h3>
+            <ul>
+                <li><a class="toc-link active" href="#sec1">외국인 상속 개요</a></li>
+                <li><a class="toc-link" href="#sec2">한국 부동산 상속 준거법</a></li>
+                <li><a class="toc-link" href="#sec3">외국인이 상속인인 경우</a></li>
+                <li><a class="toc-link" href="#sec4">재외국민 상속등기</a></li>
+                <li><a class="toc-link" href="#sec5">외국인 피상속인 상속</a></li>
+                <li><a class="toc-link" href="#sec6">첨부서류 특례</a></li>
+                <li><a class="toc-link" href="#sec7">외국인 취득 제한</a></li>
+                <li><a class="toc-link" href="#sec8">FAQ</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <div class="section" id="sec1">
+                <h2><span class="sec-num">1</span>외국인 상속 개요</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    외국인의 상속은 국제사법 제49조에 따라 피상속인의 본국법을 준거법으로 하며, 한국 부동산은 한국 법원 절차로 처리합니다.
+                </div>
+                <div class="detail-content">
+                    <h3>외국인 상속의 특징</h3>
+                    <ul style="margin-left:20px;margin-bottom:14px;">
+                        <li><strong>준거법 결정:</strong> <span class="law-ref" onclick="openLaw('국제사법49')">국제사법 제49조</span>에 따라 피상속인의 본국법</li>
+                        <li><strong>부동산 상속:</strong> 부동산 소재지(한국) 법원의 절차</li>
+                        <li><strong>외국 서류 인증:</strong> 아포스티유, 영사 확인서 필요</li>
+                        <li><strong>특별한 절차:</strong> 일반 한국인 상속과 다른 증명 과정</li>
+                    </ul>
+                    <h3>국제사법과 반정</h3>
+                    <p><span class="law-ref" onclick="openLaw('국제사법9')">국제사법 제9조</span>의 반정(反定) 규정에 따르면, 외국 법원의 절차를 거친 후 한국 법원에 등기 신청할 수 있습니다.</p>
+                </div>
+            </div>
+
+            <div class="section" id="sec2">
+                <h2><span class="sec-num">2</span>한국 부동산 상속 준거법</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    한국 부동산 상속은 부동산 소재지 원칙에 따라 한국 법을 적용합니다. 다만 상속인의 자격, 상속분은 피상속인의 본국법을 따릅니다.
+                </div>
+                <div class="detail-content">
+                    <h3>준거법 분류</h3>
+                    <table class="law-table">
+                        <thead>
+                            <tr>
+                                <th>사항</th>
+                                <th>적용법</th>
+                                <th>이유</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>부동산 상속등기</td>
+                                <td>한국 법</td>
+                                <td>부동산 소재지 원칙 (부동산등기법)</td>
+                            </tr>
+                            <tr>
+                                <td>상속인 자격</td>
+                                <td>피상속인 본국법</td>
+                                <td>국제사법 제49조</td>
+                            </tr>
+                            <tr>
+                                <td>상속분</td>
+                                <td>피상속인 본국법</td>
+                                <td>상속인의 권리 결정</td>
+                            </tr>
+                            <tr>
+                                <td>유류분</td>
+                                <td>피상속인 본국법</td>
+                                <td>강제규정</td>
+                            </tr>
+                            <tr>
+                                <td>등기 절차</td>
+                                <td>한국 법</td>
+                                <td>부동산등기법 제23조</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3>등기에 필요한 증명</h3>
+                    <p>외국인이 한국 부동산을 상속받으려면:</p>
+                    <ul style="margin-left:20px;margin-bottom:14px;">
+                        <li>피상속인의 본국에서 상속 관련 증명서 취득</li>
+                        <li>한국 법원의 확인 또는 공증 필요</li>
+                        <li>한국 등기소에 상속등기 신청</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section" id="sec3">
+                <h2><span class="sec-num">3</span>외국인이 상속인인 경우</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    외국인이 한국인으로부터 상속받는 경우, 한국의 상속법을 따르고, 한국 법원 절차로 진행합니다.
+                </div>
+                <div class="detail-content">
+                    <h3>필수 절차</h3>
+                    <div class="process-steps">
+                        <div class="step">
+                            <div class="step-num">1</div>
+                            <div class="step-content">
+                                <div class="step-title">상속인 확정</div>
+                                <div class="step-desc">
+                                    한국 법에 따른 상속인 확정 → 호적등본, 가족관계증명서 준비
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">2</div>
+                            <div class="step-content">
+                                <div class="step-title">외국인 신원 확인</div>
+                                <div class="step-desc">
+                                    여권, 거주증명서 등으로 외국인 신원 확인
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">3</div>
+                            <div class="step-content">
+                                <div class="step-title">협의분할 또는 상속등기</div>
+                                <div class="step-desc">
+                                    협의분할 또는 법정상속으로 등기 신청 → 외국인 신분증(여권)으로 서명
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>외국인 상속인의 서명 방법</h3>
+                    <p>외국인은 한국의 인감이 없으므로, <strong>여권 사본에 서명</strong>하거나 <span class="law-ref" onclick="openLaw('부동산등기법')">부동산등기법</span>에 따라 <strong>영사 공증서</strong>를 제출합니다.</p>
+                </div>
+            </div>
+
+            <div class="section" id="sec4">
+                <h2><span class="sec-num">4</span>재외국민 상속등기</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    재외국민(한국국적 보유)이 상속인인 경우, 재외공관(대사관, 총영사관)의 확인서와 서명공증이 필요합니다.
+                </div>
+                <div class="detail-content">
+                    <h3>재외국민의 서명 인증</h3>
+                    <p>재외국민이 협의분할서에 서명할 때:</p>
+                    <ul style="margin-left:20px;margin-bottom:14px;">
+                        <li><strong>영사 공증:</strong> 거주지 대사관 또는 총영사관에서 서명 공증</li>
+                        <li><strong>공증 내용:</strong> "협의분할서 서명 확인" 증명</li>
+                        <li><strong>효력:</strong> 한국 인감증명서와 동일한 효력</li>
+                    </ul>
+                    <h3>재외공관 확인서</h3>
+                    <p>재외국민의 한국 부동산 상속에서 자주 사용되는 서류:</p>
+                    <ul style="margin-left:20px;margin-bottom:14px;">
+                        <li>거주증명서 (재외국민 신원 확인)</li>
+                        <li>서명공증서 (협의분할서 또는 추인서)</li>
+                        <li>인지 관련 서류 (필요 시)</li>
+                    </ul>
+                    <div class="case-box">
+                        <div class="case-title">판례 참고</div>
+                        대법원은 재외국민이 제출한 영사 공증서를 한국의 인감증명서와 동등하게 취급합니다.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="sec5">
+                <h2><span class="sec-num">5</span>외국인 피상속인의 한국 부동산 상속</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    외국인이 피상속인인 경우, 피상속인의 본국법을 적용하지만 한국 부동산은 한국 절차로 등기합니다.
+                </div>
+                <div class="detail-content">
+                    <h3>필수 증명 사항</h3>
+                    <table class="law-table">
+                        <thead>
+                            <tr>
+                                <th>증명 사항</th>
+                                <th>방법</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>피상속인의 국적·신원</td>
+                                <td>여권 또는 영사 증명서</td>
+                            </tr>
+                            <tr>
+                                <td>피상속인의 사망</td>
+                                <td>외국 사망증명서 (번역 및 공증)</td>
+                            </tr>
+                            <tr>
+                                <td>상속인의 자격</td>
+                                <td>피상속인의 본국법에 따른 증명</td>
+                            </tr>
+                            <tr>
+                                <td>상속분 확정</td>
+                                <td>피상속인 본국 법원의 판결 또는 공증</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3>외국 법원 판결의 활용</h3>
+                    <p>피상속인의 본국에서 상속 분할에 관한 판결이 있으면, 그 판결을 <strong>한국 법원에서 확인</strong>하여 등기할 수 있습니다.</p>
+                </div>
+            </div>
+
+            <div class="section" id="sec6">
+                <h2><span class="sec-num">6</span>첨부서류 특례</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    외국 서류는 번역, 공증(아포스티유), 영사 인증이 필요합니다.
+                </div>
+                <div class="detail-content">
+                    <h3>외국 서류의 인증 절차</h3>
+                    <table class="law-table">
+                        <thead>
+                            <tr>
+                                <th>절차</th>
+                                <th>설명</th>
+                                <th>비용</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>아포스티유</strong></td>
+                                <td>헤이그협약에 따른 국제 공증 (1992년 한국 가입)</td>
+                                <td>약 50,000원</td>
+                            </tr>
+                            <tr>
+                                <td><strong>영사 확인</strong></td>
+                                <td>한국 대사관/총영사관의 확인서 (아포스티유 미발급 국가)</td>
+                                <td>약 100,000원</td>
+                            </tr>
+                            <tr>
+                                <td><strong>번역</strong></td>
+                                <td>공인 번역사의 영문/한문 번역</td>
+                                <td>문서당 200,000~500,000원</td>
+                            </tr>
+                            <tr>
+                                <td><strong>번역 공증</strong></td>
+                                <td>공인 번역사의 번역에 공증인의 확인</td>
+                                <td>번역료 + 공증료</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3>서류 준비 순서</h3>
+                    <ol style="margin-left:20px;margin-bottom:14px;">
+                        <li>외국에서 필요한 서류(판결, 사망증명서 등) 취득</li>
+                        <li>아포스티유 또는 영사 확인 받기</li>
+                        <li>공인 번역사에게 한국어 번역</li>
+                        <li>번역 공증(필요 시)</li>
+                        <li>한국 등기소에 제출</li>
+                    </ol>
+                    <div class="warn-box">
+                        <strong>중요</strong>
+                        아포스티유와 영사 확인은 중복되지 않습니다. 아포스티유 가입 국가는 아포스티유만, 미가입 국가는 영사 확인만 필요합니다.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="sec7">
+                <h2><span class="sec-num">7</span>외국인 취득 제한 부동산</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    외국인은 농지, 군사보호구역 내 부동산, 산림 등을 자유롭게 취득할 수 없습니다 (<span class="law-ref" onclick="openLaw('외국인토지법4')">외국인토지법 제4조</span>).
+                </div>
+                <div class="detail-content">
+                    <h3>외국인 취득 제한 부동산</h3>
+                    <table class="law-table">
+                        <thead>
+                            <tr>
+                                <th>부동산 종류</th>
+                                <th>제한 내용</th>
+                                <th>예외</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>농지</strong></td>
+                                <td><span class="law-ref" onclick="openLaw('외국인토지법4')">외국인토지법</span>에 따라 취득 제한</td>
+                                <td>농지위원회 승인 필요</td>
+                            </tr>
+                            <tr>
+                                <td><strong>산림</strong></td>
+                                <td>산림청의 허가 필요</td>
+                                <td>일부 산림만 허가</td>
+                            </tr>
+                            <tr>
+                                <td><strong>군사보호구역</strong></td>
+                                <td>국방부 승인 필요</td>
+                                <td>일반적으로 불허</td>
+                            </tr>
+                            <tr>
+                                <td><strong>상수원보호구역</strong></td>
+                                <td>환경부 승인 필요</td>
+                                <td>조건부 승인</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3>상속의 특례</h3>
+                    <p>외국인이 <strong>상속으로 취득</strong>하는 경우, 제한 부동산이라도 <strong>등기가 가능</strong>할 수 있습니다. 다만 취득 후 처분에는 제한이 있을 수 있습니다.</p>
+                </div>
+            </div>
+
+            <div class="section" id="sec8">
+                <h2><span class="sec-num">8</span>자주 묻는 질문</h2>
+                <div class="detail-content">
+                    <h3>Q. 외국인이 한국 부동산을 상속받으려면?</h3>
+                    <p><strong>A.</strong> 외국인은 한국 법(민법)에 따른 상속인 자격을 확인하고, 협의분할 또는 법정상속으로 한국 등기소에 상속등기를 신청합니다. 신분증으로는 여권을 사용합니다.</p>
+
+                    <h3>Q. 외국 서류는 어떻게 인증하나요?</h3>
+                    <p><strong>A.</strong> 아포스티유(Apostille) 또는 영사 확인을 받은 후, 공인 번역사가 한국어로 번역하고 공증합니다. 이 절차가 완료되어야 한국 등기소에 제출할 수 있습니다.</p>
+
+                    <h3>Q. 재외국민의 서명은 어떻게 하나요?</h3>
+                    <p><strong>A.</strong> 재외국민은 거주지의 한국 대사관 또는 총영사관에서 서명 공증을 받습니다. 이것이 한국의 인감증명서 역할을 합니다.</p>
+
+                    <h3>Q. 외국인이 농지를 상속받으면?</h3>
+                    <p><strong>A.</strong> 상속받은 농지는 일단 등기될 수 있지만, 판매나 임대 시 농지위원회 승인이 필요할 수 있습니다. 상속은 예외적으로 허용되는 경우가 있습니다.</p>
+
+                    <h3>Q. 외국 법원 판결을 한국에서 인정받으려면?</h3>
+                    <p><strong>A.</strong> 외국 법원의 상속 관련 판결은 한국 법원에 제출하거나, 영사 공증을 받아 한국 등기소에 제출할 수 있습니다.</p>
+
+                    <h3>Q. 비용이 얼마나 드나요?</h3>
+                    <p><strong>A.</strong> 아포스티유 50,000원, 번역료 200,000~500,000원, 공증료 50,000~100,000원 등 총 300,000~700,000원 정도 예상됩니다.</p>
+                </div>
+            </div>
+
+            <div class="checklist-box">
+                <h4>외국인 상속등기 준비 체크리스트</h4>
+                <ul>
+                    <li>외국인 신원 확인 (여권 정보)</li>
+                    <li>상속인 관계도 확인</li>
+                    <li>부동산 등기부등본 확인</li>
+                    <li>협의분할서 준비 (영문 또는 번역본)</li>
+                    <li>외국 서류 아포스티유 또는 영사 확인</li>
+                    <li>공인 번역사 번역 완료</li>
+                    <li>번역 공증 (필요 시)</li>
+                    <li>외국인 신분증(여패) 준비</li>
+                    <li>등기소 사전 상담</li>
+                    <li>등기 신청</li>
+                </ul>
+            </div>
+
+            <div class="cta-box">
+                <h3>복잡한 외국인 상속등기, 전문가와 함께하세요</h3>
+                <p>국제법 및 한국 등기법을 이해한 법무사가 도와드립니다.</p>
+                <button class="cta-btn">상담 예약하기</button>
+            </div>
+
+            <div class="next-links">
+                <a href="23 미등기 부동산 상속.html" class="next-link">
+                    <div>
+                        <div class="label">이전 주제</div>
+                        <div class="title">미등기 부동산 상속</div>
+                    </div>
+                    <div class="arrow">←</div>
+                </a>
+                <a href="25 상속회복청구권.html" class="next-link">
+                    <div>
+                        <div class="label">다음 주제</div>
+                        <div class="title">상속회복청구권</div>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+            </div>
+
+            <div class="disclaimer">
+                <strong>면책 공지</strong><br>
+                본 콘텐츠는 일반적인 상속등기 실무 정보를 제공하기 위한 것으로, 특정 사건의 법적 조언이 아닙니다. 외국인 상속 등기는 국제법이 복잡하므로 반드시 변호사·법무사와 상담하세요. 본 정보에 의존한 행동으로 인한 손실에 대해서는 책임지지 않습니다.
+            </div>
+        </div>
+
+        <div class="right-sidebar">
+            <div class="sidebar-tabs">
+                <button class="sidebar-tab active" onclick="switchTab('law')">법령</button>
+                <button class="sidebar-tab" onclick="switchTab('practice')">실무정보</button>
+            </div>
+
+            <div id="panel-law" class="sidebar-panel active">
+                <div class="law-item" id="law-국제사법49">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>국제사법 제49조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>상속준거법</strong><br>
+                        상속은 피상속인의 국적국 법에 따른다. (반정 규정 적용 가능)
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-국제사법9">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>국제사법 제9조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>반정</strong><br>
+                        외국법이 준거법이 되는 경우에 그 외국법이 한국법을 준거법으로 정할 때는 한국법을 적용한다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-부동산등기법23">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>부동산등기법 제23조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>상속등기</strong><br>
+                        상속에 의한 등기는 신청인의 청구에 의해 한다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-외국인토지법4">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>외국인토지법 제4조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>외국인의 토지취득 제한</strong><br>
+                        외국인의 농지 취득은 관련 부처의 승인을 받아야 한다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-공증인법">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>공증인법</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>서명공증</strong><br>
+                        외국인의 서명 공증는 공증인이 수행한다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-헤이그협약">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>헤이그 아포스티유협약</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>국제 공증</strong><br>
+                        한국(1992년 가입)과 170개 이상 국가 간 서류 인증 협약.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-민법1000">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>민법 제1000조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>상속인</strong><br>
+                        한국법에 따른 상속인의 범위 및 순위.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-민법1009">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>민법 제1009조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>상속의 효력</strong><br>
+                        상속인은 피상속인의 모든 권리와 의무를 승계한다.
+                    </div>
+                </div>
+            </div>
+
+            <div id="panel-practice" class="sidebar-panel">
+                <div class="practice-section">
+                    <h5>외국 서류 인증 국가</h5>
+                    <ul>
+                        <li>아포스티유: 미국, 일본, 중국 등</li>
+                        <li>영사 확인: 베트남, 태국 등</li>
+                        <li>혼합: 일부 국가에서 아포스티유 미발급</li>
+                    </ul>
+                </div>
+
+                <div class="practice-section">
+                    <h5>필수 비용 항목</h5>
+                    <ul>
+                        <li>아포스티유: 50,000원</li>
+                        <li>번역료: 200,000~500,000원</li>
+                        <li>공증료: 50,000~100,000원</li>
+                        <li>등기수수료: 10,000~200,000원</li>
+                    </ul>
+                </div>
+
+                <div class="practice-section">
+                    <h5>절차 소요 기간</h5>
+                    <ul>
+                        <li>아포스티유: 1~2주</li>
+                        <li>번역: 5~7일</li>
+                        <li>공증: 1~2일</li>
+                        <li>등기: 1~2주</li>
+                    </ul>
+                </div>
+
+                <div class="practice-section">
+                    <h5>주의사항</h5>
+                    <ul>
+                        <li>여권 유효기간 확인</li>
+                        <li>아포스티유 vs 영사 확인 구분</li>
+                        <li>번역 공증 필수</li>
+                        <li>등기소 사전 상담</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tab){
+            document.querySelectorAll('.sidebar-tab').forEach(t=>t.classList.remove('active'));
+            document.querySelectorAll('.sidebar-panel').forEach(p=>p.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById('panel-'+tab).classList.add('active');
+        }
+        function toggleLaw(header){
+            const body=header.nextElementSibling;
+            const isOpen=body.classList.contains('open');
+            body.classList.toggle('open');
+            header.querySelector('span:last-child').textContent=isOpen?'＋':'－';
+        }
+        function openLaw(id){
+            const lawTab=document.querySelector('.sidebar-tab:first-child');
+            const lawPanel=document.getElementById('panel-law');
+            document.querySelectorAll('.sidebar-tab').forEach(t=>t.classList.remove('active'));
+            document.querySelectorAll('.sidebar-panel').forEach(p=>p.classList.remove('active'));
+            lawTab.classList.add('active');
+            lawPanel.classList.add('active');
+            const item=document.getElementById('law-'+id);
+            if(item){
+                const body=item.querySelector('.law-item-body');
+                const header=item.querySelector('.law-item-header');
+                body.classList.add('open');
+                header.querySelector('span:last-child').textContent='－';
+                item.scrollIntoView({behavior:'smooth',block:'center'});
+            }
+        }
+        const sections=document.querySelectorAll('.section');
+        const tocLinks=document.querySelectorAll('.toc-link');
+        const observer=new IntersectionObserver((entries)=>{
+            entries.forEach(e=>{
+                if(e.isIntersecting){
+                    tocLinks.forEach(l=>l.classList.remove('active'));
+                    const active=document.querySelector('.toc-link[href="#'+e.target.id+'"]');
+                    if(active)active.classList.add('active');
+                }
+            });
+        },{rootMargin:'-20% 0px -70% 0px'});
+        sections.forEach(s=>observer.observe(s));
+    </script>
+</body>
+</html>

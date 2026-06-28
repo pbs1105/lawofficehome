@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[내부용] 사실조회 — 법무사 실무 어드민</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1a2e4a;--gold:#c8a96e;--ivory:#faf8f5;--ink:#2b2b2b;--muted:#5b5b5b;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--ivory);color:var(--ink);font-family:'Noto Sans KR',sans-serif;line-height:1.75;font-size:15px;padding-top:44px;}
+.top-bar{position:fixed;top:0;left:0;right:0;background:#2d2d2d;color:#fff;text-align:center;font-size:.82rem;font-weight:700;letter-spacing:.08em;padding:10px 16px;z-index:999;}
+.wrap{max-width:900px;margin:0 auto;padding:28px 20px 100px;}
+h1,h2,h3,h4{font-family:'Noto Serif KR',serif;color:var(--navy);line-height:1.4;}
+h1{font-size:1.7rem;margin-bottom:6px;}
+h3{font-size:1.08rem;margin:20px 0 6px;}
+h4{font-size:.98rem;margin:14px 0 4px;color:#2d4a7a;}
+p{margin:8px 0;}
+ul,ol{padding-left:1.4em;margin:8px 0;}
+li{margin:4px 0;}
+.summary-header{background:var(--navy);color:#fff;border-radius:10px;padding:22px 26px;margin-bottom:24px;}
+.summary-header h1{color:#fff;}
+.summary-header .sub{color:#c8c8c8;font-size:.88rem;margin-top:4px;}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+.badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:4px 14px;font-size:.8rem;font-weight:600;}
+.badge.gold{background:#c8a96e;color:#2b1a00;border-color:#c8a96e;}
+section{margin-top:32px;}
+h2.sec{font-size:1.25rem;padding-bottom:8px;border-bottom:2px solid var(--gold);display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+h2.sec .num{background:var(--navy);color:#fff;font-family:'Noto Sans KR';font-size:.85rem;width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;}
+.box{border-radius:8px;padding:16px 20px;margin:12px 0;}
+.box-scope{background:#fff3e8;border:2px solid #c05000;border-left:6px solid #c05000;}
+.box-issue{background:#f4f7fb;border:1px solid #2d4a7a;border-left:5px solid #2d4a7a;}
+.box-tip{background:#f0f8f0;border:1px solid #1a5c2e;border-left:5px solid #1a5c2e;}
+.box-memo{background:#fffdf5;border:2px dashed #c8a96e;border-radius:8px;padding:14px 18px;margin:12px 0;}
+.box-trap{background:#fff3e8;border:1px solid #c05000;border-left:5px solid #c05000;}
+.box h3{margin-top:0;font-size:1rem;}
+.tablebox{overflow-x:auto;margin:12px 0;}
+table{border-collapse:collapse;width:100%;background:#fff;font-size:.9rem;}
+th,td{border:1px solid #d9d3c7;padding:9px 12px;text-align:left;vertical-align:top;}
+th{background:var(--navy);color:#fff;font-weight:500;}
+tbody tr:nth-child(even){background:#f6f3ee;}
+td.val{font-weight:600;color:#2d4a7a;}
+td.warn{color:#c05000;font-weight:600;}
+td.ok{color:#1a5c2e;font-weight:600;}
+.steps{counter-reset:step;margin:12px 0;}
+.step{background:#fff;border:1px solid #e3ddd2;border-left:4px solid var(--gold);border-radius:8px;padding:14px 18px 14px 54px;position:relative;margin:10px 0;}
+.step::before{counter-increment:step;content:counter(step);position:absolute;left:14px;top:14px;width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;font-size:.88rem;display:flex;align-items:center;justify-content:center;}
+.step h4{margin:0 0 4px;}
+.ref-tags{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0;}
+.tag-law{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.76rem;font-weight:600;text-decoration:none;background:#eef2f8;color:#2d4a7a;border:1px solid #2d4a7a;}
+.tag-law:hover{background:#dce6f5;}
+.tag-case{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.76rem;font-weight:600;text-decoration:none;background:#f7f4f0;color:#5a3e28;border:1px solid #6b7280;}
+.checklist{list-style:none;padding:0;}
+.checklist li{padding:6px 0 6px 28px;position:relative;border-bottom:1px dashed #ece7dd;}
+.checklist li:last-child{border-bottom:none;}
+.checklist li::before{content:"☐";position:absolute;left:0;top:6px;color:var(--gold);font-size:1.1rem;}
+.footer-meta{margin-top:48px;border-top:2px solid #e3ddd2;padding-top:20px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
+.footer-meta .col{background:#fff;border:1px solid #e3ddd2;border-radius:8px;padding:14px 16px;}
+.footer-meta label{display:block;font-size:.76rem;color:var(--muted);font-weight:600;margin-bottom:4px;}
+.footer-meta .val{font-size:.88rem;color:var(--ink);}
+@media(max-width:600px){.footer-meta{grid-template-columns:1fr;}.badges{gap:6px;}}
+</style>
+</head>
+<body>
+<div class="top-bar">🔒 내부용 · 대외 배포 금지 — 법무사 사무소 전용</div>
+<div class="wrap">
+<div class="summary-header">
+  <h1>사실조회 (조사·송부의 촉탁)</h1>
+  <div class="sub">민사소송법 제294조, 민사소송규칙 제121조 / 법무사 업무: 사실조회신청서·문서송부촉탁 신청서 작성·제출 대행</div>
+  <div class="badges">
+    <span class="badge">사건유형: 민사소송 증거조사 단계</span>
+    <span class="badge">관할: 수소법원</span>
+    <span class="badge">근거법령: 민사소송법 제294조, 민소규 제121조</span>
+    <span class="badge">대상: 공공기관·법인·개인</span>
+    <span class="badge gold">핵심: 조사 대상 특정·회신 기간 추적</span>
+  </div>
+</div>
+<section>
+  <h2 class="sec"><span class="num">0</span>⚠️ 법무사 업무범위 · 수임 판단</h2>
+  <div class="box box-scope">
+    <h3>업무범위 한계</h3>
+    <ul>
+      <li><strong>가능:</strong> 사실조회신청서 작성·제출 대행, 문서송부촉탁 신청서 작성, 조회 대상 기관 정보 수집, 회신 결과 수령 및 의뢰인 전달</li>
+      <li><strong>불가(변호사법 위반):</strong> 조회 결과의 법적 의미 판단, 사실조회 결과를 활용한 소송전략 수립, 회신 거부 시 대응 방법 법률 조언</li>
+    </ul>
+    <h3 style="margin-top:14px;">수임 판단 포인트</h3>
+    <ul>
+      <li>사실조회는 특정 사항에 대한 조사를 촉탁하는 것 — 조회 사항이 구체적으로 특정되어야 함</li>
+      <li>감정이 필요한 사항(전문가 판단)과 단순 사실 확인(사실조회)을 구분</li>
+      <li>금융기관 거래내역 → 문서송부촉탁, 관공서 보유 사실 → 사실조회로 진행</li>
+    </ul>
+    <h3 style="margin-top:14px;">받지 말아야 할 신호 체크리스트</h3>
+    <ul class="checklist">
+      <li>"조회 결과가 어떤 의미인지 분석해주세요" — 법률 판단 요구</li>
+      <li>"조회 결과로 어떻게 주장해야 하나요?" — 소송전략 요구</li>
+      <li>회신 거부 시 법적 대응 방법 문의 — 법률 조언에 해당</li>
+    </ul>
+  </div>
+</section>
+<section>
+  <h2 class="sec"><span class="num">1</span>핵심쟁점</h2>
+  <div class="box box-issue">
+    <h3>실체적 쟁점 — 사실조회 vs 유사 제도 비교</h3>
+    <div class="tablebox">
+      <table>
+        <thead><tr><th>제도</th><th>내용</th><th>근거</th><th>특징</th></tr></thead>
+        <tbody>
+          <tr><td class="val">사실조회</td><td>단체·개인에게 특정 사실 확인 촉탁</td><td>민소 §294</td><td>사실 확인 목적, 법원이 촉탁 주체</td></tr>
+          <tr><td class="val">문서송부촉탁</td><td>보유 문서를 법원에 송부 요청</td><td>민소규 §121</td><td>문서 자체를 서증으로 활용</td></tr>
+          <tr><td class="val">감정촉탁</td><td>전문기관에 전문적 판단 의뢰</td><td>민소 §341</td><td>법인·기관에도 가능, 전문지식 필요</td></tr>
+          <tr><td class="val">문서제출명령</td><td>당사자/제3자에게 보유 문서 제출 명령</td><td>민소 §343</td><td>강제력 있음, 불응 시 불이익</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3 style="margin-top:14px;">절차적 쟁점 (결정적 체크포인트)</h3>
+    <ul>
+      <li>사실조회는 법원이 결정으로 발령 — 당사자 직접 조회 불가</li>
+      <li>조회 대상 기관이 회신 거부 시 법원이 과태료 부과 가능 (민소 §294 후단)</li>
+      <li>회신 결과는 서증으로 취급하지 않고 사실조회 결과로 별도 처리</li>
+    </ul>
+  </div>
+</section>
+<section>
+  <h2 class="sec"><span class="num">2</span>업무 절차 흐름</h2>
+  <div class="steps">
+    <div class="step">
+      <h4>조회 사항 및 대상 기관 특정</h4>
+      <p>의뢰인으로부터 확인이 필요한 사실과 해당 기관(금융기관, 관공서, 법인 등)을 특정받음. 기관명·주소·담당 부서 파악.</p>
+      <div class="box box-tip" style="margin-top:8px;">💡 <strong>실무 TIP:</strong> 조회 사항은 "○○○에 관한 사실을 조회합니다" 형식으로 구체적으로 특정 — 막연한 조회는 법원이 기각 가능</div>
+    </div>
+    <div class="step">
+      <h4>사실조회신청서 작성</h4>
+      <p>조회 대상 기관, 조회 사항, 조회 필요성(증명취지) 기재. 대상 기관 수가 많으면 별지 목록 활용.</p>
+    </div>
+    <div class="step">
+      <h4>전자소송 제출 또는 법원 접수</h4>
+      <p>신청서를 법원에 제출. 법원이 결정하면 직접 해당 기관에 조회서 발송.</p>
+    </div>
+    <div class="step">
+      <h4>회신 결과 모니터링</h4>
+      <p>법원을 통해 회신 도달 여부 확인. 회신 지연 시 법원에 독촉 요청 가능. 회신 결과 의뢰인에게 전달.</p>
+    </div>
+    <div class="step">
+      <h4>문서송부촉탁 신청 (금융기관 등)</h4>
+      <p>금융거래정보 등 문서 자체가 필요한 경우 문서송부촉탁 신청서 별도 작성. 기관명·문서 종류·기간 명시.</p>
+      <div class="box box-tip" style="margin-top:8px;">💡 <strong>실무 TIP:</strong> 금융기관 거래내역 — 은행명·계좌번호·기간 구체적 특정 필수</div>
+    </div>
+  </div>
+</section>
+<section>
+  <h2 class="sec"><span class="num">3</span>첨부서류 표</h2>
+  <div class="tablebox">
+    <table>
+      <thead><tr><th>서류명</th><th>필수/선택</th><th>법령근거</th><th>발급처</th><th>유효기간</th><th>실무 비고</th></tr></thead>
+      <tbody>
+        <tr><td class="val">사실조회신청서</td><td class="ok">필수</td><td>민소 §294</td><td>작성</td><td>—</td><td>조회대상·조회사항·증명취지 명시</td></tr>
+        <tr><td class="val">문서송부촉탁 신청서</td><td>선택</td><td>민소규 §121</td><td>작성</td><td>—</td><td>기관명·문서 종류·기간 구체적 기재</td></tr>
+        <tr><td class="val">감정촉탁 신청서</td><td>선택</td><td>민소 §341</td><td>작성</td><td>—</td><td>전문기관에 전문적 판단 의뢰 시</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section>
+  <h2 class="sec"><span class="num">4</span>비용 · 소가 산정</h2>
+  <div class="box box-issue">
+    <div class="tablebox">
+      <table>
+        <thead><tr><th>항목</th><th>금액/산식</th><th>비고</th></tr></thead>
+        <tbody>
+          <tr><td class="val">사실조회 신청 인지</td><td>없음</td><td>별도 인지 불필요</td></tr>
+          <tr><td class="val">감정촉탁 비용 예납</td><td>기관·감정내용에 따라 상이</td><td>법원 결정 후 예납</td></tr>
+          <tr><td class="val">법무사 서류작성 보수</td><td>대법원 법무사 보수표 적용</td><td>[계산 프로그램 입력란]</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<section>
+  <h2 class="sec"><span class="num">5</span>법령 · 판례 검증</h2>
+  <div class="box box-issue">
+    <h3>주요 근거 법령</h3>
+    <div class="ref-tags">
+      <a class="tag-law" href="https://www.law.go.kr/lsEfInfoR.do?lsiSeq=252393&joNo=029400" target="_blank">✅ 민소 §294 — 조사의 촉탁(사실조회)</a>
+      <a class="tag-law" href="https://www.law.go.kr/lsEfInfoR.do?lsiSeq=252393&joNo=034100" target="_blank">✅ 민소 §341 — 감정촉탁</a>
+      <a class="tag-law" href="https://www.law.go.kr/lsEfInfoR.do?lsiSeq=252393&joNo=034300" target="_blank">✅ 민소 §343 — 문서제출명령</a>
+    </div>
+    <h3 style="margin-top:14px;">주요 판례</h3>
+    <div class="ref-tags">
+      <span class="tag-case">대법원 1999. 7. 13. 선고 97다57979 — 소송 외 사감정서는 서증으로 제출 가능, 단 신뢰성 심사 필요</span>
+      <span class="tag-case">대법원 2010. 5. 13. 선고 2010다6222 — 일방 의뢰 사감정 신중 채용 원칙</span>
+    </div>
+  </div>
+</section>
+<section>
+  <h2 class="sec"><span class="num">6</span>법무사 실무 노하우</h2>
+  <div class="box box-tip">
+    <h3>💡 실무 TIP 모음</h3>
+    <ul>
+      <li>사실조회 신청 시 조회 사항을 번호별로 나열 — 기관이 항목별로 답변하기 용이</li>
+      <li>금융기관 조회는 문서송부촉탁이 더 효과적 — 거래내역 원문 자체를 서증으로 확보 가능</li>
+      <li>회신 기간을 법원에서 지정하지 않으면 기관이 지연하는 경우 많음 — 법원에 기간 지정 요청 권장</li>
+      <li>감정촉탁 vs 사실조회 구분 — 전문적 판단이 필요하면 감정촉탁, 단순 사실 확인이면 사실조회</li>
+      <li>관공서 보유 행정정보(건축물대장·토지이용계획 등)는 사실조회 또는 서증 발급으로 확보</li>
+    </ul>
+  </div>
+  <div class="box-memo">
+    <strong>📝 현장 메모 [직접 추가]</strong>
+    <p style="color:#888;font-size:.88rem;margin-top:6px;">자주 사실조회 신청하는 기관, 담당 부서, 평균 회신 기간, 특이 사례 등을 기록하세요.</p>
+    <br><br><br>
+  </div>
+</section>
+<section>
+  <h2 class="sec"><span class="num">7</span>주의사항 &amp; 사고 · 실수 사례</h2>
+  <div class="box box-trap">
+    <h3>⚡ 기간도과 위험</h3>
+    <ul>
+      <li>회신 지연으로 변론종결 전 결과 미도달 시 — 법원에 변론재개 신청 또는 기간 연장 요청 필요</li>
+      <li>감정촉탁 비용 예납 지연 — 감정 절차 중단 가능</li>
+    </ul>
+    <h3 style="margin-top:14px;">흔한 실수</h3>
+    <ul>
+      <li>조회 사항이 지나치게 포괄적 — 법원 기각 또는 기관 회신 거부</li>
+      <li>조회 대상 기관 주소·담당 부서 오기 — 조회서 반송</li>
+      <li>사감정서(소송 외 감정)를 감정결과로 혼동 — 서증으로 제출하되 감정결과로 취급 금지</li>
+    </ul>
+    <h3 style="margin-top:14px;">변호사법 경계선</h3>
+    <ul>
+      <li>조회 결과의 법적 의미 분석 — 법률 조언에 해당</li>
+      <li>회신 거부 시 과태료 신청 방법 조언 — 소송 관련 법률 조언</li>
+    </ul>
+  </div>
+</section>
+<div class="footer-meta">
+  <div class="col"><label>작성일</label><div class="val">2026. 6. 4.</div></div>
+  <div class="col"><label>근거기준일 (법령)</label><div class="val">민사소송법 (2024. 2. 13. 시행 기준)</div></div>
+  <div class="col"><label>최종검토자 메모</label><div class="val" style="color:#888;">[검토자 이름 · 날짜 기재]</div></div>
+</div>
+</div>
+</body>
+</html>

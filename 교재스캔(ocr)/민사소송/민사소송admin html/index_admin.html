@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[내부용] 민사소송 실무 Admin — 전체 목차</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1a2e4a; --gold:#c8a96e; --ivory:#faf8f5; --ink:#2b2b2b;
+    --muted:#5b5b5b; --tip-bg:#f0f8f0; --tip-bd:#1a5c2e;
+    --warn-bg:#fff3e8; --warn-bd:#c05000;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--ivory); color:var(--ink); font-family:'Noto Sans KR',sans-serif; line-height:1.75; font-size:16px;}
+
+  /* 상단 내부용 바 */
+  .topbar{
+    position:sticky; top:0; z-index:100;
+    background:#2d2d2d; color:#fff;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:8px 24px; font-size:.82rem; font-weight:500; letter-spacing:.04em;
+  }
+  .topbar .lock{color:#f5c842; margin-right:6px; font-size:1rem;}
+  .topbar .date{color:#aaa; font-size:.78rem;}
+
+  /* 히어로 헤더 */
+  header.hero{
+    background:linear-gradient(135deg,#1a2e4a 0%,#27406a 100%);
+    color:#fff; padding:52px 24px 44px; text-align:center;
+    border-bottom:4px solid var(--gold);
+  }
+  header.hero .kicker{
+    display:inline-block; letter-spacing:.18em; font-size:.78rem;
+    color:var(--gold); font-weight:700; margin-bottom:12px;
+    border:1px solid var(--gold); padding:3px 14px; border-radius:20px;
+  }
+  header.hero h1{font-family:'Noto Serif KR',serif; color:#fff; font-size:2rem; margin:0 0 12px;}
+  header.hero p{color:#dbe3ef; font-size:1rem; max-width:640px; margin:0 auto;}
+  .admin-badge{
+    display:inline-block; background:#c05000; color:#fff;
+    font-size:.75rem; font-weight:700; padding:4px 14px;
+    border-radius:20px; margin-top:16px; letter-spacing:.06em;
+  }
+
+  .wrap{max-width:960px; margin:0 auto; padding:0 24px 80px;}
+
+  /* 안내 박스 */
+  .info-box{
+    background:var(--warn-bg); border:1px solid var(--warn-bd);
+    border-left:5px solid var(--warn-bd); border-radius:8px;
+    padding:18px 22px; margin:36px 0 0;
+  }
+  .info-box h3{color:#c05000; font-size:1rem; margin-bottom:8px;}
+  .info-box ul{padding-left:1.2em; color:#5a2a00; font-size:.94rem;}
+  .info-box li{margin:4px 0;}
+
+  /* 구분 섹션 */
+  .cat-title{
+    font-family:'Noto Serif KR',serif; color:var(--navy);
+    font-size:1.22rem; margin:44px 0 16px;
+    padding-bottom:10px; border-bottom:2px solid var(--gold);
+    display:flex; align-items:center; gap:10px;
+  }
+  .cat-title .num{
+    background:var(--navy); color:#fff; font-family:'Noto Sans KR';
+    font-size:.85rem; width:28px; height:28px; border-radius:50%;
+    display:inline-flex; align-items:center; justify-content:center; flex:0 0 auto;
+  }
+
+  /* 카드 그리드 */
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(270px, 1fr));
+    gap:14px;
+  }
+  .card{
+    background:#fff; border:1px solid #e3ddd2;
+    border-left:4px solid var(--gold); border-radius:10px;
+    padding:16px 18px; text-decoration:none; color:var(--navy);
+    transition:box-shadow .15s, transform .1s;
+    display:block;
+  }
+  .card:hover{box-shadow:0 4px 18px rgba(26,46,74,.12); transform:translateY(-2px);}
+  .card .card-num{
+    font-size:.72rem; font-weight:700; color:var(--gold);
+    letter-spacing:.1em; margin-bottom:6px;
+  }
+  .card h3{font-size:1rem; font-family:'Noto Serif KR',serif; margin-bottom:6px; line-height:1.4;}
+  .card p{font-size:.84rem; color:var(--muted); line-height:1.6;}
+  .card .badge-row{display:flex; gap:6px; flex-wrap:wrap; margin-top:10px;}
+  .badge{
+    display:inline-block; font-size:.72rem; font-weight:600;
+    padding:2px 9px; border-radius:10px; letter-spacing:.02em;
+  }
+  .badge-law{background:#eef2f8; color:#2d4a7a; border:1px solid #c5d0e0;}
+  .badge-proc{background:#f0f8f0; color:#1a5c2e; border:1px solid #b8d8b8;}
+  .badge-warn{background:#fff3e8; color:#c05000; border:1px solid #e8c090;}
+
+  /* 빠른 링크 바 */
+  .quicknav{
+    background:#fff; border:1px solid #e3ddd2; border-radius:10px;
+    padding:16px 20px; margin:32px 0 8px;
+    display:flex; flex-wrap:wrap; gap:8px; align-items:center;
+  }
+  .quicknav .label{font-size:.82rem; color:var(--muted); font-weight:600; margin-right:4px;}
+  .quicknav a{
+    font-size:.82rem; color:var(--navy); text-decoration:none;
+    background:#f3f0ea; border:1px solid #e0d8c8; border-radius:14px;
+    padding:4px 12px; font-weight:500; transition:background .15s;
+  }
+  .quicknav a:hover{background:#efe7d6;}
+
+  /* 메모 영역 */
+  .memo{
+    background:#fffdf5; border:1px dashed var(--gold);
+    border-radius:10px; padding:20px 24px; margin-top:44px;
+  }
+  .memo h3{color:var(--navy); font-size:1rem; margin-bottom:10px;}
+  .memo table{width:100%; border-collapse:collapse; font-size:.9rem;}
+  .memo td{padding:7px 10px; border-bottom:1px solid #f0e8d0; vertical-align:top;}
+  .memo td:first-child{color:var(--muted); white-space:nowrap; width:130px;}
+
+  @media(max-width:600px){
+    header.hero h1{font-size:1.5rem;}
+    .card-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<!-- 상단 내부용 고정 바 -->
+<div class="topbar">
+  <span><span class="lock">🔒</span> 내부용 · 대외 배포 금지 — 법무사 사무소 직원 전용</span>
+  <span class="date">기준: 2026.06 / 민사소송법(lsiSeq 252393)</span>
+</div>
+
+<!-- 히어로 -->
+<header class="hero">
+  <span class="kicker">ADMIN · INTERNAL USE ONLY</span>
+  <h1>민사소송 실무 직원용 Admin</h1>
+  <p>법무사 사무소 직원이 민사소송 사건을 정확하고 효율적으로 처리하기 위한 내부 실무 지원 페이지 전체 목차입니다.<br>
+  각 페이지는 핵심쟁점·업무절차·첨부서류·비용산정·법무사 노하우를 집약하고 있습니다.</p>
+  <div class="admin-badge">⚠️ 이 페이지 모음은 대외 배포 금지입니다</div>
+</header>
+
+<div class="wrap">
+
+  <!-- 법무사 업무범위 경고 -->
+  <div class="info-box">
+    <h3>⚠️ 모든 사건에 공통 적용 — 법무사 업무범위 한계</h3>
+    <ul>
+      <li>법무사는 <strong>소송대리권이 없습니다.</strong> 서류 작성·제출 대행만 가능하며, 법정 대리·변론·교섭은 변호사법 위반 소지.</li>
+      <li>의뢰인 앞에서 "승소 가능성"을 단정하거나, 상대방과 직접 교섭·협상하지 않습니다.</li>
+      <li>소멸시효·제소기간 도과 여부를 먼저 확인하고, 실익 없는 사건은 수임 전 명확히 설명합니다.</li>
+      <li>변호사 연계가 필요한 사건(법률판단이 복잡한 사건, 고액 청구, 기업 분쟁 등)은 사전에 협력 변호사를 소개합니다.</li>
+    </ul>
+  </div>
+
+  <!-- 빠른 이동 -->
+  <div class="quicknav">
+    <span class="label">빠른 이동 ›</span>
+    <a href="#cat-overview">개관·기본</a>
+    <a href="#cat-filing">소 제기</a>
+    <a href="#cat-procedure">소송 진행</a>
+    <a href="#cat-evidence">증거·입증</a>
+    <a href="#cat-end">판결·종결</a>
+    <a href="#cat-special">특별 절차</a>
+  </div>
+
+  <!-- ① 개관 · 기본 -->
+  <div class="cat-title" id="cat-overview">
+    <span class="num">1</span> 개관 · 기본 절차
+  </div>
+  <div class="card-grid">
+
+    <a class="card" href="민사소송절차개관_admin.html">
+      <div class="card-num">ADMIN 01</div>
+      <h3>민사소송 절차 개관</h3>
+      <p>소 제기부터 판결·상소까지 전체 흐름. 각 단계의 법무사 역할과 주의점.</p>
+      <div class="badge-row">
+        <span class="badge badge-proc">절차 전반</span>
+        <span class="badge badge-law">민소 §248</span>
+      </div>
+    </a>
+
+    <a class="card" href="관할-어느법원에소송을내야하나_admin.html">
+      <div class="card-num">ADMIN 02</div>
+      <h3>관할 — 어느 법원에 소송을 내야 하나</h3>
+      <p>토지관할·사물관할 판단 기준, 합의관할·전속관할, 이송 처리 요령.</p>
+      <div class="badge-row">
+        <span class="badge badge-law">민소 §2·§3·§8</span>
+        <span class="badge badge-warn">관할 오기 → 이송</span>
+      </div>
+    </a>
+
+    <a class="card" href="소가산정방법_admin.html">
+      <div class="card-num">ADMIN 03</div>
+      <h3>소가 산정 방법</h3>
+      <p>재산권·비재산권 구분, 병합청구 소가, 인지액·송달료 산식. 계산 프로그램 연동.</p>
+      <div class="badge-row">
+        <span class="badge badge-law">인지법 §2</span>
+        <span class="badge badge-proc">비용 산정</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- ② 소 제기 -->
+  <div class="cat-title" id="cat-filing">
+    <span class="num">2</span> 소 제기 · 서류 작성
+  </div>
+  <div class="card-grid">
+
+    <a class="card" href="소장작성과서류제출-필요한사항_admin.html">
+      <div class="card-num">ADMIN 04</div>
+      <h3>소장 작성과 서류 제출</h3>
+      <p>소장 필수 기재사항, 청구취지·청구원인 작성법, 인지·첨부서류 준비, 전자소송 제출 절차.</p>
+      <div class="badge-row">
+        <span class="badge badge-law">민소 §249</span>
+        <span class="badge badge-warn">보정명령 주의</span>
+      </div>
+    </a>
+
+    <a class="card" href="송달과송달지연대응_admin.html">
+      <div class="card-num">ADMIN 05</div>
+      <h3>송달과 송달지연 대응</h3>
+      <p>송달 방법 선택, 주소보정·공시송달 절차, 송달불능 시 실무 대응 흐름.</p>
+      <div class="badge-row">
+        <span class="badge badge-law">민소 §174·§186·§194</span>
+        <span class="badge badge-warn">송달지연 → 기간 도과 위험</span>
+      </div>
+    </a>
+
+    <a class="card" href="답변서작성과제출_admin.html">
+      <div class="card-num">ADMIN 06</div>
+      <h3>답변서 작성과 제출</h3>
+      <p>피고 측 답변서 30일 기한, 항변·부인·자백 구분, 반소 가능 여부 검토.</p>
+      <div class="badge-row">
+        <span class="badge badge-law">민소 §256·§257</span>
+        <span class="badge badge-warn">30일 미제출 → 무변론판결</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- ③ 소송 진행 -->
+  <div class="cat-title" id="cat-procedure">
+    <span class="num">3</span> 소송 진행 · 변론
+  </div>
+  <div class="card-grid">
+
+    <a class="card" href="변론_admin.html">
+      <div class="card-num">ADMIN 07</div>
+      <h3>변론</h3>
+      <p>변론준비절차·변론기일 구분, 변론주의 적용범위, 석명권 대응, 기일변경 절차.</p>
+      <div class="badge-row">
+        <span class="badge badge-law">민소 §134·§203</span>
+        <span class="badge badge-proc">변론 진행</span>
+      </div>
+    </a>
+
+    <a class="card" href="준비서면작성과제출_admin.html">
+      <div class="card-num">ADMIN 08</div>
+      <h3>준비서면 작성과 제출</h3>
+      <p>준비서면 기재사항, 서면 공방 흐름, 기일 전 제출 기한, 실기한 공격방어방법.</p>
+      <div class="badge-row">
+        <span class="badge badge-law">민소 §272·§285</span>
+        <span class="badge badge-warn">실기한 주장 → 각하</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- ④ 증거 · 입증 -->
+  <div class="cat-title" id="cat-evidence">
+    <span class="num">4</span> 증거 · 입증
+  </div>
+  <div class="card-grid">
+
+    <a class="card" href="입증_admin.html">
+      <div class="card-num">ADMIN 09</div>
+      <h3>입증 (증거 일반)</h3>
+      <p>입증책임 분배, 증거조사 신청 방법, 증인·감정·당사자신문 비교, 자유심증주의.</p>
+      <div class="badge-row">
+        <span class="badge badge-law">민소 §202·§289</span>
+        <span class="badge badge-proc">증거 전략</span>
+      </div>
+    </a>
+
+    <a class="card" href="서증_admin.html">
+      <div class="card-num">ADMIN 10</div>
+      <h3>서증</h3>
+      <p>문서제출의무, 공문서·사문서 증명력 차이, 문서인부 절차, 원본·사본 취급.</p>
+      <div class="badge-row">
+        <span class="badge badge-law">민소 §343·§362</span>
+        <span class="badge badge-warn">원본 미확보 → 증명력 약화</span>
+      </div>
+    </a>
+
+    <a class="card" href="사실조회_admin.html">
+      <div class="card-num">ADMIN 11</div>
+      <h3>사실조회</h3>
+      <p>금융정보·행정정보·법인등기 사실조회 신청, 회신 기간, 조회 불가 항목 구분.</p>
+      <div class="badge-row">
+        <span class="badge badge-law">민소 §294</span>
+        <span class="badge badge-proc">금융·행정 조회</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- ⑤ 판결 · 종결 -->
+  <div class="cat-title" id="cat-end">
+    <span class="num">5</span> 판결 · 종결 · 비용
+  </div>
+  <div class="card-grid">
+
+    <a class="card" href="판결_admin.html">
+      <div class="card-num">ADMIN 12</div>
+      <h3>판결</h3>
+      <p>판결 선고·송달, 가집행 선고 의미, 판결 확정 시점, 판결 경정·이의 절차.</p>
+      <div class="badge-row">
+        <span class="badge badge-law">민소 §198·§220·§268</span>
+        <span class="badge badge-warn">상소기간 2주</span>
+      </div>
+    </a>
+
+    <a class="card" href="소송비용_admin.html">
+      <div class="card-num">ADMIN 13</div>
+      <h3>소송비용</h3>
+      <p>소송비용 부담·확정·집행, 인지환급, 송달료 정산, 비용계산 산식.</p>
+      <div class="badge-row">
+        <span class="badge badge-law">민소 §98·§110</span>
+        <span class="badge badge-proc">비용 정산</span>
+      </div>
+    </a>
+
+    <a class="card" href="상소_admin.html">
+      <div class="card-num">ADMIN 14</div>
+      <h3>상소 (항소·상고·항고·재심)</h3>
+      <p>항소·상고 제기 기간, 항소이유·상고이유 특정, 심리불속행 기각 대응.</p>
+      <div class="badge-row">
+        <span class="badge badge-law">민소 §390·§394·§451</span>
+        <span class="badge badge-warn">2주 기간 엄수</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- ⑥ 특별 절차 -->
+  <div class="cat-title" id="cat-special">
+    <span class="num">6</span> 특별 절차 · 간이 절차
+  </div>
+  <div class="card-grid">
+
+    <a class="card" href="소액사건심판_admin.html">
+      <div class="card-num">ADMIN 15</div>
+      <h3>소액사건심판</h3>
+      <p>3,000만 원 이하 소액사건 요건, 이행권고결정 이의 2주, 1회 변론 완결 원칙.</p>
+      <div class="badge-row">
+        <span class="badge badge-law">소액사건심판법 §2·§5</span>
+        <span class="badge badge-warn">이행권고 이의 2주</span>
+      </div>
+    </a>
+
+    <a class="card" href="독촉절차_admin.html">
+      <div class="card-num">ADMIN 16</div>
+      <h3>독촉절차 (지급명령)</h3>
+      <p>지급명령 요건·신청, 이의신청 2주, 소송이행 전환, 인지 1/10 납부·보정.</p>
+      <div class="badge-row">
+        <span class="badge badge-law">민소 §462·§472</span>
+        <span class="badge badge-warn">이의 → 소송이행 인지 보정</span>
+      </div>
+    </a>
+
+    <a class="card" href="민사조정_admin.html">
+      <div class="card-num">ADMIN 17</div>
+      <h3>민사조정</h3>
+      <p>조정 신청 요건, 강제조정 이의 2주, 조정조서 집행력, 조정 불가 사건 목록.</p>
+      <div class="badge-row">
+        <span class="badge badge-law">민조법 §2·§26</span>
+        <span class="badge badge-warn">강제조정 이의 2주</span>
+      </div>
+    </a>
+
+    <a class="card" href="제소전화해_admin.html">
+      <div class="card-num">ADMIN 18</div>
+      <h3>제소전화해</h3>
+      <p>화해 신청 절차, 화해조서 즉시 집행력, 금지 조항 3종, 불성립 시 소제기 전환.</p>
+      <div class="badge-row">
+        <span class="badge badge-law">민소 §385·§388</span>
+        <span class="badge badge-warn">금지 조항 주의</span>
+      </div>
+    </a>
+
+    <a class="card" href="의사표시의공시송달_admin.html">
+      <div class="card-num">ADMIN 19</div>
+      <h3>의사표시의 공시송달</h3>
+      <p>민법 113조 의사표시 공시송달 vs 소송공시송달 구분, 신청 요건, 14일 시효.</p>
+      <div class="badge-row">
+        <span class="badge badge-law">민법 §113 / 민소 §194</span>
+        <span class="badge badge-warn">14일 효력 발생</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- 내부 메모 영역 -->
+  <div class="memo">
+    <h3>📝 내부 메모 / 개정 이력</h3>
+    <table>
+      <tr>
+        <td>작성일</td>
+        <td>2026년 6월 4일</td>
+      </tr>
+      <tr>
+        <td>근거 기준일</td>
+        <td>민사소송법 (lsiSeq 252393) · 민법 (lsiSeq 122983) · 2025년 개정 반영</td>
+      </tr>
+      <tr>
+        <td>최종 검토자</td>
+        <td>📝 [직접 추가] _______________</td>
+      </tr>
+      <tr>
+        <td>개정 이력</td>
+        <td>📝 [직접 추가] _______________</td>
+      </tr>
+      <tr>
+        <td>비고</td>
+        <td>각 페이지의 📝 현장 메모 항목은 법무사가 직접 채워 노하우를 축적하세요.</td>
+      </tr>
+    </table>
+  </div>
+
+</div><!-- /wrap -->
+
+</body>
+</html>

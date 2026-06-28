@@ -714,21 +714,13 @@ function buildFooter() {
           <div class="footer-consult">
             <h3>📞 상담신청</h3>
             <p style="font-size:0.83rem;color:rgba(255,255,255,0.65);margin-bottom:18px;line-height:1.7;">
-              고객 유형을 선택하시면 맞춤 상담 신청 양식으로 연결됩니다.
+              개인·법인 모두 모든 업무에 대한 상담이 가능합니다.
             </p>
-            <a href="${CONSULT_URLS.personal}" target="_blank" class="footer-consult-btn">
-              <span class="footer-consult-btn-icon">👤</span>
+            <a href="${CONSULT_URL}" target="_blank" class="footer-consult-btn">
+              <span class="footer-consult-btn-icon">📝</span>
               <div>
-                <div class="footer-consult-btn-title">개인고객 상담신청</div>
-                <div class="footer-consult-btn-sub">신청 주체가 개인(자연인)이신 경우</div>
-              </div>
-              <span style="margin-left:auto;opacity:0.7;">→</span>
-            </a>
-            <a href="${CONSULT_URLS.corporate}" target="_blank" class="footer-consult-btn">
-              <span class="footer-consult-btn-icon">🏢</span>
-              <div>
-                <div class="footer-consult-btn-title">법인고객 상담신청</div>
-                <div class="footer-consult-btn-sub">신청 주체가 법인(회사·단체)인 경우</div>
+                <div class="footer-consult-btn-title">상담신청 하기</div>
+                <div class="footer-consult-btn-sub">개인·법인 통합 상담 신청</div>
               </div>
               <span style="margin-left:auto;opacity:0.7;">→</span>
             </a>
@@ -750,10 +742,7 @@ function buildFooter() {
 /* ============================================================
    MODAL
    ============================================================ */
-const CONSULT_URLS = {
-  personal:  'https://n8npark.app.n8n.cloud/form/abd1f9d0-4ae9-428c-949d-a8bd1e90a12c',
-  corporate: 'https://n8npark.app.n8n.cloud/form/92ea9eaf-074c-474a-b48c-3c30198101f4',
-};
+const CONSULT_URL = 'https://n8npark.app.n8n.cloud/form/c1a2b3c4-d5e6-4f70-8a90-111122223333';
 
 /* ═══════════════════════════════════════════════
    법령·판례 참조 태그 팝업
@@ -836,28 +825,18 @@ function buildModal() {
         <div class="modal-header">
           <div>
             <h2>⚖️ 상담신청</h2>
-            <p>고객 유형을 선택하시면 해당 신청 양식으로 이동합니다.</p>
+            <p>개인·법인 모두 모든 업무에 대한 상담이 가능합니다.</p>
           </div>
           <button class="modal-close" onclick="closeModal()">✕</button>
         </div>
         <div class="modal-body">
           <div class="consult-type-grid">
 
-            <button class="consult-type-card" onclick="goToConsult('personal')">
-              <div class="consult-type-icon">👤</div>
-              <div class="consult-type-name">개인고객</div>
+            <button class="consult-type-card" onclick="goToConsult()">
+              <div class="consult-type-icon">📝</div>
+              <div class="consult-type-name">상담 신청하기</div>
               <div class="consult-type-desc">
-                <p>상담신청 주체가 <strong>개인(자연인)</strong></p>
-                <span class="consult-type-note">※ 법인등기, 부동산등기, 민사소송, 민사집행, 상속 등 모든 업무 상담가능</span>
-              </div>
-              <div class="consult-type-btn">상담 신청하기 →</div>
-            </button>
-
-            <button class="consult-type-card" onclick="goToConsult('corporate')">
-              <div class="consult-type-icon">🏢</div>
-              <div class="consult-type-name">법인고객</div>
-              <div class="consult-type-desc">
-                <p>상담신청 주체가 <strong>법인(단체)</strong></p>
+                <p>개인·법인 <strong>통합 상담 신청</strong></p>
                 <span class="consult-type-note">※ 법인등기, 부동산등기, 민사소송, 민사집행, 상속 등 모든 업무 상담가능</span>
               </div>
               <div class="consult-type-btn">상담 신청하기 →</div>
@@ -865,8 +844,8 @@ function buildModal() {
 
           </div>
           <p class="privacy-note" style="margin-top:20px;">
-            선택하시면 해당 고객 유형의 상담 신청 양식으로 이동합니다.<br>
-            전화 문의: <strong>02-1234-5678</strong> (평일 09:00~18:00)
+            버튼을 누르시면 상담 신청 양식으로 이동합니다.<br>
+            전화 문의: <strong>055-312-9345</strong> (평일 09:00~18:00)
           </p>
         </div>
       </div>
@@ -887,8 +866,8 @@ function closeModal() {
 function closeModalOutside(e) {
   if (e.target === document.getElementById('consultModal')) closeModal();
 }
-function goToConsult(type) {
-  window.open(CONSULT_URLS[type], '_blank');
+function goToConsult() {
+  window.open(CONSULT_URL, '_blank');
   closeModal();
 }
 

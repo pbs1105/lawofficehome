@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>판결, 어떻게 나고 언제 확정되나요? — 소송의 종료와 판결</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#1a2e4a; --gold:#c8a96e; --ivory:#faf8f5; --ink:#2b2b2b; --muted:#5b5b5b;}
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--ivory); color:var(--ink);
+    font-family:'Noto Sans KR',sans-serif; line-height:1.75; font-size:16px;}
+  .wrap{max-width:820px; margin:0 auto; padding:0 20px 80px;}
+  h1,h2,h3{font-family:'Noto Serif KR',serif; color:var(--navy); line-height:1.4;}
+
+  header.hero{background:linear-gradient(135deg,#1a2e4a 0%,#27406a 100%);
+    color:#fff; padding:54px 20px 46px; text-align:center; border-bottom:4px solid var(--gold);}
+  header.hero .kicker{display:inline-block; letter-spacing:.18em; font-size:.78rem;
+    color:var(--gold); font-weight:700; margin-bottom:14px;}
+  header.hero h1{color:#fff; font-size:1.9rem; margin:0 0 14px;}
+  header.hero p{margin:0 auto; max-width:620px; color:#dbe3ef; font-size:1.02rem;}
+
+  section{margin-top:46px;}
+  h2.sec{font-size:1.4rem; margin:0 0 18px; padding-bottom:10px;
+    border-bottom:2px solid var(--gold); display:flex; align-items:center; gap:10px;}
+  h2.sec .num{background:var(--navy); color:#fff; font-family:'Noto Sans KR';
+    font-size:.92rem; width:30px; height:30px; border-radius:50%;
+    display:inline-flex; align-items:center; justify-content:center; flex:0 0 auto;}
+  h3{font-size:1.12rem; margin:26px 0 8px;}
+  p{margin:10px 0;}
+
+  .summary{background:#eef2f8; border-left:5px solid #2d4a7a;
+    padding:16px 20px; border-radius:6px; margin:14px 0 6px;}
+  .summary strong{color:#2d4a7a;}
+
+  .checklist{background:#fff; border:1px solid #e3ddd2; border-radius:10px;
+    padding:22px 26px; box-shadow:0 2px 8px rgba(26,46,74,.05);}
+  .checklist li{list-style:none; padding:9px 0 9px 34px; position:relative; border-bottom:1px dashed #ece7dd;}
+  .checklist li:last-child{border-bottom:none;}
+  .checklist li::before{content:"✓"; position:absolute; left:0; top:8px; color:var(--gold); font-weight:700; font-size:1.1rem;}
+
+  /* 데드라인 배너 */
+  .deadline-banner{background:#fff3e8; border:2px solid #c05000; border-radius:12px;
+    padding:20px 24px; margin:16px 0; display:flex; align-items:center; gap:18px;}
+  .deadline-banner .big{font-family:'Noto Serif KR'; font-size:2.1rem; font-weight:700; color:#c05000; line-height:1; flex:0 0 auto;}
+  .deadline-banner .txt{font-size:.98rem;}
+  .deadline-banner .txt strong{color:#c05000;}
+
+  .principle{background:#fff; border:1px solid #e3ddd2; border-left:4px solid var(--gold);
+    border-radius:8px; padding:16px 20px; margin:12px 0;}
+  .principle h3{margin:0 0 4px; font-size:1.06rem;}
+  .principle .lead{display:inline-block; background:var(--navy); color:#fff; font-size:.78rem;
+    font-weight:700; padding:2px 10px; border-radius:12px; margin-bottom:6px;}
+
+  .tablebox{overflow-x:auto; margin:16px 0;}
+  table{border-collapse:collapse; width:100%; background:#fff; font-size:.95rem;}
+  th,td{border:1px solid #d9d3c7; padding:11px 13px; text-align:left; vertical-align:top;}
+  th{background:var(--navy); color:#fff; font-weight:500;}
+  tbody tr:nth-child(even){background:#f6f3ee;}
+  td.val{font-weight:500; color:#2d4a7a; white-space:nowrap;}
+
+  .qa{background:#fff; border:1px solid #e3ddd2; border-radius:10px; padding:8px 24px; margin-top:8px;}
+  .qa-item{padding:18px 0; border-bottom:1px solid #ece7dd;}
+  .qa-item:last-child{border-bottom:none;}
+  .qa .q,.qa .a{position:relative; padding-left:36px; margin:0;}
+  .qa .q{font-weight:500; color:var(--navy); font-size:1.05rem;}
+  .qa .a{margin-top:10px; color:#3a3a3a;}
+  .qa .q::before,.qa .a::before{position:absolute; left:0; top:2px; width:25px; height:25px;
+    border-radius:6px; font-size:.8rem; font-weight:700; color:#fff;
+    display:inline-flex; align-items:center; justify-content:center;}
+  .qa .q::before{content:"Q"; background:var(--gold);}
+  .qa .a::before{content:"A"; background:var(--navy);}
+
+  .box{border-radius:8px; padding:16px 20px; margin:14px 0;}
+  .box-case{background:#f7f4f0; border:1px solid #6b7280; border-left:5px solid #6b7280;}
+  .box-warn{background:#fff3e8; border:1px solid #c05000; border-left:5px solid #c05000;}
+  .box-warn2{background:#f4f7fb; border:1px solid #2d4a7a; border-left:5px solid #2d4a7a;}
+  .box-ex{background:#f0f8f0; border:1px solid #1a5c2e; border-left:5px solid #1a5c2e;}
+  .box h3{margin-top:0;}
+  .deadline{color:#c05000; font-weight:700;}
+
+  .ref-tags{margin-top:8px; display:flex; flex-wrap:wrap; gap:6px;}
+  .tag-law{display:inline-block; padding:3px 10px; border-radius:12px; font-size:.78rem;
+    font-weight:600; text-decoration:none; background:#eef2f8; color:#2d4a7a; border:1px solid #2d4a7a; transition:background .2s;}
+  .tag-law:hover{background:#dce6f5;}
+  .tag-case{display:inline-block; padding:3px 10px; border-radius:12px; font-size:.78rem;
+    font-weight:600; text-decoration:none; background:#f7f4f0; color:#5a3e28; border:1px solid #6b7280; transition:background .2s;}
+  .tag-case:hover{background:#ede8e2;}
+
+  .next a{display:block; background:#fff; border:1px solid #e3ddd2; border-left:4px solid var(--gold);
+    border-radius:8px; padding:14px 18px; margin:10px 0; text-decoration:none; color:var(--navy); font-weight:500;}
+  .next a:hover{background:#fcf8f1;}
+  .next a span{display:block; color:var(--muted); font-weight:400; font-size:.9rem; margin-top:3px;}
+
+  .cta{background:#fdf6e9; border:2px solid var(--gold); border-radius:14px;
+    padding:34px 28px; text-align:center; margin-top:54px;}
+  .cta h2{font-size:1.5rem; margin:0 0 10px; border:none;}
+  .cta p{color:#5a4a2e; max-width:560px; margin:8px auto;}
+  .cta .btns{margin-top:22px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;}
+  .btn{display:inline-block; padding:14px 30px; border-radius:30px; font-weight:700; text-decoration:none; font-size:1.02rem;}
+  .btn-call{background:var(--navy); color:#fff;}
+  .btn-kakao{background:#fae100; color:#3a1d1d;}
+  .btn:hover{opacity:.9;}
+
+  .disclaimer{margin-top:40px; padding:20px; background:#f1ede6; border-radius:8px;
+    font-size:.84rem; color:#6b6b6b; line-height:1.7;}
+
+  @media(max-width:560px){header.hero h1{font-size:1.5rem;} h2.sec{font-size:1.2rem;}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <span class="kicker">민사소송 — 소송의 종료 · 판결</span>
+  <h1>판결, 어떻게 나고<br>언제 확정되나요?</h1>
+  <p>판결은 소송을 끝맺는 가장 대표적인 방법입니다. 어떤 종류가 있고, 언제 효력이 생기며,
+     "확정"되면 무엇이 달라지는지 정리했습니다.</p>
+</header>
+
+<div class="wrap">
+
+  <!-- 1 -->
+  <section>
+    <h2 class="sec"><span class="num">1</span>이런 분께 필요합니다</h2>
+    <ul class="checklist">
+      <li>곧 판결 선고를 앞두고 절차가 어떻게 마무리되는지 알고 싶습니다.</li>
+      <li>"각하"와 "기각"이 어떻게 다른지 궁금합니다.</li>
+      <li>판결이 언제 "확정"되고, 확정되면 무엇이 달라지는지 알고 싶습니다.</li>
+      <li>판결문을 받았는데 언제까지 항소해야 하는지 확인하고 싶습니다.</li>
+      <li>판결로 강제집행을 하거나 확정증명서가 필요합니다.</li>
+      <li>판결문에 오기·계산 잘못이 있어 바로잡고 싶습니다.</li>
+    </ul>
+  </section>
+
+  <!-- 2 -->
+  <section>
+    <h2 class="sec"><span class="num">2</span>핵심부터 정리하면</h2>
+    <div class="summary">
+      <strong>판결</strong>은 법원이 변론을 거쳐 사건에 종지부를 찍는 재판으로, 소송을 끝맺는 원칙적 방법입니다.
+      판결은 <strong>선고로 성립·효력이 생기고</strong>, 더는 상소로 다툴 수 없게 되면 <strong>확정</strong>되어
+      기판력·집행력 등 강한 효력이 발생합니다.
+    </div>
+    <div class="deadline-banner">
+      <div class="big">2주</div>
+      <div class="txt"><strong>⚡ 판결정본을 받은 날부터 2주 이내</strong>에 항소(또는 상고)해야 합니다.
+      이 기간을 놓치면 판결이 확정되어 더 이상 다툴 수 없게 됩니다.</div>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section>
+    <h2 class="sec"><span class="num">3</span>주제별로 살펴보기</h2>
+
+    <h3>① 판결의 종류</h3>
+    <div class="summary">판결은 사건을 끝내는지(종국/중간), 본안을 판단하는지(본안/소송), 청구 전부인지 일부인지로 나뉩니다.</div>
+    <div class="tablebox">
+      <table>
+        <thead><tr><th style="width:24%">구분</th><th>내용</th></tr></thead>
+        <tbody>
+          <tr><td class="val">종국판결</td><td>사건의 전부 또는 일부를 그 심급에서 끝내는 판결 — 상소할 수 있음</td></tr>
+          <tr><td class="val">중간판결</td><td>종국판결 전 중간의 다툼(선결문제)에 대한 판결 — 따로 상소할 수 없고 종국판결과 함께 다툼</td></tr>
+          <tr><td class="val">본안판결</td><td>청구의 당부를 판단 — 청구 <strong>인용</strong>(원고 승소) 또는 <strong>기각</strong>(원고 패소)</td></tr>
+          <tr><td class="val">소송판결</td><td>소가 부적법해 내용 판단 없이 <strong>각하</strong>하는 판결(소송요건 흠)</td></tr>
+          <tr><td class="val">전부·일부판결</td><td>청구 전부에 대한 판결과 일부에 대한 판결 — 누락분은 추가판결로 보충</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="box box-ex">
+      <h3>"각하"와 "기각"은 다릅니다</h3>
+      <p><strong>각하</strong>는 소송요건이 갖춰지지 않아 내용을 따지지 않고 문을 닫는 것(소송판결)이고, <strong>기각</strong>은
+      내용을 따져 본 결과 청구에 이유가 없다고 판단하는 것(본안판결)입니다. 각하는 흠을 보완해 다시 소를 낼 여지가 있는
+      경우가 있지만, 기각은 본안에 대한 판단이라는 점에서 의미가 다릅니다.</p>
+    </div>
+    <div class="ref-tags">
+      <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=252393&joNo=020000" target="_blank" class="tag-law">📋 민사소송법 제200조</a>
+      <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=252393&joNo=020100" target="_blank" class="tag-law">📋 민사소송법 제201조</a>
+    </div>
+
+    <h3>② 판결의 성립과 선고</h3>
+    <p>심리가 무르익으면 법원은 <strong>변론을 종결</strong>하고, 변론에 관여한 법관이 판결 내용을 정한 뒤 판결서를 작성해
+    서명날인합니다. 그리고 <strong>선고</strong>로 판결이 대외적으로 성립하고 효력이 생깁니다. 선고기일은 원칙적으로
+    변론종결일부터 <strong>2주 이내</strong>(복잡한 사건은 더 늦어질 수 있음)이며, 선고는 공개된 법정에서 합니다. 선고 후
+    <strong>판결정본을 당사자에게 송달</strong>하는데, 이 송달이 상소기간 계산과 강제집행의 출발점이 됩니다.</p>
+    <div class="ref-tags">
+      <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=252393&joNo=020800" target="_blank" class="tag-law">📋 민사소송법 제208조</a>
+    </div>
+
+    <h3>③ 판결의 확정 — 더 이상 다툴 수 없는 상태</h3>
+    <div class="summary">판결이 상소로 취소될 수 없게 된 상태를 "확정"이라 합니다. 확정되면 소송은 종국적으로 끝납니다.</div>
+    <div class="tablebox">
+      <table>
+        <thead><tr><th style="width:38%">확정되는 때</th><th>예</th></tr></thead>
+        <tbody>
+          <tr><td>선고와 동시에</td><td>상소할 수 없는 판결(대법원 상고심 판결 등)</td></tr>
+          <tr><td>상소기간이 지나면</td><td>2주의 상소기간 내에 상소하지 않은 때</td></tr>
+          <tr><td>상소를 거두면</td><td>상소를 취하하거나, 상소권을 포기한 때</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>판결이 확정되면 당사자는 <strong>판결확정증명서</strong>를 법원에서 발급받아 강제집행이나 등기·가족관계등록 신고
+    등에 사용할 수 있습니다. 다만 판결의 확정은 판결정본이 적법하게 송달되었을 것을 전제로 합니다.</p>
+    <div class="ref-tags">
+      <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=252393&joNo=049800" target="_blank" class="tag-law">📋 민사소송법 제498조</a>
+    </div>
+
+    <h3>④ 확정판결의 효력</h3>
+    <div class="principle">
+      <span class="lead">기판력</span>
+      <h3>같은 사항을 다시 다툴 수 없다</h3>
+      <p>확정판결에서 판단된 권리관계는 뒤에 같은 당사자가 다시 소송으로 다툴 수 없습니다. 분쟁을 매듭짓는 가장 핵심적인
+      효력입니다.</p>
+    </div>
+    <div class="principle">
+      <span class="lead">집행력</span>
+      <h3>강제집행을 할 수 있다</h3>
+      <p>"피고는 원고에게 ○○원을 지급하라"와 같은 이행판결이 확정되면, 이를 근거로 상대방 재산에 강제집행을 할 수 있습니다.</p>
+    </div>
+    <div class="principle">
+      <span class="lead">형성력</span>
+      <h3>법률관계가 바뀐다</h3>
+      <p>이혼·공유물분할처럼 법률관계를 변동시키는 형성판결이 확정되면, 그 내용대로 권리관계가 직접 변동됩니다.</p>
+    </div>
+
+    <h3>⑤ 판결문에 오류가 있을 때 — 판결의 경정</h3>
+    <p>판결에 <strong>잘못된 계산이나 기재 등 분명한 오류</strong>가 있으면, 판결 내용을 실질적으로 바꾸지 않는 범위에서
+    법원이 결정으로 이를 바로잡습니다(판결의 경정). 강제집행이나 등기에 지장이 없도록 하려는 것으로, 당사자의 잘못으로
+    생긴 오기(예: 부동산 지번 오기)라도 경정할 수 있습니다.</p>
+    <div class="ref-tags">
+      <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=252393&joNo=021100" target="_blank" class="tag-law">📋 민사소송법 제211조</a>
+    </div>
+  </section>
+
+  <!-- 4 Q&A -->
+  <section>
+    <h2 class="sec"><span class="num">4</span>자주 하는 질문</h2>
+    <div class="qa">
+      <div class="qa-item">
+        <p class="q">"각하"와 "기각"은 어떻게 다른가요?</p>
+        <p class="a">각하는 소송요건이 갖춰지지 않아 내용을 따지지 않고 소를 물리치는 것(소송판결)이고, 기각은 내용을 살펴본
+          결과 청구에 이유가 없다고 판단하는 것(본안판결)입니다. 각하는 흠을 보완해 다시 소를 낼 여지가 있는 경우가 있습니다.</p>
+      </div>
+      <div class="qa-item">
+        <p class="q">판결은 언제 효력이 생기나요?</p>
+        <p class="a">판결은 선고로 성립하고 효력이 생깁니다. 선고는 변론종결일부터 원칙적으로 2주 이내에 공개법정에서 이뤄지고,
+          그 뒤 판결정본이 당사자에게 송달됩니다. 다만 강한 효력(기판력·집행력)은 판결이 "확정"되어야 발생합니다.</p>
+      </div>
+      <div class="qa-item">
+        <p class="q">판결문을 받았는데 언제까지 항소해야 하나요?</p>
+        <p class="a">판결정본을 송달받은 날부터 2주 이내에 항소(상고)해야 합니다. 이 기간을 놓치면 판결이 확정되어 더 이상
+          다툴 수 없습니다. 받은 즉시 날짜를 계산해 두세요.</p>
+      </div>
+      <div class="qa-item">
+        <p class="q">판결이 "확정"되면 무엇이 달라지나요?</p>
+        <p class="a">더 이상 상소로 다툴 수 없게 되고, 기판력(같은 사항 재소 불가)·집행력(강제집행 가능)·형성력(법률관계 변동)
+          같은 효력이 생깁니다. 강제집행이나 등기·신고를 위해 판결확정증명서를 발급받을 수 있습니다.</p>
+      </div>
+      <div class="qa-item">
+        <p class="q">승소판결로 바로 돈을 받을 수 있나요?</p>
+        <p class="a">이행판결이 확정되면 그 판결을 집행권원으로 삼아 상대방 재산에 강제집행(압류 등)을 할 수 있습니다. 상대방이
+          스스로 이행하지 않으면 별도의 강제집행 절차를 밟아야 합니다.</p>
+      </div>
+      <div class="qa-item">
+        <p class="q">판결문에 이름이나 지번이 잘못 적혔어요. 다시 재판해야 하나요?</p>
+        <p class="a">아닙니다. 계산이나 기재의 분명한 잘못은 판결경정 신청으로 바로잡을 수 있습니다. 판결 내용을 실질적으로
+          바꾸는 것이 아니라 명백한 오류를 정정하는 것이어서, 강제집행이나 등기에 지장이 없도록 해 줍니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 판례 -->
+  <section>
+    <h2 class="sec"><span class="num">5</span>참고가 되는 대법원 판단</h2>
+    <div class="box box-case">
+      <h3>판결 확정은 정본의 적법한 송달을 전제로 한다</h3>
+      <p>판결의 확정은 판결정본이 적법하게 송달되었을 것을 전제로 한다고 보았습니다. 송달이 부적법하면 상소기간이
+      진행하지 않아 확정도 미뤄질 수 있습니다.</p>
+      <div class="ref-tags">
+        <a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=97다10345" target="_blank" class="tag-case">⚖️ 대법원 97다10345</a>
+      </div>
+    </div>
+    <div class="box box-case">
+      <h3>중간판결은 종국판결을 구속한다</h3>
+      <p>중간판결을 선고하면 그 법원은 이에 구속되어, 나중에 종국판결을 할 때 중간판결 주문에 표시된 판단에 어긋나는
+      판단을 할 수 없다고 보았습니다.</p>
+      <div class="ref-tags">
+        <a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2010다65818" target="_blank" class="tag-case">⚖️ 대법원 2010다65818</a>
+      </div>
+    </div>
+    <div class="box box-case">
+      <h3>당사자 잘못으로 생긴 기재 오류도 경정할 수 있다</h3>
+      <p>법원의 과실이 아니라 당사자가 소제기 때 목적물의 지번 등을 잘못 표시해 판결에 그대로 적힌 경우에도, 판결경정으로
+      바로잡을 수 있다고 보았습니다.</p>
+      <div class="ref-tags">
+        <a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=90그17" target="_blank" class="tag-case">⚖️ 대법원 90그17</a>
+      </div>
+    </div>
+    <p style="font-size:.86rem; color:#777; margin-top:14px;">※ 위 판례는 일반적 이해를 돕기 위한 요약이며, 구체적 사건의 결론은 사실관계에 따라 달라질 수 있습니다.</p>
+  </section>
+
+  <!-- 6 주의 -->
+  <section>
+    <h2 class="sec"><span class="num">6</span>꼭 주의하세요</h2>
+    <div class="box box-warn">
+      <h3>① <span class="deadline">⚡ 상소기간 2주를 절대 놓치지 마세요</span></h3>
+      <p>판결에 불복하려면 판결정본을 받은 날부터 2주 안에 항소(상고)해야 합니다. 이 기간이 지나면 판결이 확정되어
+      기판력이 생기고 더 이상 다툴 수 없습니다.</p>
+    </div>
+    <div class="box box-warn">
+      <h3>② 확정되면 같은 사항을 다시 소송할 수 없습니다</h3>
+      <p>기판력 때문에, 확정판결에서 판단된 권리관계는 같은 당사자 사이에서 다시 다툴 수 없습니다. 다툴 일이 있다면
+      확정 전에 상소로 해결해야 합니다.</p>
+    </div>
+    <div class="box box-warn2">
+      <h3>③ 승소판결만으로 끝이 아닙니다</h3>
+      <p>이행판결로 돈을 받으려면 상대방이 스스로 갚지 않을 경우 별도의 강제집행이 필요합니다. 판결확정증명서를 발급받아
+      집행 준비를 해 두세요.</p>
+    </div>
+    <div class="box box-warn">
+      <h3>④ 판결문의 오류는 빨리 경정 신청하세요</h3>
+      <p>이름·지번·계산 등 명백한 오류는 판결경정으로 바로잡습니다. 강제집행이나 등기 단계에서 문제가 되지 않도록
+      미리 확인하고 신청하는 것이 좋습니다.</p>
+    </div>
+  </section>
+
+  <!-- 7 다음 -->
+  <section>
+    <h2 class="sec"><span class="num">7</span>다음에 확인하면 좋은 내용</h2>
+    <div class="next">
+      <a href="상소.html">상소(항소·상고·항고) — 판결에 불복하려면<span>판결정본 받은 날부터 2주 안에 항소해야 합니다.</span></a>
+      <a href="변론.html">변론이란 무엇이고 어떻게 진행되나요?<span>변론종결 뒤에 판결 선고로 이어집니다.</span></a>
+      <a href="송달과송달지연대응.html">송달 — 서류가 전달되는 과정과 송달지연 대응<span>판결정본 송달이 상소기간의 출발점입니다.</span></a>
+      <a href="소송비용.html">소송비용 — 누가 얼마나 부담하나요?<span>판결 주문에서 비용 부담이 정해집니다.</span></a>
+      <a href="제소전화해.html">제소전화해 — 소송 없이 집행권원 확보<span>화해조서도 확정판결과 같은 효력을 가집니다.</span></a>
+      <a href="입증.html">입증 — 무엇을 어떻게 증명해야 하나요?<span>판결의 결론은 입증 결과로 갈립니다.</span></a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h2>판결을 앞두고 있거나 판결문을 받으셨나요?</h2>
+    <p>이 내용이 해당되시나요? 첫 상담은 무료입니다.</p>
+    <p>판결 내용 검토, 상소 여부 판단, 확정증명·강제집행 준비, 판결경정 신청까지 법무사가 도와드립니다.</p>
+    <div class="btns">
+      <a href="[전화번호 입력]" class="btn btn-call">📞 전화 상담</a>
+      <a href="[카카오톡 채널 링크 입력]" class="btn btn-kakao">💬 카카오톡 상담</a>
+    </div>
+  </div>
+
+  <!-- 면책 -->
+  <div class="disclaimer">
+    본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 개별 사건에 대한 법률 자문이나 그 결과를 보장하지 않습니다.
+    구체적인 사건은 사실관계에 따라 결론이 달라질 수 있으므로 반드시 전문가와 상담하시기 바랍니다.
+    이 페이지는 2025년 현행 법령을 기준으로 작성되었습니다.
+  </div>
+
+</div>
+</body>
+</html>

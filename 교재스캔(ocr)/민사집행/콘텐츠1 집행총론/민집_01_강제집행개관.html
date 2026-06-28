@@ -1,0 +1,204 @@
+<\!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>강제집행 처음부터 끝까지</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1a2e4a;
+            --gold: #c8a96e;
+            --bg: #faf8f5;
+            --text: #2c2c2c;
+            --summary-bg: #eef2f8;
+            --summary-bd: #2d4a7a;
+            --cta-bg: #fdf6e9;
+            --cta-bd: #c8a96e;
+            --case-bg: #f0f8f0;
+            --case-bd: #1a5c2e;
+            --ruling-bg: #f7f4f0;
+            --ruling-bd: #6b7280;
+            --warn-bg: #fff3e8;
+            --warn-bd: #c05000;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Noto Sans KR', sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; font-size: 16px; }
+        .container { max-width: 820px; margin: 0 auto; padding: 0 20px; }
+        header { background: var(--navy); color: #fff; padding: 48px 24px 40px; text-align: center; }
+        header h1 { font-family: 'Noto Serif KR', serif; font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 700; margin-bottom: 12px; }
+        .subtitle { font-size: 15px; color: var(--gold); font-weight: 500; }
+        section { padding: 48px 0; border-bottom: 1px solid #e4ddd4; }
+        h2 { font-family: 'Noto Serif KR', serif; font-size: 1.35rem; font-weight: 700; color: var(--navy); border-bottom: 2px solid var(--gold); padding-bottom: 10px; margin-bottom: 20px; }
+        h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin: 28px 0 12px; }
+        .summary-box { background: var(--summary-bg); border-left: 4px solid var(--summary-bd); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 20px 0; }
+        .ruling-box { background: var(--ruling-bg); border-left: 4px solid var(--ruling-bd); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 16px 0; font-size: 14.5px; }
+        .warn-box { background: var(--warn-bg); border-left: 4px solid var(--warn-bd); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 16px 0; }
+        .checklist { background: #fff; border: 1px solid #ddd6ce; border-radius: 8px; padding: 24px 28px; }
+        .checklist ul { list-style: none; padding: 0; }
+        .checklist li { padding: 8px 0; }
+        .checklist li::before { content: "✓"; color: var(--gold); font-weight: 700; margin-right: 8px; }
+        .qna-item { border: 1px solid #e0d9d0; border-radius: 8px; overflow: hidden; margin: 12px 0; }
+        .qna-q { background: #fff; padding: 16px 20px; font-weight: 700; font-size: 15px; color: var(--navy); }
+        .qna-a { background: #faf8f5; padding: 16px 20px; font-size: 14.5px; border-top: 1px solid #e0d9d0; }
+        .cta-box { background: var(--cta-bg); border: 1px solid var(--cta-bd); border-radius: 10px; padding: 32px 28px; text-align: center; margin: 40px 0 0; }
+        .cta-btn { display: inline-block; background: var(--navy); color: #fff; padding: 14px 36px; border-radius: 6px; font-size: 15px; font-weight: 700; text-decoration: none; margin: 8px; border: none; cursor: pointer; }
+        .law-tag {
+      display: inline-block; background: #e8edf5; color: #2d4a7a;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #b0c4de; cursor: pointer; transition: background 0.15s;
+    }
+    .law-tag:hover { background: #c8daf7; color: #1a2e4a; }
+    .case-tag {
+      display: inline-block; background: #f0ece4; color: #5a4a30;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #c8a96e; cursor: pointer; transition: background 0.15s;
+    }
+    .case-tag:hover { background: #f5dfa8; color: #3a2a10; }
+        .disclaimer-section { background: #f2f0ec; padding: 28px; border-radius: 8px; margin: 40px 0 0; font-size: 12px; color: #666; line-height: 1.8; }
+        .step-box { background: #f4f7fb; border: 1px solid #2d4a7a; border-radius: 8px; padding: 20px 24px; margin: 16px 0; }
+        .step-num { display: inline-block; background: var(--navy); color: var(--gold); width: 28px; height: 28px; border-radius: 50%; text-align: center; line-height: 28px; font-weight: 700; margin-right: 8px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+        thead th { background: var(--navy); color: #fff; padding: 11px 14px; font-size: 13px; text-align: left; }
+        tbody td { padding: 10px 14px; border-bottom: 1px solid #e4ddd4; line-height: 1.6; }
+        tbody tr:nth-child(even) { background: #f5f2ee; }
+        .next-links { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin: 20px 0; }
+        .next-link { background: #fff; border: 1px solid #ddd6ce; border-radius: 8px; padding: 16px 18px; text-decoration: none; color: var(--navy); display: block; font-weight: 500; }
+        p { margin-bottom: 16px; }
+        ul { margin-left: 20px; margin-bottom: 16px; }
+        ul li { margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>강제집행 처음부터 끝까지</h1>
+        <p class="subtitle">판결 받고 나서 어떻게 하나요?</p>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>이런 분께 필요합니다</h2>
+            <div class="checklist">
+                <ul>
+                    <li>법원에서 판결을 받았는데 상대방이 판결에 따르지 않는 경우</li>
+                    <li>채무자의 재산을 압류하거나 강제로 회수해야 하는 경우</li>
+                    <li>강제집행 절차가 어떻게 진행되는지 알고 싶은 경우</li>
+                    <li>집행권원(집행 증서)이 필요한 경우</li>
+                    <li>채무자가 재산을 숨기거나 도망치려 할 때 대응하는 방법을 알고 싶은 경우</li>
+                    <li>집행 비용과 절차에 대해 궁금한 경우</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>핵심정리</h2>
+            <div class="summary-box">
+                <h3>강제집행이란?</h3>
+                <p>법원의 판결이나 계약서 같은 '집행권원'을 바탕으로, 채무자가 자발적으로 지급하지 않은 금전이나 물건을 국가 기구(법원, 집행관 등)가 강제로 회수하는 법적 절차입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=000100" target="_blank" rel="noopener" title="민사집행법 제1조 — 대법원 종합법률정보">민사집행법 제1조</a></p>
+                <p>판결을 받았다고 해서 끝나는 것이 아닙니다. 판결에 따라 상대방이 자발적으로 이행하지 않으면, 강제집행을 신청해서 강제로 회수해야 합니다.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>상세설명</h2>
+            <h3>강제집행이란 무엇인가?</h3>
+            <p>강제집행은 채권자(판결을 받은 쪽)가 채무자(판결에 진 쪽)로부터 금전을 받거나 물건을 회수하기 위해 국가의 강제력을 이용하는 절차입니다. 민법상 권리 실현을 위한 최후의 수단이며, 법원과 집행관이 이를 집행합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=000100" target="_blank" rel="noopener" title="민사집행법 제1조 — 대법원 종합법률정보">민사집행법 제1조</a></p>
+
+            <h3>강제집행의 종류</h3>
+            <p>강제집행은 대상 재산의 종류에 따라 다음과 같이 구분됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=002400" target="_blank" rel="noopener" title="민사집행법 제24조 — 대법원 종합법률정보">민사집행법 제24조</a></p>
+            <table>
+                <thead><tr><th>집행 종류</th><th>대상</th><th>설명</th></tr></thead>
+                <tbody>
+                    <tr><td>부동산 강제집행</td><td>토지, 건물 등 부동산</td><td>부동산을 경매에 붙여서 강제 판매합니다. 판매 대금을 채권자에게 분배합니다.</td></tr>
+                    <tr><td>동산 강제집행</td><td>자동차, 기계, 가구 등 부동산 외 물건</td><td>동산을 압류한 후 경매하거나 인도받습니다.</td></tr>
+                    <tr><td>채권 강제집행</td><td>채무자가 제3자에게 가진 채권</td><td>예: 통장 잔액, 급여, 임대료 수입 등을 압류합니다.</td></tr>
+                    <tr><td>기타 재산권 강제집행</td><td>주식, 특허권, 저작권 등</td><td>금융 자산이나 지적재산권을 압류합니다.</td></tr>
+                </tbody>
+            </table>
+
+            <h3>강제집행 절차 개요</h3>
+            <div class="step-box"><p><span class="step-num">1</span><strong>집행권원 준비</strong> — 판결, 화해조서, 지급명령 등 법적 근거</p><p style="margin-top: 12px;">집행권원은 강제집행의 법적 토대입니다. 판결만으로는 부족하며, 법원이 판결이 확정되었음을 인정하는 '집행문'이 필요합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005600" target="_blank" rel="noopener" title="민사집행법 제56조 — 대법원 종합법률정보">민사집행법 제56조</a></p></div>
+            <div class="step-box"><p><span class="step-num">2</span><strong>집행문 부여</strong> — 판결문에 집행문을 부여받기</p><p style="margin-top: 12px;">판결을 한 법원의 집행관사에 '집행문'을 신청합니다. 집행문은 "이 판결은 확정되었고 강제집행할 수 있다"는 공식 인정서입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=002800" target="_blank" rel="noopener" title="민사집행법 제28조, 제29조 — 대법원 종합법률정보">민사집행법 제28조, 제29조</a></p></div>
+            <div class="step-box"><p><span class="step-num">3</span><strong>강제집행 신청</strong> — 법원에 강제집행을 신청</p><p style="margin-top: 12px;">집행문을 받은 후, 채무자의 재산 위치에 따라 적절한 법원에 강제집행을 신청합니다. 부동산은 부동산 소재지 법원, 동산과 채권은 채무자 주소지 법원입니다.</p></div>
+            <div class="step-box"><p><span class="step-num">4</span><strong>집행</strong> — 법원 집행관이 재산 압류 및 매각</p><p style="margin-top: 12px;">집행관은 채무자의 재산을 압류하고, 경매 절차를 통해 매각합니다. 매각 대금에서 집행 비용을 공제한 나머지를 채권자에게 분배합니다.</p></div>
+
+            <h3>집행문이란?</h3>
+            <p>집행문(執行文)은 판결이 확정되었고 강제집행이 가능하다는 것을 법원이 공식적으로 인정하는 서류입니다. 판결만으로는 강제집행이 불가능하며, 반드시 집행문이 필요합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=002800" target="_blank" rel="noopener" title="민사집행법 제28조 — 대법원 종합법률정보">민사집행법 제28조</a></p>
+            <p>집행문 부여 신청은 판결을 한 법원의 집행관사(또는 등기소)에 합니다. 필요 서류는 판결문, 확정증명서, 신청서 등입니다. 비용은 일반 신청 수수료만 납부하면 됩니다.</p>
+
+            <h3>집행 가능 시기</h3>
+            <p>강제집행은 다음 조건을 만족할 때만 신청할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003900" target="_blank" rel="noopener" title="민사집행법 제39조 — 대법원 종합법률정보">민사집행법 제39조</a></p>
+            <p><strong>⚡ 판결이 확정된 후에만 강제집행이 가능합니다.</strong> 가집행판결(집행 정지 조건)을 받은 경우는 예외적으로 판결 확정 전에도 집행이 가능합니다. 항소나 상고가 진행 중이면 강제집행을 신청할 수 없습니다.</p>
+            <p>또한 집행 신청에는 공소 시효가 없지만, 판결의 집행력이 있어야 합니다. 일반적으로 판결의 집행력은 확정 후 10년입니다.</p>
+
+            <h3>채권자가 알아야 할 주의사항</h3>
+            <p>강제집행을 신청하기 전에 다음을 확인하세요:</p>
+            <ul>
+                <li>판결문 원본 또는 인증본이 있는가?</li>
+                <li>판결이 확정되었는가? (항소 기간 만료 또는 상소 기각 확정)</li>
+                <li>상대방의 현재 주소와 재산 위치를 파악했는가?</li>
+                <li>강제집행 비용(집행관 수수료, 측량비 등)을 준비했는가?</li>
+                <li>지급명령을 받은 경우, 지급명령이 확정되었는가?</li>
+            </ul>
+            <p>특히 채무자의 재산을 미리 파악하는 것이 중요합니다. 강제집행을 신청해도 집행할 재산이 없으면 실질적 회수가 어려울 수 있습니다.</p>
+        </section>
+
+        <section>
+            <h2>자주하는 질문</h2>
+            <div class="qna-item"><div class="qna-q">Q. 판결을 받았으면 바로 강제집행을 신청할 수 있나요?</div><div class="qna-a">A. 아니요. 먼저 판결이 확정되어야 합니다. 항소 기간(14일)이 경과하거나 항소심에서 판결이 확정되어야 강제집행을 신청할 수 있습니다. 또한 집행문 부여를 받은 후에야 강제집행 신청이 가능합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003900" target="_blank" rel="noopener" title="민사집행법 제39조 — 대법원 종합법률정보">민사집행법 제39조</a></div></div>
+            <div class="qna-item"><div class="qna-q">Q. 강제집행에 드는 비용은 누가 부담하나요?</div><div class="qna-a">A. 강제집행 비용은 일단 채권자가 선납합니다. 여기에는 집행관 수수료, 감정료, 측량비 등이 포함됩니다. 그러나 경매 대금에서 이 비용을 공제한 후 채권자에게 분배하므로, 결국 채무자의 재산에서 우선 공제됩니다. 비용은 구체적 상황에 따라 다르므로 미리 집행관사에 문의하세요.</div></div>
+            <div class="qna-item"><div class="qna-q">Q. 집행권원이 없으면 강제집행을 할 수 없나요?</div><div class="qna-a">A. 맞습니다. 강제집행을 하려면 반드시 집행권원이 필요합니다. 집행권원에는 확정판결, 항소심 판결, 가집행판결, 화해조서, 지급명령, 공정증서 등이 있습니다. 이 중 하나가 없으면 강제집행을 신청할 수 없습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005600" target="_blank" rel="noopener" title="민사집행법 제56조 — 대법원 종합법률정보">민사집행법 제56조</a></div></div>
+            <div class="qna-item"><div class="qna-q">Q. 부동산 강제집행과 채권 강제집행은 어떻게 다르나요?</div><div class="qna-a">A. 부동산 강제집행은 토지나 건물을 경매하는 절차이며, 시간이 오래 걸리지만 회수 가능성이 높습니다. 채권 강제집행(예: 통장 압류, 급여 압류)은 채무자의 현금이나 수입을 직접 회수하는 방식으로, 더 빠르게 회수할 수 있습니다. 어느 것이 효율적인지는 채무자의 재산 상황에 따라 다릅니다.</div></div>
+            <div class="qna-item"><div class="qna-q">Q. 강제집행 중에 채무자가 항소를 제기할 수 있나요?</div><div class="qna-a">A. 강제집행이 이미 시작된 후에는 항소로 집행을 정지할 수 없습니다. 다만 집행문 부여에 대해 이의신청을 하거나, 집행에 관한 이의신청(집행 절차에 위법이 있다는 주장)을 할 수는 있습니다. 그러나 이 경우도 집행 정지는 예외적입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003400" target="_blank" rel="noopener" title="민사집행법 제34조 — 대법원 종합법률정보">민사집행법 제34조</a></div></div>
+            <div class="qna-item"><div class="qna-q">Q. 집행 신청 후 언제쯤 돈을 받을 수 있나요?</div><div class="qna-a">A. 이는 강제집행의 종류와 채무자의 재산 상황에 따라 크게 다릅니다. 채권(통장, 급여) 강제집행은 수주~수개월, 부동산 경매는 6개월~1년 이상 걸릴 수 있습니다. 경매 절차 중에도 여러 단계(입찰, 매각, 배분)가 있어 시간이 소요됩니다.</div></div>
+            <div class="qna-item"><div class="qna-q">Q. 채무자가 강제집행 중에 파산을 신청하면 어떻게 되나요?</div><div class="qna-a">A. 채무자가 파산을 신청하면 진행 중인 강제집행은 중단됩니다. 파산 절차에서는 모든 채권자가 동등한 지위에서 배당을 받게 됩니다. 따라서 이미 강제집행으로 회수한 분은 제외되지만, 아직 진행 중인 부분은 파산 절차에 편입됩니다.</div></div>
+        </section>
+
+        <section>
+            <h2>판례</h2>
+            <div class="ruling-box"><h3>강제집행의 범위와 한계</h3><p>대법원은 강제집행이 권리자의 당연한 권리이지만, 채무자의 기본적 생존권을 침해하지 않는 범위 내에서만 가능하다고 해석하고 있습니다. 예를 들어, 최저생계비 수준의 재산이나 일용근로자의 생활비는 압류 대상에서 제외될 수 있습니다.</p></div>
+            <div class="ruling-box"><h3>집행문의 필요성</h3><p>대법원은 집행문이 단순한 형식이 아니라 판결의 확정과 집행 가능성을 공식적으로 인정하는 중요한 절차라고 판시했습니다. 집행문 없이 강제집행을 신청하면 신청 자체가 각하되므로, 반드시 먼저 집행문을 부여받아야 합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=002800" target="_blank" rel="noopener" title="민사집행법 제28조 — 대법원 종합법률정보">민사집행법 제28조</a></p></div>
+            <div class="ruling-box"><h3>가집행판결의 효력</h3><p>가집행판결(집행 정지 조건)을 받은 경우, 판결이 확정되기 전에도 강제집행이 가능합니다. 다만 항소로 인해 가집행 정지 결정이 나올 수 있으므로, 이 경우 집행이 중단될 수 있습니다. 가집행판결의 장점은 빠른 회수이지만, 이후 판결이 뒤바뀔 위험이 있다는 점입니다.</p></div>
+            <div class="ruling-box"><h3>집행권원의 확정력</h3><p>강제집행을 하기 위해서는 집행권원이 반드시 필요합니다. 대법원은 집행권원이 없는 청구권(예: 계약금 반환 청구)에 대해서는 강제집행이 불가능하며, 먼저 소송으로 판결을 받아야 한다고 판시했습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005600" target="_blank" rel="noopener" title="민사집행법 제56조 — 대법원 종합법률정보">민사집행법 제56조</a></p></div>
+        </section>
+
+        <section>
+            <h2>주의사항</h2>
+            <div class="warn-box"><h3>집행 비용의 확인</h3><p>강제집행에는 상당한 비용이 소요됩니다. 집행관 수수료, 감정료, 측량료, 경매 진행 비용 등이 있습니다. 회수할 재산이 없거나 적으면, 비용 선납이 허사가 될 수 있습니다. 강제집행을 신청하기 전에 반드시 비용을 확인하고 채무자의 재산 여부를 파악하세요.</p></div>
+            <div class="warn-box"><h3>상대방 주소 확인의 중요성</h3><p>강제집행을 신청하려면 채무자의 정확한 주소와 재산 위치를 알아야 합니다. 주소가 잘못되면 집행 신청이 제대로 진행되지 않을 수 있습니다. 필요시 주민등록등본이나 등기부를 통해 정확한 주소를 확인하세요.</p></div>
+            <div class="warn-box"><h3>시효의 문제</h3><p>판결의 집행력에는 시효가 있습니다. 일반적으로 판결 확정 후 10년이 지나면 강제집행을 신청할 수 없습니다. 따라서 판결을 받은 후 가능한 한 빨리 강제집행을 신청하는 것이 좋습니다.</p></div>
+            <div class="warn-box"><h3>채무자 재산 파악의 어려움</h3><p>채무자의 재산을 파악하기 위해 '재산명시신청'을 할 수 있습니다. 이를 통해 채무자가 소유한 부동산, 통장, 차량 등의 정보를 법원을 통해 얻을 수 있습니다. 다만 채무자가 협조하지 않으면 재산 파악에 어려움이 있을 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006100" target="_blank" rel="noopener" title="민사집행법 제61조 — 대법원 종합법률정보">민사집행법 제61조</a></p></div>
+            <div class="warn-box"><h3>집행관의 역할 이해</h3><p>집행관은 법원의 강제집행을 보조하는 공직자입니다. 집행관에게 직접 돈을 건넨다거나 강제집행을 '취소'해달라고 청탁하는 것은 불법이며 뇌물죄에 해당할 수 있습니다. 모든 절차는 정해진 법적 방식으로 진행되어야 합니다.</p></div>
+        </section>
+
+        <section>
+            <h2>다음에 확인할 사항</h2>
+            <div class="next-links">
+                <a href="#" class="next-link">집행권원이란</a>
+                <a href="#" class="next-link">집행문 부여 신청</a>
+                <a href="#" class="next-link">재산명시신청</a>
+                <a href="#" class="next-link">부동산 강제집행</a>
+                <a href="#" class="next-link">채권 강제집행</a>
+                <a href="#" class="next-link">당사자 변동 시 대응</a>
+            </div>
+        </section>
+
+        <div class="cta-box">
+            <h3>강제집행이 필요하신가요?</h3>
+            <p>판결을 받았지만 상대방이 따르지 않는다면, 전문가의 도움이 필요합니다. 우리 법무사 사무소는 강제집행 절차를 처음부터 끝까지 안내합니다.</p>
+            <p style="font-weight: 700; color: var(--navy); margin: 20px 0;">첫 상담은 무료입니다</p>
+            <button class="cta-btn">전화상담 [전화번호]</button>
+            <button class="cta-btn">카카오톡 상담 #</button>
+        </div>
+
+        <div class="disclaimer-section">
+            <p><strong>면책 사항</strong></p>
+            <p>본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 개별 사안에 따라 결과가 달라질 수 있습니다. 구체적인 사안은 법무사와 상담하시기 바랍니다. 이 페이지는 2025년 현행 법령 기준으로 작성되었습니다.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>외국인의 상속등기 — 준비서류와 절차 | 상속등기 안내</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>/* ===== UNIFIED BASE CSS ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #1a2e4a;
+  --gold: #c8a96e;
+  --bg: #faf8f5;
+  --text: #2c2c2c;
+  --summary-bg: #eef2f8;
+  --summary-bd: #2d4a7a;
+  --cta-bg: #fdf6e9;
+  --cta-bd: #c8a96e;
+  --case-bg: #f0f8f0;
+  --case-bd: #1a5c2e;
+  --ruling-bg: #f7f4f0;
+  --ruling-bd: #6b7280;
+  --warn-bg: #fff3e8;
+  --warn-bd: #c05000;
+  --rank-bg: #f4f7fb;
+  --rank-bd: #2d4a7a;
+  /* 하위 호환 */
+  --proc-bg: #e8f0fb;
+  --step-bg: #f0f4fb;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  font-size: 16px;
+}
+a { color: var(--navy); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ─── 헤더 ─── */
+header {
+  background: var(--navy);
+  color: #fff;
+  padding: 48px 24px 40px;
+  text-align: center;
+}
+header .breadcrumb {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 12px;
+  letter-spacing: 0.03em;
+}
+header h1 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+header .subtitle {
+  font-size: 15px;
+  color: var(--gold);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* ─── 레이아웃 ─── */
+.container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+/* 하위 호환: 기존 .page-wrap, .sec-inner 등 */
+.page-wrap, .sec-inner, .hd-inner { max-width: 820px; margin: 0 auto; padding: 0 20px; }
+
+section {
+  padding: 48px 0;
+  border-bottom: 1px solid #e4ddd4;
+}
+section:last-of-type { border-bottom: none; }
+/* 하위 호환: 기존 section 안에 있는 .sec-inner가 패딩 담당하는 구조 */
+section.sec-padded { padding: 48px 24px; }
+
+/* ─── 섹션 제목 ─── */
+h2 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--navy);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+h2 .tag {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: var(--navy);
+  color: var(--gold);
+  margin-right: 8px;
+  vertical-align: middle;
+}
+/* 하위 호환: 기존 .section-title 스타일을 h2 스펙에 맞게 재정의 */
+.section-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--navy);
+  border-bottom: 2px solid var(--gold);
+  border-left: none;
+  padding-bottom: 10px;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+.section-title .num {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: var(--navy);
+  color: var(--gold);
+  margin-right: 8px;
+  vertical-align: middle;
+  display: inline;
+}
+h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 28px 0 12px;
+}
+
+/* ─── 태그 & 배지 ─── */
+.law-tag {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: #e8edf5;
+  color: #2d4a7a;
+  display: inline-block;
+}
+.badge-red {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: #fde8e8;
+  color: #b00;
+  display: inline-block;
+}
+.badge-green {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: #e8f5e9;
+  color: #1a5c2e;
+  display: inline-block;
+}
+.q-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: var(--navy);
+  color: var(--gold);
+  display: inline-block;
+}
+
+/* ─── 컬러 박스 공통 (좌측 보더 패턴) ─── */
+.summary-box, .case-box, .ruling-box, .warn-box {
+  border-left: 4px solid;
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+
+/* 핵심요약 */
+.summary-box {
+  background: var(--summary-bg);
+  border-left-color: var(--summary-bd);
+}
+.summary-box .label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--summary-bd);
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+  display: block;
+}
+.summary-box ul { padding-left: 18px; }
+.summary-box li { margin-bottom: 8px; font-size: 14.5px; }
+
+/* 사례 */
+.case-box {
+  background: var(--case-bg);
+  border-left-color: var(--case-bd);
+}
+.case-box .case-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--case-bd);
+  margin-bottom: 8px;
+  display: block;
+}
+.case-box p { font-size: 14.5px; }
+
+/* 판례 */
+.ruling-box {
+  background: var(--ruling-bg);
+  border-left-color: var(--ruling-bd);
+}
+.ruling-box .ruling-header {
+  font-size: 13px;
+  font-weight: 700;
+  color: #444;
+  margin-bottom: 8px;
+  display: block;
+}
+.ruling-box .ruling-header::before {
+  content: "判";
+  background: var(--ruling-bd);
+  color: #fff;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-right: 8px;
+  font-size: 11px;
+}
+.ruling-box p { font-size: 14.5px; }
+/* 하위 호환: 기존 .ruling-card 클래스도 동일 스타일로 */
+.ruling-card {
+  background: var(--ruling-bg);
+  border-left: 4px solid var(--ruling-bd);
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+.ruling-card .r-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #5a6475;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+.ruling-card .r-label::before {
+  content: "判";
+  background: var(--ruling-bd);
+  color: #fff;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-right: 8px;
+  font-size: 11px;
+}
+.ruling-card .r-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.ruling-card .r-body { font-size: 14.5px; line-height: 1.65; }
+
+/* 주의사항 */
+.warn-box {
+  background: var(--warn-bg);
+  border-left-color: var(--warn-bd);
+}
+.warn-box .warn-title, .warn-box .w-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--warn-bd);
+  margin-bottom: 8px;
+  display: block;
+}
+.warn-box p, .warn-box li { font-size: 14.5px; }
+.warn-box ul { padding-left: 18px; }
+.warn-box li { margin-bottom: 6px; }
+
+/* ─── 테이블 ─── */
+.table-wrap { overflow-x: auto; margin: 20px 0; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 480px;
+}
+.tbl-wrap { overflow-x: auto; margin: 20px 0; }
+thead th {
+  background: var(--navy);
+  color: #fff;
+  padding: 11px 14px;
+  font-size: 13px;
+  text-align: left;
+  font-weight: 700;
+}
+tbody td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #e4ddd4;
+  line-height: 1.6;
+  vertical-align: top;
+}
+tbody tr:nth-child(even) td { background: #f5f2ee; }
+tbody tr:hover td { background: #eee8e0; }
+td.highlight { font-weight: 700; color: var(--navy); }
+td.gold { font-weight: 700; color: #8a5e00; background: #fffbf0; }
+
+/* ─── 체크리스트 ─── */
+.checklist {
+  background: #fff;
+  border: 1px solid #ddd6ce;
+  border-radius: 8px;
+  padding: 24px 28px;
+  list-style: none;
+}
+.checklist li {
+  padding: 6px 0;
+  font-size: 14.5px;
+  border-bottom: 1px dashed #e8e0d8;
+}
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before {
+  content: "✓";
+  color: var(--gold);
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+/* ─── Q&A (통합: .qna- 및 하위 호환 .qa-) ─── */
+.qna-item, .qa-item {
+  border: 1px solid #e0d9d0;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+.qna-q, .qa-q {
+  background: #fff;
+  padding: 16px 20px;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--navy);
+  cursor: pointer;
+}
+.qna-a, .qa-a {
+  background: #faf8f5;
+  padding: 16px 20px 16px 48px;
+  font-size: 14.5px;
+  border-top: 1px solid #e0d9d0;
+  line-height: 1.75;
+}
+.qna-a .disclaimer {
+  font-size: 12px;
+  color: #888;
+  margin-top: 10px;
+  border-top: 1px dashed #ccc;
+  padding-top: 8px;
+}
+
+/* ─── 기간 경고 배너 ─── */
+.deadline-banner {
+  background: #fff8f6;
+  border: 2px solid #c0392b;
+  border-radius: 8px;
+  margin: 24px 0;
+  padding: 18px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.deadline-banner .dl-icon, .deadline-banner .icon {
+  font-size: 26px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.deadline-banner .dl-text, .deadline-banner .text { flex: 1; }
+.deadline-banner h4, .deadline-banner strong { color: #7a0000; font-weight: 700; }
+.deadline-banner p { font-size: 13.5px; color: #555; line-height: 1.6; margin-top: 4px; }
+
+/* ─── 다음 페이지 링크 ─── */
+.next-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+.next-link {
+  background: #fff;
+  border: 1px solid #ddd6ce;
+  border-radius: 8px;
+  padding: 16px 18px;
+  font-size: 14px;
+  color: var(--navy);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.next-link:hover {
+  border-color: var(--gold);
+  box-shadow: 0 2px 8px rgba(200,169,110,0.15);
+  text-decoration: none;
+}
+.next-link .arrow { color: var(--gold); font-size: 18px; flex-shrink: 0; }
+
+/* ─── CTA 박스 ─── */
+.cta-box {
+  background: var(--cta-bg);
+  border: 1px solid var(--cta-bd);
+  border-radius: 10px;
+  padding: 32px 28px;
+  text-align: center;
+  margin: 40px 0 0;
+}
+.cta-box h3 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+  border: none;
+  padding: 0;
+}
+.cta-box p {
+  font-size: 14.5px;
+  color: #4a4a5a;
+  margin-bottom: 20px;
+}
+.cta-btn {
+  display: inline-block;
+  background: var(--navy);
+  color: #fff;
+  padding: 14px 36px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.cta-btn:hover { background: #26426a; text-decoration: none; }
+
+/* ─── 면책 섹션 ─── */
+.disclaimer-section {
+  background: #f2f0ec;
+  padding: 28px;
+  border-radius: 8px;
+  margin: 40px 0 0;
+}
+.disclaimer-section p, .disclaimer {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.8;
+}
+
+/* ─── 반응형 ─── */
+@media (max-width: 600px) {
+  header { padding: 36px 16px 28px; }
+  section { padding: 36px 0; }
+  .summary-box, .case-box, .ruling-box, .warn-box,
+  .ruling-card { padding: 16px 18px; }
+  .qna-a, .qa-a { padding-left: 20px; }
+  .cta-box { padding: 24px 20px; }
+  .cta-btn { padding: 12px 28px; }
+  .next-links { grid-template-columns: 1fr; }
+}
+
+
+/* ===== PAGE-SPECIFIC STYLES ===== */
+main { max-width: 780px; margin: 0 auto; padding: 40px 20px 60px; }
+
+p { margin-bottom: 14px; }
+p:last-child { margin-bottom: 0; }
+
+.target-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+.target-card {
+  background: var(--summary-bg);
+  border: 1px solid #c2d0e8;
+  border-radius: 10px;
+  padding: 18px 18px 16px;
+}
+.target-card .icon { font-size: 26px; margin-bottom: 8px; }
+.target-card p { font-size: 14px; color: #334; margin: 0; line-height: 1.6; }
+
+.flow-chart {
+  background: #fff;
+  border: 1px solid #d0daea;
+  border-radius: 12px;
+  padding: 28px 20px;
+  margin-bottom: 24px;
+}
+.flow-chart 
+.flow-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+.flow-node {
+  background: var(--navy);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-align: center;
+  min-width: 110px;
+  line-height: 1.4;
+}
+.flow-node.gold {
+  background: var(--gold);
+  color: var(--navy);
+}
+.flow-node.green {
+  background: #1a5c2e;
+}
+.flow-node.red {
+  background: #8b1a1a;
+}
+.flow-node.gray {
+  background: #5a6475;
+}
+.flow-arrow {
+  font-size: 18px;
+  color: var(--navy);
+  flex-shrink: 0;
+}
+.flow-label {
+  font-size: 12px;
+  color: #5a6475;
+  background: #f0f4fb;
+  border-radius: 6px;
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+.flow-indent {
+  padding-left: 28px;
+  border-left: 2px dashed #c2d0e8;
+  margin-left: 14px;
+  margin-bottom: 10px;
+}
+
+.country-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.country-card {
+  border-radius: 10px;
+  border: 1px solid #c2d0e8;
+  overflow: hidden;
+}
+.country-card .cc-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  font-weight: 700;
+  font-size: 15px;
+}
+.country-card.japan .cc-head  { background: #fff0f0; color: #8b1a1a; border-bottom: 2px solid #e87878; }
+.country-card.usa   .cc-head  { background: #f0f4fb; color: #1a2e6b; border-bottom: 2px solid #4a6ab8; }
+.country-card.china .cc-head  { background: #fff5f0; color: #8b2a00; border-bottom: 2px solid #e87050; }
+.country-card.taiwan .cc-head { background: #f5f0fb; color: #4a1a6b; border-bottom: 2px solid #9a6ab8; }
+.country-card.germany .cc-head{ background: #f0f5fb; color: #1a3a6b; border-bottom: 2px solid #3a6aa8; }
+.country-card.france .cc-head { background: #f0f8fb; color: #0a4a6b; border-bottom: 2px solid #3a8ab8; }
+.country-card.uk .cc-head     { background: #f0f0fb; color: #1a1a6b; border-bottom: 2px solid #5050b8; }
+.country-card .cc-
+.country-card .cc-row { display: flex; gap: 8px; font-size: 13.5px; margin-bottom: 8px; }
+.country-card .cc-row:last-child { margin-bottom: 0; }
+.country-card .cc-lbl {
+  font-weight: 700;
+  color: #5a6475;
+  min-width: 58px;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+.country-card .cc-val { color: #2c2c2c; line-height: 1.55; }
+.badge-hangguk {
+  display: inline-block;
+  background: #1a5c2e;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.badge-bonguk {
+  display: inline-block;
+  background: #5a4000;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.proc-box {
+  background: var(--proc-bg);
+  border: 1px solid #b0c4e8;
+  border-radius: 10px;
+  padding: 22px 22px 18px;
+  margin-bottom: 20px;
+}
+.proc-box 
+.proc-steps { display: flex; flex-direction: column; gap: 10px; }
+.proc-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+.proc-step .pnum {
+  background: var(--navy);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.proc-step .ptext { font-size: 14px; line-height: 1.55; color: #2c2c2c; }
+.proc-step .ptext strong { color: var(--navy); }
+
+.branch-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.branch-card {
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #c2d0e8;
+  padding: 18px 16px;
+}
+.branch-card .bh {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--navy);
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--gold);
+}
+.branch-card ul { padding-left: 16px; }
+.branch-card li { font-size: 13.5px; margin-bottom: 6px; line-height: 1.55; }
+
+.qa-
+
+.next-box {
+  background: var(--step-bg);
+  border: 1px solid #b0c4e8;
+  border-radius: 10px;
+  padding: 22px 22px 18px;
+}
+.next-box 
+
+.info-box {
+  background: var(--case-bg);
+  border-left: 4px solid var(--case-bd);
+  border-radius: 0 10px 10px 0;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.info-box strong { color: #1a5c2e; }
+/* ─── 법령·판례 클릭 태그 ─── */
+.ref-tags {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.tag-law {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: #eef2f8;
+  color: #2d4a7a;
+  border: 1px solid #2d4a7a;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.tag-law:hover { background-color: #dce6f5; }
+.tag-case {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: #f7f4f0;
+  color: #5a3e28;
+  border: 1px solid #6b7280;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.tag-case:hover { background-color: #ede8e2; }
+/* law-ref 인라인 스타일을 tag-law 와 통일 */
+span.law-ref a, .tag-law { cursor: pointer; }
+
+</style></head>
+<body>
+<header>
+<div class="breadcrumb">상속등기 안내 · 페이지 22</div>
+<h1>외국인의 상속등기<br/>준비서류와 절차</h1>
+<p class="subtitle">국적별 준거법 · 증명서류 · 부동산등기용등록번호까지 한눈에</p>
+</header>
+<main>
+<!-- 1. 이런 분께 -->
+<section>
+<h2 class="section-title">
+<span class="num">SECTION 01</span>이런 분께 필요한 정보입니다
+  </h2>
+<div class="target-cards">
+<div class="target-card">
+<div class="icon">🌏</div>
+<p>외국인이 한국의 부동산을 상속받아 등기를 해야 하는 경우</p>
+</div>
+<div class="target-card">
+<div class="icon">🏠</div>
+<p>피상속인(망인)이 외국인이고 한국에 부동산을 남긴 경우</p>
+</div>
+<div class="target-card">
+<div class="icon">📋</div>
+<p>어느 나라 법이 적용되는지, 어떤 서류를 준비해야 하는지 궁금한 경우</p>
+</div>
+<div class="target-card">
+<div class="icon">🔢</div>
+<p>외국인 등기명의인으로서 부동산등기용등록번호 발급이 필요한 경우</p>
+</div>
+</div>
+</section>
+<!-- 2. 핵심요약 -->
+<section>
+<h2 class="section-title">
+<span class="num">SECTION 02</span>핵심요약
+  </h2>
+<div class="summary-box">
+<ul>
+<li><strong>준거법 원칙</strong> — <a href="https://www.law.go.kr/법령/국제사법" target="_blank" class="tag-law">📋 국제사법 제49조</a>에 따라 <strong>피상속인의 본국법(사망 당시 국적국 법)</strong>이 적용됩니다(상속통일주의).</li>
+<li><strong>반정(反定)에 의한 한국법 적용</strong> — 미국·영국·프랑스·중국 등은 부동산 소재지법주의를 채택하므로, 한국 소재 부동산 상속에는 <strong>반정으로 한국법이 적용</strong>됩니다.</li>
+<li><strong>부동산등기용등록번호</strong> — 외국인이 등기명의인이 되려면 출입국관리사무소(또는 재외공관)에서 <strong>부동산등기용등록번호</strong>를 발급받아야 합니다.</li>
+<li><strong>외국어 서류</strong> — 외국어로 된 서면에는 반드시 <strong>번역문을 첨부</strong>해야 합니다(<a href="https://www.law.go.kr/법령/부동산등기규칙" target="_blank" class="tag-law">📋 부동산등기규칙 제46조 제8항</a>).</li>
+<li><strong>기간 제한 없음</strong> — 외국인 상속등기 자체에 별도의 청구기간 제한은 없으나, 상속받을 권리(상속회복청구권 등)는 별개로 기간 제한이 있을 수 있습니다.</li>
+</ul>
+</div>
+</section>
+<!-- 3. 상세내용 -->
+<section>
+<h2 class="section-title">
+<span class="num">SECTION 03</span>상세내용
+  </h2>
+<!-- 3-1. 준거법 결정 흐름도 -->
+<div class="flow-chart">
+<h3>⚖️ 상속 준거법 결정 흐름</h3>
+<div class="flow-row">
+<div class="flow-node gold">피상속인 사망</div>
+<div class="flow-arrow">→</div>
+<div class="flow-node">국적 확인</div>
+</div>
+<div class="flow-indent" style="margin-top:10px;">
+<div class="flow-row">
+<div class="flow-label">한국 국적 포함(이중국적)</div>
+<div class="flow-arrow">→</div>
+<div class="flow-node green">한국법 적용</div>
+</div>
+<div class="flow-row" style="margin-top:8px;">
+<div class="flow-label">무국적</div>
+<div class="flow-arrow">→</div>
+<div class="flow-node gray">상거소지법 적용</div>
+</div>
+<div class="flow-row" style="margin-top:8px;">
+<div class="flow-label">외국 국적(단일)</div>
+<div class="flow-arrow">→</div>
+<div class="flow-node">본국법 원칙 적용</div>
+</div>
+</div>
+<div style="margin-top:14px; padding-left:10px;">
+<p style="font-size:13px; color:#5a6475; margin-bottom:10px;">본국법 적용 시: 그 나라가 <strong>부동산 소재지법주의</strong>를 채택하면?</p>
+<div class="flow-row">
+<div class="flow-node gray" style="font-size:12px;">미국·영국·프랑스·중국</div>
+<div class="flow-arrow">→</div>
+<div class="flow-label">반정(反定)</div>
+<div class="flow-arrow">→</div>
+<div class="flow-node green">한국법 적용</div>
+</div>
+<div class="flow-row" style="margin-top:8px;">
+<div class="flow-node gray" style="font-size:12px;">일본·독일·대만</div>
+<div class="flow-arrow">→</div>
+<div class="flow-label">상속통일주의</div>
+<div class="flow-arrow">→</div>
+<div class="flow-node red" style="font-size:12px;">본국법 적용</div>
+</div>
+</div>
+<p style="font-size:12px; color:#7a8090; margin-top:14px; padding-top:10px; border-top:1px dashed #c2d0e8;">
+      * <a href="https://www.law.go.kr/법령/국제사법" target="_blank" class="tag-law">📋 국제사법 제49조 제1항</a>: 상속은 사망 당시 피상속인의 본국법에 의한다.<br/>
+      * 단, 피상속인이 유언으로 상거소지법 또는 부동산소재지법을 선택한 경우 그 법에 의함(동조 제2항).
+    </p>
+</div>
+<!-- 3-2. 국가별 카드 -->
+<h3 style="font-family:'Noto Serif KR',serif; font-size:16px; color:var(--navy); margin-bottom:16px;">🗂 국가별 준거법 및 주요 증명서류</h3>
+<div class="country-grid">
+<div class="country-card japan">
+<div class="cc-head">
+        🇯🇵 일본
+        <span class="badge-bonguk">본국법 적용</span>
+</div>
+<div class="cc-body">
+<div class="cc-row">
+<span class="cc-lbl">준거법</span>
+<span class="cc-val">일본 민법 (상속통일주의 — 반정 없음)</span>
+</div>
+<div class="cc-row">
+<span class="cc-lbl">증명서류</span>
+<span class="cc-val">
+            호적등(초)본, 제적등본 등 일본 관공서 발행 서류.<br/>
+            일본어 서면이므로 번역문 첨부 필수.
+          </span>
+</div>
+<div class="cc-row">
+<span class="cc-lbl">특이사항</span>
+<span class="cc-val">일본 호적에 상속 관계가 기재되므로 상속증명에 호적 활용.</span>
+</div>
+</div>
+</div>
+<div class="country-card usa">
+<div class="cc-head">
+        🇺🇸 미국
+        <span class="badge-hangguk">반정→한국법</span>
+</div>
+<div class="cc-body">
+<div class="cc-row">
+<span class="cc-lbl">준거법</span>
+<span class="cc-val">Restatement §249 — 부동산 소재지법주의 → 반정으로 한국법 적용</span>
+</div>
+<div class="cc-row">
+<span class="cc-lbl">증명서류</span>
+<span class="cc-val">
+            관공서 발행 상속증명서 + 공증된 서면.<br/>
+            미국에는 인감제도 없으므로 서명인감증명 대신 공증서면으로 대체.
+          </span>
+</div>
+<div class="cc-row">
+<span class="cc-lbl">특이사항</span>
+<span class="cc-val">주(State)마다 상속법 상이 — 사망지·주소지 주법 확인 필요.</span>
+</div>
+</div>
+</div>
+<div class="country-card china">
+<div class="cc-head">
+        🇨🇳 중국
+        <span class="badge-hangguk">반정→한국법</span>
+</div>
+<div class="cc-body">
+<div class="cc-row">
+<span class="cc-lbl">준거법</span>
+<span class="cc-val">중국 섭외민사법률관계법 제31조 — 부동산 소재지법주의 → 반정으로 한국법 적용</span>
+</div>
+<div class="cc-row">
+<span class="cc-lbl">증명서류</span>
+<span class="cc-val">
+            중국 본국 정부기관 또는 주한중국대사관 발행 증명서.<br/>
+            아포스티유 또는 한국 영사 인증 필요.
+          </span>
+</div>
+</div>
+</div>
+<div class="country-card taiwan">
+<div class="cc-head">
+        🇹🇼 대만(중화민국)
+        <span class="badge-bonguk">본국법 적용</span>
+</div>
+<div class="cc-body">
+<div class="cc-row">
+<span class="cc-lbl">준거법</span>
+<span class="cc-val">중화민국 민법 (상속통일주의 — 반정 없음)</span>
+</div>
+<div class="cc-row">
+<span class="cc-lbl">증명서류</span>
+<span class="cc-val">
+            주한타이페이대표부 증명 호적(제적)등본.<br/>
+            繁體字 서면이므로 번역문 첨부 필수.
+          </span>
+</div>
+</div>
+</div>
+<div class="country-card germany">
+<div class="cc-head">
+        🇩🇪 독일
+        <span class="badge-bonguk">본국법 적용</span>
+</div>
+<div class="cc-body">
+<div class="cc-row">
+<span class="cc-lbl">준거법</span>
+<span class="cc-val">독일 민법 (상속통일주의 — 반정 없음)</span>
+</div>
+<div class="cc-row">
+<span class="cc-lbl">증명서류</span>
+<span class="cc-val">
+            사망증명서 + 상속증명서(Erbschein).<br/>
+            독일어 서면이므로 번역문 첨부 필수.
+          </span>
+</div>
+</div>
+</div>
+<div class="country-card uk">
+<div class="cc-head">
+        🇬🇧 영국
+        <span class="badge-hangguk">반정→한국법</span>
+</div>
+<div class="cc-body">
+<div class="cc-row">
+<span class="cc-lbl">준거법</span>
+<span class="cc-val">영국 국제사법 — 부동산 소재지법주의 → 반정으로 한국법 적용</span>
+</div>
+<div class="cc-row">
+<span class="cc-lbl">증명서류</span>
+<span class="cc-val">
+            사망증명서 + Grant of Probate(유언검인서) 또는 Letters of Administration(상속관리서).<br/>
+            영사 인증 및 번역문 첨부.
+          </span>
+</div>
+</div>
+</div>
+<div class="country-card france">
+<div class="cc-head">
+        🇫🇷 프랑스
+        <span class="badge-hangguk">반정→한국법</span>
+</div>
+<div class="cc-body">
+<div class="cc-row">
+<span class="cc-lbl">준거법</span>
+<span class="cc-val">프랑스 국제사법 — 부동산 소재지법주의 → 반정으로 한국법 적용</span>
+</div>
+<div class="cc-row">
+<span class="cc-lbl">증명서류</span>
+<span class="cc-val">
+            본국 정부기관 발행 증명서.<br/>
+            아포스티유 인증 및 번역문 첨부.
+          </span>
+</div>
+</div>
+</div>
+</div><!-- /country-grid -->
+<!-- 3-3. 부동산등기용등록번호 -->
+<h3 style="font-family:'Noto Serif KR',serif; font-size:16px; color:var(--navy); margin:24px 0 14px;">🔢 부동산등기용등록번호 발급</h3>
+<div class="info-box">
+    외국인이 <strong>등기명의인</strong>이 되기 위해서는 반드시 <strong>부동산등기용등록번호</strong>를 등기신청서에 기재해야 합니다.<br/>
+    주민등록번호가 없는 외국인을 위한 별도 식별번호로, 출입국관리사무소 또는 재외공관에서 발급합니다.
+  </div>
+<div class="proc-box">
+<h3>발급 절차</h3>
+<div class="proc-steps">
+<div class="proc-step">
+<div class="pnum">1</div>
+<div class="ptext"><strong>신청 기관 확인</strong> — 국내 거주 외국인은 거주지 관할 출입국관리사무소, 국외 거주 외국인은 주한 한국 재외공관에 신청합니다.</div>
+</div>
+<div class="proc-step">
+<div class="pnum">2</div>
+<div class="ptext"><strong>필요 서류 준비</strong> — 여권 사본, 외국인등록증(국내 거주자), 본국 주소증명 서류(해외 거주자).</div>
+</div>
+<div class="proc-step">
+<div class="pnum">3</div>
+<div class="ptext"><strong>등록번호 발급</strong> — 13자리 부동산등기용등록번호 발급. 외국국적동포(재외동포)는 국내거소신고번호로 대체 가능 (선례 5-116).</div>
+</div>
+<div class="proc-step">
+<div class="pnum">4</div>
+<div class="ptext"><strong>행방불명 시 특례</strong> — 등록번호 발급 대상자가 행방불명인 경우, 그 소명을 하면 등록번호 없이도 신청 가능 (선례 7-80).</div>
+</div>
+<div class="proc-step">
+<div class="pnum">5</div>
+<div class="ptext"><strong>등기신청</strong> — 발급받은 등록번호를 등기신청서 및 위임장에 기재하여 관할 등기소에 제출합니다.</div>
+</div>
+</div>
+</div>
+<!-- 3-4. 주소증명 -->
+<h3 style="font-family:'Noto Serif KR',serif; font-size:16px; color:var(--navy); margin:24px 0 14px;">📍 외국인의 주소 증명 방법</h3>
+<div class="branch-grid">
+<div class="branch-card">
+<div class="bh">🏠 한국에 거주하는 외국인</div>
+<ul>
+<li>외국인등록사실증명서 (출입국관리사무소 발급)</li>
+<li>외국인등록증 사본</li>
+<li>재외동포 — 국내거소신고사실증명서</li>
+</ul>
+</div>
+<div class="branch-card">
+<div class="bh">✈️ 해외에 거주하는 외국인</div>
+<ul>
+<li>본국 관공서 발행 주소증명서</li>
+<li>주소가 기재된 공증서면</li>
+<li>한국 재외공관(영사)의 주소 확인 서면</li>
+<li>※ 예규 제1393호에 따른 방법으로 증명</li>
+</ul>
+</div>
+</div>
+<!-- 3-5. 외국어 서류 번역 -->
+<h3 style="font-family:'Noto Serif KR',serif; font-size:16px; color:var(--navy); margin:24px 0 14px;">📄 외국어 서류 번역 요건</h3>
+<div class="warn-box">
+<div class="w-title">⚠️ 번역문 첨부 의무 (<a href="https://www.law.go.kr/법령/부동산등기규칙" target="_blank" class="tag-law">📋 부동산등기규칙 제46조 제8항</a>)</div>
+<ul>
+<li>외국어로 작성된 서면에는 반드시 <strong>번역문을 첨부</strong>해야 합니다.</li>
+<li>번역은 전문 번역인이 하거나, 번역인이 번역의 정확성을 확인한 서면이어야 합니다.</li>
+<li>한국어 번역문에 번역자의 서명 또는 날인이 있어야 인정됩니다.</li>
+<li>공증된 번역문일 경우 가장 신뢰도가 높으며, 등기관의 보정 요구를 최소화할 수 있습니다.</li>
+</ul>
+</div>
+<!-- 3-6. 첨부정보 종합표 -->
+<h3 style="font-family:'Noto Serif KR',serif; font-size:16px; color:var(--navy); margin:24px 0 14px;">📋 신청 시 첨부 서류 종합</h3>
+<div class="tbl-wrap">
+<table>
+<thead>
+<tr>
+<th>서류 종류</th>
+<th>내용</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>상속증명 서류</strong></td>
+<td>본국 관공서 발행 사망증명서, 상속관계 증명서류 (호적, 상속증명서 등)</td>
+<td>번역문 첨부 필수</td>
+</tr>
+<tr>
+<td><strong>부동산등기용등록번호 증명</strong></td>
+<td>출입국관리사무소 발급 등록번호 확인서 또는 외국인등록증</td>
+<td>등기명의인이 되는 경우 필수</td>
+</tr>
+<tr>
+<td><strong>주소증명</strong></td>
+<td>외국인등록사실증명서(국내) 또는 본국 주소증명 공증서면(국외)</td>
+<td>번역문 첨부 필수</td>
+</tr>
+<tr>
+<td><strong>인감·서명 증명</strong></td>
+<td>인감제도 없는 나라는 공증된 서명증명서로 대체</td>
+<td>미국 등 해당</td>
+</tr>
+<tr>
+<td><strong>아포스티유 / 영사인증</strong></td>
+<td>헤이그 협약국은 아포스티유, 비협약국은 한국 재외공관 영사 인증</td>
+<td>공문서 진정성 확인</td>
+</tr>
+<tr>
+<td><strong>준거법 적용 증명</strong></td>
+<td>외국법 내용 증명(법원, 법무부, 전문가 의견서 등)</td>
+<td>본국법 적용 시 필요할 수 있음</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- 4. 판례 및 선례 -->
+<section>
+<h2 class="section-title">
+<span class="num">SECTION 04</span>관련 판례 · 선례
+  </h2>
+<div class="ruling-card">
+<div class="r-label">선례 5-116</div>
+<div class="r-title">외국국적동포의 국내거소신고번호로 등록번호 대체</div>
+<div class="r-body">
+      재외동포의 출입국과 법적 지위에 관한 법률에 따라 국내거소신고를 한 외국국적동포는
+      부동산등기용등록번호 대신 <strong>국내거소신고번호</strong>를 사용하여 등기신청을 할 수 있다.
+    </div>
+</div>
+<div class="ruling-card">
+<div class="r-label">선례 7-80</div>
+<div class="r-title">등록번호 발급 대상자 행방불명 시의 처리</div>
+<div class="r-body">
+      부동산등기용등록번호를 발급받아야 할 외국인이 <strong>행방불명</strong>된 경우에는
+      그 소명을 하면 등록번호 없이도 상속등기 신청을 할 수 있다.
+      이는 상속인이 부지의 사유로 등기를 진행하지 못하는 경우를 방지하기 위한 특례이다.
+    </div>
+</div>
+<div class="ruling-card">
+<div class="r-label">선례 5-332</div>
+<div class="r-title">미국 국적자의 상속등기 — 반정 적용</div>
+<div class="r-body">
+      미국 국제사법(Restatement §249)은 부동산 상속에 관하여 <strong>부동산 소재지법</strong>을
+      준거법으로 채택하고 있으므로, 미국인 피상속인이 남긴 한국 소재 부동산 상속에 관하여는
+      반정에 의하여 한국법이 적용된다.
+    </div>
+</div>
+<div class="ruling-card">
+<div class="r-label">선례 5-333</div>
+<div class="r-title">미국 국적자의 상속 — 인감증명 대체</div>
+<div class="r-body">
+      미국에는 인감제도가 없으므로, 미국 국적자의 등기신청에 필요한 인감증명은
+      관공서 발행 상속증명서 또는 <strong>공증서면</strong>으로 대체할 수 있다.
+      서명의 진정성은 공증을 통해 확인한다.
+    </div>
+</div>
+<div class="ruling-card">
+<div class="r-label">선례 6-225</div>
+<div class="r-title">중국 국적자의 상속등기 — 증명서류 인증</div>
+<div class="r-body">
+      중국 국적자의 상속등기 신청 시 제출하는 본국 정부기관 또는 주한중국대사관 발행 증명서는
+      <strong>한국 재외공관 또는 권한 있는 기관의 인증</strong>을 받아야 한다.
+      중국어로 된 서면에는 번역문을 첨부해야 한다.
+    </div>
+</div>
+<div class="ruling-card">
+<div class="r-label">선례 7-171</div>
+<div class="r-title">외국인 주소 증명 — 공증서면 허용</div>
+<div class="r-body">
+      국외에 거주하는 외국인의 주소 증명은 본국 관공서 발행 서면 외에
+      <strong>공증인의 공증을 받은 서면</strong>으로도 할 수 있다 (예규 제1393호 참조).
+      등기신청서의 주소 기재와 일치해야 한다.
+    </div>
+</div>
+</section>
+<!-- 5. 주의사항 -->
+<section>
+<h2 class="section-title">
+<span class="num">SECTION 05</span>주의사항
+  </h2>
+<div class="warn-box">
+<div class="w-title">⚠️ 이중국적자 — 한국법 우선 적용</div>
+<p>
+      피상속인이 한국 국적을 포함한 이중국적자인 경우, <a href="https://www.law.go.kr/법령/국제사법" target="_blank" class="tag-law">📋 국제사법 제16조</a>에 따라
+      <strong>가장 밀접한 관련이 있는 국가의 법</strong>이 적용되며, 한국 국적이 포함되어 있으면
+      <strong>한국법이 우선 적용</strong>됩니다.
+    </p>
+</div>
+<div class="warn-box">
+<div class="w-title">⚠️ 아포스티유 협약 여부 확인 필수</div>
+<p>
+      외국 공문서의 진정성 확인 방법은 해당 국가가 헤이그 아포스티유 협약 가입국인지에 따라 다릅니다.
+    </p>
+<ul>
+<li><strong>협약 가입국</strong>: 아포스티유 인증으로 충분 (한국 재외공관 인증 불필요)</li>
+<li><strong>비협약국</strong>: 한국 재외공관(영사)의 인증 또는 현지 공증 + 영사 확인 필요</li>
+</ul>
+</div>
+<div class="warn-box">
+<div class="w-title">⚠️ 준거법 내용의 증명 책임</div>
+<p>
+      외국법(본국법)이 준거법으로 적용되는 경우, 등기관은 그 외국법의 내용을 직권으로 알 수 없습니다.
+      신청인이 <strong>외국법의 내용을 증명하는 서면</strong>(해당국 법전, 법무부 확인서, 변호사 의견서 등)을
+      첨부해야 할 수 있으며, 이를 게을리하면 보정 또는 각하 사유가 됩니다.
+    </p>
+</div>
+<div class="warn-box">
+<div class="w-title">⚠️ 상속포기 · 한정승인도 본국법 기준</div>
+<p>
+      상속포기나 한정승인의 허용 여부 및 방법도 원칙적으로 <strong>준거법(본국법 또는 반정에 의한 한국법)</strong>에 따릅니다.
+      반정으로 한국법이 적용되는 경우에는 한국 민법상의 상속포기·한정승인 절차(가정법원)를 따릅니다.
+    </p>
+</div>
+<div class="warn-box">
+<div class="w-title">⚠️ 외국인의 토지 취득 제한 규정 별도 확인</div>
+<p>
+      외국인 토지법 등에 의한 외국인의 토지 취득 제한 규정은 상속등기와 별개로 적용될 수 있습니다.
+      상속으로 인한 취득은 허가 대상에서 제외되는 경우가 많으나, 취득 후 <strong>신고 의무</strong>가 있는 경우도 있으므로
+      해당 법령을 반드시 확인하십시오.
+    </p>
+</div>
+</section>
+<!-- 6. Q&A -->
+<section>
+<h2 class="section-title">
+<span class="num">SECTION 06</span>자주 묻는 질문 (Q&amp;A)
+  </h2>
+<div class="qna-item">
+<div class="qna-q">Q. 외국인이 한국 부동산을 상속받으면 반드시 등기해야 하나요?</div>
+<div class="qna-a">
+      상속등기는 의무 사항은 아니지만, 등기하지 않으면 제3자에게 상속으로 인한 권리 취득을 대항할 수 없습니다.
+      또한 이후 매각·담보 설정 등 처분을 위해서도 등기가 선행되어야 합니다. 실무적으로는 상속받은 후
+      가능한 한 빠른 시일 내에 등기하는 것이 권장됩니다.
+    </div>
+</div>
+<div class="qna-item">
+<div class="qna-q">Q. 한국에 한 번도 오지 않고도 상속등기를 할 수 있나요?</div>
+<div class="qna-a">
+      가능합니다. 한국에 거주하는 법무사에게 위임장(공증 포함)을 작성하여 대리 신청할 수 있습니다.
+      위임장은 공증인의 공증을 받아야 하며, 해외에서 작성하는 경우 아포스티유 인증 또는 한국 영사의 확인을 받아야 합니다.
+    </div>
+</div>
+<div class="qna-item">
+<div class="qna-q">Q. 미국 국적 피상속인인데 유언장이 있는 경우 어떻게 되나요?</div>
+<div class="qna-a">
+      미국인은 반정으로 한국법이 적용되므로, 한국 민법상의 유언 방식과 효력이 원칙적으로 적용됩니다.
+      다만, <a href="https://www.law.go.kr/법령/국제사법" target="_blank" class="tag-law">📋 국제사법 제50조</a>에 따라 유언 방식은 행위지법(유언 작성지법) 등에 의할 수도 있습니다.
+      유언장의 진정성 입증을 위해 공증 및 아포스티유 인증이 필요할 수 있으며, 복잡한 경우에는
+      전문 법무사 또는 변호사의 조력을 받는 것이 좋습니다.
+    </div>
+</div>
+<div class="qna-item">
+<div class="qna-q">Q. 피상속인이 일본 국적이면 일본 상속법이 적용되나요? 일본법에서 상속분이 다를 수 있나요?</div>
+<div class="qna-a">
+      네, 일본인 피상속인의 경우 반정 없이 <strong>일본 민법</strong>이 적용됩니다. 일본 민법의 상속분은
+      한국 민법과 유사한 부분도 있지만 차이도 있습니다(예: 일본은 배우자 1/2, 자녀 1/2 분할).
+      일본법 내용을 증명하는 서면을 등기 신청 시 함께 제출해야 할 수 있으며,
+      일본 호적서류를 통해 상속관계를 소명합니다.
+    </div>
+</div>
+<div class="qna-item">
+<div class="qna-q">Q. 부동산등기용등록번호 발급에 시간이 얼마나 걸리나요?</div>
+<div class="qna-a">
+      출입국관리사무소에 직접 방문하여 신청하는 경우 당일 또는 수일 내에 발급받을 수 있는 경우가 많습니다.
+      해외 재외공관을 통하는 경우 우편 등의 사정으로 시간이 더 소요될 수 있습니다.
+      등기 신청 전에 미리 발급받아 두는 것이 좋으며, 발급이 지연되면 전체 등기 일정에 영향을 줍니다.
+    </div>
+</div>
+</section>
+<!-- 7. 다음으로 -->
+<section>
+<h2 class="section-title">
+<span class="num">SECTION 07</span>다음으로 확인할 내용
+  </h2>
+<div class="next-box">
+<h3>관련 페이지</h3>
+<div class="next-links">
+<a class="next-link" href="상속_01_개요.html">
+<span class="arrow">▶</span>
+        상속등기 전체 개요 — 처음이라면 여기서 시작하세요
+      </a>
+<a class="next-link" href="상속_03_협의분할.html">
+<span class="arrow">▶</span>
+        협의분할에 의한 상속등기 — 상속인 간 합의로 나누는 방법
+      </a>
+<a class="next-link" href="상속_18_유증등기.html">
+<span class="arrow">▶</span>
+        유증으로 인한 소유권이전등기 — 유언에 의한 재산 이전
+      </a>
+<a class="next-link" href="상속_21_상속회복.html">
+<span class="arrow">▶</span>
+        상속회복청구 — 빼앗긴 상속재산 되찾기
+      </a>
+</div>
+</div>
+</section>
+<!-- 8. CTA -->
+<section>
+<div class="cta-box">
+<h3>외국인 상속등기, 직접 준비하기 복잡하게 느껴지신다면</h3>
+<p>
+      국적별 준거법 판단, 외국어 서류 번역 및 인증, 부동산등기용등록번호 발급까지 —<br/>
+      복잡한 외국인 상속등기 절차를 법무사가 처음부터 끝까지 도와드립니다.
+    </p>
+<a class="cta-btn" href="tel:0000000000">무료 전화 상담하기</a>
+</div>
+</section>
+<!-- 면책 -->
+<section>
+<p class="disclaimer">
+    본 페이지의 내용은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 조언이 아닙니다.
+    외국인 상속등기는 국적, 피상속인의 본국법 내용, 관련 조약 등 개별 사정에 따라 결론이 달라질 수 있습니다.
+    구체적인 사안에 대해서는 반드시 자격 있는 법무사 또는 변호사의 상담을 받으시기 바랍니다.
+    법령 및 선례는 개정·변경될 수 있으므로, 최신 정보를 확인하시기 바랍니다.
+  </p>
+</section>
+</main>
+</body>
+</html>

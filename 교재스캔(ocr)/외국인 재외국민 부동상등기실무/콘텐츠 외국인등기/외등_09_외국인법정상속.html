@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>외국인의 한국 부동산 법정상속등기 — 준거법부터 신청 절차까지</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #faf8f5;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a2e4a 0%, #2d4a7a 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header .subtitle {
+            font-size: 1.1em;
+            opacity: 0.95;
+            margin-bottom: 15px;
+        }
+
+        header .badge {
+            display: inline-block;
+            background: #c8a96e;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .content {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-family: 'Noto Serif KR', serif;
+            color: #1a2e4a;
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #c8a96e;
+            font-weight: 700;
+        }
+
+        h2:first-child {
+            margin-top: 0;
+        }
+
+        h3 {
+            font-family: 'Noto Serif KR', serif;
+            color: #2d4a7a;
+            font-size: 1.4em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        h4 {
+            color: #1a2e4a;
+            font-size: 1.1em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .checklist {
+            background: #eef2f8;
+            border-left: 4px solid #2d4a7a;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .checklist h4 {
+            margin-top: 0;
+            color: #2d4a7a;
+        }
+
+        .checklist ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .checklist li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #2d4a7a;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .why-box {
+            background: #eef2f8;
+            border: 2px solid #2d4a7a;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+
+        .why-box h3 {
+            margin-top: 0;
+            color: #1a2e4a;
+        }
+
+        .process-flow {
+            background: #f7f4f0;
+            border: 2px solid #6b7280;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+
+        .process-flow h3 {
+            margin-top: 0;
+            color: #1a2e4a;
+        }
+
+        .flow-step {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            font-size: 0.95em;
+        }
+
+        .flow-step:not(:last-child) .step-num {
+            margin-right: 15px;
+        }
+
+        .step-num {
+            background: #1a2e4a;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-right: 15px;
+        }
+
+        .flow-arrow {
+            color: #c8a96e;
+            font-size: 1.5em;
+            margin: 0 10px;
+        }
+
+        .steps-detail {
+            background: white;
+            border-left: 4px solid #1a2e4a;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95em;
+        }
+
+        table th {
+            background: #1a2e4a;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid #2d4a7a;
+        }
+
+        table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+
+        table tr:nth-child(even) {
+            background: #f9f8f6;
+        }
+
+        .case-box {
+            background: #f0f8f0;
+            border-left: 4px solid #1a5c2e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .case-box h4 {
+            color: #1a5c2e;
+            margin-top: 0;
+        }
+
+        .warning-box {
+            background: #fff3e8;
+            border-left: 4px solid #c05000;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .warning-box h4 {
+            color: #c05000;
+            margin-top: 0;
+        }
+
+        .icon-text {
+            display: flex;
+            align-items: flex-start;
+            margin: 15px 0;
+        }
+
+        .icon-text .icon {
+            font-size: 1.5em;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .precedent-box {
+            background: #f7f4f0;
+            border-left: 4px solid #6b7280;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .precedent-box h4 {
+            color: #4b5563;
+            margin-top: 0;
+        }
+
+        .country-diff {
+            background: #f0f4ff;
+            border: 2px solid #3b5bdb;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .country-diff h4 {
+            color: #3b5bdb;
+            margin-top: 0;
+        }
+
+        .qna-item {
+            background: white;
+            border-left: 4px solid #1a2e4a;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .qna-item h4 {
+            color: #1a2e4a;
+            margin-top: 0;
+            font-size: 1em;
+        }
+
+        .qna-answer {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #eee;
+        }
+
+        .qna-note {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 10px;
+            padding: 10px;
+            background: #f9f8f6;
+            border-radius: 4px;
+        }
+
+        .consultation-box {
+            background: #fdf6e9;
+            border: 2px solid #c8a96e;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .consultation-box h3 {
+            color: #c8a96e;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .consultation-box p {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-phone {
+            background: #1a2e4a;
+            color: white;
+        }
+
+        .btn-phone:hover {
+            background: #0f1a2e;
+            transform: translateY(-2px);
+        }
+
+        .btn-kakao {
+            background: #FFE812;
+            color: #1a2e4a;
+        }
+
+        .btn-kakao:hover {
+            background: #FFD700;
+            transform: translateY(-2px);
+        }
+
+        .next-topics {
+            background: white;
+            border: 2px solid #c8a96e;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
+        .next-topics h3 {
+            color: #1a2e4a;
+            margin-top: 0;
+            border-bottom: 2px solid #c8a96e;
+            padding-bottom: 10px;
+        }
+
+        .topic-link {
+            display: block;
+            padding: 12px 0;
+            color: #3b5bdb;
+            text-decoration: none;
+            border-bottom: 1px solid #eee;
+            transition: color 0.3s ease;
+        }
+
+        .topic-link:last-child {
+            border-bottom: none;
+        }
+
+        .topic-link:hover {
+            color: #1a2e4a;
+            padding-left: 10px;
+        }
+
+        footer {
+            background: #1a2e4a;
+            color: white;
+            padding: 30px 20px;
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        footer p {
+            text-align: center;
+            margin: 8px 0;
+        }
+
+        .disclaimer {
+            text-align: center;
+            font-size: 0.85em;
+            color: #999;
+            margin-top: 40px;
+            padding: 20px;
+            background: #f9f8f6;
+            border-radius: 8px;
+        }
+
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .section-num {
+            color: #c8a96e;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.6em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            h3 {
+                font-size: 1.2em;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            table {
+                font-size: 0.85em;
+            }
+
+            table th, table td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>외국인의 한국 부동산 법정상속등기</h1>
+        <p class="subtitle">준거법부터 신청 절차까지</p>
+        <span class="badge">절차형 가이드</span>
+    </header>
+
+    <div class="container">
+        <div class="content">
+            <!-- 섹션 0: 이런 분께 필요합니다 -->
+            <section>
+                <h2><span class="section-num">0.</span> 이런 분께 필요합니다</h2>
+                <div class="checklist">
+                    <h4>다음 중 하나에 해당하신다면 이 내용을 읽어보세요</h4>
+                    <ul>
+                        <li>외국 국적을 취득했거나 외국에 거주하면서 한국 부동산을 상속받는 경우</li>
+                        <li>피상속인이 외국 국적이지만 한국 부동산을 남기고 사망한 경우</li>
+                        <li>상속인 중 일부가 귀화했거나 외국에 입양되어 국적이 없는 경우</li>
+                        <li>피상속인이 외국에서 사망했는데 한국에 부동산이 있는 경우</li>
+                        <li>상속인이 한국에 미입국 상태이고 원격으로 등기를 신청해야 하는 경우</li>
+                        <li>외국 발급 서류(아포스티유, 번역공증)를 첨부하여 등기를 신청하는 경우</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 섹션 1: 이 절차가 왜 필요한가 -->
+            <section>
+                <h2><span class="section-num">1.</span> 이 절차가 왜 필요한가</h2>
+                <div class="why-box">
+                    <h3>상속등기는 필수입니다</h3>
+                    <h4>등기 없이는 처분 불가</h4>
+                    <p>민법 제187조는 "부동산의 처분은 등기가 있어야만 그 효력이 생긴다"고 규정합니다. 상속받은 부동산을 매도하거나, 근저당권을 설정하거나, 자녀에게 증여하려면 반드시 상속등기를 마쳐야 합니다.</p>
+
+                    <h4>준거법 결정이 선행되어야 함</h4>
+                    <p>국제사법 제49조는 "상속은 사망 당시 피상속인의 본국법에 의한다"고 규정합니다. 따라서 상속인 범위와 상속분을 결정하기 위해서는 먼저 피상속인의 국적을 확인하고, 그 국가의 상속법을 준거법으로 삼아야 합니다.</p>
+
+                    <h4>피상속인 국적에 따라 상속인과 상속분이 달라짐</h4>
+                    <ul>
+                        <li><strong>피상속인이 한국인:</strong> 민법 제1004조 이하의 상속순위 적용</li>
+                        <li><strong>피상속인이 외국인:</strong> 그 국가의 상속법(미국: 주법, 일본: 민법 등) 적용</li>
+                        <li><strong>반정(상호존중주의):</strong> 외국법이 한국 부동산에 대해 한국법을 적용하도록 하면, 한국법 적용 가능</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 섹션 2: 전체 절차 흐름 요약 -->
+            <section>
+                <h2><span class="section-num">2.</span> 전체 절차 흐름 요약</h2>
+                <div class="process-flow">
+                    <h3>5단계로 진행되는 상속등기 절차</h3>
+                    <div class="flow-step">
+                        <div class="step-num">1</div>
+                        <div>피상속인 국적 및 준거법 확인</div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="step-num">2</div>
+                        <div>상속인 확정 (본국법에 따라)</div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="step-num">3</div>
+                        <div>상속증명서류 수집</div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="step-num">4</div>
+                        <div>부동산등기용 등록번호 확보</div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="step-num">5</div>
+                        <div>등기소에 상속등기 신청</div>
+                    </div>
+                </div>
+
+                <h4>신청 방법에 따른 차이</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>상황</th>
+                            <th>신청 방법</th>
+                            <th>필수 준비물</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>상속인이 한국에 입국한 경우</td>
+                            <td>• 등기소 직접 방문<br>• 법무사 위임</td>
+                            <td>한국 발급 신분증, 외국인등록증</td>
+                        </tr>
+                        <tr>
+                            <td>상속인이 한국에 미입국인 경우</td>
+                            <td>• 재외공관 공증 위임장<br>• 법무사 대리 신청</td>
+                            <td>아포스티유/공증, 번역문, 거주증명</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 섹션 3: 단계별 상세 절차 -->
+            <section>
+                <h2><span class="section-num">3.</span> 단계별 상세 절차</h2>
+
+                <div class="steps-detail">
+                    <h3>단계 1: 피상속인 국적 및 준거법 확인</h3>
+                    <h4>한국인 피상속인</h4>
+                    <p>한국 민법 제1000조 이하의 상속 규정이 그대로 적용됩니다. 한국 발급 기본증명서, 가족관계증명서, 제적등본 등으로 상속인을 확정합니다.</p>
+
+                    <h4>외국인 피상속인</h4>
+                    <p>해당 국가의 상속법이 준거법이 됩니다. 예를 들어:</p>
+                    <ul>
+                        <li><strong>미국:</strong> 각 주(State)의 상속법 (Uniform Probate Code 등)</li>
+                        <li><strong>일본:</strong> 일본 민법 제881조 이하</li>
+                        <li><strong>중국:</strong> 중국 민법 제1127조 이하</li>
+                        <li><strong>독일:</strong> 독일 BGB(독일민법) 제1924조 이하</li>
+                    </ul>
+
+                    <h4>반정(상호존중주의) 적용</h4>
+                    <p>국제사법 제9조 제1항에 따르면, 외국법이 한국법을 적용하도록 지정하면 한국법을 적용할 수 있습니다. 미국 Restatement §249에서는 부동산 소재지국(한국) 법률을 적용하도록 규정하므로, 한국법 적용이 가능한 경우가 많습니다.</p>
+                </div>
+
+                <div class="steps-detail">
+                    <h3>단계 2: 상속인 확정</h3>
+                    <h4>상속인 범위 결정 (현행 민법 기준, 1991년 이후 사망)</h4>
+                    <ul>
+                        <li><strong>1순위:</strong> 직계비속 + 배우자 (항상 상속인)</li>
+                        <li><strong>2순위:</strong> 직계존속 + 배우자 (직계비속이 없을 때)</li>
+                        <li><strong>3순위:</strong> 형제자매</li>
+                        <li><strong>4순위:</strong> 4촌 이내 방계혈족</li>
+                    </ul>
+
+                    <h4>특수한 사안: 귀화자, 국적상실자의 상속권</h4>
+                    <p>다음의 등기선례들이 참고됩니다:</p>
+                    <ul>
+                        <li><strong>귀화자:</strong> 귀화 시기가 피상속인 사망 전후 불문하고, 민법 제1004조의 흠결 사유가 없으면 상속권 있음 (등기예규 제99호, 1967)</li>
+                        <li><strong>국적상실자:</strong> 외국에 입양되어 국적을 상실한 자도 친족관계가 유지되면 상속권 있음 (등기선례 6-219, 1999)</li>
+                        <li><strong>국적회복 중 사망:</strong> 국적회복 허가 전에 사망한 경우, 본국법에 따른 상속인이 본국 상속증명서로 신청 (등기선례 제7-175호, 2003)</li>
+                    </ul>
+                </div>
+
+                <div class="steps-detail">
+                    <h3>단계 3: 상속증명서류 수집</h3>
+                    <h4>한국 내 입국한 상속인</h4>
+                    <ul>
+                        <li>기본증명서 (사망자)</li>
+                        <li>가족관계증명서 (사망자, 상속인)</li>
+                        <li>제적등본 (필요시)</li>
+                        <li>외국인등록사실증명 또는 외국인등록증</li>
+                        <li>부동산등기용 등록번호 증명</li>
+                    </ul>
+
+                    <h4>미입국 상속인</h4>
+                    <ul>
+                        <li>본국 사망증명서 (아포스티유 또는 재외공관 공증)</li>
+                        <li>본국 상속인증명서 (아포스티유 또는 재외공관 공증)</li>
+                        <li>한글 번역문 (공인된 번역사 번역)</li>
+                        <li>재외공관 발급 거주증명 또는 본국 관공서 발급 주소증명서</li>
+                        <li>재외공관 공증 위임장 또는 본국 공증 위임장 + 아포스티유</li>
+                        <li>부동산등기용 등록번호 증명</li>
+                    </ul>
+                </div>
+
+                <div class="steps-detail">
+                    <h3>단계 4: 부동산등기용 등록번호 확보</h3>
+                    <p>외국인이 한국에서 부동산등기를 신청할 때는 외국인등록번호(개인) 또는 부동산등기용 등록번호(개인사업자, 법인 등)가 필요합니다. 미입국인이나 등록번호가 없는 경우 먼저 이 번호를 취득해야 합니다.</p>
+                    <p>자세한 신청 방법은 외등_05_등록번호.html을 참고하세요.</p>
+                </div>
+
+                <div class="steps-detail">
+                    <h3>단계 5: 등기소에 상속등기 신청</h3>
+                    <h4>신청처</h4>
+                    <p>부동산이 소재한 관할 등기소에 신청합니다. (예: 서울 강남구 부동산 → 강남구청 관할 등기소)</p>
+
+                    <h4>신청 서류</h4>
+                    <ul>
+                        <li>상속등기신청서</li>
+                        <li>상속을 증명하는 서면 (위 단계 3에서 수집한 서류)</li>
+                        <li>등기의무자(피상속인) 관련 서면</li>
+                        <li>신청인 주소증명서</li>
+                    </ul>
+
+                    <h4>아포스티유 가입국의 서류</h4>
+                    <p>미국, 일본, 중국, 독일 등 헤이그 아포스티유 협약 가입국에서 발급한 서류는 반드시 아포스티유를 첨부해야 합니다. 만약 아포스티유 없이 공증만 받으면 등기소에서 보정명령을 통해 아포스티유를 다시 받도록 요구합니다.</p>
+                </div>
+            </section>
+
+            <!-- 섹션 4: 첨부서류 목록 -->
+            <section>
+                <h2><span class="section-num">4.</span> 첨부서류 목록</h2>
+
+                <h3>한국 내 입국한 상속인의 경우</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>서류명</th>
+                            <th>발급기관</th>
+                            <th>주의사항</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>상속을 증명하는 서면</td>
+                            <td>한국 관공서 (시청, 구청)</td>
+                            <td>기본증명서, 가족관계증명서, 제적등본 (사망자 기준일: 사망 당시)</td>
+                        </tr>
+                        <tr>
+                            <td>주소를 증명하는 서면</td>
+                            <td>출입국관리사무소</td>
+                            <td>외국인등록사실증명 또는 외국인등록증 (4개월 이내 발급)</td>
+                        </tr>
+                        <tr>
+                            <td>등기원인을 증명하는 서면</td>
+                            <td>병원 또는 관공서</td>
+                            <td>사망진단서 또는 기본증명서 (사망 기재)</td>
+                        </tr>
+                        <tr>
+                            <td>등록번호증명 서면</td>
+                            <td>출입국관리사무소</td>
+                            <td>외국인등록번호증명 또는 부동산등기용 등록번호 증명</td>
+                        </tr>
+                        <tr>
+                            <td>등기의무자 관련 서면</td>
+                            <td>한국 관공서</td>
+                            <td>피상속인의 인적사항, 주소 등 확인 가능한 서류</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>한국 미입국 상속인의 경우</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>서류명</th>
+                            <th>발급처 / 방법</th>
+                            <th>주의사항</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>본국 발행 사망증명서</td>
+                            <td>본국 관공서</td>
+                            <td>아포스티유 또는 재외공관 공증 + 한글 번역문 필수</td>
+                        </tr>
+                        <tr>
+                            <td>본국 상속인증명서</td>
+                            <td>본국 관공서 (예: 호적증명)</td>
+                            <td>아포스티유 또는 재외공관 공증 + 한글 번역문 필수</td>
+                        </tr>
+                        <tr>
+                            <td>주소증명서류</td>
+                            <td>재외공관 또는 본국 관공서</td>
+                            <td>거주증명 또는 본국 주소증명서 (4개월 이내 발급)</td>
+                        </tr>
+                        <tr>
+                            <td>위임장</td>
+                            <td>재외공관 공증 또는 본국 공증</td>
+                            <td>법무사 대리 신청 시 필수 (공증 + 한글 번역)</td>
+                        </tr>
+                        <tr>
+                            <td>부동산등기용 등록번호 증명</td>
+                            <td>대한민국 대사관·총영사관</td>
+                            <td>미리 신청하여 취득</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 섹션 5: 비용 안내 -->
+            <section>
+                <h2><span class="section-num">5.</span> 비용 안내</h2>
+                <div class="warning-box">
+                    <h4>등기신청 시 납부할 세금 및 수수료</h4>
+                    <p>상속등기를 신청할 때 납부하는 비용은 다음과 같습니다. 정확한 금액은 부동산 가격에 따라 달라지므로 위텍스(www.wetax.go.kr)에서 조회하거나 담당 법무사와 상담하세요.</p>
+                </div>
+
+                <h4>주요 세금 및 수수료 항목</h4>
+                <ul>
+                    <li><strong>등록면허세:</strong> 부동산 가격의 일정 비율 (1회)</li>
+                    <li><strong>지방교육세:</strong> 등록면허세의 20% (1회)</li>
+                    <li><strong>농어촌특별세:</strong> 해당 지역이면 등록면허세의 일정 비율 (1회)</li>
+                    <li><strong>등기신청수수료:</strong> 등기소 수수료 규정에 따름 (1회)</li>
+                </ul>
+
+                <h4>별도 처리 필요한 세금</h4>
+                <p>상속에 따른 취득세는 상속등기 후 별도로 관할 시군구청에 신고하여 납부하게 됩니다. 이는 등기신청 시점이 아니라 취득일로부터 일정 기간 내에 신고해야 합니다.</p>
+
+                <h4>비용 조회</h4>
+                <p>위텍스(www.wetax.go.kr)에 접속하여 부동산 가격, 취득 원인, 소재지를 입력하면 납부할 세금과 수수료를 미리 계산할 수 있습니다.</p>
+            </section>
+
+            <!-- 섹션 6: 관련 판례 및 예규 -->
+            <section>
+                <h2><span class="section-num">6.</span> 관련 판례 및 예규</h2>
+
+                <div class="precedent-box">
+                    <h4>국제사법 제49조</h4>
+                    <p>"상속은 사망 당시 피상속인의 본국법에 의한다"</p>
+                    <p><strong>의미:</strong> 상속 준거법을 결정하는 가장 기본이 되는 법규입니다. 피상속인의 국적이 상속인 범위, 상속분, 유류분 등을 결정합니다.</p>
+                </div>
+
+                <div class="precedent-box">
+                    <h4>등기예규 제99호 (1967. 1. 16.)</h4>
+                    <p><strong>사안:</strong> 귀화한 직계비속의 재산상속권</p>
+                    <p><strong>선례:</strong> 피상속인의 사망 전후를 불문하고 귀화한 직계비속도 민법 제1004조의 흠결사유가 없으면 상속인이 된다.</p>
+                </div>
+
+                <div class="precedent-box">
+                    <h4>등기선례 6-219 (1999. 5. 20.)</h4>
+                    <p><strong>사안:</strong> 외국에 입양되어 국적상실로 제적된 자의 상속권</p>
+                    <p><strong>선례:</strong> 피상속인의 직계비속이 외국국으로 입양되어 국적을 상실하고 제적된 경우에도 친족관계는 유지되므로 상속권이 있다.</p>
+                </div>
+
+                <div class="precedent-box">
+                    <h4>등기선례 제7-175호 (2003. 4. 22.)</h4>
+                    <p><strong>사안:</strong> 국적회복허가신청 후 허가 전 사망</p>
+                    <p><strong>선례:</strong> 국적회복을 신청했으나 허가 전에 사망한 경우, 피상속인의 본국법에 의한 상속인이 본국법에 근거한 상속증명서면을 첨부하여 신청할 수 있다.</p>
+                </div>
+
+                <div class="precedent-box">
+                    <h4>등기선례 제5-306호 (1998. 7. 1.)</h4>
+                    <p><strong>사안:</strong> 혼인을 통해 한국국적 취득 후 국적 상실 시 상속권</p>
+                    <p><strong>선례:</strong> 일본인 여자가 한국인 남자와 혼인하여 한국 국적을 취득한 후 6개월 경과 후 국적을 상실한 경우에도 혼인의 효력에 변동이 없으므로 한국인 배우자로부터 상속받을 수 있다.</p>
+                </div>
+
+                <div class="precedent-box">
+                    <h4>등기선례 제5-302호 (1998. 1. 17.)</h4>
+                    <p><strong>사안:</strong> 미합중국 시민권자 거주증명서 생년월일 불일치</p>
+                    <p><strong>선례:</strong> 미국 시민권자의 거주증명서상 생년월일이 한국 호적상 생년월일과 불일치하는 경우, 생년월일을 일치시킨 후 거주증명서를 다시 발급받아야 등기신청이 가능하다.</p>
+                </div>
+            </section>
+
+            <!-- 섹션 7: 자주 발생하는 문제와 해결책 -->
+            <section>
+                <h2><span class="section-num">7.</span> 자주 발생하는 문제와 해결책</h2>
+
+                <div class="warning-box">
+                    <h4>⚠️ 서류 번역문 누락</h4>
+                    <p><strong>문제:</strong> 외국 발급 서류(사망증명서, 상속인증명서 등)를 아포스티유만 받고 한글 번역문을 첨부하지 않음</p>
+                    <p><strong>해결:</strong> 공인된 외국어번역사에게 전문 분야(법률) 번역을 의뢰하고, 번역사 인장과 서명이 있는 번역문을 첨부해야 합니다. 등기소에서 번역문이 없으면 보정명령을 통해 요구합니다.</p>
+                </div>
+
+                <div class="warning-box">
+                    <h4>⚠️ 아포스티유 미부착</h4>
+                    <p><strong>문제:</strong> 헤이그 협약 가입국(미국, 일본, 중국 등)에서 발급한 서류에 아포스티유를 첨부하지 않음</p>
+                    <p><strong>해결:</strong> 본국 관공서에 아포스티유를 신청하여 다시 받아야 합니다. 아포스티유가 없으면 외국 서류로 인정받지 못합니다.</p>
+                </div>
+
+                <div class="warning-box">
+                    <h4>⚠️ 생년월일 불일치</h4>
+                    <p><strong>문제:</strong> 거주증명서의 생년월일과 한국 호적의 생년월일이 다름 (예: 미국 시민권자 케이스)</p>
+                    <p><strong>해결:</strong> 본국에서 생년월일을 정정한 새로운 문서를 발급받아야 합니다. 호적 정정이 필요한 경우 가정법원에 인정청구를 해야 할 수도 있습니다.</p>
+                </div>
+
+                <div class="warning-box">
+                    <h4>⚠️ 상속인 중 행방불명인 경우</h4>
+                    <p><strong>문제:</strong> 같은 상속순위의 상속인 중 일부가 행방불명이거나 의사표시를 거부함</p>
+                    <p><strong>해결:</strong> 부동산 소재지 관할 지방법원에 상속재산분할심판을 청구하거나, 한국에 입국한 상속인들만으로 협의분할 등기를 진행할 수 있습니다. 외국인 상속인의 경우 재외공관을 통한 조회 및 확인이 필요합니다.</p>
+                </div>
+
+                <div class="warning-box">
+                    <h4>⚠️ 보정명령 대상 흔한 실수</h4>
+                    <p><strong>주요 보정 사유:</strong></p>
+                    <ul>
+                        <li>외국 서류에 아포스티유 미부착</li>
+                        <li>번역문 미첨부 또는 번역사 인장 누락</li>
+                        <li>위임장 아포스티유 미부착</li>
+                        <li>생년월일 불일치</li>
+                        <li>외국인등록번호 미기재 또는 잘못 기재</li>
+                        <li>거주증명 유효기간 경과 (4개월 이상 된 문서)</li>
+                    </ul>
+                    <p><strong>대처:</strong> 등기소의 보정명령을 받으면 지정 기간 내에 보정서류를 제출해야 합니다. 기한을 넘기면 신청이 각하될 수 있습니다.</p>
+                </div>
+            </section>
+
+            <!-- 섹션 8: Q&A -->
+            <section>
+                <h2><span class="section-num">8.</span> 자주 묻는 질문 (Q&A)</h2>
+
+                <div class="qna-item">
+                    <h4>Q. 미국 국적 아버지가 한국 부동산을 남기고 사망했습니다. 어떤 법이 적용되나요?</h4>
+                    <div class="qna-answer">
+                        <p>A. 국제사법 제49조에 따라 피상속인(아버지)의 본국법인 미국 법이 준거법입니다. 다만, 미국 법이 한국 부동산에 대해 한국 민법을 적용하도록 규정하면(Restatement §249), 한국 민법을 적용할 수 있습니다(반정). 미국은 주(State)별로 상속법이 다르므로, 아버지가 사망 당시 거주하던 주의 상속법을 확인해야 합니다. 일반적으로 미국에서는 상속인 범위와 상속분이 한국 민법과 유사하지만, 배우자의 상속분이 다를 수 있습니다. 미국 변호사 또는 법무사의 확인이 필요합니다.</p>
+                        <div class="qna-note">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+                    </div>
+                </div>
+
+                <div class="qna-item">
+                    <h4>Q. 귀화한 자녀도 상속권이 있나요?</h4>
+                    <div class="qna-answer">
+                        <p>A. 네, 있습니다. 등기예규 제99호(1967년)에 따르면, 피상속인의 사망 전후를 불문하고 귀화한 직계비속도 민법 제1004조의 흠결사유가 없으면 상속인이 됩니다. 흠결사유는 한국 민법 상 상속인이 될 수 없는 경우(예: 폐지된 신분)를 의미합니다. 따라서 단순히 귀화했다고 해서 상속권이 없어지는 것은 아닙니다.</p>
+                        <div class="qna-note">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+                    </div>
+                </div>
+
+                <div class="qna-item">
+                    <h4>Q. 외국에서 한국어를 모르는 외국인 상속인이 있습니다. 등기를 어떻게 신청하나요?</h4>
+                    <div class="qna-answer">
+                        <p>A. 두 가지 방법이 있습니다. 첫 번째, 상속인이 한국에 입국하여 법무사에게 위임하고 법무사가 대리하여 신청하는 방법입니다. 이 경우 위임장을 한글로 작성하고 상속인이 서명하면 됩니다. 두 번째, 상속인이 한국에 미입국인 경우 재외공관에서 위임장을 공증받고, 공증된 위임장을 법무사에게 제출하여 신청하는 방법입니다. 모든 외국 서류는 아포스티유를 받고 한글로 번역하여 제출해야 합니다.</p>
+                        <div class="qna-note">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+                    </div>
+                </div>
+
+                <div class="qna-item">
+                    <h4>Q. 아포스티유란 무엇이고 어디서 받나요?</h4>
+                    <div class="qna-answer">
+                        <p>A. 아포스티유(Apostille)는 헤이그 협약(Hague Apostille Convention, 1961)에 따른 국제공증 제도입니다. 외국에서 발급한 공문서(사망증명서, 호적증명서 등)가 한국에서 진정성을 인정받기 위해 반드시 필요합니다. 미국, 일본, 중국, 독일 등 주요 국가는 모두 아포스티유 협약 가입국입니다. 아포스티유는 문서를 발급한 본국의 관공서(외교부, 법무부 등)에 신청합니다. 자세한 방법은 외등_25_아포스티유.html을 참고하세요.</p>
+                        <div class="qna-note">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+                    </div>
+                </div>
+
+                <div class="qna-item">
+                    <h4>Q. 상속등기를 하지 않으면 어떻게 되나요?</h4>
+                    <div class="qna-answer">
+                        <p>A. 상속등기를 하지 않으면 부동산을 처분(매도, 근저당 설정, 증여 등)할 수 없습니다. 민법 제187조는 "부동산 처분은 등기가 있어야 효력이 생긴다"고 규정하기 때문입니다. 또한 추후 다른 상속인이 등기를 신청할 경우 분쟁이 발생할 수 있으므로, 상속받은 부동산은 가능한 한 빨리 등기해 두는 것이 좋습니다.</p>
+                        <div class="qna-note">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+                    </div>
+                </div>
+
+                <div class="qna-item">
+                    <h4>Q. 외국인 상속인의 부동산등기용 등록번호는 어떻게 발급받나요?</h4>
+                    <div class="qna-answer">
+                        <p>A. 외국인 상속인이 한국에 입국한 경우 외국인등록번호가 자동으로 부여됩니다. 미입국인 경우 한국 대사관·총영사관에 부동산등기용 등록번호 발급을 신청해야 합니다. 신청 시 여권, 거주증명, 위임장 등의 서류가 필요합니다. 자세한 방법은 외등_05_등록번호.html을 참고하세요.</p>
+                        <div class="qna-note">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 섹션 9: 다음으로 확인할 내용 -->
+            <section>
+                <h2><span class="section-num">9.</span> 다음으로 확인할 내용</h2>
+                <div class="next-topics">
+                    <h3>관련 주제</h3>
+                    <a href="외등_10_외국인협의분할.html" class="topic-link">→ 외등_10: 외국인이 포함된 상속재산 협의분할 등기 절차</a>
+                    <a href="외등_05_등록번호.html" class="topic-link">→ 외등_05: 외국인 부동산등기용 등록번호 신청 방법</a>
+                    <a href="외등_25_아포스티유.html" class="topic-link">→ 외등_25: 아포스티유 완벽 가이드</a>
+                </div>
+            </section>
+
+            <!-- 섹션 10: 상담 CTA 박스 -->
+            <section>
+                <div class="consultation-box">
+                    <h3>이 절차가 필요하신가요?</h3>
+                    <p>외국인·재외국민 등기는 국적·체류 자격·입국 여부에 따라 준비 서류가 달라집니다. 서류 준비부터 신청까지 법무사가 함께합니다.</p>
+                    <p><strong>첫 상담은 무료입니다.</strong></p>
+                    <div class="button-group">
+                        <button class="btn btn-phone">📞 전화 상담 신청</button>
+                        <button class="btn btn-kakao">💬 카카오톡 상담</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 섹션 11: 면책 문구 및 기준일 -->
+            <section>
+                <div class="disclaimer">
+                    <p><strong>면책 및 주의사항</strong></p>
+                    <p>본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 특정 사건에 대한 법률 자문이 아닙니다. 개별 상황에 따라 법적 판단이 달라질 수 있으므로, 구체적인 상담은 변호사 또는 법무사와 함께하시기 바랍니다.</p>
+                    <p>이 페이지는 <strong>2025년 현행 법령</strong>을 기준으로 작성되었습니다. 법 개정에 따라 내용이 변경될 수 있습니다.</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 법무사 사무실. All rights reserved.</p>
+        <p>외국인 부동산 등기 전문 | 상속·증여·거래·근저당</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상속재산 분할심판 청구 - 한국 법무사 홈페이지</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1a2e4a;
+            --navy-light: #2d4a73;
+            --gold: #c9a84c;
+            --gold-light: #e8d5a3;
+            --ivory: #fdf8f0;
+            --ivory-dark: #f5ede0;
+            --text: #2c2c2c;
+            --text-light: #5a5a5a;
+            --blue-box: #e8f0f8;
+            --blue-border: #2d6aa0;
+            --warn-bg: #fff8e1;
+            --warn-border: #f0a500;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: var(--ivory);
+            color: var(--text);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        .page-header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: white;
+            padding: 40px 24px 32px;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .page-header .subtitle {
+            color: var(--gold-light);
+            font-size: 1rem;
+        }
+        .breadcrumb {
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 12px;
+        }
+        .layout {
+            display: grid;
+            grid-template-columns: 240px 1fr 300px;
+            gap: 0;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        .toc-sidebar {
+            background: var(--navy);
+            color: white;
+            padding: 24px 0;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        .toc-sidebar h3 {
+            font-size: 0.78rem;
+            letter-spacing: 2px;
+            color: var(--gold);
+            text-transform: uppercase;
+            padding: 0 20px 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 8px;
+        }
+        .toc-sidebar ul {
+            list-style: none;
+        }
+        .toc-sidebar ul li a {
+            display: block;
+            padding: 9px 20px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.75);
+            text-decoration: none;
+            border-left: 3px solid transparent;
+            transition: all 0.2s;
+        }
+        .toc-sidebar ul li a:hover,
+        .toc-sidebar ul li a.active {
+            color: white;
+            background: rgba(255, 255, 255, 0.08);
+            border-left-color: var(--gold);
+        }
+        .main-content {
+            padding: 40px 48px;
+            min-height: 100vh;
+        }
+        .section {
+            margin-bottom: 56px;
+            scroll-margin-top: 24px;
+        }
+        .section h2 {
+            font-size: 1.35rem;
+            color: var(--navy);
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section h2 .sec-num {
+            background: var(--navy);
+            color: var(--gold);
+            font-size: 0.78rem;
+            padding: 2px 8px;
+            border-radius: 12px;
+        }
+        .section h3 {
+            font-size: 1.05rem;
+            color: var(--navy-light);
+            margin: 24px 0 10px;
+            font-weight: 600;
+        }
+        .summary-box {
+            background: var(--blue-box);
+            border-left: 4px solid var(--blue-border);
+            border-radius: 0 8px 8px 0;
+            padding: 18px 22px;
+            margin-bottom: 20px;
+        }
+        .summary-box strong {
+            color: var(--blue-border);
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+        .detail-content {
+            color: var(--text-light);
+        }
+        .detail-content p {
+            margin-bottom: 14px;
+        }
+        .law-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.88rem;
+        }
+        .law-table th {
+            background: var(--navy);
+            color: white;
+            padding: 10px 14px;
+            text-align: left;
+        }
+        .law-table td {
+            padding: 10px 14px;
+            border-bottom: 1px solid #e0d8cc;
+            vertical-align: top;
+        }
+        .law-table tr:nth-child(even) td {
+            background: var(--ivory-dark);
+        }
+        .law-ref {
+            color: var(--blue-border);
+            font-weight: 600;
+            cursor: pointer;
+            border-bottom: 1px dashed var(--blue-border);
+            font-size: 0.9em;
+        }
+        .warn-box {
+            background: var(--warn-bg);
+            border-left: 4px solid var(--warn-border);
+            border-radius: 0 8px 8px 0;
+            padding: 16px 20px;
+            margin: 16px 0;
+        }
+        .warn-box strong {
+            color: #c07000;
+            display: block;
+            margin-bottom: 6px;
+        }
+        .case-box {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 16px 0;
+            font-size: 0.87rem;
+        }
+        .case-box .case-title {
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+        }
+        .process-steps {
+            margin: 16px 0;
+        }
+        .step {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            align-items: flex-start;
+        }
+        .step-num {
+            background: var(--navy);
+            color: var(--gold);
+            font-weight: 700;
+            min-width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+        .step-content .step-title {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+        .step-content .step-desc {
+            font-size: 0.88rem;
+            color: var(--text-light);
+        }
+        .checklist-box {
+            background: var(--ivory-dark);
+            border: 1px solid var(--gold-light);
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+        .checklist-box h4 {
+            color: var(--navy);
+            margin-bottom: 14px;
+            font-size: 0.95rem;
+        }
+        .checklist-box ul {
+            list-style: none;
+        }
+        .checklist-box ul li {
+            padding: 5px 0;
+            font-size: 0.88rem;
+            display: flex;
+            gap: 10px;
+        }
+        .checklist-box ul li::before {
+            content: "☑";
+            color: var(--gold);
+        }
+        .cta-box {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin: 32px 0;
+            text-align: center;
+        }
+        .cta-box h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--gold-light);
+        }
+        .cta-box p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 18px;
+        }
+        .cta-btn {
+            background: var(--gold);
+            color: var(--navy);
+            font-weight: 700;
+            padding: 12px 32px;
+            border-radius: 24px;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .next-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin: 32px 0;
+        }
+        .next-link {
+            background: white;
+            border: 1px solid #d0c8ba;
+            border-radius: 8px;
+            padding: 16px;
+            text-decoration: none;
+            color: var(--navy);
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .next-link:hover {
+            border-color: var(--gold);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .next-link .label {
+            font-size: 0.78rem;
+            color: var(--text-light);
+        }
+        .next-link .title {
+            font-size: 0.92rem;
+            font-weight: 600;
+        }
+        .next-link .arrow {
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+        .disclaimer {
+            background: #f0f0f0;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: #777;
+            line-height: 1.6;
+        }
+        .right-sidebar {
+            background: white;
+            border-left: 1px solid #e0d8cc;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        .sidebar-tabs {
+            display: flex;
+            border-bottom: 2px solid var(--navy);
+        }
+        .sidebar-tab {
+            flex: 1;
+            padding: 12px 8px;
+            text-align: center;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--text-light);
+            background: var(--ivory);
+            border: none;
+            transition: all 0.2s;
+        }
+        .sidebar-tab.active {
+            background: var(--navy);
+            color: white;
+        }
+        .sidebar-panel {
+            padding: 16px;
+            display: none;
+        }
+        .sidebar-panel.active {
+            display: block;
+        }
+        .law-item {
+            border: 1px solid #e0d8cc;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            overflow: hidden;
+        }
+        .law-item-header {
+            background: var(--ivory-dark);
+            padding: 10px 14px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.83rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+        .law-item-header:hover {
+            background: var(--gold-light);
+        }
+        .law-item-body {
+            display: none;
+            padding: 12px 14px;
+            font-size: 0.82rem;
+            line-height: 1.7;
+            color: var(--text-light);
+            border-top: 1px solid #e0d8cc;
+        }
+        .law-item-body.open {
+            display: block;
+        }
+        .practice-section {
+            margin-bottom: 16px;
+        }
+        .practice-section h5 {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--navy);
+            background: var(--ivory-dark);
+            padding: 7px 12px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+        .practice-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .practice-section ul li {
+            font-size: 0.81rem;
+            padding: 4px 8px;
+            color: var(--text-light);
+            border-bottom: 1px solid #f0ece6;
+            display: flex;
+            gap: 6px;
+        }
+        .practice-section ul li::before {
+            content: "•";
+            color: var(--gold);
+        }
+        @media (max-width: 900px) {
+            .layout {
+                grid-template-columns: 1fr;
+            }
+            .toc-sidebar,
+            .right-sidebar {
+                display: none;
+            }
+            .main-content {
+                padding: 24px 20px;
+            }
+            .next-links {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-header">
+        <div class="breadcrumb">상속등기 실무 → 분할</div>
+        <h1>상속재산 분할심판 청구</h1>
+        <p class="subtitle">협의 불성립 시 법원에 청구하는 분할 절차</p>
+    </div>
+
+    <div class="layout">
+        <aside class="toc-sidebar">
+            <h3>목차</h3>
+            <ul>
+                <li><a href="#sec1" class="toc-link">①분할심판이란</a></li>
+                <li><a href="#sec2" class="toc-link">②심판 청구 요건</a></li>
+                <li><a href="#sec3" class="toc-link">③관할 법원 및 청구권자</a></li>
+                <li><a href="#sec4" class="toc-link">④심판 절차</a></li>
+                <li><a href="#sec5" class="toc-link">⑤분할 방법</a></li>
+                <li><a href="#sec6" class="toc-link">⑥협의 vs 심판</a></li>
+                <li><a href="#sec7" class="toc-link">⑦FAQ</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <section id="sec1" class="section">
+                <h2><span class="sec-num">①</span>분할심판이란</h2>
+                <div class="summary-box">
+                    <strong>법원 분할</strong>
+                    상속인들 간 협의가 불성립할 때, 법원이 상속재산을 공정하게 분할하는 절차입니다.
+                </div>
+                <div class="detail-content">
+                    <p>분할심판(分割審判)은 <span class="law-ref" onclick="openLaw('민법1013')">§ 민법 제1013조</span>에서 규정한 상속재산 분할 절차로, 협의가 성립하지 않을 때 법원이 재산을 공정하게 분할합니다.</p>
+                    <h3>특징</h3>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>협의 불성립이 전제 조건</li>
+                        <li>법원의 판단에 따름</li>
+                        <li>법정상속분이 기준 (완전하지는 않음)</li>
+                        <li>장기간 소요</li>
+                        <li>비용이 많이 들 수 있음</li>
+                    </ul>
+
+                    <div class="warn-box">
+                        <strong>조건</strong>
+                        분할심판을 청구하기 전에 먼저 협의를 시도해야 하는 것이 원칙입니다.
+                    </div>
+                </div>
+            </section>
+
+            <section id="sec2" class="section">
+                <h2><span class="sec-num">②</span>분할심판 청구 요건</h2>
+                <div class="summary-box">
+                    <strong>필수 요건</strong>
+                    상속인임과 협의 불성립이 주요 요건입니다.
+                </div>
+                <div class="detail-content">
+                    <h3>1) 상속인이어야 함</h3>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>법정상속인 또는 유언으로 지정된 상속인</li>
+                        <li>협의분할에 참여하지 않은 상속인</li>
+                    </ul>
+
+                    <h3>2) 협의 불성립</h3>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>상속인 간의 의견 대립</li>
+                        <li>합의점 도출 불가</li>
+                        <li>일부 상속인 불참</li>
+                    </ul>
+
+                    <h3>3) 절차적 요건</h3>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>적절한 관할 법원에 청구</li>
+                        <li>청구 기한 제한 없음 (상속 후 언제든 가능)</li>
+                        <li>청구서 제출</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="sec3" class="section">
+                <h2><span class="sec-num">③</span>관할 법원 및 청구권자</h2>
+                <div class="summary-box">
+                    <strong>관할과 청구권</strong>
+                    가정법원이 관할하며, 모든 상속인이 청구할 수 있습니다.
+                </div>
+                <div class="detail-content">
+                    <h3>1) 관할 법원</h3>
+                    <p>가정법원 (이 사건은 마류 가사비송입니다):</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>피상속인 최후 주소지 관할 가정법원</li>
+                        <li>또는 청구인 주소지 관할 가정법원 (동의 시)</li>
+                    </ul>
+
+                    <h3>2) 청구권자</h3>
+                    <p>다음의 자들이 청구할 수 있습니다:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>상속인 전원</li>
+                        <li>일부 상속인 (다른 상속인들을 상대로)</li>
+                    </ul>
+
+                    <h3>3) 마류 가사비송</h3>
+                    <p>상속재산분할심판은 마류 가사비송으로 분류됩니다:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>판사 단독 심리</li>
+                        <li>비송사건 절차 적용</li>
+                        <li>상대방과의 이해대립</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="sec4" class="section">
+                <h2><span class="sec-num">④</span>분할심판 절차</h2>
+                <div class="summary-box">
+                    <strong>진행 절차</strong>
+                    청구부터 심판확정까지의 단계별 진행입니다.
+                </div>
+                <div class="detail-content">
+                    <div class="process-steps">
+                        <div class="step">
+                            <div class="step-num">1</div>
+                            <div class="step-content">
+                                <div class="step-title">청구서 작성 및 제출</div>
+                                <div class="step-desc">가정법원에 분할심판청구서 제출, 필요 서류 첨부</div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">2</div>
+                            <div class="step-content">
+                                <div class="step-title">송달 및 첫 기일</div>
+                                <div class="step-desc">상대방에게 송달, 법원의 첫 기일 통지</div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">3</div>
+                            <div class="step-content">
+                                <div class="step-title">재판 진행</div>
+                                <div class="step-desc">증거 제출, 주장 제시, 필요시 감정 신청</div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">4</div>
+                            <div class="step-content">
+                                <div class="step-title">심판</div>
+                                <div class="step-desc">법원이 분할 방법 결정</div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">5</div>
+                            <div class="step-content">
+                                <div class="step-title">항고 가능</div>
+                                <div class="step-desc">14일 내에 항고 가능</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>필수 서류</h3>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>분할심판청구서</li>
+                        <li>상속관계증명서</li>
+                        <li>피상속인 사망증명서</li>
+                        <li>상속재산 목록</li>
+                        <li>각 상속인 신분증 사본</li>
+                        <li>기타 증거자료</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="sec5" class="section">
+                <h2><span class="sec-num">⑤</span>분할 방법</h2>
+                <div class="summary-box">
+                    <strong>분할 유형</strong>
+                    법원은 현물분할, 경매분할, 가액분할 등을 적절히 선택합니다.
+                </div>
+                <div class="detail-content">
+                    <h3>1) 현물분할</h3>
+                    <p>각 상속인이 구체적인 재산을 취득하는 방법:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>A 상속인: 부동산 1</li>
+                        <li>B 상속인: 부동산 2</li>
+                        <li>C 상속인: 현금</li>
+                    </ul>
+
+                    <h3>2) 경매분할</h3>
+                    <p>상속재산을 경매로 매각하고 대금을 분배:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>분할이 곤란할 때</li>
+                        <li>상속인들의 의견이 불일치할 때</li>
+                        <li>공정한 가치 평가 가능</li>
+                    </ul>
+
+                    <h3>3) 가액분할</h3>
+                    <p>법정상속분에 따라 현금 또는 상당가액을 분배:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>상속분이 부족한 상속인에게 보전금 지급</li>
+                        <li>예: 특정 부동산을 A가 가지되, B에게 현금 지급</li>
+                    </ul>
+
+                    <h3>4) 법원의 선택 기준</h3>
+                    <table class="law-table">
+                        <thead>
+                            <tr>
+                                <th>분할 방법</th>
+                                <th>적용 시기</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>현물분할</td>
+                                <td>분할 가능하고 공정할 때</td>
+                            </tr>
+                            <tr>
+                                <td>경매분할</td>
+                                <td>현물분할 곤란할 때</td>
+                            </tr>
+                            <tr>
+                                <td>가액분할</td>
+                                <td>불공평 보정 필요할 때</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="sec6" class="section">
+                <h2><span class="sec-num">⑥</span>협의분할 vs 심판분할</h2>
+                <div class="summary-box">
+                    <strong>비교</strong>
+                    협의분할과 심판분할은 절차, 기간, 비용에서 큰 차이가 있습니다.
+                </div>
+                <div class="detail-content">
+                    <table class="law-table">
+                        <thead>
+                            <tr>
+                                <th>구분</th>
+                                <th>협의분할</th>
+                                <th>심판분할</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>절차</td>
+                                <td>합의</td>
+                                <td>법원 판단</td>
+                            </tr>
+                            <tr>
+                                <td>기간</td>
+                                <td>신속 (수주~수개월)</td>
+                                <td>장기 (수개월~1년 이상)</td>
+                            </tr>
+                            <tr>
+                                <td>비용</td>
+                                <td>저렴</td>
+                                <td>고액 (변호사비, 감정비 등)</td>
+                            </tr>
+                            <tr>
+                                <td>당사자 자율성</td>
+                                <td>매우 높음</td>
+                                <td>낮음 (법원 결정)</td>
+                            </tr>
+                            <tr>
+                                <td>분할 기준</td>
+                                <td>자유로운 분배</td>
+                                <td>법정상속분 기준</td>
+                            </tr>
+                            <tr>
+                                <td>예측성</td>
+                                <td>당사자 합의에 따름</td>
+                                <td>판례와 법리에 따름</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="case-box">
+                        <div class="case-title">실무: 협의분할 권장</div>
+                        대부분의 상속분할은 협의분할로 진행됩니다. 심판은 협의 불가능한 경우의 최후 수단입니다. 협의분할이 훨씬 효율적입니다.
+                    </div>
+                </div>
+            </section>
+
+            <section id="sec7" class="section">
+                <h2><span class="sec-num">⑦</span>FAQ</h2>
+                <div class="detail-content">
+                    <h3>Q1. 분할심판을 청구해야 하나요?</h3>
+                    <p><strong>A.</strong> 상속인들 간의 의견이 좁혀질 가능성이 없을 때 검토합니다. 여러 번의 협의를 시도한 후에 결정하는 것이 좋습니다.</p>
+
+                    <h3>Q2. 심판기간이 얼마나 되나요?</h3>
+                    <p><strong>A.</strong> 보통 6개월에서 1년 이상 소요될 수 있습니다. 감정이 필요하면 더 길어집니다.</p>
+
+                    <h3>Q3. 변호사를 꼭 고용해야 하나요?</h3>
+                    <p><strong>A.</strong> 필수는 아니지만, 복잡한 재산이 있으면 전문가의 도움을 받는 것이 좋습니다.</p>
+
+                    <h3>Q4. 심판 결정에 불만족하면?</h3>
+                    <p><strong>A.</strong> 항고를 제기할 수 있습니다. 14일 내에 항고심을 청구할 수 있습니다.</p>
+
+                    <h3>Q5. 심판 중에 협의가 가능한가?</h3>
+                    <p><strong>A.</strong> 네. 심판 중에도 당사자들이 합의하면 협의분할로 전환할 수 있습니다.</p>
+                </div>
+            </section>
+
+            <div class="checklist-box">
+                <h4>분할심판 청구 전 체크리스트</h4>
+                <ul>
+                    <li>충분히 협의했는가?</li>
+                    <li>협의 불성립이 확실한가?</li>
+                    <li>모든 상속재산을 파악했는가?</li>
+                    <li>필수 서류를 준비했는가?</li>
+                    <li>적절한 법원인가?</li>
+                    <li>전문가 상담을 받았는가?</li>
+                </ul>
+            </div>
+
+            <div class="cta-box">
+                <h3>분할심판 청구 상담이 필요하신가요?</h3>
+                <p>복잡한 상속분할 분쟁을 법무사와 함께 해결하세요.</p>
+                <button class="cta-btn">상담 신청</button>
+            </div>
+
+            <div class="next-links">
+                <a href="#" class="next-link">
+                    <div>
+                        <div class="label">이전 주제</div>
+                        <div class="title">상속재산 협의분할</div>
+                    </div>
+                    <div class="arrow">←</div>
+                </a>
+                <a href="#" class="next-link">
+                    <div>
+                        <div class="label">다음 단계</div>
+                        <div class="title">상속등기</div>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+            </div>
+
+            <div class="disclaimer">
+                본 콘텐츠는 일반적인 법률 정보 제공을 목적으로 작성되었습니다. 개별 사건의 법적 판단은 구체적 사실관계에 따라 달라질 수 있으므로, 정확한 법적 조언이 필요한 경우 반드시 법무사 또는 변호사와 상담하시기 바랍니다. 본 자료는 변론 제시를 의도하지 않습니다.
+            </div>
+        </main>
+
+        <aside class="right-sidebar">
+            <div class="sidebar-tabs">
+                <button class="sidebar-tab active" onclick="switchTab('law')">관련 법령</button>
+                <button class="sidebar-tab" onclick="switchTab('practice')">실무 정보</button>
+            </div>
+
+            <div id="panel-law" class="sidebar-panel active">
+                <div class="law-item" id="law-민법1013">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>민법 제1013조 (분할의 방법)</span>
+                        <span>+</span>
+                    </div>
+                    <div class="law-item-body">
+                        상속인이 2인 이상인 경우 상속재산은 협의로 분할한다. 협의가 성립하지 아니하면 법원에 심판을 청구할 수 있다. 분할의 방법과 시기는 이를 결정한다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-가사소송법">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>가사소송법 (상속분할심판)</span>
+                        <span>+</span>
+                    </div>
+                    <div class="law-item-body">
+                        상속재산분할심판은 마류 가사비송으로 분류되어, 가정법원 판사 단독 심리로 진행된다. 비송사건 절차를 적용한다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-민법1000">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>민법 제1000조 (법정상속분)</span>
+                        <span>+</span>
+                    </div>
+                    <div class="law-item-body">
+                        상속분은 피상속인의 직계비속·배우자 간에 균등하게 분배되며, 배우자는 상속분을 가산받을 수 있다. 법원의 분할심판은 이를 참고한다.
+                    </div>
+                </div>
+            </div>
+
+            <div id="panel-practice" class="sidebar-panel">
+                <div class="practice-section">
+                    <h5>심판청구 필수 서류</h5>
+                    <ul>
+                        <li>분할심판청구서</li>
+                        <li>상속관계증명서</li>
+                        <li>사망증명서</li>
+                        <li>재산 목록</li>
+                        <li>신분증 사본</li>
+                    </ul>
+                </div>
+
+                <div class="practice-section">
+                    <h5>심판 절차 기간</h5>
+                    <ul>
+                        <li>1차 기일: 송달 후 2-3개월</li>
+                        <li>증거 제출: 2-3개월</li>
+                        <li>감정 신청: +2-6개월</li>
+                        <li>심판: 합계 6-12개월</li>
+                    </ul>
+                </div>
+
+                <div class="practice-section">
+                    <h5>분할 방법 종류</h5>
+                    <ul>
+                        <li>현물분할 (구체 재산 취득)</li>
+                        <li>경매분할 (매각 후 분배)</li>
+                        <li>가액분할 (현금 보정)</li>
+                        <li>혼합분할</li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script>
+        function switchTab(tab) {
+            document.querySelectorAll('.sidebar-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.sidebar-panel').forEach(p => p.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById('panel-' + tab).classList.add('active');
+        }
+        function toggleLaw(header) {
+            const body = header.nextElementSibling;
+            const isOpen = body.classList.contains('open');
+            body.classList.toggle('open');
+            header.querySelector('span:last-child').textContent = isOpen ? '+' : '−';
+        }
+        function openLaw(id) {
+            const lawTab = document.querySelector('.sidebar-tab:first-child');
+            const lawPanel = document.getElementById('panel-law');
+            document.querySelectorAll('.sidebar-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.sidebar-panel').forEach(p => p.classList.remove('active'));
+            lawTab.classList.add('active');
+            lawPanel.classList.add('active');
+            const item = document.getElementById('law-' + id);
+            if (item) {
+                const body = item.querySelector('.law-item-body');
+                const header = item.querySelector('.law-item-header');
+                body.classList.add('open');
+                header.querySelector('span:last-child').textContent = '−';
+                item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+        const sections = document.querySelectorAll('.section');
+        const tocLinks = document.querySelectorAll('.toc-link');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    const active = document.querySelector(`.toc-link[href="#${e.target.id}"]`);
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(s => observer.observe(s));
+    </script>
+</body>
+</html>

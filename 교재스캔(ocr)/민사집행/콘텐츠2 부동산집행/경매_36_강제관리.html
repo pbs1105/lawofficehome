@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>강제관리 — 경매 없이 임대수익으로 채권을 회수하는 방법 | 법무사 강제집행 안내</title>
+<meta name="description" content="강제관리는 부동산을 팔지 않고 임대수익으로 채권을 변제받는 부동산 강제집행 방법입니다. 신청요건, 절차, 필요서류를 확인하세요.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap');
+:root{--navy:#1a2e4a;--gold:#c8a96e;--bg:#faf8f5;--sum-bg:#eef2f8;--sum-bd:#2d4a7a;--cta-bg:#fdf6e9;--cta-bd:#c8a96e;--case-bg:#f0f8f0;--case-bd:#1a5c2e;--rule-bg:#f7f4f0;--rule-bd:#6b7280;--warn-bg:#fff3e8;--warn-bd:#c05000;--info-bg:#f4f7fb;--info-bd:#2d4a7a;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:#333;line-height:1.8;}
+header{background:var(--navy);color:#fff;padding:40px 20px;text-align:center;}
+header h1{font-family:'Noto Serif KR',serif;font-size:2rem;margin-bottom:8px;}
+header .sub{color:var(--gold);font-size:1rem;}
+.container{max-width:860px;margin:0 auto;padding:40px 20px;}
+.section{margin-bottom:48px;}
+.section h2{font-family:'Noto Serif KR',serif;font-size:1.4rem;color:var(--navy);border-left:4px solid var(--gold);padding-left:14px;margin-bottom:20px;}
+.section h3{font-size:1.1rem;color:var(--navy);margin:20px 0 10px;}
+.summary-box{background:var(--sum-bg);border:1.5px solid var(--sum-bd);border-radius:10px;padding:24px;margin-bottom:24px;}
+.summary-box p{margin-bottom:8px;}
+.case-box{background:var(--case-bg);border-left:4px solid var(--case-bd);border-radius:6px;padding:20px;margin:16px 0;}
+.ruling-box{background:var(--rule-bg);border-left:4px solid var(--rule-bd);border-radius:6px;padding:20px;margin:16px 0;}
+.warn-box{background:var(--warn-bg);border-left:4px solid var(--warn-bd);border-radius:6px;padding:20px;margin:16px 0;}
+.info-box{background:var(--info-bg);border-left:4px solid var(--info-bd);border-radius:6px;padding:20px;margin:16px 0;}
+.checklist{list-style:none;padding:0;}
+.checklist li{padding:10px 0 10px 36px;border-bottom:1px solid #e0dbd4;position:relative;}
+.checklist li::before{content:"☑";color:var(--gold);position:absolute;left:8px;font-size:1.1rem;}
+.checklist li:last-child{border-bottom:none;}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.95rem;}
+th{background:var(--navy);color:#fff;padding:10px;text-align:left;}
+td{padding:10px;border-bottom:1px solid #ddd;vertical-align:top;}
+tr:nth-child(even) td{background:#f5f2ee;}
+.flow{display:flex;flex-direction:column;gap:0;}
+.flow-item{display:flex;align-items:flex-start;gap:14px;padding:14px 0;}
+.flow-item:not(:last-child){border-bottom:1px dashed #ccc;}
+.flow-num{background:var(--navy);color:#fff;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;margin-top:4px;font-size:0.9rem;}
+.flow-body{flex:1;}
+.flow-body strong{display:block;margin-bottom:4px;color:var(--navy);}
+.qna-item{margin-bottom:24px;border:1px solid #ddd;border-radius:8px;overflow:hidden;}
+.qna-q{background:var(--navy);color:#fff;padding:16px 20px;font-weight:700;}
+.qna-a{padding:16px 20px;background:#fff;}
+.next-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;}
+.next-links a{display:block;background:#fff;border:1.5px solid var(--navy);border-radius:8px;padding:16px;text-align:center;text-decoration:none;color:var(--navy);font-weight:700;transition:all .2s;}
+.next-links a:hover{background:var(--navy);color:#fff;}
+.cta-box{background:var(--cta-bg);border:2px solid var(--cta-bd);border-radius:12px;padding:36px;text-align:center;margin-top:60px;}
+.cta-box h2{font-family:'Noto Serif KR',serif;color:var(--navy);margin-bottom:12px;}
+.cta-box p{color:#555;margin-bottom:20px;}
+.btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-tel{background:var(--navy);color:#fff;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:700;}
+.btn-kako{background:#FEE500;color:#333;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:700;}
+footer{text-align:center;padding:30px 20px;color:#999;font-size:0.82rem;border-top:1px solid #ddd;background:#f0ede8;}
+.badge-warn{display:inline-block;background:#fff3e8;border:1px solid #c05000;color:#c05000;border-radius:4px;padding:2px 8px;font-size:0.82rem;font-weight:700;}
+.badge-ok{display:inline-block;background:#eef5e8;border:1px solid #2a6e1e;color:#2a6e1e;border-radius:4px;padding:2px 8px;font-size:0.82rem;font-weight:700;}
+.law-tag{display:inline-block;background:#e8edf5;color:#2d4a7a;font-size:11px;font-weight:700;padding:2px 8px;border-radius:3px;margin-left:4px;vertical-align:middle;text-decoration:none;border:1px solid #b0c4de;cursor:pointer;transition:background 0.15s;}
+.law-tag:hover{background:#c8daf7;color:#1a2e4a;}
+.case-tag{display:inline-block;background:#f0ece4;color:#5a4a30;font-size:11px;font-weight:700;padding:2px 8px;border-radius:3px;margin-left:4px;vertical-align:middle;text-decoration:none;border:1px solid #c8a96e;cursor:pointer;transition:background 0.15s;}
+.case-tag:hover{background:#f5dfa8;color:#3a2a10;}
+</style>
+</head>
+<body>
+<header>
+  <div class="sub">부동산 강제집행 실무 정보 · 절차형</div>
+  <h1>강제관리</h1>
+  <div class="sub">부동산을 팔지 않고 임대수익으로 채권을 회수하는 방법</div>
+</header>
+<div class="container">
+
+  <div class="section">
+    <h2>이런 분께 필요합니다</h2>
+    <ul class="checklist">
+      <li>채무자가 임대용 건물이나 토지를 갖고 있고, 경매보다 임대수익으로 채권을 받고 싶은 경우</li>
+      <li>선순위 저당권이 많아 경매해도 배당이 없을 것 같아 경매 외 다른 방법을 찾는 경우</li>
+      <li>채권 금액이 비교적 소액이어서 경매를 진행하기에는 부담스러운 경우</li>
+      <li>부동산 가격 상승이 예상되어 지금 당장 경매보다 수익을 거두며 기다리고 싶은 경우</li>
+      <li>강제관리 신청 절차와 필요 서류를 확인하고 싶은 경우</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>핵심정리</h2>
+    <div class="summary-box">
+      <p><strong>강제관리</strong>란 채무자의 부동산 소유권은 빼앗지 않고, 그 부동산에서 발생하는 <strong>임대료·수익</strong>으로 채권을 변제받는 강제집행 방법입니다.</p>
+      <p>경매(강제경매)가 <span class="badge-warn">원본집행</span>이라면, 강제관리는 <span class="badge-ok">수익집행</span>입니다. 법원이 선임한 <strong>관리인</strong>이 부동산을 관리하며 수익을 추심해 채권자에게 배당합니다.</p>
+      <p>다음과 같은 경우에 특히 유용합니다: ① 임대용 빌딩·아파트처럼 안정적 임대수익이 있을 때, ② 선순위 채권 때문에 경매로는 배당을 기대하기 어려울 때, ③ 집행채권이 소액일 때.</p>
+    </div>
+    <p>근거 규정: <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=016300" target="_blank" rel="noopener" title="민사집행법 제163조 — 대법원 종합법률정보">민사집행법 제163조</a> <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=016400" target="_blank" rel="noopener" title="민사집행법 제164조 — 대법원 종합법률정보">민사집행법 제164조</a></p>
+  </div>
+
+  <div class="section">
+    <h2>강제관리가 가능한 부동산</h2>
+    <div class="summary-box">
+      <p>강제관리의 대상이 되려면 <strong>현재 수익이 발생하거나 발생할 수 있는 부동산</strong>이어야 합니다.</p>
+    </div>
+
+    <h3>강제관리 가능한 경우</h3>
+    <ul style="padding-left:20px;margin-bottom:16px;">
+      <li style="margin-bottom:8px;">임대 중인 건물(빌딩, 아파트, 상가, 공장 등)</li>
+      <li style="margin-bottom:8px;">농지·임야 등 천연과실이 발생하는 토지</li>
+      <li style="margin-bottom:8px;">선순위 저당권 때문에 경매가 불가능한 부동산(잉여 없더라도 수익이 있으면 가능)</li>
+      <li style="margin-bottom:8px;">양도가 금지된 부동산이라도 수익이 발생하면 가능</li>
+    </ul>
+
+    <h3>강제관리가 불가능한 경우</h3>
+    <div class="warn-box">
+      <ul style="padding-left:20px;">
+        <li style="margin-bottom:8px;">채무자가 직접 거주 중인 가옥 — 인도를 요구해야 하므로 불허</li>
+        <li style="margin-bottom:8px;">채무자가 영업에 이용 중인 점포(여관, 목욕탕, 극장 등) — 수익이 영업수익이지 부동산 수익이 아님</li>
+        <li style="margin-bottom:8px;">아직 준공 전인 건물 — 수익 발생 가망이 없음</li>
+        <li style="margin-bottom:8px;">관리비용이 수익을 초과하는 부동산 — 실질적 의미 없음</li>
+        <li style="margin-bottom:8px;">자동차·선박·항공기·건설기계 — 법률상 강제관리 대상 아님</li>
+      </ul>
+    </div>
+    <p style="margin-top:12px;font-size:0.93rem;color:#555;">관련 규정: <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=016300" target="_blank" rel="noopener" title="민사집행법 제163조">민사집행법 제163조</a></p>
+  </div>
+
+  <div class="section">
+    <h2>강제관리 절차 — 단계별 흐름</h2>
+    <div class="flow">
+      <div class="flow-item">
+        <div class="flow-num">1</div>
+        <div class="flow-body">
+          <strong>신청 — 채권자가 집행법원에 강제관리 신청</strong>
+          신청서에 채권자·채무자, 부동산 표시, 집행권원, 수익을 지급할 제3자(임차인) 정보를 기재합니다. 인지 5,000원(전자신청 4,500원), 등록면허세(1건 6,000원) 납부.
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">2</div>
+        <div class="flow-body">
+          <strong>강제관리개시결정 — 법원의 압류명령</strong>
+          법원은 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=016400" target="_blank" rel="noopener" title="민사집행법 제164조">민사집행법 제164조</a>에 따라 개시결정을 합니다. 채무자에게는 수익 처분 금지, 임차인에게는 이후 수익을 관리인에게 지급할 것을 명합니다. 등기소에 개시결정등기를 촉탁합니다.
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">3</div>
+        <div class="flow-body">
+          <strong>관리인 임명 — 법원이 관리인을 선임</strong>
+          법원은 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=016600" target="_blank" rel="noopener" title="민사집행법 제166조">민사집행법 제166조</a>에 따라 관리인을 임명합니다. 채권자는 적당한 사람을 관리인으로 추천할 수 있습니다. 관리인은 법원의 감독 아래 부동산을 관리하고 수익을 추심합니다.
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">4</div>
+        <div class="flow-body">
+          <strong>수익 추심 및 현금화 — 임대료 수취</strong>
+          관리인이 임차인으로부터 임대료를 수령하고, 필요시 현금화합니다. 수익에서 조세·공과금을 먼저 공제하고 관리비용을 변제합니다.
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">5</div>
+        <div class="flow-body">
+          <strong>배당 — 채권자에게 변제</strong>
+          관리인이 남은 수익으로 채권자에게 배당합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=016900" target="_blank" rel="noopener" title="민사집행법 제169조">민사집행법 제169조</a>에 따라 채권자 전원 만족이 가능하면 변제하고, 부족하면 법원이 배당표를 작성해 배당합니다.
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">6</div>
+        <div class="flow-body">
+          <strong>종결 — 법원의 취소결정</strong>
+          모든 채권자가 변제를 받으면 법원이 직권으로 강제관리취소결정을 합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=017100" target="_blank" rel="noopener" title="민사집행법 제171조">민사집행법 제171조</a>에 따라 결정 확정 후 개시결정등기를 말소합니다.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>신청서류</h2>
+    <table>
+      <tr><th>서류</th><th>비고</th></tr>
+      <tr><td>집행력 있는 정본(판결문 등)과 집행문, 송달증명서</td><td>집행개시요건 서류</td></tr>
+      <tr><td>등기사항증명서 (부동산)</td><td>채무자 소유로 등기된 경우</td></tr>
+      <tr><td>채무자 명의 등기를 증명할 서류</td><td>미등기 부동산인 경우</td></tr>
+      <tr><td>수익 지급의무자(임차인) 표시 서류</td><td>임차인이 있는 경우 임차인 성명·주소</td></tr>
+      <tr><td>등록면허세 영수필확인서</td><td>1건 6,000원 + 지방교육세 20%</td></tr>
+      <tr><td>등기신청수수료 영수필확인서</td><td>부동산 1개당 3,000원</td></tr>
+      <tr><td>인지</td><td>5,000원 (전자신청 4,500원)</td></tr>
+      <tr><td>송달료 예납</td><td>법원이 정하는 금액</td></tr>
+    </table>
+    <div class="info-box">
+      <p><strong>관할 법원:</strong> 부동산 소재지 지방법원</p>
+      <p><strong>담당 부서:</strong> 강제관리는 사법보좌관 업무범위에 속하지 않아 판사가 담당합니다.</p>
+      <p><strong>사건 부호:</strong> '타기'로 표시됩니다.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>자주 하는 질문</h2>
+
+    <div class="qna-item">
+      <div class="qna-q">Q. 강제관리와 강제경매를 동시에 신청할 수 있나요?</div>
+      <div class="qna-a">
+        <p>네, 두 제도는 서로 배타적이지 않습니다. 같은 부동산에 강제경매와 강제관리를 동시에 진행하는 것이 법률상 허용됩니다. 실무에서는 경매가 진행되는 동안 강제관리를 함께 신청해 경매 결과와 무관하게 임대수익도 확보하는 전략을 쓰기도 합니다.</p>
+      </div>
+    </div>
+
+    <div class="qna-item">
+      <div class="qna-q">Q. 담보권(저당권) 실행으로 강제관리를 신청할 수 있나요?</div>
+      <div class="qna-a">
+        <p>아닙니다. 강제관리는 집행력 있는 정본(판결문, 공정증서 등 집행권원)에 의한 강제집행과 가압류 집행에만 허용됩니다. 저당권·근저당권 실행으로는 강제관리를 신청할 수 없습니다. (<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=026800" target="_blank" rel="noopener" title="민사집행법 제268조">민사집행법 제268조</a> 참조)</p>
+      </div>
+    </div>
+
+    <div class="qna-item">
+      <div class="qna-q">Q. 임차인이 임대료를 안 내면 어떻게 되나요?</div>
+      <div class="qna-a">
+        <p>관리인이 법원의 지휘·감독 아래 임차인에게 수익 지급을 청구합니다. 개시결정에서 이미 임차인에게 "이후 임대료를 관리인에게 지급하라"는 명령이 포함되어 있으므로, 임차인이 이를 어기면 법적 조치가 가능합니다.</p>
+      </div>
+    </div>
+
+    <div class="qna-item">
+      <div class="qna-q">Q. 강제관리 중에 부동산이 팔리면 어떻게 되나요?</div>
+      <div class="qna-a">
+        <p>강제관리 중에도 채무자는 부동산의 소유권을 갖고 있으므로 원칙적으로 매매는 가능합니다. 다만 강제관리개시결정등기가 되어 있어 매수인이 이 사실을 알 수 있고, 새 소유자가 채무자의 지위를 승계하면 강제관리는 계속 진행됩니다. 한편 채권자가 동시에 강제경매를 신청한 경우라면 낙찰 후 강제관리는 종결됩니다.</p>
+      </div>
+    </div>
+
+    <div class="qna-item">
+      <div class="qna-q">Q. 수익이 충분하지 않아 관리비용도 안 나오면 어떻게 되나요?</div>
+      <div class="qna-a">
+        <p>법원은 수익이 관리비용에도 미치지 못할 것으로 예상되면 강제관리 신청을 각하하거나 절차를 취소할 수 있습니다. 또한 채권자가 비용 예납을 하지 않으면 마찬가지로 각하·취소될 수 있습니다. 따라서 신청 전에 부동산의 수익 수준을 미리 파악하는 것이 중요합니다.</p>
+      </div>
+    </div>
+
+    <div class="qna-item">
+      <div class="qna-q">Q. 채권 전액을 받으면 강제관리는 자동으로 끝나나요?</div>
+      <div class="qna-a">
+        <p>강제관리는 강제경매와 달리 당연 종결되지 않습니다. 채권자들이 전부 변제를 받아도 반드시 법원의 <strong>취소결정</strong>이 있어야 종결됩니다. 취소결정이 확정되면 법원사무관등이 직권으로 개시결정등기 말소를 촉탁합니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>주의사항</h2>
+    <div class="warn-box">
+      <p><strong>수익이 없으면 실효성이 없습니다.</strong> 강제관리는 부동산 수익을 집행 대상으로 하므로, 채무자가 직접 사용 중이거나 공실 상태인 부동산은 실질적으로 집행 효과를 거두기 어렵습니다. 신청 전 임대 현황과 예상 수익을 반드시 확인하세요.</p>
+    </div>
+    <div class="warn-box" style="margin-top:12px;">
+      <p><strong>경매가 더 적합한 경우가 많습니다.</strong> 강제관리는 채권 회수 기간이 길고 관리 비용이 발생합니다. 대부분의 경우 강제경매가 더 신속하고 확실한 방법입니다. 양자를 비교해 최적의 방법을 선택하는 것이 중요합니다.</p>
+    </div>
+    <div class="info-box" style="margin-top:12px;">
+      <p><strong>가압류 집행으로도 강제관리 신청이 가능합니다.</strong> 판결(집행권원)이 없는 가압류 단계에서도 강제관리를 신청할 수 있습니다. 단, 담보권(저당권·근저당권) 실행을 위한 강제관리는 불가능합니다.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>다음에 확인할 사항</h2>
+    <div class="next-links">
+      <a href="#">강제경매 신청 절차</a>
+      <a href="#">배당순위와 배당요구</a>
+      <a href="#">집행권원이란 무엇인가</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="cta-box" style="max-width:860px;margin:0 auto 60px;">
+  <h2>강제관리, 경매 중 어떤 방법이 나에게 맞나요?</h2>
+  <p>이 내용이 해당되시나요? 첫 상담은 무료입니다.<br>직접 처리하시기 어려운 부분을 법무사가 도와드립니다.</p>
+  <div class="btn-row">
+    <a href="tel:0000000000" class="btn-tel">전화 상담</a>
+    <a href="#" class="btn-kako">카카오톡 상담</a>
+  </div>
+</div>
+
+<footer>
+  <p>본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 개별 사안에 대한 법률 조언이 아닙니다. 구체적인 사안은 법무사 또는 변호사에게 상담하시기 바랍니다.</p>
+  <p style="margin-top:8px;">이 페이지는 2025년 현행 법령 기준으로 작성되었습니다.</p>
+</footer>
+</body>
+</html>

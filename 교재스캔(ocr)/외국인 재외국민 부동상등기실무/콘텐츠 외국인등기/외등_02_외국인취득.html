@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>외국인의 한국 부동산 취득 절차 완벽 가이드 | 법무사 부동산 등기</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:      #1a2e4a;
+    --navy-mid:  #2d4a7a;
+    --gold:      #c8a96e;
+    --gold-lt:   #fdf6e9;
+    --bg:        #faf8f5;
+    --text:      #2c2c2c;
+    --text-lt:   #5a5a5a;
+    --border:    #ddd8d0;
+    --blue-bg:   #eef2f8;
+    --blue-bd:   #2d4a7a;
+    --green-bg:  #f0f8f0;
+    --green-bd:  #1a5c2e;
+    --warn-bg:   #fff3e8;
+    --warn-bd:   #c05000;
+    --law-bg:    #f7f4f0;
+    --law-bd:    #6b7280;
+    --country-bg:#f0f4ff;
+    --country-bd:#3b5bdb;
+    --step-bg:   #f0f4fb;
+  }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.85;
+    font-size: 16px;
+  }
+
+  /* ─── 헤더 ──────────────────────────────────────── */
+  .page-header {
+    background: linear-gradient(135deg, var(--navy) 0%, #2a4a7a 100%);
+    color: #fff;
+    padding: 52px 24px 44px;
+    text-align: center;
+  }
+  .page-header .category-tag {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+  .page-header h1 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(20px, 3.5vw, 30px);
+    font-weight: 700;
+    line-height: 1.45;
+    margin-bottom: 14px;
+  }
+  .page-header .subtitle {
+    font-size: 15px;
+    color: rgba(255,255,255,0.78);
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  /* ─── 레이아웃 ───────────────────────────────────── */
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+
+  /* ─── 섹션 공통 ──────────────────────────────────── */
+  section { margin-top: 48px; }
+  section h2 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    border-left: 4px solid var(--gold);
+    padding-left: 14px;
+    margin-bottom: 20px;
+  }
+  section h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy-mid);
+    margin: 28px 0 12px;
+  }
+  p { margin-bottom: 14px; color: var(--text); }
+
+  /* ─── 체크리스트 ─────────────────────────────────── */
+  .checklist-box {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--navy);
+    border-radius: 8px;
+    padding: 28px 28px 24px;
+    margin-top: 32px;
+  }
+  .checklist-box .box-title {
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 15px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .checklist-box .box-title::before { content: "✅"; font-size: 18px; }
+  .checklist-box ul { list-style: none; }
+  .checklist-box ul li {
+    padding: 9px 0 9px 30px;
+    border-bottom: 1px solid #f0ece6;
+    position: relative;
+    font-size: 15px;
+  }
+  .checklist-box ul li:last-child { border-bottom: none; }
+  .checklist-box ul li::before {
+    content: "☐";
+    position: absolute;
+    left: 4px;
+    color: var(--gold);
+    font-size: 16px;
+  }
+
+  /* ─── 핵심 박스 ──────────────────────────────────── */
+  .summary-box {
+    background: var(--blue-bg);
+    border-left: 5px solid var(--blue-bd);
+    border-radius: 0 8px 8px 0;
+    padding: 22px 24px;
+    margin: 16px 0;
+  }
+  .summary-box .summary-title {
+    font-weight: 700;
+    color: var(--blue-bd);
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+  .summary-box p { font-size: 15px; margin-bottom: 8px; }
+  .summary-box p:last-child { margin-bottom: 0; }
+
+  /* ─── 절차 흐름 카드 ─────────────────────────────── */
+  .flow-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0;
+    margin: 20px 0;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .flow-card {
+    padding: 18px 14px;
+    text-align: center;
+    border-right: 1px solid var(--border);
+    position: relative;
+  }
+  .flow-card:last-child { border-right: none; }
+  .flow-card .step-num {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    background: var(--navy);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 28px;
+    margin-bottom: 8px;
+  }
+  .flow-card .step-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.4;
+  }
+  .flow-card .step-desc {
+    font-size: 11px;
+    color: var(--text-lt);
+    margin-top: 5px;
+    line-height: 1.5;
+  }
+  .flow-card.highlight-step { background: var(--step-bg); }
+
+  /* ─── 경로 구분 탭 ───────────────────────────────── */
+  .route-tabs { display: flex; gap: 0; margin: 20px 0 0; }
+  .route-tab {
+    flex: 1;
+    padding: 12px 16px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    border: 2px solid var(--border);
+    cursor: pointer;
+    border-radius: 6px 6px 0 0;
+    background: #f5f2ee;
+    color: var(--text-lt);
+    margin-right: 4px;
+  }
+  .route-tab.tab-domestic { border-color: #2E75B6; color: #1a4a8a; background: #e8f0fb; }
+  .route-tab.tab-overseas { border-color: #375623; color: #1a4a1a; background: #e8f5e8; }
+
+  /* ─── 단계별 상세 ────────────────────────────────── */
+  .step-block {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--navy);
+    padding: 14px 18px;
+  }
+  .step-number {
+    width: 32px;
+    height: 32px;
+    background: var(--gold);
+    color: var(--navy);
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .step-subtitle { font-size: 12px; color: rgba(255,255,255,0.7); margin-top: 2px; }
+  .step-body { padding: 18px 20px; }
+  .step-body p { font-size: 14.5px; margin-bottom: 10px; }
+
+  /* ─── 법령 박스 ───────────────────────────────────── */
+  .law-box {
+    background: var(--law-bg);
+    border-left: 4px solid var(--law-bd);
+    border-radius: 0 6px 6px 0;
+    padding: 14px 18px;
+    margin: 12px 0;
+    font-size: 13.5px;
+    color: #444;
+  }
+  .law-box .law-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--law-bd);
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+  }
+
+  /* ─── 경고 박스 ───────────────────────────────────── */
+  .warn-box {
+    background: var(--warn-bg);
+    border-left: 5px solid var(--warn-bd);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 14.5px;
+  }
+  .warn-box .warn-title { font-weight: 700; color: var(--warn-bd); margin-bottom: 7px; }
+
+  /* ─── 국가별 박스 ────────────────────────────────── */
+  .country-box {
+    background: var(--country-bg);
+    border-left: 5px solid var(--country-bd);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 14.5px;
+  }
+  .country-box .country-title { font-weight: 700; color: var(--country-bd); margin-bottom: 7px; }
+
+  /* ─── 사례 박스 ───────────────────────────────────── */
+  .case-box {
+    background: var(--green-bg);
+    border-left: 5px solid var(--green-bd);
+    border-radius: 0 8px 8px 0;
+    padding: 18px 20px;
+    margin: 12px 0;
+  }
+  .case-box .case-title { font-weight: 700; color: var(--green-bd); font-size: 14px; margin-bottom: 9px; }
+  .case-box p { font-size: 14.5px; margin-bottom: 6px; }
+
+  /* ─── 서류 표 ────────────────────────────────────── */
+  .doc-section { margin: 20px 0; }
+  .doc-section-title {
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px 16px;
+    border-radius: 6px 6px 0 0;
+    margin-bottom: 0;
+  }
+  .doc-section-title.domestic { background: #1a4a8a; color: #fff; }
+  .doc-section-title.overseas { background: #1a4a1a; color: #fff; }
+  .doc-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    border-radius: 0 0 6px 6px;
+    overflow: hidden;
+  }
+  .doc-table thead th {
+    background: #2a3a50;
+    color: #fff;
+    padding: 10px 12px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 700;
+    border: 1px solid #1a2e4a;
+  }
+  .doc-table tbody td {
+    padding: 10px 12px;
+    border: 1px solid #e8e3db;
+    vertical-align: top;
+    line-height: 1.65;
+  }
+  .doc-table tbody tr:nth-child(even) td { background: #f9f7f4; }
+  .doc-table td:first-child { font-weight: 600; color: var(--navy-mid); }
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 7px;
+    border-radius: 10px;
+    font-weight: 700;
+    margin-left: 4px;
+  }
+  .badge-must  { background: #fde8e8; color: #c00000; }
+  .badge-cond  { background: #e8f0fe; color: #1a4a8a; }
+  .badge-apost { background: #fef3e8; color: #9a3500; }
+  .badge-trans { background: #f0fff0; color: #1a5c2e; }
+
+  /* ─── 비용 박스 ───────────────────────────────────── */
+  .cost-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .cost-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--navy-mid);
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+  .cost-card .cost-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 5px;
+  }
+  .cost-card .cost-note {
+    font-size: 12px;
+    color: var(--text-lt);
+    line-height: 1.6;
+  }
+
+  /* ─── 문제/해결책 ────────────────────────────────── */
+  .trouble-item {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .trouble-q {
+    background: #f5f2ee;
+    padding: 12px 18px;
+    font-weight: 700;
+    font-size: 14.5px;
+    color: var(--warn-bd);
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .trouble-a {
+    padding: 14px 18px;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  /* ─── Q&A ────────────────────────────────────────── */
+  .qa-item {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 14px;
+    overflow: hidden;
+  }
+  .qa-question {
+    background: #f5f2ee;
+    padding: 13px 20px;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--navy);
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .q-mark {
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 12px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .qa-answer {
+    padding: 14px 20px;
+    font-size: 14.5px;
+    line-height: 1.85;
+  }
+  .qa-answer .caution {
+    display: block;
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--text-lt);
+    font-style: italic;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+  }
+
+  /* ─── 관련 링크 ──────────────────────────────────── */
+  .related-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .related-link-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--navy-mid);
+    border-radius: 6px;
+    padding: 16px 18px;
+    text-decoration: none;
+    color: var(--text);
+    transition: box-shadow 0.2s;
+    display: block;
+  }
+  .related-link-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,0.12); }
+  .related-link-card .link-tag {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+  }
+  .related-link-card .link-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.45;
+  }
+
+  /* ─── CTA 박스 ───────────────────────────────────── */
+  .cta-box {
+    background: var(--gold-lt);
+    border: 2px solid var(--gold);
+    border-radius: 12px;
+    padding: 32px 28px;
+    margin-top: 16px;
+    text-align: center;
+  }
+  .cta-box h3 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 20px;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .cta-box p { font-size: 14.5px; color: #555; max-width: 520px; margin: 0 auto 20px; }
+  .cta-buttons { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  .btn-phone {
+    background: var(--navy);
+    color: #fff;
+    padding: 13px 28px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-kakao {
+    background: #FEE500;
+    color: #3A1D1D;
+    padding: 13px 28px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* ─── 면책 문구 ──────────────────────────────────── */
+  .disclaimer {
+    margin-top: 48px;
+    padding: 20px 22px;
+    background: #f0ece6;
+    border-radius: 6px;
+    font-size: 12.5px;
+    color: #777;
+    line-height: 1.8;
+  }
+
+  /* ─── 반응형 ─────────────────────────────────────── */
+  @media (max-width: 640px) {
+    .flow-grid { grid-template-columns: repeat(2, 1fr); }
+    .flow-card { border-bottom: 1px solid var(--border); }
+    .doc-table { font-size: 12px; }
+    .doc-table thead th, .doc-table tbody td { padding: 8px 9px; }
+    .cost-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════ 헤더 ════════════════════════════════════════════ -->
+<header class="page-header">
+  <div class="category-tag">외국인 · 부동산 취득</div>
+  <h1>외국인의 한국 부동산 취득 절차<br>완벽 가이드</h1>
+  <p class="subtitle">매수 계약부터 소유권이전등기 완료까지 — 국내 체류 여부에 따른 절차와 서류를 한눈에 정리합니다.</p>
+</header>
+
+<div class="container">
+
+  <!-- ════ 0. 이런 분께 필요합니다 ════════════════════════ -->
+  <div class="checklist-box">
+    <div class="box-title">이런 분께 필요합니다</div>
+    <ul>
+      <li>외국 시민권 또는 영주권을 보유한 상태에서 한국 아파트·토지·상가를 매수하려는 분</li>
+      <li>한국에 체류 중인 외국인(외국인등록증 소지자)이 부동산을 구입하려는 분</li>
+      <li>해외에 거주하면서 입국 없이 한국 부동산을 매수하려는 분</li>
+      <li>군사시설보호구역·문화재보호구역 등 허가 대상 토지를 취득하려는 분</li>
+      <li>부동산등기용 등록번호가 없어서 등기 신청을 어떻게 해야 할지 모르는 분</li>
+      <li>취득 후 신고 의무가 있는지, 기한이 언제인지 확인하고 싶은 분</li>
+    </ul>
+  </div>
+
+  <!-- ════ 1. 이 절차가 왜 필요한가 ══════════════════════ -->
+  <section>
+    <h2>이 절차가 왜 필요한가</h2>
+    <div class="summary-box">
+      <div class="summary-title">📌 외국인 부동산 취득의 핵심</div>
+      <p>외국인도 원칙적으로 한국 부동산을 자유롭게 취득할 수 있습니다. 다만 내국인과 달리 <strong>①부동산등기용 등록번호 발급, ②취득·보유 신고, ③경우에 따른 토지취득 허가</strong>의 세 가지 추가 절차가 필요합니다.</p>
+      <p>재외국민(영주권자)은 한국 국적을 유지하므로 이 세 가지가 모두 <strong>불필요</strong>합니다. 반면 시민권자, 외국국적동포 등 한국 국적이 없는 외국인은 모두 해당됩니다.</p>
+    </div>
+
+    <div class="warn-box">
+      <div class="warn-title">⚡ 등기신청 기한 — 잔금일로부터 60일</div>
+      매매계약 후 반대급부(잔금)의 이행이 완료된 날부터 <strong>60일 이내</strong>에 소유권이전등기를 신청해야 합니다(부동산등기특별조치법 제2조 제1항). 기간 계산 시 초일은 산입하지 않습니다(등기선례 4-377).
+    </div>
+
+    <div class="warn-box">
+      <div class="warn-title">⚡ 취득 신고 기한 — 계약 체결일부터 60일</div>
+      외국인이 매매계약으로 부동산을 취득하면 <strong>계약 체결일부터 60일 이내</strong>에 관할 시·군·구청에 취득 신고를 해야 합니다(부동산거래신고법 제8조 제1항). 상속·경매 등 계약 외 원인으로 취득한 경우에는 취득일로부터 <strong>6개월 이내</strong>에 신고합니다.
+    </div>
+
+    <div class="warn-box">
+      <div class="warn-title">⚠️ 토지취득 허가 없이 계약하면 무효</div>
+      군사기지·문화재보호구역·생태경관보전지역 등 허가 대상 토지를 <strong>허가 없이 취득하는 계약은 효력이 발생하지 않습니다</strong>(부동산거래신고법 제9조 제3항). 무허가 계약은 2년 이하 징역 또는 2천만 원 이하 벌금에 처합니다.
+    </div>
+  </section>
+
+  <!-- ════ 2. 전체 절차 흐름 ════════════════════════════ -->
+  <section>
+    <h2>전체 절차 흐름 요약</h2>
+
+    <h3>🏠 국내 체류 외국인 (외국인등록증 소지)</h3>
+    <div class="flow-grid">
+      <div class="flow-card highlight-step">
+        <div class="step-num">1</div>
+        <div class="step-label">매매계약 체결</div>
+        <div class="step-desc">계약서 원본 작성</div>
+      </div>
+      <div class="flow-card">
+        <div class="step-num">2</div>
+        <div class="step-label">허가 확인</div>
+        <div class="step-desc">대상 토지면 사전 허가 신청</div>
+      </div>
+      <div class="flow-card highlight-step">
+        <div class="step-num">3</div>
+        <div class="step-label">등록번호 발급</div>
+        <div class="step-desc">출입국 외국인관서</div>
+      </div>
+      <div class="flow-card">
+        <div class="step-num">4</div>
+        <div class="step-label">잔금 지급</div>
+        <div class="step-desc">외국환거래법 불필요</div>
+      </div>
+      <div class="flow-card highlight-step">
+        <div class="step-num">5</div>
+        <div class="step-label">취득 신고</div>
+        <div class="step-desc">시·군·구청 (60일 이내)</div>
+      </div>
+      <div class="flow-card">
+        <div class="step-num">6</div>
+        <div class="step-label">소유권이전등기</div>
+        <div class="step-desc">관할 등기소 (60일 이내)</div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:28px;">✈️ 국내 비거주 외국인 (해외 거주 — 입국 없이 처리)</h3>
+    <div class="flow-grid">
+      <div class="flow-card highlight-step">
+        <div class="step-num">1</div>
+        <div class="step-label">매매계약 체결</div>
+        <div class="step-desc">위임장 공증 후 대리인 활용</div>
+      </div>
+      <div class="flow-card">
+        <div class="step-num">2</div>
+        <div class="step-label">허가 확인</div>
+        <div class="step-desc">대상 토지면 사전 허가</div>
+      </div>
+      <div class="flow-card highlight-step">
+        <div class="step-num">3</div>
+        <div class="step-label">등록번호 발급</div>
+        <div class="step-desc">서울출입국관서 우편 신청 가능</div>
+      </div>
+      <div class="flow-card">
+        <div class="step-num">4</div>
+        <div class="step-label">외환 신고 후 송금</div>
+        <div class="step-desc">외국환거래법 신고 (외국환은행)</div>
+      </div>
+      <div class="flow-card highlight-step">
+        <div class="step-num">5</div>
+        <div class="step-label">취득 신고</div>
+        <div class="step-desc">대리인이 대행 (60일 이내)</div>
+      </div>
+      <div class="flow-card">
+        <div class="step-num">6</div>
+        <div class="step-label">소유권이전등기</div>
+        <div class="step-desc">대리인이 신청 (60일 이내)</div>
+      </div>
+    </div>
+
+    <div class="case-box" style="margin-top:16px;">
+      <div class="case-title">⏱️ 소요 기간 안내</div>
+      <p>토지취득 허가 신청 시 신고관청은 <strong>15일 이내</strong> 처리. 부동산등기용 등록번호는 신청 후 통상 수일 이내 발급. 등기 신청 후 등기관 처리는 통상 3~5 영업일 소요.</p>
+      <p>해외 공증 + 아포스티유 취득에는 국가별로 2~4주 소요될 수 있으므로 계약 전부터 서류 준비를 시작하는 것을 권장합니다.</p>
+    </div>
+  </section>
+
+  <!-- ════ 3. 단계별 상세 절차 ══════════════════════════ -->
+  <section>
+    <h2>단계별 상세 절차</h2>
+
+    <!-- STEP 1 -->
+    <div class="step-block">
+      <div class="step-header">
+        <div class="step-number">1</div>
+        <div>
+          <div class="step-title">매매계약 체결</div>
+          <div class="step-subtitle">계약서 원본 작성 및 검인 신청</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <p>부동산 매매계약서는 원본으로 작성해야 하며, 사본은 등기원인을 증명하는 서면으로 제출할 수 없습니다(등기선례 7-31). 계약서에는 계약금·중도금·잔금 지급일이 명확히 기재되어야 합니다.</p>
+        <p>계약 후 부동산 소재지를 관할하는 시장·군수·구청장에게 <strong>검인</strong>을 받아야 하며, 계약서에는 인지세법에 따른 수입인지도 첨부해야 합니다(등기예규 제1419호). 전자신청 시에는 PDF로 변환하여 공인인증서로 전자서명합니다.</p>
+        <div class="law-box">
+          <div class="law-label">📜 근거 법령</div>
+          부동산등기특별조치법 제3조 제1항 — 계약서에 검인신청인을 표시하여 관할 시장·군수·구청장의 검인을 받아 등기소에 제출해야 함
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step-block">
+      <div class="step-header">
+        <div class="step-number">2</div>
+        <div>
+          <div class="step-title">토지취득 허가 신청 (해당 시)</div>
+          <div class="step-subtitle">군사·문화재·생태 보호구역 등 대상 토지에 한함 — 계약 전에 신청</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <p>다음 구역·지역의 토지를 취득하는 경우 <strong>계약서 작성 전</strong>에 외국인 토지취득 허가를 받아야 합니다.</p>
+        <ul style="margin:10px 0 14px 20px; font-size:14.5px; line-height:2;">
+          <li>군사기지 및 군사시설 보호구역 (국방목적상 필요한 섬지역 포함)</li>
+          <li>문화유산 지정문화유산 및 그 보호물·보호구역</li>
+          <li>자연환경보전법상 생태·경관보전지역</li>
+          <li>야생동·식물특별보호구역</li>
+        </ul>
+        <p>신청서에 토지거래계약 당사자 간 합의서를 첨부하여 신고관청(시·군·구청)에 제출합니다. 신청을 받은 관청은 <strong>15일 이내</strong>에 허가 또는 불허가 처분을 해야 합니다.</p>
+        <div class="warn-box">
+          <div class="warn-title">⚠️ 국내거소신고를 한 외국국적동포 — 일부 허가 면제</div>
+          국내거소신고를 한 외국국적동포는 군사기지·군사시설 보호구역 토지 취득 시에만 허가가 필요하며, 나머지 대상 구역(문화재·생태)에 대해서는 허가 없이 신고만으로 취득이 가능합니다(재외동포법 제11조, 등기예규 제1778호 제15조 단서).
+        </div>
+        <p>취득하려는 토지가 허가 대상이 <em>아닌</em> 경우, 이를 소명하기 위해 <strong>토지이용계획확인서</strong>를 등기 신청 시 첨부해야 합니다(등기예규 제1778호 제15조 제3항).</p>
+        <div class="law-box">
+          <div class="law-label">📜 근거 법령</div>
+          부동산거래신고법 제9조 — 허가 대상 토지 범위, 신청 절차, 허가 조건 및 벌칙 규정
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step-block">
+      <div class="step-header">
+        <div class="step-number">3</div>
+        <div>
+          <div class="step-title">부동산등기용 등록번호 발급</div>
+          <div class="step-subtitle">출입국 외국인관서 방문 또는 우편 신청</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <p>외국인이 소유권이전등기 등 '기입등기'를 신청하려면 반드시 부동산등기용 등록번호를 부여받아야 합니다(등기예규 제1778호 제14조). 다음 세 가지 중 하나를 사용할 수 있습니다.</p>
+        <ul style="margin:10px 0 14px 20px; font-size:14.5px; line-height:2;">
+          <li><strong>외국인등록번호</strong> — 체류지 관할 출입국 외국인관서에서 발급한 번호</li>
+          <li><strong>부동산등기용 등록번호</strong> — 국내 체류지가 없는 경우 서울출입국 외국인관서에서 발급</li>
+          <li><strong>국내거소신고번호</strong> — 외국국적동포가 거소신고를 한 경우</li>
+        </ul>
+        <p><strong>우편 신청도 가능합니다.</strong> 우체국에서 회신용 등기 봉투를 받아 등록번호 부여신청서·위임인 여권사본·대리인 신분증·위임장을 동봉해 서울출입국 외국인관서에 발송하면, 처리 후 등록증명서를 회신해줍니다. 발급 수수료는 1부당 1,000원입니다.</p>
+        <div class="law-box">
+          <div class="law-label">📜 근거 법령</div>
+          부동산등기법 제49조 제1항 · 등기예규 제1778호 제14조 — 외국인의 등록번호 의무 부여 및 종류
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step-block">
+      <div class="step-header">
+        <div class="step-number">4</div>
+        <div>
+          <div class="step-title">잔금 지급 (비거주 외국인: 외환 신고 선행)</div>
+          <div class="step-subtitle">국내 비거주 외국인은 외국환거래법상 신고 필요</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <p><strong>국내 체류 외국인</strong>은 잔금을 지급할 때 별도의 외환 관련 절차가 없습니다.</p>
+        <p><strong>국내 비거주 외국인</strong>은 해외에서 자금을 송금하여 부동산을 구입하는 경우, 외국환거래법에 따라 <strong>외국환은행장에게 부동산 취득신고</strong>를 먼저 해야 합니다. 이는 자금이 합법적인 해외 출처에서 반입되었음을 증명하는 절차입니다. 이 신고를 이행하지 않으면 외국환거래법 위반이 될 수 있습니다.</p>
+      </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="step-block">
+      <div class="step-header">
+        <div class="step-number">5</div>
+        <div>
+          <div class="step-title">부동산 취득 신고</div>
+          <div class="step-subtitle">관할 시·군·구청 — 계약 체결일부터 60일 이내</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <p>외국인이 계약으로 부동산을 취득하면 <strong>계약 체결일부터 60일 이내</strong>에 관할 시·군·구청(부동산·토지거래 담당부서)에 외국인 부동산 취득신고서를 제출해야 합니다. 대리인이 대행할 수 있으며, 이 경우 위임장과 신고인의 신분증 사본이 필요합니다.</p>
+        <p>신고 완료 후 관청으로부터 <strong>취득·계속보유 신고확인증</strong>을 발급받습니다.</p>
+        <div class="warn-box">
+          <div class="warn-title">⚡ 상속·경매 등 계약 외 취득의 경우 — 6개월 이내</div>
+          상속·경매, 법원의 확정판결, 법인 합병, 건축물 신축 등 계약 외의 원인으로 취득한 경우에는 <strong>취득일로부터 6개월 이내</strong>에 신고해야 합니다(부동산거래신고법 제8조 제2항).
+        </div>
+        <div class="law-box">
+          <div class="law-label">📜 근거 법령</div>
+          부동산거래신고법 제8조 — 외국인 등의 부동산 취득·계속보유 신고 의무 및 기한
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 6 -->
+    <div class="step-block">
+      <div class="step-header">
+        <div class="step-number">6</div>
+        <div>
+          <div class="step-title">소유권이전등기 신청</div>
+          <div class="step-subtitle">관할 등기소 — 잔금일로부터 60일 이내</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <p>방문신청·전자신청·전자표준신청 중 선택하여 관할 등기소에 신청합니다(부동산등기규칙 제43조, 제46조). 법무사에게 위임하면 전 과정을 대행받을 수 있습니다.</p>
+        <p>2025년 1월 31일부터 상속 및 유증 등기신청의 경우 <strong>전국 어느 등기소에서도 신청이 가능</strong>해졌으며(부동산등기법 제7조의3 신설), 관할 등기소가 다른 여러 부동산에 대해 등기목적·원인이 동일한 경우 일괄 신청도 가능합니다(제7조의2 신설).</p>
+        <div class="law-box">
+          <div class="law-label">📜 근거 법령</div>
+          부동산등기특별조치법 제2조 제1항 — 잔금 지급일로부터 60일 이내 등기 신청 의무 (초일 불산입: 등기선례 4-377)
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ 4. 첨부서류 목록 ═══════════════════════════════ -->
+  <section>
+    <h2>첨부서류 목록</h2>
+    <p style="font-size:14px; color:var(--text-lt); margin-bottom:16px;">아래 서류는 소유권이전등기 신청 시 필요한 주요 서류입니다. 국적·체류 자격에 따라 달라질 수 있으므로 상담을 통해 확인하세요.</p>
+
+    <!-- 입국한 경우 -->
+    <div class="doc-section">
+      <div class="doc-section-title domestic">🏠 국내 체류 외국인 (입국한 경우)</div>
+      <table class="doc-table">
+        <thead>
+          <tr>
+            <th style="width:26%">서류명</th>
+            <th style="width:22%">발급 기관</th>
+            <th>주의사항</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>매매계약서 원본 <span class="badge badge-must">필수</span></td>
+            <td>당사자 작성</td>
+            <td>사본 불가, 검인 필수, 수입인지 첩부 (등기선례 7-31, 등기예규 제1419호)</td>
+          </tr>
+          <tr>
+            <td>부동산등기용 등록번호 등록증명서 <span class="badge badge-must">필수</span></td>
+            <td>출입국 외국인관서</td>
+            <td>국내 체류 시 외국인등록사실증명으로 대체 가능 (등기선례 7-182)</td>
+          </tr>
+          <tr>
+            <td>주소를 증명하는 서면 <span class="badge badge-must">필수</span></td>
+            <td>출입국 외국인관서</td>
+            <td>외국인등록증 또는 외국인등록사실증명 제출</td>
+          </tr>
+          <tr>
+            <td>토지취득허가증 <span class="badge badge-cond">해당 시</span></td>
+            <td>관할 시·군·구청</td>
+            <td>허가 대상 구역 토지 취득 시만 필요. 비대상 토지는 토지이용계획확인서로 소명</td>
+          </tr>
+          <tr>
+            <td>토지이용계획확인서 <span class="badge badge-cond">해당 시</span></td>
+            <td>정부24 또는 시·군·구청</td>
+            <td>허가 대상이 아님을 소명하기 위해 첨부 (등기예규 제1778호 제15조 제3항)</td>
+          </tr>
+          <tr>
+            <td>번역문 <span class="badge badge-trans">외국어 서류 시</span></td>
+            <td>번역인 작성</td>
+            <td>번역인이 원문과 다름없다는 뜻, 성명·주소 기재 후 날인·서명. 번역인 자격 제한 없음 (등기선례 1-22)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 미입국인 경우 -->
+    <div class="doc-section" style="margin-top:24px;">
+      <div class="doc-section-title overseas">✈️ 해외 거주 외국인 (미입국인 경우)</div>
+      <table class="doc-table">
+        <thead>
+          <tr>
+            <th style="width:26%">서류명</th>
+            <th style="width:22%">발급처·방법</th>
+            <th>주의사항</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>매매계약서 원본 <span class="badge badge-must">필수</span></td>
+            <td>대리인이 작성 (위임)</td>
+            <td>대리인이 취득 대행 시 위임장 필요, 검인 필수</td>
+          </tr>
+          <tr>
+            <td>위임장 <span class="badge badge-must">필수</span></td>
+            <td>본인 작성 후 공증</td>
+            <td>재외공관 공증 또는 아포스티유 협약국의 경우 아포스티유 첨부 <span class="badge badge-apost">아포스티유</span></td>
+          </tr>
+          <tr>
+            <td>부동산등기용 등록번호 등록증명서 <span class="badge badge-must">필수</span></td>
+            <td>서울출입국관서<br>(우편 신청 가능)</td>
+            <td>등록부여신청서, 여권사본, 위임장 동봉. 수수료 1,000원/부</td>
+          </tr>
+          <tr>
+            <td>주소를 증명하는 서면 <span class="badge badge-must">필수</span></td>
+            <td>재외공관 또는<br>본국 발급</td>
+            <td>거주사실증명서 등. 외국어 서류는 번역문 첨부 필요. 아포스티유 또는 재외공관 공증 <span class="badge badge-apost">아포스티유</span></td>
+          </tr>
+          <tr>
+            <td>토지취득허가증 <span class="badge badge-cond">해당 시</span></td>
+            <td>관할 시·군·구청</td>
+            <td>대리인이 대행 신청 가능. 합의서·위임장 첨부</td>
+          </tr>
+          <tr>
+            <td>번역문 <span class="badge badge-trans">외국어 서류 시</span></td>
+            <td>번역인 작성</td>
+            <td>모든 외국어 서류에 번역문 첨부 필요. 번역 인증받은 경우 번역인 날인 불필요 (등기예규 제1778호 제4조 제2항)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="country-box" style="margin-top:16px;">
+      <div class="country-title">🌏 아포스티유 협약 비가입국의 경우</div>
+      미국·일본·프랑스 등 헤이그 협약 가입국 국민은 공문서에 아포스티유(Apostille)를 첨부하면 별도의 영사 인증 없이 한국에서 효력이 인정됩니다. 그러나 <strong>아포스티유 미가입국</strong>의 경우 해당 국가 주재 한국 재외공관에서 영사 인증을 받아야 합니다. 미국인의 경우 주소 공증 서면(거주사실증명서)에, 일본인의 경우 주민표에 아포스티유를 부착하는 방식이 일반적입니다.
+    </div>
+  </section>
+
+  <!-- ════ 5. 비용 안내 ═══════════════════════════════════ -->
+  <section>
+    <h2>비용 안내</h2>
+    <p>구체적인 금액은 취득 금액·물건 종류·지역에 따라 다르므로 <strong>정확한 금액은 표시하지 않습니다.</strong> 아래 항목과 납부 횟수를 참고하시고, 위텍스(www.wetax.go.kr) 또는 법무사를 통해 정확한 세액을 확인하시기 바랍니다.</p>
+    <div class="cost-grid">
+      <div class="cost-card">
+        <div class="cost-name">취득세</div>
+        <div class="cost-note">1회 납부<br>취득 전 납부 후 등기 신청</div>
+      </div>
+      <div class="cost-card">
+        <div class="cost-name">지방교육세</div>
+        <div class="cost-note">1회 납부<br>취득세와 함께 납부</div>
+      </div>
+      <div class="cost-card">
+        <div class="cost-name">농어촌특별세</div>
+        <div class="cost-note">해당 시 납부<br>85㎡ 초과 주택 등</div>
+      </div>
+      <div class="cost-card">
+        <div class="cost-name">등기신청수수료</div>
+        <div class="cost-note">1회 납부<br>부동산등기법에 따른 수수료</div>
+      </div>
+      <div class="cost-card">
+        <div class="cost-name">인지세</div>
+        <div class="cost-note">계약서 1회 첩부<br>계약 금액에 따라 달라짐</div>
+      </div>
+      <div class="cost-card">
+        <div class="cost-name">등록번호 발급수수료</div>
+        <div class="cost-note">1,000원/부<br>출입국관서 발급 시</div>
+      </div>
+    </div>
+    <div class="law-box">
+      <div class="law-label">💡 세액 조회 방법</div>
+      위텍스(www.wetax.go.kr) → 취득세 → 부동산 취득세 간편 계산기에서 계약금액·건물 종류 입력 후 세액 조회 가능
+    </div>
+  </section>
+
+  <!-- ════ 6. 관련 판례·예규 ════════════════════════════ -->
+  <section>
+    <h2>관련 판례·예규</h2>
+    <div class="law-box">
+      <div class="law-label">📜 등기선례 3-932 (1992. 9. 21.) — 잔금 지급일 기준</div>
+      부동산등기특별조치법 제2조 제1항의 "반대급부의 이행이 완료된 날"이란, 계약서상의 잔금지급 기일이 아닌 <strong>실제 잔금이 지급된 날</strong>을 의미한다. 따라서 실제 잔금지급일로부터 60일 내에 소유권이전등기를 신청하면 된다.
+    </div>
+    <div class="law-box">
+      <div class="law-label">📜 등기선례 4-377 (1994. 6. 20.) — 초일 불산입</div>
+      60일 기간 계산 시, 그 기간이 정해진 날 오전 영시부터 시작하지 않는 한 <strong>초일은 산입하지 않는다.</strong>
+    </div>
+    <div class="law-box">
+      <div class="law-label">📜 등기선례 7-31 (2004. 4. 29.) — 계약서 원본만 가능</div>
+      매매계약서 사본은 등기원인을 증명하는 서면으로 제출할 수 없으며, <strong>원본만이 가능</strong>하다.
+    </div>
+    <div class="law-box">
+      <div class="law-label">📜 등기선례 7-182 — 외국인등록사실증명 활용</div>
+      체류지 관할 출입국관리사무소에 외국인등록을 한 경우, 출입국관리사무소장 등이 발급한 외국인등록사실증명을 <strong>부동산등기용 등록번호 및 주소 증명으로 제출</strong>할 수 있다.
+    </div>
+    <div class="law-box">
+      <div class="law-label">📜 등기선례 제200604-8호 (2006. 4. 20.) — 외국 법인의 농지 취득 불가</div>
+      현행 농지법에 따라 농지는 원칙적으로 자기 농업경영에 이용하는 자만 취득 가능하므로, <strong>외국 법인이 농지에 대해 소유권이전등기를 신청할 수 없다.</strong>
+    </div>
+  </section>
+
+  <!-- ════ 7. 자주 발생하는 문제와 해결책 ══════════════ -->
+  <section>
+    <h2>자주 발생하는 문제와 해결책</h2>
+
+    <div class="trouble-item">
+      <div class="trouble-q">⚠️ 허가 대상 토지 여부를 확인하지 않고 계약부터 체결한 경우</div>
+      <div class="trouble-a">허가 대상 토지에 대해 허가 없이 체결한 계약은 효력이 없습니다. 계약 전에 반드시 토지이용계획확인서를 통해 군사시설보호구역·문화재보호구역·생태보전지역 여부를 확인하고, 해당 시에는 사전에 토지취득 허가를 받아야 합니다.</div>
+    </div>
+
+    <div class="trouble-item">
+      <div class="trouble-q">⚠️ 등기 신청 시 등록번호 등록증명서 대신 여권 사본을 제출한 경우</div>
+      <div class="trouble-a">여권 사본만으로는 부동산등기용 등록번호를 증명할 수 없습니다. 출입국 외국인관서에서 발급받은 등록번호 등록증명서 또는 외국인등록사실증명을 반드시 제출해야 합니다. 보정명령의 대상이 됩니다.</div>
+    </div>
+
+    <div class="trouble-item">
+      <div class="trouble-q">⚠️ 매매계약서 사본을 제출한 경우</div>
+      <div class="trouble-a">매매계약서 사본은 등기원인 증명서류로 인정되지 않습니다(등기선례 7-31). 반드시 원본을 제출해야 하며, 분실한 경우 재작성·재검인이 필요합니다. 전자신청의 경우 PDF 파일로 변환하여 당사자 모두 전자서명해야 합니다.</div>
+    </div>
+
+    <div class="trouble-item">
+      <div class="trouble-q">🌏 국가별로 주소 증명 서류가 달라 어떤 서류를 제출해야 할지 모르는 경우</div>
+      <div class="trouble-a">미국인은 공증사무소 발행 거주사실증명서(아포스티유 첨부), 일본인은 주민표(아포스티유 첨부)를 일반적으로 사용합니다. 캐나다·호주·영국 등 아포스티유 가입국은 해당 국가의 지정 기관에서 아포스티유를 취득하면 됩니다. 중국·베트남 등 비가입국은 재외공관(한국대사관·영사관) 영사 인증을 받아야 합니다. 국적별 구체적인 서류 목록은 법무사 상담을 통해 확인하시기 바랍니다.</div>
+    </div>
+
+    <div class="trouble-item">
+      <div class="trouble-q">⚠️ 번역문 제출 시 번역인 날인이 누락된 경우</div>
+      <div class="trouble-a">번역문에는 번역인이 원문과 다름없다는 뜻, 번역인의 성명·주소를 기재하고 날인 또는 서명해야 합니다. 또한 번역인의 신분증 사본을 제공해야 합니다. 번역문을 인증받아 제출하는 경우에는 날인이 불필요합니다(등기예규 제1778호 제4조 제2항). 번역인의 자격에는 제한이 없습니다(등기선례 1-22).</div>
+    </div>
+  </section>
+
+  <!-- ════ 8. Q&A ════════════════════════════════════════ -->
+  <section>
+    <h2>자주 묻는 질문 (Q&amp;A)</h2>
+
+    <div class="qa-item">
+      <div class="qa-question">
+        <span class="q-mark">Q</span>
+        미국 시민권자인데 한국 아파트를 살 수 있나요? 토지취득 허가가 필요한가요?
+      </div>
+      <div class="qa-answer">
+        가능합니다. 미국 시민권자는 외국인으로서 한국 부동산을 자유롭게 매수할 수 있습니다. 일반 아파트는 토지취득 허가 대상이 아니므로 허가 없이 계약 후 취득 신고만 하면 됩니다. 다만 ① 부동산등기용 등록번호 발급, ② 계약 체결일로부터 60일 이내 취득 신고, ③ 잔금 지급 후 60일 이내 소유권이전등기 신청의 세 가지 절차가 내국인보다 추가됩니다.
+        <span class="caution">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</span>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-question">
+        <span class="q-mark">Q</span>
+        ⚡ 취득 신고 기한인 60일을 넘기면 어떻게 되나요?
+      </div>
+      <div class="qa-answer">
+        부동산거래신고법 제8조를 위반하여 신고를 하지 않거나 거짓으로 신고한 경우 100만 원 이하의 과태료가 부과될 수 있습니다. 또한 등기 신청 자체가 불가능해질 수 있으므로 기한 내 신고를 반드시 이행하시기 바랍니다. 상속·경매 등 계약 외 취득의 경우에는 취득일로부터 6개월 이내이므로 기한을 혼동하지 않도록 주의하십시오.
+        <span class="caution">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</span>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-question">
+        <span class="q-mark">Q</span>
+        해외에 있어서 입국하기 어렵습니다. 대리인을 통해 전 과정을 처리할 수 있나요?
+      </div>
+      <div class="qa-answer">
+        가능합니다. 위임장을 공증(재외공관 또는 아포스티유)하여 국내 법무사에게 위임하면, 매매계약 체결부터 취득 신고, 등기신청까지 전 과정을 대행받을 수 있습니다. 부동산등기용 등록번호 발급도 우편 신청으로 처리할 수 있습니다. 단, 해외 공증·아포스티유 취득에 수 주가 소요될 수 있으므로 계약 전부터 서류 준비를 시작하는 것이 좋습니다.
+        <span class="caution">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</span>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-question">
+        <span class="q-mark">Q</span>
+        일본인인데 한국에 체류 중입니다. 내국인과 서류가 많이 다른가요?
+      </div>
+      <div class="qa-answer">
+        기본 절차는 내국인과 동일하지만 세 가지가 다릅니다. ① 주민등록번호 대신 외국인등록번호(외국인등록사실증명으로 증명)를 사용합니다. ② 계약 후 60일 이내에 취득 신고를 해야 합니다. ③ 주소 증명 서류로 외국인등록증 또는 외국인등록사실증명을 제출합니다. 국내 체류 중이므로 아포스티유나 재외공관 공증은 필요하지 않습니다.
+        <span class="caution">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</span>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-question">
+        <span class="q-mark">Q</span>
+        재외국민(영주권자)도 이 취득 절차를 따라야 하나요?
+      </div>
+      <div class="qa-answer">
+        아닙니다. 재외국민은 한국 국적을 유지하고 있으므로 부동산 취득 신고 의무가 없고, 토지취득 허가도 받지 않아도 됩니다. 부동산등기용 등록번호 대신 주민등록번호를 그대로 사용합니다. 다만 주소증명서류 등 일부 서류가 내국인과 달라집니다. 재외국민의 구체적인 취득 절차는 별도 페이지를 참고하세요.
+        <span class="caution">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</span>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-question">
+        <span class="q-mark">Q</span>
+        부동산등기용 등록번호와 외국인등록번호는 같은 건가요?
+      </div>
+      <div class="qa-answer">
+        다릅니다. 외국인등록번호는 국내 체류 중 출입국관리법에 따라 발급되는 번호이고, 부동산등기용 등록번호는 국내에 체류지가 없는 외국인이 등기 목적으로만 별도 신청하는 번호입니다. 국내 체류 중인 외국인은 외국인등록번호로 등기 신청이 가능하므로 별도의 부동산등기용 등록번호를 신청할 필요가 없습니다. 외국국적동포(F-4 소지자)가 국내거소신고를 한 경우에는 국내거소신고번호를 사용할 수 있습니다.
+        <span class="caution">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ════ 9. 다음으로 확인할 내용 ══════════════════════ -->
+  <section>
+    <h2>다음으로 확인할 내용</h2>
+    <div class="related-links">
+      <a href="외등_03_토지취득허가.html" class="related-link-card">
+        <div class="link-tag">외국인 · 취득 허가</div>
+        <div class="link-title">외국인 토지취득 허가 — 허가 대상 지역과 신청 방법</div>
+      </a>
+      <a href="외등_05_등록번호.html" class="related-link-card">
+        <div class="link-tag">외국인 · 등록번호</div>
+        <div class="link-title">외국인 부동산등기용 등록번호 신청 방법</div>
+      </a>
+      <a href="외등_25_아포스티유.html" class="related-link-card">
+        <div class="link-tag">공통 · 서류 공증</div>
+        <div class="link-title">아포스티유 완벽 가이드 — 부동산 등기에 필요한 서류 공증 절차</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ════ 10. 상담 신청 CTA ══════════════════════════════ -->
+  <section>
+    <div class="cta-box">
+      <h3>이 절차가 필요하신가요?<br>첫 상담은 무료입니다.</h3>
+      <p>외국인·재외국민 부동산 등기는 국적·체류 자격·입국 여부에 따라 준비 서류가 달라집니다.<br>
+         서류 준비부터 취득 신고, 소유권이전등기까지 법무사가 함께합니다.</p>
+      <div class="cta-buttons">
+        <a href="tel:00-0000-0000" class="btn-phone">📞 전화 상담 예약</a>
+        <a href="https://open.kakao.com/" class="btn-kakao">💬 카카오톡 상담</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ 11. 면책 문구 ════════════════════════════════ -->
+  <div class="disclaimer">
+    <p>본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 개별 사안에 대한 법률적 조언이 아닙니다. 실제 등기 업무는 국적·체류 자격·개별 사안의 구체적인 사정에 따라 결론이 달라질 수 있으므로, 반드시 등기 전문 법무사와 상담하시기 바랍니다.</p>
+    <p style="margin-top:8px;">이 페이지는 <strong>2025년 현행 법령 기준</strong>으로 작성되었습니다 (부동산거래신고법, 부동산등기법, 부동산등기특별조치법, 등기예규 제1778호 등). 2025년 1월 31일 시행된 부동산등기법 개정 내용(제7조의2·제7조의3 신설)이 반영되어 있습니다.</p>
+  </div>
+
+</div><!-- /container -->
+</body>
+</html>

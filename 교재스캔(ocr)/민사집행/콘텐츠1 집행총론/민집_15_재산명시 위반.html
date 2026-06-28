@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>재산을 숨기는 채무자 — 재산명시 위반과 법적 대응 방법</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1a2e4a;
+            --gold: #c8a96e;
+            --bg: #faf8f5;
+            --text: #2c2c2c;
+            --light-gray: #f4f4f4;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+        }
+        .page-header {
+            background: var(--navy);
+            color: #fff;
+            padding: 48px 24px 40px;
+            text-align: center;
+        }
+        .page-header .category {
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-bottom: 12px;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        .page-header h1 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: clamp(22px, 4vw, 32px);
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 16px;
+        }
+        .page-header .subtitle {
+            font-size: 15px;
+            color: #ccd6e0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .type-badge {
+            display: inline-block;
+            margin-top: 18px;
+            background: var(--gold);
+            color: var(--navy);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+        }
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+        /* 섹션 공통 */
+        .section {
+            margin-top: 48px;
+        }
+        .section-title {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--navy);
+            border-left: 4px solid var(--gold);
+            padding-left: 14px;
+            margin-bottom: 20px;
+        }
+        /* 이런 분께 필요합니다 */
+        .checklist-box {
+            background: #f4f7fb;
+            border: 1px solid #2d4a7a;
+            border-radius: 10px;
+            padding: 28px 32px;
+            margin-top: 32px;
+        }
+        .checklist-box .box-title {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 18px;
+        }
+        .checklist-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        .checklist-box ul li {
+            padding: 7px 0 7px 28px;
+            position: relative;
+            font-size: 15px;
+            border-bottom: 1px dashed #cdd8ea;
+        }
+        .checklist-box ul li:last-child { border-bottom: none; }
+        .checklist-box ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: 700;
+        }
+        /* 핵심 요약 */
+        .summary-box {
+            background: #eef2f8;
+            border-left: 4px solid #2d4a7a;
+            border-radius: 0 8px 8px 0;
+            padding: 20px 24px;
+            margin-bottom: 20px;
+            font-size: 15px;
+            line-height: 1.9;
+        }
+        /* 상세 설명 카드 */
+        .detail-card {
+            background: #fff;
+            border: 1px solid #dde4ef;
+            border-radius: 10px;
+            padding: 24px 28px;
+            margin-bottom: 18px;
+        }
+        .detail-card .card-title {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eaecf0;
+        }
+        .detail-card p { font-size: 15px; margin-bottom: 10px; }
+        .detail-card p:last-child { margin-bottom: 0; }
+        /* law-tag */
+        .law-tag {
+            display: inline-block;
+            background: #e8edf5;
+            color: #2d4a7a;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 3px;
+            margin-left: 4px;
+            letter-spacing: 0.3px;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+        /* 경고 박스 */
+        .warning-box {
+            background: #fff3e8;
+            border-left: 4px solid #c05000;
+            border-radius: 0 8px 8px 0;
+            padding: 18px 22px;
+            margin-bottom: 16px;
+            font-size: 15px;
+        }
+        .warning-box .w-title {
+            font-weight: 700;
+            color: #c05000;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        /* 경고박스2 */
+        .info-box {
+            background: #f4f7fb;
+            border-left: 4px solid #2d4a7a;
+            border-radius: 0 8px 8px 0;
+            padding: 18px 22px;
+            margin-bottom: 16px;
+            font-size: 15px;
+        }
+        /* 판례 박스 */
+        .case-box {
+            background: #f7f4f0;
+            border: 1px solid #6b7280;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+        .case-box .case-num {
+            font-weight: 700;
+            color: #444;
+            margin-bottom: 8px;
+        }
+        /* 사례 박스 */
+        .example-box {
+            background: #f0f8f0;
+            border: 1px solid #1a5c2e;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+        .example-box .ex-title {
+            font-weight: 700;
+            color: #1a5c2e;
+            margin-bottom: 8px;
+        }
+        /* Q&A */
+        .qa-item {
+            border: 1px solid #dde4ef;
+            border-radius: 10px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+        .qa-q {
+            background: var(--navy);
+            color: #fff;
+            padding: 16px 22px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+        .qa-q::before { content: "Q. "; color: var(--gold); font-weight: 700; }
+        .qa-a {
+            background: #fff;
+            padding: 18px 22px;
+            font-size: 15px;
+            line-height: 1.9;
+        }
+        .qa-a::before { content: "A. "; color: #2d4a7a; font-weight: 700; }
+        /* 주의사항 */
+        .caution-item {
+            background: #fff8f0;
+            border: 1px solid #e0b070;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        .caution-item .c-title {
+            font-weight: 700;
+            color: #7a4500;
+            margin-bottom: 6px;
+        }
+        /* 다음에 확인할 사항 */
+        .next-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .next-link {
+            background: #fff;
+            border: 1px solid #2d4a7a;
+            border-radius: 8px;
+            padding: 14px 20px;
+            text-decoration: none;
+            color: var(--navy);
+            font-size: 14px;
+            font-weight: 500;
+            flex: 1 1 200px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s;
+        }
+        .next-link:hover { background: #eef2f8; }
+        .next-link .arrow { color: var(--gold); font-weight: 700; }
+        /* CTA */
+        .cta-box {
+            background: linear-gradient(135deg, #fdf6e9, #faecd4);
+            border: 2px solid var(--gold);
+            border-radius: 14px;
+            padding: 36px 32px;
+            text-align: center;
+            margin-top: 56px;
+        }
+        .cta-box .cta-title {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+        .cta-box .cta-desc {
+            font-size: 15px;
+            color: #444;
+            margin-bottom: 24px;
+            line-height: 1.8;
+        }
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn-call {
+            background: var(--navy);
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 700;
+        }
+        .btn-kakao {
+            background: #fee500;
+            color: #3c1e1e;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 700;
+        }
+        /* 면책 문구 */
+        .disclaimer {
+            margin-top: 40px;
+            padding: 20px 24px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            font-size: 12px;
+            color: #666;
+            line-height: 1.8;
+        }
+        /* 기간 경고 */
+        .deadline-warning {
+            color: #c05000;
+            font-weight: 700;
+        }
+        /* 표 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            margin-top: 16px;
+        }
+        th {
+            background: var(--navy);
+            color: #fff;
+            padding: 12px 14px;
+            text-align: left;
+        }
+        td {
+            padding: 11px 14px;
+            border-bottom: 1px solid #e0e4ea;
+            vertical-align: top;
+        }
+        tr:nth-child(even) td { background: #f8f9fc; }
+        @media (max-width: 600px) {
+            .page-header { padding: 36px 16px 28px; }
+            .container { padding: 0 14px 48px; }
+            .detail-card { padding: 18px 16px; }
+            .cta-box { padding: 28px 18px; }
+        }
+    .case-tag{display:inline-block;background:#f4ede0;color:#7a4a1a;font-size:11px;font-weight:700;padding:2px 8px;border-radius:3px;margin-left:6px;vertical-align:middle;letter-spacing:0.3px}
+</style>
+</head>
+<body>
+
+<!-- ===== 페이지 헤더 ===== -->
+<div class="page-header">
+    <div class="category">민사집행 · 총론</div>
+    <h1>재산을 숨기는 채무자<br>재산명시 위반과 법적 대응 방법</h1>
+    <p class="subtitle">채무자가 재산명시 명령에 따르지 않거나 재산을 숨길 때, 채권자가 취할 수 있는 법적 수단을 알아봅니다.</p>
+    <span class="type-badge">판단형</span>
+</div>
+
+<div class="container">
+
+    <!-- ===== 1. 이런 분께 필요합니다 ===== -->
+    <div class="checklist-box" style="margin-top: 40px;">
+        <div class="box-title">📋 이런 분께 필요합니다</div>
+        <ul>
+            <li>채무자가 법원의 재산명시 기일에 나타나지 않았습니다.</li>
+            <li>채무자가 재산목록을 제출했는데 내용이 허위인 것 같습니다.</li>
+            <li>채무자가 빚을 피하기 위해 재산을 다른 사람 명의로 돌려놓았습니다.</li>
+            <li>채무자를 채무불이행자명부에 등재하거나 추가 제재를 가하고 싶습니다.</li>
+            <li>채무자의 재산 은닉 행위에 대해 형사 고소가 가능한지 알고 싶습니다.</li>
+            <li>이미 받은 판결이 있는데 채무자가 재산이 없다며 버티고 있습니다.</li>
+        </ul>
+    </div>
+
+    <!-- ===== 2. 핵심정리 ===== -->
+    <div class="section">
+        <div class="section-title">핵심 정리</div>
+
+        <div class="summary-box">
+            채무자가 재산명시 절차에 협조하지 않으면 법원은 <strong>감치(유치장 수용)</strong> 명령을 내릴 수 있습니다. 또한 재산목록을 허위로 작성하거나 선서를 거부하면 <strong>형사처벌(1년 이하 징역·200만원 이하 벌금)</strong>을 받을 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 제1항·제4항 — 대법원 종합법률정보">민사집행법 제68조 제1항·제4항</a>
+        </div>
+
+        <div class="summary-box">
+            채무자가 판결 확정 전후에 재산을 허위로 양도하거나 은닉하면 <strong>강제집행면탈죄</strong>로 형사 고소가 가능합니다. 이는 5년 이하 징역 또는 1,500만원 이하 벌금에 해당하는 중범죄입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=188383&joNo=032700" target="_blank" rel="noopener" title="형법 제327조 — 대법원 종합법률정보">형법 제327조</a>
+        </div>
+
+        <div class="summary-box">
+            채권자는 채무자가 재산명시 명령에 따르지 않는 경우 법원에 <strong>다시 재산명시 명령(재명시 신청)</strong>을 요청할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006900" target="_blank" rel="noopener" title="민사집행법 제69조 — 대법원 종합법률정보">민사집행법 제69조</a>
+        </div>
+    </div>
+
+    <!-- ===== 3. 상세 설명 ===== -->
+    <div class="section">
+        <div class="section-title">상세 설명</div>
+
+        <!-- 카드 1: 재산명시 위반의 유형 -->
+        <div class="detail-card">
+            <div class="card-title">① 재산명시 위반의 세 가지 유형</div>
+            <p>채무자가 재산명시 절차에서 의무를 어기는 방식은 크게 세 가지입니다. 첫째, <strong>기일 불출석</strong>입니다. 법원이 지정한 재산명시 기일에 정당한 사유 없이 나타나지 않는 경우입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 제1항 — 대법원 종합법률정보">민사집행법 제68조 제1항</a></p>
+            <p>둘째, <strong>거짓 재산목록 제출</strong>입니다. 재산목록에 존재하는 재산을 빠뜨리거나 이미 처분한 재산을 그대로 올리는 등 허위 내용을 기재하는 경우입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 제4항 — 대법원 종합법률정보">민사집행법 제68조 제4항</a></p>
+            <p>셋째, <strong>선서 거부</strong>입니다. 재산목록의 정확성을 맹세하는 선서 자체를 거부하는 경우입니다. 선서 거부는 거짓 목록 제출과 동일하게 형사처벌의 대상이 됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 제4항 — 대법원 종합법률정보">민사집행법 제68조 제4항</a></p>
+        </div>
+
+        <!-- 카드 2: 감치 제도 -->
+        <div class="detail-card">
+            <div class="card-title">② 감치 — 유치장에 가두는 제재 수단</div>
+            <p>채무자가 재산명시 기일에 정당한 사유 없이 출석하지 않으면, 법원은 채권자의 신청에 의해 또는 직권으로 채무자를 <strong>20일 이내의 감치</strong>에 처할 수 있습니다. 감치란 채무자를 감치시설(유치장)에 유치하는 것으로, 형사처벌과는 별개의 법원 제재 수단입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 제1항 — 대법원 종합법률정보">민사집행법 제68조 제1항</a></p>
+            <p>감치 결정에 대해 채무자는 즉시항고를 할 수 있습니다. 그러나 감치 결정이 확정되면 집행관이 채무자를 현행범인과 같이 체포하여 유치시설에 인도하게 됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 제2항 — 대법원 종합법률정보">민사집행법 제68조 제2항</a></p>
+            <p>감치 기간 중이라도 채무자가 재산명시 의무를 이행(출석·목록 제출·선서)하면 법원은 감치를 즉시 종료할 수 있습니다. 이는 감치가 처벌이 아니라 의무 이행을 강제하기 위한 수단이기 때문입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 제3항 — 대법원 종합법률정보">민사집행법 제68조 제3항</a></p>
+        </div>
+
+        <!-- 카드 3: 형사처벌 -->
+        <div class="detail-card">
+            <div class="card-title">③ 형사처벌 — 허위 목록 제출·선서 거부</div>
+            <p>채무자가 거짓 재산목록을 제출하거나 선서를 거부한 경우에는 감치와는 별도로 <strong>형사처벌</strong>을 받을 수 있습니다. 법정형은 <strong>1년 이하의 징역 또는 200만원 이하의 벌금</strong>입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 제4항 — 대법원 종합법률정보">민사집행법 제68조 제4항</a></p>
+            <p>이 형사처벌 조항은 친고죄가 아닙니다. 채권자가 고소하지 않더라도 법원이 직권으로 수사기관에 통보할 수 있습니다. 다만 실무에서는 채권자가 고소장을 접수하는 경우가 대부분입니다.</p>
+            <p>형사처벌 고소는 검찰청 또는 경찰서에 고소장을 제출하는 방식으로 진행됩니다. 재산명시 기일의 조서, 법원 명령서 등이 주요 증거 자료가 됩니다.</p>
+        </div>
+
+        <!-- 카드 4: 재명시 신청 -->
+        <div class="detail-card">
+            <div class="card-title">④ 재명시 신청 — 다시 재산목록을 요구할 수 있습니다</div>
+            <p>채권자는 채무자가 재산명시 명령에 따른 후에도 채무를 변제하지 않는 경우, 채무자가 이전에 명시한 재산으로 집행이 불능이 된 날부터 <strong class="deadline-warning">⚡ 6개월이 지나면</strong> 다시 재산명시를 신청할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006900" target="_blank" rel="noopener" title="민사집행법 제69조 제1항 — 대법원 종합법률정보">민사집행법 제69조 제1항</a></p>
+            <p>재명시 신청은 최초 재산명시 신청과 동일한 절차로 진행됩니다. 법원은 채무자에게 다시 재산목록을 제출하고 선서할 것을 명령합니다. 이 역시 채권자의 신청이 있어야 시작됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006900" target="_blank" rel="noopener" title="민사집행법 제69조 제2항 — 대법원 종합법률정보">민사집행법 제69조 제2항</a></p>
+            <p>재명시를 통해 새로운 재산이 발견되면 채권자는 즉시 압류 등 강제집행 절차에 착수할 수 있습니다. 채무자의 재산 상황 변화를 지속적으로 파악하는 데 효과적인 수단입니다.</p>
+        </div>
+
+        <!-- 카드 5: 강제집행면탈죄 -->
+        <div class="detail-card">
+            <div class="card-title">⑤ 강제집행면탈죄 — 재산을 숨기면 형사 범죄입니다</div>
+            <p>채무자가 강제집행을 피할 목적으로 재산을 <strong>은닉·훼손·허위 양도·허위 채무 부담</strong>하면 강제집행면탈죄가 성립합니다. 법정형은 <strong>5년 이하의 징역 또는 1,500만원 이하의 벌금</strong>으로, 매우 중한 범죄에 해당합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=188383&joNo=032700" target="_blank" rel="noopener" title="형법 제327조 — 대법원 종합법률정보">형법 제327조</a></p>
+            <p>강제집행면탈죄의 핵심 요건은 <strong>'강제집행을 피할 목적'</strong>이 있어야 한다는 것입니다. 판결이 확정된 후는 물론, 소송 계속 중에 재산을 처분한 경우에도 이 목적이 인정되면 범죄가 성립합니다.</p>
+            <p>대표적인 사례는 다음과 같습니다. 부동산을 가족이나 지인에게 허위로 매도하거나 증여하는 경우, 존재하지 않는 채무를 꾸며내어 재산을 빼돌리는 경우, 현금이나 유가증권을 숨겨두는 경우, 사업체를 폐업시키고 재산만 새 법인으로 이전하는 경우 등이 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=188383&joNo=032700" target="_blank" rel="noopener" title="형법 제327조 — 대법원 종합법률정보">형법 제327조</a></p>
+            <p>강제집행면탈죄로 고소하기 위해서는 채무자의 재산 처분 행위가 강제집행을 면하려는 목적이었음을 입증하는 자료(부동산 등기 이력, 계좌 거래 내역, 증인 진술 등)를 준비해야 합니다.</p>
+        </div>
+
+        <!-- 카드 6: 채무불이행자명부 등재 연계 -->
+        <div class="detail-card">
+            <div class="card-title">⑥ 채무불이행자명부 등재와의 연계</div>
+            <p>채무자가 재산명시 기일에 불출석하거나, 거짓 재산목록을 제출하거나, 선서를 거부한 경우 채권자는 <strong>채무불이행자명부 등재</strong>도 함께 신청할 수 있습니다. 이 명부에 등재되면 법원 게시판 공고 및 금융기관·행정기관 통보가 이루어집니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007000" target="_blank" rel="noopener" title="민사집행법 제70조 제1항 제2호 — 대법원 종합법률정보">민사집행법 제70조 제1항 제2호</a></p>
+            <p>채무불이행자명부에 등재된 채무자는 금융 거래에 심각한 제한을 받게 됩니다. 대출이 어려워지고 신용카드 사용도 제한될 수 있어, 실질적으로 채무 변제를 압박하는 효과가 있습니다.</p>
+            <p>명부 등재는 재산명시 위반 사실이 확인된 날부터 <strong class="deadline-warning">⚡ 별도 제척기간 없이</strong> 신청이 가능합니다. 다만 채무자가 채무를 전부 변제하면 말소 신청을 할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007300" target="_blank" rel="noopener" title="민사집행법 제73조 — 대법원 종합법률정보">민사집행법 제73조</a></p>
+        </div>
+
+    </div>
+
+    <!-- ===== 4. Q&A ===== -->
+    <div class="section">
+        <div class="section-title">자주 하는 질문</div>
+
+        <div class="qa-item">
+            <div class="qa-q">채무자가 재산명시 기일에 아무 연락도 없이 안 나타났습니다. 어떻게 해야 하나요?</div>
+            <div class="qa-a">채무자가 정당한 사유 없이 불출석하면 법원에 <strong>감치 신청</strong>을 할 수 있습니다. 감치 결정이 내려지면 채무자는 20일 이내의 범위에서 유치시설에 수용됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 제1항 — 대법원 종합법률정보">민사집행법 제68조 제1항</a> 동시에 <strong>채무불이행자명부 등재</strong>도 함께 신청하는 것이 효과적입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007000" target="_blank" rel="noopener" title="민사집행법 제70조 제1항 제2호 — 대법원 종합법률정보">민사집행법 제70조 제1항 제2호</a> 두 가지 신청을 동시에 하면 채무자에게 더 강한 압박이 됩니다.</div>
+        </div>
+
+        <div class="qa-item">
+            <div class="qa-q">채무자가 제출한 재산목록이 허위인 것 같은데, 이를 증명하려면 어떻게 해야 하나요?</div>
+            <div class="qa-a">채무자가 제출한 재산목록과 실제 재산 현황을 비교하는 것이 핵심입니다. 법원의 <strong>재산조회 절차</strong>를 통해 금융기관, 국세청, 지방자치단체 등에 채무자의 재산 보유 현황을 조회할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007400" target="_blank" rel="noopener" title="민사집행법 제74조 — 대법원 종합법률정보">민사집행법 제74조</a> 조회 결과로 재산목록에 없는 재산이 발견되면, 이를 근거로 <strong>허위 재산목록 제출에 대한 형사 고소</strong>를 진행하거나 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 제4항 — 대법원 종합법률정보">민사집행법 제68조 제4항</a> 해당 재산에 대한 압류를 바로 신청할 수 있습니다.</div>
+        </div>
+
+        <div class="qa-item">
+            <div class="qa-q">채무자가 판결 나기 전에 이미 재산을 가족 명의로 돌려놓았습니다. 이것도 형사 고소가 되나요?</div>
+            <div class="qa-a">가능합니다. 강제집행면탈죄는 판결 확정 후뿐만 아니라 <strong>소송 계속 중</strong>에 재산을 처분한 경우에도 성립할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=188383&joNo=032700" target="_blank" rel="noopener" title="형법 제327조 — 대법원 종합법률정보">형법 제327조</a> 판결을 예상하고 강제집행을 피하려는 목적으로 재산을 처분했다면 범죄가 성립합니다. 다만 이 '목적'을 입증하는 것이 실무의 관건이므로, 재산 처분 시기와 소송 진행 경과, 처분 가격의 적정성 등을 종합적으로 검토해 고소장을 준비하는 것이 중요합니다.</div>
+        </div>
+
+        <div class="qa-item">
+            <div class="qa-q">감치 결정이 났는데도 채무자가 도주 중입니다. 어떻게 되나요?</div>
+            <div class="qa-a">감치 결정이 확정되면 집행관이 채무자를 체포할 권한을 갖습니다. 채무자가 도주하더라도 감치 결정의 집행은 가능하며, 필요한 경우 경찰의 협조를 받아 신병을 확보할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 제2항 — 대법원 종합법률정보">민사집행법 제68조 제2항</a> 채무자의 소재를 파악하기 어렵다면 재산조회를 통해 거소 정보를 확인하거나, 별도로 법원에 재산명시 재신청과 채무불이행자명부 등재를 진행하면서 채무 변제 압박을 지속할 수 있습니다.</div>
+        </div>
+
+        <div class="qa-item">
+            <div class="qa-q">재산명시 신청을 한 번 했는데 채무자 재산이 없다고 합니다. 얼마 후에 다시 신청할 수 있나요?</div>
+            <div class="qa-a">이전 재산명시 절차에서 채무자의 재산으로 집행이 불능이 된 날로부터 <strong class="deadline-warning">⚡ 6개월이 경과</strong>하면 다시 재산명시를 신청(재명시)할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006900" target="_blank" rel="noopener" title="민사집행법 제69조 제1항 — 대법원 종합법률정보">민사집행법 제69조 제1항</a> 채무자의 재산 상황은 시간이 지남에 따라 변할 수 있으므로, 정기적으로 재명시 신청과 재산조회를 병행하여 추심 기회를 계속 모색하는 것이 좋습니다.</div>
+        </div>
+
+        <div class="qa-item">
+            <div class="qa-q">강제집행면탈죄로 고소하면 제가 돈을 돌려받을 수 있나요?</div>
+            <div class="qa-a">강제집행면탈죄는 형사 사건이므로, 고소 자체가 채무를 직접 회수하는 수단은 아닙니다. 그러나 형사 고소를 통해 채무자에게 심리적·법적 압박을 가할 수 있습니다. 또한 수사 과정에서 은닉 재산이 확인되면 이를 근거로 <strong>민사 사해행위취소소송</strong>을 제기하여 가족 명의로 이전된 재산을 채무자 명의로 되돌린 뒤 강제집행을 할 수 있습니다. 형사 고소와 민사 절차를 병행하는 것이 실질적인 회수 가능성을 높이는 방법입니다.</div>
+        </div>
+
+        <div class="qa-item">
+            <div class="qa-q">채무자가 폐업을 하고 재산이 없다고 합니다. 정말 방법이 없는 건가요?</div>
+            <div class="qa-a">포기하기 전에 몇 가지를 확인할 필요가 있습니다. 폐업 직전에 재산을 처분한 경우 강제집행면탈죄 고소와 사해행위취소소송 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=040600" target="_blank" rel="noopener" title="민법 제406조 — 대법원 종합법률정보">민법 제406조</a>을 검토할 수 있습니다. 또한 사업체가 법인이라면 법인과 개인을 분리한 채 재산을 빼돌린 경우 <strong>법인격 부인론</strong>을 적용하여 대표자 개인 재산에도 집행할 수 있는 가능성이 있습니다. 법원의 재산조회를 통해 금융계좌, 보험, 주식 등을 전방위로 조회해 보는 것이 먼저입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007400" target="_blank" rel="noopener" title="민사집행법 제74조 — 대법원 종합법률정보">민사집행법 제74조</a></div>
+        </div>
+
+    </div>
+
+    <!-- ===== 5. 판례 ===== -->
+    <div class="section">
+        <div class="section-title">관련 판례</div>
+
+        <div class="case-box">
+            <div class="case-num">강제집행면탈죄의 성립 시기 — 판결 확정 전도 포함</div>
+            <p>강제집행면탈죄는 강제집행을 당할 구체적 위험이 있는 상태에서 그 집행을 면탈하려는 목적으로 재산을 은닉, 손괴, 허위양도하거나 허위의 채무를 부담하는 행위를 처벌한다. 판결 확정 후뿐만 아니라 채무자가 채무의 존재를 인식하면서 강제집행을 피할 의도로 소송 계속 중에 재산을 처분한 경우에도 이 죄가 성립할 수 있다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=188383&joNo=032700" target="_blank" rel="noopener" title="형법 제327조 — 대법원 종합법률정보">형법 제327조</a> <span class="case-tag"><a class="case-tag" href="https://www.law.go.kr/precSc.do?menuId=7&subMenuId=47&tabMenuId=213&eventGubun=060101&query=2009%EB%8F%84875" target="_blank" rel="noopener" title="2009도875 — 대법원 종합법률정보">2009도875</a></span></p>
+        </div>
+
+        <div class="case-box">
+            <div class="case-num">감치의 법적 성격 — 의무 이행 강제 수단</div>
+            <p>재산명시 의무 위반에 대한 감치는 형사처벌과 달리 채무자의 의무 이행을 강제하기 위한 수단이다. 따라서 감치 기간 중이라도 채무자가 재산명시 의무를 이행하면 법원은 감치를 즉시 종료할 수 있으며, 이미 처벌받은 사안에 대한 재처벌이 아니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 제3항 — 대법원 종합법률정보">민사집행법 제68조 제3항</a></p>
+        </div>
+
+        <div class="case-box">
+            <div class="case-num">허위 재산목록 제출의 해석</div>
+            <p>재산명시 절차에서 채무자가 실제로 보유하는 재산을 재산목록에 기재하지 않는 경우, 그것이 의도적 누락임이 인정되면 거짓 재산목록 제출로서 형사처벌의 대상이 된다. 재산을 단순히 기억하지 못했다는 변명만으로는 처벌을 면하기 어렵고, 목록 제출 당시의 실제 재산 보유 현황이 중요한 판단 기준이 된다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 제4항 — 대법원 종합법률정보">민사집행법 제68조 제4항</a> <span class="case-tag"><a class="case-tag" href="https://www.law.go.kr/precSc.do?menuId=7&subMenuId=47&tabMenuId=213&eventGubun=060101&query=2007%EB%8F%848153" target="_blank" rel="noopener" title="2007도8153 — 대법원 종합법률정보">2007도8153</a></span></p>
+        </div>
+
+        <div class="example-box">
+            <div class="ex-title">📌 실무 사례: 형사 고소와 민사 병행의 성과</div>
+            <p>채무자 A가 판결 확정 직전 부동산 전부를 배우자 명의로 이전했습니다. 채권자는 강제집행면탈죄로 형사 고소를 하는 동시에 사해행위취소소송을 제기했습니다. 수사 과정에서 이전 거래가 정상적인 매매가 아님이 밝혀졌고, 사해행위취소소송에서도 승소하여 부동산이 채무자 명의로 복귀된 후 채권자가 강제경매를 통해 채권을 회수하였습니다.</p>
+        </div>
+
+    </div>
+
+    <!-- ===== 6. 주의사항 ===== -->
+    <div class="section">
+        <div class="section-title">주의사항</div>
+
+        <div class="warning-box">
+            <div class="w-title">⚠️ 감치와 형사처벌은 다릅니다</div>
+            <p>감치는 의무 이행을 강제하기 위한 법원의 제재이고, 형사처벌은 허위 목록 제출·선서 거부에 대한 별도의 처벌입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" rel="noopener" title="민사집행법 제68조 제1항·제4항 — 대법원 종합법률정보">민사집행법 제68조 제1항·제4항</a> 둘은 중복 적용이 가능하므로, 채무자가 감치까지 받고도 의무를 이행하지 않으면 형사 고소까지 이중으로 진행할 수 있습니다.</p>
+        </div>
+
+        <div class="warning-box">
+            <div class="w-title">⚠️ 재명시 신청의 6개월 요건 확인</div>
+            <p>재명시 신청은 집행 불능이 확인된 날로부터 <strong>6개월 이후</strong>에만 가능합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006900" target="_blank" rel="noopener" title="민사집행법 제69조 제1항 — 대법원 종합법률정보">민사집행법 제69조 제1항</a> 6개월이 지나지 않았다면 법원이 신청을 받아들이지 않습니다. 반대로, 6개월이 지났다면 지체 없이 신청하는 것이 채무 회수 기회를 놓치지 않는 방법입니다.</p>
+        </div>
+
+        <div class="caution-item">
+            <div class="c-title">📌 강제집행면탈죄 고소, 혼자 하기 어렵습니다</div>
+            <p>채무자의 재산 은닉이 강제집행면탈죄에 해당하는지는 전문적인 법률 판단이 필요합니다. 고소장 작성, 증거 수집, 사해행위취소소송 동시 진행 등 복잡한 절차가 수반되므로 법률 전문가와 상담하는 것이 중요합니다.</p>
+        </div>
+
+        <div class="caution-item">
+            <div class="c-title">📌 채권의 소멸시효를 놓치지 마세요</div>
+            <p>채권을 회수하지 못하는 동안에도 소멸시효는 진행됩니다. 판결로 확정된 채권의 소멸시효는 10년입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=016500" target="_blank" rel="noopener" title="민법 제165조 제1항 — 대법원 종합법률정보">민법 제165조 제1항</a> 시효가 완성되기 전에 재산명시, 재산조회 신청 등 시효 중단 조치를 꾸준히 해야 합니다.</p>
+        </div>
+
+        <div class="caution-item">
+            <div class="c-title">📌 사해행위취소는 별도 소송이 필요합니다</div>
+            <p>채무자가 재산을 가족 등에게 이전한 경우, 그 행위를 취소하려면 별도의 <strong>사해행위취소소송</strong>을 제기해야 합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=040600" target="_blank" rel="noopener" title="민법 제406조 — 대법원 종합법률정보">민법 제406조</a> 이 소송도 사해행위를 안 날로부터 <strong class="deadline-warning">⚡ 1년, 행위가 있은 날로부터 5년</strong>의 제척기간이 있으므로 빠른 대응이 필요합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=040600" target="_blank" rel="noopener" title="민법 제406조 제2항 — 대법원 종합법률정보">민법 제406조 제2항</a></p>
+        </div>
+
+    </div>
+
+    <!-- ===== 7. 다음에 확인할 사항 ===== -->
+    <div class="section">
+        <div class="section-title">다음에 확인할 사항</div>
+        <div class="next-links">
+            <a href="민집_05_재산명시.html" class="next-link">
+                <span class="arrow">→</span>재산명시 신청 절차와 방법
+            </a>
+            <a href="민집_06_재산조회.html" class="next-link">
+                <span class="arrow">→</span>법원을 통한 재산조회 신청
+            </a>
+            <a href="민집_07_채무불이행자명부.html" class="next-link">
+                <span class="arrow">→</span>채무불이행자명부 등재 신청
+            </a>
+        </div>
+    </div>
+
+    <!-- ===== CTA ===== -->
+    <div class="cta-box">
+        <div class="cta-title">채무자가 재산을 숨기고 있다면, 지금 바로 대응하세요</div>
+        <div class="cta-desc">
+            이 내용이 해당되시나요? 첫 상담은 무료입니다.<br>
+            재산명시 위반, 강제집행면탈죄 고소, 사해행위취소소송까지<br>
+            직접 처리하시기 어려운 부분을 법무사가 도와드립니다.
+        </div>
+        <div class="cta-buttons">
+            <a href="tel:000-0000-0000" class="btn-call">📞 전화 상담</a>
+            <a href="https://open.kakao.com/" class="btn-kakao">💬 카카오톡 상담</a>
+        </div>
+    </div>
+
+    <!-- ===== 면책 문구 ===== -->
+    <div class="disclaimer">
+        <strong>※ 법적 고지</strong><br>
+        본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사건에 대한 법률 조언이 아닙니다. 개별 사안에 따라 적용 법령과 결과가 달라질 수 있으므로, 반드시 법률 전문가와 상담하시기 바랍니다. 이 페이지는 2025년 현행 법령 기준으로 작성되었습니다.
+    </div>
+
+</div><!-- /container -->
+</body>
+</html>

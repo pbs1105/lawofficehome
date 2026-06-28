@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>외국인·재외국민·외국국적동포 법적 지위 완벽 구분 | 법무사 부동산 등기</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* ─── 기본 리셋 및 변수 ─────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:      #1a2e4a;
+    --navy-mid:  #2d4a7a;
+    --gold:      #c8a96e;
+    --gold-lt:   #fdf6e9;
+    --bg:        #faf8f5;
+    --text:      #2c2c2c;
+    --text-lt:   #5a5a5a;
+    --border:    #ddd8d0;
+    --blue-bg:   #eef2f8;
+    --blue-bd:   #2d4a7a;
+    --green-bg:  #f0f8f0;
+    --green-bd:  #1a5c2e;
+    --warn-bg:   #fff3e8;
+    --warn-bd:   #c05000;
+    --law-bg:    #f7f4f0;
+    --law-bd:    #6b7280;
+    --country-bg:#f0f4ff;
+    --country-bd:#3b5bdb;
+  }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.85;
+    font-size: 16px;
+  }
+
+  /* ─── 헤더 ──────────────────────────────────────── */
+  .page-header {
+    background: linear-gradient(135deg, var(--navy) 0%, #2a4a7a 100%);
+    color: #fff;
+    padding: 52px 24px 44px;
+    text-align: center;
+  }
+  .page-header .category-tag {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+  .page-header h1 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(22px, 4vw, 32px);
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 14px;
+  }
+  .page-header .subtitle {
+    font-size: 15px;
+    color: rgba(255,255,255,0.78);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* ─── 레이아웃 ───────────────────────────────────── */
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+
+  /* ─── 섹션 공통 ──────────────────────────────────── */
+  section { margin-top: 48px; }
+  section h2 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    border-left: 4px solid var(--gold);
+    padding-left: 14px;
+    margin-bottom: 20px;
+  }
+  section h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy-mid);
+    margin: 28px 0 12px;
+  }
+  p { margin-bottom: 14px; color: var(--text); }
+
+  /* ─── 체크리스트 (0번) ───────────────────────────── */
+  .checklist-box {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--navy);
+    border-radius: 8px;
+    padding: 28px 28px 24px;
+    margin-top: 32px;
+  }
+  .checklist-box .box-title {
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 15px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .checklist-box .box-title::before {
+    content: "✅";
+    font-size: 18px;
+  }
+  .checklist-box ul { list-style: none; }
+  .checklist-box ul li {
+    padding: 9px 0 9px 30px;
+    border-bottom: 1px solid #f0ece6;
+    position: relative;
+    font-size: 15px;
+    color: var(--text);
+  }
+  .checklist-box ul li:last-child { border-bottom: none; }
+  .checklist-box ul li::before {
+    content: "☐";
+    position: absolute;
+    left: 4px;
+    color: var(--gold);
+    font-size: 16px;
+  }
+
+  /* ─── 핵심 요약 박스 (파랑) ─────────────────────── */
+  .summary-box {
+    background: var(--blue-bg);
+    border-left: 5px solid var(--blue-bd);
+    border-radius: 0 8px 8px 0;
+    padding: 22px 24px;
+    margin: 16px 0;
+  }
+  .summary-box .summary-title {
+    font-weight: 700;
+    color: var(--blue-bd);
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+  .summary-box p { font-size: 15px; margin-bottom: 8px; }
+  .summary-box p:last-child { margin-bottom: 0; }
+
+  /* ─── 법령 박스 (회색) ───────────────────────────── */
+  .law-box {
+    background: var(--law-bg);
+    border-left: 4px solid var(--law-bd);
+    border-radius: 0 6px 6px 0;
+    padding: 16px 20px;
+    margin: 14px 0;
+    font-size: 14px;
+    color: #444;
+  }
+  .law-box .law-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--law-bd);
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+  }
+
+  /* ─── 사례 박스 (초록) ───────────────────────────── */
+  .case-box {
+    background: var(--green-bg);
+    border-left: 5px solid var(--green-bd);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 22px;
+    margin: 16px 0;
+  }
+  .case-box .case-title {
+    font-weight: 700;
+    color: var(--green-bd);
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .case-box p { font-size: 15px; margin-bottom: 6px; }
+
+  /* ─── 경고 박스 (주황) ───────────────────────────── */
+  .warn-box {
+    background: var(--warn-bg);
+    border-left: 5px solid var(--warn-bd);
+    border-radius: 0 8px 8px 0;
+    padding: 18px 22px;
+    margin: 14px 0;
+    font-size: 15px;
+  }
+  .warn-box .warn-title {
+    font-weight: 700;
+    color: var(--warn-bd);
+    margin-bottom: 8px;
+  }
+
+  /* ─── 국가별 차이 박스 (파랑2) ─────────────────── */
+  .country-box {
+    background: var(--country-bg);
+    border-left: 5px solid var(--country-bd);
+    border-radius: 0 8px 8px 0;
+    padding: 18px 22px;
+    margin: 14px 0;
+    font-size: 15px;
+  }
+  .country-box .country-title {
+    font-weight: 700;
+    color: var(--country-bd);
+    margin-bottom: 8px;
+  }
+
+  /* ─── 비교표 ─────────────────────────────────────── */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  .compare-table thead th {
+    background: var(--navy);
+    color: #fff;
+    padding: 12px 14px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 13px;
+    border: 1px solid #1a2e4a;
+  }
+  .compare-table thead th:first-child { background: #253f61; }
+  .compare-table tbody td {
+    padding: 11px 14px;
+    border: 1px solid #e8e3db;
+    vertical-align: top;
+    line-height: 1.7;
+  }
+  .compare-table tbody tr:nth-child(even) td { background: #f9f7f4; }
+  .compare-table tbody td:first-child {
+    background: #eef2f8;
+    font-weight: 700;
+    color: var(--navy-mid);
+    text-align: center;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  .compare-table td .yes { color: #1a5c2e; font-weight: 700; }
+  .compare-table td .no  { color: #c05000; font-weight: 700; }
+  .compare-table td .cond { color: #3b5bdb; font-weight: 600; }
+
+  /* ─── Q&A ────────────────────────────────────────── */
+  .qa-list { margin-top: 16px; }
+  .qa-item {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 14px;
+    overflow: hidden;
+  }
+  .qa-question {
+    background: #f5f2ee;
+    padding: 14px 20px;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--navy);
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .qa-question .q-mark {
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 12px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .qa-answer {
+    padding: 16px 20px;
+    font-size: 14.5px;
+    color: var(--text);
+    line-height: 1.85;
+  }
+  .qa-answer .caution {
+    display: block;
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--text-lt);
+    font-style: italic;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+  }
+
+  /* ─── 관련 링크 ──────────────────────────────────── */
+  .related-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .related-link-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--navy-mid);
+    border-radius: 6px;
+    padding: 16px 18px;
+    text-decoration: none;
+    color: var(--text);
+    transition: box-shadow 0.2s;
+    display: block;
+  }
+  .related-link-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,0.12); }
+  .related-link-card .link-tag {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+  }
+  .related-link-card .link-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.45;
+  }
+
+  /* ─── CTA 박스 ───────────────────────────────────── */
+  .cta-box {
+    background: var(--gold-lt);
+    border: 2px solid var(--gold);
+    border-radius: 12px;
+    padding: 32px 28px;
+    margin-top: 16px;
+    text-align: center;
+  }
+  .cta-box h3 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 20px;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .cta-box p {
+    font-size: 14.5px;
+    color: #555;
+    max-width: 520px;
+    margin: 0 auto 20px;
+  }
+  .cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+  .btn-phone {
+    background: var(--navy);
+    color: #fff;
+    padding: 13px 28px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-kakao {
+    background: #FEE500;
+    color: #3A1D1D;
+    padding: 13px 28px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* ─── 면책 문구 ──────────────────────────────────── */
+  .disclaimer {
+    margin-top: 48px;
+    padding: 20px 22px;
+    background: #f0ece6;
+    border-radius: 6px;
+    font-size: 12.5px;
+    color: #777;
+    line-height: 1.8;
+  }
+
+  /* ─── 정의 카드 그리드 ───────────────────────────── */
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .def-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 20px 18px;
+    position: relative;
+    overflow: hidden;
+  }
+  .def-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+  }
+  .def-card.card-foreigner::before  { background: #2E75B6; }
+  .def-card.card-overseas::before   { background: #375623; }
+  .def-card.card-ethnic::before     { background: #7030A0; }
+
+  .def-card .card-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  .card-foreigner .card-badge  { background: #e3f0fb; color: #1a5299; }
+  .card-overseas .card-badge   { background: #e3f0e3; color: #2a5c2a; }
+  .card-ethnic .card-badge     { background: #f0e3ff; color: #5c1a8a; }
+
+  .def-card .card-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .def-card .card-body {
+    font-size: 13.5px;
+    color: var(--text-lt);
+    line-height: 1.75;
+  }
+  .def-card .card-keyword {
+    margin-top: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  /* ─── 반응형 ─────────────────────────────────────── */
+  @media (max-width: 600px) {
+    .compare-table { font-size: 12px; }
+    .compare-table thead th,
+    .compare-table tbody td { padding: 9px 10px; }
+    .def-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════ 페이지 헤더 ════════════════════════════════════════ -->
+<header class="page-header">
+  <div class="category-tag">외국인·재외국민 부동산 등기</div>
+  <h1>외국인·재외국민·외국국적동포<br>법적 지위 완벽 구분</h1>
+  <p class="subtitle">한국 부동산 등기에서 내 법적 지위가 어디에 해당하는지에 따라<br>준비 서류와 절차가 완전히 달라집니다.</p>
+</header>
+
+<div class="container">
+
+  <!-- ════ 0. 이런 분께 필요합니다 ════════════════════════ -->
+  <div class="checklist-box">
+    <div class="box-title">이런 분께 필요합니다</div>
+    <ul>
+      <li>미국·캐나다·일본 등 외국 시민권을 취득하여 한국 국적을 상실한 분</li>
+      <li>한국 국적은 있지만 미국 영주권(그린카드) 등 외국 영주권을 취득한 분</li>
+      <li>해외에서 오래 거주하여 주민등록이 말소된 분</li>
+      <li>부모님이 교포이거나, 본인이 재외동포 비자(F-4)로 국내에 체류 중인 분</li>
+      <li>한국에 부동산을 보유 중이거나 취득·상속·증여를 앞두고 있는 분</li>
+      <li>'외국인'인지 '재외국민'인지 헷갈려서 어떤 서류를 준비해야 할지 모르는 분</li>
+    </ul>
+  </div>
+
+  <!-- ════ 1. 핵심 요약 ════════════════════════════════════ -->
+  <section>
+    <h2>핵심 요약</h2>
+    <div class="summary-box">
+      <div class="summary-title">📌 한눈에 보는 핵심</div>
+      <p>한국 부동산 등기에서는 <strong>외국인, 재외국민, 외국국적동포</strong> 세 가지 법적 지위를 엄격히 구분합니다. 이 구분이 곧 "어떤 서류를 준비해야 하는가", "토지취득 허가가 필요한가", "취득 신고 의무가 있는가"를 결정짓습니다.</p>
+      <p><strong>재외국민</strong>은 한국 국적을 가진 대한민국 국민이므로 부동산 취득·보유 신고 의무가 없고, 내국인과 거의 동일하게 등기를 신청할 수 있습니다. 반면 <strong>외국인</strong>과 <strong>외국국적동포</strong>는 '외국인 등'으로 분류되어 취득 신고, 경우에 따라 토지취득 허가가 필요하며, 부동산등기용 등록번호를 별도로 부여받아야 합니다.</p>
+      <p>시민권(nationality)과 영주권(permanent residency)을 혼동하는 분이 많습니다. <strong>시민권을 취득하면 한국 국적이 상실되어 외국인</strong>이 되고, <strong>영주권만 취득한 경우에는 한국 국적이 유지되어 재외국민</strong>으로 분류됩니다.</p>
+    </div>
+  </section>
+
+  <!-- ════ 2. 상세 내용 ════════════════════════════════════ -->
+  <section>
+    <h2>상세 내용</h2>
+
+    <!-- 2-1. 기본 개념과 법적 근거 -->
+    <h3>2-1. 기본 개념과 법적 근거</h3>
+
+    <div class="def-grid">
+      <!-- 외국인 카드 -->
+      <div class="def-card card-foreigner">
+        <div class="card-badge">외국인 · 외국법인</div>
+        <div class="card-title">외국인 (外國人)</div>
+        <div class="card-body">
+          대한민국의 국적을 보유하고 있지 <strong>아니한</strong> 개인. 외국 국적만 보유한 자, 무국적자, 국적을 상실한 자(이중국적 이탈신고자 포함)가 해당됩니다.
+        </div>
+        <div class="card-keyword">📎 근거법: 부동산거래신고법 제2조 제4호 가목</div>
+      </div>
+
+      <!-- 재외국민 카드 -->
+      <div class="def-card card-overseas">
+        <div class="card-badge">재외국민</div>
+        <div class="card-title">재외국민 (在外國民)</div>
+        <div class="card-body">
+          대한민국 <strong>국적을 보유</strong>하면서 외국 영주권을 취득하거나 영주 목적으로 외국에 거주하는 자. 주민등록이 말소된 경우가 일반적입니다.
+        </div>
+        <div class="card-keyword">📎 근거법: 재외동포법 제2조 제1호 · 등기예규 제1778호 제2조</div>
+      </div>
+
+      <!-- 외국국적동포 카드 -->
+      <div class="def-card card-ethnic">
+        <div class="card-badge">외국국적동포 (F-4)</div>
+        <div class="card-title">외국국적동포 (外國國籍同胞)</div>
+        <div class="card-body">
+          과거 대한민국 국적을 보유했던 자 또는 그 <strong>직계비속</strong>으로서 외국 국적을 취득한 자. 한국 국적이 없으므로 부동산 등기법상 <strong>외국인</strong>으로 취급됩니다.
+        </div>
+        <div class="card-keyword">📎 근거법: 재외동포법 제2조 제2호, 시행령 제3조</div>
+      </div>
+    </div>
+
+    <div class="law-box">
+      <div class="law-label">📜 관련 법령 조문</div>
+      <p><strong>부동산 거래신고 등에 관한 법률 제2조 제4호</strong> — "외국인 등"이란 ① 대한민국의 국적을 보유하고 있지 아니한 개인 ② 외국의 법령에 따라 설립된 법인 또는 단체 ③ 외국인이 자본금·의결권의 2분의 1 이상을 소유한 법인 또는 단체 ④ 외국 정부 ⑤ 대통령령으로 정하는 국제기구를 말한다.</p>
+      <p style="margin-top:8px"><strong>재외동포의 출입국과 법적 지위에 관한 법률 제2조</strong> — "재외동포"란 ① 재외국민(대한민국 국민으로서 외국 영주권 취득자 또는 영주 목적 해외 거주자) ② 외국국적동포(과거 한국 국적 보유자 또는 그 직계비속으로서 외국 국적 취득자)를 말한다.</p>
+      <p style="margin-top:8px"><strong>재외국민 및 외국인의 부동산등기신청절차에 관한 예규 제1778호 제2조 제1호</strong> — "재외국민"이란 우리 국적을 가지고 있으면서 외국정부로부터 영주권을 취득하였거나 계속하여 장기간 외국에 체류하는 자를 말한다.</p>
+    </div>
+
+    <!-- 2-2. 구체적 내용 — 비교표 -->
+    <h3>2-2. 부동산 등기 실무에서의 차이 비교</h3>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>구분 항목</th>
+          <th>외국인<br><small>(시민권자 등)</small></th>
+          <th>재외국민<br><small>(영주권자)</small></th>
+          <th>외국국적동포<br><small>(F-4 비자)</small></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>한국 국적 보유 여부</td>
+          <td><span class="no">없음</span></td>
+          <td><span class="yes">있음</span></td>
+          <td><span class="no">없음</span></td>
+        </tr>
+        <tr>
+          <td>부동산 취득 가능 여부</td>
+          <td><span class="yes">가능</span><br><small>(허가·신고 조건)</small></td>
+          <td><span class="yes">내국인과 동일</span></td>
+          <td><span class="yes">가능</span><br><small>(허가·신고 조건)</small></td>
+        </tr>
+        <tr>
+          <td>토지취득 허가 대상</td>
+          <td><span class="cond">구역에 따라 필요</span></td>
+          <td><span class="no">불필요</span></td>
+          <td><span class="cond">구역에 따라 필요</span></td>
+        </tr>
+        <tr>
+          <td>부동산 취득·보유 신고</td>
+          <td><span class="yes">의무 있음</span><br><small>(취득 후 60일 이내)</small></td>
+          <td><span class="no">불필요</span></td>
+          <td><span class="yes">의무 있음</span></td>
+        </tr>
+        <tr>
+          <td>부동산등기용 등록번호</td>
+          <td><span class="yes">별도 발급 필요</span></td>
+          <td><span class="no">불필요</span><br><small>(주민등록번호 사용)</small></td>
+          <td><span class="cond">국내거소신고번호 또는<br>별도 발급</span></td>
+        </tr>
+        <tr>
+          <td>주소증명 서류</td>
+          <td>본국 주소증명서<br><small>(공증·아포스티유)</small></td>
+          <td>재외국민등록부등본<br>또는 재외공관 증명</td>
+          <td>국내거소신고증<br>또는 외국인등록증</td>
+        </tr>
+        <tr>
+          <td>인감증명 대체</td>
+          <td>재외공관 공증<br>또는 아포스티유</td>
+          <td>재외공관 공증</td>
+          <td>재외공관 공증<br>또는 아포스티유</td>
+        </tr>
+        <tr>
+          <td>입국 없이 등기 신청</td>
+          <td><span class="cond">위임장 공증으로 가능</span></td>
+          <td><span class="cond">위임장 공증으로 가능</span></td>
+          <td><span class="cond">위임장 공증으로 가능</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 2-3. 실제 사례 -->
+    <h3>2-3. 실제 사례로 이해하기</h3>
+
+    <div class="case-box">
+      <div class="case-title">📋 사례 ① — 미국 시민권을 취득한 교포 A씨</div>
+      <p>A씨는 1990년대에 미국으로 이민하여 미국 시민권을 취득하였습니다. 미국 시민권 취득 시 한국 국적이 자동으로 상실되었으므로(국적법 제15조), A씨는 <strong>외국인</strong>에 해당합니다. 서울 강남의 아파트를 매수하려면 ① 부동산등기용 등록번호 발급, ② 잔금 지급 후 60일 이내 부동산 취득 신고, ③ 주소를 증명하는 미국 공증 서면(아포스티유 첨부)이 필요합니다. 단, 해당 아파트가 외국인 토지취득 허가 대상 구역이 아니라면 토지취득 허가는 불필요합니다.</p>
+    </div>
+
+    <div class="case-box">
+      <div class="case-title">📋 사례 ② — 캐나다 영주권(PR카드)을 보유한 B씨</div>
+      <p>B씨는 한국 국적을 유지하면서 캐나다 영주권을 취득하여 밴쿠버에 거주 중입니다. 주민등록은 말소된 상태입니다. B씨는 <strong>재외국민</strong>에 해당합니다. 서울 마포의 오피스텔을 매수할 경우 ① 부동산 취득 신고 불필요, ② 토지취득 허가 불필요, ③ 재외국민등록부등본(주소 증명) 제출, ④ 부동산등기용 등록번호 대신 주민등록번호 사용 가능합니다. 다만 인감증명을 요하는 서면에 대해서는 재외공관에서 공증을 받아야 합니다.</p>
+    </div>
+
+    <div class="case-box">
+      <div class="case-title">📋 사례 ③ — 재외동포(F-4) 비자로 국내에 체류 중인 C씨</div>
+      <p>C씨는 부모님이 한국 출신으로 미국에서 태어나 미국 국적을 가지고 있으며, 현재 F-4(재외동포) 비자로 한국에 체류하며 국내거소신고를 하였습니다. C씨는 한국 국적이 없으므로 <strong>외국국적동포</strong>이자 부동산 등기 실무상 <strong>외국인</strong>으로 분류됩니다. 부동산 취득 신고 의무가 있으며, 국내거소신고번호 또는 부동산등기용 등록번호를 사용하여 등기 신청을 할 수 있습니다.</p>
+    </div>
+  </section>
+
+  <!-- ════ 3. 관련 판례·예규 ════════════════════════════════ -->
+  <section>
+    <h2>관련 판례·예규</h2>
+    <div class="law-box">
+      <div class="law-label">📜 등기예규 제1778호 (재외국민 및 외국인의 부동산등기신청절차에 관한 예규)</div>
+      <p>재외국민과 외국인의 등기 신청 절차를 통합 규율하는 핵심 예규입니다. "재외국민"과 "외국인 등"의 정의를 별도로 규정하고, 각각 달리 적용되는 인감 증명, 주소 증명, 첨부서류 기준을 구체적으로 정하고 있습니다. 이 예규에 따르면 재외국민은 재외공관의 공증을 통해 인감증명을 대체할 수 있고, 재외국민등록부등본을 주소증명 서류로 제출할 수 있습니다.</p>
+    </div>
+    <div class="law-box">
+      <div class="law-label">📜 국적법 제15조 — 외국 국적 취득에 따른 국적 상실</div>
+      <p>대한민국 국민이 자진하여 외국 국적을 취득한 경우, 그 취득 시점에 대한민국 국적을 상실합니다. 다만 혼인·입양 등으로 외국 국적을 취득한 경우에는 6개월 이내에 국적 보유 의사를 신고하지 않으면 소급하여 국적을 상실한 것으로 봅니다. 이에 따라 외국 국적 취득 시점을 정확히 파악하는 것이 등기 신청에서 중요합니다.</p>
+    </div>
+    <div class="law-box">
+      <div class="law-label">📜 등기예규 제99호 — 외국으로 귀화한 직계비속의 재산상속권</div>
+      <p>부의 사망 전·후를 불문하고, 귀화한 직계비속도 민법 제1004조의 결격 사유가 없는 한 상속인이 됩니다. 즉, 외국 국적 취득(귀화)이 상속권을 박탈하지 않습니다. 이는 외국인 신분으로 한국 부동산을 상속받을 수 있는 근거가 됩니다.</p>
+    </div>
+  </section>
+
+  <!-- ════ 4. 주의사항 ════════════════════════════════════ -->
+  <section>
+    <h2>주의사항</h2>
+
+    <div class="warn-box">
+      <div class="warn-title">⚡ 시민권 취득 후 국적 상실 — 즉시 외국인으로 전환</div>
+      외국 시민권을 취득하는 즉시 한국 국적이 상실됩니다. 이후 한국 부동산을 취득하거나 보유하게 되면 <strong>취득일 또는 외국인으로 변경된 날부터 6개월 이내</strong>에 부동산 취득·보유 신고를 하여야 합니다(부동산거래신고법 제6조). 신고 의무를 위반하면 100만 원 이하의 과태료가 부과될 수 있습니다.
+    </div>
+
+    <div class="warn-box">
+      <div class="warn-title">⚠️ 등기 신청 당시 기준으로 법적 지위 판단</div>
+      과거에 한국 국적이 있었더라도 <strong>등기 신청 당시</strong> 국적이 없으면 외국인으로 처리됩니다. 반대로 외국 국적을 취득하였더라도 등기 신청 당시 대한민국 국적을 상실하지 아니한 경우에는 외국인으로 보지 않습니다(부동산거래신고법 해석 실무).
+    </div>
+
+    <div class="warn-box">
+      <div class="warn-title">ℹ️ 영주귀국신고를 하지 않은 재외국민</div>
+      외국 영주권을 소지한 채 현재 국내에 거주하고 있더라도, <strong>영구 귀국신고를 하지 않은 한 재외국민으로 분류</strong>됩니다(등기예규 제1778호). 국내에 주민등록을 신고하였더라도 등기 실무상 재외국민으로 처리되므로, 등기 신청 전 자신의 법적 지위를 반드시 확인하시기 바랍니다.
+    </div>
+
+    <div class="country-box">
+      <div class="country-title">🌏 이중국적자 특이사항</div>
+      대한민국과 외국 국적을 동시에 보유하는 경우(이중국적자), 한국 국적을 유지하고 있으므로 부동산 등기에서는 <strong>내국인 또는 재외국민</strong>으로 처리됩니다. 다만, 한국 국적 이탈 신고를 한 경우에는 그 시점부터 외국인으로 전환됩니다.
+    </div>
+  </section>
+
+  <!-- ════ 5. Q&A ═══════════════════════════════════════════ -->
+  <section>
+    <h2>자주 묻는 질문 (Q&amp;A)</h2>
+    <div class="qa-list">
+
+      <div class="qa-item">
+        <div class="qa-question">
+          <span class="q-mark">Q</span>
+          미국 영주권(그린카드)을 받은 경우 외국인인가요, 재외국민인가요?
+        </div>
+        <div class="qa-answer">
+          영주권은 체류 자격에 불과하며, 국적 변동을 일으키지 않습니다. 미국 영주권을 취득하였더라도 대한민국 국적을 유지하고 있다면 <strong>재외국민</strong>에 해당합니다. 미국 시민권을 취득한 경우에는 한국 국적이 상실되어 <strong>외국인</strong>이 됩니다. 따라서 "영주권자 = 재외국민", "시민권자 = 외국인"으로 이해하시면 됩니다. 재외국민은 한국 부동산 취득 시 취득·보유 신고 의무가 없고, 토지취득 허가도 불필요합니다.
+          <span class="caution">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</span>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-question">
+          <span class="q-mark">Q</span>
+          외국국적동포(F-4 비자 소지자)는 외국인과 똑같이 취급되나요?
+        </div>
+        <div class="qa-answer">
+          한국 국적이 없으므로 부동산 등기 실무에서는 <strong>외국인과 동일하게</strong> 취급됩니다. 따라서 부동산 취득 신고 의무가 있고, 토지취득 허가 대상 구역에 있는 토지를 취득할 경우 허가를 받아야 합니다. 다만, 국내거소신고를 한 외국국적동포는 국내거소신고번호를 등기 신청 시 등록번호로 사용할 수 있어, 부동산등기용 등록번호를 별도 발급받지 않아도 됩니다.
+          <span class="caution">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</span>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-question">
+          <span class="q-mark">Q</span>
+          재외국민이 국내에 주민등록을 신고하면 내국인으로 등기 신청이 가능한가요?
+        </div>
+        <div class="qa-answer">
+          주민등록법에 따라 재외국민이 국내에 30일 이상 거주할 목적으로 입국하면 주민등록을 신고할 수 있습니다(주민등록법 제10조의2). 이 경우 주민등록번호가 부여되어 등기 신청 시 내국인과 동일하게 주민등록번호를 등록번호로 사용할 수 있습니다. 그러나 외국 영주권을 아직 보유하고 있고 영구 귀국신고를 하지 않은 상태라면, 등기 실무상으로는 여전히 <strong>재외국민으로 분류</strong>되어 재외국민 관련 첨부서류(재외국민등록부등본 등)를 추가 제출해야 할 수 있습니다.
+          <span class="caution">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</span>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-question">
+          <span class="q-mark">Q</span>
+          외국 회사가 한국 부동산을 취득하는 경우에도 외국인 규정이 적용되나요?
+        </div>
+        <div class="qa-answer">
+          네, 적용됩니다. 외국의 법령에 따라 설립된 법인은 '외국인 등'으로 분류됩니다(부동산거래신고법 제2조 제4호 나목). 또한 국내법에 따라 설립된 법인이라도 외국인이 자본금 또는 의결권의 2분의 1 이상을 보유한 경우에는 외국인 등으로 봅니다. 다만, 해당 법인이 외국인 등에 해당하는지 여부가 불분명한 경우, 등기관이 별지 진술서를 요구할 수 있습니다.
+          <span class="caution">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</span>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-question">
+          <span class="q-mark">Q</span>
+          외국인 신분으로 한국 부동산을 상속받을 수 있나요?
+        </div>
+        <div class="qa-answer">
+          예, 가능합니다. 외국으로 귀화한 직계비속도 민법 제1004조의 결격 사유만 없으면 상속인이 됩니다(등기예규 제99호). 다만 상속의 준거법과 관련하여, 피상속인이 외국인인 경우 국제사법 제49조에 따라 <strong>피상속인의 본국법</strong>이 적용됩니다. 예를 들어 미국 국적을 가진 피상속인이 한국에 부동산을 남기고 사망한 경우, 미국 법이 준거법이 되나 한국 법원에서의 반정(反定)이 적용되면 한국 민법이 적용될 수 있습니다. 상속 등기 신청 절차 자체는 우리나라 부동산등기법에 따라 이루어집니다.
+          <span class="caution">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</span>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-question">
+          <span class="q-mark">Q</span>
+          ⚡ 외국인으로 변경된 후 부동산 신고 기한이 있나요?
+        </div>
+        <div class="qa-answer">
+          있습니다. 대한민국 국적을 상실하거나 법인의 구성이 변경되어 '외국인 등'에 해당하게 된 경우, 그 <strong>변경일로부터 6개월 이내</strong>에 토지·건물의 취득·보유 신고를 해야 합니다(부동산거래신고법 제6조 제2항). 이 기간을 넘기면 100만 원 이하의 과태료가 부과될 수 있습니다. 시민권 취득 후 기존에 보유하던 국내 부동산에 대해 신고 의무를 놓치는 사례가 많으니 주의하십시오.
+          <span class="caution">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════ 6. 다음으로 확인할 내용 ════════════════════════ -->
+  <section>
+    <h2>다음으로 확인할 내용</h2>
+    <div class="related-links">
+      <a href="외등_02_외국인취득.html" class="related-link-card">
+        <div class="link-tag">외국인 · 취득</div>
+        <div class="link-title">외국인의 한국 부동산 취득 절차 완벽 가이드 (매수부터 등기까지)</div>
+      </a>
+      <a href="외등_14_재외국민개념.html" class="related-link-card">
+        <div class="link-tag">재외국민 · 기초개념</div>
+        <div class="link-title">재외국민이란? 외국인·외국국적동포와 다른 점 — 부동산 등기 관점</div>
+      </a>
+      <a href="외등_25_아포스티유.html" class="related-link-card">
+        <div class="link-tag">공통 · 서류공증</div>
+        <div class="link-title">아포스티유 완벽 가이드 — 부동산 등기에 필요한 서류 공증 절차</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ════ 7. 상담 신청 CTA ════════════════════════════════ -->
+  <section>
+    <div class="cta-box">
+      <h3>이 내용이 해당되시나요?<br>첫 상담은 무료입니다.</h3>
+      <p>외국인·재외국민 부동산 등기는 국적·체류 자격·입국 여부에 따라 준비 서류와 절차가 달라집니다.<br>
+         법무사가 정확한 법적 지위 확인부터 서류 준비까지 안내해 드립니다.</p>
+      <div class="cta-buttons">
+        <a href="tel:00-0000-0000" class="btn-phone">
+          📞 전화 상담 예약
+        </a>
+        <a href="https://open.kakao.com/" class="btn-kakao">
+          💬 카카오톡 상담
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ 8. 면책 문구 ════════════════════════════════════ -->
+  <div class="disclaimer">
+    <p>본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 개별 사안에 대한 법률적 조언이 아닙니다. 실제 등기 업무는 국적·체류 자격·개별 사안의 구체적인 사정에 따라 결론이 달라질 수 있으므로, 반드시 등기 전문 법무사와 상담하시기 바랍니다.</p>
+    <p style="margin-top:8px">이 페이지는 <strong>2025년 현행 법령 기준</strong>으로 작성되었습니다 (부동산거래신고법, 재외동포법, 국적법, 등기예규 제1778호 등). 법령 개정 시 내용이 달라질 수 있습니다.</p>
+  </div>
+
+</div><!-- /container -->
+</body>
+</html>

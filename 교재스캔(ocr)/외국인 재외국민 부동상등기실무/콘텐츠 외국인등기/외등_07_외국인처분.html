@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>외국인이 입국하지 않고 한국 부동산을 파는 방법 — 처분 위임장 공증 완벽 가이드</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1a2e4a;
+            --gold: #c8a96e;
+            --ivory-bg: #faf8f5;
+            --blue-box-bg: #eef2f8;
+            --blue-box-text: #2d4a7a;
+            --green-box-bg: #f0f8f0;
+            --green-box-text: #1a5c2e;
+            --orange-box-bg: #fff3e8;
+            --orange-box-text: #c05000;
+            --law-box-bg: #f7f4f0;
+            --law-box-text: #6b7280;
+            --country-box-bg: #f0f4ff;
+            --country-box-text: #3b5bdb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #333;
+            line-height: 1.8;
+            background-color: var(--ivory-bg);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Noto Serif KR', serif;
+            color: var(--navy);
+            margin: 1.5rem 0 0.8rem 0;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            border-bottom: 3px solid var(--gold);
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 2rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #fff;
+        }
+
+        .breadcrumb {
+            margin-bottom: 2rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .meta-info {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .meta-tag {
+            background-color: var(--blue-box-bg);
+            color: var(--blue-box-text);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .info-box {
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            border-left: 4px solid transparent;
+        }
+
+        .info-box.blue {
+            background-color: var(--blue-box-bg);
+            color: var(--blue-box-text);
+            border-left-color: var(--blue-box-text);
+        }
+
+        .info-box.green {
+            background-color: var(--green-box-bg);
+            color: var(--green-box-text);
+            border-left-color: var(--green-box-text);
+        }
+
+        .info-box.orange {
+            background-color: var(--orange-box-bg);
+            color: var(--orange-box-text);
+            border-left-color: var(--orange-box-text);
+        }
+
+        .info-box.law {
+            background-color: var(--law-box-bg);
+            color: var(--law-box-text);
+            border-left-color: var(--law-box-text);
+        }
+
+        .info-box.country {
+            background-color: var(--country-box-bg);
+            color: var(--country-box-text);
+            border-left-color: var(--country-box-text);
+        }
+
+        .info-box h4 {
+            margin-top: 0;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .info-box ul, .info-box ol {
+            margin-left: 1.5rem;
+        }
+
+        .info-box li {
+            margin-bottom: 0.5rem;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background-color: #fff;
+        }
+
+        th {
+            background-color: var(--navy);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid #ddd;
+        }
+
+        td {
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .cta-box {
+            background-color: var(--gold);
+            color: white;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .cta-box h3 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: opacity 0.3s;
+        }
+
+        .btn-phone {
+            background-color: #1a5c2e;
+            color: white;
+        }
+
+        .btn-phone:hover {
+            opacity: 0.9;
+        }
+
+        .btn-kakao {
+            background-color: #ffd700;
+            color: #333;
+        }
+
+        .btn-kakao:hover {
+            opacity: 0.9;
+        }
+
+        .disclaimer {
+            background-color: #f5f5f5;
+            border-left: 4px solid var(--gold);
+            padding: 1rem;
+            margin: 1rem 0;
+            font-size: 0.85rem;
+            color: #666;
+            border-radius: 4px;
+        }
+
+        .section {
+            margin: 2rem 0;
+        }
+
+        .section-number {
+            display: inline-block;
+            background-color: var(--navy);
+            color: white;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            line-height: 2.5rem;
+            text-align: center;
+            font-weight: 700;
+            margin-right: 0.8rem;
+            vertical-align: middle;
+        }
+
+        .section > h2 {
+            display: flex;
+            align-items: center;
+        }
+
+        .step-list {
+            margin: 1.5rem 0;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .step-number {
+            background-color: var(--blue-box-text);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            line-height: 2rem;
+            text-align: center;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .qa-section {
+            margin: 2rem 0;
+        }
+
+        .qa-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .qa-item:last-child {
+            border-bottom: none;
+        }
+
+        .qa-q {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .qa-q::before {
+            content: "Q. ";
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .qa-a {
+            color: #555;
+            padding-left: 1.2rem;
+        }
+
+        .qa-a::before {
+            content: "A. ";
+            color: var(--green-box-text);
+            font-weight: 700;
+            margin-left: -1.2rem;
+            padding-right: 0.3rem;
+        }
+
+        .footer {
+            background-color: var(--navy);
+            color: white;
+            padding: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .footer-disclaimer {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .comparison-table {
+            margin: 1.5rem 0;
+        }
+
+        .comparison-table tr:first-child {
+            background-color: var(--navy);
+            color: white;
+        }
+
+        .highlight {
+            background-color: #fff9e6;
+            padding: 0.2rem 0.4rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="breadcrumb">
+            홈 > 외국인 부동산등기 > 처분
+        </div>
+
+        <h1>외국인이 입국하지 않고 한국 부동산을 파는 방법<br>처분 위임장 공증 완벽 가이드</h1>
+
+        <div class="meta-info">
+            <span class="meta-tag">절차형</span>
+            <span class="meta-tag">기간 제한 없음</span>
+            <span class="meta-tag">2025년 기준</span>
+        </div>
+
+        <!-- 처분위임장 개요 -->
+        <div class="section">
+            <h2><span class="section-number">1</span>처분위임장이란?</h2>
+
+            <div class="info-box blue">
+                <h4>처분위임장의 정의</h4>
+                <p>처분위임장은 외국시민권을 취득한 자가 <strong>한국에 입국하지 않고</strong> 국내에 있는 대리인에게 한국 내 부동산 처분권과 소유권이전등기신청 권한을 위임한다는 내용의 서류입니다.</p>
+                <p style="margin-top: 0.8rem; font-size: 0.9rem;">출처: 등기예규 제1778호 제5조</p>
+            </div>
+
+            <h3>언제 필요한가?</h3>
+            <ul>
+                <li>외국국적을 취득한 후 한국 부동산을 팔려고 할 때</li>
+                <li>입국 없이 국내 대리인(법무사 등)이 대신 처분하도록 할 때</li>
+            </ul>
+
+            <div class="info-box orange">
+                <h4>입국한 경우는 불필요</h4>
+                <p>외국국적자가 한국에 입국하여 <strong>직접 부동산을 처분</strong>하고 법무사에게만 등기신청을 위임하면, 처분위임장이 필요하지 않습니다(등기선례 제4-56호, 1993. 9. 8.).</p>
+            </div>
+        </div>
+
+        <!-- 처분위임장 공증 방법 -->
+        <div class="section">
+            <h2><span class="section-number">2</span>처분위임장 공증 방법</h2>
+
+            <h3>인감증명 제도에 따른 구분</h3>
+
+            <h4 style="color: var(--orange-box-text); margin-top: 1.5rem;">A. 인감증명 제도가 없는 국가 (미국, 캐나다, 호주 등)</h4>
+
+            <div class="step-list">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <strong>처분위임장 작성</strong>
+                        <p style="margin-top: 0.3rem;">부동산, 권리, 대리인의 인적사항을 구체적으로 명시</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <strong>본인 서명</strong>
+                        <p style="margin-top: 0.3rem;">위임장 문서 자체에 본인이 직접 서명</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <strong>공증 취득</strong>
+                        <p style="margin-top: 0.3rem;">다음 중 하나:</p>
+                        <ul style="margin-top: 0.5rem; margin-bottom: 0;">
+                            <li>대한민국 재외공관(공증담당 영사)</li>
+                            <li>현지 공증인 공증</li>
+                            <li>본국 관공서 증명</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <strong>아포스티유 첨부 (필요 시)</strong>
+                        <p style="margin-top: 0.3rem;">아포스티유 가입국인 경우 필수</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box law">
+                <h4>중요: 공증 방법</h4>
+                <p>공증은 <strong>위임장 서면 그 자체</strong>에 받아야 합니다. 별도 문서에 서명하고 그것만 공증받으면 안 됩니다(등기예규 제1778호 제9조 제3항).</p>
+            </div>
+
+            <h4 style="color: var(--orange-box-text); margin-top: 2rem;">B. 인감증명 제도가 있는 국가 (일본, 대만 등)</h4>
+
+            <div class="step-list">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <strong>처분위임장 작성</strong>
+                        <p style="margin-top: 0.3rem;">부동산, 권리, 대리인 명시</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <strong>인감 날인</strong>
+                        <p style="margin-top: 0.3rem;">본국에서 신고한 인감을 위임장에 날인</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <strong>인감증명 첨부</strong>
+                        <p style="margin-top: 0.3rem;">본국 관공서 발행 인감증명서</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 아포스티유 -->
+        <div class="section">
+            <h2><span class="section-number">3</span>아포스티유 요건</h2>
+
+            <div class="info-box country">
+                <h4>아포스티유 필수 대상</h4>
+                <p><strong>외국에서 공증받은 사문서나 외국 발행 공문서</strong>에 대해, 아포스티유 협약 가입국이면 아포스티유를 붙여야 합니다(등기예규 제1778호 제4조 제1항).</p>
+            </div>
+
+            <h3>어떤 문서에 필요한가?</h3>
+            <ul>
+                <li>재외공관에서 공증받은 처분위임장</li>
+                <li>현지 공증인 공증 문서</li>
+                <li>본국 관공서 증명 문서</li>
+            </ul>
+
+            <h3>외국어 문서</h3>
+            <p>영문이나 기타 외국어로 작성된 처분위임장은 <strong>한글 번역문을 반드시 첨부</strong>해야 합니다.</p>
+        </div>
+
+        <!-- 대리인의 권한 -->
+        <div class="section">
+            <h2><span class="section-number">4</span>대리인이 해야 할 일</h2>
+
+            <h3>대리인의 증명서류</h3>
+            <p>처분권한을 위임받은 대리인이 등기신청을 할 때는:</p>
+
+            <div class="info-box green">
+                <h4>대리인이 직접 등기신청하는 경우</h4>
+                <ul>
+                    <li>등기신청서에 <strong>자신의 인감을 날인</strong></li>
+                    <li>자신의 <strong>인감증명서 첨부</strong></li>
+                </ul>
+            </div>
+
+            <div class="info-box blue">
+                <h4>대리인이 법무사에게 재위임하는 경우</h4>
+                <ul>
+                    <li>등기신청위임장에 <strong>대리인의 인감 날인</strong></li>
+                    <li>대리인의 <strong>인감증명서 첨부</strong></li>
+                </ul>
+            </div>
+
+            <div class="info-box orange">
+                <h4>예외: 매매 거래</h4>
+                <p>매매를 원인으로 하는 소유권이전등기를 신청하는 경우, 대리인의 <strong>매도용 인감증명은 불필요</strong>합니다(등기예규 제1778호 제5조 제4항).</p>
+            </div>
+        </div>
+
+        <!-- 등기필증 없는 경우 -->
+        <div class="section">
+            <h2><span class="section-number">5</span>등기필증이 없는 경우</h2>
+
+            <div class="info-box law">
+                <h4>처분위임장에 기재할 사항</h4>
+                <p>등기필증을 잃어버린 경우, 처분위임장에 <strong>"등기필정보가 없다"</strong>는 내용을 명시해야 합니다.</p>
+            </div>
+
+            <h3>공증 요건</h3>
+            <p>등기의무자가 등기필증을 멸실한 경우:</p>
+            <ul>
+                <li>공증을 받아야 할 서면은 <strong>처분위임장</strong>입니다</li>
+                <li>수임인이 법무사에게 위임했어도 <strong>법무사 확인서가 아닌 처분위임장만 공증</strong>합니다</li>
+                <li>공증 내용: 처분위임장의 <strong>등기의무자 서명/날인이 본인이 직접 한 것</strong>임을 확인하는 공증</li>
+            </ul>
+
+            <div class="info-box orange">
+                <h4>금지사항</h4>
+                <ul>
+                    <li>법무사 확인서 첨부 금지</li>
+                    <li>수임인이 공증인 앞에 출석하여 받은 공증서 첨부 금지(등기선례 5-59, 1997. 11. 14.)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 전체 절차 흐름 -->
+        <div class="section">
+            <h2><span class="section-number">6</span>미입국 외국인 처분 전체 절차</h2>
+
+            <div class="step-list">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <strong>대리인 선임</strong>
+                        <p style="margin-top: 0.3rem;">법무사 등 국내 대리인과 계약</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <strong>처분위임장 작성</strong>
+                        <p style="margin-top: 0.3rem;">부동산, 권리, 대리인 구체적 특정</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <strong>공증 취득</strong>
+                        <p style="margin-top: 0.3rem;">재외공관 또는 현지 공증인으로부터</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <strong>인감증명 첨부</strong>
+                        <p style="margin-top: 0.3rem;">(인감제도 있는 국가만)</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <strong>아포스티유 첨부</strong>
+                        <p style="margin-top: 0.3rem;">(필요 시)</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <strong>번역문 준비</strong>
+                        <p style="margin-top: 0.3rem;">외국어 문서의 한글 번역</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">7</div>
+                    <div class="step-content">
+                        <strong>국적 변경 등기 (필요 시)</strong>
+                        <p style="margin-top: 0.3rem;">한국인→외국인 국적 변경이 있었을 때 선행</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">8</div>
+                    <div class="step-content">
+                        <strong>매매계약 체결</strong>
+                        <p style="margin-top: 0.3rem;">대리인이 대신 계약</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">9</div>
+                    <div class="step-content">
+                        <strong>등기신청</strong>
+                        <p style="margin-top: 0.3rem;">대리인이 법무사에게 재위임</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 첨부서류 표 -->
+        <div class="section">
+            <h2><span class="section-number">7</span>미입국 외국인의 필수 첨부서류</h2>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th style="width: 20%;">서류</th>
+                        <th style="width: 40%;">내용</th>
+                        <th style="width: 40%;">비고</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>처분위임장</strong></td>
+                        <td>서명 공증 또는 인감 날인+인감증명</td>
+                        <td>등기소 첨부정보로 제출</td>
+                    </tr>
+                    <tr>
+                        <td><strong>공증/인감증명</strong></td>
+                        <td>본국 관공서 발행 또는 재외공관 공증</td>
+                        <td>필수</td>
+                    </tr>
+                    <tr>
+                        <td><strong>여권 사본</strong></td>
+                        <td>공증 처리된 여권 사본</td>
+                        <td>본인 확인용</td>
+                    </tr>
+                    <tr>
+                        <td><strong>번역문</strong></td>
+                        <td>외국어 서류의 한글 번역</td>
+                        <td>번역인 서명 및 신분증 필요</td>
+                    </tr>
+                    <tr>
+                        <td><strong>아포스티유</strong></td>
+                        <td>공증/인감증명에 붙임</td>
+                        <td>협약 가입국만</td>
+                    </tr>
+                    <tr>
+                        <td><strong>매매계약서</strong></td>
+                        <td>검인 처리된 원본</td>
+                        <td>거래신고필증도 가능</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Q&A -->
+        <div class="section">
+            <h2><span class="section-number">8</span>자주하는 질문</h2>
+
+            <div class="qa-section">
+                <div class="qa-item">
+                    <div class="qa-q">입국 없이 한국 부동산을 팔 수 있나요?</div>
+                    <div class="qa-a">
+                        네, 가능합니다. 처분위임장을 통해 국내 대리인(법무사)에게 권한을 위임하면 입국하지 않고도 부동산을 판매할 수 있습니다. 다만 적절한 공증과 인감증명 처리가 필수입니다.
+                        <div class="disclaimer" style="margin-top: 0.8rem;">본 내용은 일반적인 안내이며, 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+                    </div>
+                </div>
+
+                <div class="qa-item">
+                    <div class="qa-q">처분위임장 공증은 어디서 받나요?</div>
+                    <div class="qa-a">
+                        세 가지 방법이 있습니다: (1) 대한민국 재외공관의 공증담당 영사, (2) 현지국 공증인, (3) 현지 관공서 증명. 미국 거주자의 경우 미국 노터리 공증이나 한국 영사관 공증을 받을 수 있습니다.
+                        <div class="disclaimer" style="margin-top: 0.8rem;">해당국 법규에 따라 공증 절차가 다를 수 있으므로, 거주국 공증 기관에 사전 확인 후 진행하시기 바랍니다.</div>
+                    </div>
+                </div>
+
+                <div class="qa-item">
+                    <div class="qa-q">아포스티유를 붙여야 하는 서류는 어떤 것들인가요?</div>
+                    <div class="qa-a">
+                        외국에서 공증받은 사문서나 외국 발행 공문서 중 아포스티유 협약 가입국의 서류에는 아포스티유를 붙여야 합니다. 예: 미국, 캐나다, 일본, 대만의 공증이나 인감증명서. 단, 모든 국가가 협약에 가입한 것은 아니므로 사전 확인이 필요합니다.
+                        <div class="disclaimer" style="margin-top: 0.8rem;">아포스티유 협약 가입 여부는 각국 외교부 또는 미국 務부 웹사이트에서 확인하실 수 있습니다.</div>
+                    </div>
+                </div>
+
+                <div class="qa-item">
+                    <div class="qa-q">인감제도가 없는 미국인은 어떻게 하나요?</div>
+                    <div class="qa-a">
+                        미국에는 인감증명 제도가 없으므로, 처분위임장에 서명하고 다음 중 하나를 통해 공증받으면 됩니다: (1) 미국 노터리 공증, (2) 한국 영사관 공증, (3) 미국 관공서 거주 증명. 공증을 받은 후 아포스티유를 붙입니다.
+                        <div class="disclaimer" style="margin-top: 0.8rem;">정확한 공증 방법은 미국의 해당 주(State) 법규를 따르므로, 거주 주의 공증인 또는 영사관에 문의하시기 바랍니다.</div>
+                    </div>
+                </div>
+
+                <div class="qa-item">
+                    <div class="qa-q">위임장 작성 후 변경 사항이 생기면 어떻게 하나요?</div>
+                    <div class="qa-a">
+                        처분위임장의 내용(부동산, 대리인, 권리 범위 등)을 변경해야 하면 <strong>새로운 위임장을 작성</strong>해야 합니다. 기존 위임장의 수정은 인정되지 않으며, 새 위임장도 동일하게 공증 처리해야 합니다.
+                        <div class="disclaimer" style="margin-top: 0.8rem;">변경 사항이 발생한 경우 법무사에게 즉시 알리시고 적절한 서류 준비 방법을 상담받으시기 바랍니다.</div>
+                    </div>
+                </div>
+
+                <div class="qa-item">
+                    <div class="qa-q">부동산을 산 이후 국적이 바뀐 경우(한국인→외국인), 팔 때 절차가 다른가요?</div>
+                    <div class="qa-a">
+                        네, 다릅니다. 국내에서 내국인 명의로 등록된 후 외국국적을 취득한 경우, 처분을 위한 등기신청 전에 <strong>등기명의인표시 변경등기</strong>를 먼저 신청해야 합니다(부동산등기선례 제201902-3호, 2019. 2. 25.). 다만 국내거소신고나 외국인등록을 받지 않았다면 반드시 필요한 것은 아닙니다(부동산등기선례 제201808-3호, 2018. 8. 9.).
+                        <div class="disclaimer" style="margin-top: 0.8rem;">본인의 구체적 상황(국내거소신고 여부, 부동산등기용 등록번호 발급 여부)에 따라 절차가 달라질 수 있으므로, 담당 법무사와 상의하시기 바랍니다.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Box -->
+        <div class="cta-box">
+            <h3>처분위임장 공증, 전문가의 도움이 필요하신가요?</h3>
+            <p>복잡한 국제 공증 절차와 등기 신청을 안전하게 진행하려면 외국인 부동산 등기 전문 법무사의 조력이 필수입니다.</p>
+            <div class="button-group">
+                <button class="btn btn-phone">전화 상담</button>
+                <button class="btn btn-kakao">카톡 문의</button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div style="margin-bottom: 1rem;">
+                <strong>외국인 부동산 등기 전문</strong><br>
+                2025년 기준 안내 | 등기예규·판례 기준 최신 정보
+            </div>
+            <div class="footer-disclaimer">
+                <strong>면책 조항</strong><br>
+                이 페이지의 모든 정보는 2025년 기준의 등기예규, 판례, 관계 법령을 바탕으로 작성되었습니다. 개별 사건의 구체적 상황에 따라 절차와 요건이 달라질 수 있으므로, 본 내용은 일반적인 안내일 뿐 구체적 법률 조언이 아닙니다. 정확한 진행을 위해서는 반드시 외국인 부동산 등기 전문 법무사와 상담하시기 바랍니다.
+            </div>
+        </div>
+    </div>
+</body>
+</html>

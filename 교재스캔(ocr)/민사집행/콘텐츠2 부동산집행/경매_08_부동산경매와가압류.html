@@ -1,0 +1,317 @@
+<\!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>부동산경매와 가압류 — 가압류권자의 지위와 배당 전략</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap');
+:root{--navy:#1a2e4a;--gold:#c8a96e;--bg:#faf8f5;--sum-bg:#eef2f8;--sum-bd:#2d4a7a;--cta-bg:#fdf6e9;--cta-bd:#c8a96e;--case-bg:#f0f8f0;--case-bd:#1a5c2e;--rule-bg:#f7f4f0;--rule-bd:#6b7280;--warn-bg:#fff3e8;--warn-bd:#c05000;--info-bg:#f4f7fb;--info-bd:#2d4a7a;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:#333;line-height:1.8;}
+header{background:var(--navy);color:#fff;padding:40px 20px;text-align:center;}
+header h1{font-family:'Noto Serif KR',serif;font-size:2rem;margin-bottom:8px;}
+header .sub{color:var(--gold);font-size:1rem;}
+.container{max-width:860px;margin:0 auto;padding:40px 20px;}
+.section{margin-bottom:48px;}
+.section h2{font-family:'Noto Serif KR',serif;font-size:1.4rem;color:var(--navy);border-left:4px solid var(--gold);padding-left:14px;margin-bottom:20px;}
+.section h3{font-size:1.1rem;color:var(--navy);margin:20px 0 10px;}
+.summary-box{background:var(--sum-bg);border:1.5px solid var(--sum-bd);border-radius:10px;padding:24px;margin-bottom:24px;}
+.summary-box p{margin-bottom:8px;}
+.case-box{background:var(--case-bg);border-left:4px solid var(--case-bd);border-radius:6px;padding:20px;margin:16px 0;}
+.ruling-box{background:var(--rule-bg);border-left:4px solid var(--rule-bd);border-radius:6px;padding:20px;margin:16px 0;}
+.warn-box{background:var(--warn-bg);border-left:4px solid var(--warn-bd);border-radius:6px;padding:20px;margin:16px 0;}
+.info-box{background:var(--info-bg);border-left:4px solid var(--info-bd);border-radius:6px;padding:20px;margin:16px 0;}
+.checklist{list-style:none;padding:0;}
+.checklist li{padding:10px 0 10px 36px;border-bottom:1px solid #e0dbd4;position:relative;}
+.checklist li::before{content:"☑";color:var(--gold);position:absolute;left:8px;font-size:1.1rem;}
+.checklist li:last-child{border-bottom:none;}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.95rem;}
+th{background:var(--navy);color:#fff;padding:10px;text-align:left;}
+td{padding:10px;border-bottom:1px solid #ddd;vertical-align:top;}
+tr:nth-child(even) td{background:#f5f2ee;}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
+.compare-card{border-radius:10px;padding:20px;}
+.compare-card.before{background:#eef2f8;border:2px solid #2d4a7a;}
+.compare-card.after{background:#fff3e8;border:2px solid #c8a96e;}
+.compare-card h4{font-size:1rem;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(0,0,0,.12);}
+.compare-card.before h4{color:#1a2e4a;}
+.compare-card.after h4{color:#8b5e00;}
+.compare-card p{font-size:0.93rem;margin-bottom:8px;line-height:1.7;}
+@media(max-width:600px){.compare-grid{grid-template-columns:1fr;}}
+.flow{display:flex;flex-direction:column;gap:0;}
+.flow-item{display:flex;align-items:flex-start;gap:14px;padding:14px 0;}
+.flow-item:not(:last-child){border-bottom:1px dashed #ccc;}
+.flow-num{background:var(--navy);color:#fff;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;margin-top:4px;font-size:0.9rem;}
+.flow-body{flex:1;}
+.flow-body strong{display:block;margin-bottom:4px;color:var(--navy);}
+.qna-item{margin-bottom:24px;border:1px solid #ddd;border-radius:8px;overflow:hidden;}
+.qna-q{background:var(--navy);color:#fff;padding:16px 20px;font-weight:700;}
+.qna-a{padding:16px 20px;background:#fff;}
+.qna-a .note{color:#777;font-size:0.88rem;margin-top:10px;padding-top:10px;border-top:1px solid #eee;}
+.next-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;}
+.next-links a{display:block;background:#fff;border:1.5px solid var(--navy);border-radius:8px;padding:16px;text-align:center;text-decoration:none;color:var(--navy);font-weight:700;transition:all .2s;}
+.next-links a:hover{background:var(--navy);color:#fff;}
+.cta-box{background:var(--cta-bg);border:2px solid var(--cta-bd);border-radius:12px;padding:36px;text-align:center;margin-top:60px;}
+.cta-box h2{font-family:'Noto Serif KR',serif;color:var(--navy);margin-bottom:12px;}
+.cta-box p{color:#555;margin-bottom:20px;}
+.btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-tel{background:var(--navy);color:#fff;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:700;}
+.btn-kako{background:#FEE500;color:#333;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:700;}
+footer{text-align:center;padding:30px 20px;color:#999;font-size:0.82rem;border-top:1px solid #ddd;background:#f0ede8;}
+.badge-warn{display:inline-block;background:#fff3e8;border:1px solid #c05000;color:#c05000;border-radius:4px;padding:2px 8px;font-size:0.82rem;font-weight:700;}
+.badge-ok{display:inline-block;background:#eef5e8;border:1px solid #2a6e1e;color:#2a6e1e;border-radius:4px;padding:2px 8px;font-size:0.82rem;font-weight:700;}
+.badge-navy{display:inline-block;background:#eef2f8;border:1px solid #2d4a7a;color:#1a2e4a;border-radius:4px;padding:2px 8px;font-size:0.82rem;font-weight:700;}
+    .law-tag {
+      display: inline-block; background: #e8edf5; color: #2d4a7a;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #b0c4de; cursor: pointer; transition: background 0.15s;
+    }
+    .law-tag:hover { background: #c8daf7; color: #1a2e4a; }
+    .case-tag {
+      display: inline-block; background: #f0ece4; color: #5a4a30;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #c8a96e; cursor: pointer; transition: background 0.15s;
+    }
+    .case-tag:hover { background: #f5dfa8; color: #3a2a10; }
+  </style>
+</head>
+<body>
+<header>
+  <div class="sub">부동산 경매 실무 정보 · 혼합형</div>
+  <h1>부동산경매와 가압류</h1>
+  <div class="sub">경매 전 가압류냐, 경매 후 가압류냐 — 채권자 지위가 달라집니다</div>
+</header>
+<div class="container">
+
+  <\!-- 1. 체크리스트 -->
+  <div class="section">
+    <h2>이런 분께 필요합니다</h2>
+    <ul class="checklist">
+      <li>채무자의 부동산에 이미 가압류를 해 두었는데, 제3자가 경매를 신청한 경우</li>
+      <li>타인의 부동산 경매가 진행 중인데 그 부동산에 가압류를 추가로 넣으려는 분</li>
+      <li>판결(집행권원)이 없는 일반 채권자인데 경매 배당에 참가하고 싶은 분</li>
+      <li>배당요구종기 전에 가압류를 해야 하는지, 배당요구만 하면 되는지 헷갈리는 분</li>
+      <li>가압류권자가 경매에서 배당을 받으려면 별도로 무엇을 해야 하는지 확인하고 싶은 분</li>
+    </ul>
+  </div>
+
+  <\!-- 2. 핵심정리 -->
+  <div class="section">
+    <h2>핵심정리</h2>
+    <div class="summary-box">
+      <p>부동산 경매에서 가압류권자의 지위는 <strong>경매개시결정 등기를 기준</strong>으로 완전히 달라집니다.</p>
+      <p><span class="badge-ok">경매개시결정 등기 前 가압류</span> → 별도 배당요구 없이 당연히 배당에 참가합니다.</p>
+      <p><span class="badge-warn">경매개시결정 등기 後 가압류</span> → 배당요구종기까지 배당요구를 해야만 배당받을 수 있습니다.</p>
+      <p>또한 집행권원(확정판결 등)이 없는 <strong>순수한 일반채권자</strong>는 배당요구만으로는 경매 배당에 참가할 수 없습니다. 반드시 <strong>부동산에 가압류를 등기한 후</strong> 배당요구를 해야 배당 자격이 생깁니다.</p>
+    </div>
+  </div>
+
+  <\!-- 3. 경매개시결정 등기 전/후 비교 -->
+  <div class="section">
+    <h2>경매개시결정 등기 前·後 가압류권자 지위 비교</h2>
+
+    <div class="compare-grid">
+      <div class="compare-card before">
+        <h4>🟦 경매개시결정 등기 <u>前</u> 가압류</h4>
+        <p><strong>법적 근거</strong><br><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=014800" target="_blank" rel="noopener">민사집행법 제148조 제2호</a><br>"경매개시결정 등기 전에 등기된 가압류채권자"</p>
+        <p><strong>배당요구 필요 여부</strong><br>❌ 불필요 — 당연히 배당에 참가</p>
+        <p><strong>배당 순위</strong><br>안분배당 (가압류 시점이 빠를수록 배당에 안전하지만, 일반채권자 간에는 채권액 비율로 안분)</p>
+        <p><strong>실무 포인트</strong><br>경매신청 전에 가압류 등기가 되어 있으면 법원이 등기부를 조회하여 자동으로 배당 절차에 포함시킵니다. 배당기일 전 채권계산서 제출은 필요합니다.</p>
+      </div>
+      <div class="compare-card after">
+        <h4>🟧 경매개시결정 등기 <u>後</u> 가압류</h4>
+        <p><strong>법적 근거</strong><br><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=014800" target="_blank" rel="noopener">민사집행법 제148조 제2호</a> 단서<br>"경매개시결정 등기 후 가압류채권자"</p>
+        <p><strong>배당요구 필요 여부</strong><br>✅ 필요 — 배당요구종기까지 배당요구 필수</p>
+        <p><strong>배당 순위</strong><br>가압류 시점에 관계없이 일반채권자로서 안분배당. 단, 배당요구종기를 놓치면 배당에서 완전히 배제됩니다.</p>
+        <p><strong>실무 포인트</strong><br>경매개시결정이 등기된 이후라도 배당요구종기 이전에 가압류 + 배당요구를 모두 완료하면 배당에 참가할 수 있습니다.</p>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <p><strong>ℹ️ 배당요구종기란?</strong> 법원이 경매개시결정을 한 후 배당요구를 받아들일 기한으로, 첫 매각기일 3일 전까지가 원칙입니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=008400" target="_blank" rel="noopener">민사집행법 제84조</a>). 법원이 경매개시결정과 함께 배당요구종기를 공고하므로, 경매 사건의 공고문을 반드시 확인해야 합니다.</p>
+    </div>
+  </div>
+
+  <\!-- 4. 일반채권자가 배당받으려면 -->
+  <div class="section">
+    <h2>일반채권자가 경매 배당에 참가하는 방법</h2>
+    <p>집행권원(확정판결, 지급명령 확정, 공정증서 등)이 없는 순수 채권자는 아래 중 하나의 방법으로만 경매 배당에 참가할 수 있습니다.</p>
+
+    <h3>방법 ① 부동산에 가압류를 신청한 후 배당요구</h3>
+    <div class="flow">
+      <div class="flow-item">
+        <div class="flow-num">1</div>
+        <div class="flow-body">
+          <strong>가압류 신청 (법원)</strong>
+          채무자 소유 부동산에 대해 가압류 신청. 피보전채권 소명 + 보전의 필요성 소명 + 담보 공탁.
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">2</div>
+        <div class="flow-body">
+          <strong>가압류 결정 + 등기 촉탁</strong>
+          법원의 가압류 결정 → 등기소에 가압류 등기 촉탁 → 부동산 등기부에 가압류 등기.
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">3</div>
+        <div class="flow-body">
+          <strong>배당요구종기까지 배당요구 신청</strong>
+          경매개시결정 등기 <strong>후</strong>에 가압류된 경우 → 배당요구종기 이전에 반드시 배당요구를 해야 함. 경매개시결정 등기 <strong>전</strong>에 가압류된 경우 → 별도 배당요구 없이 당연 배당.
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">4</div>
+        <div class="flow-body">
+          <strong>배당기일 전 채권계산서 제출</strong>
+          원금, 이자, 지연손해금 등을 기재한 채권계산서를 배당기일 3일 전까지 법원에 제출.
+        </div>
+      </div>
+    </div>
+
+    <h3>방법 ② 집행권원을 취득한 후 배당요구</h3>
+    <p>가압류가 본안소송으로 이어져 승소 확정판결(집행권원)을 받은 경우, 집행력 있는 정본으로 배당요구종기까지 배당요구를 할 수 있습니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=008800" target="_blank" rel="noopener">민사집행법 제88조 제1호</a>). 이 경우 가압류 등기 여부와 무관하게 배당요구 자격이 생깁니다.</p>
+
+    <div class="warn-box">
+      <p>⚠️ <strong>집행권원도 없고 가압류도 없는 일반채권자</strong>는 배당요구 자격 자체가 없습니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=008800" target="_blank" rel="noopener">민사집행법 제88조</a>). 경매가 진행 중인 부동산에 대해 채권을 가지고 있더라도, 아무 조치 없이는 배당에서 완전히 배제됩니다.</p>
+    </div>
+
+    <table>
+      <tr><th>채권자 유형</th><th>배당 참가 방법</th><th>배당요구 필요 여부</th></tr>
+      <tr><td>경매신청 채권자 (압류채권자)</td><td>당연 배당</td><td>불필요</td></tr>
+      <tr><td>경매개시결정 등기 <strong>전</strong> 가압류채권자</td><td>당연 배당</td><td>불필요</td></tr>
+      <tr><td>저당권·전세권 등 담보권자 (등기)</td><td>당연 배당</td><td>불필요</td></tr>
+      <tr><td>집행력 있는 정본 보유 채권자</td><td>배당요구종기까지 배당요구</td><td>필요</td></tr>
+      <tr><td>경매개시결정 등기 <strong>후</strong> 가압류채권자</td><td>배당요구종기까지 배당요구</td><td>필요</td></tr>
+      <tr><td>확정일자 임차인·소액임차인</td><td>배당요구종기까지 배당요구</td><td>필요</td></tr>
+      <tr><td>집행권원·가압류 모두 없는 채권자</td><td>배당 참가 불가</td><td>— (자격 없음)</td></tr>
+    </table>
+  </div>
+
+  <\!-- 5. 가압류권자의 배당 계산 구조 -->
+  <div class="section">
+    <h2>가압류권자의 배당 — 안분배당 원칙</h2>
+    <p>가압류권자는 저당권자와 달리 <strong>우선변제권이 없습니다</strong>. 저당권자·임금채권자·소액임차인 등이 우선배당을 받고 남은 금액에서 일반채권자들(가압류권자 포함)이 <strong>채권액 비율에 따라 안분배당</strong>을 받습니다.</p>
+
+    <div class="case-box">
+      <strong>사례: 배당금 잔여 3,000만 원, 일반채권자 복수인 경우</strong><br><br>
+      저당권자 등 우선채권자에게 배당한 후 잔여 배당금 3,000만 원.<br>
+      가압류채권자 A(채권 2,000만 원) + 배당요구 채권자 B(집행권원, 채권 1,000만 원) + 가압류채권자 C(채권 1,000만 원).<br>
+      합계 채권 4,000만 원 → 안분 비율: A 50%, B 25%, C 25%.<br>
+      <strong>결과: A → 1,500만 원 / B → 750만 원 / C → 750만 원 배당.</strong>
+    </div>
+
+    <div class="info-box">
+      <p><strong>ℹ️ 가압류채권자와 본압류채권자의 경합</strong><br>
+      가압류 후 본안소송 승소로 확정판결을 받아 강제경매를 직접 신청하거나 배당요구를 하면, 같은 채권에 대해 가압류와 배당요구가 중복 처리되지 않도록 법원이 정리합니다. 가압류가 본압류로 이행되면 압류채권자로서 당연 배당에 참가하게 됩니다.</p>
+    </div>
+  </div>
+
+  <\!-- 6. Q&A -->
+  <div class="section">
+    <h2>자주하는 질문 Q&A</h2>
+
+    <div class="qna-item">
+      <div class="qna-q">Q. 경매가 진행 중인 부동산에 지금이라도 가압류를 넣으면 배당을 받을 수 있나요?</div>
+      <div class="qna-a">
+        <p>배당요구종기 이전이라면 가능합니다. 경매개시결정 등기 이후에 가압류를 하는 경우에는 배당요구종기까지 배당요구도 함께 해야 합니다. 가압류만 하고 배당요구를 하지 않으면 배당에서 제외됩니다.</p>
+        <p>단, 배당요구종기가 이미 지난 경우에는 가압류와 배당요구를 모두 완료하더라도 당해 경매 절차에서는 배당을 받을 수 없습니다. 이 경우 가압류는 유지되므로 향후 다른 경매 신청이나 집행 절차에서 권리를 행사할 수 있습니다.</p>
+        <p class="note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+      </div>
+    </div>
+
+    <div class="qna-item">
+      <div class="qna-q">Q. 경매개시결정 등기 전에 가압류를 해 두었는데, 배당요구는 해야 하나요?</div>
+      <div class="qna-a">
+        <p>경매개시결정 등기 전에 등기된 가압류채권자는 <strong>별도의 배당요구 없이도</strong> 당연히 배당에 참가합니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=014800" target="_blank" rel="noopener">민사집행법 제148조 제2호</a>). 법원이 등기부를 조회하여 자동으로 배당 절차에 포함시켜 줍니다.</p>
+        <p>다만, 배당기일 전에 <strong>채권계산서</strong>를 제출해야 합니다. 채권계산서에는 원금, 이자(지연손해금 포함), 비용 등을 상세히 기재하여 배당기일 3일 전까지 법원에 제출하세요. 채권계산서를 제출하지 않으면 채권 내역이 불분명하여 배당에 불이익이 생길 수 있습니다.</p>
+        <p class="note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+      </div>
+    </div>
+
+    <div class="qna-item">
+      <div class="qna-q">Q. 가압류를 했는데 배당을 아예 못 받는 경우도 있나요?</div>
+      <div class="qna-a">
+        <p>네, 있습니다. 저당권자 등 우선채권자의 채권 합계가 배당금을 초과하는 경우, 후순위인 가압류채권자에게 배당될 금액이 남지 않습니다. 이 경우 가압류는 배당 없이 소멸하며, 채무자에게 개인 청구를 해야 합니다.</p>
+        <p>이런 위험을 줄이려면 가압류 전에 선순위 저당권 채권액과 부동산 감정가를 비교하여 잔여 배당 가능 금액을 미리 파악하는 것이 중요합니다. 잉여 가능성이 없다면 가압류보다는 다른 재산을 찾아 집행하는 것이 더 효율적일 수 있습니다.</p>
+        <p class="note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+      </div>
+    </div>
+
+    <div class="qna-item">
+      <div class="qna-q">Q. 가압류권자가 직접 경매를 신청하려면 어떻게 해야 하나요?</div>
+      <div class="qna-a">
+        <p>가압류권자는 가압류 결정 자체만으로는 경매를 신청할 수 없습니다. 경매를 신청하려면 <strong>집행권원(확정판결, 집행권원이 된 화해조서, 확정된 지급명령 등)과 집행문</strong>이 필요합니다.</p>
+        <p>따라서 가압류 후 본안소송을 제기하여 승소 확정판결을 받은 다음, 그 판결에 집행문을 부여받아 강제경매를 신청해야 합니다. 이때 기존 가압류가 본압류로 이행되어 경매 절차로 이어집니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=029300" target="_blank" rel="noopener">민사집행법 제293조</a>).</p>
+        <p class="note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+      </div>
+    </div>
+
+    <div class="qna-item">
+      <div class="qna-q">Q. 배당요구종기 후에도 가압류를 유지하면 어떤 의미가 있나요?</div>
+      <div class="qna-a">
+        <p>배당요구종기 이후에 가압류를 한 경우(또는 종기를 놓쳐 배당요구를 못 한 경우), 당해 경매에서는 배당을 받지 못합니다. 그러나 가압류 등기 자체는 유효하게 남아 있습니다.</p>
+        <p>다만, 경매가 완료되면 가압류는 매각에 의해 소멸하는 것이 원칙입니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=009100" target="_blank" rel="noopener">민사집행법 제91조</a>). 따라서 배당요구종기를 놓쳐 배당도 못 받고 가압류도 소멸한다면 가압류의 실질적 의미가 사라집니다. <strong>배당요구종기를 절대로 놓쳐서는 안 됩니다.</strong></p>
+        <p class="note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+      </div>
+    </div>
+
+    <div class="qna-item">
+      <div class="qna-q">Q. 가압류 이후 가압류권자의 채권이 제3자에게 양도되면 어떻게 되나요?</div>
+      <div class="qna-a">
+        <p>가압류채권이 제3자에게 양도된 경우, 양수인이 채권양도 사실을 법원에 신고하고 배당 절차에서 양수인으로서 배당을 받을 수 있습니다. 채권양도는 채무자에 대한 통지 또는 채무자의 승낙이 있어야 대항력이 생깁니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=045000" target="_blank" rel="noopener">민법 제450조</a>).</p>
+        <p>가압류는 채권에 부수하는 것이므로 채권 양도 시 가압류에 의한 지위도 함께 이전됩니다. 다만, 법원에 별도로 승계 신고를 해야 절차상 문제가 없습니다.</p>
+        <p class="note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <\!-- 7. 판례 -->
+  <div class="section">
+    <h2>판례</h2>
+    <div class="ruling-box">
+      <p>대법원은 경매개시결정 등기 전에 가압류를 한 채권자는 별도의 배당요구 없이도 당연히 배당에 참가할 수 있다고 판시하고 있습니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=014800" target="_blank" rel="noopener">민사집행법 제148조 제2호</a>). 반면 경매개시결정 등기 후에 가압류를 한 채권자는 배당요구종기까지 배당요구를 하여야만 배당에 참가할 수 있고, 이 기한을 도과하면 그 경매 절차에서의 배당을 받을 수 없습니다.</p>
+      <p>또한 집행권원이 없는 순수 채권자가 단순히 배당요구만으로 배당에 참가하려 한 경우, 법원은 이를 받아들이지 않아야 한다는 것이 확립된 입장입니다. 배당요구 적격은 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=008800" target="_blank" rel="noopener">민사집행법 제88조</a>가 열거하는 유형에 한정됩니다.</p>
+    </div>
+  </div>
+
+  <\!-- 8. 주의사항 -->
+  <div class="section">
+    <h2>주의사항</h2>
+    <div class="warn-box">
+      <p>⚡ <strong>배당요구종기는 절대 놓치지 마세요</strong>. 경매개시결정 등기 후 가압류를 한 경우, 종기 내 배당요구를 하지 않으면 배당에서 완전히 배제되고 가압류도 매각으로 소멸합니다.</p>
+    </div>
+    <div class="warn-box">
+      <p>⚠️ <strong>가압류만으로 우선변제는 안 됩니다</strong>. 가압류는 처분금지 보전 수단이지 우선변제권이 아닙니다. 저당권자 등 우선채권자가 많으면 배당이 남지 않을 수 있습니다. 경매 전 잔여 배당 가능성을 반드시 분석하세요.</p>
+    </div>
+    <div class="info-box">
+      <p>ℹ️ 배당요구종기일은 법원경매정보 사이트(www.courtauction.go.kr)에서 해당 사건번호를 조회하면 확인할 수 있습니다.</p>
+    </div>
+  </div>
+
+  <\!-- 9. 다음에 확인할 사항 -->
+  <div class="section">
+    <h2>다음에 확인할 사항</h2>
+    <div class="next-links">
+      <a href="경매_11_배당요구신청.html">📋 배당요구 신청 방법</a>
+      <a href="경매_10_배당순위.html">📊 전체 배당순위 구조</a>
+      <a href="경매_09_잉여주의.html">⚖️ 잉여주의 — 배당 가능 여부 판단</a>
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <h2>이 내용이 해당되시나요?</h2>
+    <p>배당요구종기, 가압류 시점 등은 조금만 늦어도 권리를 잃을 수 있습니다. 첫 상담은 무료입니다.</p>
+    <div class="btn-row">
+      <a href="tel:0000000000" class="btn-tel">📞 전화 상담</a>
+      <a href="https://open.kakao.com/" class="btn-kako">💬 카카오톡 상담</a>
+    </div>
+  </div>
+</div>
+<footer>
+  <p>본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 자문이 아닙니다.</p>
+  <p>이 페이지는 2025년 현행 법령 기준으로 작성되었습니다. 법령 개정 시 내용이 달라질 수 있습니다.</p>
+</footer>
+</body>
+</html>

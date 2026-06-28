@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[내부용] 판결·소송의 종료 — 법무사 실무 어드민</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1a2e4a;--gold:#c8a96e;--ivory:#faf8f5;--ink:#2b2b2b;--muted:#5b5b5b;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--ivory);color:var(--ink);font-family:'Noto Sans KR',sans-serif;line-height:1.75;font-size:15px;padding-top:44px;}
+.top-bar{position:fixed;top:0;left:0;right:0;background:#2d2d2d;color:#fff;text-align:center;font-size:.82rem;font-weight:700;letter-spacing:.08em;padding:10px 16px;z-index:999;}
+.wrap{max-width:900px;margin:0 auto;padding:28px 20px 100px;}
+h1,h2,h3,h4{font-family:'Noto Serif KR',serif;color:var(--navy);line-height:1.4;}
+h1{font-size:1.7rem;margin-bottom:6px;}
+h3{font-size:1.08rem;margin:20px 0 6px;}
+h4{font-size:.98rem;margin:14px 0 4px;color:#2d4a7a;}
+p{margin:8px 0;}
+ul,ol{padding-left:1.4em;margin:8px 0;}
+li{margin:4px 0;}
+.summary-header{background:var(--navy);color:#fff;border-radius:10px;padding:22px 26px;margin-bottom:24px;}
+.summary-header h1{color:#fff;}
+.summary-header .sub{color:#c8c8c8;font-size:.88rem;margin-top:4px;}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+.badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:4px 14px;font-size:.8rem;font-weight:600;}
+.badge.gold{background:#c8a96e;color:#2b1a00;border-color:#c8a96e;}
+section{margin-top:32px;}
+h2.sec{font-size:1.25rem;padding-bottom:8px;border-bottom:2px solid var(--gold);display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+h2.sec .num{background:var(--navy);color:#fff;font-family:'Noto Sans KR';font-size:.85rem;width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;}
+.box{border-radius:8px;padding:16px 20px;margin:12px 0;}
+.box-scope{background:#fff3e8;border:2px solid #c05000;border-left:6px solid #c05000;}
+.box-issue{background:#f4f7fb;border:1px solid #2d4a7a;border-left:5px solid #2d4a7a;}
+.box-tip{background:#f0f8f0;border:1px solid #1a5c2e;border-left:5px solid #1a5c2e;}
+.box-memo{background:#fffdf5;border:2px dashed #c8a96e;border-radius:8px;padding:14px 18px;margin:12px 0;}
+.box-trap{background:#fff3e8;border:1px solid #c05000;border-left:5px solid #c05000;}
+.box h3{margin-top:0;font-size:1rem;}
+.tablebox{overflow-x:auto;margin:12px 0;}
+table{border-collapse:collapse;width:100%;background:#fff;font-size:.9rem;}
+th,td{border:1px solid #d9d3c7;padding:9px 12px;text-align:left;vertical-align:top;}
+th{background:var(--navy);color:#fff;font-weight:500;}
+tbody tr:nth-child(even){background:#f6f3ee;}
+td.val{font-weight:600;color:#2d4a7a;}
+td.warn{color:#c05000;font-weight:600;}
+td.ok{color:#1a5c2e;font-weight:600;}
+.steps{counter-reset:step;margin:12px 0;}
+.step{background:#fff;border:1px solid #e3ddd2;border-left:4px solid var(--gold);border-radius:8px;padding:14px 18px 14px 54px;position:relative;margin:10px 0;}
+.step::before{counter-increment:step;content:counter(step);position:absolute;left:14px;top:14px;width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;font-size:.88rem;display:flex;align-items:center;justify-content:center;}
+.step h4{margin:0 0 4px;}
+.ref-tags{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0;}
+.tag-law{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.76rem;font-weight:600;text-decoration:none;background:#eef2f8;color:#2d4a7a;border:1px solid #2d4a7a;}
+.tag-law:hover{background:#dce6f5;}
+.tag-case{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.76rem;font-weight:600;text-decoration:none;background:#f7f4f0;color:#5a3e28;border:1px solid #6b7280;}
+.checklist{list-style:none;padding:0;}
+.checklist li{padding:6px 0 6px 28px;position:relative;border-bottom:1px dashed #ece7dd;}
+.checklist li:last-child{border-bottom:none;}
+.checklist li::before{content:"☐";position:absolute;left:0;top:6px;color:var(--gold);font-size:1.1rem;}
+.footer-meta{margin-top:48px;border-top:2px solid #e3ddd2;padding-top:20px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
+.footer-meta .col{background:#fff;border:1px solid #e3ddd2;border-radius:8px;padding:14px 16px;}
+.footer-meta label{display:block;font-size:.76rem;color:var(--muted);font-weight:600;margin-bottom:4px;}
+.footer-meta .val{font-size:.88rem;color:var(--ink);}
+@media(max-width:600px){.footer-meta{grid-template-columns:1fr;}.badges{gap:6px;}}
+</style>
+</head>
+<body>
+<div class="top-bar">🔒 내부용 · 대외 배포 금지 — 법무사 사무소 전용</div>
+<div class="wrap">
+<div class="summary-header">
+  <h1>판결 &amp; 소송의 종료</h1>
+  <div class="sub">민사소송법 제198조, 제257조 이하 / 법무사 업무: 판결정본 수령·확인, 소취하서·청구포기·화해 관련 서면 작성·제출 대행</div>
+  <div class="badges">
+    <span class="badge">사건유형: 민사소송 종료 단계</span>
+    <span class="badge">관할: 수소법원</span>
+    <span class="badge">근거법령: 민사소송법 제198조~제270조</span>
+    <span class="badge">당사자: 원고·피고</span>
+    <span class="badge gold">핵심기간: 항소 2주 (불변기간), 소취하간주 주의</span>
+  </div>
+</div>
+<section>
+  <h2 class="sec"><span class="num">0</span>⚠️ 법무사 업무범위 · 수임 판단</h2>
+  <div class="box box-scope">
+    <h3>업무범위 한계</h3>
+    <ul>
+      <li><strong>가능:</strong> 판결정본 수령·열람 대행, 소취하서 작성·제출, 청구포기·인낙 조서 작성 대행, 화해권고결정 이의신청서 작성, 소송상 화해 조서 신청서 작성</li>
+      <li><strong>불가(변호사법 위반):</strong> 판결 결과에 대한 법적 의미 해석, 항소 여부 결정 조언, 강제집행 실시 방법 법률 조언</li>
+    </ul>
+    <h3 style="margin-top:14px;">수임 판단 포인트</h3>
+    <ul>
+      <li>판결정본 수령일 정확히 기록 — 항소기간 14일 기산점</li>
+      <li>소취하서 — 피고 답변서 제출 후에는 피고 동의 필요 (민소 §266②)</li>
+      <li>화해권고결정 — 고지일로부터 2주 이내 이의신청 없으면 확정</li>
+    </ul>
+    <h3 style="margin-top:14px;">받지 말아야 할 신호 체크리스트</h3>
+    <ul class="checklist">
+      <li>"판결이 불합리하지 않나요?" — 법률 판단 요구</li>
+      <li>"항소하면 이길 수 있나요?" — 법률 조언 요구</li>
+      <li>"강제집행은 어떻게 하나요?" — 집행절차 법률 조언 (집행 서류 작성 대행은 가능)</li>
+    </ul>
+  </div>
+</section>
+<section>
+  <h2 class="sec"><span class="num">1</span>핵심쟁점</h2>
+  <div class="box box-issue">
+    <h3>소송 종료 사유 분류</h3>
+    <div class="tablebox">
+      <table>
+        <thead><tr><th>종료 유형</th><th>사유</th><th>효력</th><th>주요 주의사항</th></tr></thead>
+        <tbody>
+          <tr><td class="val">종국판결</td><td>본안판결·소송판결</td><td>항소 2주 내 불복 가능</td><td class="warn">확정 시 기판력 발생</td></tr>
+          <tr><td class="val">소의 취하</td><td>원고의 소 취하</td><td>소송계속 소멸, 재소 가능</td><td class="warn">피고 답변서 제출 후 동의 필요</td></tr>
+          <tr><td class="val">소취하 간주</td><td>쌍방 불출석 1개월 내 기일신청 없음</td><td>소 취하로 간주</td><td class="warn">민소 §268 — 자동 간주, 별도 행위 불요</td></tr>
+          <tr><td class="val">청구의 포기·인낙</td><td>원고의 포기 또는 피고의 인낙</td><td>확정판결과 동일 효력</td><td>조서 작성 = 집행권원</td></tr>
+          <tr><td class="val">소송상 화해</td><td>기일에서 당사자 합의</td><td>확정판결과 동일 효력</td><td>화해 조서 = 집행권원</td></tr>
+          <tr><td class="val">화해권고결정</td><td>법원의 직권 결정</td><td>2주 내 이의 없으면 확정</td><td class="warn">기간 도과 시 취소 불가</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3 style="margin-top:14px;">판결의 확정과 기판력</h3>
+    <ul>
+      <li><strong>판결 확정:</strong> 상소기간 도과 또는 불상소 합의 → 기판력 발생 → 동일 소 재소 불가</li>
+      <li><strong>가집행선고:</strong> 본안 판결 확정 전이라도 강제집행 가능하게 하는 선고 (민소 §213)</li>
+      <li><strong>판결의 경정:</strong> 주문의 오기·계산 착오 등 경미한 잘못 정정 가능 (민소 §211)</li>
+    </ul>
+  </div>
+</section>
+<section>
+  <h2 class="sec"><span class="num">2</span>업무 절차 흐름</h2>
+  <div class="steps">
+    <div class="step">
+      <h4>판결선고기일 확인</h4>
+      <p>변론종결 후 선고기일 사건 조회로 확인. 선고기일에 의뢰인 출석 여부 확인 (출석 불요).</p>
+    </div>
+    <div class="step">
+      <h4>판결정본 수령 및 날짜 기록</h4>
+      <p>판결정본 수령일을 정확히 기록. <strong>항소기간 14일 기산점.</strong> 수령 즉시 의뢰인에게 사본 전달.</p>
+      <div class="box box-tip" style="margin-top:8px;">💡 <strong>실무 TIP:</strong> 판결정본이 공시송달로 발송된 경우 — 게시일로부터 2주 후 송달 효력, 항소기간 기산 주의</div>
+    </div>
+    <div class="step">
+      <h4>항소 여부 의뢰인 결정 안내</h4>
+      <p>항소기간 내 의뢰인이 항소 여부를 결정. 법무사는 항소장 작성·제출 가능. 승패 예측 조언 금지.</p>
+    </div>
+    <div class="step">
+      <h4>소취하서 작성 (필요 시)</h4>
+      <p>피고 답변서 제출 전 — 단독 취하 가능. 제출 후 — 피고 동의 필요. 취하서 작성 후 전자소송 제출.</p>
+    </div>
+    <div class="step">
+      <h4>화해권고결정 처리 (수령 시)</h4>
+      <p>고지일로부터 2주 내 이의신청서 제출 또는 수락. 이의하지 않으면 확정 — 집행권원 발생.</p>
+      <div class="box box-tip" style="margin-top:8px;">💡 <strong>실무 TIP:</strong> 화해권고결정 수령 즉시 의뢰인에게 기한(2주) 알림 필수 — 기간 도과 최대 위험 포인트</div>
+    </div>
+  </div>
+</section>
+<section>
+  <h2 class="sec"><span class="num">3</span>첨부서류 표</h2>
+  <div class="tablebox">
+    <table>
+      <thead><tr><th>서류명</th><th>필수/선택</th><th>법령근거</th><th>발급처</th><th>유효기간</th><th>실무 비고</th></tr></thead>
+      <tbody>
+        <tr><td class="val">소취하서</td><td>선택</td><td>민소 §266</td><td>작성</td><td>—</td><td>피고 답변서 제출 후 피고 동의서 첨부</td></tr>
+        <tr><td class="val">피고 동의서 (소취하)</td><td>조건부 필수</td><td>민소 §266②</td><td>피고 작성</td><td>—</td><td>피고 인감도장·인감증명서 또는 서명</td></tr>
+        <tr><td class="val">화해권고결정 이의신청서</td><td>선택</td><td>민소 §226④</td><td>작성</td><td>고지일 2주</td><td>기간 내 제출 — 불변기간</td></tr>
+        <tr><td class="val">청구포기·인낙 조서 정본</td><td>—</td><td>민소 §220</td><td>법원</td><td>—</td><td>집행권원으로 활용, 법원에서 발급</td></tr>
+        <tr><td class="val">판결정본</td><td>—</td><td>민소 §211</td><td>법원</td><td>—</td><td>항소기간 기산 기준, 집행권원</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section>
+  <h2 class="sec"><span class="num">4</span>비용 · 소가 산정</h2>
+  <div class="box box-issue">
+    <div class="tablebox">
+      <table>
+        <thead><tr><th>항목</th><th>금액/산식</th><th>비고</th></tr></thead>
+        <tbody>
+          <tr><td class="val">판결정본 수수료</td><td>장당 300원 (법원 규칙)</td><td>추가 발급 시 수수료 발생</td></tr>
+          <tr><td class="val">소취하 인지 환급</td><td>납부인지의 1/2 환급</td><td>민사소송비용법 §6 (소액사건 제외)</td></tr>
+          <tr><td class="val">집행문 부여 수수료</td><td>별도 (집행 단계)</td><td>법무사 집행 서류 작성 대행 가능</td></tr>
+          <tr><td class="val">법무사 서류작성 보수</td><td>대법원 법무사 보수표 적용</td><td>[계산 프로그램 입력란]</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<section>
+  <h2 class="sec"><span class="num">5</span>법령 · 판례 검증</h2>
+  <div class="box box-issue">
+    <h3>주요 근거 법령</h3>
+    <div class="ref-tags">
+      <a class="tag-law" href="https://www.law.go.kr/lsEfInfoR.do?lsiSeq=252393&joNo=019800" target="_blank">✅ 민소 §198 — 소송의 종료 원칙 (종국판결)</a>
+      <a class="tag-law" href="https://www.law.go.kr/lsEfInfoR.do?lsiSeq=252393&joNo=021100" target="_blank">✅ 민소 §211 — 판결의 경정</a>
+      <a class="tag-law" href="https://www.law.go.kr/lsEfInfoR.do?lsiSeq=252393&joNo=021300" target="_blank">✅ 민소 §213 — 가집행선고</a>
+      <a class="tag-law" href="https://www.law.go.kr/lsEfInfoR.do?lsiSeq=252393&joNo=022000" target="_blank">✅ 민소 §220 — 포기·인낙 조서의 효력</a>
+      <a class="tag-law" href="https://www.law.go.kr/lsEfInfoR.do?lsiSeq=252393&joNo=022600" target="_blank">✅ 민소 §226 — 화해권고결정</a>
+      <a class="tag-law" href="https://www.law.go.kr/lsEfInfoR.do?lsiSeq=252393&joNo=026600" target="_blank">✅ 민소 §266 — 소의 취하</a>
+      <a class="tag-law" href="https://www.law.go.kr/lsEfInfoR.do?lsiSeq=252393&joNo=026800" target="_blank">✅ 민소 §268 — 소취하 간주</a>
+    </div>
+    <h3 style="margin-top:14px;">주요 판례</h3>
+    <div class="ref-tags">
+      <span class="tag-case">대법원 2019. 2. 14. 선고 2015다255258 — 일신전속적 소송에서 당사자 사망 시 소송 종료</span>
+      <span class="tag-case">대법원 2012. 9. 27. 선고 2011다76747 — 소송종료선언 범위</span>
+      <span class="tag-case">대법원 1991. 5. 24. 선고 90다18036 — 상소심의 직권 소송종료선언 의무</span>
+    </div>
+  </div>
+</section>
+<section>
+  <h2 class="sec"><span class="num">6</span>법무사 실무 노하우</h2>
+  <div class="box box-tip">
+    <h3>💡 실무 TIP 모음</h3>
+    <ul>
+      <li>판결정본 수령일 = 항소기간 기산점 — 달력에 14일 후 날짜를 즉시 표시</li>
+      <li>화해권고결정 수령 즉시 의뢰인 연락 — 2주 이내 이의 여부 결정 요청</li>
+      <li>소취하 후 재소 가능하나 동일 소 재소 시 기판력 문제 없음 (취하는 기판력 미발생)</li>
+      <li>청구포기·인낙 조서는 집행권원 — 강제집행 신청 가능, 의뢰인에게 조서 정본 발급 안내</li>
+      <li>가집행선고부 판결 — 항소 중에도 강제집행 가능, 피고에게는 집행정지 신청 방법 안내 필요 (변호사 연결)</li>
+    </ul>
+  </div>
+  <div class="box-memo">
+    <strong>📝 현장 메모 [직접 추가]</strong>
+    <p style="color:#888;font-size:.88rem;margin-top:6px;">판결 수령 후 의뢰인 안내 체크리스트, 화해권고결정 처리 사례, 특이 상황 등을 기록하세요.</p>
+    <br><br><br>
+  </div>
+</section>
+<section>
+  <h2 class="sec"><span class="num">7</span>주의사항 &amp; 사고 · 실수 사례</h2>
+  <div class="box box-trap">
+    <h3>⚡ 기간도과 위험 (최고 위험 항목)</h3>
+    <ul>
+      <li><strong>항소기간 도과:</strong> 판결정본 수령일로부터 14일 — 불변기간, 추후보완 요건 매우 엄격</li>
+      <li><strong>화해권고결정 이의기간 도과:</strong> 고지일로부터 2주 — 도과 시 확정, 취소 불가</li>
+      <li><strong>소취하간주:</strong> 쌍방 불출석 후 1개월 내 기일지정신청 없으면 자동 취하간주</li>
+    </ul>
+    <h3 style="margin-top:14px;">흔한 실수</h3>
+    <ul>
+      <li>판결정본 수령일 미기록 — 항소기간 기산점 불명확</li>
+      <li>화해권고결정을 판결로 오해하여 이의신청 기간 놓침</li>
+      <li>소취하서 제출 시 피고 동의 없이 제출 — 효력 없음</li>
+      <li>가집행선고 의미 의뢰인에게 미설명 — 피고가 집행에 당황</li>
+    </ul>
+    <h3 style="margin-top:14px;">변호사법 경계선</h3>
+    <ul>
+      <li>"항소하면 이길 가능성이 있습니다" — 법률 조언에 해당</li>
+      <li>집행 방법 및 재산 추적 조언 — 강제집행 법률 조언 (서류 작성은 가능)</li>
+    </ul>
+  </div>
+</section>
+<div class="footer-meta">
+  <div class="col"><label>작성일</label><div class="val">2026. 6. 4.</div></div>
+  <div class="col"><label>근거기준일 (법령)</label><div class="val">민사소송법 (2024. 2. 13. 시행 기준)</div></div>
+  <div class="col"><label>최종검토자 메모</label><div class="val" style="color:#888;">[검토자 이름 · 날짜 기재]</div></div>
+</div>
+</div>
+</body>
+</html>

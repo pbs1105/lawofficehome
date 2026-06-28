@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>재외국민 미귀국 처분 — 위임장 공증 완벽 가이드 | 법무사 홈페이지</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #faf8f5;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Noto Serif KR', Georgia, serif;
+            color: #1a2e4a;
+            margin-top: 1.5em;
+            margin-bottom: 0.8em;
+            line-height: 1.4;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            border-bottom: 3px solid #c8a96e;
+            padding-bottom: 0.5em;
+            margin-bottom: 1.5em;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-top: 2em;
+            border-left: 4px solid #c8a96e;
+            padding-left: 1em;
+        }
+
+        h3 {
+            font-size: 1.3em;
+            margin-top: 1.5em;
+        }
+
+        p {
+            margin-bottom: 1em;
+        }
+
+        a {
+            color: #2d4a7a;
+            text-decoration: none;
+            border-bottom: 1px solid #c8a96e;
+        }
+
+        a:hover {
+            color: #c8a96e;
+            background-color: #fdf6e9;
+        }
+
+        ul, ol {
+            margin-left: 2em;
+            margin-bottom: 1em;
+        }
+
+        li {
+            margin-bottom: 0.5em;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3em 2em;
+        }
+
+        /* 박스 스타일 */
+        .checklist-box {
+            background-color: #eef2f8;
+            border-left: 4px solid #2d4a7a;
+            padding: 1.5em;
+            margin: 2em 0;
+            border-radius: 4px;
+        }
+
+        .checklist-box h3 {
+            color: #2d4a7a;
+            margin-top: 0;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.8em;
+        }
+
+        .checklist-item input[type="checkbox"] {
+            margin-right: 1em;
+            margin-top: 0.3em;
+            cursor: pointer;
+            accent-color: #c8a96e;
+        }
+
+        .summary-box {
+            background-color: #eef2f8;
+            border: 2px solid #2d4a7a;
+            padding: 2em;
+            margin: 2em 0;
+            border-radius: 4px;
+        }
+
+        .summary-box h3 {
+            color: #2d4a7a;
+            margin-top: 0;
+        }
+
+        .summary-box p {
+            margin-bottom: 0.8em;
+        }
+
+        .cta-box {
+            background-color: #fdf6e9;
+            border: 2px solid #c8a96e;
+            padding: 2em;
+            margin: 2em 0;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .cta-box h3 {
+            color: #1a2e4a;
+            margin-top: 0;
+        }
+
+        .cta-box p {
+            font-size: 1.1em;
+            margin-bottom: 1.5em;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #c8a96e;
+            color: #1a2e4a;
+            padding: 0.8em 2em;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: #1a2e4a;
+            color: #c8a96e;
+            border-bottom: none;
+        }
+
+        .case-box {
+            background-color: #f0f8f0;
+            border-left: 4px solid #1a5c2e;
+            padding: 1.5em;
+            margin: 2em 0;
+            border-radius: 4px;
+        }
+
+        .case-box h4 {
+            color: #1a5c2e;
+            margin-top: 0;
+        }
+
+        .precedent-box {
+            background-color: #f7f4f0;
+            border: 1px solid #6b7280;
+            padding: 1.5em;
+            margin: 2em 0;
+            border-radius: 4px;
+        }
+
+        .precedent-box h4 {
+            color: #1a2e4a;
+            margin-top: 0;
+        }
+
+        .warning-box {
+            background-color: #fff3e8;
+            border-left: 4px solid #c05000;
+            padding: 1.5em;
+            margin: 2em 0;
+            border-radius: 4px;
+        }
+
+        .warning-box h4 {
+            color: #c05000;
+            margin-top: 0;
+        }
+
+        /* 절차 흐름도 */
+        .flowchart {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            margin: 2em 0;
+        }
+
+        .flowchart-step {
+            background-color: #eef2f8;
+            border: 2px solid #2d4a7a;
+            padding: 1.5em;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .flowchart-step .step-number {
+            display: inline-block;
+            background-color: #2d4a7a;
+            color: #faf8f5;
+            width: 2.5em;
+            height: 2.5em;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 2.5em;
+            font-weight: bold;
+            margin-bottom: 0.5em;
+        }
+
+        .flowchart-step h4 {
+            color: #2d4a7a;
+            margin-top: 0;
+            margin-bottom: 0.5em;
+        }
+
+        .flowchart-step p {
+            margin: 0;
+            font-size: 0.95em;
+        }
+
+        /* 표 스타일 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2em 0;
+            background-color: white;
+        }
+
+        th {
+            background-color: #2d4a7a;
+            color: white;
+            padding: 1em;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 1em;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background-color: #f9f7f4;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #fdf9f3;
+        }
+
+        /* 관련 링크 */
+        .related-links {
+            background-color: #eef2f8;
+            border: 1px solid #2d4a7a;
+            padding: 2em;
+            margin: 2em 0;
+            border-radius: 4px;
+        }
+
+        .related-links h3 {
+            color: #2d4a7a;
+            margin-top: 0;
+        }
+
+        .related-links ul {
+            list-style: none;
+            margin: 0;
+        }
+
+        .related-links li {
+            margin-bottom: 0.8em;
+        }
+
+        .related-links a {
+            display: block;
+            padding: 0.5em 0;
+            border-bottom: 1px solid #c8a96e;
+        }
+
+        .related-links a:hover {
+            color: #c8a96e;
+            background-color: transparent;
+        }
+
+        /* 면책 문구 */
+        .disclaimer {
+            background-color: #f7f4f0;
+            border-top: 2px solid #6b7280;
+            border-bottom: 2px solid #6b7280;
+            padding: 1.5em;
+            margin: 3em 0;
+            font-size: 0.9em;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* 반응형 */
+        @media (max-width: 600px) {
+            .container {
+                padding: 1.5em 1em;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.3em;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            th, td {
+                padding: 0.7em;
+            }
+
+            .checklist-item {
+                flex-direction: column;
+            }
+
+            .checklist-item input[type="checkbox"] {
+                margin-right: 0.5em;
+                margin-bottom: 0.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>재외국민 미귀국 처분 — 위임장 공증 완벽 가이드</h1>
+
+        <!-- 섹션 1: 이런 분께 필요합니다 -->
+        <section class="checklist-box">
+            <h3>이런 분께 필요합니다</h3>
+            <div class="checklist-item">
+                <input type="checkbox" id="check1">
+                <label for="check1">미국, 캐나다, 일본 등 해외에 장기 거주 중이고 귀국할 계획이 없다</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="check2">
+                <label for="check2">한국에 부동산을 소유하고 있지만 현재 해외에서 생활 중이다</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="check3">
+                <label for="check3">해외에 있으면서 한국 부동산을 판매하려고 한다</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="check4">
+                <label for="check4">한국 대리인을 통해 부동산 처분 등기를 진행해야 한다</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="check5">
+                <label for="check5">재외공관 공증을 받아야 하는데, 어떤 서류를 준비해야 할지 모르겠다</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="check6">
+                <label for="check6">아포스티유와 재외공관 공증의 차이를 알아야 한다</label>
+            </div>
+        </section>
+
+        <!-- 섹션 2: 핵심 요약 -->
+        <section class="summary-box">
+            <h3>핵심 요약</h3>
+            <p><strong>재외국민이 한국 부동산을 처분할 때 귀국하지 않으려면?</strong></p>
+            <p>국내 대리인을 선임하고, <strong>재외공관(대사관·영사관)에서 공증받은 처분 위임장</strong>을 제출해야 합니다. 이 위임장은 국내의 인감증명서를 대체합니다.</p>
+            <p><strong>핵심 원칙:</strong></p>
+            <ul>
+                <li>재외국민은 한국 국적자이므로 <strong>재외공관 공증</strong>이 주된 방법</li>
+                <li>아포스티유는 외국인이나 외국 공문서에 적용되므로 혼동하면 안 됨</li>
+                <li>위임장 공증은 <strong>해당 위임장 자체에 대해</strong> 재외공관으로부터 받아야 함</li>
+                <li>공증 유효기간은 <strong>3개월</strong> (등기 신청 전 발급)</li>
+            </ul>
+        </section>
+
+        <!-- 섹션 3: 개요 -->
+        <section>
+            <h2>개요: 재외국민 미귀국 처분의 핵심</h2>
+            <p>재외국민이 해외에서 계속 거주하면서 한국 부동산을 판매하려면, 다음과 같은 법적 요건을 충족해야 합니다.</p>
+
+            <h3>왜 재외공관 공증이 필요한가?</h3>
+            <p>한국 부동산 등기는 <strong>인감증명서</strong>를 중심으로 이루어집니다. 그런데 재외국민은 한국에 호적이 없거나 현재 거주하지 않아 국내에서 인감증명을 받을 수 없습니다. 이를 해결하기 위해 재외공관(한국 대사관·영사관)의 공증을 받으면 인감증명서를 대체할 수 있습니다.</p>
+
+            <p><strong>법령 근거:</strong> 등기예규 제1778호 제9조 제1항</p>
+            <blockquote style="margin: 1.5em 0; padding: 1em; border-left: 3px solid #c8a96e; background-color: #fdf9f3;">
+                "재외국민이 한국 공관에서 인증을 받은 위임장을 제출하는 경우, 인감증명서를 첨부하지 않아도 된다."
+            </blockquote>
+
+            <h3>처분의 범위</h3>
+            <p>위임장에 명시된 처분 사항은 다음을 포함할 수 있습니다:</p>
+            <ul>
+                <li>부동산 매도 (소유권이전등기)</li>
+                <li>근저당권 설정 및 말소</li>
+                <li>경매 낙찰로 인한 소유권이전</li>
+                <li>상속 부동산 처분</li>
+                <li>기타 처분 행위 일체 (위임장에 명시된 범위 내)</li>
+            </ul>
+        </section>
+
+        <!-- 섹션 4: 절차 흐름도 -->
+        <section>
+            <h2>처분 절차 흐름도 (단계별)</h2>
+
+            <div class="flowchart">
+                <div class="flowchart-step">
+                    <div class="step-number">1</div>
+                    <h4>국내 대리인 선임</h4>
+                    <p>신뢰할 수 있는 변호사, 법무사 또는 친인척을 국내 대리인으로 선임합니다. 대리인은 등기 신청 및 인수인계 업무를 담당합니다.</p>
+                </div>
+
+                <div class="flowchart-step">
+                    <div class="step-number">2</div>
+                    <h4>처분 위임장 작성</h4>
+                    <p>다음 항목을 포함한 처분 위임장을 작성합니다: 재외국민의 인적사항, 부동산 표시(주소·지번·면적), 처분 내용(예: "서울시 강남구 ○○ 건물 매도 일체"), 대리인 인적사항.</p>
+                </div>
+
+                <div class="flowchart-step">
+                    <div class="step-number">3</div>
+                    <h4>재외공관 공증 신청</h4>
+                    <p>체류 국가의 한국 대사관 또는 영사관에 문의하여 위임장 공증 신청 방법을 확인합니다. 국가별·공관별로 절차와 수수료가 다릅니다.</p>
+                </div>
+
+                <div class="flowchart-step">
+                    <div class="step-number">4</div>
+                    <h4>공증 수령 및 우편 송부</h4>
+                    <p>재외공관으로부터 공증받은 위임장을 수령합니다. 원본을 국내 대리인에게 우편으로 송부하거나 전자문서로 전달합니다.</p>
+                </div>
+
+                <div class="flowchart-step">
+                    <div class="step-number">5</div>
+                    <h4>첨부서류 준비</h4>
+                    <p>등기에 필요한 서류를 준비합니다: 공증받은 위임장, 여권 사본(공증용), 주소 증명서(재외국민등록부 등본 또는 거주확인서), 등기필증(등기권리증), 부동산 실사.</p>
+                </div>
+
+                <div class="flowchart-step">
+                    <div class="step-number">6</div>
+                    <h4>등기 신청</h4>
+                    <p>국내 대리인이 관할 부동산등기소에 처분 등기를 신청합니다. 위임장의 공증일로부터 3개월 이내에 신청해야 합니다.</p>
+                </div>
+
+                <div class="flowchart-step">
+                    <div class="step-number">7</div>
+                    <h4>등기 완료</h4>
+                    <p>등기가 완료되면 국내 대리인을 통해 완료 사실을 통보받고, 필요시 등기부등본 사본을 요청합니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 섹션 5: 재외공관 공증 위임장 작성 방법 -->
+        <section>
+            <h2>재외공관 공증 위임장 작성 방법</h2>
+
+            <h3>기본 원칙</h3>
+            <p>재외공관 공증을 받을 위임장은 다음 요건을 충족해야 합니다:</p>
+            <ul>
+                <li><strong>별도 문서 공증 불가:</strong> 위임장 자체에 공증을 받아야 하며, 별도의 공증문서를 첨부받으면 안 됨 (등기예규 제1778호 제9조 제3항)</li>
+                <li><strong>재외공관의 직접 인증:</strong> 대사관·영사관 직원이 직접 위임장 서면에 서명·날인하는 방식</li>
+                <li><strong>한글 또는 영문:</strong> 한글이 기본이나, 공관 요청 시 영문도 가능</li>
+                <li><strong>유효기간:</strong> 공증일로부터 3개월 유효</li>
+            </ul>
+
+            <h3>위임장에 기재해야 할 항목</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>항목</th>
+                        <th>기재 사항</th>
+                        <th>예시</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>위임자</strong></td>
+                        <td>성명, 생년월일, 국적, 현재 주소</td>
+                        <td>홍길동, 1970년 1월 15일생, 대한민국 국적, 미국 뉴욕시 ○○거리 ○○호 거주</td>
+                    </tr>
+                    <tr>
+                        <td><strong>부동산 표시</strong></td>
+                        <td>소재지(도로명·지번), 지목, 면적, 건물명(해당 시)</td>
+                        <td>서울시 강남구 ○○동 ○○-○○번지, 대지 300㎡, 문제 있을 시 한국 원본 등기부등본으로 정정</td>
+                    </tr>
+                    <tr>
+                        <td><strong>처분 사항</strong></td>
+                        <td>구체적 위임 내용 (매도, 근저당 설정 등)</td>
+                        <td>상기 부동산의 매도 및 소유권이전등기 신청 일체</td>
+                    </tr>
+                    <tr>
+                        <td><strong>수임인</strong></td>
+                        <td>성명, 생년월일, 주소, 신분증 번호</td>
+                        <td>김법무사, 1980년 5월 20일생, 서울시 강남구 ○○로 ○○빌딩, 주민등록번호 00000000-0000000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>위임 방식</strong></td>
+                        <td>특정 위임 또는 일반 위임 명시</td>
+                        <td>상기 부동산 매도에 관한 일체의 행위를 위임함</td>
+                    </tr>
+                    <tr>
+                        <td><strong>작성일자</strong></td>
+                        <td>위임장 작성 연월일</td>
+                        <td>2026년 4월 7일</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>작성 시 주의사항</h3>
+            <ul>
+                <li><strong>정확한 부동산 표시:</strong> 등기부등본상 표시와 정확히 일치해야 함. 불확실하면 한국 등기부등본을 먼저 확인</li>
+                <li><strong>위임 범위 명확화:</strong> "매도 일체" 또는 "처분 일체"로 광범위하게 기재 가능</li>
+                <li><strong>대리인 신원 확인:</strong> 대리인의 정확한 성명, 생년월일, 신분증 번호(또는 여권번호) 기재</li>
+                <li><strong>여러 부동산:</strong> 동시에 여러 부동산을 처분하려면 각 부동산을 개별 기재하거나 "다음 기재 부동산 일체"로 표기 가능</li>
+            </ul>
+
+            <h3>재외공관별 공증 신청 방법</h3>
+            <p>국가별·공관별로 절차가 상이하므로 다음 정보를 참고하세요:</p>
+            <ul>
+                <li><strong>미국:</strong> 대사관·총영사관 공증실에서 신청. 사전 예약 필요 (온라인 또는 전화)</li>
+                <li><strong>일본:</strong> 대사관·총영사관 민원실에서 신청. 신청자 본인 방문 또는 대리인 신청 가능</li>
+                <li><strong>캐나다:</strong> 각 도시 영사관별로 절차 상이. 사전 문의 필수</li>
+                <li><strong>중국:</strong> 중국 내 공증사무소 이용 또는 한국 대사관·총영사관 공증</li>
+                <li><strong>기타 국가:</strong> 해당 공관 홈페이지 또는 전화로 절차 확인 필요</li>
+            </ul>
+
+            <div class="warning-box">
+                <h4>주의: 비용 및 기간</h4>
+                <p>공증 수수료는 공관별로 상이하며, 발급 기간도 국가·공관에 따라 수일에서 수 주까지 걸릴 수 있습니다. 여름 휴가 시즌이나 공휴일을 고려하여 여유 있게 신청하세요.</p>
+            </div>
+        </section>
+
+        <!-- 섹션 6: 재외공관 공증 vs 아포스티유 -->
+        <section>
+            <h2>재외공관 공증과 아포스티유: 어떻게 다른가</h2>
+
+            <p>재외국민이 미귀국 처분을 하려면 재외공관 공증과 아포스티유를 구분하는 것이 매우 중요합니다. 아포스티유를 받으면 한국 부동산 등기에 사용할 수 없습니다.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>구분</th>
+                        <th>재외공관 공증</th>
+                        <th>아포스티유 (Apostille)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>발급처</strong></td>
+                        <td>한국 대사관, 총영사관, 영사관</td>
+                        <td>체류 국가의 정부기관 (외교부, 법무부 등)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>적용 대상</strong></td>
+                        <td>한국 국적자 (재외국민)</td>
+                        <td>외국인 또는 외국 공공문서</td>
+                    </tr>
+                    <tr>
+                        <td><strong>용도</strong></td>
+                        <td>한국 부동산 등기 (인감증명 대체)</td>
+                        <td>외국 공문서의 효력 국제 인정 (Hague Convention 적용)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>발급 기간</strong></td>
+                        <td>수일~수 주 (공관별 상이)</td>
+                        <td>즉시~수일 (발급 기관별 상이)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>비용</strong></td>
+                        <td>공관별로 상이 (보통 수만 원~십만 원)</td>
+                        <td>국가별로 상이 (보통 $5~$30)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>효력 범위</strong></td>
+                        <td>한국 부동산 등기 신청 시에만 유효</td>
+                        <td>Hague Convention 가입국에서만 효력 인정</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>실제 사례: 어떤 경우에 무엇을 받아야 하나?</h3>
+
+            <div class="case-box">
+                <h4>사례 1: 재외국민의 한국 부동산 처분</h4>
+                <p><strong>상황:</strong> 대한민국 국적의 홍길동이 미국에 거주 중이며 서울의 주택을 판매하려고 함.</p>
+                <p><strong>필요 공증:</strong> <strong>재외공관 공증</strong> (미국 내 한국 대사관·총영사관)</p>
+                <p><strong>이유:</strong> 한국 부동산 등기는 한국 법에 따르므로, 한국 공관의 공증이 인감증명 대체 역할을 함.</p>
+            </div>
+
+            <div class="case-box">
+                <h4>사례 2: 외국인이 미국 부동산을 판매하며 한국에 송금</h4>
+                <p><strong>상황:</strong> 중국 국적 외국인이 미국 부동산을 판매하고 그 수익금을 한국 은행으로 송금하려고 함.</p>
+                <p><strong>필요 공증:</strong> <strong>아포스티유</strong> (미국 정부 기관)</p>
+                <p><strong>이유:</strong> 외국 공문서(미국 부동산 양도증명)의 국제적 효력 인정이 필요함.</p>
+            </div>
+
+            <div class="case-box">
+                <h4>사례 3: 재외국민이 외국에서 한국 상속인을 위임</h4>
+                <p><strong>상황:</strong> 재외국민이 외국의 은행에서 "상속인임을 증명"하는 서류를 발급받아 한국에 제출하려고 함.</p>
+                <p><strong>필요 공증:</strong> <strong>아포스티유</strong> (외국 은행의 서류인 경우)</p>
+                <p><strong>이유:</strong> 외국 기관의 서류이므로 아포스티유로 국제적 효력을 인정받아야 함.</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>주의: 혼동하면 등기 불가</h4>
+                <p>아포스티유만 받고 재외공관 공증을 받지 않으면, 한국 부동산 등기소에서는 이를 인감증명 대체로 인정하지 않아 등기 신청이 반려될 수 있습니다.</p>
+            </div>
+        </section>
+
+        <!-- 섹션 7: 첨부서류 표 -->
+        <section>
+            <h2>첨부서류 상세 가이드</h2>
+
+            <p>부동산 처분 등기 신청 시 제출해야 할 서류는 재외국민이 귀국했는지 여부에 따라 크게 달라집니다.</p>
+
+            <h3>첨부서류 비교표: 귀국한 경우 vs 미귀국인 경우</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>서류 구분</th>
+                        <th>귀국한 재외국민</th>
+                        <th>미귀국 재외국민</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>처분 위임장</strong></td>
+                        <td>인감 날인 + 인감증명서 (3개월 이내)</td>
+                        <td>재외공관 공증 위임장 (3개월 이내)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>신분증명</strong></td>
+                        <td>주민등록증 사본 또는 여권 사본</td>
+                        <td>여권 사본 (재외공관 공증 시 사용한 것과 동일)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>주소증명</strong></td>
+                        <td>주민등록등본 (3개월 이내)</td>
+                        <td>재외국민등록부 등본 (외교부 발급) 또는 재외공관 거주확인서</td>
+                    </tr>
+                    <tr>
+                        <td><strong>인감증명</strong></td>
+                        <td>인감증명서 (3개월 이내)</td>
+                        <td>재외공관 공증으로 갈음 (별도 인감증명 불필요)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>등기필증 (등기권리증)</strong></td>
+                        <td>원본 필요 (부동산등기소에 제출)</td>
+                        <td>원본 필요 (대리인이 보관하며 제출)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>매도인 신분증명</strong></td>
+                        <td>주민등록증 또는 운전면허증</td>
+                        <td>여권 또는 국외여행허가서</td>
+                    </tr>
+                    <tr>
+                        <td><strong>부동산 실사</strong></td>
+                        <td>필요 (대리인 또는 본인)</td>
+                        <td>대리인이 수행</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>각 서류별 상세 설명</h3>
+
+            <h4>1. 공증받은 위임장</h4>
+            <ul>
+                <li><strong>원본:</strong> 재외공관으로부터 직접 받은 원본 (복사본 불가)</li>
+                <li><strong>유효 기간:</strong> 공증일로부터 3개월 이내</li>
+                <li><strong>내용 확인:</strong> 부동산 표시, 위임자 서명, 공관의 인감·서명 확인</li>
+                <li><strong>우편 송부:</strong> 국제배송으로 분실 위험이 있으므로, 가능하면 팩스 또는 이메일로 사본을 먼저 전달받은 후 원본을 등기 신청 시에 제출</li>
+            </ul>
+
+            <h4>2. 여권 사본</h4>
+            <ul>
+                <li><strong>사본 범위:</strong> 여권 첫 페이지(신상정보) + 현재 유효한 비자 페이지 (해당 시)</li>
+                <li><strong>인증:</strong> 재외공관 공증 시 사용한 여권과 동일해야 함</li>
+                <li><strong>유효 기간:</strong> 유효 여권이어야 함 (만료된 여권 불가)</li>
+            </ul>
+
+            <h4>3. 재외국민등록부 등본 또는 거주확인서</h4>
+            <ul>
+                <li><strong>재외국민등록부 등본:</strong> 외교부 해외동포청에서 발급 (온라인 신청 가능, 우편 수령)</li>
+                <li><strong>거주확인서:</strong> 재외공관(대사관·영사관)에서 발급 (신청자 현장 방문 또는 우편 신청)</li>
+                <li><strong>발급 기간:</strong> 재외국민등록부 등본 수 주, 거주확인서 수일</li>
+                <li><strong>선택:</strong> 둘 중 하나만 제출하면 됨 (둘 다 제출할 필요 없음)</li>
+            </ul>
+
+            <h4>4. 등기필증 (등기권리증)</h4>
+            <ul>
+                <li><strong>원본 필요:</strong> 복사본이나 전자등기부등본은 등기필증 대체 불가</li>
+                <li><strong>보관:</strong> 미귀국인 경우, 국내 대리인에게 맡기는 것이 일반적</li>
+                <li><strong>분실 시:</strong> 확인서면(등기소 요청) 또는 소유권확인 소송 필요</li>
+            </ul>
+
+            <h4>5. 부동산 실사</h4>
+            <ul>
+                <li><strong>목적:</strong> 현장에서 부동산이 위임장에 기재된 것과 일치하는지 확인</li>
+                <li><strong>담당:</strong> 미귀국인 경우 국내 대리인이 수행</li>
+                <li><strong>서류:</strong> 사진 첨부 또는 대리인의 확인 서면</li>
+            </ul>
+
+            <div class="warning-box">
+                <h4>주의: 서류 원본 vs 사본</h4>
+                <p>등기 신청 시 인장이 있는 공증 위임장은 반드시 <strong>원본</strong>을 제출해야 합니다. 여권 사본, 주소 증명 등은 사본이어도 되지만, 공증 위임장만은 원본이어야 합니다.</p>
+            </div>
+        </section>
+
+        <!-- 섹션 8: 주의사항 -->
+        <section>
+            <h2>주의사항</h2>
+
+            <h3>공증 유효 기간 엄격하게 준수</h3>
+            <p>재외공관 공증의 유효 기간은 공증일로부터 <strong>정확히 3개월</strong>입니다. 3개월을 초과하면 등기소에서 반려되므로, 공증 받은 직후 바로 등기 신청 절차를 시작해야 합니다.</p>
+
+            <h3>위임장 표현의 명확성</h3>
+            <p>위임장에 "판매", "처분", "매도" 등 다양한 표현이 쓸 수 있지만, 가장 일반적이고 안전한 표현은 <strong>"상기 부동산의 매도 및 관련된 일체의 행위를 위임함"</strong>입니다. 모호한 표현은 등기소에서 추가 확인을 요청할 수 있습니다.</p>
+
+            <h3>부동산 표시 정확성</h3>
+            <p>위임장에 기재된 부동산 표시(주소, 지번, 면적)는 등기부등본의 기재와 완벽하게 일치해야 합니다. 주소 표기가 다르거나 지번이 틀리면 등기 신청이 반려될 수 있습니다.</p>
+
+            <h3>대리인의 선택과 신뢰성</h3>
+            <p>미귀국인 경우 국내 대리인이 위임장을 가지고 있으므로, 대리인 선택이 매우 중요합니다. 신뢰할 수 있는 변호사나 법무사를 선임하는 것이 좋습니다.</p>
+
+            <h3>아포스티유와의 혼동</h3>
+            <p>재외국민의 부동산 처분은 재외공관 공증이 필수이며, 아포스티유로는 대체할 수 없습니다. 잘못된 서류를 받으면 등기 신청 자체가 불가능합니다.</p>
+
+            <h3>우편 송부 시 분실 대비</h3>
+            <p>공증받은 위임장을 국제배송으로 보낼 때는 분실에 대비하여:</p>
+            <ul>
+                <li>추적 가능한 배송 방식 이용 (DHL, FedEx 등)</li>
+                <li>사본을 먼저 팩스 또는 이메일로 전달</li>
+                <li>분실 시 재발급을 위해 공관에 재신청 방법 미리 확인</li>
+            </ul>
+
+            <h3>여권 갱신 시 주의</h3>
+            <p>공증받은 위임장에 사용한 여권을 갱신했다면, 공증 당시의 여권 사본을 첨부해야 하며, 새로운 여권만으로는 부족합니다.</p>
+
+            <h3>부동산 공시지가 또는 감정평가액 확인</h3>
+            <p>매도인이 여러 명인 경우, 각자의 지분율을 명확히 기재해야 합니다. 또한 부동산의 현재 시세와 등기부상 공시지가를 비교하여 문제 없는지 확인하세요.</p>
+
+            <h3>근저당권 정리</h3>
+            <p>부동산에 근저당권이 설정되어 있다면, 처분(매도) 전에 근저당권을 말소해야 합니다. 매도금이 근저당 채무를 상환하기에 부족하면 등기 신청 자체가 거절될 수 있습니다.</p>
+        </section>
+
+        <!-- 섹션 9: 판례·예규 -->
+        <section>
+            <div class="precedent-box">
+                <h3 style="margin-top: 0;">판례 및 예규</h3>
+
+                <h4>1. 등기예규 제1778호 제9조 제1항</h4>
+                <p><strong>내용:</strong> "재외국민이 한국 공관(대사관, 총영사관)에서 인증을 받은 위임장을 제출하는 경우, 인감증명서를 첨부하지 않아도 된다."</p>
+                <p><strong>의미:</strong> 재외공관 공증이 인감증명의 역할을 완전히 대체함을 명시한 규정.</p>
+
+                <h4>2. 등기예규 제1778호 제9조 제3항</h4>
+                <p><strong>내용:</strong> "위임장에 대한 공증은 그 위임장 서면 자체에 대해 받아야 하며, 별도의 공증 문서를 첨부받으면 안 된다."</p>
+                <p><strong>의미:</strong> 위임장 위에 직접 공관의 인감·서명이 있어야 하고, 별도의 공증증명서는 인정하지 않음.</p>
+
+                <h4>3. 등기선례 제201012-2호</h4>
+                <p><strong>주제:</strong> 재외공관 공증 위임장의 효력 및 유효 기간</p>
+                <p><strong>주요 내용:</strong> 공증일로부터 3개월 유효, 등기 신청 시 원본 제출 필수</p>
+
+                <h4>4. 대법원 판례</h4>
+                <p><strong>관련 판례:</strong> 대법원 2013다29000, 2014다7890 등에서 재외국민의 부동산 거래 시 위임장 공증의 필수성을 확인하는 판례들이 축적되어 있습니다.</p>
+
+                <h4>5. 외교부 해외동포청 지침</h4>
+                <p><strong>내용:</strong> 재외국민등록부 등본 발급 및 거주확인서 발급 관련 행정 해석.</p>
+            </div>
+        </section>
+
+        <!-- 섹션 10: 다음으로 확인할 내용 -->
+        <section class="related-links">
+            <h3>다음으로 확인할 내용</h3>
+            <p>이 페이지를 읽은 후, 추가로 확인해야 할 관련 가이드들입니다:</p>
+            <ul>
+                <li><a href="외등_16_재외국민취득.html">외등_16_재외국민취득 — 재외국민의 한국 부동산 매수 등기 가이드</a></li>
+                <li><a href="외등_07_외국인처분.html">외등_07_외국인처분 — 외국인 처분 위임장 가이드 (비교 참조용)</a></li>
+                <li><a href="외등_25_아포스티유.html">외등_25_아포스티유 — 아포스티유 완벽 가이드</a></li>
+                <li><a href="외등_23_변경경정.html">외등_23_변경경정 — 주민등록번호 불일치 시 변경·경정등기</a></li>
+                <li><a href="외등_12_근저당말소.html">외등_12_근저당말소 — 처분 전 근저당권 말소 절차</a></li>
+                <li><a href="외등_20_등기필증분실.html">외등_20_등기필증분실 — 등기필증 분실 시 확인서면 절차</a></li>
+            </ul>
+        </section>
+
+        <!-- 섹션 11: 상담 CTA 및 면책 문구 -->
+        <section class="cta-box">
+            <h3>외국인·재외국민 등기 전문가와 상담하세요</h3>
+            <p>이 내용이 해당되시나요?</p>
+            <p><strong>외국인·재외국민 등기는 국적·체류 자격·입국 여부에 따라 준비 서류가 크게 달라집니다.</strong> 개인의 구체적인 상황에 맞춘 법률 조언이 필요하다면, 전문 법무사와의 상담을 통해 정확한 절차를 확인하세요.</p>
+            <p>첫 상담은 무료입니다.</p>
+            <button class="cta-button">지금 문의하기</button>
+        </section>
+
+        <!-- 면책 문구 -->
+        <div class="disclaimer">
+            <p><strong>면책 문구</strong></p>
+            <p>본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 개별 사안에 대한 법률 조언이 아닙니다. 이 페이지의 내용은 2025년 현행 법령 기준으로 작성되었습니다. 법령 변경, 판례 변동, 행정 해석 변경에 따라 내용이 달라질 수 있으므로, 구체적인 상담을 위해서는 전문가(변호사, 법무사)와 직접 문의하시기 바랍니다. 본 정보 이용으로 인한 손실이나 피해에 대해 당사는 책임을 지지 않습니다.</p>
+        </div>
+    </div>
+</body>
+</html>

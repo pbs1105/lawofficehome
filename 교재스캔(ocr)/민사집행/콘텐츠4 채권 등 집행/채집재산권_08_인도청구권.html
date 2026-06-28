@@ -1,0 +1,301 @@
+<\!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>유체동산 인도청구권 집행 — 물건을 받을 권리도 집행 대상</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --navy: #1a2e4a; --gold: #c8a96e; --bg: #faf8f5; --text: #2c2c2c;
+            --summary-bg: #eef2f8; --summary-bd: #2d4a7a;
+            --cta-bg: #fdf6e9; --cta-bd: #c8a96e;
+            --case-bg: #f0f8f0; --case-bd: #1a5c2e;
+            --ruling-bg: #f7f4f0; --ruling-bd: #6b7280;
+            --warn-bg: #fff3e8; --warn-bd: #c05000;
+        }
+        body { font-family: 'Noto Sans KR', sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; font-size: 16px; }
+        .container { max-width: 820px; margin: 0 auto; padding: 0 20px; }
+        header { background: linear-gradient(135deg, var(--navy) 0%, #2a3f5a 100%); color: white; padding: 48px 24px 40px; text-align: center; }
+        h1 { font-family: 'Noto Serif KR', serif; font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 700; margin-bottom: 12px; }
+        .subtitle { font-size: 15px; color: var(--gold); font-weight: 500; }
+        h2 { font-family: 'Noto Serif KR', serif; font-size: 1.35rem; font-weight: 700; color: var(--navy); border-bottom: 2px solid var(--gold); padding-bottom: 10px; margin: 48px 0 20px 0; }
+        h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin: 28px 0 12px 0; }
+        .step-tag { background: var(--navy); color: var(--gold); font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px; margin-right: 8px; }
+        section { padding: 48px 0; border-bottom: 1px solid #e4ddd4; }
+        section:last-child { border-bottom: none; }
+        .checklist { background: #fff; border: 1px solid #ddd6ce; border-radius: 8px; padding: 24px 28px; margin: 20px 0; }
+        .checklist li { list-style: none; padding: 8px 0 8px 30px; position: relative; }
+        .checklist li:before { content: "✓"; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+        .summary-box { background: var(--summary-bg); border-left: 4px solid var(--summary-bd); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 20px 0; }
+        .summary-box .label { font-size: 11px; font-weight: 700; color: var(--summary-bd); letter-spacing: 0.08em; margin-bottom: 8px; }
+        .summary-box li { list-style: none; padding: 6px 0 6px 20px; position: relative; }
+        .summary-box li:before { content: "▶"; position: absolute; left: 0; color: var(--summary-bd); font-size: 10px; }
+        .case-box { background: var(--case-bg); border-left: 4px solid var(--case-bd); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 20px 0; }
+        .case-box .case-title { font-size: 13px; font-weight: 700; color: var(--case-bd); margin-bottom: 8px; }
+        .case-box p { font-size: 14.5px; margin: 8px 0; }
+        .ruling-box { background: var(--ruling-bg); border-left: 4px solid var(--ruling-bd); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 20px 0; }
+        .ruling-box .ruling-header { font-size: 13px; font-weight: 700; color: #444; margin-bottom: 8px; }
+        .ruling-box p { font-size: 14.5px; margin: 8px 0; }
+        .warn-box { background: var(--warn-bg); border-left: 4px solid var(--warn-bd); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 20px 0; }
+        .warn-box .warn-title { font-size: 13px; font-weight: 700; color: var(--warn-bd); margin-bottom: 8px; }
+        .warn-box p { font-size: 14.5px; margin: 8px 0; }
+        .qna-item { border: 1px solid #e0d9d0; border-radius: 8px; overflow: hidden; margin: 12px 0; }
+        .qna-q { background: #fff; padding: 16px 20px; font-weight: 700; font-size: 15px; color: var(--navy); }
+        .qna-a { background: #faf8f5; padding: 16px 20px 16px 48px; font-size: 14.5px; border-top: 1px solid #e0d9d0; }
+        .qna-a .disclaimer { font-size: 12px; color: #888; margin-top: 10px; border-top: 1px dashed #ccc; padding-top: 8px; }
+        .table-wrap { overflow-x: auto; margin: 20px 0; }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 480px; }
+        thead th { background: var(--navy); color: #fff; padding: 11px 14px; font-size: 13px; }
+        tbody td { padding: 10px 14px; border-bottom: 1px solid #e4ddd4; line-height: 1.6; }
+        tbody tr:nth-child(even) { background: #f5f2ee; }
+        tbody tr:hover { background: #eee8e0; }
+        .next-links { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin: 20px 0; }
+        .next-link { background: #fff; border: 1px solid #ddd6ce; border-radius: 8px; padding: 16px 18px; text-decoration: none; color: var(--text); transition: all 0.3s; display: block; }
+        .next-link:hover { border-color: var(--gold); box-shadow: 0 2px 8px rgba(200, 169, 110, 0.15); }
+        .next-link .arrow { color: var(--gold); font-size: 18px; font-weight: 700; }
+        .cta-box { background: var(--cta-bg); border: 1px solid var(--cta-bd); border-radius: 10px; padding: 32px 28px; text-align: center; margin: 40px 0 0 0; }
+        .cta-box h3 { margin: 0 0 12px 0; }
+        .cta-btn { background: var(--navy); color: #fff; padding: 14px 36px; border-radius: 6px; font-size: 15px; font-weight: 700; text-decoration: none; display: inline-block; margin-top: 12px; transition: background 0.3s; }
+        .cta-btn:hover { background: #26426a; }
+        .disclaimer-section { background: #f2f0ec; padding: 28px; border-radius: 8px; margin: 40px 0 0 0; }
+        .disclaimer-section p { font-size: 12px; color: #666; line-height: 1.8; margin: 8px 0; }
+        p { margin: 12px 0; }
+        ul { margin: 12px 0; padding-left: 20px; }
+        li { margin: 6px 0; }
+    .law-tag {
+      display: inline-block; background: #e8edf5; color: #2d4a7a;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #b0c4de; cursor: pointer; transition: background 0.15s;
+    }
+    .law-tag:hover { background: #c8daf7; color: #1a2e4a; }
+    .case-tag {
+      display: inline-block; background: #f0ece4; color: #5a4a30;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #c8a96e; cursor: pointer; transition: background 0.15s;
+    }
+    .case-tag:hover { background: #f5dfa8; color: #3a2a10; }
+  </style>
+</head>
+<body>
+    <header>
+        <h1>유체동산 인도청구권 집행</h1>
+        <p class="subtitle">물건을 받을 권리도 집행 대상</p>
+    </header>
+    <div class="container">
+        <section>
+            <h2>이런 분께 필요합니다</h2>
+            <div class="checklist">
+                <li>채무자가 제3자에게 물건 반환을 청구할 권리를 가지고 있는 경우</li>
+                <li>채무자가 다른 사람에게 빌려준 물건의 반환을 청구하는 권리를 압류하고 싶으신 분</li>
+                <li>유체동산 인도청구권의 집행 절차를 알고 싶으신 분</li>
+                <li>인도 불능 시의 손해배상청구권으로 전환하고 싶으신 분</li>
+            </div>
+        </section>
+        <section>
+            <h2>핵심정리</h2>
+            <div class="summary-box">
+                <div class="label">유체동산 인도청구권의 의의</div>
+                <p>채무자가 제3자에게 가진 물건 반환청구권(예: 대여했던 물건을 돌려받을 권리)도 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=024300" target="_blank" rel="noopener">민사집행법 제243조</a>에 따라 강제집행의 대상이 됩니다. 이러한 권리를 압류하고 집행관의 인도 촉탁을 통해 실제 물건을 받을 수 있습니다.</p>
+                <div class="label" style="margin-top: 16px;">유체동산 인도청구권 집행 절차</div>
+                <ul>
+                    <li>압류명령 신청</li>
+                    <li>압류명령 발령</li>
+                    <li>제3자에게 압류 통지</li>
+                    <li>집행관 인도 촉탁</li>
+                    <li>물건 인도 또는 손해배상청구권 전환</li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <h2>단계별 절차</h2>
+            <h3><span class="step-tag">STEP 1</span>압류명령 신청</h3>
+            <div class="case-box">
+                <div class="case-title">법원 신청</div>
+                <p>채권자가 채무자의 주소지 관할 법원에 유체동산 인도청구권에 대한 압류명령 신청서를 제출합니다. 신청서에는 채무자, 제3채무자(보유자), 물건의 설명 등을 상세히 기재해야 합니다.</p>
+                <p style="margin-top: 12px;"><strong>필수 첨부서류:</strong> 집행권원(판결문, 조정조서 등), 채무자·제3자 신원 확인 자료, 물건에 대한 설명서, 인도청구권 존재를 증명하는 자료</p>
+            </div>
+            <h3><span class="step-tag">STEP 2</span>압류명령 발령</h3>
+            <div class="case-box">
+                <div class="case-title">법원의 심사</div>
+                <p>법원이 압류명령 신청을 검토하여 인도청구권의 존재 여부, 채무자와 제3자의 관계 등을 확인합니다. 인도청구권이 명확하면 압류명령을 발령합니다.</p>
+                <p style="margin-top: 12px;">통상 신청 후 1~2개월 내에 압류명령이 발령되며, 법원은 압류명령서와 함께 집행관에게 인도 촉탁할 준비를 지시합니다.</p>
+            </div>
+            <h3><span class="step-tag">STEP 3</span>제3채무자(보유자) 통지</h3>
+            <div class="case-box">
+                <div class="case-title">압류 효력 발생</div>
+                <p>법원이 물건을 보유하고 있는 제3자에게 압류를 통지합니다. 제3자는 압류 통지를 받으면, 채무자(원래 소유자)에게 물건을 돌려줄 수 없고, 법원의 지시를 기다려야 합니다.</p>
+                <p style="margin-top: 12px;">제3자가 이미 물건을 제3자에게 다시 넘겼거나 훼손했다면, 손해배상청구권으로 전환되어 배상 청구를 진행하게 됩니다.</p>
+            </div>
+            <h3><span class="step-tag">STEP 4</span>집행관 인도 촉탁</h3>
+            <div class="case-box">
+                <div class="case-title">실제 인도 진행</div>
+                <p>채권자가 법원의 집행관에게 물건의 인도를 촉탁합니다. 집행관은 제3자를 방문하여 물건의 인도를 요구합니다.</p>
+                <p style="margin-top: 12px;">제3자가 자발적으로 물건을 인도하면 절차가 완료되고, 거부하면 집행관이 강제로 물건을 회수합니다. 다만, 물건이 이미 훼손되거나 없다면 손해배상청구권으로 전환됩니다.</p>
+            </div>
+            <h3><span class="step-tag">STEP 5</span>물건 인도 또는 손해배상</h3>
+            <div class="case-box">
+                <div class="case-title">최종 처리</div>
+                <p><strong>물건 인도 가능:</strong> 집행관이 물건을 인수하여 채권자에게 인도합니다. 인도 완료 후 추가적인 매각이나 평가가 필요하면, 그에 따라 처리됩니다.</p>
+                <p style="margin-top: 12px;"><strong>물건 인도 불능:</strong> 제3자가 물건을 인도할 수 없다면, 손해배상청구권으로 전환되어 손해배상액을 결정하고 그 금액을 추심합니다.</p>
+            </div>
+        </section>
+        <section>
+            <h2>첨부서류</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>서류명</th>
+                            <th>발급기관</th>
+                            <th>주의사항</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>압류명령 신청서</strong></td>
+                            <td>채권자 작성</td>
+                            <td>물건의 상세한 설명, 제3자의 정확한 신원 명시</td>
+                        </tr>
+                        <tr>
+                            <td><strong>집행권원</strong></td>
+                            <td>법원</td>
+                            <td>판결문, 조정조서 등 원본 또는 인증 사본</td>
+                        </tr>
+                        <tr>
+                            <td><strong>채무자 신원 확인 자료</strong></td>
+                            <td>관계기관</td>
+                            <td>주민등록초본, 기타 신원 확인 자료</td>
+                        </tr>
+                        <tr>
+                            <td><strong>제3자 신원 확인 자료</strong></td>
+                            <td>관계기관</td>
+                            <td>물건 보유자의 주소, 연락처 등 정확한 정보</td>
+                        </tr>
+                        <tr>
+                            <td><strong>인도청구권 증명 자료</strong></td>
+                            <td>채권자 보유</td>
+                            <td>대여 계약서, 영수증, 메일 기록 등</td>
+                        </tr>
+                        <tr>
+                            <td><strong>물건 설명서</strong></td>
+                            <td>채권자 작성</td>
+                            <td>물건의 명칭, 규격, 특징 등 상세히 기재</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section>
+            <h2>비용 안내</h2>
+            <div class="summary-box">
+                <div class="label">유체동산 인도청구권 집행의 비용</div>
+                <p>유체동산 인도청구권 집행에 필요한 비용은 다음과 같습니다:</p>
+                <ul style="margin: 12px 0;">
+                    <li>압류명령 신청 수수료 (인지대)</li>
+                    <li>송달료 (제3자에게 통지하기 위한 비용)</li>
+                    <li>집행관 집행 수수료</li>
+                    <li>물건 보관료 (필요시)</li>
+                </ul>
+                <p style="margin: 12px 0;">구체적인 비용은 물건의 가치, 소재지, 집행 방법에 따라 달라질 수 있습니다. 관할 법원에 미리 확인하는 것이 좋습니다.</p>
+            </div>
+        </section>
+        <section>
+            <h2>자주하는 질문</h2>
+            <div class="qna-item">
+                <div class="qna-q">Q. 유체동산 인도청구권 집행은 어떤 경우에 효과적인가요?</div>
+                <div class="qna-a">
+                    <p>유체동산 인도청구권 집행은 다음과 같은 경우에 효과적입니다: (1) 채무자가 제3자에게 명확한 물건(예: 자동차, 기계, 그림 등)을 빌려주었거나 위탁한 경우, (2) 물건의 위치와 보유자가 명확한 경우, (3) 물건이 현존하고 온전한 상태인 경우입니다. 반면, 물건이 이미 훼손되었거나 제3자가 인도하기 거부하는 경우에는 손해배상청구권으로 전환되므로, 실제 회수가 어려울 수 있습니다. 압류 전에 물건의 현재 상태와 보유자의 협력 가능성을 사전에 확인하는 것이 중요합니다.</p>
+                    <div class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+                </div>
+            </div>
+            <div class="qna-item">
+                <div class="qna-q">Q. 물건이 이미 제3자에게 넘겨졌다면 어떻게 되나요?</div>
+                <div class="qna-a">
+                    <p>압류 후 물건이 이미 다른 사람에게 넘겨진 상태라면, 인도 청구가 불가능하므로 손해배상청구권으로 전환됩니다. 이 경우 법원이 물건의 가치를 평가하고, 그 금액을 손해배상액으로 결정합니다. 손해배상액은 원래 물건의 시장 가치, 감가상각, 물건의 상태 등을 고려하여 결정됩니다. 결정된 손해배상액은 추심명령을 통해 제3자로부터 회수하게 됩니다. 다만, 제3자가 정말로 물건을 인도할 수 없는 상태라는 것을 증명해야 하므로, 제3자의 입증이 필요합니다.</p>
+                    <div class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+                </div>
+            </div>
+            <div class="qna-item">
+                <div class="qna-q">Q. 물건이 훼손된 경우 손해배상액을 어떻게 결정하나요?</div>
+                <div class="qna-a">
+                    <p>물건이 훼손된 경우, 손해배상액은 원래 물건의 가치에서 훼손된 부분의 가치를 차감하여 결정됩니다. 예를 들어, 100만 원 가치의 자동차가 사고로 30만 원이 손상되었다면, 손해배상액은 30만 원이 됩니다. 물건의 가치는 법원이 필요시 감정인을 지정하여 객관적으로 평가합니다. 물건의 원래 가치를 입증하기 위해 구매 영수증, 시장 조사 자료, 전문가 평가 등이 필요할 수 있습니다. 법원과 전문가의 협력을 통해 공정한 손해배상액이 결정되도록 노력해야 합니다.</p>
+                    <div class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+                </div>
+            </div>
+            <div class="qna-item">
+                <div class="qna-q">Q. 물건을 인도받은 후 매각하려면 어떻게 하나요?</div>
+                <div class="qna-a">
+                    <p>집행관으로부터 물건을 인도받은 후, 그 물건을 매각하여 채권을 회수하려면 별도의 절차가 필요합니다. 물건이 동산인 경우, 법원의 경매 절차를 거쳐 매각할 수 있습니다. 경매 신청 시 물건의 감정평가, 최저 매각가격 결정, 입찰 공고 등의 절차를 거쳐야 합니다. 다만, 물건의 규모나 가치에 따라 합의에 의한 매각도 가능할 수 있으므로, 법무사와 상담하여 가장 효율적인 방법을 선택해야 합니다.</p>
+                    <div class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+                </div>
+            </div>
+            <div class="qna-item">
+                <div class="qna-q">Q. 제3자가 인도를 거부하면 강제로 회수할 수 있나요?</div>
+                <div class="qna-a">
+                    <p>네, 제3자가 인도를 거부하면 집행관이 강제 집행을 진행할 수 있습니다. 집행관은 필요시 경찰의 지원을 요청하여 물건을 강제로 회수할 수 있습니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=024300" target="_blank" rel="noopener">민사집행법 제243조</a>). 다만, 물건이 너무 크거나 고정된 상태라면 강제 회수가 실제로 어려울 수 있습니다. 이 경우 손해배상청구권으로 전환되어 금전 배상을 청구하게 됩니다. 강제 집행의 구체적인 방법과 가능성은 물건의 특성과 현장 상황에 따라 결정되므로, 집행관의 판단이 중요합니다.</p>
+                    <div class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+                </div>
+            </div>
+            <div class="qna-item">
+                <div class="qna-q">Q. 인도청구권 집행에 걸리는 시간은 얼마나 되나요?</div>
+                <div class="qna-a">
+                    <p>유체동산 인도청구권 집행에 소요되는 시간은 다음과 같습니다: (1) 압류명령 신청에서 발령까지 1~2개월, (2) 집행관 인도 촉탁 1~2개월, (3) 물건 인도 또는 손해배상액 결정 1~2개월. 따라서 전체 소요 시간은 3~6개월 정도입니다. 물건이 쉽게 인도되면 기간이 단축될 수 있지만, 제3자가 거부하거나 인도 불능 상태라면 손해배상청구권으로 전환되어 추가 기간이 소요될 수 있습니다. 현장 상황에 따라 실제 기간이 크게 달라질 수 있으므로, 사전에 제3자의 협력 가능성을 확인하는 것이 중요합니다.</p>
+                    <div class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>판례</h2>
+            <div class="ruling-box">
+                <div class="ruling-header"><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=024300" target="_blank" rel="noopener">민사집행법 제243조</a></div>
+                <p>유체동산에 대한 인도청구권도 강제집행의 대상이 되며, 집행관은 물건의 인도를 촉탁받아 강제로 회수할 수 있습니다.</p>
+            </div>
+        </section>
+        <section>
+            <h2>주의사항</h2>
+            <div class="warn-box">
+                <div class="warn-title">⚠️ 주의</div>
+                <p><strong>물건 특정:</strong> 물건을 명확히 특정해야 합니다. 물건의 명칭, 규격, 특징, 식별번호 등을 상세히 기재해야 합니다.</p>
+                <p style="margin-top: 12px;"><strong>제3자 확인:</strong> 물건을 보유하고 있는 제3자의 신원과 주소를 정확히 파악해야 합니다.</p>
+                <p style="margin-top: 12px;"><strong>인도청구권 증명:</strong> 채무자가 정말로 물건 반환을 청구할 권리를 가지고 있는지 증명하는 자료(대여 계약서 등)가 필요합니다.</p>
+                <p style="margin-top: 12px;"><strong>현재 상태 확인:</strong> 압류 신청 전에 물건이 아직 제3자에게 있는지, 온전한 상태인지 확인해야 합니다.</p>
+                <p style="margin-top: 12px;"><strong>손해배상 전환 대비:</strong> 물건 인도가 불가능할 경우를 대비하여, 물건의 객관적 가치를 평가해놓아야 합니다.</p>
+            </div>
+        </section>
+        <section>
+            <h2>다음에 확인할 사항</h2>
+            <div class="next-links">
+                <a href="#그밖재산권" class="next-link">
+                    <div>그 밖의 재산권 집행 개관</div>
+                    <div class="arrow">→</div>
+                </a>
+                <a href="#회원권" class="next-link">
+                    <div>회원권 압류</div>
+                    <div class="arrow">→</div>
+                </a>
+                <a href="#지재권" class="next-link">
+                    <div>지식재산권 압류</div>
+                    <div class="arrow">→</div>
+                </a>
+            </div>
+        </section>
+        <section>
+            <div class="cta-box">
+                <h3>유체동산 인도청구권 집행을 진행하고 싶으신가요?</h3>
+                <p>물건의 특정과 제3자 확인이 중요합니다. 법무사의 전문 상담으로 효율적으로 진행하세요.</p>
+                <a href="tel:02-0000-0000" class="cta-btn">전화 상담</a>
+            </div>
+        </section>
+        <div class="disclaimer-section">
+            <p><strong>면책조항:</strong> 본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 개별 사안에 따라 결과가 달라질 수 있습니다. 구체적인 사안은 법무사와 상담하시기 바랍니다.</p>
+            <p>이 페이지는 2025년 현행 법령 기준으로 작성되었습니다.</p>
+        </div>
+    </div>
+</body>
+</html>

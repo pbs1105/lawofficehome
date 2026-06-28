@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>재외국민의 한국 부동산 매수 등기 가이드</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background-color: #faf8f5;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #1a2e4a 0%, #2d4a7a 100%);
+            color: white;
+            border-radius: 8px;
+        }
+
+        header h1 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 1.8em;
+            color: #1a2e4a;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #c8a96e;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 1.3em;
+            color: #2d4a7a;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .checklist {
+            background-color: #fdf6e9;
+            border-left: 5px solid #c8a96e;
+            padding: 25px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+        }
+
+        .checklist ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .checklist li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .checklist li:before {
+            content: "☑";
+            position: absolute;
+            left: 0;
+            color: #c8a96e;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .summary-box {
+            background-color: #eef2f8;
+            border-left: 5px solid #2d4a7a;
+            padding: 25px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+        }
+
+        .summary-box h3 {
+            margin-top: 0;
+            color: #1a2e4a;
+        }
+
+        .summary-box ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .summary-box li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .summary-box li:before {
+            content: "●";
+            position: absolute;
+            left: 0;
+            color: #2d4a7a;
+            font-weight: bold;
+        }
+
+        .flowchart {
+            background-color: #f7f4f0;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .flowchart-step {
+            display: inline-block;
+            background: white;
+            border: 2px solid #c8a96e;
+            padding: 15px 25px;
+            margin: 10px;
+            border-radius: 6px;
+            font-weight: 500;
+            color: #1a2e4a;
+            min-width: 180px;
+        }
+
+        .flowchart-step:not(:last-child):after {
+            content: "→";
+            color: #c8a96e;
+            font-size: 1.5em;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        .case-box {
+            background-color: #f0f8f0;
+            border-left: 5px solid #1a5c2e;
+            padding: 25px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+        }
+
+        .case-box h4 {
+            color: #1a5c2e;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .precedent-box {
+            background-color: #f7f4f0;
+            border-left: 5px solid #6b7280;
+            padding: 25px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+        }
+
+        .precedent-box h4 {
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .precedent-box ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .precedent-box li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .precedent-box li:before {
+            content: "◾";
+            position: absolute;
+            left: 0;
+            color: #6b7280;
+        }
+
+        .warning-box {
+            background-color: #fff3e8;
+            border-left: 5px solid #c05000;
+            padding: 25px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+        }
+
+        .warning-box h4 {
+            color: #c05000;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .warning-box ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .warning-box li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .warning-box li:before {
+            content: "⚠";
+            position: absolute;
+            left: 0;
+            color: #c05000;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        table th {
+            background-color: #2d4a7a;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 700;
+            border-bottom: 2px solid #c8a96e;
+        }
+
+        table td {
+            padding: 15px;
+            border-bottom: 1px solid #e0dbd3;
+            line-height: 1.6;
+        }
+
+        table tbody tr:hover {
+            background-color: #faf8f5;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #fdf6e9 0%, #fff9f0 100%);
+            border: 2px solid #c8a96e;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .cta-box p {
+            font-size: 1.1em;
+            color: #1a2e4a;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #c8a96e;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .cta-button:hover {
+            background-color: #1a2e4a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(200, 169, 110, 0.3);
+        }
+
+        .related-links {
+            background-color: #eef2f8;
+            border-left: 5px solid #2d4a7a;
+            padding: 25px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+        }
+
+        .related-links ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .related-links li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .related-links li:before {
+            content: "➔";
+            position: absolute;
+            left: 0;
+            color: #2d4a7a;
+            font-weight: bold;
+        }
+
+        .related-links a {
+            color: #2d4a7a;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .related-links a:hover {
+            color: #c8a96e;
+            text-decoration: underline;
+        }
+
+        .disclaimer {
+            background-color: #f7f4f0;
+            padding: 25px;
+            border-radius: 4px;
+            font-size: 0.95em;
+            color: #666;
+            line-height: 1.8;
+            margin-top: 50px;
+            border-top: 2px solid #c8a96e;
+        }
+
+        .highlight {
+            background-color: #fffacd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+
+        .document-title {
+            background-color: #eef2f8;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+            font-weight: 500;
+            color: #1a2e4a;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            table {
+                font-size: 0.95em;
+            }
+
+            table th, table td {
+                padding: 12px;
+            }
+
+            .flowchart-step {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .flowchart-step:not(:last-child):after {
+                content: "↓";
+                display: block;
+                margin: 10px 0;
+            }
+
+            .cta-button {
+                display: block;
+                margin: 10px 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>재외국민의 한국 부동산 매수 등기</h1>
+            <p>내국인과 다른 첨부서류만 쏙 정리한 완벽 가이드</p>
+        </header>
+
+        <!-- 섹션 1: 이런 분께 필요합니다 -->
+        <section>
+            <h2>1. 이런 분께 필요합니다</h2>
+            <div class="checklist">
+                <ul>
+                    <li>한국 국적을 유지하면서 해외에 거주하는 재외국민</li>
+                    <li>한국 부동산(주택, 상업용 부동산, 토지 등)을 매수하려는 경우</li>
+                    <li>등기부에 올려야 할 이름, 주소, 등록번호가 불명확한 상황</li>
+                    <li>귀국할 계획이 없어 대리인을 통해 등기를 처리해야 하는 경우</li>
+                    <li>재외공관에서 공증받은 서류로 등기를 진행하려는 경우</li>
+                    <li>주민등록과 재외국민등록의 차이를 알고 싶은 경우</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 섹션 2: 핵심 요약 -->
+        <section>
+            <h2>2. 핵심 요약</h2>
+            <div class="summary-box">
+                <h3>재외국민 부동산 취득의 3가지 핵심</h3>
+                <ul>
+                    <li><span class="highlight">외국인토지법 미적용:</span> 재외국민은 한국 국적자이므로 토지취득신고·허가 불필요</li>
+                    <li><span class="highlight">등기 절차는 내국인과 동일:</span> 소유권이전등기의 구성은 같으나, 첨부서류가 다름</li>
+                    <li><span class="highlight">서류가 달라짐:</span> 주민등록 유무, 귀국 여부, 재외국민등록번호 여부에 따라 준비 서류 완전히 다름</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 섹션 3: 기본 원칙 -->
+        <section>
+            <h2>3. 재외국민 취득의 기본 원칙</h2>
+
+            <h3>3-1. 외국인토지법의 적용을 받지 않습니다</h3>
+            <p>재외국민은 대한민국 국적을 보유한 자이므로 <span class="highlight">외국인에 해당하지 않습니다.</span> 따라서 부동산 취득 시 다음이 불필요합니다.</p>
+            <div class="document-title">불필요한 절차</div>
+            <p style="margin-left: 20px;">
+                • 부동산 취득 신고 (외국인토지법 제6조)<br>
+                • 취득 허가 (외국인토지법 제7조)<br>
+                • 거래 신고 (외국인토지법 제14조)
+            </p>
+
+            <h3>3-2. 부동산 취득·처분 신고 의무는 유지됩니다</h3>
+            <p>다만 <span class="highlight">대한민국 국민으로서의 신고 의무</span>는 있습니다. 취득가액이 일정 규모 이상이면 국세청에 신고해야 합니다 (소득세법 제104조의2).</p>
+
+            <h3>3-3. 등기 절차는 내국인과 동일, 서류는 다릅니다</h3>
+            <p>부동산 등기의 기본 절차(매도인·매수인 확인, 계약금 선금, 본금 지급, 등기신청)는 내국인과 똑같습니다. 다만 다음 항목에서 서류가 달라집니다.</p>
+            <div class="document-title">달라지는 서류 항목</div>
+            <p style="margin-left: 20px;">
+                • 신분 증명<br>
+                • 주소 증명<br>
+                • 위임장(대리인 선임 시)<br>
+                • 인감증명 또는 공증<br>
+                • 등록번호 기재 방식
+            </p>
+        </section>
+
+        <!-- 섹션 4: 등기 절차 흐름도 -->
+        <section>
+            <h2>4. 등기 절차 흐름도</h2>
+            <div class="flowchart">
+                <div class="flowchart-step">매도인·매수인 확인</div>
+                <div class="flowchart-step">계약금 결제</div>
+                <div class="flowchart-step">본금 결제</div>
+                <div class="flowchart-step">등기 대리인 선임</div>
+                <div class="flowchart-step">필요 서류 수집</div>
+                <div class="flowchart-step">소유권이전등기 신청</div>
+                <div class="flowchart-step">등기부등본 확인</div>
+            </div>
+            <p style="text-align: center; color: #666; margin-top: 20px; font-size: 0.95em;">
+                ※ 귀국 여부, 주민등록 유무에 따라 필요한 서류(5단계)가 달라집니다.
+            </p>
+        </section>
+
+        <!-- 섹션 5: 내국인과 다른 첨부서류 항목 -->
+        <section>
+            <h2>5. 내국인과 다른 첨부서류 항목</h2>
+
+            <h3>5-1. 신분 증명</h3>
+            <p><span class="highlight">귀국한 경우:</span> 여권 + 국내 도착 기록 확인</p>
+            <p><span class="highlight">미귀국인 경우:</span> 여권 사본(재외공관 확인) + 재외국민등록부 사본</p>
+
+            <h3>5-2. 주소 증명</h3>
+            <p><span class="highlight">귀국하여 주민등록 복원된 경우:</span> 주민등록등본(일반 내국인과 동일)</p>
+            <p><span class="highlight">귀국했으나 주민등록 미복원인 경우:</span> 재외국민등록부 등본 + 국내 거소 확인 서류</p>
+            <p><span class="highlight">미귀국인 경우:</span> 재외국민등록부 등본 또는 재외공관 거주확인서</p>
+
+            <h3>5-3. 위임장</h3>
+            <p><span class="highlight">귀국한 경우:</span> 인감 날인 + 인감증명서(일반 내국인과 동일)</p>
+            <p><span class="highlight">미귀국인 경우:</span> 재외공관 공증(인감증명 대체, 등기예규 제1778호 제9조 제1항)</p>
+
+            <h3>5-4. 인감증명</h3>
+            <p><span class="highlight">귀국한 경우:</span> 국내에서 인감 신고 후 발급</p>
+            <p><span class="highlight">미귀국인 경우:</span> 재외공관 공증으로 완전히 대체</p>
+
+            <h3>5-5. 등록번호</h3>
+            <p><span class="highlight">주민등록번호 보유:</span> 일반 내국인과 동일하게 주민등록번호 기재</p>
+            <p><span class="highlight">주민등록번호 없음:</span> 재외국민등록번호 또는 등기소가 부여하는 번호</p>
+        </section>
+
+        <!-- 섹션 6: 첨부서류 표 -->
+        <section>
+            <h2>6. 귀국 여부별 첨부서류 비교표</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>서류 항목</th>
+                        <th>귀국한 경우<br>(입국 후 등기)</th>
+                        <th>미귀국인 경우<br>(귀국 없이 등기)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>신분증명</strong></td>
+                        <td>
+                            여권 또는 외국인등록증(입국 확인)<br>
+                            또는 운전면허증(주민등록 복원 시)
+                        </td>
+                        <td>
+                            여권 사본(재외공관이 확인)<br>
+                            + 재외국민등록부 사본
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>주소증명</strong></td>
+                        <td>
+                            • 주민등록 복원된 경우:<br>&nbsp;&nbsp;주민등록등본<br>
+                            • 주민등록 미복원된 경우:<br>&nbsp;&nbsp;재외국민등록부 등본<br>&nbsp;&nbsp;+ 국내 거소확인 서류
+                        </td>
+                        <td>
+                            재외국민등록부 등본<br>
+                            또는<br>
+                            재외공관 발급 거주확인서
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>위임장</strong></td>
+                        <td>
+                            인감 날인<br>
+                            + 인감증명서
+                        </td>
+                        <td>
+                            재외공관 공증<br>
+                            (인감증명 대체)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>인감증명</strong></td>
+                        <td>
+                            국내에서 인감 신고 후<br>
+                            주민센터에서 발급
+                        </td>
+                        <td>
+                            불필요<br>
+                            (재외공관 공증이 대체)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>등록번호</strong></td>
+                        <td>
+                            주민등록번호<br>
+                            (말소 시 재외국민등록번호)
+                        </td>
+                        <td>
+                            재외국민등록번호<br>
+                            (없으면 등기소 부여)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>매도인 서류</strong></td>
+                        <td>
+                            일반 내국인과 동일
+                        </td>
+                        <td>
+                            매도인이 내국인이면<br>
+                            일반 내국인과 동일
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 섹션 7: 재외국민 등록번호 처리 -->
+        <section>
+            <h2>7. 재외국민 등록번호 처리</h2>
+
+            <h3>7-1. 등록번호가 꼭 필요한 이유</h3>
+            <p>등기부에는 반드시 등록번호(주민등록번호 또는 재외국민등록번호)를 기재해야 합니다. 이는 등기의 법적 효력과 나중의 취급에 직접 영향을 미칩니다.</p>
+
+            <h3>7-2. 세 가지 경우</h3>
+            <p><span class="highlight">경우 1: 주민등록번호 보유</span><br>
+            귀국하여 주민등록등본을 발급받을 수 있다면 그 주민등록번호를 사용합니다(가장 단순한 경우).</p>
+
+            <p><span class="highlight">경우 2: 재외국민등록번호 보유</span><br>
+            해외에서 재외국민등록을 했다면 이미 재외국민등록번호를 갖고 있습니다. 이 번호를 등기부에 기재합니다.</p>
+
+            <p><span class="highlight">경우 3: 등록번호 미보유</span><br>
+            주민등록도, 재외국민등록도 하지 않은 상태라면 등기소에서 부여하는 임시 번호를 사용합니다(등기예규 제1778호 제11조).</p>
+
+            <h3>7-3. 등기 이후 등록번호 정정</h3>
+            <p>나중에 주민등록이나 재외국민등록을 새로 하게 되면, 번호정정등기를 신청하여 등기부의 등록번호를 수정할 수 있습니다.</p>
+        </section>
+
+        <!-- 섹션 8: 주의사항 -->
+        <section>
+            <h2>8. 주의사항</h2>
+            <div class="warning-box">
+                <h4>반드시 확인하세요</h4>
+                <ul>
+                    <li><span class="highlight">미귀국인은 반드시 대리인 선임:</span> 직접 등기소에 가서 서명할 수 없으므로, 변호사·법무사 또는 신뢰할 수 있는 대리인을 반드시 선임해야 합니다.</li>
+                    <li><span class="highlight">재외공관 공증은 정본 필요:</span> 재외공관에서 공증받은 위임장은 반드시 정본(original)이어야 합니다. 사본은 받아들이지 않을 수 있습니다.</li>
+                    <li><span class="highlight">주민등록 말소 여부 확인:</span> 귀국했다면 주민등록이 복원되었는지 반드시 확인하세요. 말소 상태로 남아있으면 별도의 서류가 필요합니다.</li>
+                    <li><span class="highlight">재외국민등록번호는 13자리:</span> 주민등록번호(주민번호 + 검증문자)와 형식이 다릅니다. 혼동하지 마세요.</li>
+                    <li><span class="highlight">계약금 선금은 필수:</span> 재외국민이라 해서 계약금을 건너뛸 수 없습니다. 통상적인 부동산 거래 절차를 따릅니다.</li>
+                    <li><span class="highlight">소유권이전등기는 본금 지급 후:</span> 등기소는 본금이 지급되었음을 확인한 후에만 등기를 접수합니다.</li>
+                </ul>
+            </div>
+
+            <h3>귀국 예정자를 위한 팁</h3>
+            <p>귀국 예정이라면 가능한 빨리 귀국하여 주민등록을 복원한 후 등기를 진행하는 것이 가장 단순합니다. 여권, 인감증명 등의 서류 준비가 훨씬 간편하기 때문입니다.</p>
+        </section>
+
+        <!-- 섹션 9: 판례·예규 -->
+        <section>
+            <h2>9. 관련 판례·예규</h2>
+            <div class="precedent-box">
+                <h4>주요 등기예규</h4>
+                <ul>
+                    <li><strong>등기예규 제1778호 제9조 제1항:</strong> "재외공관이 공증한 서류는 인감증명을 갈음한다." 미귀국인의 위임장을 공증으로 준비할 때의 근거</li>
+                    <li><strong>등기예규 제1778호 제11조:</strong> "재외국민의 등록번호 기재 방식" — 주민등록번호 없을 때 등기소가 부여하는 번호</li>
+                    <li><strong>등기선례 7-82:</strong> "재외국민의 부동산 취득에 관한 의견" — 외국인토지법 미적용 원칙</li>
+                    <li><strong>등기선례 6-82:</strong> "재외국민 서류 준비에 관한 의견" — 여권 및 재외국민등록부 등본의 활용</li>
+                </ul>
+            </div>
+
+            <div class="case-box">
+                <h4>참고: 판례 경향</h4>
+                <p>대법원은 일관되게 재외국민을 국적자로 보아 외국인토지법의 적용을 배제하고 있습니다. 다만 신분증명, 인감 등의 서류는 국내법의 원칙을 따르므로, 가능한 한 정식의 공증이나 영사 확인(apostille)을 받도록 유도하고 있습니다.</p>
+            </div>
+        </section>
+
+        <!-- 섹션 10: 다음으로 확인할 내용 -->
+        <section>
+            <h2>10. 다음으로 확인할 내용</h2>
+            <div class="related-links">
+                <ul>
+                    <li><a href="외등_14_재외국민개념.html">외등_14_재외국민개념 — '재외국민'이란 무엇인가?</a> (정의, 기본 개념, 국적 관련)</li>
+                    <li><a href="외등_15_재외국민등록.html">외등_15_재외국민등록 — 재외국민등록 제도</a> (재외국민등록 방법, 등록번호 취득)</li>
+                    <li><a href="외등_17_재외국민처분.html">외등_17_재외국민처분 — 재외국민이 귀국하지 않고 부동산을 팔 때</a> (처분 절차, 대리인 관련)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 섹션 11: 상담 CTA + 면책 문구 -->
+        <section>
+            <div class="cta-box">
+                <p>외국인·재외국민 등기는 국적, 체류 자격, 입국 여부에 따라 준비 서류가 달라집니다.</p>
+                <p><strong>이 내용이 해당되시나요?</strong> 첫 상담은 무료입니다.</p>
+                <button class="cta-button">무료 상담 신청</button>
+                <button class="cta-button">법무사 찾기</button>
+            </div>
+
+            <div class="disclaimer">
+                <strong>면책 문구:</strong> 본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 개별 사안에 대한 법률 조언이 아닙니다. 본 페이지는 2025년 현행 법령 기준으로 작성되었습니다. 실제 등기 진행 시에는 담당 등기소 또는 전문 법무사와 상담하여 개별 사안에 맞는 서류를 준비하시기 바랍니다. 외국인토지법, 부동산등기법, 국적법 등의 개정에 따라 내용이 변경될 수 있으므로 최신 정보를 확인하시길 권장합니다.
+            </div>
+        </section>
+    </div>
+</body>
+</html>

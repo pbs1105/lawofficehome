@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>외국어 서류 번역문 첨부 기준과 공증 방법</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #333;
+            line-height: 1.8;
+            background-color: #faf8f5;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: white;
+        }
+
+        header {
+            border-bottom: 4px solid #1a2e4a;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 2.2em;
+            color: #1a2e4a;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .subtitle {
+            font-size: 0.95em;
+            color: #666;
+            font-weight: 300;
+        }
+
+        h2 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 1.5em;
+            color: #1a2e4a;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #c8a96e;
+        }
+
+        h3 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 1.1em;
+            color: #1a2e4a;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        /* 체크리스트 박스 */
+        .checklist-box {
+            background-color: #f9f6f2;
+            border-left: 5px solid #c8a96e;
+            padding: 25px;
+            margin-bottom: 40px;
+            border-radius: 4px;
+        }
+
+        .checklist-box h3 {
+            color: #1a2e4a;
+            margin-top: 0;
+            font-size: 1.1em;
+            margin-bottom: 18px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            font-size: 0.95em;
+        }
+
+        .checklist-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-right: 12px;
+            margin-top: 2px;
+            cursor: pointer;
+            flex-shrink: 0;
+            accent-color: #c8a96e;
+        }
+
+        .checklist-item label {
+            cursor: pointer;
+            flex: 1;
+        }
+
+        /* 핵심 요약 박스 */
+        .summary-box {
+            background-color: #eef2f8;
+            border-left: 5px solid #2d4a7a;
+            padding: 25px;
+            margin-bottom: 40px;
+            border-radius: 4px;
+        }
+
+        .summary-box h3 {
+            color: #2d4a7a;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .summary-box p {
+            margin-bottom: 10px;
+        }
+
+        .summary-box ul {
+            margin-left: 25px;
+            margin-bottom: 10px;
+        }
+
+        .summary-box li {
+            margin-bottom: 8px;
+        }
+
+        /* 상담 유도 박스 */
+        .consultation-box {
+            background-color: #fdf6e9;
+            border-left: 5px solid #c8a96e;
+            padding: 25px;
+            margin: 40px 0;
+            border-radius: 4px;
+        }
+
+        .consultation-box h3 {
+            color: #1a2e4a;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .consultation-box p {
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .consultation-box p strong {
+            color: #1a2e4a;
+            font-weight: 700;
+        }
+
+        /* 판례·예규 박스 */
+        .case-box {
+            background-color: #f7f4f0;
+            border-left: 5px solid #6b7280;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+
+        .case-box h3 {
+            color: #2d3748;
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 1em;
+        }
+
+        .case-box p {
+            font-size: 0.95em;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .case-box .cite {
+            font-style: italic;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        /* 사례 박스 */
+        .example-box {
+            background-color: #f0f8f0;
+            border-left: 5px solid #1a5c2e;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+
+        .example-box h3 {
+            color: #1a5c2e;
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 1em;
+        }
+
+        .example-box p {
+            font-size: 0.95em;
+            color: #2d5a3d;
+            margin-bottom: 8px;
+        }
+
+        /* 경고 박스 */
+        .warning-box {
+            background-color: #fff3e8;
+            border-left: 5px solid #c05000;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+
+        .warning-box h3 {
+            color: #c05000;
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 1em;
+        }
+
+        .warning-box p {
+            font-size: 0.95em;
+            color: #8b3c00;
+            margin-bottom: 8px;
+        }
+
+        /* 국가별 차이 박스 */
+        .country-box {
+            background-color: #f0f4ff;
+            border-left: 5px solid #3b5bdb;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+
+        .country-box h3 {
+            color: #3b5bdb;
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 1em;
+        }
+
+        .country-box p {
+            font-size: 0.95em;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+        }
+
+        /* 테이블 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            font-size: 0.95em;
+        }
+
+        table th {
+            background-color: #1a2e4a;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            background-color: #fafaf9;
+        }
+
+        table tr:nth-child(even) td {
+            background-color: #f5f4f2;
+        }
+
+        table tr:hover td {
+            background-color: #eeebea;
+        }
+
+        /* 리스트 */
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        strong {
+            color: #1a2e4a;
+            font-weight: 600;
+        }
+
+        .icon {
+            font-size: 1.2em;
+            margin-right: 8px;
+            display: inline-block;
+            min-width: 24px;
+        }
+
+        .highlight {
+            background-color: #fff9e6;
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #c8a96e;
+            font-weight: 500;
+        }
+
+        /* 다음 확인 내용 */
+        .next-section {
+            background-color: #f9f6f2;
+            border-left: 5px solid #c8a96e;
+            padding: 25px;
+            margin: 40px 0;
+            border-radius: 4px;
+        }
+
+        .next-section h3 {
+            margin-top: 0;
+            color: #1a2e4a;
+        }
+
+        .next-section ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .next-section li {
+            margin-bottom: 10px;
+        }
+
+        .next-section a {
+            color: #2d4a7a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #c8a96e;
+            transition: color 0.2s;
+        }
+
+        .next-section a:hover {
+            color: #1a2e4a;
+            border-bottom-color: #1a2e4a;
+        }
+
+        /* CTA 버튼 */
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.95em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-phone {
+            background-color: #1a2e4a;
+            color: white;
+        }
+
+        .btn-phone:hover {
+            background-color: #0f1a2e;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(26, 46, 74, 0.3);
+        }
+
+        .btn-kakao {
+            background-color: #c8a96e;
+            color: white;
+        }
+
+        .btn-kakao:hover {
+            background-color: #b39754;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(200, 169, 110, 0.3);
+        }
+
+        /* 면책 문구 */
+        .disclaimer {
+            background-color: #f5f4f2;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-top: 50px;
+            font-size: 0.85em;
+            color: #666;
+            line-height: 1.6;
+            border-radius: 4px;
+        }
+
+        .disclaimer p {
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px 15px;
+            }
+
+            h1 {
+                font-size: 1.6em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            table {
+                font-size: 0.85em;
+            }
+
+            table th, table td {
+                padding: 10px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>외국어 서류 번역문 첨부 기준과 공증 방법</h1>
+            <p class="subtitle">등기 실무 완벽 정리</p>
+        </header>
+
+        <!-- 섹션 1: 이런 분께 필요합니다 -->
+        <section class="section">
+            <h2>이런 분께 필요합니다</h2>
+            <div class="checklist-box">
+                <h3>다음 중 하나라도 해당되나요?</h3>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check1">
+                    <label for="check1">외국어로 작성된 서류를 등기 신청할 때 번역문이 필요한가 궁금한 분</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check2">
+                    <label for="check2">위임장이나 공증서 등 외국 공문서의 번역 방법을 알고 싶은 분</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check3">
+                    <label for="check3">공증인 공증과 아포스티유의 차이점을 이해하고 싶은 분</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check4">
+                    <label for="check4">국가별로 필요한 번역 및 공증 방법이 다른지 확인하고 싶은 분</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check5">
+                    <label for="check5">이미 준비한 외국어 서류가 등기에 사용 가능한지 판단받고 싶은 분</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check6">
+                    <label for="check6">번역문 작성자 자격과 서명 방법에 대해 명확히 하고 싶은 분</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- 섹션 2: 핵심 요약 -->
+        <section class="section">
+            <h2>핵심 요약</h2>
+            <div class="summary-box">
+                <h3>가장 중요한 3가지</h3>
+                <p><strong>1. 외국어 서류는 반드시 한국어 번역문을 첨부해야 합니다</strong></p>
+                <p style="margin-bottom: 20px;">부동산등기규칙 제46조 제8항에 따라, 등기소에 제출되는 외국어 서류는 반드시 한국어 번역문을 첨부해야 합니다. 번역이 없으면 등기신청이 반려됩니다.</p>
+
+                <p><strong>2. 번역문은 공인 번역사 또는 당사자 본인이 작성할 수 있습니다</strong></p>
+                <p style="margin-bottom: 20px;">번역문에는 번역자의 서명, 날인, 성명, 주소를 기재하고 신분증 사본을 첨부해야 합니다. 다만 공증을 받은 경우는 신분증 사본이 불필요합니다.</p>
+
+                <p><strong>3. 공증 필요 여부는 서류의 종류와 출신 국가에 따라 다릅니다</strong></p>
+                <p>위임장, 외국 공증서, 아포스티유 문서 등 중요한 서류는 추가 공증이 필요한 경우가 많습니다. 아포스티유 협약 가입국 여부에 따라 처리 방법이 달라집니다.</p>
+            </div>
+        </section>
+
+        <!-- 섹션 3: 번역문 첨부 기준 -->
+        <section class="section">
+            <h2>번역문 첨부 기준</h2>
+            <p>어떤 서류에 번역문이 필요한가?</p>
+
+            <h3>반드시 번역문을 첨부해야 하는 경우</h3>
+            <ul>
+                <li><strong>외국인 위임장</strong> — 외국어로 작성된 처분 위임장, 상속재산분할협의 위임장 등</li>
+                <li><strong>외국 공증서</strong> — 외국 공증인이 공증한 서류 (위임장, 인감증명서 등)</li>
+                <li><strong>외국 공문서</strong> — 외국 정부기관이 발행한 서류 (가족관계증명서, 혼인증명서, 판결문 등)</li>
+                <li><strong>재외국민 서류</strong> — 외국에서 발급받은 각종 증명서</li>
+                <li><strong>아포스티유 부착 문서</strong> — 아포스티유 마크가 있는 외국 공문서</li>
+            </ul>
+
+            <h3>번역문이 불필요한 경우</h3>
+            <ul>
+                <li><strong>한국어로 이미 작성된 서류</strong> — 원본부터 한국어인 경우</li>
+                <li><strong>한국 공관 발급 서류</strong> — 한국 대사관, 영사관에서 한국어로 발급한 서류 (재외국민등록부, 거주사실증명 등)</li>
+                <li><strong>간단한 개인정보</strong> — 등기관이 '성명, 국적, 주소' 정도만 필요하다고 인정하는 경우 (예: 외국 여권, 신분증의 핵심 정보만)</li>
+                <li><strong>이미 한국어로 번역된 공식 번역본**</strong> — 외국 정부가 공식으로 제공하는 한국어 번역본</li>
+            </ul>
+        </section>
+
+        <!-- 섹션 4: 번역 방법 및 공증 기준 -->
+        <section class="section">
+            <h2>번역 방법 및 공증 기준</h2>
+
+            <h3>번역문 작성 방법</h3>
+
+            <div class="example-box">
+                <h3>필수 기재 사항</h3>
+                <p><strong>번역문에는 반드시 다음이 기재되어야 합니다:</strong></p>
+                <ul style="margin-top: 10px;">
+                    <li>번역인이 원문과 다름이 없다는 뜻의 문구</li>
+                    <li>번역인의 성명</li>
+                    <li>번역인의 주소</li>
+                    <li>번역인의 서명 또는 날인</li>
+                    <li>번역인의 신분증 사본 (공증받지 않은 경우)</li>
+                </ul>
+            </div>
+
+            <h3>번역자 자격</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>번역자 유형</th>
+                        <th>자격 요건</th>
+                        <th>신분증 첨부</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>공인 번역사</strong></td>
+                        <td>번역 자격을 보유한 전문가</td>
+                        <td>필요 (일반적)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>당사자 본인</strong></td>
+                        <td>양국 언어에 능통한 자</td>
+                        <td>필요</td>
+                    </tr>
+                    <tr>
+                        <td><strong>공증받은 번역</strong></td>
+                        <td>공증인 앞에서 번역의 진정성을 인증받음</td>
+                        <td>불필요</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>공증이 필요한 경우</h3>
+            <p>다음의 경우 번역문에 대한 공증 또는 인증이 필요합니다:</p>
+
+            <div class="warning-box">
+                <h3>주의: 중요한 서류</h3>
+                <p><strong>외국인의 위임장</strong>(처분, 취득, 상속협의분할 등)의 번역문을 제출할 때는 특히 신경써야 합니다. 위임장은 소유권 처분의 근거가 되는 중요한 문서이기 때문에, 번역의 정확성이 매우 중요합니다.</p>
+            </div>
+
+            <h3>번역 공증 방법 3가지</h3>
+
+            <div class="case-box">
+                <h3>① 국내 공증인 공증</h3>
+                <p><strong>대상:</strong> 한국 부동산등기규칙 제46조 제4항에 따른 공증인</p>
+                <p><strong>절차:</strong></p>
+                <ul style="margin-top: 8px; margin-left: 20px;">
+                    <li>공증사무소에서 번역문의 원문 일치성을 공증받음</li>
+                    <li>공증인이 "이 번역은 원문 내용과 동일함"을 인증</li>
+                    <li>공증문서와 함께 등기신청</li>
+                </ul>
+                <p style="margin-top: 10px; color: #666; font-size: 0.9em;"><span class="icon">✓</span>가장 간편하고 신속함 (1-2일)</p>
+            </div>
+
+            <div class="country-box">
+                <h3>② 재외공관(한국 대사관·영사관) 확인</h3>
+                <p><strong>대상:</strong> 재외국민의 외국어 서류</p>
+                <p><strong>대상 국가:</strong> 당사자가 체류 중인 국가의 한국 대사관/총영사관</p>
+                <p><strong>절차:</strong></p>
+                <ul style="margin-top: 8px; margin-left: 20px;">
+                    <li>현지 한국 공관에 번역문 인증 신청</li>
+                    <li>공증담당영사가 번역문의 진정성을 확인</li>
+                    <li>확인서 또는 공증 사본을 첨부하여 등기신청</li>
+                </ul>
+            </div>
+
+            <div class="country-box">
+                <h3>③ 아포스티유 (원문 공증 후)</h3>
+                <p><strong>대상:</strong> 아포스티유 협약 가입국 출신 공문서</p>
+                <p><strong>절차:</strong></p>
+                <ul style="margin-top: 8px; margin-left: 20px;">
+                    <li>원문에 아포스티유를 받음 (출신 국가)</li>
+                    <li>한국에서 번역문을 공증받음</li>
+                    <li>번역문도 별도로 아포스티유를 받아야 하는 경우도 있음 (등기예규 제1778호 제4조 제1항)</li>
+                </ul>
+                <p style="margin-top: 10px; color: #666; font-size: 0.9em;"><span class="icon">⚠</span>가장 복잡하고 시간 소요 (2-4주)</p>
+            </div>
+        </section>
+
+        <!-- 섹션 5: 번역 공증이 필요 없는 경우 -->
+        <section class="section">
+            <h2>번역 공증이 필요 없는 경우</h2>
+            <p>번역문을 아예 공증받지 않아도 되는 경우들을 정리했습니다.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>상황</th>
+                        <th>요구 사항</th>
+                        <th>공증 필요 여부</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>한국 공관 발급 서류</strong><br/>(재외국민등록부 등)</td>
+                        <td>원본 제출</td>
+                        <td>불필요</td>
+                    </tr>
+                    <tr>
+                        <td><strong>외국 신분증</strong><br/>(여권, ID 카드)</td>
+                        <td>성명/주소 부분만 번역 + 신분증 원본</td>
+                        <td>불필요 (간단한 번역만)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>당사자 본인이 작성한 번역문</strong><br/>(당사자가 양국어 구사자)</td>
+                        <td>번역문 + 신분증 사본</td>
+                        <td>불필요</td>
+                    </tr>
+                    <tr>
+                        <td><strong>등기관이 간단하다고 인정하는 서류</strong></td>
+                        <td>등기관 판단</td>
+                        <td>등기관 재량</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="consultation-box">
+                <h3>주의: 사전 상담 필수</h3>
+                <p>번역 공증이 불필요하다고 판단해도, 등기소의 최종 결정을 받기 전까지는 확실하지 않습니다.</p>
+                <p><strong>반드시 등기신청 전에 해당 등기소에 문의하여 필요 여부를 확인하세요.</strong></p>
+            </div>
+        </section>
+
+        <!-- 섹션 6: 국가별 서류 처리 방법 -->
+        <section class="section">
+            <h2>국가별 서류 처리 방법</h2>
+            <p>아포스티유 협약 가입 여부에 따라 처리 방법이 크게 달라집니다.</p>
+
+            <h3>아포스티유 협약 가입국</h3>
+            <p style="color: #555; font-size: 0.95em; margin-bottom: 20px;">미국, 일본, 중국, 독일, 프랑스, 영국, 캐나다, 호주, 러시아, 싱가포르, 홍콩, 스페인, 이탈리아 등 약 140개국</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>서류 종류</th>
+                        <th>번역 필요</th>
+                        <th>원문 공증/확인</th>
+                        <th>한국 처리</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>외국 공문서</strong><br/>(출생증명, 혼인증명 등)</td>
+                        <td>네</td>
+                        <td>아포스티유 (출신국)</td>
+                        <td>한국어 번역 + 원문 아포스티유</td>
+                    </tr>
+                    <tr>
+                        <td><strong>외국 공증서</strong><br/>(위임장, 인감증명 등)</td>
+                        <td>네</td>
+                        <td>아포스티유 (출신국)</td>
+                        <td>한국어 번역 + 원문 아포스티유</td>
+                    </tr>
+                    <tr>
+                        <td><strong>법원 판결문</strong></td>
+                        <td>네</td>
+                        <td>아포스티유 (법원)</td>
+                        <td>한국어 번역 + 판결문 아포스티유</td>
+                    </tr>
+                    <tr>
+                        <td><strong>신분증 (여권 등)</strong></td>
+                        <td>간단히</td>
+                        <td>불필요</td>
+                        <td>성명/주소 부분만 번역</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>아포스티유 협약 미가입국</h3>
+            <p style="color: #555; font-size: 0.95em; margin-bottom: 20px;">필리핀, 베트남, 태국, 인도, 파키스탄, 이집트, 이란, 시리아 등</p>
+
+            <div class="country-box">
+                <h3>처리 방법</h3>
+                <p><strong>1단계: 원문 인증</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li>한국 대사관/영사관에서 영사 확인을 받음</li>
+                    <li>또는 본국 관공서의 증명서를 받음</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>2단계: 번역</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li>한국에서 한국어로 번역</li>
+                    <li>번역문 + 신분증 사본</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>3단계: 등기신청</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li>인증된 원문 + 번역문을 함께 제출</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 섹션 7: 판례·예규 -->
+        <section class="section">
+            <h2>관련 법령 및 예규</h2>
+
+            <div class="case-box">
+                <h3>부동산등기규칙 제46조 제8항</h3>
+                <p>등기소에 제공하는 첨부정보가 외국어로 작성된 경우에는 번역문을 붙여야 한다.</p>
+                <p class="cite">부동산등기규칙 (2024년 현행)</p>
+            </div>
+
+            <div class="case-box">
+                <h3>부동산등기규칙 제46조 제9항</h3>
+                <p>첨부정보가 외국 공문서이거나 외국 공증인이 공증한 문서인 경우에는 재외공관공증법 제30조제1항에 따라 공증담당영사로부터 문서의 확인을 받거나 아포스티유를 붙여야 한다.</p>
+                <p class="cite">부동산등기규칙 (2017.10.1. 시행)</p>
+            </div>
+
+            <div class="case-box">
+                <h3>등기예규 제1778호 제4조 (번역문의 첨부)</h3>
+                <p><strong>제1항:</strong> 등기소에 제공하는 첨부정보가 외국어로 작성된 경우에는 규칙 제46조제8항에 따라 번역문을 붙여야 한다.</p>
+                <p style="margin-top: 10px;"><strong>제2항:</strong> 번역문에는 번역인이 원문과 다름이 없다는 뜻과 번역인의 성명 및 주소를 기재하고 날인 또는 서명하여야 하며 번역인의 신분증사본을 제공하여야 한다. 다만, 번역문을 인증받아 제출하는 경우에는 그러하지 아니하다.</p>
+                <p class="cite">등기예규 제1778호 (2018년 현행)</p>
+            </div>
+
+            <div class="case-box">
+                <h3>등기예규 제1778호 제4조 제1항 (번역문의 아포스티유 확인)</h3>
+                <p>번역문에 대해서도 아포스티유 확인이 필요한 경우, 원문 및 번역문에 대하여 각각 별도로 아포스티유 확인을 신청하여야 하며, 번역문은 공증사무소 공증을 먼저 받고 법무부의 아포스티유 확인을 신청해야 한다.</p>
+                <p class="cite">등기예규 제1778호</p>
+            </div>
+        </section>
+
+        <!-- 섹션 8: 다음으로 확인할 내용 + CTA -->
+        <section class="section">
+            <div class="next-section">
+                <h3>다음으로 확인할 내용</h3>
+                <ul>
+                    <li><a href="외등_25_아포스티유.html">외등_25_아포스티유 — 아포스티유의 완벽 가이드</a></li>
+                    <li><a href="외등_07_외국인처분.html">외등_07_외국인처분 — 외국인 처분 위임장 작성 가이드</a></li>
+                    <li><a href="외등_06_국적별서류.html">외등_06_국적별서류 — 국적별 외국인 부동산 취득 첨부서류</a></li>
+                </ul>
+            </div>
+
+            <div class="consultation-box">
+                <h3>상담을 원하시나요?</h3>
+                <p><strong>이 내용이 해당되시나요? 첫 상담은 무료입니다.</strong></p>
+                <p>외국인·재외국민 등기는 국적·체류 자격·입국 여부에 따라 준비 서류가 달라집니다. 개별 사안에 맞는 정확한 조언을 받으세요.</p>
+                <div class="cta-buttons">
+                    <a href="tel:02-000-0000" class="btn btn-phone">☎ 전화 상담 신청</a>
+                    <a href="https://kakao.com" class="btn btn-kakao">💬 카카오톡 상담</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 면책 문구 -->
+        <div class="disclaimer">
+            <p><strong>면책 문구</strong></p>
+            <p>본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 개별 사안에 대한 법률 조언이 아닙니다. 이 페이지의 정보로 인해 발생하는 손실이나 손해에 대해 책임을 지지 않습니다. 개별 사건의 처리를 위해서는 법무사·변호사 등 전문가와 충분한 상담이 필요합니다.</p>
+            <p>이 페이지는 2025년 현행 법령 기준으로 작성되었습니다. 법령 개정 시 내용이 변경될 수 있으니, 최신 정보는 정부 공식 웹사이트(법무부, 법원행정처)를 참고하시기 바랍니다.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가압류를 당했을 때 - 법무사 홈페이지</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1a2e4a;
+            --gold: #c8a96e;
+            --bg: #faf8f5;
+            --text: #2c2c2c;
+            --summary-bg: #eef2f8;
+            --summary-bd: #2d4a7a;
+            --cta-bg: #fdf6e9;
+            --cta-bd: #c8a96e;
+            --case-bg: #f0f8f0;
+            --case-bd: #1a5c2e;
+            --ruling-bg: #f7f4f0;
+            --ruling-bd: #6b7280;
+            --warn-bg: #fff3e8;
+            --warn-bd: #c05000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--navy) 0%, #2d4a7a 100%);
+            color: white;
+            padding: 60px 20px;
+            margin: -40px -20px 40px -20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            font-family: 'Noto Serif KR', serif;
+            color: var(--navy);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        h3 {
+            color: var(--navy);
+            font-size: 1.3rem;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        /* 체크리스트 */
+        .checklist {
+            background: white;
+            border-left: 5px solid var(--navy);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(26, 46, 74, 0.08);
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .checklist-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .checklist-item::before {
+            content: "✓";
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: var(--gold);
+            color: white;
+            border-radius: 50%;
+            margin-right: 15px;
+            flex-shrink: 0;
+            font-weight: 700;
+        }
+
+        .checklist-item span {
+            padding-top: 2px;
+        }
+
+        /* 핵심정리 */
+        .summary-box {
+            background: var(--summary-bg);
+            border-left: 5px solid var(--summary-bd);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .summary-box h3 {
+            margin-top: 0;
+            color: var(--summary-bd);
+        }
+
+        .summary-box ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .summary-box li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .summary-box li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--summary-bd);
+            font-weight: bold;
+        }
+
+        /* 상세설명 */
+        .detail-section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .detail-section p {
+            margin-bottom: 15px;
+            line-height: 1.9;
+        }
+
+        .detail-section ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .detail-section li {
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        .law-reference {
+            background: #f0f0f0;
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 10px 0;
+            font-size: 0.95rem;
+            color: var(--navy);
+            font-weight: 500;
+        }
+
+        /* Q&A */
+        .qa-item {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .qa-item.question {
+            border-left: 5px solid var(--navy);
+        }
+
+        .qa-question {
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .qa-question::before {
+            content: "Q";
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--navy);
+            color: white;
+            border-radius: 50%;
+            margin-right: 12px;
+            flex-shrink: 0;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .qa-answer {
+            color: var(--text);
+            line-height: 1.8;
+            padding-left: 40px;
+        }
+
+        .qa-answer::before {
+            content: "A";
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--gold);
+            color: white;
+            border-radius: 50%;
+            margin-left: -40px;
+            margin-right: 12px;
+            flex-shrink: 0;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        /* 판례 */
+        .ruling-box {
+            background: var(--ruling-bg);
+            border-left: 5px solid var(--ruling-bd);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-style: italic;
+            line-height: 1.9;
+            color: #444;
+        }
+
+        .ruling-label {
+            font-weight: 700;
+            color: var(--ruling-bd);
+            font-style: normal;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* 주의사항 */
+        .caution-item {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 5px solid var(--navy);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .caution-item.warning {
+            border-left-color: var(--warn-bd);
+        }
+
+        .caution-label {
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .caution-item.warning .caution-label {
+            color: var(--warn-bd);
+        }
+
+        .caution-icon {
+            font-size: 1.3rem;
+            margin-right: 10px;
+        }
+
+        .caution-item p {
+            margin: 0;
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* CTA */
+        .cta-box {
+            background: var(--cta-bg);
+            border: 2px solid var(--cta-bd);
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .cta-box h3 {
+            margin-top: 0;
+            color: var(--navy);
+        }
+
+        .cta-box p {
+            margin: 15px 0;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--gold);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.05rem;
+        }
+
+        .cta-button:hover {
+            background: #b89456;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(200, 169, 110, 0.3);
+        }
+
+        /* 면책 문구 */
+        .disclaimer {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.7;
+            margin-top: 50px;
+            border-top: 2px solid #ddd;
+        }
+
+        /* 테이블 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        table th {
+            background: var(--navy);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        table td {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tr:hover {
+            background: #f9f9f9;
+        }
+
+        /* 반응형 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            header {
+                margin: -20px -15px 30px -15px;
+                padding: 40px 15px;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            h3 {
+                font-size: 1.1rem;
+            }
+
+            .checklist, .detail-section, .qa-item {
+                padding: 20px;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            table th, table td {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+
+            .checklist-item {
+                font-size: 0.95rem;
+            }
+
+            .cta-button {
+                display: block;
+                width: 100%;
+            }
+        }
+    .law-tag {
+      display: inline-block; background: #e8edf5; color: #2d4a7a;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #b0c4de; cursor: pointer; transition: background 0.15s;
+    }
+    .law-tag:hover { background: #c8daf7; color: #1a2e4a; }
+    .case-tag {
+      display: inline-block; background: #f0ece4; color: #5a4a30;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #c8a96e; cursor: pointer; transition: background 0.15s;
+    }
+    .case-tag:hover { background: #f5dfa8; color: #3a2a10; }
+  </style>
+</head>
+<body>
+    <header>
+        <h1>가압류를 당했을 때</h1>
+        <p>내 재산에 붙은 가압류, 대처 방법을 알아보세요</p>
+    </header>
+
+    <div class="container">
+        <!-- 섹션 1: 이런 분께 필요합니다 -->
+        <section>
+            <h2>이런 분께 필요합니다</h2>
+            <div class="checklist">
+                <div class="checklist-item">
+                    <span>갑자기 부동산이나 통장에 가압류가 됐다는 통지를 받았다</span>
+                </div>
+                <div class="checklist-item">
+                    <span>가압류가 무엇이고 어떤 효력이 있는지 모르겠다</span>
+                </div>
+                <div class="checklist-item">
+                    <span>상대방의 채권이 정당한지 의심스럽다</span>
+                </div>
+                <div class="checklist-item">
+                    <span>가압류를 풀 수 있는지, 방법이 무엇인지 모르겠다</span>
+                </div>
+                <div class="checklist-item">
+                    <span>가압류된 재산을 계속 사용할 수 있는지 모르겠다</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 섹션 2: 핵심정리 -->
+        <section>
+            <h2>핵심정리</h2>
+            <div class="summary-box">
+                <h3>가압류란 무엇인가</h3>
+                <ul>
+                    <li><strong>가압류는 채권자가 법원에 신청하여 받은 잠정적 처분</strong> → 확정 판결이 아님</li>
+                    <li><strong>소유권은 채무자에게 유지</strong> → 다만 처분·이전 행위는 채권자에게 대항 불가</li>
+                    <li><strong>채무자의 권리는 3가지</strong> → ①가압류 이의 신청, ②가압류 취소 신청, ③담보 제공에 의한 집행 취소</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 섹션 3: 상세설명 -->
+        <section>
+            <h2>상세설명</h2>
+
+            <div class="detail-section">
+                <h3>가압류가 무엇인가</h3>
+                <p>가압류는 채권자가 금전채권의 실현을 위해 법원에 신청하여 얻는 잠정적 강제집행 처분입니다. 채무자의 재산을 미리 묶어두어 판결 후 강제집행을 용이하게 하는 제도입니다.</p>
+                <div class="law-reference"><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=027600" target="_blank" rel="noopener">민사집행법 제276조</a></div>
+                <p><strong>핵심: 가압류는 '확정되지 않은 채권'을 보전하기 위한 임시 처분이므로, 반드시 본안 소송을 통해 채권이 확정되어야 합니다.</strong></p>
+            </div>
+
+            <div class="detail-section">
+                <h3>가압류된 재산의 효력</h3>
+                <h4 style="color: #555; margin-top: 15px;">1) 부동산에 가압류가 붙은 경우</h4>
+                <ul>
+                    <li><strong>등기촉탁</strong>: 부동산등기부에 "가압류" 표시</li>
+                    <li><strong>처분 제한</strong>: 소유권 이전, 담보 설정 등이 제한됨</li>
+                    <li><strong>하지만 소유권은 유지</strong>: 부동산에 거주·사용 가능</li>
+                    <li><strong>경우에 따라 처분 가능</strong>: 경매나 공매로 판매 시 대금을 채권자가 회수</li>
+                </ul>
+
+                <h4 style="color: #555; margin-top: 15px;">2) 예금에 가압류가 붙은 경우</h4>
+                <ul>
+                    <li><strong>제3채무자(은행) 통지</strong>: 은행에 가압류 통지</li>
+                    <li><strong>인출 불가</strong>: 채무자가 예금을 인출할 수 없음</li>
+                    <li><strong>계속 이자 발생</strong>: 예금의 이자는 일반적으로 계속 발생</li>
+                </ul>
+
+                <h4 style="color: #555; margin-top: 15px;">3) 급여에 가압류가 붙은 경우</h4>
+                <ul>
+                    <li><strong>매월 공제</strong>: 급여 지급 시마다 가압류 범위 내에서 공제</li>
+                    <li><strong>생계비 제외</strong>: 최저생계비는 보호받을 수 있음</li>
+                </ul>
+            </div>
+
+            <div class="detail-section">
+                <h3>채무자의 3가지 대응 방법</h3>
+                <h4 style="color: #555; margin-top: 15px;">① 가압류 이의 신청</h4>
+                <p><strong>근거</strong>: <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=028300" target="_blank" rel="noopener">민사집행법 제283조</a></p>
+                <p>가압류 결정에 대해 이의를 제기할 수 있습니다.</p>
+                <ul>
+                    <li>피보전권리가 없음을 소명</li>
+                    <li>보전의 필요성이 없음을 소명</li>
+                    <li>재판부에서 심문 절차 진행</li>
+                    <li>결과: 가압류 결정 취소 또는 유지</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>언제 신청?</strong> 가압류 통지를 받은 후 가능 (특정 기간 제한 없음)</p>
+
+                <h4 style="color: #555; margin-top: 20px;">② 담보 제공에 의한 집행 취소</h4>
+                <p><strong>근거</strong>: <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=028200" target="_blank" rel="noopener">민사집행법 제282조</a></p>
+                <p>채무자가 담보(금전, 보증보험)를 제공하면 가압류 집행이 취소됩니다.</p>
+                <ul>
+                    <li><strong>담보 금액</strong>: 가압류 청구금액 이상</li>
+                    <li><strong>방법</strong>: 법원 공탁 또는 보증보험</li>
+                    <li><strong>장점</strong>: 가장 신속한 방법</li>
+                    <li><strong>주의</strong>: 담보 제공 = 채무 인정이 아님</li>
+                </ul>
+
+                <h4 style="color: #555; margin-top: 20px;">③ 사정 변경에 의한 취소</h4>
+                <p><strong>근거</strong>: <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=028800" target="_blank" rel="noopener">민사집행법 제288조</a></p>
+                <p>가압류 이후 상황이 바뀌면 취소를 신청할 수 있습니다.</p>
+                <ul>
+                    <li>본안 소송에서 채권자가 패소한 경우</li>
+                    <li>채무자가 채권자와 합의한 경우</li>
+                    <li>채권자가 본안 소송을 제기하지 않은 경우 (⚡ 기간 제한 있음)</li>
+                </ul>
+            </div>
+
+            <div class="detail-section">
+                <h3>가압류 통지 받았을 때 해야 할 일</h3>
+                <ol style="margin-left: 20px;">
+                    <li><strong>가압류 내용 확인</strong>: 가압류 결정문 읽어보기 (피보전권리, 금액, 대상 재산 확인)</li>
+                    <li><strong>법률전문가 상담</strong>: 변호사 또는 법무사와 상담 (이의 신청 여부 검토)</li>
+                    <li><strong>신속한 대응</strong>: 가압류에 이의가 있다면 조속히 신청서 제출</li>
+                    <li><strong>담보 제공 검토</strong>: 금전적 여유가 있으면 담보 제공으로 즉시 해제 가능</li>
+                    <li><strong>본안 대비</strong>: 채권자가 소송을 제기했다면 본안 소송에 적극 대응</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 섹션 4: Q&A -->
+        <section>
+            <h2>자주 하는 질문</h2>
+
+            <div class="qa-item question">
+                <div class="qa-question">가압류된 부동산에 계속 살 수 있나요?</div>
+                <div class="qa-answer">
+                    <p>네, 가능합니다. 가압류는 소유권을 뺏는 것이 아니라 처분(판매, 이전)을 제한할 뿐이므로, 계속 거주하거나 사용할 수 있습니다. 다만 그 부동산을 팔거나 담보로 잡힐 수 없습니다.</p>
+                </div>
+            </div>
+
+            <div class="qa-item question">
+                <div class="qa-question">가압류가 잘못됐다고 생각하는데 어떻게 해야 하나요?</div>
+                <div class="qa-answer">
+                    <p>가압류 이의 신청(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=028300" target="_blank" rel="noopener">민사집행법 제283조</a>)을 법원에 제출하세요. 상대방의 채권이 존재하지 않거나 가압류할 필요가 없다는 점을 증거로 제시하면 됩니다. 법원이 인정하면 가압류 결정이 취소됩니다.</p>
+                </div>
+            </div>
+
+            <div class="qa-item question">
+                <div class="qa-question">상대방이 소송을 제기하지 않으면 가압류는 언제까지 유지되나요?</div>
+                <div class="qa-answer">
+                    <p>채권자가 가압류 후 일정 기간 내에(일반적으로 2주) 본안 소송을 제기하거나 기존 소송의 기일을 신청하지 않으면, 채무자는 취소 신청을 할 수 있습니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=028700" target="_blank" rel="noopener">민사집행법 제287조</a>). 이를 통해 가압류를 풀 수 있습니다.</p>
+                </div>
+            </div>
+
+            <div class="qa-item question">
+                <div class="qa-question">가압류를 풀기 위해 담보를 제공하면 채권자와 합의한 것이 되나요?</div>
+                <div class="qa-answer">
+                    <p>아닙니다. 담보 제공은 가압류 집행을 취소하기 위한 절차일 뿐이며, 채무를 인정하거나 합의한 것이 아닙니다. 이후 채권의 정당성을 다투거나 본안 소송을 진행할 수 있습니다.</p>
+                </div>
+            </div>
+
+            <div class="qa-item question">
+                <div class="qa-question">가압류 후 그 재산을 팔면 어떻게 되나요?</div>
+                <div class="qa-answer">
+                    <p>부동산인 경우 등기부에 가압류 표시가 있으므로 일반 판매가 어렵습니다. 강제경매나 공매를 통해 판매하면 그 대금을 채권자가 회수합니다. 따라서 무단 처분은 피하고, 법원의 가압류 해제를 받는 것이 현명합니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 섹션 5: 판례 -->
+        <section>
+            <h2>관련 판례</h2>
+            <div class="ruling-box">
+                <span class="ruling-label">대법원 판시 내용</span>
+                대법원은 가압류 채무자가 가압류 결정에 이의를 신청하는 경우, 가압류의 피보전권리가 존재하지 않거나 보전의 필요성이 없다는 점을 소명하면 법원은 가압류 결정을 취소하거나 변경할 수 있다고 판시하고 있습니다.
+            </div>
+        </section>
+
+        <!-- 섹션 6: 주의사항 -->
+        <section>
+            <h2>주의사항</h2>
+
+            <div class="caution-item">
+                <div class="caution-label">
+                    <span class="caution-icon">⚡</span>
+                    기간 제한: 신속한 대응이 필요합니다
+                </div>
+                <p>가압류 이의 신청에는 별도의 기간 제한은 없으나, 시간이 지날수록 사정이 불리해질 수 있으므로 조속히 신청하는 것이 유리합니다. 또한 상대방이 소송을 제기하지 않으면 채무자는 취소 신청이 가능합니다.</p>
+            </div>
+
+            <div class="caution-item warning">
+                <div class="caution-label">
+                    <span class="caution-icon">⚠️</span>
+                    잘못된 처리 결과
+                </div>
+                <p>가압류된 재산을 무단으로 처분하면 강제집행 방해죄(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=188383&joNo=031100" target="_blank" rel="noopener">형법 제311조</a>)에 해당될 수 있으며, 형사처벌을 받을 가능성이 있습니다. 반드시 법원의 절차를 통해 해제를 진행하세요.</p>
+            </div>
+
+            <div class="caution-item">
+                <div class="caution-label">
+                    <span class="caution-icon">ℹ️</span>
+                    예외 사항
+                </div>
+                <p>가압류는 본안판결이 아니므로 채무가 법적으로 확정된 것이 아닙니다. 따라서 이의 신청을 통해 가압류 결정 자체를 다툴 수 있고, 본안 소송에서 채무 자체를 부인할 수 있습니다.</p>
+            </div>
+        </section>
+
+        <!-- 섹션 7: 다음 확인사항 -->
+        <section>
+            <h2>다음에 확인할 사항</h2>
+            <div class="detail-section">
+                <ul>
+                    <li><strong>본안 소송 준비</strong>: 상대방이 소송을 제기했다면 법원의 소장 등본을 잘 읽고 법률전문가 상담 예약</li>
+                    <li><strong>증거 수집</strong>: 채무가 없음을 증명할 증거 수집 (계약서, 영수증, 문자 메시지, 송금 내역 등)</li>
+                    <li><strong>담보 제공 검토</strong>: 금전적 여유가 있으면 공탁을 통해 신속히 가압류 해제 가능</li>
+                    <li><strong>법무사·변호사 선임</strong>: 가압류 이의 신청이나 본안 소송 대응을 위해 전문가 도움 필요</li>
+                    <li><strong>합의 가능성 검토</strong>: 필요하면 상대방과의 합의를 통해 해결 가능성 검토</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 섹션 8: CTA -->
+        <section>
+            <div class="cta-box">
+                <h3>가압류 문제, 법무사와 상담하세요</h3>
+                <p>가압류 통지를 받은 후 당황하지 마세요.</p>
+                <p>정확한 법적 판단과 신속한 대응이 중요합니다.</p>
+                <p style="font-weight: 600; color: var(--navy);">당신의 권리를 지키기 위해 법무사가 함께하겠습니다.</p>
+                <a href="#contact" class="cta-button">상담 신청하기</a>
+            </div>
+        </section>
+
+        <!-- 섹션 9: 면책 문구 -->
+        <div class="disclaimer">
+            <strong>면책 사항:</strong> 본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 특정 사건에 대한 법률 조언이 아닙니다. 실제 상황에 따라 법적 해석이 다를 수 있으므로, 정확한 법률 자문을 위해서는 반드시 법무사나 변호사와 개별 상담하시기 바랍니다.
+        </div>
+    </div>
+</body>
+</html>

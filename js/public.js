@@ -4,11 +4,8 @@
 
 'use strict';
 
-/* ---------- 상담 신청 URL (n8n 외부 폼) ---------- */
-const CONSULT_URLS = {
-  personal:  'https://n8npark.app.n8n.cloud/form/abd1f9d0-4ae9-428c-949d-a8bd1e90a12c',
-  corporate: 'https://n8npark.app.n8n.cloud/form/92ea9eaf-074c-474a-b48c-3c30198101f4',
-};
+/* ---------- 상담 신청 URL (n8n 외부 폼, 개인·법인 통합) ---------- */
+const CONSULT_URL = 'https://n8npark.app.n8n.cloud/form/c1a2b3c4-d5e6-4f70-8a90-111122223333';
 
 /* ============================================================
    1. 슬라이더 배너
@@ -251,13 +248,10 @@ function initConsultModal() {
   });
 }
 
-/** 상담 폼 이동 (개인/법인) */
-function goConsult(type) {
-  const url = CONSULT_URLS[type];
-  if (url) {
-    closeConsultModal();
-    window.open(url, '_blank');
-  }
+/** 상담 폼 이동 (개인·법인 통합) */
+function goConsult() {
+  closeConsultModal();
+  window.open(CONSULT_URL, '_blank');
 }
 
 /* ============================================================

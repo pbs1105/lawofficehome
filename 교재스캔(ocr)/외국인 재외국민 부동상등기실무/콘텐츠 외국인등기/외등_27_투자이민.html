@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>투자이민제도와 부동산 취득 | 법무사 사무실</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #faf8f5;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #c8a96e;
+        }
+
+        h1 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 2.5rem;
+            color: #1a2e4a;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        /* 섹션 공통 스타일 */
+        section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 1.8rem;
+            color: #1a2e4a;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #c8a96e;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 1.3rem;
+            color: #1a2e4a;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        p {
+            margin-bottom: 15px;
+            line-height: 1.9;
+        }
+
+        /* 체크리스트 박스 */
+        .checklist-box {
+            background-color: #eef2f8;
+            border-left: 5px solid #2d4a7a;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+
+        .checklist-box h3 {
+            margin-top: 0;
+            color: #2d4a7a;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .checklist-item:before {
+            content: "☑";
+            color: #2d4a7a;
+            font-size: 1.2rem;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        /* 핵심 요약 박스 */
+        .summary-box {
+            background-color: #eef2f8;
+            border: 2px solid #2d4a7a;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+
+        .summary-box h3 {
+            color: #2d4a7a;
+            margin-top: 0;
+        }
+
+        .summary-box ul {
+            margin-left: 20px;
+        }
+
+        .summary-box li {
+            margin-bottom: 12px;
+        }
+
+        /* CTA 박스 */
+        .cta-box {
+            background-color: #fdf6e9;
+            border: 2px solid #c8a96e;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .cta-box p {
+            font-size: 1.1rem;
+            color: #1a2e4a;
+            font-weight: 500;
+            margin-bottom: 0;
+        }
+
+        /* 판례·예규 박스 */
+        .case-law-box {
+            background-color: #f7f4f0;
+            border-left: 5px solid #6b7280;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 5px;
+        }
+
+        .case-law-box h4 {
+            color: #6b7280;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        /* 사례 박스 */
+        .example-box {
+            background-color: #f0f8f0;
+            border-left: 5px solid #1a5c2e;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 5px;
+        }
+
+        .example-box h4 {
+            color: #1a5c2e;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        /* 경고 박스 */
+        .warning-box {
+            background-color: #fff3e8;
+            border-left: 5px solid #c05000;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 5px;
+        }
+
+        .warning-box h4 {
+            color: #c05000;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        /* 국가별 차이 박스 */
+        .country-diff-box {
+            background-color: #f0f4ff;
+            border-left: 5px solid #3b5bdb;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 5px;
+        }
+
+        .country-diff-box h4 {
+            color: #3b5bdb;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        /* 테이블 스타일 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            background-color: white;
+        }
+
+        th {
+            background-color: #1a2e4a;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid #c8a96e;
+        }
+
+        td {
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+        }
+
+        tr:nth-child(even) {
+            background-color: #faf8f5;
+        }
+
+        tr:hover {
+            background-color: #f5f1eb;
+        }
+
+        /* 리스트 스타일 */
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* 강조 텍스트 */
+        strong {
+            color: #1a2e4a;
+            font-weight: 600;
+        }
+
+        .highlight {
+            background-color: #ffeaa7;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        /* 하단 CTA & 상담 섹션 */
+        .consultation-section {
+            background-color: #fdf6e9;
+            border: 2px solid #c8a96e;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .consultation-section h3 {
+            color: #c8a96e;
+            margin-top: 0;
+        }
+
+        .consultation-section p {
+            font-size: 1.1rem;
+            color: #1a2e4a;
+            margin-bottom: 20px;
+        }
+
+        .consultation-btn {
+            display: inline-block;
+            background-color: #1a2e4a;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: background-color 0.3s;
+        }
+
+        .consultation-btn:hover {
+            background-color: #c8a96e;
+            color: #1a2e4a;
+        }
+
+        /* 면책 문구 */
+        .disclaimer {
+            background-color: #f7f4f0;
+            border: 1px solid #6b7280;
+            padding: 20px;
+            margin-top: 40px;
+            border-radius: 5px;
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* 다음 확인 사항 */
+        .next-steps {
+            background-color: #f0f4ff;
+            border: 2px solid #3b5bdb;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+
+        .next-steps h3 {
+            color: #3b5bdb;
+            margin-top: 0;
+        }
+
+        .next-steps ul {
+            list-style-type: none;
+            margin-left: 0;
+        }
+
+        .next-steps li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .next-steps li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #3b5bdb;
+            font-weight: bold;
+        }
+
+        /* 관련 링크 */
+        .related-links {
+            background-color: #faf8f5;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            border: 1px solid #c8a96e;
+        }
+
+        .related-links h3 {
+            margin-top: 0;
+        }
+
+        .related-links a {
+            display: inline-block;
+            margin-right: 15px;
+            margin-bottom: 10px;
+            padding: 10px 15px;
+            background-color: #1a2e4a;
+            color: white;
+            text-decoration: none;
+            border-radius: 3px;
+            font-size: 0.95rem;
+            transition: background-color 0.3s;
+        }
+
+        .related-links a:hover {
+            background-color: #c8a96e;
+            color: #1a2e4a;
+        }
+
+        /* 반응형 */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            th, td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 헤더 -->
+        <header>
+            <h1>투자이민제도와 부동산 취득</h1>
+            <p class="subtitle">공익사업 투자이민 대상·금액 기준</p>
+        </header>
+
+        <!-- 섹션 1: 이런 분께 필요합니다 -->
+        <section>
+            <h2>이런 분께 필요합니다</h2>
+            <div class="checklist-box">
+                <h3>다음 중 해당되시나요?</h3>
+                <div class="checklist-item">외국인으로서 한국 부동산에 투자하여 거주자격을 취득하려는 경우</div>
+                <div class="checklist-item">공익사업(기업도시, 관광시설 등)에 투자하여 한국 체류를 원하는 경우</div>
+                <div class="checklist-item">투자이민 부동산의 등기 절차와 법적 지위를 알고 싶은 경우</div>
+                <div class="checklist-item">투자금액 기준과 거주→영주 자격 변경 요건을 확인하려는 경우</div>
+                <div class="checklist-item">투자이민 부동산 보유 중 주의사항과 법적 제약을 알고 싶은 경우</div>
+                <div class="checklist-item">은퇴자이거나 고액 투자자로서 특례 제도 적용 여부를 확인하려는 경우</div>
+            </div>
+        </section>
+
+        <!-- 섹션 2: 핵심 요약 -->
+        <section>
+            <h2>핵심 요약</h2>
+            <div class="summary-box">
+                <h3>투자이민제도란?</h3>
+                <ul>
+                    <li><strong>정의</strong>: 외국인이 한국 부동산, 공익펀드, 낙후지역 개발사업 등에 투자하면 경제활동이 자유로운 거주(F-2) 자격을 부여하고, 5년간 투자를 유지하면 영주(F-5) 자격으로 변경하는 제도</li>
+                    <li><strong>기본 원리</strong>: 투자 → 거주자격(F-2) 획득 → 5년 유지 → 영주자격(F-5) 변경</li>
+                    <li><strong>법 근거</strong>: 출입국관리법 시행령 [별표 1의2] 제24호, [별표 1의3] 제16호 | 법무부고시 제2023-319호 (2023년 6월 29일 시행)</li>
+                    <li><strong>최근 개정</strong>: 2023년 6월 29일 법무부고시 제2023-319호로 투자금액 기준 상향 조정됨</li>
+                </ul>
+            </div>
+
+            <div class="cta-box">
+                <p>이 내용이 해당되시나요? 첫 상담은 무료입니다.</p>
+            </div>
+        </section>
+
+        <!-- 섹션 3: 투자이민제도 개요 -->
+        <section>
+            <h2>투자이민제도 개요</h2>
+
+            <h3>제도의 취지</h3>
+            <p>투자이민제도는 법무부가 외국인 투자유치를 통해 국내 경제 활성화를 도모하는 정책의 일환입니다. 일정 금액 이상의 부동산 또는 공익사업에 투자하는 외국인에게 한국 내 거주와 경제활동을 자유롭게 허용하고, 장기 투자를 유지하는 경우 영주권을 부여하는 방식으로 운영됩니다.</p>
+
+            <h3>투자이민의 두 가지 유형</h3>
+            <ul>
+                <li><strong>부동산 투자이민제도</strong>: 주택, 상업용 부동산, 토지 등에 직접 투자</li>
+                <li><strong>공익사업 투자이민제도</strong>: 기업도시, 관광휴양시설, 낙후지역 개발사업 등 공익 목적 투자</li>
+            </ul>
+
+            <h3>투자이민 후 체류자격 변화</h3>
+            <table>
+                <tr>
+                    <th>단계</th>
+                    <th>체류자격</th>
+                    <th>설명</th>
+                    <th>기간</th>
+                </tr>
+                <tr>
+                    <td>1단계</td>
+                    <td>거주(F-2)</td>
+                    <td>투자 후 처음 부여받는 체류자격. 경제활동 자유</td>
+                    <td>5년</td>
+                </tr>
+                <tr>
+                    <td>2단계</td>
+                    <td>영주(F-5)</td>
+                    <td>투자 유지 조건 충족 시 획득. 영구 거주 가능</td>
+                    <td>무기한</td>
+                </tr>
+            </table>
+
+            <div class="case-law-box">
+                <h4>법령 근거</h4>
+                <ul>
+                    <li>출입국관리법 시행령 [별표 1의2] 제24호: 거주(F-2) 자격 기준</li>
+                    <li>출입국관리법 시행령 [별표 1의3] 제16호: 영주(F-5) 자격 기준</li>
+                    <li>법무부고시 제2023-319호: 투자금액 및 요건 기준 (2023. 6. 29. 시행)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 섹션 4: 공익사업 투자이민 종류 및 금액 기준 -->
+        <section>
+            <h2>공익사업 투자이민 종류 및 금액 기준</h2>
+
+            <h3>공익사업 투자이민의 분류</h3>
+            <p>공익사업에 대한 투자이민은 투자 규모와 투자자 나이에 따라 <strong>일반투자이민</strong>, <strong>은퇴투자이민</strong>, <strong>고액투자이민</strong>으로 구분됩니다.</p>
+
+            <table>
+                <tr>
+                    <th>투자이민 유형</th>
+                    <th>대상</th>
+                    <th>투자금액</th>
+                    <th>획득 자격</th>
+                    <th>영주 전환</th>
+                </tr>
+                <tr>
+                    <td><strong>일반투자이민</strong></td>
+                    <td>외국인 (나이 무관)</td>
+                    <td>15억 원 이상</td>
+                    <td>거주(F-2)</td>
+                    <td>5년 유지 후 영주(F-5) 전환</td>
+                </tr>
+                <tr>
+                    <td><strong>은퇴투자이민</strong></td>
+                    <td>55세 이상 외국인</td>
+                    <td>3억 원 이상</td>
+                    <td>거주(F-2)</td>
+                    <td>5년 유지 후 영주(F-5) 전환</td>
+                </tr>
+                <tr>
+                    <td><strong>고액투자이민</strong></td>
+                    <td>외국인 (나이 무관)</td>
+                    <td>30억 원 이상 (원금보장·무이자형)</td>
+                    <td>조건부 영주(F-5)</td>
+                    <td>즉시 조건부 영주 부여, 5년 유지 조건</td>
+                </tr>
+            </table>
+
+            <div class="warning-box">
+                <h4>금액 기준 변경 알림</h4>
+                <p><strong>2023년 6월 29일 이후</strong> 다음과 같이 변경되었습니다:</p>
+                <ul>
+                    <li>일반투자이민: <span class="highlight">15억 원 이상</span> (이전 기준 상향)</li>
+                    <li>은퇴투자이민: <span class="highlight">3억 원 이상</span> (이전 기준 유지)</li>
+                    <li>고액투자이민: <span class="highlight">30억 원 이상</span> (원금보장·무이자형)</li>
+                </ul>
+            </div>
+
+            <h3>투자 대상 (공익사업)</h3>
+            <p>공익사업 투자이민의 투자 대상은 다음과 같습니다:</p>
+
+            <h4>1) 원금보장·무이자형</h4>
+            <ul>
+                <li>한국산업은행에 예치</li>
+                <li>안정성이 높으며, 원금 손실 위험 최소</li>
+                <li>고액투자이민(30억 원 이상)의 주요 투자 방식</li>
+            </ul>
+
+            <h4>2) 손익발생형</h4>
+            <ul>
+                <li>기업도시개발특별법에 따른 관광 중심 기업도시 개발사업</li>
+                <li>국가적 장기 개발프로젝트</li>
+                <li>손익에 따라 수익 또는 손실 발생 가능</li>
+            </ul>
+
+            <h4>3) 관광·휴양시설</h4>
+            <ul>
+                <li>관광지역 개발사업</li>
+                <li>관광이민제도와 연계 가능하며, 투자이민 5년 유지 기간에 합산</li>
+            </ul>
+
+            <div class="example-box">
+                <h4>예시</h4>
+                <p><strong>일반투자이민 신청 사례:</strong> A씨(독일 국적)는 기업도시 관광시설 개발사업에 15억 원을 투자하고 거주(F-2) 자격을 취득합니다. 5년간 투자금을 유지하면 영주(F-5) 자격으로 변경되어 한국에 무기한 거주할 수 있게 됩니다.</p>
+            </div>
+        </section>
+
+        <!-- 섹션 5: 투자 이후 절차 -->
+        <section>
+            <h2>투자 이후 절차: 거주(F-2) → 영주(F-5) 자격 취득</h2>
+
+            <h3>단계별 절차</h3>
+            <ol>
+                <li>
+                    <strong>투자 실행 및 체류자격 신청</strong>
+                    <ul>
+                        <li>정해진 투자금액 이상을 투자</li>
+                        <li>투자 증명 서류를 준비하여 출입국관리청에 거주(F-2) 자격 신청</li>
+                        <li>심사 후 거주(F-2) 자격 부여 (보통 1~2개월)</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>거주(F-2) 기간 동안 투자 유지</strong>
+                    <ul>
+                        <li>최소 5년 동안 투자금을 사업에 묶어두어야 함</li>
+                        <li>투자금 인출, 환매, 양도 불가</li>
+                        <li>체류자격 갱신 시마다 투자 유지 증명</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>5년 경과 후 영주(F-5) 자격 신청</strong>
+                    <ul>
+                        <li>투자 유지 기간(5년) 완료</li>
+                        <li>투자 지속 서약서 및 증명 서류 제출</li>
+                        <li>영주(F-5) 자격 변경 신청</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>영주(F-5) 자격 획득</strong>
+                    <ul>
+                        <li>영주자격 부여로 한국 내 무기한 거주 가능</li>
+                        <li>취업, 사업, 부동산 취득 등 자유로운 경제활동</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>관광·휴양시설 투자이민 연계</h3>
+            <p>관광이민제도와 투자이민제도를 동시에 활용하는 경우, 두 사업에 투자한 기간을 합산하여 5년을 인정할 수 있습니다. 예를 들어 관광시설 투자 3년 + 공익사업 투자 2년 = 5년으로 인정되어 더 빨리 영주 자격 취득이 가능합니다.</p>
+
+            <h3>고액투자이민(F-5 제16호)의 특이점</h3>
+            <p>30억 원 이상을 투자하는 고액투자이민의 경우:</p>
+            <ul>
+                <li>거주(F-2)를 거치지 않고 <strong>바로 조건부 영주(F-5) 자격</strong>을 부여</li>
+                <li>투자금은 <strong>원금보장·무이자형</strong>이어야 함 (한국산업은행 예치)</li>
+                <li>5년간 투자 유지 서약</li>
+                <li>5년 후 완전한 영주 자격(무조건부)으로 변경</li>
+            </ul>
+
+            <div class="case-law-box">
+                <h4>투자 유지의 법적 의미</h4>
+                <p>"투자 유지"는 단순히 투자금을 사업에 예치해두는 것뿐 아니라, 투자 목적인 공익사업이 정상 진행되고 있어야 한다는 의미입니다. 만약 투자 대상 사업이 중단되거나 투자금이 회수된다면 투자이민 자격 취소 대상이 될 수 있습니다.</p>
+            </div>
+        </section>
+
+        <!-- 섹션 6: 부동산 등기와의 관계 -->
+        <section>
+            <h2>부동산 등기와의 관계</h2>
+
+            <h3>투자이민 부동산의 등기</h3>
+            <p>투자이민으로 취득한 부동산의 등기 절차는 일반 외국인이 부동산을 취득하는 경우와 <strong>동일합니다</strong>. 투자이민 자격이 있다고 해서 특별한 등기 절차나 혜택이 추가로 주어지지는 않습니다.</p>
+
+            <h4>투자이민 부동산 등기 시 필요한 절차</h4>
+            <ul>
+                <li><strong>외국인토지법 준수</strong>: 투자 대상 토지가 규제지역에 해당하면 취득 신고 또는 허가 필요</li>
+                <li><strong>일반적인 부동산 등기</strong>: 매매계약 → 소유권이전등기 신청 → 등기부 작성</li>
+                <li><strong>투자이민 증명</strong>: 등기 시 투자이민 체류자격 사본 제출 (신원 확인용)</li>
+            </ul>
+
+            <h3>외국인토지법에 따른 규제</h3>
+            <p>투자이민으로 토지를 취득하는 경우, 해당 토지가 다음 지역에 해당하면 취득 신고 또는 허가가 필요합니다:</p>
+            <ul>
+                <li>군사 시설, 국방, 안보에 관련된 지역</li>
+                <li>국가 전략지구(경제자유구역, 기업도시 등) - 그러나 투자이민 사업 대상 지역은 별도 규정</li>
+                <li>농지(농지법 준용)</li>
+            </ul>
+
+            <h3>투자이민 부동산의 매도 제약</h3>
+            <p>투자이민 기간 중(특히 5년 유지 기간 중) 부동산을 매도하면 다음과 같은 법적 문제가 발생할 수 있습니다:</p>
+
+            <div class="warning-box">
+                <h4>주의사항</h4>
+                <ul>
+                    <li><strong>투자 유지 조건 위반</strong>: 투자 목적의 부동산을 매도하면 투자이민 취지 위반</li>
+                    <li><strong>체류자격 취소</strong>: 거주(F-2) 또는 영주(F-5) 자격이 취소될 수 있음</li>
+                    <li><strong>재정입국 불가</strong>: 자격이 취소되면 재입국이 어려워질 수 있음</li>
+                </ul>
+            </div>
+
+            <h3>투자이민 부동산과 등기의 법적 성격</h3>
+            <p>부동산 등기부에는 "투자이민" 표기가 나타나지 않습니다. 등기부에 기재되는 것은 순전히 소유권과 권리의 상태일 뿐, 그 소유자가 어떤 사유로 투자했는지는 별개의 문제입니다. 다만 출입국관리 절차에서는 투자이민 유지를 증명하기 위해 부동산 소유 증명(등기사본)을 요구합니다.</p>
+
+            <div class="case-law-box">
+                <h4>관련 규정</h4>
+                <ul>
+                    <li>부동산등기법 제50조: 외국인 등기</li>
+                    <li>외국인토지법 제6조: 토지취득 신고</li>
+                    <li>출입국관리법 제34조: 체류자격 변경</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 섹션 7: 주의사항 -->
+        <section>
+            <h2>주의사항</h2>
+
+            <h3>1. 투자금액 기준의 정확한 이해</h3>
+            <div class="warning-box">
+                <h4>환율 변동에 대한 유의</h4>
+                <p>투자금액이 외화로 표시되는 경우, 환율 변동으로 인해 원화 기준 투자금액이 변할 수 있습니다. 투자 시점의 환율을 기준으로 하며, 이후 환율 변동으로 기준금액 이하로 내려가도 투자이민 자격은 유지됩니다(다만, 추가 투자나 갱신 시에는 영향을 받을 수 있음).</p>
+            </div>
+
+            <h3>2. 투자 유지의 의무</h3>
+            <ul>
+                <li><strong>5년 동안 투자금 인출 불가</strong>: 거주(F-2) 기간 중 투자금을 회수하면 자격 취소</li>
+                <li><strong>사업 진행 모니터링</strong>: 투자 대상 사업이 정상 진행되는지 확인해야 함</li>
+                <li><strong>사업 중단 시 대응</strong>: 만약 투자 대상 사업이 중단되면 즉시 법무사·변호사와 상담 필요</li>
+            </ul>
+
+            <h3>3. 체류자격 갱신</h3>
+            <ul>
+                <li><strong>정기적 갱신</strong>: 거주(F-2) 자격은 보통 2년씩 갱신 필요</li>
+                <li><strong>투자 증명서 준비</strong>: 매 갱신 시 투자 유지 증명 서류 제출</li>
+                <li><strong>기한 준수</strong>: 자격 갱신 기한을 놓치면 불법체류 상태가 됨</li>
+            </ul>
+
+            <h3>4. 은퇴투자이민 신청 시 주의</h3>
+            <div class="warning-box">
+                <h4>나이 기준 확인</h4>
+                <p>은퇴투자이민은 <strong>신청 시점에 55세 이상</strong>이어야 합니다. 나이 기준일을 명확히 확인하고 신청 시기를 결정해야 합니다. 55세 미만이면 일반투자이민(15억 원 이상) 기준을 적용받습니다.</p>
+            </div>
+
+            <h3>5. 고액투자이민(F-5)의 조건부 영주</h3>
+            <ul>
+                <li><strong>조건부 영주의 의미</strong>: 즉시 영주 자격을 얻지만, 5년 동안 투자금 유지 조건 서약</li>
+                <li><strong>조건 위반 시</strong>: 5년 내 투자금을 회수하거나 사업이 중단되면 영주 자격 취소 가능</li>
+                <li><strong>5년 후 무조건부 영주</strong>: 5년 조건을 성공적으로 유지하면 조건 없는 영주로 확정</li>
+            </ul>
+
+            <h3>6. 세금 및 재정 관리</h3>
+            <ul>
+                <li><strong>소득세</strong>: 투자 사업에서 발생한 수익에 대해 한국 소득세 납부 의무</li>
+                <li><strong>재산세</strong>: 부동산 취득 후 재산세 신고 및 납부</li>
+                <li><strong>환전 규제</strong>: 투자 상환금이 발생해도 즉시 환전하지 않도록 주의</li>
+            </ul>
+
+            <h3>7. 다른 출입국 사유와의 충돌</h3>
+            <ul>
+                <li><strong>여행 및 출국</strong>: 거주(F-2) 자격 유지 중 국외 여행은 가능하나, 과도한 해외 거주는 자격 취소 사유가 될 수 있음</li>
+                <li><strong>범죄 기록</strong>: 한국에서 범죄를 저지르면 즉시 체류자격 취소 가능</li>
+            </ul>
+
+            <div class="case-law-box">
+                <h4>출입국관리법의 기본 원칙</h4>
+                <p>투자이민은 특정 조건(일정 금액의 투자 + 거주)을 전제로 주어지는 자격입니다. 이 조건을 위반하거나 다른 법규 위반 행위가 발생하면 언제든지 자격이 취소될 수 있음을 명심해야 합니다.</p>
+            </div>
+        </section>
+
+        <!-- 섹션 8: 다음 확인 사항 및 상담 -->
+        <section>
+            <div class="next-steps">
+                <h3>다음으로 확인할 내용</h3>
+                <ul>
+                    <li><a href="외등_02_외국인취득.html">외국인의 한국 부동산 취득 절차</a> — 투자이민 부동산 취득의 구체적 단계</li>
+                    <li><a href="외등_03_토지취득허가.html">외국인 토지취득 허가</a> — 규제지역 토지 투자 시 필요 조치</li>
+                    <li><a href="외등_04_취득신고.html">외국인 부동산 취득·보유 신고</a> — 취득 후 신고 의무</li>
+                </ul>
+            </div>
+
+            <div class="consultation-section">
+                <h3>전문가 상담이 필요한가요?</h3>
+                <p>외국인·재외국민 투자이민 부동산 취득은 출입국 자격, 부동산 등기, 세금 등 여러 법령이 복합적으로 적용됩니다. 투자이민 신청부터 부동산 등기, 자격 갱신까지 각 단계에서 전문가의 조언이 필수적입니다.</p>
+                <a href="tel:02-1234-5678" class="consultation-btn">무료 상담 신청</a>
+            </div>
+
+            <div class="cta-box">
+                <p>외국인·재외국민 등기는 국적·체류 자격·입국 여부에 따라 준비 서류가 달라집니다.</p>
+            </div>
+        </section>
+
+        <!-- 면책 문구 -->
+        <div class="disclaimer">
+            <strong>면책 문구</strong><br>
+            본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 개별 사안에 대한 법률 조언이 아닙니다. 이 페이지는 2025년 현행 법령 기준으로 작성되었습니다. 법령 개정이나 판례 변화에 따라 내용이 달라질 수 있으므로, 구체적인 법률 자문이 필요한 경우에는 반드시 법무사·변호사와 상담하시기 바랍니다.
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>보전의 필요성 | 법무사 보전처분 가이드</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1a2e4a;
+            --gold: #c8a96e;
+            --bg: #faf8f5;
+            --text: #2c2c2c;
+            --summary-bg: #eef2f8;
+            --summary-bd: #2d4a7a;
+            --cta-bg: #fdf6e9;
+            --cta-bd: #c8a96e;
+            --case-bg: #f0f8f0;
+            --case-bd: #1a5c2e;
+            --ruling-bg: #f7f4f0;
+            --ruling-bd: #6b7280;
+            --warn-bg: #fff3e8;
+            --warn-bd: #c05000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            border-bottom: 3px solid var(--navy);
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 10px;
+            font-weight: 700;
+            font-family: 'Noto Serif KR', serif;
+        }
+
+        .subtitle {
+            color: var(--gold);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--navy);
+            margin-top: 50px;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--gold);
+            font-family: 'Noto Serif KR', serif;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: var(--navy);
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .checklist {
+            background: rgba(200, 169, 110, 0.08);
+            border-left: 5px solid var(--gold);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
+
+        .checklist ul {
+            list-style: none;
+            margin: 0;
+        }
+
+        .checklist li {
+            padding: 10px 0;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .checklist li:before {
+            content: "✓";
+            color: var(--gold);
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+
+        .summary-box {
+            background: var(--summary-bg);
+            border-left: 5px solid var(--summary-bd);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
+
+        .summary-box h3 {
+            color: var(--summary-bd);
+            margin-top: 0;
+        }
+
+        .summary-box p {
+            margin: 12px 0;
+            line-height: 1.9;
+        }
+
+        .definition-block {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid var(--text);
+        }
+
+        .definition-block strong {
+            color: var(--navy);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        p {
+            margin: 15px 0;
+            line-height: 1.9;
+        }
+
+        strong {
+            color: var(--navy);
+        }
+
+        .highlight {
+            background: rgba(200, 169, 110, 0.2);
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        .judgment-grid {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .judgment-grid h4 {
+            color: var(--navy);
+            margin: 15px 0 10px 0;
+            font-weight: 600;
+        }
+
+        .judgment-grid h4:first-child {
+            margin-top: 0;
+        }
+
+        .judgment-grid ul {
+            margin-left: 20px;
+            margin: 10px 0 0 20px;
+        }
+
+        .judgment-grid li {
+            margin: 8px 0;
+        }
+
+        .qna-container {
+            margin: 30px 0;
+        }
+
+        .qna-item {
+            background: #fafafa;
+            border: 1px solid #e0e0e0;
+            margin: 15px 0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .qna-question {
+            background: var(--navy);
+            color: white;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1rem;
+        }
+
+        .qna-question:hover {
+            background: #0f1d2f;
+        }
+
+        .qna-answer {
+            padding: 20px;
+            display: none;
+            background: white;
+            line-height: 1.9;
+        }
+
+        .qna-item.active .qna-answer {
+            display: block;
+        }
+
+        .qna-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .qna-item.active .qna-toggle {
+            transform: rotate(180deg);
+        }
+
+        .ruling-box {
+            background: var(--ruling-bg);
+            border-left: 5px solid var(--ruling-bd);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 5px;
+            font-style: italic;
+        }
+
+        .ruling-box p {
+            margin: 10px 0;
+            color: #4a5568;
+        }
+
+        .warning-box {
+            background: var(--warn-bg);
+            border-left: 5px solid var(--warn-bd);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
+
+        .warning-box h3 {
+            color: var(--warn-bd);
+            margin-top: 0;
+        }
+
+        .warning-item {
+            display: flex;
+            align-items: flex-start;
+            margin: 12px 0;
+        }
+
+        .warning-icon {
+            font-size: 1.3rem;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .cta-box {
+            background: var(--cta-bg);
+            border: 2px solid var(--cta-bd);
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .cta-box h3 {
+            color: var(--navy);
+            margin-top: 0;
+        }
+
+        .cta-button {
+            background: var(--gold);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #b8935e;
+        }
+
+        .disclaimer {
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: #555;
+            border-radius: 5px;
+            line-height: 1.8;
+        }
+
+        .evidence-box {
+            background: #e8f4e8;
+            border-left: 5px solid #1a5c2e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .evidence-box h4 {
+            color: #1a5c2e;
+            margin: 0 0 10px 0;
+        }
+
+        .evidence-box ul {
+            margin-left: 20px;
+        }
+
+        .evidence-box li {
+            margin: 8px 0;
+        }
+
+        
+
+        .next-section {
+            background: var(--summary-bg);
+            border-left: 5px solid var(--summary-bd);
+            padding: 25px;
+            margin: 40px 0 30px 0;
+            border-radius: 5px;
+        }
+
+        .next-section h3 {
+            margin-top: 0;
+        }
+
+        .next-section ul {
+            margin-left: 20px;
+        }
+
+        .next-section li {
+            margin: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+        }
+    .law-tag {
+      display: inline-block; background: #e8edf5; color: #2d4a7a;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #b0c4de; cursor: pointer; transition: background 0.15s;
+    }
+    .law-tag:hover { background: #c8daf7; color: #1a2e4a; }
+    .case-tag {
+      display: inline-block; background: #f0ece4; color: #5a4a30;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #c8a96e; cursor: pointer; transition: background 0.15s;
+    }
+    .case-tag:hover { background: #f5dfa8; color: #3a2a10; }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>보전의 필요성</h1>
+            <p class="subtitle">법원이 어떤 때 가압류·가처분을 인정하는가</p>
+        </header>
+
+        <section>
+            <h2>이런 분께 필요합니다</h2>
+            <div class="checklist">
+                <ul>
+                    <li>가압류나 가처분을 신청하려는데 법원에서 인정받을 수 있는지 모르겠다</li>
+                    <li>보전의 필요성이 무엇인지, 어떻게 소명해야 하는지 모르겠다</li>
+                    <li>상대방이 재산을 처분할 것 같다는 근거가 필요한지 모르겠다</li>
+                    <li>법원이 보전의 필요성을 어떤 기준으로 판단하는지 알고 싶다</li>
+                    <li>보전의 필요성이 부족하면 가압류가 기각될까 봐 걱정된다</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>핵심정리</h2>
+            <div class="summary-box">
+                <h3>보전의 필요성이란?</h3>
+                <p><strong>강제집행이 불가능하거나 현저히 어려워질 위험을 방지하기 위한 법적 필요성입니다.</strong></p>
+
+                <h3 style="margin-top: 20px;">보전의 필요성의 정의</h3>
+                <p><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=027700" target="_blank" rel="noopener">민사집행법 제277조</a> — 가압류: "장래의 강제집행이 불가능하거나 현저히 곤란해질 염려"</p>
+                <p><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=030000" target="_blank" rel="noopener">민사집행법 제300조</a> — 가처분: "현상의 변경으로 권리 실행이 불가능하거나 현저히 곤란해질 염려" 또는 "현저한 손해나 급박한 위험"</p>
+
+                <h3 style="margin-top: 20px;">핵심 포인트</h3>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>소명으로 족함 — 완전한 증명까지는 필요 없음</li>
+                    <li>신청 당시를 기준으로 판단</li>
+                    <li>채무자의 재산 상황, 행동, 변제 의사 등을 종합적으로 고려</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>상세설명</h2>
+
+            <h3>1. 보전의 필요성의 개념</h3>
+            <p>보전의 필요성은 <strong>가압류나 가처분이 필요한 객관적 정황</strong>을 의미합니다. 즉:</p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>지금 조치를 취하지 않으면 나중에 강제집행이 불가능할 위험이 있는가?</li>
+                <li>채무자가 재산을 숨기거나 처분할 가능성이 있는가?</li>
+                <li>채무자의 경제 상황이 악화될 가능성이 있는가?</li>
+            </ul>
+
+            <h3>2. 가압류의 보전의 필요성 판단 기준</h3>
+            <div class="judgment-grid">
+                <h4>❶ 채무자의 재산 처분·은닉 가능성</h4>
+                <ul>
+                    <li>채무자가 이전에 재산을 처분한 전력이 있는가?</li>
+                    <li>채무자가 부동산을 매도하려고 광고하고 있는가?</li>
+                    <li>채무자가 사업을 정리하고 있는 정황이 있는가?</li>
+                    <li>채무자가 자산을 해외로 이전하려 하는가?</li>
+                </ul>
+
+                <h4>❷ 채무자의 재산 감소 상황</h4>
+                <ul>
+                    <li>채무자의 부동산이 경매 중인가?</li>
+                    <li>채무자의 급여가 감소하고 있는가?</li>
+                    <li>채무자의 회사가 영업난을 겪고 있는가?</li>
+                    <li>채무자가 다른 채권자들로부터 많은 채무를 지고 있는가?</li>
+                </ul>
+
+                <h4>❸ 채무자의 경제 상황 악화</h4>
+                <ul>
+                    <li>채무자가 다중 채무자인가?</li>
+                    <li>채무자의 신용점수가 낮은가?</li>
+                    <li>채무자가 파산 신청을 고려하고 있는가?</li>
+                </ul>
+
+                <h4>❹ 채권액 대비 채무자 재산의 부족</h4>
+                <ul>
+                    <li>청구 채권액이 막대한가?</li>
+                    <li>채무자의 확인된 재산이 부족한가?</li>
+                    <li>다른 채권자들의 청구가 선행하고 있는가?</li>
+                </ul>
+
+                <h4>❺ 채무자의 변제 의사 부족</h4>
+                <ul>
+                    <li>채무자가 지금까지 변제하지 않았는가?</li>
+                    <li>채무자가 변제 약속을 위반했는가?</li>
+                    <li>채무자가 채무 존부 자체를 부인하고 있는가?</li>
+                </ul>
+            </div>
+
+            <h3>3. 보전의 필요성 소명 방법</h3>
+            <div class="evidence-box">
+                <h4>채무자의 재산 처분·은닉 정황을 보이는 증거</h4>
+                <ul>
+                    <li>부동산 매매계약서 또는 부동산 중개 광고 화면</li>
+                    <li>채무자의 자동차 판매 광고</li>
+                    <li>회사 정리 또는 폐쇄 정황 자료</li>
+                    <li>해외 이전 자료</li>
+                </ul>
+            </div>
+
+            <div class="evidence-box">
+                <h4>채무자의 경제 악화를 보이는 증거</h4>
+                <ul>
+                    <li>채무자의 신용 정보 (신용조사회사 조회)</li>
+                    <li>다른 채권자의 소장 또는 경매 통지</li>
+                    <li>채무자 명의의 부동산 경매 절차 중 공고</li>
+                    <li>채무자의 금융거래 정지 사실</li>
+                </ul>
+            </div>
+
+            <div class="evidence-box">
+                <h4>채무자의 변제 불능을 보이는 증거</h4>
+                <ul>
+                    <li>채무자의 은행 계좌 잔액 증명</li>
+                    <li>채무자의 임금 명세표</li>
+                    <li>채무자의 신용 카드 사용 정지 통지</li>
+                    <li>지금까지의 변제 거부 사실</li>
+                </ul>
+            </div>
+
+            <h3>4. 보전의 필요성이 인정되지 않는 경우</h3>
+            <p>반대로 다음의 경우에는 보전의 필요성이 부정될 수 있습니다:</p>
+
+            <div class="definition-block">
+                <strong>채무자에게 충분한 재산이 있는 경우</strong>
+                <p>예: 채무자가 명확한 부동산이나 충분한 정기 급여를 받고 있어서, 강제집행이 가능할 것으로 보이는 경우</p>
+            </div>
+
+            <div class="definition-block">
+                <strong>채무자의 변제 의사와 능력이 있는 경우</strong>
+                <p>예: 채무자가 이전 채무를 성실히 변제해온 기록이 있거나, 변제 약속을 지킨 경우</p>
+            </div>
+
+            <div class="definition-block">
+                <strong>단순한 채무 불이행만으로는 부족한 경우</strong>
+                <p>예: 채무자가 지금까지 돈을 주지 않은 것이 사실이지만, 그것이 조직적인 재산 은닉의 결과는 아닌 경우</p>
+            </div>
+
+            <h3>5. 가처분에서의 보전의 필요성</h3>
+            <p>가처분의 경우, 보전의 필요성의 기준이 조금 다릅니다:</p>
+
+            <div class="definition-block">
+                <strong>다툼의 대상 가처분</strong>
+                <p>예: 명도청구 가처분 — 현상이 변경되면(예: 세입자가 도망치면) 나중에 집행이 불가능해질 위험</p>
+            </div>
+
+            <div class="definition-block">
+                <strong>임시지위 가처분</strong>
+                <p>현저한 손해나 급박한 위험 — 단순한 불편함이 아니라, 직위 박탈로 인한 신분 침해 등 현저한 손해가 있어야 함</p>
+            </div>
+
+            <h3>6. 법원의 비례성 판단</h3>
+            <p>중요한 점: 법원은 보전의 필요성과 함께 <strong>채무자의 불이익도 함께 고려</strong>합니다.</p>
+
+            <div class="definition-block">
+                <strong>비례성 원칙</strong>
+                <p>보전의 필요성이 크더라도, 채무자에게 미칠 불이익(재산 동결, 사업 중단 등)이 너무 크면 가압류·가처분이 거절될 수 있습니다.</p>
+                <p>예: 채무액 100만원 대 채무자의 사업 전체를 동결하려는 경우</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>자주하는 질문</h2>
+            <div class="qna-container">
+                <div class="qna-item">
+                    <div class="qna-question">
+                        <span>Q1. 상대방이 재산을 처분할 것 같다는 근거가 없어도 가압류를 신청할 수 있나요?</span>
+                        <span class="qna-toggle">▼</span>
+                    </div>
+                    <div class="qna-answer">
+                        <p>기본적으로 <strong>어렵습니다.</strong> 가압류의 목적이 바로 재산 처분을 미리 방지하기 위한 것이기 때문입니다.</p>
+                        <p>다만 다음과 같은 경우는 예외입니다:</p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>채무자의 경제 상황이 현저히 악화된 경우 (다중 채무, 경매 진행 중 등)</li>
+                            <li>채무자가 이전에 재산을 처분한 전력이 있는 경우</li>
+                            <li>채무자가 변제를 거부하고 있는 경우</li>
+                        </ul>
+                        <p>이 경우들도 모두 "근거"가 있어야 합니다. 단순히 "처분할 것 같다"는 추측만으로는 부족합니다.</p>
+                    </div>
+                </div>
+
+                <div class="qna-item">
+                    <div class="qna-question">
+                        <span>Q2. 보전의 필요성 소명에 실패하면 신청이 기각되나요?</span>
+                        <span class="qna-toggle">▼</span>
+                    </div>
+                    <div class="qna-answer">
+                        <p>예, 기각됩니다.</p>
+                        <p>가압류나 가처분을 받으려면 두 가지 조건을 모두 갖추어야 합니다:</p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li><strong>피보전권리:</strong> 청구할 권리가 있는가?</li>
+                            <li><strong>보전의 필요성:</strong> 지금 조치가 필요한가?</li>
+                        </ul>
+                        <p>이 중 하나라도 부족하면 신청이 기각됩니다. 따라서 보전의 필요성을 충분히 소명하지 못하면 가압류도 받을 수 없습니다.</p>
+                    </div>
+                </div>
+
+                <div class="qna-item">
+                    <div class="qna-question">
+                        <span>Q3. 가압류와 가처분에서 보전의 필요성 기준이 다른가요?</span>
+                        <span class="qna-toggle">▼</span>
+                    </div>
+                    <div class="qna-answer">
+                        <p>기본 개념은 같지만, <strong>구체적 기준은 다릅니다.</strong></p>
+                        <p><strong>가압류:</strong> 장래의 강제집행이 불가능하거나 현저히 곤란해질 염려 — 주로 채무자의 재산 감소, 경제 악화 등을 봅니다.</p>
+                        <p><strong>가처분:</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>다툼의 대상: 현상 변경으로 권리 실행 불가능 위험 (예: 세입자 도망)</li>
+                            <li>임시지위: 현저한 손해 또는 급박한 위험 (예: 이사직 박탈)</li>
+                        </ul>
+                        <p>따라서 가처분은 가압류보다 더 구체적이고 개별적인 상황을 고려합니다.</p>
+                    </div>
+                </div>
+
+                <div class="qna-item">
+                    <div class="qna-question">
+                        <span>Q4. 여러 재산에 가압류를 신청할 때 보전의 필요성은 각각 소명해야 하나요?</span>
+                        <span class="qna-toggle">▼</span>
+                    </div>
+                    <div class="qna-answer">
+                        <p>기본적으로 <strong>한 번의 소명으로 족합니다.</strong></p>
+                        <p>보전의 필요성은 개별 재산별로 판단되는 것이 아니라, <strong>채무자 전체의 경제 상황을 기준</strong>으로 판단됩니다.</p>
+                        <p>즉:</p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>채무자가 경제난을 겪고 있다는 것을 소명하면</li>
+                            <li>부동산, 자동차, 예금 등 여러 재산에 동시에 가압류를 신청할 수 있습니다</li>
+                        </ul>
+                        <p>다만 각 재산이 실제로 채무자 명의인지는 각각 확인해야 합니다.</p>
+                    </div>
+                </div>
+
+                <div class="qna-item">
+                    <div class="qna-question">
+                        <span>Q5. 보전의 필요성이 사라지면 가압류가 자동으로 취소되나요?</span>
+                        <span class="qna-toggle">▼</span>
+                    </div>
+                    <div class="qna-answer">
+                        <p>자동으로 취소되지는 않습니다. 하지만 <strong>채무자가 취소를 신청할 수 있습니다.</strong></p>
+                        <p>예를 들어:</p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>원래는 보전의 필요성이 있었으나, 나중에 채무자가 큰 재산을 얻은 경우</li>
+                            <li>채무자가 채권자와 합의하여 변제한 경우</li>
+                            <li>채무자가 담보를 제공한 경우</li>
+                        </ul>
+                        <p>이 경우 채무자는 "사정 변경"을 이유로 가압류 취소를 신청할 수 있습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>판례</h2>
+            <div class="ruling-box">
+                <p>"대법원은 가압류의 보전의 필요성은 <strong>채무자가 장차 강제집행이 불가능하거나 현저히 곤란할 염려가 있는지를 기준으로 판단하며, 채무자의 재산 상황, 채무자의 행동, 채권액 등을 종합적으로 고려한다</strong>고 판시하고 있습니다."</p>
+                <p style="margin-top: 15px; color: #555;">이는 보전의 필요성 판단이 단일한 기준이 아니라, 여러 요소를 종합적으로 고려한다는 의미입니다. 따라서 채무자의 경제 상황, 재산 상황, 변제 의사 등을 다각도에서 입증하는 것이 중요합니다.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>주의사항</h2>
+            <div class="warning-box">
+                <div class="warning-item">
+                    <div class="warning-icon">⚠️</div>
+                    <div>
+                        <strong>보전의 필요성을 과장하면 손해배상책임 발생</strong>
+                        <p style="margin: 8px 0 0 0;">보전의 필요성을 소명할 때 거짓 자료를 제출하거나 과장하면, 채무자가 부당한 가압류로 입은 손해배상을 청구할 수 있습니다.</p>
+                    </div>
+                </div>
+
+                <div class="warning-item">
+                    <div class="warning-icon">ℹ️</div>
+                    <div>
+                        <strong>보전의 필요성 판단은 신청 당시를 기준</strong>
+                        <p style="margin: 8px 0 0 0;">가압류를 신청할 당시를 기준으로 보전의 필요성을 판단합니다. 나중에 채무자의 상황이 개선되면, 채무자는 "사정 변경"을 이유로 취소를 신청할 수 있습니다.</p>
+                    </div>
+                </div>
+
+                <div class="warning-item">
+                    <div class="warning-icon">ℹ️</div>
+                    <div>
+                        <strong>법원은 비례성을 고려</strong>
+                        <p style="margin: 8px 0 0 0;">보전의 필요성이 크더라도, 채무자에게 미칠 불이익이 너무 크면 가압류가 거절될 수 있습니다. 따라서 청구 채권액과 채무자의 재산 규모가 균형을 이루어야 합니다.</p>
+                    </div>
+                </div>
+
+                <div class="warning-item">
+                    <div class="warning-icon">ℹ️</div>
+                    <div>
+                        <strong>담보 제공의 전략적 활용</strong>
+                        <p style="margin: 8px 0 0 0;">보전의 필요성을 소명하기 어려운 경우, 더 큰 담보를 제공하여 법원을 설득할 수 있습니다. 담보액이 크면 보전의 필요성 요건이 완화될 수 있습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>다음에 확인할 사항</h2>
+            <div class="next-section">
+                <h3>가압류·가처분 신청 전 보전의 필요성 검토 체크리스트</h3>
+                <ul>
+                    <li><strong>채무자의 재산 상황 조사:</strong> 부동산, 자동차, 예금 등 확인 가능한 재산이 있는가?</li>
+                    <li><strong>채무자의 경제 상황 확인:</strong> 다른 채권자가 있는가? 경매가 진행 중인가?</li>
+                    <li><strong>채무자의 변제 능력·의사 판단:</strong> 지금까지 변제하지 않은 이유는 무엇인가?</li>
+                    <li><strong>재산 처분 정황 확인:</strong> 채무자가 최근에 재산을 처분하거나 처분 시도가 있었는가?</li>
+                    <li><strong>객관적 증거 수집:</strong> 신용정보, 공고, 광고, 법원 기록 등 객관적 자료</li>
+                    <li><strong>법무사 상담:</strong> 보전의 필요성 소명 전략 수립</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <div class="cta-box">
+                <h3>보전의 필요성, 법무사와 함께 검토하세요</h3>
+                <p>보전의 필요성은 개별 사건마다 다릅니다. 객관적 증거 없이 신청하면 기각될 뿐만 아니라 손해배상책임까지 질 수 있습니다. 신청 전에 법무사와 함께 보전의 필요성을 충분히 검토하세요.</p>
+                <button class="cta-button">법무사 상담 신청</button>
+            </div>
+        </section>
+
+        <div class="disclaimer">
+            <strong>면책 문구:</strong> 본 콘텐츠는 법무사 사무실이 제공하는 일반적인 법률 정보입니다. 보전의 필요성은 개별 사건의 구체적 사실과 증거에 따라 크게 달라지므로, 반드시 법무사와 충분히 상담하여 신청 여부를 판단해야 합니다. 본 정보로 인한 손해에 대해 법무사 사무실은 책임을 지지 않습니다.
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.qna-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const item = this.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

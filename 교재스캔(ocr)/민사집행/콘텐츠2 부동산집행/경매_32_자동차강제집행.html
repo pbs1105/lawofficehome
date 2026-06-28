@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>자동차에 대한 강제집행 — 절차와 실무</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap');
+:root{--navy:#1a2e4a;--gold:#c8a96e;--bg:#faf8f5;--sum-bg:#eef2f8;--sum-bd:#2d4a7a;--cta-bg:#fdf6e9;--cta-bd:#c8a96e;--case-bg:#f0f8f0;--case-bd:#1a5c2e;--rule-bg:#f7f4f0;--rule-bd:#6b7280;--warn-bg:#fff3e8;--warn-bd:#c05000;--info-bg:#f4f7fb;--info-bd:#2d4a7a;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:#333;line-height:1.8;}
+header{background:var(--navy);color:#fff;padding:40px 20px;text-align:center;}
+header h1{font-family:'Noto Serif KR',serif;font-size:2rem;margin-bottom:8px;}
+header .sub{color:var(--gold);font-size:1rem;}
+.container{max-width:860px;margin:0 auto;padding:40px 20px;}
+.section{margin-bottom:48px;}
+.section h2{font-family:'Noto Serif KR',serif;font-size:1.4rem;color:var(--navy);border-left:4px solid var(--gold);padding-left:14px;margin-bottom:20px;}
+.section h3{font-size:1.1rem;color:var(--navy);margin:20px 0 10px;}
+.summary-box{background:var(--sum-bg);border:1.5px solid var(--sum-bd);border-radius:10px;padding:24px;margin-bottom:24px;}
+.summary-box p{margin-bottom:8px;}
+.case-box{background:var(--case-bg);border-left:4px solid var(--case-bd);border-radius:6px;padding:20px;margin:16px 0;}
+.ruling-box{background:var(--rule-bg);border-left:4px solid var(--rule-bd);border-radius:6px;padding:20px;margin:16px 0;}
+.warn-box{background:var(--warn-bg);border-left:4px solid var(--warn-bd);border-radius:6px;padding:20px;margin:16px 0;}
+.info-box{background:var(--info-bg);border-left:4px solid var(--info-bd);border-radius:6px;padding:20px;margin:16px 0;}
+.checklist{list-style:none;padding:0;}
+.checklist li{padding:10px 0 10px 36px;border-bottom:1px solid #e0dbd4;position:relative;}
+.checklist li::before{content:"☑";color:var(--gold);position:absolute;left:8px;font-size:1.1rem;}
+.checklist li:last-child{border-bottom:none;}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.95rem;}
+th{background:var(--navy);color:#fff;padding:10px;text-align:left;}
+td{padding:10px;border-bottom:1px solid #ddd;vertical-align:top;}
+tr:nth-child(even) td{background:#f5f2ee;}
+.flow{display:flex;flex-direction:column;gap:0;}
+.flow-item{display:flex;align-items:flex-start;gap:14px;padding:14px 0;}
+.flow-item:not(:last-child){border-bottom:1px dashed #ccc;}
+.flow-num{background:var(--navy);color:#fff;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;margin-top:4px;font-size:0.9rem;}
+.flow-body{flex:1;}
+.flow-body strong{display:block;margin-bottom:4px;color:var(--navy);}
+.qna-item{margin-bottom:24px;border:1px solid #ddd;border-radius:8px;overflow:hidden;}
+.qna-q{background:var(--navy);color:#fff;padding:16px 20px;font-weight:700;}
+.qna-a{padding:16px 20px;background:#fff;}
+.qna-a .note{color:#777;font-size:0.88rem;margin-top:10px;padding-top:10px;border-top:1px solid #eee;}
+.next-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;}
+.next-links a{display:block;background:#fff;border:1.5px solid var(--navy);border-radius:8px;padding:16px;text-align:center;text-decoration:none;color:var(--navy);font-weight:700;transition:all .2s;}
+.next-links a:hover{background:var(--navy);color:#fff;}
+.cta-box{background:var(--cta-bg);border:2px solid var(--cta-bd);border-radius:12px;padding:36px;text-align:center;margin-top:60px;}
+.cta-box h2{font-family:'Noto Serif KR',serif;color:var(--navy);margin-bottom:12px;}
+.cta-box p{color:#555;margin-bottom:20px;}
+.btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-tel{background:var(--navy);color:#fff;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:700;}
+.btn-kako{background:#FEE500;color:#333;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:700;}
+footer{text-align:center;padding:30px 20px;color:#999;font-size:0.82rem;border-top:1px solid #ddd;background:#f0ede8;}
+.badge-warn{display:inline-block;background:#fff3e8;border:1px solid #c05000;color:#c05000;border-radius:4px;padding:2px 8px;font-size:0.82rem;font-weight:700;}
+.diff-table td:first-child{font-weight:700;color:var(--navy);white-space:nowrap;}
+    .law-tag {
+      display: inline-block; background: #e8edf5; color: #2d4a7a;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #b0c4de; cursor: pointer; transition: background 0.15s;
+    }
+    .law-tag:hover { background: #c8daf7; color: #1a2e4a; }
+    .case-tag {
+      display: inline-block; background: #f0ece4; color: #5a4a30;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #c8a96e; cursor: pointer; transition: background 0.15s;
+    }
+    .case-tag:hover { background: #f5dfa8; color: #3a2a10; }
+  </style>
+</head>
+<body>
+<header>
+  <div class="sub">부동산 경매 실무 정보 · 혼합형</div>
+  <h1>자동차에 대한 강제집행</h1>
+  <div class="sub">채무자 명의 차량을 경매로 현금화하는 방법</div>
+</header>
+<div class="container">
+
+  <div class="section">
+    <h2>이런 분께 필요합니다</h2>
+    <ul class="checklist">
+      <li>채무자에게 부동산은 없지만 고가의 자동차가 있어 집행을 고려하는 채권자</li>
+      <li>이미 확정판결을 받았는데 채무자가 차량만 가지고 있는 경우</li>
+      <li>자동차 경매 절차와 일반 부동산 경매의 차이가 궁금한 분</li>
+      <li>자동차를 담보로 대출을 실행한 후 채무자가 연체 중인 경우</li>
+      <li>채무자가 차량을 숨기거나 명의를 바꾸려 할 때 대응 방법이 궁금한 분</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>핵심정리</h2>
+    <div class="summary-box">
+      <p>자동차는 등록이 되어 있어 <strong>부동산에 준하는 강제집행 방법</strong>이 적용됩니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=018700" target="_blank" rel="noopener">민사집행법 제187조</a>). 부동산처럼 자동차등록원부에 <strong>압류 등록</strong>을 하고, 집행관이 차량을 <strong>인도받아 보관</strong>한 후 <strong>경매</strong>로 매각합니다.</p>
+      <p>핵심 실무 포인트: 압류 등록만으로는 부족하고, 집행관이 차량을 <strong>실제로 점유·인도받아야</strong> 경매를 진행할 수 있습니다. 채무자가 차량을 숨기거나 인도를 거부하면 집행이 지연될 수 있어, 신속한 대응이 중요합니다.</p>
+      <p>자동차저당권자(할부금융사 등)는 담보권 실행으로 별도 집행 가능합니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=026400" target="_blank" rel="noopener">민사집행법 제264조</a>).</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>자동차 강제집행 절차</h2>
+    <div class="flow">
+      <div class="flow-item">
+        <div class="flow-num">1</div>
+        <div class="flow-body">
+          <strong>집행권원 및 집행문 취득</strong>
+          확정판결, 지급명령(확정), 공정증서(집행력 있는 것) 등 집행권원을 갖추고, 법원에서 집행문을 부여받습니다. 집행권원이 없으면 자동차 압류를 먼저 가압류로 진행해야 합니다.
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">2</div>
+        <div class="flow-body">
+          <strong>자동차 압류 신청 (등록원부 압류)</strong>
+          집행법원에 자동차 강제경매 신청서를 제출합니다. 법원이 압류 결정 → 자동차등록원부에 압류 등록(시·군·구청 자동차등록과에 촉탁). 이 단계에서 채무자는 차량을 처분·이전할 수 없게 됩니다.
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">3</div>
+        <div class="flow-body">
+          <strong>집행관의 차량 인도 집행</strong>
+          법원의 인도 명령에 따라 집행관이 채무자에게서 차량을 인도받습니다. <span class="badge-warn">⚡ 핵심 단계</span> 채무자가 차량을 점유 중이어야 하며, 차량을 찾지 못하면 집행이 사실상 불가능합니다. 인도받은 차량은 집행관 또는 보관소에 보관됩니다.
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">4</div>
+        <div class="flow-body">
+          <strong>감정평가 및 최저매각가격 결정</strong>
+          법원이 선임한 감정인이 차량 시세를 감정합니다. 자동차는 노후도, 주행거리, 사고 이력 등이 반영됩니다. 감정가를 기준으로 최저매각가격 결정.
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">5</div>
+        <div class="flow-body">
+          <strong>매각기일 공고 및 입찰</strong>
+          부동산 경매와 동일하게 기일입찰 방식으로 진행됩니다. 입찰보증금은 최저매각가격의 10%. 최고가 매수신고인에게 매각허가결정.
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">6</div>
+        <div class="flow-body">
+          <strong>대금납부 및 소유권이전</strong>
+          낙찰자가 잔금납부 → 자동차등록원부에 소유권이전 등록 촉탁 → 낙찰자 앞으로 이전. 취득세 납부(자동차 취득세: 차량 가액의 7%, 경차 4%). 차량은 보관소에서 낙찰자가 인수.
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">7</div>
+        <div class="flow-body">
+          <strong>배당 절차</strong>
+          매각대금에서 집행비용(보관료 포함) 공제 → 저당권자·압류채권자 순으로 배당. 잔여금은 채무자에게 반환.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>제출 서류 목록</h2>
+    <table>
+      <tr><th>서류</th><th>발급처</th><th>비고</th></tr>
+      <tr><td>집행력 있는 정본 (판결문·지급명령·공정증서)</td><td>법원 (판결문), 공증인 (공정증서)</td><td>집행문 부여 후 제출</td></tr>
+      <tr><td>집행문</td><td>제1심 법원 또는 공증인</td><td>필수</td></tr>
+      <tr><td>송달증명원</td><td>해당 법원</td><td>판결 등 채무자 송달 확인용</td></tr>
+      <tr><td>자동차등록원부 (갑구·을구)</td><td>자동차등록사업소, 인터넷</td><td>채무자 명의 차량 특정</td></tr>
+      <tr><td>자동차 강제경매 신청서</td><td>집행법원 (양식 비치)</td><td>차량번호·차대번호·소유자 명기</td></tr>
+    </table>
+    <div class="info-box">
+      <p><strong>ℹ️ 비용 안내</strong>: 자동차 강제집행은 차량 보관료(일 단위 발생)가 추가됩니다. 경매가 장기화될수록 보관료가 매각대금을 잠식할 수 있으므로, 신속한 진행이 중요합니다. 인지대, 송달료, 감정료 등 예납금을 신청 시 납부합니다.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>자동차 강제집행 vs 부동산 강제경매 비교</h2>
+    <table class="diff-table">
+      <tr><th>구분</th><th>자동차 강제집행</th><th>부동산 강제경매</th></tr>
+      <tr><td>압류 방법</td><td>자동차등록원부 압류 등록</td><td>부동산등기부 압류 등기</td></tr>
+      <tr><td>물건 점유</td><td>집행관이 차량 실물 인도받아야 함 (핵심)</td><td>등기부 압류만으로 충분</td></tr>
+      <tr><td>감정 기준</td><td>시세·노후도·사고이력·주행거리</td><td>시세·위치·현황</td></tr>
+      <tr><td>취득세</td><td>취득가액의 7% (경차 4%)</td><td>부동산 종류별 상이</td></tr>
+      <tr><td>소유권이전</td><td>자동차등록원부 이전등록 촉탁</td><td>부동산등기부 이전등기 촉탁</td></tr>
+      <tr><td>보관 비용</td><td>발생 (보관소 보관료)</td><td>미발생</td></tr>
+      <tr><td>집행 실패 위험</td><td>차량 은닉 시 집행 불가</td><td>상대적으로 낮음</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>자주하는 질문 Q&A</h2>
+
+    <div class="qna-item">
+      <div class="qna-q">Q. 채무자가 차량을 숨기면 어떻게 하나요?</div>
+      <div class="qna-a">
+        <p>압류 등록이 되어 있으면 채무자는 차량을 제3자에게 이전할 수 없습니다. 그러나 차량을 물리적으로 숨겨 집행관의 인도 집행을 피하는 것은 가능합니다.</p>
+        <p>이 경우 집행관과 협력하여 차량 소재지(주차장, 직장, 거주지 등)를 파악해야 합니다. 채무자가 차량을 은닉하면 강제집행 방해죄(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=188383&joNo=032300" target="_blank" rel="noopener">형법 제323조</a>)가 성립할 수 있으므로, 이를 고지하는 것도 효과적입니다.</p>
+        <p class="note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+      </div>
+    </div>
+
+    <div class="qna-item">
+      <div class="qna-q">Q. 할부로 구입한 차량(할부금융 설정)도 경매할 수 있나요?</div>
+      <div class="qna-a">
+        <p>할부금융사가 자동차저당권을 설정해 둔 경우, 강제경매를 신청하면 저당권자(할부금융사)가 선순위로 배당을 받습니다. 채무자가 할부금을 상환 중이라면 잔여 할부금 채권이 선순위 배당을 받아가므로, 채권자 입장에서 배당받을 금액이 거의 없을 수 있습니다.</p>
+        <p>입찰자 입장에서도 저당권은 매각으로 소멸하고 저당권자는 배당에서 변제받으므로, 낙찰 후 별도로 할부금을 납부할 필요는 없습니다. 자동차등록원부 을구를 반드시 확인하세요.</p>
+        <p class="note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+      </div>
+    </div>
+
+    <div class="qna-item">
+      <div class="qna-q">Q. 자동차를 경매 낙찰받으면 즉시 사용할 수 있나요?</div>
+      <div class="qna-a">
+        <p>대금납부 완료 후 소유권이전 등록이 이루어지면 낙찰자 명의의 차량이 됩니다. 보관소에서 차량을 인수하고 자동차보험(의무보험 포함)에 가입한 후 즉시 사용 가능합니다.</p>
+        <p>단, 차량 상태를 입찰 전에 반드시 확인해야 합니다. 법원 경매 차량은 보관 기간 동안 관리 소홀로 상태가 나빠지는 경우가 있으며, 낙찰 후에는 하자 담보책임 주장이 어렵습니다.</p>
+        <p class="note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+      </div>
+    </div>
+
+    <div class="qna-item">
+      <div class="qna-q">Q. 가압류로도 차량을 묶어둘 수 있나요?</div>
+      <div class="qna-a">
+        <p>네, 집행권원 없이도 <strong>자동차 가압류</strong>를 신청하여 자동차등록원부에 가압류를 등록할 수 있습니다. 이를 통해 채무자가 차량을 처분하는 것을 막을 수 있습니다.</p>
+        <p>가압류 단계에서는 차량을 실물로 인도받지 않아도 됩니다(등록원부 가압류만으로 처분 금지). 이후 본안소송에서 승소하여 집행권원을 취득하면 가압류를 본압류로 이행하여 강제경매를 진행합니다.</p>
+        <p class="note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+      </div>
+    </div>
+
+    <div class="qna-item">
+      <div class="qna-q">Q. 건설기계(포크레인, 굴착기 등)도 같은 방법으로 집행하나요?</div>
+      <div class="qna-a">
+        <p>네, 건설기계도 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=018700" target="_blank" rel="noopener">민사집행법 제187조</a>에 따라 자동차와 동일한 방법으로 강제집행을 할 수 있습니다. 건설기계등록원부에 압류를 등록하고, 집행관이 인도받아 경매를 진행합니다.</p>
+        <p>소형선박(총톤수 20톤 미만)도 동일한 규정이 적용됩니다. 다만 선박의 경우 보관 장소와 비용이 더 복잡할 수 있습니다.</p>
+        <p class="note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+      </div>
+    </div>
+
+    <div class="qna-item">
+      <div class="qna-q">Q. 채무자가 차량을 제3자에게 매도한 것 같습니다. 어떻게 대응하나요?</div>
+      <div class="qna-a">
+        <p>압류 등록 전에 제3자에게 이전된 경우라면 강제집행이 어렵습니다. 그러나 채무자가 채권자를 해할 목적으로 재산을 처분했다면 <strong>사해행위취소 소송</strong>(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=040600" target="_blank" rel="noopener">민법 제406조</a>)을 통해 이전을 무효화할 수 있습니다.</p>
+        <p>가압류 등록 후에 채무자가 제3자에게 이전을 시도한 경우, 가압류 등록이 되어 있어 제3자 앞으로의 이전등록이 거부됩니다. 따라서 가압류를 신속히 신청하는 것이 중요합니다.</p>
+        <p class="note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>판례</h2>
+    <div class="ruling-box">
+      <p>대법원은 자동차에 대한 강제집행에서 집행관이 차량을 실제로 인도받지 못한 상태에서는 경매 절차를 진행할 수 없다는 입장을 취하고 있습니다. 압류 등록만으로는 부족하고, 물리적 점유 이전이 이루어져야 매각 절차가 가능합니다.</p>
+      <p>자동차 압류 후 채무자가 차량을 은닉하거나 훼손한 경우, 강제집행 방해죄(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=188383&joNo=032300" target="_blank" rel="noopener">형법 제323조</a>)의 성립 가능성이 인정됩니다. 또한 채무자가 압류된 차량을 무단 사용하여 사고를 낸 경우 불법행위 책임이 문제될 수 있습니다.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>주의사항</h2>
+    <div class="warn-box">
+      <p>⚡ <strong>차량 실물 확보가 핵심</strong>: 압류 등록 후 집행관이 차량을 실제로 인도받지 못하면 경매를 진행할 수 없습니다. 채무자의 차량 위치를 미리 파악하고 집행 당일 신속히 인도받는 것이 중요합니다.</p>
+    </div>
+    <div class="warn-box">
+      <p>⚠️ <strong>보관료 누적 주의</strong>: 차량 보관료는 집행비용으로 처리되지만, 보관이 장기화될수록 매각대금에서 공제되는 금액이 커집니다. 신속한 매각 진행이 채권자에게 유리합니다.</p>
+    </div>
+    <div class="info-box">
+      <p>ℹ️ 채무자 명의의 차량 보유 여부는 자동차등록원부(자동차365 사이트 또는 지자체 자동차등록과)에서 조회할 수 있습니다. 필요시 법원을 통한 재산명시·재산조회 신청을 병행하세요.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>다음에 확인할 사항</h2>
+    <div class="next-links">
+      <a href="경매_06_강제경매신청절차.html">⚖️ 강제경매 신청 절차</a>
+      <a href="경매_08_부동산경매와가압류.html">🔒 가압류로 재산 묶기</a>
+      <a href="경매_10_배당순위.html">📊 배당순위 구조</a>
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <h2>이 내용이 해당되시나요?</h2>
+    <p>첫 상담은 무료입니다. 절차 전반을 법무사가 안내해 드립니다.</p>
+    <div class="btn-row">
+      <a href="tel:0000000000" class="btn-tel">📞 전화 상담</a>
+      <a href="https://open.kakao.com/" class="btn-kako">💬 카카오톡 상담</a>
+    </div>
+  </div>
+</div>
+<footer>
+  <p>본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 자문이 아닙니다.</p>
+  <p>이 페이지는 2025년 현행 법령 기준으로 작성되었습니다. 법령 개정 시 내용이 달라질 수 있습니다.</p>
+</footer>
+</body>
+</html>

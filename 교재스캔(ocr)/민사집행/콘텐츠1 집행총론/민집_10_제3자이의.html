@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>제3자이의의 소 — 내 물건인데 채무자 것으로 잘못 압류됐습니다</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#1a2e4a;--gold:#c8a96e;--bg:#faf8f5;--text:#2c2c2c;--summary-bg:#eef2f8;--summary-bd:#2d4a7a;--cta-bg:#fdf6e9;--cta-bd:#c8a96e;--case-bg:#f0f8f0;--case-bd:#1a5c2e;--ruling-bg:#f7f4f0;--ruling-bd:#6b7280;--warn-bg:#fff3e8;--warn-bd:#c05000}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;font-size:16px}
+.container{max-width:820px;margin:0 auto;padding:0 20px}
+header{background:var(--navy);color:#fff;padding:48px 24px 40px;text-align:center}
+.breadcrumb{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:12px}
+header h1{font-family:'Noto Serif KR',serif;font-size:clamp(1.5rem,4vw,2.2rem);font-weight:700;line-height:1.4;margin-bottom:10px}
+.subtitle{font-size:15px;color:var(--gold);font-weight:500}
+section{padding:48px 0;border-bottom:1px solid #e4ddd4}
+h2{font-family:'Noto Serif KR',serif;font-size:1.35rem;font-weight:700;color:var(--navy);border-bottom:2px solid var(--gold);padding-bottom:10px;margin-bottom:20px}
+h3{font-size:1.05rem;font-weight:700;color:var(--navy);margin:28px 0 12px}
+p{margin-bottom:14px}
+.summary-box{background:var(--summary-bg);border-left:4px solid var(--summary-bd);border-radius:0 8px 8px 0;padding:20px 24px;margin:20px 0}
+.summary-box .label{font-size:11px;font-weight:700;color:var(--summary-bd);letter-spacing:0.08em;margin-bottom:10px}
+.case-box{background:var(--case-bg);border-left:4px solid var(--case-bd);border-radius:0 8px 8px 0;padding:20px 24px;margin:16px 0;font-size:14.5px}
+.ruling-box{background:var(--ruling-bg);border-left:4px solid var(--ruling-bd);border-radius:0 8px 8px 0;padding:20px 24px;margin:16px 0;font-size:14.5px}
+.ruling-box .ruling-header{font-size:13px;font-weight:700;color:#444;margin-bottom:8px}
+.ruling-box .ruling-header::before{content:"判";background:var(--ruling-bd);color:#fff;padding:1px 6px;border-radius:3px;margin-right:6px}
+.warn-box{background:var(--warn-bg);border-left:4px solid var(--warn-bd);border-radius:0 8px 8px 0;padding:20px 24px;margin:16px 0}
+.warn-box .warn-title{font-size:13px;font-weight:700;color:var(--warn-bd);margin-bottom:8px}
+.checklist{background:#fff;border:1px solid #ddd6ce;border-radius:8px;padding:24px 28px;margin:20px 0}
+.checklist ul{list-style:none;padding:0;margin-top:12px}
+.checklist li{padding:6px 0;padding-left:24px;position:relative}
+.checklist li::before{content:"✓";color:var(--gold);font-weight:700;position:absolute;left:0}
+.qna-item{border:1px solid #e0d9d0;border-radius:8px;overflow:hidden;margin:12px 0}
+.qna-q{background:#fff;padding:16px 20px;font-weight:700;font-size:15px;color:var(--navy)}
+.qna-a{background:#faf8f5;padding:16px 20px;font-size:14.5px;border-top:1px solid #e0d9d0}
+.cta-box{background:var(--cta-bg);border:1px solid var(--cta-bd);border-radius:10px;padding:32px 28px;text-align:center;margin:40px 0 0}
+.cta-btn{display:inline-block;background:var(--navy);color:#fff;padding:14px 36px;border-radius:6px;font-size:15px;font-weight:700;text-decoration:none;margin:8px}
+.cta-btn.kakao{background:#FEE500;color:#3c1e1e}
+.case-tag{display:inline-block;background:#f4ede0;color:#7a4a1a;font-size:11px;font-weight:700;padding:2px 8px;border-radius:3px;margin-left:6px;vertical-align:middle;letter-spacing:0.3px}
+.law-tag{display:inline-block;background:#e8edf5;color:#2d4a7a;font-size:11px;font-weight:700;padding:2px 8px;border-radius:3px;margin-left:4px;vertical-align:middle}
+.disclaimer-section{background:#f2f0ec;padding:28px;border-radius:8px;margin:40px 0 0;font-size:12px;color:#666;line-height:1.8}
+.next-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:20px 0}
+.next-link{background:#fff;border:1px solid #ddd6ce;border-radius:8px;padding:16px 18px;text-decoration:none;color:var(--navy);display:block}
+.next-link:hover{border-color:var(--gold)}
+.next-link .arrow{color:var(--gold);font-size:18px;display:block;margin-bottom:4px}
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="breadcrumb">민사집행 총론 › 제3자 권리 보호</div>
+    <h1>제3자이의의 소</h1>
+    <div class="subtitle">"내 물건인데 채무자 것으로 잘못 압류됐습니다" — 제3자가 집행을 막는 방법</div>
+  </div>
+</header>
+
+<div class="container">
+
+<section>
+  <h2>이런 분께 필요합니다</h2>
+  <div class="checklist">
+    <ul>
+      <li>내 소유의 물건이나 재산이 채무자 재산으로 오인되어 압류된 경우</li>
+      <li>남편/아내의 채무로 인해 본인 명의 재산이 집행 대상이 된 경우</li>
+      <li>임대해 준 물건이 세입자(채무자)의 재산으로 압류된 경우</li>
+      <li>채무자 명의 재산이지만 실제 소유권이 나에게 있는 경우</li>
+      <li>집행 목적물에 대해 소유권 외의 양도담보권, 유치권 등을 갖고 있는 경우</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>핵심 정리</h2>
+  <div class="summary-box">
+    <div class="label">▶ 제3자이의의 소란</div>
+    <p>제3자이의의 소는 강제집행의 목적물에 대하여 소유권이나 그 밖에 양도 또는 인도를 막을 권리를 가진 제3자가 채권자를 상대로 그 강제집행의 불허를 구하는 소송입니다. 집행 당사자가 아닌 제3자가 자신의 실체적 권리를 지키기 위한 수단입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004800" target="_blank" rel="noopener" title="민사집행법 제48조 제1항 — 대법원 종합법률정보">민사집행법 제48조 제1항</a> <span class="case-tag"><a class="case-tag" href="https://www.law.go.kr/precSc.do?menuId=7&subMenuId=47&tabMenuId=213&eventGubun=060101&query=2014%EB%8B%A4225038" target="_blank" rel="noopener" title="2014다225038 — 대법원 종합법률정보">2014다225038</a></span></p>
+  </div>
+  <div class="summary-box">
+    <div class="label">▶ 핵심 포인트</div>
+    <p>제3자이의의 소를 제기하면서 동시에 집행정지 신청을 해야 실질적 보호를 받을 수 있습니다. 소유권이나 양도를 막을 권리(저당권, 유치권, 양도담보권 등)가 있으면 신청 가능합니다. 관할 법원은 집행법원 또는 집행법원 소재지 지방법원 합의부입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004800" target="_blank" rel="noopener" title="민사집행법 제48조 제2항, 제49조 — 대법원 종합법률정보">민사집행법 제48조 제2항, 제49조</a></p>
+  </div>
+</section>
+
+<section>
+  <h2>제3자이의의 소 상세 안내</h2>
+
+  <h3>신청 자격 (원고 적격)</h3>
+  <p>제3자이의의 소를 제기할 수 있는 사람은 집행 목적물에 대하여 다음과 같은 권리를 가진 제3자입니다.</p>
+  <ul style="margin:12px 0 12px 20px;line-height:2">
+    <li>소유권 — 집행 목적물의 진짜 소유자 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004800" target="_blank" rel="noopener" title="민사집행법 제48조 제1항 — 대법원 종합법률정보">민사집행법 제48조 제1항</a></li>
+    <li>양도담보권자 — 채무자에게 담보 목적으로 소유권이전한 재산의 원소유자</li>
+    <li>유치권자 — 집행 목적물을 점유하며 피담보채권이 있는 자</li>
+    <li>그 밖에 양도 또는 인도를 막을 권리를 가진 자 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004800" target="_blank" rel="noopener" title="민사집행법 제48조 제1항 — 대법원 종합법률정보">민사집행법 제48조 제1항</a></li>
+  </ul>
+  <p>단순히 채권적 청구권만 가진 경우(임대차 등)에는 원칙적으로 제3자이의의 소를 제기하기 어렵습니다.</p>
+
+  <h3>관할 법원</h3>
+  <p>제3자이의의 소는 집행법원이 관할합니다. 집행법원이 지방법원 단독부인 경우에는 지방법원 합의부가 관할합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004800" target="_blank" rel="noopener" title="민사집행법 제48조 제2항 — 대법원 종합법률정보">민사집행법 제48조 제2항</a></p>
+
+  <h3>집행정지 신청과의 병행</h3>
+  <p>제3자이의의 소를 제기해도 강제집행은 자동으로 정지되지 않습니다. 집행을 멈추려면 별도로 집행정지 신청을 해야 하고, 법원이 집행정지 결정을 내려야 실질적 보호를 받을 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004900" target="_blank" rel="noopener" title="민사집행법 제49조 — 대법원 종합법률정보">민사집행법 제49조</a></p>
+
+  <div class="case-box">
+    <p><strong>사례)</strong> A(채무자)의 채권자 B가 A 명의 사무실 집기에 대해 강제집행을 실시했습니다. 그런데 그 집기는 실제로 C(제3자)가 A에게 임시 보관을 맡긴 C 소유의 물건이었습니다. C는 제3자이의의 소를 제기하면서 집행정지 신청을 함께 해야 집기를 보호받을 수 있습니다.</p>
+  </div>
+
+  <h3>임시 대응 — 집행이의와의 차이</h3>
+  <p>집행이 막 시작된 급박한 상황에서는 집행이의신청(민사집행법 제16조)을 통해 임시로 대응하고, 동시에 제3자이의의 소를 준비할 수 있습니다. 집행이의는 집행 절차상 위법을 다루는 신속한 수단이고, 제3자이의의 소는 실체적 권리를 확인받는 본안 소송입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=001600" target="_blank" rel="noopener" title="민사집행법 제16조, 제48조 — 대법원 종합법률정보">민사집행법 제16조, 제48조</a></p>
+</section>
+
+<section>
+  <h2>자주하는 질문 (Q&amp;A)</h2>
+
+  <div class="qna-item">
+    <div class="qna-q">제 물건이 채무자 것으로 오해받아 압류됐습니다. 어떻게 해야 하나요?</div>
+    <div class="qna-a">즉시 법무사와 상담하여 제3자이의의 소를 제기하고 동시에 집행정지 신청을 해야 합니다. 집행이 진행 중이라면 매우 급박한 상황이므로 빠른 대응이 필요합니다. 소유권을 입증할 수 있는 서류(매매계약서, 영수증, 등기부등본 등)를 준비하세요. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004800" target="_blank" rel="noopener" title="민사집행법 제48조, 제49조 — 대법원 종합법률정보">민사집행법 제48조, 제49조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">임차인(세입자)인데 집주인 채무로 집이 경매로 넘어가면 제3자이의를 할 수 있나요?</div>
+    <div class="qna-a">임차인은 임차권이라는 채권적 권리를 가지므로, 원칙적으로 제3자이의의 소의 원고가 되기 어렵습니다. 다만 대항력 있는 임차인은 경매 낙찰자에게 임차권을 주장할 수 있는 별도의 보호를 받을 수 있습니다. 구체적 상황에 따라 다르므로 법무사와 상담하세요. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=276291&joNo=000300" target="_blank" rel="noopener" title="주택임대차보호법 제3조, 민사집행법 제48조 — 대법원 종합법률정보">주택임대차보호법 제3조, 민사집행법 제48조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">양도담보로 넘겨준 재산이 채권자에게 압류됐습니다. 제3자이의가 가능한가요?</div>
+    <div class="qna-a">양도담보권자(원소유자)는 제3자이의의 소를 제기할 수 있습니다. 다만 양도담보의 경우 외형상 소유권이 채무자(양도인)에게 있으므로, 양도담보 계약 관계를 입증하는 것이 중요합니다. 법원은 이 사안을 신중히 검토합니다.</div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">관할 법원이 멀리 있어도 그 법원에 가야 하나요?</div>
+    <div class="qna-a">제3자이의의 소는 집행법원 또는 그 소재지 지방법원 합의부의 관할이므로, 원칙적으로 그 법원에 소를 제기해야 합니다. 다만 법무사가 소송을 대리하면 직접 방문하지 않아도 되는 경우가 많습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004800" target="_blank" rel="noopener" title="민사집행법 제48조 제2항 — 대법원 종합법률정보">민사집행법 제48조 제2항</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">집행이 완료된 후에는 제3자이의를 할 수 없나요?</div>
+    <div class="qna-a">집행이 완료된 후에는 제3자이의의 소를 통해 이미 이루어진 집행을 되돌리기가 매우 어렵습니다. 따라서 집행이 진행 중일 때 신속하게 소를 제기하고 집행정지 신청을 해야 합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004900" target="_blank" rel="noopener" title="민사집행법 제49조 — 대법원 종합법률정보">민사집행법 제49조</a></div>
+  </div>
+</section>
+
+<section>
+  <h2>관련 판례</h2>
+  <div class="ruling-box">
+    <div class="ruling-header">제3자이의의 소의 원고 적격</div>
+    <p>대법원은 제3자이의의 소에서 "양도 또는 인도를 막을 권리"란 소유권뿐만 아니라 목적물의 양도나 인도를 실체법상 저지할 수 있는 물권을 포함하지만, 단순한 채권적 청구권만으로는 원고 적격을 인정하기 어렵다고 해석하고 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004800" target="_blank" rel="noopener" title="민사집행법 제48조 제1항 — 대법원 종합법률정보">민사집행법 제48조 제1항</a></p>
+  </div>
+</section>
+
+<section>
+  <h2>주의사항</h2>
+  <div class="warn-box">
+    <div class="warn-title">⚡ 집행 진행 중 즉시 신청 필수</div>
+    <p>집행이 완료되면 제3자이의의 실익이 크게 줄어듭니다. 재산이 압류됐다는 사실을 알게 된 즉시 집행정지 신청과 제3자이의의 소를 동시에 진행해야 합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004900" target="_blank" rel="noopener" title="민사집행법 제49조 — 대법원 종합법률정보">민사집행법 제49조</a></p>
+  </div>
+  <div class="warn-box">
+    <div class="warn-title">⚠️ 소유권 입증 서류 준비</div>
+    <p>제3자이의의 소를 제기하면 소유권 또는 권리를 입증할 책임이 원고(제3자)에게 있습니다. 매매계약서, 영수증, 등기부등본, 점유 사실 등 객관적인 증거를 미리 확보해 두어야 합니다.</p>
+  </div>
+  <div class="warn-box">
+    <div class="warn-title">ℹ️ 집행이의와 병행 가능</div>
+    <p>급박한 상황에서는 집행이의신청(민사집행법 제16조)으로 임시 대응하면서 제3자이의의 소를 준비하는 것이 효과적입니다. 두 절차를 병행할 수 있습니다.</p>
+  </div>
+</section>
+
+<section>
+  <h2>다음에 확인할 사항</h2>
+  <div class="next-links">
+    <a href="민집_12_집행정지.html" class="next-link">
+      <span class="arrow">→</span>
+      강제집행 정지<br><small>소 제기와 함께 집행을 멈추는 방법</small>
+    </a>
+    <a href="민집_08_집행이의.html" class="next-link">
+      <span class="arrow">→</span>
+      집행에 관한 이의신청<br><small>급박한 상황에서의 임시 대응</small>
+    </a>
+    <a href="민집_09_청구이의.html" class="next-link">
+      <span class="arrow">→</span>
+      청구이의의 소<br><small>채무자 본인이 집행을 막는 방법</small>
+    </a>
+  </div>
+</section>
+
+<div class="cta-box">
+  <h3 style="color:var(--navy);margin-bottom:8px">이 내용이 해당되시나요?</h3>
+  <p style="margin:8px 0 20px;color:#555">내 재산이 잘못 압류됐다면 즉시 법무사와 상담하세요.<br>첫 상담은 무료입니다.</p>
+  <a href="tel:[전화번호]" class="cta-btn">📞 전화 상담</a>
+  <a href="#" class="cta-btn kakao">💬 카카오톡 상담</a>
+</div>
+
+<div class="disclaimer-section">
+  <p>본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 개별 사안에 따라 결과가 달라질 수 있습니다. 구체적인 사안은 법무사와 상담하시기 바랍니다.</p>
+  <p style="margin-top:8px">이 페이지는 2025년 현행 법령 기준으로 작성되었습니다.</p>
+</div>
+
+</div>
+</body>
+</html>

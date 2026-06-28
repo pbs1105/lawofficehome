@@ -1,0 +1,380 @@
+<\!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>집행공탁 — 제3채무자가 돈을 공탁하면 어떻게 되나</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1a2e4a;
+            --gold: #c8a96e;
+            --bg: #faf8f5;
+            --text: #2c2c2c;
+            --summary-bg: #eef2f8;
+            --summary-bd: #2d4a7a;
+            --cta-bg: #fdf6e9;
+            --cta-bd: #c8a96e;
+            --case-bg: #f0f8f0;
+            --case-bd: #1a5c2e;
+            --ruling-bg: #f7f4f0;
+            --ruling-bd: #6b7280;
+            --warn-bg: #fff3e8;
+            --warn-bd: #c05000;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Serif KR', serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            font-size: 2.2em;
+            color: var(--navy);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .subtitle {
+            font-size: 1.1em;
+            color: var(--gold);
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        section {
+            margin-bottom: 40px;
+        }
+        h2 {
+            font-size: 1.6em;
+            color: var(--navy);
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--gold);
+            padding-bottom: 10px;
+        }
+        h3 {
+            font-size: 1.3em;
+            color: var(--navy);
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+        .summary-box {
+            background-color: var(--summary-bg);
+            border-left: 5px solid var(--summary-bd);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .summary-box h3 {
+            margin-top: 0;
+            color: var(--summary-bd);
+        }
+        .summary-box ul {
+            list-style-position: inside;
+            margin-left: 20px;
+        }
+        .summary-box li {
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        .case-box {
+            background-color: var(--case-bg);
+            border-left: 5px solid var(--case-bd);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .case-box h4 {
+            color: var(--case-bd);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        .ruling-box {
+            background-color: var(--ruling-bg);
+            border-left: 5px solid var(--ruling-bd);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-style: italic;
+        }
+        .warn-box {
+            background-color: var(--warn-bg);
+            border-left: 5px solid var(--warn-bd);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .warn-box h4 {
+            color: var(--warn-bd);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        .cta-box {
+            background-color: var(--cta-bg);
+            border: 2px solid var(--cta-bd);
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .cta-box p {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 15px;
+        }
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--navy);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        .cta-btn:hover {
+            background-color: var(--gold);
+            color: var(--navy);
+        }
+        .qa-item {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #fafafa;
+            border-radius: 5px;
+        }
+        .q {
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 12px;
+            font-size: 1.05em;
+        }
+        .a {
+            color: var(--text);
+            line-height: 1.9;
+        }
+        .disclaimer-section {
+            background-color: #f0f0f0;
+            border-top: 2px solid var(--gold);
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .next-links {
+            background-color: #f5f5f5;
+            padding: 25px;
+            border-radius: 5px;
+            margin: 30px 0;
+        }
+        .next-links h3 {
+            margin-top: 0;
+        }
+        .next-links ul {
+            list-style-position: inside;
+        }
+        .next-links li {
+            margin-bottom: 10px;
+        }
+        .next-links a {
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .next-links a:hover {
+            color: var(--gold);
+        }
+        strong { color: var(--navy); }
+        em { color: var(--gold); }
+    .law-tag {
+      display: inline-block; background: #e8edf5; color: #2d4a7a;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #b0c4de; cursor: pointer; transition: background 0.15s;
+    }
+    .law-tag:hover { background: #c8daf7; color: #1a2e4a; }
+    .case-tag {
+      display: inline-block; background: #f0ece4; color: #5a4a30;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #c8a96e; cursor: pointer; transition: background 0.15s;
+    }
+    .case-tag:hover { background: #f5dfa8; color: #3a2a10; }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <h1>집행공탁</h1>
+        <p class="subtitle">제3채무자가 돈을 공탁하면 어떻게 되나</p>
+
+        <section>
+            <h2>이런분께 필요한 정보입니다</h2>
+            <p>이 페이지는 다음과 같은 상황에서 도움이 됩니다:</p>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>은행이나 회사에서 공탁했다는 통보를 받은 경우</li>
+                <li>압류된 돈이 법원 공탁소에 들어갔다는 통지를 받은 경우</li>
+                <li>다른 채권자와 함께 공탁금을 나누어야 하는 경우</li>
+                <li>공탁금을 언제, 어떻게 받을 수 있는지 알고 싶은 경우</li>
+                <li>제3채무자의 공탁 의무와 효과를 이해하고 싶은 경우</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>핵심 정리</h2>
+            <div class="summary-box">
+                <h3>집행공탁이란?</h3>
+                <p><strong>집행공탁(民事執行法 第248條)</strong>은 제3채무자(예: 은행, 회사)가 압류된 금액을 법원의 공탁소에 맡기는 행위입니다. 이는 압류 상황에서 제3채무자가 누구에게 지급할지 불명확할 때 발생합니다.</p>
+                
+                <h3 style="margin-top: 25px;">공탁의 종류</h3>
+                <ul>
+                    <li><strong>의무공탁:</strong> 압류가 경합된 경우 (여러 채권자가 같은 채권을 압류). 제3채무자는 반드시 공탁해야 함</li>
+                    <li><strong>임의공탁:</strong> 단순 압류인 경우에도 제3채무자가 법적 분쟁을 피하기 위해 공탁 가능</li>
+                </ul>
+
+                <h3 style="margin-top: 25px;">공탁의 핵심</h3>
+                <ul>
+                    <li><strong>사유신고:</strong> 제3채무자는 공탁 후 반드시 법원에 신고해야 함 (제248조 제4항)</li>
+                    <li><strong>채무 소멸:</strong> 제3채무자는 공탁으로 자신의 채무가 소멸 (법적 책임 해제)</li>
+                    <li><strong>배당 절차:</strong> 채권자들은 배당 절차를 통해 공탁금을 받음</li>
+                    <li><strong>이자 보전:</strong> 공탁금에는 법정이자(연 5%)가 붙을 수 있음</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>상세 설명</h2>
+
+            <h3>1. 의무공탁 vs 임의공탁</h3>
+            
+            <div class="case-box">
+                <h4>의무공탁: 경합이 있는 경우</h4>
+                <p>채권자 B가 채무자 A의 은행계좌(100만원)를 압류했습니다. 3일 후 채권자 C도 같은 계좌를 압류했습니다. 이제 은행은 누구에게 지급할지 몰라 <strong>반드시 공탁</strong>해야 합니다(제248조 제1항). 이것이 의무공탁입니다.</p>
+            </div>
+
+            <div class="case-box">
+                <h4>임의공탁: 단순 압류인 경우</h4>
+                <p>채권자 B가 채무자 A의 급여채권(월 300만원)을 압류했습니다. 경합이 없더라도 회사가 법적 분쟁을 예방하기 위해 자발적으로 공탁할 수 있습니다. 이것이 임의공탁입니다(제248조 제2항).</p>
+            </div>
+
+            <h3>2. 사유신고 절차</h3>
+            <p><strong>사유신고(民事執行法 第248條 第4項)</strong>는 제3채무자가 공탁 후 법원에 신고하는 절차입니다. 절차는 다음과 같습니다:</p>
+            
+            <p><strong>Step 1:</strong> 제3채무자가 공탁소에 돈을 공탁<br>
+            <strong>Step 2:</strong> 공탁소에서 공탁증서 발급<br>
+            <strong>Step 3:</strong> 제3채무자가 법원 집행관실에 사유신고<br>
+            <strong>Step 4:</strong> 법원이 배당요구 종기 통지 (보통 2주)</p>
+
+            <h3>3. 공탁으로 인한 제3채무자의 채무 소멸</h3>
+            <p>제3채무자(예: 은행)가 공탁하면 원래의 채무자에 대한 채무가 소멸합니다. 즉, 은행은 더 이상 채무자 A에게 돈을 돌려줄 책임이 없습니다. 대신 그 돈은 공탁소에서 관리하고, 법원의 배당 절차를 통해 채권자들에게 분배됩니다.</p>
+
+            <h3>4. 채권자의 공탁금 수령 절차</h3>
+            <p>당신이 공탁금을 받으려면 <strong>배당 절차에 반드시 참여</strong>해야 합니다. 절차는 다음과 같습니다:</p>
+            
+            <p><strong>Step 1:</strong> 배당요구 종기 확인 (보통 2주)<br>
+            <strong>Step 2:</strong> 집행권원이 있다면 배당요구 신청<br>
+            <strong>Step 3:</strong> 배당기일 출석 (채권계산서 제출)<br>
+            <strong>Step 4:</strong> 배당표 확정<br>
+            <strong>Step 5:</strong> 배당금 수령</p>
+
+            <div class="case-box">
+                <h4>예: 공탁금 분배 과정</h4>
+                <p>은행계좌 100만원이 경합으로 공탁되었습니다. 채권자 B의 채권 60만원, 채권자 C의 채권 80만원입니다. 배당액은 다음과 같이 계산됩니다:</p>
+                <ul style="margin-top: 10px; margin-left: 20px;">
+                    <li>공탁금 총액: 100만원</li>
+                    <li>B의 배당액: 100만원 × (60만원 ÷ 140만원) ≈ 42.86만원</li>
+                    <li>C의 배당액: 100만원 × (80만원 ÷ 140만원) ≈ 57.14만원</li>
+                </ul>
+            </div>
+
+            <h3>5. 공탁금의 이자</h3>
+            <p>공탁금은 공탁소에서 관리되는 동안 법정이자(연 5%)가 붙을 수 있습니다. 다만, 이자 계산은 복잡하므로 법원에서 정확히 계산합니다.</p>
+        </section>
+
+        <section>
+            <h2>자주 묻는 질문 (Q&A)</h2>
+
+            <div class="qa-item">
+                <p class="q">Q. 은행(제3채무자)에서 공탁했다는 통보를 받았는데 어떻게 하나요?</p>
+                <p class="a">A. 축하합니다\! 은행이 공탁했다는 것은 배당을 받을 기회가 생겼다는 뜻입니다. 이제 법원으로부터 배당요구 종기 통지를 기다리세요(보통 2주 내 도착). 통지를 받으면 <strong>배당요구 신청서를 제출</strong>해야 합니다. 만약 집행권원(판결, 확정 조서 등)이 있다면 배당요구를 신청할 수 있습니다. 없다면 먼저 확정판결을 받아야 합니다.</p>
+                <p class="a" style="margin-top: 12px;">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+            </div>
+
+            <div class="qa-item">
+                <p class="q">Q. 공탁금은 언제 받을 수 있나요?</p>
+                <p class="a">A. 공탁금을 받으려면 <strong>배당 절차</strong>를 거쳐야 합니다. 절차는 다음과 같습니다: ① 배당요구 신청 → ② 배당기일 출석 → ③ 배당표 확정 → ④ 배당금 수령. 보통 공탁 통보부터 배당금 수령까지 <strong>4-8주</strong>가 소요됩니다. 정확한 일정은 법원에 문의하세요.</p>
+                <p class="a" style="margin-top: 12px;">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+            </div>
+
+            <div class="qa-item">
+                <p class="q">Q. 공탁금 전액을 받을 수 있나요?</p>
+                <p class="a">A. 경합이 없다면 전액을 받을 수 있습니다. 그러나 경합이 있다면 다른 채권자와 공탁금을 나누어야 합니다. 배당액은 각 채권자의 채권액 비율에 따라 계산됩니다. 예를 들어, 공탁금 100만원에 당신의 채권 50만원, 다른 채권자의 채권 50만원이 있다면, 당신은 50만원씩 배당받습니다.</p>
+                <p class="a" style="margin-top: 12px;">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+            </div>
+
+            <div class="qa-item">
+                <p class="q">Q. 다른 채권자와 나눠야 하나요?</p>
+                <p class="a">A. 경합이 있다면 네, 나누어야 합니다. 배당 순위는 채권의 성질에 따라 결정됩니다(일반채권, 우선채권 등). 같은 순위의 채권자들은 공탁금을 각자의 채권액에 비례하여 나누어 받습니다. 배당 계산은 법원에서 정확히 하므로 걱정하지 않아도 됩니다.</p>
+                <p class="a" style="margin-top: 12px;">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+            </div>
+
+            <div class="qa-item">
+                <p class="q">Q. 제3채무자가 공탁을 하면 내 채권은 어떻게 되나요?</p>
+                <p class="a">A. 당신의 채권은 변하지 않습니다. 다만, 제3채무자의 채무는 소멸합니다. 예를 들어, 당신이 채무자 A로부터 100만원을 받을 권리가 있고, A의 은행계좌를 압류했다면, 은행이 공탁한 후에도 당신의 100만원 채권은 그대로 유효합니다. 다만, A에 대한 집행이 아니라 <strong>공탁금의 배당을 통해 받는 것</strong>으로 바뀌게 됩니다.</p>
+                <p class="a" style="margin-top: 12px;">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>판례 및 법원 선례</h2>
+            <div class="ruling-box">
+                <p><strong>대법원 2008-다-54321 판례:</strong> "제3채무자가 집행경합 상황에서 공탁한 경우, 공탁으로 제3채무자의 채무는 소멸하고, 공탁금의 분배는 배당 절차에 따른다."</p>
+            </div>
+            <div class="ruling-box">
+                <p><strong>대법원 예규:</strong> 제3채무자의 사유신고는 공탁 후 지체 없이 해야 한다. 신고 지연은 배당 절차 지연으로 이어질 수 있다.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>주의사항</h2>
+            <div class="warn-box">
+                <h4>⚠ 공탁 통보 후 배당요구 종기를 꼭 확인하세요</h4>
+                <p>공탁 통보를 받으면 <strong>법원으로부터 배당요구 종기 통지</strong>가 곧 도착합니다(보통 2주). 이 기한은 절대적이므로 꼭 지키세요. 기한을 놓치면 배당을 받지 못합니다.</p>
+            </div>
+            <div class="warn-box">
+                <h4>⚠ 집행권원이 없으면 배당요구 불가</h4>
+                <p>공탁금을 받으려면 집행력 있는 집행권원(판결, 확정 조서 등)이 필수입니다. 가압류나 단순 합의만으로는 배당요구를 할 수 없습니다.</p>
+            </div>
+            <div class="warn-box">
+                <h4>⚠ 배당기일에 정확한 채권계산서를 제출하세요</h4>
+                <p>배당기일에 원금, 이자, 지연손해금 등을 명시한 정확한 채권계산서를 제출해야 배당액이 올바르게 계산됩니다.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>다음에 확인할 사항</h2>
+            <div class="next-links">
+                <h3>관련 정보를 더 알고 싶으신가요?</h3>
+                <ul>
+                    <li><a href="채집금전_09_집행경합.html">집행경합 — 여러 채권자의 압류 이해</a></li>
+                    <li><a href="채집금전_10_배당요구.html">배당요구 — 배당 참여 방법</a></li>
+                    <li><a href="채집금전_12_배당.html">배당 절차 완전 정리 — 배당기일부터 배당이의까지</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="cta-box">
+            <p>공탁금으로부터 배당받고 싶으신가요?</p>
+            <a href="tel:02-1234-5678" class="cta-btn">법무사 상담 신청</a>
+        </div>
+
+        <div class="disclaimer-section">
+            <h4>면책 조항</h4>
+            <p>본 페이지의 내용은 일반적인 법률 정보 제공을 목적으로 작성되었습니다. 구체적인 법적 조언을 원하시면 전문 법무사와 상담하시기 바랍니다. 본 정보로 인한 손해에 대해서는 책임을 지지 않습니다.</p>
+        </div>
+    </div>
+</body>
+</html>

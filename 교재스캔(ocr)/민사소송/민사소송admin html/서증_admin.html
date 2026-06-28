@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[내부용] 서증 — 법무사 실무 어드민</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1a2e4a;--gold:#c8a96e;--ivory:#faf8f5;--ink:#2b2b2b;--muted:#5b5b5b;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--ivory);color:var(--ink);font-family:'Noto Sans KR',sans-serif;line-height:1.75;font-size:15px;padding-top:44px;}
+.top-bar{position:fixed;top:0;left:0;right:0;background:#2d2d2d;color:#fff;text-align:center;font-size:.82rem;font-weight:700;letter-spacing:.08em;padding:10px 16px;z-index:999;}
+.wrap{max-width:900px;margin:0 auto;padding:28px 20px 100px;}
+h1,h2,h3,h4{font-family:'Noto Serif KR',serif;color:var(--navy);line-height:1.4;}
+h1{font-size:1.7rem;margin-bottom:6px;}
+h3{font-size:1.08rem;margin:20px 0 6px;}
+h4{font-size:.98rem;margin:14px 0 4px;color:#2d4a7a;}
+p{margin:8px 0;}
+ul,ol{padding-left:1.4em;margin:8px 0;}
+li{margin:4px 0;}
+.summary-header{background:var(--navy);color:#fff;border-radius:10px;padding:22px 26px;margin-bottom:24px;}
+.summary-header h1{color:#fff;}
+.summary-header .sub{color:#c8c8c8;font-size:.88rem;margin-top:4px;}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+.badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:4px 14px;font-size:.8rem;font-weight:600;}
+.badge.gold{background:#c8a96e;color:#2b1a00;border-color:#c8a96e;}
+section{margin-top:32px;}
+h2.sec{font-size:1.25rem;padding-bottom:8px;border-bottom:2px solid var(--gold);display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+h2.sec .num{background:var(--navy);color:#fff;font-family:'Noto Sans KR';font-size:.85rem;width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;}
+.box{border-radius:8px;padding:16px 20px;margin:12px 0;}
+.box-scope{background:#fff3e8;border:2px solid #c05000;border-left:6px solid #c05000;}
+.box-issue{background:#f4f7fb;border:1px solid #2d4a7a;border-left:5px solid #2d4a7a;}
+.box-tip{background:#f0f8f0;border:1px solid #1a5c2e;border-left:5px solid #1a5c2e;}
+.box-memo{background:#fffdf5;border:2px dashed #c8a96e;border-radius:8px;padding:14px 18px;margin:12px 0;}
+.box-trap{background:#fff3e8;border:1px solid #c05000;border-left:5px solid #c05000;}
+.box h3{margin-top:0;font-size:1rem;}
+.tablebox{overflow-x:auto;margin:12px 0;}
+table{border-collapse:collapse;width:100%;background:#fff;font-size:.9rem;}
+th,td{border:1px solid #d9d3c7;padding:9px 12px;text-align:left;vertical-align:top;}
+th{background:var(--navy);color:#fff;font-weight:500;}
+tbody tr:nth-child(even){background:#f6f3ee;}
+td.val{font-weight:600;color:#2d4a7a;}
+td.warn{color:#c05000;font-weight:600;}
+td.ok{color:#1a5c2e;font-weight:600;}
+.steps{counter-reset:step;margin:12px 0;}
+.step{background:#fff;border:1px solid #e3ddd2;border-left:4px solid var(--gold);border-radius:8px;padding:14px 18px 14px 54px;position:relative;margin:10px 0;}
+.step::before{counter-increment:step;content:counter(step);position:absolute;left:14px;top:14px;width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;font-size:.88rem;display:flex;align-items:center;justify-content:center;}
+.step h4{margin:0 0 4px;}
+.ref-tags{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0;}
+.tag-law{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.76rem;font-weight:600;text-decoration:none;background:#eef2f8;color:#2d4a7a;border:1px solid #2d4a7a;}
+.tag-law:hover{background:#dce6f5;}
+.tag-case{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.76rem;font-weight:600;text-decoration:none;background:#f7f4f0;color:#5a3e28;border:1px solid #6b7280;}
+.checklist{list-style:none;padding:0;}
+.checklist li{padding:6px 0 6px 28px;position:relative;border-bottom:1px dashed #ece7dd;}
+.checklist li:last-child{border-bottom:none;}
+.checklist li::before{content:"☐";position:absolute;left:0;top:6px;color:var(--gold);font-size:1.1rem;}
+.footer-meta{margin-top:48px;border-top:2px solid #e3ddd2;padding-top:20px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
+.footer-meta .col{background:#fff;border:1px solid #e3ddd2;border-radius:8px;padding:14px 16px;}
+.footer-meta label{display:block;font-size:.76rem;color:var(--muted);font-weight:600;margin-bottom:4px;}
+.footer-meta .val{font-size:.88rem;color:var(--ink);}
+@media(max-width:600px){.footer-meta{grid-template-columns:1fr;}.badges{gap:6px;}}
+</style>
+</head>
+<body>
+<div class="top-bar">🔒 내부용 · 대외 배포 금지 — 법무사 사무소 전용</div>
+<div class="wrap">
+<div class="summary-header">
+  <h1>서증 (書證)</h1>
+  <div class="sub">민사소송법 제343조~제362조, 민사소송규칙 제107조 이하 / 법무사 업무: 서증목록 작성·제출 대행</div>
+  <div class="badges">
+    <span class="badge">사건유형: 민사소송 증거조사 단계</span>
+    <span class="badge">관할: 수소법원</span>
+    <span class="badge">근거법령: 민사소송법 제343조~제362조</span>
+    <span class="badge">당사자: 원고(甲)·피고(乙)</span>
+    <span class="badge gold">핵심: 진정성립·형식적 증거력·처분문서</span>
+  </div>
+</div>
+<section>
+  <h2 class="sec"><span class="num">0</span>⚠️ 법무사 업무범위 · 수임 판단</h2>
+  <div class="box box-scope">
+    <h3>업무범위 한계</h3>
+    <ul>
+      <li><strong>가능:</strong> 서증목록 작성·제출 대행, 서증 분류·번호 부여, 공문서·사문서 구분 정리, 문서제출명령 신청서 작성, 문서송부촉탁 신청서 작성</li>
+      <li><strong>불가(변호사법 위반):</strong> 서증의 법적 가치(증거력) 판단, 처분문서/보고문서 구별에 따른 증거 전략 수립, 진정성립 다툼 방법 법률 조언</li>
+    </ul>
+    <h3 style="margin-top:14px;">수임 판단 포인트</h3>
+    <ul>
+      <li>의뢰인이 보유한 문서 목록을 먼저 파악하여 서증 분류 진행</li>
+      <li>공문서(주민등록등본·등기부등본 등)는 진정성립이 추정됨</li>
+      <li>사문서는 상대방이 진정성립 다투면 증명 필요 — 필적 감정 등 추가 절차 요</li>
+    </ul>
+    <h3 style="margin-top:14px;">받지 말아야 할 신호 체크리스트</h3>
+    <ul class="checklist">
+      <li>"이 계약서가 유리한지 판단해주세요" — 법률 판단 요구</li>
+      <li>"상대방 서증을 어떻게 반박하나요?" — 소송전략 요구</li>
+      <li>서증 위조·변조 의혹 확인 요청 — 전문가(필적감정 등) 연결</li>
+    </ul>
+  </div>
+</section>
+<section>
+  <h2 class="sec"><span class="num">1</span>핵심쟁점</h2>
+  <div class="box box-issue">
+    <h3>실체적 쟁점 — 서증의 증거력 판단 구조</h3>
+    <ul>
+      <li><strong>형식적 증거력(진정성립):</strong> 문서가 작성자로 주장되는 자의 의사에 의하여 작성되었음이 인정되는 것 — 진정성립 미인정 시 실질적 증거력 판단 불필요</li>
+      <li><strong>실질적 증거력:</strong> 진정성립이 인정된 후, 요증사실 인정에 얼마나 기여하는지 — 자유심증으로 판단</li>
+      <li><strong>처분문서 vs 보고문서:</strong> 처분문서(계약서·어음 등) — 진정성립 인정되면 법률행위 존재 증명됨 / 보고문서(영수증·일기 등) — 진정성립 인정되어도 내용의 진실 여부는 별도 판단 필요</li>
+    </ul>
+    <h3 style="margin-top:14px;">문서 종류별 진정성립 추정 여부</h3>
+    <div class="tablebox">
+      <table>
+        <thead><tr><th>문서 종류</th><th>진정성립</th><th>근거</th><th>주의사항</th></tr></thead>
+        <tbody>
+          <tr><td class="val">공문서</td><td class="ok">추정</td><td>민소 §356</td><td>상대방이 번복하려면 반증 필요</td></tr>
+          <tr><td class="val">공정증서</td><td class="ok">강한 추정</td><td>민소 §356</td><td>공증인 작성 — 집행력 부여 기능</td></tr>
+          <tr><td class="val">사문서 (서명·날인 있음)</td><td class="ok">추정</td><td>민소 §358</td><td>본인/대리인 서명·날인 인정 시</td></tr>
+          <tr><td class="val">사문서 (서명·날인 없음)</td><td class="warn">추정 없음</td><td>민소 §357</td><td>상대방 부인 시 직접 증명 필요</td></tr>
+          <tr><td class="val">사본</td><td class="warn">별도 확인</td><td>—</td><td>원본 존재 및 사본 일치 확인 필요</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<section>
+  <h2 class="sec"><span class="num">2</span>업무 절차 흐름</h2>
+  <div class="steps">
+    <div class="step">
+      <h4>의뢰인 보유 문서 목록 수령</h4>
+      <p>의뢰인으로부터 제출할 문서 목록과 실물(또는 사본) 수령. 공문서/사문서, 원본/사본 구분.</p>
+    </div>
+    <div class="step">
+      <h4>서증 번호 부여 및 목록 작성</h4>
+      <p>원고: 甲(갑) 제1호증부터 순번 / 피고: 乙(을) 제1호증부터 순번. 서증목록에 번호·명칭·증명취지 기재.</p>
+      <div class="box box-tip" style="margin-top:8px;">💡 <strong>실무 TIP:</strong> 서증명칭은 실제 문서 제목과 일치시킬 것 — "계약서"가 아닌 "2023. 3. 1.자 부동산매매계약서"처럼 구체적으로</div>
+    </div>
+    <div class="step">
+      <h4>서증 사본 PDF 변환 및 전자소송 업로드</h4>
+      <p>전자소송 제출 시 PDF 형식으로 변환. 파일명에 서증번호 포함. 원본은 기일에 지참.</p>
+    </div>
+    <div class="step">
+      <h4>문서제출명령·문서송부촉탁 신청 (필요 시)</h4>
+      <p>상대방 또는 제3자(공공기관 등) 보유 문서가 필요한 경우 신청서 작성·제출.</p>
+      <div class="box box-tip" style="margin-top:8px;">💡 <strong>실무 TIP:</strong> 금융기관 거래내역 등은 문서송부촉탁(민소규 §121)으로 확보 가능</div>
+    </div>
+    <div class="step">
+      <h4>변론기일에 원본 지참 안내</h4>
+      <p>전자소송으로 사본 제출하더라도 법원 요구 시 원본 제시 필요. 의뢰인에게 원본 보관·지참 안내.</p>
+    </div>
+  </div>
+</section>
+<section>
+  <h2 class="sec"><span class="num">3</span>첨부서류 표</h2>
+  <div class="tablebox">
+    <table>
+      <thead><tr><th>서류명</th><th>필수/선택</th><th>법령근거</th><th>발급처</th><th>유효기간</th><th>실무 비고</th></tr></thead>
+      <tbody>
+        <tr><td class="val">서증목록</td><td class="ok">필수</td><td>민소규 §107</td><td>작성</td><td>—</td><td>번호·명칭·증명취지 기재</td></tr>
+        <tr><td class="val">서증 사본</td><td class="ok">필수</td><td>민소 §355</td><td>수집/복사</td><td>—</td><td>원본은 기일에 지참</td></tr>
+        <tr><td class="val">공문서 (등기부등본 등)</td><td>선택</td><td>민소 §356</td><td>등기소·공공기관</td><td>발급일로부터 3개월</td><td>진정성립 추정, 최신본 발급 권장</td></tr>
+        <tr><td class="val">문서제출명령 신청서</td><td>선택</td><td>민소 §343</td><td>작성</td><td>—</td><td>문서 표시·취지·제출의무 근거 기재</td></tr>
+        <tr><td class="val">문서송부촉탁 신청서</td><td>선택</td><td>민소규 §121</td><td>작성</td><td>—</td><td>기관명·문서 특정·사유 명시</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section>
+  <h2 class="sec"><span class="num">4</span>비용 · 소가 산정</h2>
+  <div class="box box-issue">
+    <div class="tablebox">
+      <table>
+        <thead><tr><th>항목</th><th>금액/산식</th><th>비고</th></tr></thead>
+        <tbody>
+          <tr><td class="val">서증 제출 인지</td><td>없음</td><td>서증 제출 자체에 별도 인지 불필요</td></tr>
+          <tr><td class="val">공문서 발급 수수료</td><td>발급기관·종류별 상이 (등기부등본 700원~)</td><td>소송비용으로 인정 가능</td></tr>
+          <tr><td class="val">복사비</td><td>실비</td><td>민사소송비용법 §9 — 소송비용 인정</td></tr>
+          <tr><td class="val">법무사 서류작성 보수</td><td>대법원 법무사 보수표 적용</td><td>[계산 프로그램 입력란]</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<section>
+  <h2 class="sec"><span class="num">5</span>법령 · 판례 검증</h2>
+  <div class="box box-issue">
+    <h3>주요 근거 법령</h3>
+    <div class="ref-tags">
+      <a class="tag-law" href="https://www.law.go.kr/lsEfInfoR.do?lsiSeq=252393&joNo=035500" target="_blank">✅ 민소 §355 — 서증의 신청</a>
+      <a class="tag-law" href="https://www.law.go.kr/lsEfInfoR.do?lsiSeq=252393&joNo=035600" target="_blank">✅ 민소 §356 — 공문서의 진정성립 추정</a>
+      <a class="tag-law" href="https://www.law.go.kr/lsEfInfoR.do?lsiSeq=252393&joNo=035700" target="_blank">✅ 민소 §357 — 사문서의 진정성립 증명</a>
+      <a class="tag-law" href="https://www.law.go.kr/lsEfInfoR.do?lsiSeq=252393&joNo=035800" target="_blank">✅ 민소 §358 — 사문서의 진정성립 추정</a>
+      <a class="tag-law" href="https://www.law.go.kr/lsEfInfoR.do?lsiSeq=252393&joNo=034300" target="_blank">✅ 민소 §343 — 문서제출명령</a>
+      <a class="tag-law" href="https://www.law.go.kr/lsEfInfoR.do?lsiSeq=252393&joNo=034900" target="_blank">✅ 민소 §349 — 문서 미제출의 효과</a>
+    </div>
+    <h3 style="margin-top:14px;">주요 판례</h3>
+    <div class="ref-tags">
+      <span class="tag-case">대법원 2011. 5. 26. 선고 2011다9655 — 형식적 증거력(진정성립) 먼저, 실질적 증거력 순서</span>
+      <span class="tag-case">대법원 2010. 5. 13. 선고 2010다6222 — 처분문서 vs 보고문서 구별</span>
+      <span class="tag-case">대법원 1997. 4. 11. 선고 96다50520 — 처분문서 진정성립 인정 시 법률행위 증명</span>
+      <span class="tag-case">대법원 1992. 4. 14. 선고 91다24755 — 소 제기 후 작성 사문서 증거능력 있음</span>
+    </div>
+  </div>
+</section>
+<section>
+  <h2 class="sec"><span class="num">6</span>법무사 실무 노하우</h2>
+  <div class="box box-tip">
+    <h3>💡 실무 TIP 모음</h3>
+    <ul>
+      <li>서증목록 작성 시 증명취지를 간결명확하게 — "원고와 피고 간 2023. 3. 1. 부동산매매계약 체결 사실"</li>
+      <li>사문서는 상대방이 날인을 인정하면 진정성립 추정 — 확인 서면 활용 가능</li>
+      <li>내용증명우편 — 증명 부분(공문서) + 편지 내용(사문서) 혼합 문서임을 주의</li>
+      <li>사본 제출 시 "원본과 틀림없음" 확인 문구 기재 권장</li>
+      <li>금융 거래내역은 문서송부촉탁으로 법원이 직접 금융기관에 요청하도록 신청</li>
+    </ul>
+  </div>
+  <div class="box-memo">
+    <strong>📝 현장 메모 [직접 추가]</strong>
+    <p style="color:#888;font-size:.88rem;margin-top:6px;">자주 사용하는 서증 유형, 발급기관 연락처, 특이 사례 등을 기록하세요.</p>
+    <br><br><br>
+  </div>
+</section>
+<section>
+  <h2 class="sec"><span class="num">7</span>주의사항 &amp; 사고 · 실수 사례</h2>
+  <div class="box box-trap">
+    <h3>⚡ 기간도과 위험</h3>
+    <ul>
+      <li>공문서 유효기간 — 3개월 초과 시 재발급 필요 (기관마다 상이)</li>
+      <li>변론준비절차 종결 후 신규 서증 제출 실권효 위험</li>
+    </ul>
+    <h3 style="margin-top:14px;">흔한 실수</h3>
+    <ul>
+      <li>갑/을 서증 번호 중복 또는 순서 혼동</li>
+      <li>사본 제출 후 원본 미지참으로 법원 확인 불가</li>
+      <li>서증목록 증명취지를 "참조"로만 기재 — 구체적 사실 명시 필요</li>
+      <li>내용증명 접수 도장 부분(공문서)과 편지 내용(사문서) 혼동</li>
+    </ul>
+    <h3 style="margin-top:14px;">변호사법 경계선</h3>
+    <ul>
+      <li>"이 서증이 유리/불리합니다"라는 판단 제공 — 법률 조언에 해당</li>
+      <li>서증의 진정성립 다툼 방법 조언 — 소송전략에 해당</li>
+    </ul>
+  </div>
+</section>
+<div class="footer-meta">
+  <div class="col"><label>작성일</label><div class="val">2026. 6. 4.</div></div>
+  <div class="col"><label>근거기준일 (법령)</label><div class="val">민사소송법 (2024. 2. 13. 시행 기준)</div></div>
+  <div class="col"><label>최종검토자 메모</label><div class="val" style="color:#888;">[검토자 이름 · 날짜 기재]</div></div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>유언의 집행과 검인 | 상속등기 실무</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{--navy:#1a2e4a;--navy-light:#2d4a73;--gold:#c9a84c;--gold-light:#e8d5a3;--ivory:#fdf8f0;--ivory-dark:#f5ede0;--text:#2c2c2c;--text-light:#5a5a5a;--blue-box:#e8f0f8;--blue-border:#2d6aa0;--warn-bg:#fff8e1;--warn-border:#f0a500;}
+        *{box-sizing:border-box;margin:0;padding:0;}
+        body{font-family:'Noto Sans KR',sans-serif;background:var(--ivory);color:var(--text);font-size:15px;line-height:1.8;}
+        .page-header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);color:white;padding:40px 24px 32px;text-align:center;}
+        .page-header h1{font-size:2rem;font-weight:700;margin-bottom:8px;}
+        .page-header .subtitle{color:var(--gold-light);font-size:1rem;}
+        .breadcrumb{font-size:0.82rem;color:rgba(255,255,255,0.6);margin-bottom:12px;}
+        .layout{display:grid;grid-template-columns:240px 1fr 300px;gap:0;max-width:1280px;margin:0 auto;}
+        .toc-sidebar{background:var(--navy);color:white;padding:24px 0;position:sticky;top:0;height:100vh;overflow-y:auto;}
+        .toc-sidebar h3{font-size:0.78rem;letter-spacing:2px;color:var(--gold);text-transform:uppercase;padding:0 20px 12px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:8px;}
+        .toc-sidebar ul{list-style:none;}
+        .toc-sidebar ul li a{display:block;padding:9px 20px;font-size:0.85rem;color:rgba(255,255,255,0.75);text-decoration:none;border-left:3px solid transparent;transition:all 0.2s;}
+        .toc-sidebar ul li a:hover,.toc-sidebar ul li a.active{color:white;background:rgba(255,255,255,0.08);border-left-color:var(--gold);}
+        .main-content{padding:40px 48px;min-height:100vh;}
+        .section{margin-bottom:56px;scroll-margin-top:24px;}
+        .section h2{font-size:1.35rem;color:var(--navy);border-bottom:2px solid var(--gold);padding-bottom:10px;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+        .section h2 .sec-num{background:var(--navy);color:var(--gold);font-size:0.78rem;padding:2px 8px;border-radius:12px;}
+        .section h3{font-size:1.05rem;color:var(--navy-light);margin:24px 0 10px;font-weight:600;}
+        .summary-box{background:var(--blue-box);border-left:4px solid var(--blue-border);border-radius:0 8px 8px 0;padding:18px 22px;margin-bottom:20px;}
+        .summary-box strong{color:var(--blue-border);display:block;margin-bottom:6px;font-size:0.9rem;}
+        .detail-content{color:var(--text-light);}
+        .detail-content p{margin-bottom:14px;}
+        .law-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.88rem;}
+        .law-table th{background:var(--navy);color:white;padding:10px 14px;text-align:left;}
+        .law-table td{padding:10px 14px;border-bottom:1px solid #e0d8cc;vertical-align:top;}
+        .law-table tr:nth-child(even) td{background:var(--ivory-dark);}
+        .law-ref{color:var(--blue-border);font-weight:600;cursor:pointer;border-bottom:1px dashed var(--blue-border);font-size:0.9em;}
+        .warn-box{background:var(--warn-bg);border-left:4px solid var(--warn-border);border-radius:0 8px 8px 0;padding:16px 20px;margin:16px 0;}
+        .warn-box strong{color:#c07000;display:block;margin-bottom:6px;}
+        .case-box{background:#f5f5f5;border:1px solid #ddd;border-radius:8px;padding:16px 20px;margin:16px 0;font-size:0.87rem;}
+        .case-box .case-title{font-weight:700;color:var(--navy);margin-bottom:8px;font-size:0.85rem;}
+        .process-steps{margin:16px 0;}
+        .step{display:flex;gap:16px;margin-bottom:16px;align-items:flex-start;}
+        .step-num{background:var(--navy);color:var(--gold);font-weight:700;min-width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;}
+        .step-content .step-title{font-weight:600;color:var(--navy);margin-bottom:4px;}
+        .step-content .step-desc{font-size:0.88rem;color:var(--text-light);}
+        .checklist-box{background:var(--ivory-dark);border:1px solid var(--gold-light);border-radius:10px;padding:20px 24px;margin:24px 0;}
+        .checklist-box h4{color:var(--navy);margin-bottom:14px;font-size:0.95rem;}
+        .checklist-box ul{list-style:none;}
+        .checklist-box ul li{padding:5px 0;font-size:0.88rem;display:flex;gap:10px;}
+        .checklist-box ul li::before{content:"☑";color:var(--gold);}
+        .cta-box{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);color:white;border-radius:12px;padding:28px 32px;margin:32px 0;text-align:center;}
+        .cta-box h3{font-size:1.2rem;margin-bottom:10px;color:var(--gold-light);}
+        .cta-box p{font-size:0.9rem;color:rgba(255,255,255,0.85);margin-bottom:18px;}
+        .cta-btn{background:var(--gold);color:var(--navy);font-weight:700;padding:12px 32px;border-radius:24px;border:none;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;}
+        .next-links{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}
+        .next-link{background:white;border:1px solid #d0c8ba;border-radius:8px;padding:16px;text-decoration:none;color:var(--navy);transition:all 0.2s;display:flex;align-items:center;justify-content:space-between;}
+        .next-link:hover{border-color:var(--gold);box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+        .next-link .label{font-size:0.78rem;color:var(--text-light);}
+        .next-link .title{font-size:0.92rem;font-weight:600;}
+        .next-link .arrow{color:var(--gold);font-size:1.2rem;}
+        .disclaimer{background:#f0f0f0;border-radius:8px;padding:16px 20px;margin-top:40px;font-size:0.8rem;color:#777;line-height:1.6;}
+        .right-sidebar{background:white;border-left:1px solid #e0d8cc;padding:0;position:sticky;top:0;height:100vh;overflow-y:auto;}
+        .sidebar-tabs{display:flex;border-bottom:2px solid var(--navy);}
+        .sidebar-tab{flex:1;padding:12px 8px;text-align:center;font-size:0.82rem;font-weight:600;cursor:pointer;color:var(--text-light);background:var(--ivory);border:none;transition:all 0.2s;}
+        .sidebar-tab.active{background:var(--navy);color:white;}
+        .sidebar-panel{padding:16px;display:none;}
+        .sidebar-panel.active{display:block;}
+        .law-item{border:1px solid #e0d8cc;border-radius:6px;margin-bottom:8px;overflow:hidden;}
+        .law-item-header{background:var(--ivory-dark);padding:10px 14px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:0.83rem;font-weight:600;color:var(--navy);}
+        .law-item-header:hover{background:var(--gold-light);}
+        .law-item-body{display:none;padding:12px 14px;font-size:0.82rem;line-height:1.7;color:var(--text-light);border-top:1px solid #e0d8cc;}
+        .law-item-body.open{display:block;}
+        .practice-section{margin-bottom:16px;}
+        .practice-section h5{font-size:0.82rem;font-weight:700;color:var(--navy);background:var(--ivory-dark);padding:7px 12px;border-radius:4px;margin-bottom:8px;}
+        .practice-section ul{list-style:none;padding:0;}
+        .practice-section ul li{font-size:0.81rem;padding:4px 8px;color:var(--text-light);border-bottom:1px solid #f0ece6;display:flex;gap:6px;}
+        .practice-section ul li::before{content:"•";color:var(--gold);}
+        @media(max-width:900px){.layout{grid-template-columns:1fr;}.toc-sidebar,.right-sidebar{display:none;}.main-content{padding:24px 20px;}.next-links{grid-template-columns:1fr;}}
+    </style>
+</head>
+<body>
+    <div class="page-header">
+        <div class="breadcrumb">상속 · 등기 · 실무</div>
+        <h1>유언의 집행과 검인</h1>
+        <p class="subtitle">유언 실현의 법적 절차 및 유효성 확보</p>
+    </div>
+
+    <div class="layout">
+        <!-- 왼쪽 TOC 사이드바 -->
+        <div class="toc-sidebar">
+            <h3>목차</h3>
+            <ul>
+                <li><a class="toc-link active" href="#sec1">유언 집행이란</a></li>
+                <li><a class="toc-link" href="#sec2">유언서 검인</a></li>
+                <li><a class="toc-link" href="#sec3">검인 절차</a></li>
+                <li><a class="toc-link" href="#sec4">유언집행자</a></li>
+                <li><a class="toc-link" href="#sec5">유언집행자의 권한·의무</a></li>
+                <li><a class="toc-link" href="#sec6">부동산 유증 집행</a></li>
+                <li><a class="toc-link" href="#sec7">유언 무효 사유</a></li>
+                <li><a class="toc-link" href="#sec8">FAQ</a></li>
+            </ul>
+        </div>
+
+        <!-- 중앙 메인 콘텐츠 -->
+        <div class="main-content">
+            <!-- 섹션 1 -->
+            <div class="section" id="sec1">
+                <h2><span class="sec-num">1</span>유언 집행이란</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    유언 집행은 유언자 사망 후 유언에 기재된 내용을 실제로 실현하는 절차입니다. 부동산 등기, 금융자산 인수, 채무 변제 등을 포함합니다.
+                </div>
+                <div class="detail-content">
+                    <h3>유언 집행의 의의</h3>
+                    <p>유언 집행(遺言執行)은 유언자가 사망한 후, 그 유언에 기재된 내용을 실제로 이행하는 법적 절차를 말합니다. 단순히 유언이 존재하는 것만으로는 자동으로 그 효력이 발생하지 않으며, <strong>구체적인 등기, 계약, 인수 등의 조치</strong>가 필요합니다.</p>
+                    <h3>유언 집행의 범위</h3>
+                    <ul style="margin-left:20px;margin-bottom:14px;">
+                        <li><strong>부동산 유증:</strong> 유증받은 부동산의 소유권이전등기</li>
+                        <li><strong>금융자산:</strong> 계좌 이전, 주식 명의변경 등</li>
+                        <li><strong>동산:</strong> 자동차, 미술품 등의 인수</li>
+                        <li><strong>채무 변제:</strong> 유언에서 지정한 채무 상환</li>
+                        <li><strong>신분 관계:</strong> 후견인 지정, 인지 등</li>
+                    </ul>
+                    <h3>유언 집행의 절차 순서</h3>
+                    <p>일반적인 유언 집행 순서는 다음과 같습니다:</p>
+                    <ol style="margin-left:20px;margin-bottom:14px;">
+                        <li>유언 발견 및 보관</li>
+                        <li>유언서 검인 (공정증서 제외)</li>
+                        <li>유언집행자 지정 또는 선임</li>
+                        <li>유언자 사망 증명서 취득</li>
+                        <li>상속인 확정 및 계고</li>
+                        <li>부동산 등기 신청</li>
+                        <li>금융자산 명의변경</li>
+                        <li>유언집행 완료 및 보고</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- 섹션 2 -->
+            <div class="section" id="sec2">
+                <h2><span class="sec-num">2</span>유언서 검인</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    검인은 자필증서, 녹음, 비밀증서 유언이 위조·변조되지 않았음을 가정법원이 확인하는 절차입니다 (<span class="law-ref" onclick="openLaw('민법1091')">민법 제1091조</span>). 공정증서 유언은 검인이 불필요합니다.
+                </div>
+                <div class="detail-content">
+                    <h3>검인의 목적</h3>
+                    <p>검인의 주요 목적은:</p>
+                    <ul style="margin-left:20px;margin-bottom:14px;">
+                        <li><strong>진정성 입증:</strong> 유언서가 위조·변조되지 않았음을 확인</li>
+                        <li><strong>신뢰도 제고:</strong> 법원의 공식 확인으로 분쟁 가능성 감소</li>
+                        <li><strong>상속등기 준거:</strong> 검인 조서를 상속등기 신청 서류로 사용</li>
+                        <li><strong>상속세 신고:</strong> 검인 조서를 상속세 신고 시 제출</li>
+                    </ul>
+                    <h3>검인 불필요 경우</h3>
+                    <p><span class="law-ref" onclick="openLaw('민법1091')">민법 제1091조</span>에서는 <strong>공정증서로 작성된 유언</strong>은 검인 신청이 불필요하다고 규정합니다. 공증인이 이미 절차를 확인했기 때문입니다.</p>
+                    <div class="warn-box">
+                        <strong>주의</strong>
+                        자필증서 유언을 발견했다면, 반드시 가정법원의 검인을 받아야 합니다. 검인 없이는 상속등기 신청이 불가능할 수 있습니다.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 섹션 3 -->
+            <div class="section" id="sec3">
+                <h2><span class="sec-num">3</span>검인 절차 3단계</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    가정법원에 검인을 신청하면, 기일이 지정되고, 법원이 검인 조서를 작성합니다. 전체 절차는 2~4주 정도 소요됩니다.
+                </div>
+                <div class="detail-content">
+                    <h3>검인 신청 절차</h3>
+                    <div class="process-steps">
+                        <div class="step">
+                            <div class="step-num">1</div>
+                            <div class="step-content">
+                                <div class="step-title">검인 신청</div>
+                                <div class="step-desc">
+                                    관할 가정법원에 검인 신청서 제출 → 신청인: 상속인 또는 이해관계인 → 관할법원: 유언자 주소지 관할 가정법원
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">2</div>
+                            <div class="step-content">
+                                <div class="step-title">기일 지정 및 심문</div>
+                                <div class="step-desc">
+                                    법원이 검인 기일을 지정 → 신청인 및 상속인 출석 → 법원이 유언서 내용과 작성 경위 심문 → 필요시 필적 감정
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">3</div>
+                            <div class="step-content">
+                                <div class="step-title">검인 조서 작성</div>
+                                <div class="step-desc">
+                                    법원이 검인 조서 작성 → 유언서가 진정하다고 인정 → 조서 및 유언서 원본 사본 교부 → 향후 상속등기 시 첨부
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>필요한 서류</h3>
+                    <table class="law-table">
+                        <thead>
+                            <tr>
+                                <th>항목</th>
+                                <th>내용</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>검인 신청서</td>
+                                <td>가정법원 양식 (법원 홈페이지 다운로드)</td>
+                            </tr>
+                            <tr>
+                                <td>유언서 원본</td>
+                                <td>자필증서, 녹음 기록, 비밀증서 봉투 등</td>
+                            </tr>
+                            <tr>
+                                <td>사망 증명서</td>
+                                <td>의료기관 사망진단서 또는 사망신고 수리증명서</td>
+                            </tr>
+                            <tr>
+                                <td>상속인 신분증</td>
+                                <td>신청인 및 상속인 신분증 사본</td>
+                            </tr>
+                            <tr>
+                                <td>호적등본</td>
+                                <td>유언자 및 상속인 관계 증명</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 섹션 4 -->
+            <div class="section" id="sec4">
+                <h2><span class="sec-num">4</span>유언집행자</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    유언집행자는 유언의 내용을 실현시키는 책임을 가진 사람입니다. 유언에서 지정하거나 가정법원에서 선임할 수 있습니다 (<span class="law-ref" onclick="openLaw('민법1093')">민법 제1093조</span>).
+                </div>
+                <div class="detail-content">
+                    <h3>유언집행자의 의의</h3>
+                    <p>유언집행자(遺言執行者)는 유언자가 유언에서 지정하거나, 가정법원이 선임하는 개인(자연인)으로서, <strong>유언 내용을 실현할 책임</strong>을 지는 사람입니다.</p>
+                    <h3>유언집행자의 지정 및 선임</h3>
+                    <table class="law-table">
+                        <thead>
+                            <tr>
+                                <th>구분</th>
+                                <th>방식</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>유언에서 지정</td>
+                                <td>유언자가 "○○○를 유언집행자로 지정한다"고 기재 (<span class="law-ref" onclick="openLaw('민법1093')">민법 제1093조</span>)</td>
+                            </tr>
+                            <tr>
+                                <td>가정법원 선임</td>
+                                <td>유언자가 지정하지 않거나 지정된 자가 거절한 경우, 상속인 등의 청청으로 가정법원이 선임 (<span class="law-ref" onclick="openLaw('민법1096')">민법 제1096조</span>)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3>유언집행자 자격</h3>
+                    <p>유언집행자는 원칙적으로 제한이 없지만, 다음 사람들은 될 수 없습니다:</p>
+                    <ul style="margin-left:20px;margin-bottom:14px;">
+                        <li>미성년자</li>
+                        <li>금치산자 또는 피한정후견인</li>
+                        <li>법적으로 유언집행자 자격이 박탈된 자</li>
+                    </ul>
+                    <p>일반적으로 신뢰할 수 있는 상속인, 변호사, 법무사, 은행(신탁) 등이 유언집행자로 지정됩니다.</p>
+                </div>
+            </div>
+
+            <!-- 섹션 5 -->
+            <div class="section" id="sec5">
+                <h2><span class="sec-num">5</span>유언집행자의 권한과 의무</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    유언집행자는 유언 내용을 이행할 권한과 함께 상속재산 관리, 명세서 작성, 상속인에게의 보고 의무를 집니다 (<span class="law-ref" onclick="openLaw('민법1101')">민법 제1101조</span>).
+                </div>
+                <div class="detail-content">
+                    <h3>유언집행자의 권한</h3>
+                    <table class="law-table">
+                        <thead>
+                            <tr>
+                                <th>권한</th>
+                                <th>내용</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>상속재산 관리</td>
+                                <td>유언 실현을 위해 필요한 범위 내에서 상속재산을 관리 (유의: 상속인 권리 침해 불가)</td>
+                            </tr>
+                            <tr>
+                                <td>등기권리자 지위</td>
+                                <td>부동산 유증의 경우 소유권이전등기의 등기권리자 지위 보유</td>
+                            </tr>
+                            <tr>
+                                <td>명의변경</td>
+                                <td>금융자산, 동산 등의 명의 변경 가능</td>
+                            </tr>
+                            <tr>
+                                <td>계약 체결</td>
+                                <td>유언 실현을 위해 필요한 계약(예: 부동산 판매) 체결 가능</td>
+                            </tr>
+                            <tr>
+                                <td>채무 변제</td>
+                                <td>유언에서 지정한 채무 변제</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3>유언집행자의 의무</h3>
+                    <ul style="margin-left:20px;margin-bottom:14px;">
+                        <li><strong>성실 이행:</strong> 유언 내용을 성실하게 이행 (<span class="law-ref" onclick="openLaw('민법1101')">민법 제1101조</span>)</li>
+                        <li><strong>명세서 작성:</strong> 상속재산의 목록과 명세서 작성 <span class="law-ref" onclick="openLaw('민법1101')">제1101조</span>)</li>
+                        <li><strong>계약금지:</strong> 개인적 이익을 위해 상속재산 처분 금지</li>
+                        <li><strong>상속인 계고:</strong> 유언집행자의 선임을 상속인에게 통지</li>
+                        <li><strong>정산 및 보고:</strong> 유언 집행 완료 시 상속인에게 정산 및 보고</li>
+                    </ul>
+                    <div class="warn-box">
+                        <strong>중요</strong>
+                        유언집행자가 의무를 위반하면 상속인으로부터 손해배상청구를 받을 수 있습니다. 전문가의 조력을 받아 신중하게 진행하세요.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 섹션 6 -->
+            <div class="section" id="sec6">
+                <h2><span class="sec-num">6</span>부동산 유증 집행</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    부동산 유증은 유증에 의한 소유권이전등기를 신청하는 방식으로 실현됩니다. 유언집행자가 등기권리자가 되어 등기 신청을 합니다.
+                </div>
+                <div class="detail-content">
+                    <h3>부동산 유증 등기의 절차</h3>
+                    <div class="process-steps">
+                        <div class="step">
+                            <div class="step-num">1</div>
+                            <div class="step-content">
+                                <div class="step-title">등기부등본 확인</div>
+                                <div class="step-desc">
+                                    현재 등기부 상황 확인 → 소유자, 담보권 등 확인 → 문제 있으면 정리 필요
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">2</div>
+                            <div class="step-content">
+                                <div class="step-title">필요 서류 준비</div>
+                                <div class="step-desc">
+                                    유증 유언서 또는 검인 조서 → 유언자 사망 증명 → 유언집행자 신분증 → 피상속인 인감증명서
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">3</div>
+                            <div class="step-content">
+                                <div class="step-title">등기 신청</div>
+                                <div class="step-desc">
+                                    등기소(법원산하 부동산등기소)에 소유권이전등기 신청 → 등기원인: "유증" → 첨부서류 제출 → 등기 수수료 납부
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">4</div>
+                            <div class="step-content">
+                                <div class="step-title">등기 완료</div>
+                                <div class="step-desc">
+                                    등기소 검토 후 등기 완료 (통상 1~2주) → 등기부등본에 수유자 명의 기재 → 수유자에게 등기부 사본 교부
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>유증 등기의 법적 성질</h3>
+                    <p><span class="law-ref" onclick="openLaw('부동산등기법23')">부동산등기법 제23조</span>에 따르면, 유증에 의한 소유권이전등기는 상속등기의 일종입니다. 등기 신청인은 <strong>유언집행자</strong>가 되고, 등기의무자는 <strong>피상속인의 상속인</strong>입니다.</p>
+                    <div class="case-box">
+                        <div class="case-title">판례 참고</div>
+                        대법원은 유증 등기에서 수유자가 부동산에 대한 확정된 권리를 얻는 것이 아니라, 유증을 통해 소유권을 승계하는 것으로 판단합니다. 따라서 포괄유증의 경우 상속세가 적용됩니다.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 섹션 7 -->
+            <div class="section" id="sec7">
+                <h2><span class="sec-num">7</span>유언 무효 사유</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    유언이 무효가 되는 주요 원인은 방식 위반, 유언자의 행위능력 부재, 강박, 사기입니다.
+                </div>
+                <div class="detail-content">
+                    <h3>유언 무효 사유</h3>
+                    <table class="law-table">
+                        <thead>
+                            <tr>
+                                <th>무효 사유</th>
+                                <th>설명</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>방식 위반</td>
+                                <td><span class="law-ref" onclick="openLaw('민법1065')">민법 제1065조</span> 규정의 5가지 방식 중 하나를 준수하지 않으면 무효</td>
+                            </tr>
+                            <tr>
+                                <td>행위능력 부재</td>
+                                <td>미성년자, 금치산자(현재는 한정후견인)의 유언은 무효</td>
+                            </tr>
+                            <tr>
+                                <td>정신 상태 불완전</td>
+                                <td>치매, 정신질환 등으로 의사능력이 없을 때 무효</td>
+                            </tr>
+                            <tr>
+                                <td>강박</td>
+                                <td>타인의 강제나 협박 하에 작성된 유언은 무효</td>
+                            </tr>
+                            <tr>
+                                <td>사기</td>
+                                <td>사기나 부정직한 수단으로 유언하게 한 경우 무효</td>
+                            </tr>
+                            <tr>
+                                <td>증인 결격</td>
+                                <td>법정 증인 결격자가 증인으로 참석한 경우 무효 가능</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3>유언 무효 주장 절차</h3>
+                    <p>유언이 무효라고 주장하는 사람은 다음과 같이 진행합니다:</p>
+                    <ul style="margin-left:20px;margin-bottom:14px;">
+                        <li>유언 무효 확인 소송 제기 (가정법원 → 지방법원 → 항소법원)</li>
+                        <li>입증 책임: 무효를 주장하는 측이 입증</li>
+                        <li>필적 감정, 증거 수집 필요</li>
+                        <li>법원 판결 결과에 따라 유언의 전부 또는 일부 무효 확정</li>
+                    </ul>
+                    <div class="warn-box">
+                        <strong>주의</strong>
+                        유언 무효가 의심되면 즉시 법무사나 변호사와 상담하세요. 소송의 기한이 제한될 수 있습니다.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 섹션 8 -->
+            <div class="section" id="sec8">
+                <h2><span class="sec-num">8</span>자주 묻는 질문</h2>
+                <div class="detail-content">
+                    <h3>Q. 유언서 검인을 받지 않으면 등기가 불가능한가요?</h3>
+                    <p><strong>A.</strong> 자필증서, 녹음, 비밀증서 유언의 경우 <strong>반드시 검인</strong>을 받아야 합니다. 공정증서 유언은 검인이 불필요합니다. 검인 없이는 등기소에서 등기 신청을 받지 않을 수 있습니다.</p>
+
+                    <h3>Q. 유언집행자가 없으면 유언을 집행할 수 없나요?</h3>
+                    <p><strong>A.</strong> 아니요, 반드시 필요한 것은 아닙니다. 유언집행자가 없어도 상속인이 직접 등기를 신청할 수 있습니다. 다만 유언집행자가 있으면 절차가 명확하고 분쟁을 줄일 수 있습니다.</p>
+
+                    <h3>Q. 유언집행자는 상속인이 될 수 없나요?</h3>
+                    <p><strong>A.</strong> 아니요, 상속인도 유언집행자가 될 수 있습니다. 예를 들어 자녀가 유언집행자로 지정될 수 있습니다. 다만 이 경우 상속인으로서의 이익과 유언집행자로서의 의무 사이에 갈등이 있을 수 있으므로 주의가 필요합니다.</p>
+
+                    <h3>Q. 부동산 유증 등기 시 상속세가 발생하나요?</h3>
+                    <p><strong>A.</strong> 네, 상속세가 발생합니다. 유증은 사인증여(死因贈與)로 취급되어 상속세 대상입니다. 특히 포괄유증의 경우 상속분에 따라 상속세가 계산됩니다.</p>
+
+                    <h3>Q. 유언집행자가 중도에 사임할 수 있나요?</h3>
+                    <p><strong>A.</strong> 네, 가능합니다. 다만 정당한 사유가 있어야 하며, 가정법원의 허가를 받아야 합니다. 사임 시 다른 유언집행자를 지정하거나 법원이 선임합니다.</p>
+
+                    <h3>Q. 유언 검인 기간은 얼마나 걸리나요?</h3>
+                    <p><strong>A.</strong> 일반적으로 신청 후 <strong>2~4주</strong가 소요됩니다. 법원의 업무 부하, 필적 감정 필요 여부에 따라 더 길어질 수 있습니다.</p>
+                </div>
+            </div>
+
+            <!-- 상담 준비 체크리스트 -->
+            <div class="checklist-box">
+                <h4>유언 집행 및 검인 체크리스트</h4>
+                <ul>
+                    <li>유언서 발견 및 안전하게 보관</li>
+                    <li>공정증서 유언인지 확인 (검인 필요 여부 판단)</li>
+                    <li>자필증서 유언이면 가정법원 검인 신청 준비</li>
+                    <li>유언집행자 지정 여부 확인</li>
+                    <li>상속인 확정 및 관계도 작성</li>
+                    <li>부동산 등기부등본 확인</li>
+                    <li>금융자산 명세 정리</li>
+                    <li>유언자 사망 증명서 취득</li>
+                    <li>필요 서류 일괄 준비</li>
+                    <li>법무사·변호사 상담</li>
+                </ul>
+            </div>
+
+            <!-- CTA 박스 -->
+            <div class="cta-box">
+                <h3>복잡한 유언 집행 절차, 전문가와 함께하세요</h3>
+                <p>법무사의 도움으로 신속하고 정확하게 유언을 집행하세요.</p>
+                <button class="cta-btn">상담 예약하기</button>
+            </div>
+
+            <!-- 다음/이전 링크 -->
+            <div class="next-links">
+                <a href="18 공정증서 유언 작성.html" class="next-link">
+                    <div>
+                        <div class="label">이전 주제</div>
+                        <div class="title">공정증서 유언 작성</div>
+                    </div>
+                    <div class="arrow">←</div>
+                </a>
+                <a href="20 유증과 등기.html" class="next-link">
+                    <div>
+                        <div class="label">다음 주제</div>
+                        <div class="title">유증과 등기</div>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+            </div>
+
+            <!-- 면책 문구 -->
+            <div class="disclaimer">
+                <strong>면책 공지</strong><br>
+                본 콘텐츠는 일반적인 상속등기 실무 정보를 제공하기 위한 것으로, 특정 사건의 법적 조언이 아닙니다. 실제 유언 검인 및 집행은 반드시 법무사, 변호사와 상담하세요. 본 정보에 의존한 행동으로 인한 손실에 대해서는 책임지지 않습니다.
+            </div>
+        </div>
+
+        <!-- 오른쪽 사이드바 -->
+        <div class="right-sidebar">
+            <div class="sidebar-tabs">
+                <button class="sidebar-tab active" onclick="switchTab('law')">법령</button>
+                <button class="sidebar-tab" onclick="switchTab('practice')">실무정보</button>
+            </div>
+
+            <!-- 법령 패널 -->
+            <div id="panel-law" class="sidebar-panel active">
+                <div class="law-item" id="law-민법1091">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>민법 제1091조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>검인</strong><br>
+                        자필, 녹음, 비밀증서로 한 유언은 유언자 사망 후 가정법원에 그 검인을 청구하여야 한다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-민법1093">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>민법 제1093조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>유언집행자의 지정</strong><br>
+                        유언자는 유언으로 1인 또는 수인의 유언집행자를 지정할 수 있다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-민법1096">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>민법 제1096조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>유언집행자의 선임</strong><br>
+                        유언집행자가 없거나 그 지정이 효력을 잃은 경우에는 가정법원은 이해관계인의 청청으로 유언집행자를 선임한다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-민법1101">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>민법 제1101조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>유언집행자의 권한</strong><br>
+                        유언집행자는 유언자가 지정한 재산의 관리 및 처분 권한을 가지며, 유언 실현에 필요한 모든 행위를 할 수 있다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-민법1102">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>민법 제1102조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>집행비용</strong><br>
+                        유언 집행에 소요된 비용은 상속재산에서 지급한다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-민법1065">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>민법 제1065조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>유언방식</strong><br>
+                        유언은 이 법전의 정한 방식에 좇아 하여야 한다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-부동산등기법23">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>부동산등기법 제23조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>상속에 의한 등기</strong><br>
+                        상속, 합병, 전부승계에 의하여 소유권이 이전되었을 때에는 신청인의 청구에 의해 등기를 한다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-가사소송법33">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>가사소송법 제33조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>유언의 검인</strong><br>
+                        검인 신청은 자필·녹음·비밀증서 유언의 경우 유언자 사망 후 가정법원에 청구한다.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 실무정보 패널 -->
+            <div id="panel-practice" class="sidebar-panel">
+                <div class="practice-section">
+                    <h5>검인 신청 관할법원</h5>
+                    <ul>
+                        <li>유언자 주소지 관할 가정법원</li>
+                        <li>유언자 사망 후 관할</li>
+                        <li>시간 제한 없음 (언제든 신청 가능)</li>
+                    </ul>
+                </div>
+
+                <div class="practice-section">
+                    <h5>부동산 유증 등기 필수 서류</h5>
+                    <ul>
+                        <li>유증 유언서 또는 검인 조서</li>
+                        <li>유언자 사망 증명서</li>
+                        <li>현재 등기부등본</li>
+                        <li>유언집행자 신분증</li>
+                        <li>상속인 인감증명서</li>
+                    </ul>
+                </div>
+
+                <div class="practice-section">
+                    <h5>유언집행자 기간</h5>
+                    <ul>
+                        <li>유언집행 기한: 법정 제한 없음</li>
+                        <li>다만 상속인의 청구 시 성실 이행 의무</li>
+                        <li>일반적으로 3~6개월 내 완료</li>
+                    </ul>
+                </div>
+
+                <div class="practice-section">
+                    <h5>주의사항</h5>
+                    <ul>
+                        <li>자필증서 발견 후 개봉 금지 (법원 검인 전)</li>
+                        <li>녹음 유언은 원본 보존 필수</li>
+                        <li>비밀증서도 봉투 훼손 금지</li>
+                        <li>검인 절차 무시 금지</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tab){
+            document.querySelectorAll('.sidebar-tab').forEach(t=>t.classList.remove('active'));
+            document.querySelectorAll('.sidebar-panel').forEach(p=>p.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById('panel-'+tab).classList.add('active');
+        }
+        function toggleLaw(header){
+            const body=header.nextElementSibling;
+            const isOpen=body.classList.contains('open');
+            body.classList.toggle('open');
+            header.querySelector('span:last-child').textContent=isOpen?'＋':'－';
+        }
+        function openLaw(id){
+            const lawTab=document.querySelector('.sidebar-tab:first-child');
+            const lawPanel=document.getElementById('panel-law');
+            document.querySelectorAll('.sidebar-tab').forEach(t=>t.classList.remove('active'));
+            document.querySelectorAll('.sidebar-panel').forEach(p=>p.classList.remove('active'));
+            lawTab.classList.add('active');
+            lawPanel.classList.add('active');
+            const item=document.getElementById('law-'+id);
+            if(item){
+                const body=item.querySelector('.law-item-body');
+                const header=item.querySelector('.law-item-header');
+                body.classList.add('open');
+                header.querySelector('span:last-child').textContent='－';
+                item.scrollIntoView({behavior:'smooth',block:'center'});
+            }
+        }
+        const sections=document.querySelectorAll('.section');
+        const tocLinks=document.querySelectorAll('.toc-link');
+        const observer=new IntersectionObserver((entries)=>{
+            entries.forEach(e=>{
+                if(e.isIntersecting){
+                    tocLinks.forEach(l=>l.classList.remove('active'));
+                    const active=document.querySelector('.toc-link[href="#'+e.target.id+'"]');
+                    if(active)active.classList.add('active');
+                }
+            });
+        },{rootMargin:'-20% 0px -70% 0px'});
+        sections.forEach(s=>observer.observe(s));
+    </script>
+</body>
+</html>

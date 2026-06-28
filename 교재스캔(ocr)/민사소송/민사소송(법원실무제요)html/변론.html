@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>변론이란 무엇이고, 어떻게 진행되나요? — 민사소송 변론</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#1a2e4a; --gold:#c8a96e; --ivory:#faf8f5; --ink:#2b2b2b; --muted:#5b5b5b;}
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--ivory); color:var(--ink);
+    font-family:'Noto Sans KR',sans-serif; line-height:1.75; font-size:16px;}
+  .wrap{max-width:820px; margin:0 auto; padding:0 20px 80px;}
+  h1,h2,h3{font-family:'Noto Serif KR',serif; color:var(--navy); line-height:1.4;}
+
+  header.hero{background:linear-gradient(135deg,#1a2e4a 0%,#27406a 100%);
+    color:#fff; padding:54px 20px 46px; text-align:center; border-bottom:4px solid var(--gold);}
+  header.hero .kicker{display:inline-block; letter-spacing:.18em; font-size:.78rem;
+    color:var(--gold); font-weight:700; margin-bottom:14px;}
+  header.hero h1{color:#fff; font-size:1.9rem; margin:0 0 14px;}
+  header.hero p{margin:0 auto; max-width:620px; color:#dbe3ef; font-size:1.02rem;}
+
+  section{margin-top:46px;}
+  h2.sec{font-size:1.4rem; margin:0 0 18px; padding-bottom:10px;
+    border-bottom:2px solid var(--gold); display:flex; align-items:center; gap:10px;}
+  h2.sec .num{background:var(--navy); color:#fff; font-family:'Noto Sans KR';
+    font-size:.92rem; width:30px; height:30px; border-radius:50%;
+    display:inline-flex; align-items:center; justify-content:center; flex:0 0 auto;}
+  h3{font-size:1.12rem; margin:26px 0 8px;}
+  p{margin:10px 0;}
+
+  .summary{background:#eef2f8; border-left:5px solid #2d4a7a;
+    padding:16px 20px; border-radius:6px; margin:14px 0 6px;}
+  .summary strong{color:#2d4a7a;}
+
+  .checklist{background:#fff; border:1px solid #e3ddd2; border-radius:10px;
+    padding:22px 26px; box-shadow:0 2px 8px rgba(26,46,74,.05);}
+  .checklist li{list-style:none; padding:9px 0 9px 34px; position:relative; border-bottom:1px dashed #ece7dd;}
+  .checklist li:last-child{border-bottom:none;}
+  .checklist li::before{content:"✓"; position:absolute; left:0; top:8px; color:var(--gold); font-weight:700; font-size:1.1rem;}
+
+  .principle{background:#fff; border:1px solid #e3ddd2; border-left:4px solid var(--gold);
+    border-radius:8px; padding:16px 20px; margin:12px 0;}
+  .principle h3{margin:0 0 4px; font-size:1.06rem;}
+  .principle .lead{display:inline-block; background:var(--navy); color:#fff; font-size:.78rem;
+    font-weight:700; padding:2px 10px; border-radius:12px; margin-bottom:6px;}
+
+  .tablebox{overflow-x:auto; margin:16px 0;}
+  table{border-collapse:collapse; width:100%; background:#fff; font-size:.95rem;}
+  th,td{border:1px solid #d9d3c7; padding:11px 13px; text-align:left; vertical-align:top;}
+  th{background:var(--navy); color:#fff; font-weight:500;}
+  tbody tr:nth-child(even){background:#f6f3ee;}
+  td.val{font-weight:500; color:#2d4a7a; white-space:nowrap;}
+
+  .qa{background:#fff; border:1px solid #e3ddd2; border-radius:10px; padding:8px 24px; margin-top:8px;}
+  .qa-item{padding:18px 0; border-bottom:1px solid #ece7dd;}
+  .qa-item:last-child{border-bottom:none;}
+  .qa .q,.qa .a{position:relative; padding-left:36px; margin:0;}
+  .qa .q{font-weight:500; color:var(--navy); font-size:1.05rem;}
+  .qa .a{margin-top:10px; color:#3a3a3a;}
+  .qa .q::before,.qa .a::before{position:absolute; left:0; top:2px; width:25px; height:25px;
+    border-radius:6px; font-size:.8rem; font-weight:700; color:#fff;
+    display:inline-flex; align-items:center; justify-content:center;}
+  .qa .q::before{content:"Q"; background:var(--gold);}
+  .qa .a::before{content:"A"; background:var(--navy);}
+
+  .box{border-radius:8px; padding:16px 20px; margin:14px 0;}
+  .box-case{background:#f7f4f0; border:1px solid #6b7280; border-left:5px solid #6b7280;}
+  .box-warn{background:#fff3e8; border:1px solid #c05000; border-left:5px solid #c05000;}
+  .box-warn2{background:#f4f7fb; border:1px solid #2d4a7a; border-left:5px solid #2d4a7a;}
+  .box-ex{background:#f0f8f0; border:1px solid #1a5c2e; border-left:5px solid #1a5c2e;}
+  .box h3{margin-top:0;}
+  .deadline{color:#c05000; font-weight:700;}
+
+  .ref-tags{margin-top:8px; display:flex; flex-wrap:wrap; gap:6px;}
+  .tag-law{display:inline-block; padding:3px 10px; border-radius:12px; font-size:.78rem;
+    font-weight:600; text-decoration:none; background:#eef2f8; color:#2d4a7a; border:1px solid #2d4a7a; transition:background .2s;}
+  .tag-law:hover{background:#dce6f5;}
+  .tag-case{display:inline-block; padding:3px 10px; border-radius:12px; font-size:.78rem;
+    font-weight:600; text-decoration:none; background:#f7f4f0; color:#5a3e28; border:1px solid #6b7280; transition:background .2s;}
+  .tag-case:hover{background:#ede8e2;}
+
+  .next a{display:block; background:#fff; border:1px solid #e3ddd2; border-left:4px solid var(--gold);
+    border-radius:8px; padding:14px 18px; margin:10px 0; text-decoration:none; color:var(--navy); font-weight:500;}
+  .next a:hover{background:#fcf8f1;}
+  .next a span{display:block; color:var(--muted); font-weight:400; font-size:.9rem; margin-top:3px;}
+
+  .cta{background:#fdf6e9; border:2px solid var(--gold); border-radius:14px;
+    padding:34px 28px; text-align:center; margin-top:54px;}
+  .cta h2{font-size:1.5rem; margin:0 0 10px; border:none;}
+  .cta p{color:#5a4a2e; max-width:560px; margin:8px auto;}
+  .cta .btns{margin-top:22px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;}
+  .btn{display:inline-block; padding:14px 30px; border-radius:30px; font-weight:700; text-decoration:none; font-size:1.02rem;}
+  .btn-call{background:var(--navy); color:#fff;}
+  .btn-kakao{background:#fae100; color:#3a1d1d;}
+  .btn:hover{opacity:.9;}
+
+  .disclaimer{margin-top:40px; padding:20px; background:#f1ede6; border-radius:8px;
+    font-size:.84rem; color:#6b6b6b; line-height:1.7;}
+
+  @media(max-width:560px){header.hero h1{font-size:1.5rem;} h2.sec{font-size:1.2rem;}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <span class="kicker">민사소송 — 변론</span>
+  <h1>변론이란 무엇이고,<br>어떻게 진행되나요?</h1>
+  <p>변론은 공개된 법정에서 양쪽이 말로 주장과 증거를 펼치는, 재판의 중심 무대입니다.
+     민사소송은 "주장하고 증명하지 않으면 진다"는 원칙 위에서 움직입니다.</p>
+</header>
+
+<div class="wrap">
+
+  <!-- 1 -->
+  <section>
+    <h2 class="sec"><span class="num">1</span>이런 분께 필요합니다</h2>
+    <ul class="checklist">
+      <li>변론기일 통지를 받았는데 법정에서 무엇이 오가는지 막막합니다.</li>
+      <li>"주장하지 않으면 진다"는 말의 의미를 정확히 알고 싶습니다.</li>
+      <li>내가 다투지 않으면 상대방 주장이 그대로 인정되는지 궁금합니다.</li>
+      <li>꼭 변론기일을 열어야 하는 사건과 그렇지 않은 사건이 궁금합니다.</li>
+      <li>주장과 증거를 언제까지 내야 불이익이 없는지 확인하고 싶습니다.</li>
+      <li>법원이 알아서 증거를 찾아주는지, 내가 내야 하는지 알고 싶습니다.</li>
+    </ul>
+  </section>
+
+  <!-- 2 -->
+  <section>
+    <h2 class="sec"><span class="num">2</span>핵심부터 정리하면</h2>
+    <div class="summary">
+      <strong>변론</strong>이란 기일에 법원의 <strong>공개법정</strong>에서 양쪽 당사자가 <strong>말로</strong> 판결의 기초가 될
+      사실과 증거를 제출하며 사건을 심리하는 절차입니다. 판결로 재판할 때에는 원칙적으로 변론을 열어야 하고,
+      변론에서 말로 한 진술만이 재판의 자료가 됩니다.
+    </div>
+    <div class="box box-warn2">
+      <h3>변론을 움직이는 가장 중요한 원칙 — 변론주의</h3>
+      <p>민사소송에서 <strong>사실과 증거를 모으고 내는 책임은 당사자에게</strong> 있습니다. 주장하지 않은 사실은 없는
+      것으로 취급되고(주장책임), 다투지 않은 사실은 그대로 인정되며, 증거도 당사자가 신청해야 합니다. 한마디로
+      <strong>"주장하고 증명하지 않으면 진다"</strong>는 것이 변론의 출발점입니다.</p>
+    </div>
+    <div class="ref-tags">
+      <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=252393&joNo=013400" target="_blank" class="tag-law">📋 민사소송법 제134조</a>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section>
+    <h2 class="sec"><span class="num">3</span>주제별로 살펴보기</h2>
+
+    <h3>① 변론에서는 무엇을 하나</h3>
+    <p>변론의 내용은 크게 두 가지입니다. 하나는 <strong>판결사항의 신청(본안의 신청)</strong>으로, 원고는 청구취지·청구원인을,
+    피고는 소각하 또는 청구기각을 구합니다. 다른 하나는 그 신청을 뒷받침하는 <strong>공격방어방법</strong>, 즉 주장(사실의 진술)과
+    이를 증명할 증거입니다. 판결사항의 신청은 판결 주문에, 공격방어방법은 판결 이유에 반영됩니다.</p>
+
+    <h3>② 변론을 꼭 열어야 하나 — 필요적 변론과 임의적 변론</h3>
+    <div class="summary">판결로 재판할 때는 원칙적으로 변론을 열어야 하며(필요적 변론), 결정으로 끝낼 사건은 변론을 생략할 수 있습니다(임의적 변론).</div>
+    <p>필요적 변론에서는 당사자가 변론에서 말로 한 진술만 재판의 기초가 됩니다. 다만 다음과 같은 경우에는 예외적으로
+    변론 없이 판결할 수 있습니다.</p>
+    <div class="tablebox">
+      <table>
+        <thead><tr><th style="width:46%">변론 없이 판결하는 경우(예)</th><th>근거</th></tr></thead>
+        <tbody>
+          <tr><td>피고가 30일 내 답변서를 내지 않거나 청구를 모두 인정한 때(무변론판결)</td><td class="val">민소 제257조</td></tr>
+          <tr><td>소송비용 담보제공 명령을 원고가 이행하지 않아 소를 각하할 때</td><td class="val">민소 제124조</td></tr>
+          <tr><td>소·상소에 보정할 수 없는 흠이 있어 각하할 때</td><td class="val">민소 제219조 등</td></tr>
+          <tr><td>소액사건에서 청구가 이유 없음이 명백할 때</td><td class="val">소액사건심판법 제9조</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="ref-tags">
+      <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=252393&joNo=025700" target="_blank" class="tag-law">📋 민사소송법 제257조</a>
+    </div>
+
+    <h3>③ 변론을 지배하는 핵심 원칙</h3>
+    <div class="tablebox">
+      <table>
+        <thead><tr><th style="width:26%">원칙</th><th>뜻</th></tr></thead>
+        <tbody>
+          <tr><td class="val">처분권주의</td><td>소송을 시작할지, 무엇을 얼마나 청구할지, 끝낼지(취하·화해)를 당사자가 정함</td></tr>
+          <tr><td class="val">변론주의</td><td>사실과 증거의 수집·제출 책임은 당사자에게 — 주장·증명하지 않으면 불리</td></tr>
+          <tr><td class="val">구술심리주의</td><td>변론은 말로 함 — 서면에 적은 것도 기일에서 진술해야 자료가 됨</td></tr>
+          <tr><td class="val">직접심리주의</td><td>판결하는 법관이 직접 변론을 들음 — 법관이 바뀌면 변론을 갱신함</td></tr>
+          <tr><td class="val">공개심리주의</td><td>변론은 공개법정에서 — 다만 재판부의 합의 과정은 공개하지 않음</td></tr>
+          <tr><td class="val">쌍방심리주의</td><td>양쪽 당사자를 평등하게 대우해 공격·방어 기회를 균등히 보장</td></tr>
+          <tr><td class="val">적시제출주의</td><td>공격방어방법은 소송 정도에 따라 적절한 시기에 — 늦으면 각하될 수 있음</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="ref-tags">
+      <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=252393&joNo=014600" target="_blank" class="tag-law">📋 민사소송법 제146조</a>
+      <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=252393&joNo=014900" target="_blank" class="tag-law">📋 민사소송법 제149조</a>
+      <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=252393&joNo=029200" target="_blank" class="tag-law">📋 민사소송법 제292조</a>
+    </div>
+    <div class="box box-ex">
+      <h3>증거는 누가 내나요?</h3>
+      <p>다툼이 있는 사실의 증거는 <strong>당사자가 신청한 증거</strong>에서 얻는 것이 원칙입니다. 법원이 직권으로 증거를
+      조사하는 것은 당사자가 낸 증거로 심증이 서지 않는 등 필요한 때에 한해 <strong>보충적으로</strong>만 허용됩니다.
+      즉 필요한 증거는 스스로 챙겨 내야 합니다.</p>
+    </div>
+
+    <h3>④ 다투지 않으면 그대로 인정된다 — 자백과 자백간주</h3>
+    <div class="summary">당사자 사이에 다툼이 없는 사실은 증거조사 없이 그대로 판결의 기초가 됩니다.</div>
+    <p>상대방이 인정한 사실(재판상 자백)과 다투지 않아 인정한 것으로 간주되는 사실(자백간주)에 대해서는, 법원이 증거로
+    달리 판단할 수 없습니다. 그래서 상대방 주장 중 사실과 다른 부분은 반드시 명확히 다투어야 합니다. 다만 자백의 대상은
+    <strong>'사실'</strong>에 한하고, 법률의 해석·평가에 관한 진술은 자백의 대상이 되지 않으며, 주요사실이 아닌 간접사실에 대한
+    자백은 법원을 구속하지 않습니다.</p>
+    <div class="ref-tags">
+      <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=252393&joNo=028800" target="_blank" class="tag-law">📋 민사소송법 제288조</a>
+      <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=252393&joNo=015000" target="_blank" class="tag-law">📋 민사소송법 제150조</a>
+    </div>
+  </section>
+
+  <!-- 4 Q&A -->
+  <section>
+    <h2 class="sec"><span class="num">4</span>자주 하는 질문</h2>
+    <div class="qa">
+      <div class="qa-item">
+        <p class="q">변론기일에 가면 무엇을 하나요?</p>
+        <p class="a">공개법정에서 양쪽이 자기 주장(사실의 진술)과 증거를 말로 제출하고, 법원은 쟁점을 정리하며 필요한
+          증거조사를 진행합니다. 미리 낸 소장·답변서·준비서면의 내용도 기일에서 진술해야 정식 재판 자료가 됩니다.</p>
+      </div>
+      <div class="qa-item">
+        <p class="q">"주장하지 않으면 진다"는 게 무슨 뜻인가요?</p>
+        <p class="a">민사소송은 변론주의를 따르므로, 사실과 증거를 모아 제출하는 책임이 당사자에게 있습니다. 유리한 사실도
+          변론에서 주장하지 않으면 없는 것으로 취급되고, 증거도 스스로 신청해야 합니다. 법원이 알아서 찾아주지 않습니다.</p>
+      </div>
+      <div class="qa-item">
+        <p class="q">상대방 주장을 가만히 두면 어떻게 되나요?</p>
+        <p class="a">다투지 않은 사실은 자백 또는 자백간주로 그대로 인정되어, 법원이 증거로 달리 판단할 수 없습니다.
+          따라서 사실과 다른 부분은 변론(또는 답변서·준비서면)에서 분명히 "부인"하고 그 이유를 밝혀야 합니다.</p>
+      </div>
+      <div class="qa-item">
+        <p class="q">모든 사건이 변론기일을 여나요?</p>
+        <p class="a">판결로 재판하는 사건은 원칙적으로 변론을 엽니다. 다만 답변서 미제출에 따른 무변론판결, 보정 불가능한
+          흠으로 인한 각하 등 일정한 경우에는 변론 없이 판결할 수 있습니다. 결정으로 끝낼 사건은 변론을 생략하고 서면심리·심문으로
+          진행할 수 있습니다.</p>
+      </div>
+      <div class="qa-item">
+        <p class="q">주장과 증거는 언제까지 내야 하나요?</p>
+        <p class="a">소송 진행 정도에 맞춰 적절한 시기에 내야 합니다(적시제출주의). 고의나 중대한 과실로 뒤늦게 내어 소송을
+          지연시키면 그 주장이 각하될 수 있고, 재판장이 정한 제출기간을 넘기면 원칙적으로 낼 수 없습니다. 미루지 말고 일찍
+          정리해 내는 것이 안전합니다.</p>
+      </div>
+      <div class="qa-item">
+        <p class="q">변론 도중 판사가 바뀌면 그동안의 변론은 무효가 되나요?</p>
+        <p class="a">아닙니다. 직접심리주의에 따라 판결하는 법관이 직접 변론을 들어야 하므로, 법관이 바뀌면 종전 변론 결과를
+          새 법관 앞에서 다시 진술하는 "변론의 갱신"을 거칩니다. 그동안의 절차가 사라지는 것은 아닙니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 판례 -->
+  <section>
+    <h2 class="sec"><span class="num">5</span>참고가 되는 대법원 판단</h2>
+    <div class="box box-case">
+      <h3>누가 주장했든 변론에 나오면 된다 — 주장공통의 원칙</h3>
+      <p>어떤 주요사실이 변론에서 주장되었으면 충분하고, 그것을 어느 쪽 당사자가 주장했는지는 문제 되지 않는다고
+      보았습니다. 상대방이 한 진술이라도 자신에게 유리하면 그 사실을 판결의 기초로 삼을 수 있습니다.</p>
+      <div class="ref-tags">
+        <a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=96다25548" target="_blank" class="tag-case">⚖️ 대법원 96다25548</a>
+      </div>
+    </div>
+    <div class="box box-case">
+      <h3>변론주의는 주요사실에만 적용된다</h3>
+      <p>변론주의는 권리의 발생·변경·소멸이라는 법률효과를 직접 좌우하는 주요사실에 적용되고, 그 경위·내력 같은
+      간접사실에는 적용되지 않는다고 보았습니다.</p>
+      <div class="ref-tags">
+        <a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=93다28379" target="_blank" class="tag-case">⚖️ 대법원 93다28379</a>
+      </div>
+    </div>
+    <div class="box box-case">
+      <h3>간접사실에 대한 자백은 법원을 구속하지 않는다</h3>
+      <p>자백의 구속력은 주요사실에 한하고, 간접사실에 대한 자백은 법원이나 당사자를 구속하지 않는다고 보았습니다.</p>
+      <div class="ref-tags">
+        <a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=99다35737" target="_blank" class="tag-case">⚖️ 대법원 99다35737</a>
+      </div>
+    </div>
+    <p style="font-size:.86rem; color:#777; margin-top:14px;">※ 위 판례는 일반적 이해를 돕기 위한 요약이며, 구체적 사건의 결론은 사실관계에 따라 달라질 수 있습니다.</p>
+  </section>
+
+  <!-- 6 주의 -->
+  <section>
+    <h2 class="sec"><span class="num">6</span>꼭 주의하세요</h2>
+    <div class="box box-warn">
+      <h3>① 유리한 사실도 주장·증명하지 않으면 소용없습니다</h3>
+      <p>아무리 진실이어도 변론에서 주장하지 않은 사실은 판결에 반영되지 않고, 증거도 스스로 내야 합니다. 핵심 사실과
+      증거를 빠짐없이 정리해 제출하세요.</p>
+    </div>
+    <div class="box box-warn">
+      <h3>② 다투지 않은 사실은 인정된 것으로 처리됩니다</h3>
+      <p>상대방 주장을 명확히 다투지 않으면 자백 또는 자백간주로 그대로 인정됩니다. 사실과 다른 부분은 반드시 항목별로
+      부인하고 이유를 밝혀야 합니다.</p>
+    </div>
+    <div class="box box-warn">
+      <h3>③ <span class="deadline">⚡ 주장·증거는 늦지 않게 내세요</span></h3>
+      <p>적시제출주의에 따라, 고의·중과실로 뒤늦게 내어 소송을 지연시킨 공격방어방법은 각하될 수 있습니다. 재판장이
+      정한 제출기간도 반드시 지켜야 합니다.</p>
+    </div>
+    <div class="box box-warn2">
+      <h3>④ 기일에 출석해 진술하는 것이 원칙입니다</h3>
+      <p>필요적 변론에서는 기일에 출석해 말로 진술한 것만 재판 자료가 됩니다. 불출석하면 진술간주·자백간주 등 불이익을
+      받을 수 있으니, 기일을 놓치지 않도록 주의하세요.</p>
+    </div>
+  </section>
+
+  <!-- 7 다음 -->
+  <section>
+    <h2 class="sec"><span class="num">7</span>다음에 확인하면 좋은 내용</h2>
+    <div class="next">
+      <a href="준비서면작성과제출.html">준비서면 작성과 제출<span>변론에서 진술할 내용을 미리 준비하는 서면입니다.</span></a>
+      <a href="답변서작성과제출.html">답변서 작성과 제출<span>다투지 않으면 무변론판결로 이어질 수 있습니다.</span></a>
+      <a href="입증.html">입증 — 무엇을 어떻게 증명해야 하나요?<span>다툼 있는 사실은 증거로 증명해야 합니다.</span></a>
+      <a href="판결.html">판결 — 어떻게 나고 언제 확정되나요?<span>변론종결 뒤 판결 선고로 소송이 끝납니다.</span></a>
+      <a href="송달과송달지연대응.html">송달 — 서류가 전달되는 과정과 송달지연 대응<span>변론기일 통지도 송달로 이루어집니다.</span></a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h2>변론기일을 앞두고 무엇을 준비할지 막막하신가요?</h2>
+    <p>이 내용이 해당되시나요? 첫 상담은 무료입니다.</p>
+    <p>쟁점 정리, 주장 구성, 증거 신청, 기일 대응까지 변론 준비를 법무사가 도와드립니다.</p>
+    <div class="btns">
+      <a href="[전화번호 입력]" class="btn btn-call">📞 전화 상담</a>
+      <a href="[카카오톡 채널 링크 입력]" class="btn btn-kakao">💬 카카오톡 상담</a>
+    </div>
+  </div>
+
+  <!-- 면책 -->
+  <div class="disclaimer">
+    본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 개별 사건에 대한 법률 자문이나 그 결과를 보장하지 않습니다.
+    구체적인 사건은 사실관계에 따라 결론이 달라질 수 있으므로 반드시 전문가와 상담하시기 바랍니다.
+    이 페이지는 2025년 현행 법령을 기준으로 작성되었습니다.
+  </div>
+
+</div>
+</body>
+</html>

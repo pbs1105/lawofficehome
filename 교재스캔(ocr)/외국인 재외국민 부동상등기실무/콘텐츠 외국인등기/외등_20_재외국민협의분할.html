@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>재외국민이 포함된 상속재산 협의분할 등기 절차 | 법무사 홈페이지</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #faf8f5;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* 헤더 */
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #c8a96e;
+        }
+
+        header h1 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 32px;
+            color: #1a2e4a;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 14px;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        /* 섹션 공통 */
+        section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 24px;
+            color: #1a2e4a;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #c8a96e;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 18px;
+            color: #2d4a7a;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        h4 {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 15px;
+            color: #1a2e4a;
+            margin-top: 20px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* 체크리스트 */
+        .checklist {
+            background-color: #eef2f8;
+            border-left: 4px solid #2d4a7a;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .checklist ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            padding: 8px 0 8px 30px;
+            position: relative;
+            margin-bottom: 8px;
+        }
+
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #2d4a7a;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* 핵심 요약 박스 */
+        .summary-box {
+            background-color: #eef2f8;
+            border: 2px solid #2d4a7a;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+
+        .summary-box h3 {
+            margin-top: 0;
+            color: #2d4a7a;
+        }
+
+        .summary-box ul {
+            list-style: none;
+            padding: 0;
+            margin-left: 0;
+        }
+
+        .summary-box li {
+            padding: 8px 0 8px 25px;
+            position: relative;
+        }
+
+        .summary-box li:before {
+            content: "●";
+            position: absolute;
+            left: 5px;
+            color: #c8a96e;
+        }
+
+        /* CTA 박스 */
+        .cta-box {
+            background-color: #fdf6e9;
+            border: 2px solid #c8a96e;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .cta-box p {
+            font-size: 15px;
+            color: #1a2e4a;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        /* 판례·예규 박스 */
+        .case-box {
+            background-color: #f7f4f0;
+            border-left: 4px solid #6b7280;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .case-box h4 {
+            color: #6b7280;
+            margin-top: 0;
+        }
+
+        .case-box p {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        /* 사례 박스 */
+        .example-box {
+            background-color: #f0f8f0;
+            border-left: 4px solid #1a5c2e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .example-box h4 {
+            color: #1a5c2e;
+            margin-top: 0;
+        }
+
+        /* 경고 박스 */
+        .warning-box {
+            background-color: #fff3e8;
+            border-left: 4px solid #c05000;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .warning-box h4 {
+            color: #c05000;
+            margin-top: 0;
+        }
+
+        /* 표 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+        }
+
+        table thead {
+            background-color: #1a2e4a;
+            color: white;
+        }
+
+        table th, table td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        table th {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        table td {
+            font-size: 14px;
+        }
+
+        table tbody tr:nth-child(even) {
+            background-color: #f9f7f5;
+        }
+
+        table tbody tr:hover {
+            background-color: #eef2f8;
+        }
+
+        /* 절차 흐름 */
+        .process-flow {
+            background-color: white;
+            border: 2px solid #2d4a7a;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .process-step {
+            display: inline-block;
+            background-color: #2d4a7a;
+            color: white;
+            padding: 15px 20px;
+            margin: 10px;
+            border-radius: 4px;
+            font-weight: 500;
+            min-width: 140px;
+        }
+
+        .process-arrow {
+            display: inline-block;
+            color: #c8a96e;
+            font-size: 20px;
+            margin: 0 10px;
+            vertical-align: middle;
+        }
+
+        .process-row {
+            margin: 15px 0;
+        }
+
+        /* 링크 섹션 */
+        .links-list {
+            display: grid;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .links-list a {
+            background-color: white;
+            border: 2px solid #2d4a7a;
+            padding: 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #2d4a7a;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: block;
+        }
+
+        .links-list a:hover {
+            background-color: #eef2f8;
+            border-color: #c8a96e;
+        }
+
+        /* 면책 문구 */
+        .disclaimer {
+            background-color: #f9f7f5;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-top: 40px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* 리스트 */
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: #1a2e4a;
+            font-weight: 600;
+        }
+
+        /* 반응형 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            h3 {
+                font-size: 16px;
+            }
+
+            .process-step {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .process-arrow {
+                display: block;
+                margin: 5px 0;
+            }
+
+            table th, table td {
+                padding: 10px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 헤더 -->
+        <header>
+            <h1>재외국민이 포함된 상속재산 협의분할 등기</h1>
+            <p>해외 서류 공증 방법과 절차</p>
+        </header>
+
+        <!-- 섹션 1: 이런 분께 필요합니다 -->
+        <section>
+            <h2>이런 분께 필요합니다</h2>
+            <div class="checklist">
+                <ul>
+                    <li>상속인 중 일부가 해외에 거주하는 재외국민</li>
+                    <li>공동상속인 전원이 상속재산 분할에 동의하여 협의분할을 진행하려는 경우</li>
+                    <li>협의분할서에 재외국민 상속인의 서명·날인을 받아야 하는 경우</li>
+                    <li>재외국민이 귀국하지 않고 미국, 호주, 캐나다 등 해외에서만 서류를 작성해야 하는 경우</li>
+                    <li>재외공관(대사관, 총영사관)에서 서류 공증을 받아야 하는 상황</li>
+                    <li>협의분할서가 여러 장일 때 간인(間印) 방법을 알아야 하는 경우</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 섹션 2: 핵심 요약 -->
+        <section>
+            <div class="summary-box">
+                <h3>핵심 요약</h3>
+                <ul>
+                    <li><strong>협의분할의 원칙</strong>: 공동상속인 전원의 참가와 서명이 필수. 일부 상속인만으로 한 협의분할은 무효</li>
+                    <li><strong>재외국민 귀국 시</strong>: 협의분할서에 인감 날인 + 인감증명서 (귀국 후 인감 신고 후 발급 가능)</li>
+                    <li><strong>재외국민 미귀국 시 (방법 1)</strong>: 재외공관 공증 대리위임장 작성 (등기예규 제1778호 제9조 제1항)</li>
+                    <li><strong>재외국민 미귀국 시 (방법 2)</strong>: 협의분할서를 재외국민에게 우편 송부 → 재외공관 공증 (인감증명 대체)</li>
+                    <li><strong>여러 장 서류의 간인</strong>: 공동상속인 전원 간인 + 공증인 직인 간인 필요</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 섹션 3: 개요 -->
+        <section>
+            <h2>개요: 재외국민이 포함된 협의분할의 특수성</h2>
+
+            <h3>협의분할이란?</h3>
+            <p>협의분할은 <strong>공동상속인 전원이 참가하여 상속재산의 분할 방법을 협의하는 것</strong>입니다. 법정상속분과 관계없이 상속인들이 원하는 대로 재산을 나누어 가질 수 있으며, 이를 등기하기 위해서는 협의분할서에 모든 상속인의 서명과 날인이 필요합니다.</p>
+
+            <div class="warning-box">
+                <h4>주의: 일부 상속인만 참가한 협의분할은 무효</h4>
+                <p>공동상속인 전원이 참가하지 않으면 협의분할이 성립하지 않습니다. 예를 들어 한국에 있는 상속인 A, B만으로 협의분할서를 작성하고 해외의 상속인 C를 빠뜨리면, 나중에 C가 이의를 제기할 경우 협의분할서 자체가 무효가 될 수 있습니다.</p>
+            </div>
+
+            <h3>재외국민이 포함될 때 달라지는 점</h3>
+            <ul>
+                <li><strong>참가 방법이 다름</strong>: 재외국민이 해외에 있을 때는 귀국 여부에 따라 서류 준비 방법이 완전히 달라집니다.</li>
+                <li><strong>인감 대신 공증</strong>: 해외 상황에서는 한국의 인감증명서를 대신해 재외공관 공증을 사용합니다.</li>
+                <li><strong>대리위임의 활용</strong>: 재외국민이 직접 참가하지 않을 경우, 대리인에게 위임하는 방식이 있습니다.</li>
+                <li><strong>우편 송부 방식</strong>: 협의분할서를 재외국민에게 우편으로 보내 서명·날인 후 공증받아 받는 방식도 가능합니다.</li>
+            </ul>
+        </section>
+
+        <!-- 섹션 4: 절차 흐름도 -->
+        <section>
+            <h2>협의분할 절차 흐름도</h2>
+
+            <h3>기본 절차 (재외국민 포함)</h3>
+            <div class="process-flow">
+                <div class="process-row">
+                    <div class="process-step">상속 발생</div>
+                    <div class="process-arrow">→</div>
+                    <div class="process-step">상속인 확정</div>
+                    <div class="process-arrow">→</div>
+                    <div class="process-step">협의분할 협의</div>
+                </div>
+                <div class="process-row">
+                    <div class="process-arrow">↓</div>
+                </div>
+                <div class="process-row">
+                    <div class="process-step">협의분할서 작성</div>
+                    <div class="process-arrow">→</div>
+                    <div class="process-step">재외국민 서명·날인</div>
+                </div>
+                <div class="process-row">
+                    <div class="process-arrow">↓</div>
+                </div>
+                <div class="process-row">
+                    <div class="process-step">공증 또는 인감증명</div>
+                    <div class="process-arrow">→</div>
+                    <div class="process-step">등기 신청</div>
+                </div>
+            </div>
+
+            <h3>재외국민 귀국 여부에 따른 분기</h3>
+            <p style="margin-top: 25px;"><strong>경로 A: 재외국민이 귀국한 경우</strong></p>
+            <ul>
+                <li>협의분할서에 인감 날인</li>
+                <li>인감증명서 발급 (귀국 후 인감 신고 필요)</li>
+                <li>등기 신청</li>
+            </ul>
+
+            <p style="margin-top: 20px;"><strong>경로 B: 재외국민이 미귀국 - 대리위임방식</strong></p>
+            <ul>
+                <li>재외공관 공증 대리위임장 작성</li>
+                <li>한국의 대리인(다른 상속인 등)이 협의분할서 작성 및 서명·날인</li>
+                <li>등기 신청</li>
+            </ul>
+
+            <p style="margin-top: 20px;"><strong>경로 C: 재외국민이 미귀국 - 협의분할서 공증방식</strong></p>
+            <ul>
+                <li>협의분할서를 재외국민에게 우편 송부</li>
+                <li>재외국민이 서명·날인 후 재외공관 공증</li>
+                <li>공증 서류를 한국으로 반송</li>
+                <li>등기 신청</li>
+            </ul>
+        </section>
+
+        <!-- 섹션 5: 재외국민이 직접 참가하는 경우 (귀국) -->
+        <section>
+            <h2>재외국민이 직접 참가하는 경우 (귀국)</h2>
+
+            <h3>기본 원칙</h3>
+            <p>재외국민이 한국으로 귀국한 경우, 한국에 거주하는 상속인과 동일하게 취급됩니다. 협의분할서에 인감 날인을 하고 인감증명서를 발급받으면 됩니다.</p>
+
+            <h3>절차</h3>
+            <ol>
+                <li><strong>귀국 후 인감 신고</strong>
+                    <ul>
+                        <li>주민등록지 관할 시구청에 인감 신고</li>
+                        <li>신고 인감 도장(인감) 준비</li>
+                        <li>신분증(여권, 운전면허증 등) 지참</li>
+                    </ul>
+                </li>
+                <li><strong>협의분할서 작성</strong>
+                    <ul>
+                        <li>공동상속인 전원이 함께 협의분할서 작성</li>
+                        <li>각 상속인이 인감 날인</li>
+                    </ul>
+                </li>
+                <li><strong>인감증명서 발급</strong>
+                    <ul>
+                        <li>주민등록지 관할 시구청에서 발급</li>
+                        <li>협의분할서에 첨부</li>
+                    </ul>
+                </li>
+                <li><strong>등기 신청</strong>
+                    <ul>
+                        <li>관할 등기소에 협의분할 등기 신청</li>
+                        <li>필요 서류 제출</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <div class="example-box">
+                <h4>사례: 귀국하여 협의분할한 경우</h4>
+                <p>미국에 거주하던 김○○ 씨가 부모의 상속을 받게 되어 귀국했습니다. 한국에 있는 형과 함께 협의분할하기로 결정했습니다.</p>
+                <p><strong>절차</strong>:</p>
+                <ul>
+                    <li>귀국 후 주민등록 회복 (재외국민등록 말소)</li>
+                    <li>시구청에 인감 신고 (신도장)</li>
+                    <li>협의분할서 작성 → 형과 함께 인감 날인</li>
+                    <li>시구청에서 각각 인감증명서 2매씩 발급</li>
+                    <li>협의분할서 + 인감증명서 + 기타 서류 → 등기소 신청</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 섹션 6: 재외국민이 대리인을 통하는 경우 (미귀국) -->
+        <section>
+            <h2>재외국민이 대리인을 통하는 경우 (미귀국)</h2>
+
+            <h3>개요</h3>
+            <p>재외국민이 해외에 있으면서 한국으로 귀국하지 않은 경우, <strong>재외공관 공증을 받은 대리위임장</strong>을 통해 다른 상속인(또는 법무사)에게 협의분할서 작성 및 서명·날인을 위임할 수 있습니다.</p>
+
+            <div class="cta-box">
+                <p>재외국민도 공동상속인에게 위임할 수 있습니다. 반드시 법무사를 통할 필요는 없습니다. (등기선례 제201805-9호)</p>
+            </div>
+
+            <h3>재외공관 공증 대리위임장 (등기예규 제1778호 제9조)</h3>
+
+            <h4>1단계: 위임장 작성 및 공증</h4>
+            <ul>
+                <li><strong>위임장 작성</strong>
+                    <ul>
+                        <li>재외국민이 직접 작성 (손글씨)</li>
+                        <li>서명(署名) - 인감 없이 자필 서명</li>
+                        <li>날인(捺印) - 개인 인장으로 도장</li>
+                    </ul>
+                </li>
+                <li><strong>재외공관 공증 신청</strong>
+                    <ul>
+                        <li>해당 국가의 한국 대사관 또는 총영사관 방문</li>
+                        <li>공증 신청서 작성</li>
+                        <li>여권 지참</li>
+                        <li>위임장 원본 제출</li>
+                    </ul>
+                </li>
+                <li><strong>공증 완료</strong>
+                    <ul>
+                        <li>공증인 직인 날인</li>
+                        <li>공증 영문본(또는 한글본) 발급</li>
+                        <li>한국 등기소에 제출 가능한 형태</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>2단계: 한국에서 협의분할 진행</h4>
+            <ul>
+                <li><strong>대리인 선임</strong>
+                    <ul>
+                        <li>공동상속인 중 1인 또는 법무사</li>
+                        <li>위임장에 기재된 대리인이 협의분할서 작성 및 서명·날인</li>
+                    </ul>
+                </li>
+                <li><strong>협의분할서 작성</strong>
+                    <ul>
+                        <li>대리인 + 다른 상속인(한국에 있는 경우) 함께 협의분할서 작성</li>
+                        <li>각 상속인(또는 대리인, 실인) 인감 날인</li>
+                    </ul>
+                </li>
+                <li><strong>인감증명서 발급</strong>
+                    <ul>
+                        <li>한국의 상속인들은 각각 인감증명서 발급</li>
+                        <li>대리인이 작성한 협의분할서에는 대리인의 인감증명서</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>3단계: 등기 신청</h4>
+            <ul>
+                <li>협의분할서 (공동상속인 전원의 인감 날인)</li>
+                <li>재외국민의 재외공관 공증 대리위임장</li>
+                <li>인감증명서</li>
+                <li>기타 필요 서류</li>
+            </ul>
+
+            <div class="case-box">
+                <h4>등기예규 제1778호 제9조 제3항</h4>
+                <p>"위임장(협의분할권 위임장)에 대해 공증을 받는 경우 위임장 자체에 공증인의 직인을 받아야 한다."</p>
+                <p>→ 위임장의 마지막 장에 공증인 직인이 찍혀 있어야 등기소에서 인정합니다.</p>
+            </div>
+
+            <div class="example-box">
+                <h4>사례: 미국 거주 재외국민의 대리위임</h4>
+                <p>미국에 시민권을 얻어 거주하는 이○○ 씨의 아버지가 한국에서 돌아가셨습니다. 한국에 있는 누나 3명과 함께 협의분할을 진행합니다.</p>
+                <p><strong>절차</strong>:</p>
+                <ul>
+                    <li>미국 대사관(또는 총영사관) 방문, 대리위임장 공증</li>
+                    <li>누나들에게 공증 위임장 이메일로 송부</li>
+                    <li>누나 중 1명이 대리인으로 함께 협의분할서 작성</li>
+                    <li>대리인 + 누나들 각각 인감 날인 → 인감증명서 발급</li>
+                    <li>협의분할서 + 공증 위임장 + 인감증명서 → 등기소 신청</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 섹션 7: 첨부서류 표 -->
+        <section>
+            <h2>첨부서류 - 재외국민 상속인 기준</h2>
+
+            <p>협의분할 등기를 신청할 때 제출해야 할 서류입니다. 재외국민 상속인의 귀국 여부에 따라 다릅니다.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>서류 구분</th>
+                        <th>귀국한 재외국민</th>
+                        <th>미귀국인 재외국민</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>협의분할서</strong></td>
+                        <td>인감 날인 + 인감증명서</td>
+                        <td>재외공관 공증 위임장 → 대리인 서명·날인 + 인감증명서</td>
+                    </tr>
+                    <tr>
+                        <td><strong>공증/인감 증명</strong></td>
+                        <td>인감증명서 (시구청)</td>
+                        <td>재외공관 공증서 (위임장 자체)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>신분증명</strong></td>
+                        <td>여권 또는 주민등록증</td>
+                        <td>여권 사본</td>
+                    </tr>
+                    <tr>
+                        <td><strong>주소증명</strong></td>
+                        <td>주민등록등본</td>
+                        <td>재외국민등록부 등본 또는 재외공관 거주확인서</td>
+                    </tr>
+                    <tr>
+                        <td><strong>등록번호</strong></td>
+                        <td>주민등록번호 (말소 시 재외국민등록번호)</td>
+                        <td>재외국민등록번호 또는 등기소 부여번호</td>
+                    </tr>
+                    <tr>
+                        <td><strong>상속인 확정</strong></td>
+                        <td colspan="2">
+                            <ul style="margin: 0; padding-left: 20px;">
+                                <li>피상속인 사망진단서 (또는 사망기록 증명)</li>
+                                <li>피상속인 기본증명서 (또는 호적등본)</li>
+                                <li>상속인 기본증명서 (또는 호적등본) - 모든 상속인</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>외국어 서류</strong></td>
+                        <td>-</td>
+                        <td>공증서가 영문이면 한글 번역본 + 번역자 서명</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>주의사항</h3>
+            <ul>
+                <li><strong>협의분할서가 여러 장인 경우</strong>: 공동상속인 전원이 <strong>모든 장마다 간인</strong>해야 합니다. 첫 장과 마지막 장에만 서명하면 안 됩니다.</li>
+                <li><strong>공증인 간인</strong>: 협의분할서가 여러 장이고 재외공관 공증을 받은 경우, 공증인 직인도 모든 장의 경계(간인)에 찍혀야 합니다. (등기선례 제201807-1호)</li>
+                <li><strong>한글 번역</strong>: 재외공관 공증서가 영문이면 반드시 한글 번역본을 첨부하고 번역자가 서명해야 합니다.</li>
+            </ul>
+        </section>
+
+        <!-- 섹션 8: 협의분할서 작성 방법 및 주의사항 -->
+        <section>
+            <h2>협의분할서 작성 방법 및 주의사항</h2>
+
+            <h3>협의분할서 작성의 기본 원칙</h3>
+            <p><strong>협의분할서는 특정 형식이 법으로 정해져 있지 않습니다.</strong> 하지만 등기신청 시 명확하고 문제가 없도록 작성해야 합니다.</p>
+
+            <h3>작성 항목</h3>
+            <ol>
+                <li><strong>문서 제목</strong>
+                    <ul>
+                        <li>"협의분할서" 또는 "상속재산분할협의서"</li>
+                    </ul>
+                </li>
+                <li><strong>피상속인 정보</strong>
+                    <ul>
+                        <li>성명, 생년월일, 주소</li>
+                        <li>사망일, 주민등록번호(또는 재외국민등록번호)</li>
+                    </ul>
+                </li>
+                <li><strong>상속인 정보</strong>
+                    <ul>
+                        <li>각 상속인의 성명, 생년월일, 주소</li>
+                        <li>주민등록번호(또는 재외국민등록번호)</li>
+                        <li>피상속인과의 관계 (배우자, 자, 부모 등)</li>
+                    </ul>
+                </li>
+                <li><strong>상속재산 명시</strong>
+                    <ul>
+                        <li>부동산: 소재지, 지번, 건물명의 등기순서, 면적</li>
+                        <li>금전 또는 동산: 상세 명시</li>
+                    </ul>
+                </li>
+                <li><strong>분할 방법</strong>
+                    <ul>
+                        <li>각 상속인이 받을 재산을 명확히 기재</li>
+                        <li>법정상속분과 다를 수 있음</li>
+                    </ul>
+                </li>
+                <li><strong>서명 및 날인</strong>
+                    <ul>
+                        <li>모든 상속인이 서명 및 날인</li>
+                        <li>날짜 기재</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>재외국민 관련 주의사항</h3>
+
+            <div class="warning-box">
+                <h4>1. 모든 상속인의 서명 필수</h4>
+                <p>협의분할서에는 <strong>공동상속인 전원의 서명이 반드시 있어야</strong> 합니다. 재외국민이 한 명이라도 빠지면 협의분할이 성립하지 않습니다.</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>2. 여러 장일 때는 모든 장에 간인</h4>
+                <p>협의분할서가 2장 이상이면 각 상속인이 <strong>모든 페이지의 끝(장의 경계)에 인장을 찍어야</strong> 합니다. 이를 "간인(間印)"이라고 합니다. 등기예규 제1778호 제6조를 준수하세요.</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>3. 공증인 간인</h4>
+                <p>재외공관 공증을 받은 경우, 공증서뿐 아니라 협의분할서 자체의 모든 페이지 경계에도 <strong>공증인 직인</strong>이 필요합니다. (등기선례 제201807-1호, 제202001-1호)</p>
+            </div>
+
+            <h4>4. 한글 표기</h4>
+            <ul>
+                <li>협의분할서는 반드시 한글로 작성</li>
+                <li>외국인이나 재외국민도 한글 성명을 사용</li>
+                <li>외국 주소가 있을 경우, 한글 표기 + 영문 표기 병기 권장</li>
+            </ul>
+
+            <h4>5. 날짜 표기</h4>
+            <ul>
+                <li>한국 표준: 2026년 4월 7일 (또는 2026. 4. 7.)</li>
+                <li>재외국민이 해외에서 작성하는 경우: 협의분할서 작성일 ≠ 공증일일 수 있음</li>
+            </ul>
+
+            <div class="example-box">
+                <h4>협의분할서 작성 예시 (일부)</h4>
+                <p style="font-weight: 600;">협의분할서</p>
+                <p style="margin: 10px 0 5px 0;">피상속인 김○○</p>
+                <p style="margin: 5px 0;">(생년월일: 1930년 5월 15일)</p>
+                <p style="margin: 5px 0;">주민등록번호: 30-05-15-□□□□□□</p>
+                <p style="margin: 10px 0 5px 0;">상기 피상속인이 2025년 12월 20일 사망하였으므로, 아래 상속인들이 모여 상속재산을 다음과 같이 분할하기로 협의한다.</p>
+                <p style="margin: 10px 0;">제1. 부동산</p>
+                <p style="margin: 5px 0 5px 20px;">1) 장남 김□□(생년월일: 1955년 3월 10일)</p>
+                <p style="margin: 5px 0 5px 30px;">서울 강남구 ○○동 ○○번지 대지 500㎡</p>
+                <p style="margin: 5px 0 5px 20px;">2) 차남 김□□(생년월일: 1958년 7월 22일)</p>
+                <p style="margin: 5px 0 5px 30px;">서울 강남구 □□동 □□번지 건물 150㎡</p>
+            </div>
+        </section>
+
+        <!-- 섹션 9: 판례·예규 -->
+        <section>
+            <h2>판례·예규</h2>
+
+            <div class="case-box">
+                <h4>등기예규 제1778호 제6조 (협의분할 대리위임장)</h4>
+                <p>"상속재산의 협의분할을 위한 대리위임장은 인감증명서와 함께 제출하여야 한다. 다만, 재외공관에서 공증을 받은 경우에는 공증서로 갈음할 수 있다."</p>
+            </div>
+
+            <div class="case-box">
+                <h4>등기예규 제1778호 제9조 제1항 (재외공관 공증)</h4>
+                <p>"재외국민의 협의분할 대리위임장 또는 협의분할서는 재외공관의 공증을 받을 수 있으며, 이는 인감증명서 대신 효력이 있다."</p>
+            </div>
+
+            <div class="case-box">
+                <h4>등기예규 제1778호 제9조 제3항</h4>
+                <p>"협의분할권 위임장에 대해 공증을 받는 경우 위임장 자체에 공증인의 직인을 받아야 한다."</p>
+                <p><small>→ 공증서는 단순히 "위임장 첨부" 형태가 아니라, 위임장 자체에 공증인 직인이 찍혀야 함을 의미합니다.</small></p>
+            </div>
+
+            <div class="case-box">
+                <h4>등기선례 제201805-9호 (재외국민의 위임 대상)</h4>
+                <p>"재외국민이 협의분할권을 위임할 때 위임인이 반드시 법무사일 필요는 없다. 다른 상속인(공동상속인)에게 위임하는 것도 가능하다."</p>
+                <p><small>→ 형, 누나, 배우자 등 다른 상속인에게 위임 가능합니다.</small></p>
+            </div>
+
+            <div class="case-box">
+                <h4>등기선례 제201807-1호 (여러 장 서류의 간인)</h4>
+                <p>"협의분할서가 여러 장일 경우, 각 상속인은 모든 장의 경계에 간인해야 한다."</p>
+            </div>
+
+            <div class="case-box">
+                <h4>등기선례 제202001-1호 (공증인 간인)</h4>
+                <p>"재외공관에서 공증을 받은 협의분할서가 여러 장인 경우, 공증인 직인도 모든 페이지 경계에 간인되어야 한다."</p>
+            </div>
+        </section>
+
+        <!-- 섹션 10: 다음으로 확인할 내용 -->
+        <section>
+            <h2>다음으로 확인할 내용</h2>
+            <p>재외국민과 협의분할에 관련하여 다음 내용들도 참고하세요.</p>
+            <div class="links-list">
+                <a href="외등_18_재외국민단독상속.html">재외국민이 단독으로 상속받는 경우의 등기 절차</a>
+                <a href="외등_19_재외국민공동상속.html">공동상속인 중 재외국민이 있을 때의 법정상속 등기</a>
+                <a href="외등_10_외국인협의분할.html">외국인이 포함된 상속재산 협의분할 (비교 참조)</a>
+            </div>
+        </section>
+
+        <!-- 섹션 11: 상담 CTA + 면책 문구 -->
+        <section>
+            <div class="cta-box">
+                <p>이 내용이 해당되시나요?</p>
+                <p style="margin-top: 10px; font-size: 16px; font-weight: 600;">첫 상담은 무료입니다.</p>
+                <p style="margin-top: 8px;">외국인·재외국민 등기는 국적·체류 자격·입국 여부에 따라 준비 서류가 달라집니다.</p>
+            </div>
+        </section>
+
+        <!-- 면책 문구 -->
+        <div class="disclaimer">
+            <p><strong>면책 문구</strong></p>
+            <p>본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 개별 사안에 대한 법률 조언이 아닙니다. 실제 등기 신청 시에는 해당 등기소에 문의하거나 법무사와 상담하여 정확한 절차와 서류를 확인하시기 바랍니다. 이 페이지는 2025년 현행 법령 기준으로 작성되었습니다.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>형식적경매 — 채무 변제가 아닌 법원 명령에 의한 경매</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap');
+:root{--navy:#1a2e4a;--gold:#c8a96e;--bg:#faf8f5;--sum-bg:#eef2f8;--sum-bd:#2d4a7a;--cta-bg:#fdf6e9;--cta-bd:#c8a96e;--case-bg:#f0f8f0;--case-bd:#1a5c2e;--rule-bg:#f7f4f0;--rule-bd:#6b7280;--warn-bg:#fff3e8;--warn-bd:#c05000;--info-bg:#f4f7fb;--info-bd:#2d4a7a;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:#333;line-height:1.8;}
+header{background:var(--navy);color:#fff;padding:40px 20px;text-align:center;}
+header h1{font-family:'Noto Serif KR',serif;font-size:2rem;margin-bottom:8px;}
+header .sub{color:var(--gold);font-size:1rem;}
+.container{max-width:860px;margin:0 auto;padding:40px 20px;}
+.section{margin-bottom:48px;}
+.section h2{font-family:'Noto Serif KR',serif;font-size:1.4rem;color:var(--navy);border-left:4px solid var(--gold);padding-left:14px;margin-bottom:20px;}
+.section h3{font-size:1.1rem;color:var(--navy);margin:20px 0 10px;}
+.summary-box{background:var(--sum-bg);border:1.5px solid var(--sum-bd);border-radius:10px;padding:24px;margin-bottom:24px;}
+.summary-box p{margin-bottom:8px;}
+.case-box{background:var(--case-bg);border-left:4px solid var(--case-bd);border-radius:6px;padding:20px;margin:16px 0;}
+.ruling-box{background:var(--rule-bg);border-left:4px solid var(--rule-bd);border-radius:6px;padding:20px;margin:16px 0;}
+.warn-box{background:var(--warn-bg);border-left:4px solid var(--warn-bd);border-radius:6px;padding:20px;margin:16px 0;}
+.info-box{background:var(--info-bg);border-left:4px solid var(--info-bd);border-radius:6px;padding:20px;margin:16px 0;}
+.checklist{list-style:none;padding:0;}
+.checklist li{padding:10px 0 10px 36px;border-bottom:1px solid #e0dbd4;position:relative;}
+.checklist li::before{content:"☑";color:var(--gold);position:absolute;left:8px;font-size:1.1rem;}
+.checklist li:last-child{border-bottom:none;}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.95rem;}
+th{background:var(--navy);color:#fff;padding:10px;text-align:left;}
+td{padding:10px;border-bottom:1px solid #ddd;vertical-align:top;}
+tr:nth-child(even) td{background:#f5f2ee;}
+.type-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
+.type-card{background:#fff;border:1.5px solid #c0c8d8;border-radius:10px;padding:20px;}
+.type-card h4{color:var(--navy);font-size:1rem;margin-bottom:10px;padding-bottom:8px;border-bottom:2px solid var(--gold);}
+.type-card p{font-size:0.93rem;line-height:1.7;margin-bottom:6px;}
+@media(max-width:600px){.type-grid{grid-template-columns:1fr;}}
+.flow{display:flex;flex-direction:column;gap:0;}
+.flow-item{display:flex;align-items:flex-start;gap:14px;padding:14px 0;}
+.flow-item:not(:last-child){border-bottom:1px dashed #ccc;}
+.flow-num{background:var(--navy);color:#fff;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;margin-top:4px;font-size:0.9rem;}
+.flow-body{flex:1;}
+.flow-body strong{display:block;margin-bottom:4px;color:var(--navy);}
+.qna-item{margin-bottom:24px;border:1px solid #ddd;border-radius:8px;overflow:hidden;}
+.qna-q{background:var(--navy);color:#fff;padding:16px 20px;font-weight:700;}
+.qna-a{padding:16px 20px;background:#fff;}
+.qna-a .note{color:#777;font-size:0.88rem;margin-top:10px;padding-top:10px;border-top:1px solid #eee;}
+.next-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;}
+.next-links a{display:block;background:#fff;border:1.5px solid var(--navy);border-radius:8px;padding:16px;text-align:center;text-decoration:none;color:var(--navy);font-weight:700;transition:all .2s;}
+.next-links a:hover{background:var(--navy);color:#fff;}
+.cta-box{background:var(--cta-bg);border:2px solid var(--cta-bd);border-radius:12px;padding:36px;text-align:center;margin-top:60px;}
+.cta-box h2{font-family:'Noto Serif KR',serif;color:var(--navy);margin-bottom:12px;}
+.cta-box p{color:#555;margin-bottom:20px;}
+.btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-tel{background:var(--navy);color:#fff;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:700;}
+.btn-kako{background:#FEE500;color:#333;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:700;}
+footer{text-align:center;padding:30px 20px;color:#999;font-size:0.82rem;border-top:1px solid #ddd;background:#f0ede8;}
+.diff-table td:first-child{font-weight:700;color:var(--navy);white-space:nowrap;}
+    .law-tag {
+      display: inline-block; background: #e8edf5; color: #2d4a7a;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #b0c4de; cursor: pointer; transition: background 0.15s;
+    }
+    .law-tag:hover { background: #c8daf7; color: #1a2e4a; }
+    .case-tag {
+      display: inline-block; background: #f0ece4; color: #5a4a30;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #c8a96e; cursor: pointer; transition: background 0.15s;
+    }
+    .case-tag:hover { background: #f5dfa8; color: #3a2a10; }
+  </style>
+</head>
+<body>
+<header>
+  <div class="sub">부동산 경매 실무 정보 · 판단형</div>
+  <h1>형식적경매</h1>
+  <div class="sub">집행권원도, 담보권도 없이 진행되는 법원 명령 경매란?</div>
+</header>
+<div class="container">
+
+  <div class="section">
+    <h2>이런 분께 필요합니다</h2>
+    <ul class="checklist">
+      <li>형제·자매와 공동으로 상속받은 부동산을 처분하고 싶은데 협의가 안 되는 분</li>
+      <li>법원의 공유물분할 판결에서 "경매에 의한 분할" 명령을 받으신 분</li>
+      <li>유치권자로서 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=032200" target="_blank" rel="noopener">민법 제322조</a>에 따른 유치물 경매를 고려하는 분</li>
+      <li>청산 절차·파산 절차에서 재산을 환가해야 하는 경우</li>
+      <li>강제경매·임의경매와 형식적경매의 차이가 궁금한 분</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>핵심정리</h2>
+    <div class="summary-box">
+      <p><strong>형식적경매</strong>란 채무자에게 채권을 변제받기 위한 목적이 아니라, <strong>법률 규정이나 법원의 명령에 따라 재산을 환가(換價)하여 대금을 분배하거나 다른 법률적 목적을 달성하기 위한 경매</strong>입니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=027400" target="_blank" rel="noopener">민사집행법 제274조</a>).</p>
+      <p>강제경매·임의경매와의 가장 큰 차이는 <strong>집행권원(판결 등)이나 담보권이 없어도 법원이 경매를 명할 수 있다</strong>는 점입니다. 절차는 강제경매 규정을 준용하지만, 목적은 채무 변제가 아니라 재산의 공정한 환가와 분배에 있습니다.</p>
+      <p>가장 흔한 유형은 <strong>공유물분할을 위한 경매</strong>로, 공유 부동산을 현물로 나눌 수 없을 때 법원이 전체를 경매하여 대금을 지분 비율대로 나누도록 명하는 것입니다.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>형식적경매의 주요 유형</h2>
+    <div class="type-grid">
+      <div class="type-card">
+        <h4>① 공유물분할을 위한 경매</h4>
+        <p><strong>법적 근거</strong>: <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=026900" target="_blank" rel="noopener">민법 제269조 제2항</a>, <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=027400" target="_blank" rel="noopener">민사집행법 제274조</a></p>
+        <p><strong>발생 원인</strong>: 공유자 간 현물분할 협의 불성립 또는 현물분할이 불가능한 경우 법원이 경매 분할을 명함</p>
+        <p><strong>특징</strong>: 공유자 전원의 지분을 일체로 경매. 매각대금을 지분 비율로 분배. 공유자 우선매수권 적용 안 됨.</p>
+      </div>
+      <div class="type-card">
+        <h4>② 유치권에 의한 경매</h4>
+        <p><strong>법적 근거</strong>: <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=032200" target="_blank" rel="noopener">민법 제322조</a>, <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=027400" target="_blank" rel="noopener">민사집행법 제274조</a></p>
+        <p><strong>발생 원인</strong>: 유치권자가 피담보채권의 변제를 받기 위해 유치 중인 물건의 경매를 법원에 청구</p>
+        <p><strong>특징</strong>: 집행권원 불필요. 경매 후 배당에서 유치권자는 일반채권자로 참가 (우선변제권 없음). 주로 건설·수리 업자가 사용.</p>
+      </div>
+      <div class="type-card">
+        <h4>③ 청산·파산 절차상 경매</h4>
+        <p><strong>법적 근거</strong>: 채무자 회생 및 파산에 관한 법률, 민사집행법 준용</p>
+        <p><strong>발생 원인</strong>: 법인 청산, 파산 관재인이 파산재단 재산을 환가하기 위한 경매</p>
+        <p><strong>특징</strong>: 파산관재인·청산인이 경매를 신청. 채무자(법인)의 모든 재산을 환가하여 파산채권자에게 배당.</p>
+      </div>
+      <div class="type-card">
+        <h4>④ 기타 법령에 의한 경매</h4>
+        <p><strong>법적 근거</strong>: 개별 법령 및 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=027400" target="_blank" rel="noopener">민사집행법 제274조</a></p>
+        <p><strong>예시</strong>: 부재자 재산관리인의 재산 처분을 위한 경매(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=002500" target="_blank" rel="noopener">민법 제25조</a>), 상속재산 관리인의 청산을 위한 경매 등</p>
+        <p><strong>특징</strong>: 법원의 허가를 받아 진행. 강제경매 절차 준용.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>강제경매·임의경매와의 비교</h2>
+    <table class="diff-table">
+      <tr><th>구분</th><th>강제경매</th><th>임의경매</th><th>형식적경매</th></tr>
+      <tr><td>신청 근거</td><td>집행권원 (확정판결 등)</td><td>담보권 (저당권 등)</td><td>법률 규정 또는 법원 명령</td></tr>
+      <tr><td>목적</td><td>금전채권 변제</td><td>담보권 실행 (채권 회수)</td><td>재산 환가·분배 (채무 변제 아님)</td></tr>
+      <tr><td>집행권원 필요</td><td>필요</td><td>불필요</td><td>불필요</td></tr>
+      <tr><td>배당 구조</td><td>채권자 배당</td><td>채권자 배당</td><td>공유자 분배 등 (목적에 따라 다름)</td></tr>
+      <tr><td>준용 규정</td><td><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007900" target="_blank" rel="noopener">민집 제79조</a> 이하</td><td><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=026400" target="_blank" rel="noopener">민집 제264조</a> 이하</td><td><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=027400" target="_blank" rel="noopener">민집 제274조</a> → 강제경매 준용</td></tr>
+      <tr><td>대표 사례</td><td>판결 후 채무자 재산 경매</td><td>은행 담보물 경매</td><td>공유물분할·유치권 경매</td></tr>
+    </table>
+    <div class="info-box">
+      <p><strong>ℹ️ 절차는 강제경매 준용</strong>: 형식적경매의 진행 절차(감정평가, 매각기일, 입찰, 낙찰, 대금납부, 소유권이전 등)는 강제경매 규정을 그대로 적용합니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=027400" target="_blank" rel="noopener">민사집행법 제274조 제2항</a>). 입찰자 입장에서는 일반 강제경매와 절차상 동일합니다.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>공유물분할 경매 절차 흐름</h2>
+    <p>형식적경매 중 가장 빈번한 공유물분할 경매의 흐름을 단계별로 정리합니다.</p>
+    <div class="flow">
+      <div class="flow-item">
+        <div class="flow-num">1</div>
+        <div class="flow-body">
+          <strong>공유물분할 청구의 소 제기</strong>
+          공유자 중 1인이 다른 공유자를 상대로 법원에 공유물분할 청구의 소 제기(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=026900" target="_blank" rel="noopener">민법 제269조</a>). 협의 불성립 또는 협의 거부 시 소 제기 가능.
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">2</div>
+        <div class="flow-body">
+          <strong>법원의 분할 방법 결정</strong>
+          현물분할 가능 시 → 현물분할 판결. 현물분할 불가(성질상 분할 불능, 가액 현저 감소 우려) → <strong>경매에 의한 분할 판결</strong>(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=026900" target="_blank" rel="noopener">민법 제269조 제2항</a>).
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">3</div>
+        <div class="flow-body">
+          <strong>형식적경매 신청</strong>
+          분할 판결 확정 후 공유자 중 1인이 집행법원에 형식적경매 신청. 판결 정본과 확정증명원 첨부.
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">4</div>
+        <div class="flow-body">
+          <strong>경매 진행 (강제경매 준용)</strong>
+          감정평가 → 최저매각가격 결정 → 매각기일 공고 → 입찰 → 낙찰 → 대금납부 → 소유권이전.
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">5</div>
+        <div class="flow-body">
+          <strong>매각대금 분배</strong>
+          집행비용 공제 후 각 공유자의 지분 비율대로 대금 분배. 각 지분에 설정된 담보권자는 해당 지분에 해당하는 금액에서 우선 배당.
+        </div>
+      </div>
+    </div>
+    <div class="case-box">
+      <strong>사례: 형제 3인 공유 아파트 형식적경매</strong><br><br>
+      아버지 사망 후 자녀 A·B·C가 1/3씩 공유 중인 아파트. A만 매각에 찬성하고 B·C는 반대.<br>
+      A가 공유물분할 청구의 소 제기 → 법원이 "경매에 의한 분할" 판결 → A가 형식적경매 신청.<br>
+      낙찰가 3억 원 → 집행비용 공제 후 A·B·C 각 1억 원씩 분배.<br>
+      <em>단, B의 지분에 저당권(채권액 5,000만 원)이 설정되어 있었다면 → B 분배금에서 저당권자에게 우선 배당 후 잔액을 B에게.</em>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>자주하는 질문 Q&A</h2>
+
+    <div class="qna-item">
+      <div class="qna-q">Q. 공유물분할 경매에서 공유자도 입찰에 참여할 수 있나요?</div>
+      <div class="qna-a">
+        <p>네, 공유자도 다른 입찰자와 동일하게 입찰에 참여할 수 있습니다. 다만 공유물분할 경매는 강제경매와 달리 <strong>공유자 우선매수권이 적용되지 않습니다</strong>. 즉, 최고가를 써야만 낙찰받을 수 있습니다.</p>
+        <p>공유자가 낙찰받으면 다른 공유자의 지분을 취득하게 되어 단독 소유자가 됩니다. 다른 공유자는 지분에 해당하는 매각대금을 수령합니다.</p>
+        <p class="note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+      </div>
+    </div>
+
+    <div class="qna-item">
+      <div class="qna-q">Q. 유치권에 의한 경매에서 유치권자는 우선 배당을 받나요?</div>
+      <div class="qna-a">
+        <p>유치권에 의한 형식적경매에서 유치권자는 <strong>우선변제권이 없습니다</strong>. 저당권자 등 담보권자가 먼저 배당받고, 유치권자는 남은 금액에서 일반채권자로서 안분배당을 받습니다.</p>
+        <p>이 때문에 유치권자가 경매로 채권을 충분히 회수하지 못하는 경우가 발생합니다. 유치권에 의한 경매 신청보다는 유치권을 계속 행사하면서 채무자와 협상하는 전략이 실무상 더 유효할 수 있습니다.</p>
+        <p class="note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+      </div>
+    </div>
+
+    <div class="qna-item">
+      <div class="qna-q">Q. 형식적경매에도 배당요구를 할 수 있나요?</div>
+      <div class="qna-a">
+        <p>형식적경매의 경우에도 강제경매 규정을 준용하므로, 해당 부동산에 이해관계를 가진 채권자(저당권자, 임차인 등)는 배당요구종기까지 배당요구를 할 수 있습니다.</p>
+        <p>다만 형식적경매의 주된 목적은 매각대금의 공유자 간 분배이므로, 각 공유자의 지분에 설정된 담보권자는 해당 지분에 해당하는 매각대금에서 우선 배당을 받고, 나머지가 해당 공유자에게 지급됩니다.</p>
+        <p class="note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+      </div>
+    </div>
+
+    <div class="qna-item">
+      <div class="qna-q">Q. 공유물분할 소송 없이 바로 형식적경매를 신청할 수 있나요?</div>
+      <div class="qna-a">
+        <p>공유물분할을 위한 형식적경매는 반드시 법원의 "경매에 의한 분할" 판결이 먼저 있어야 신청할 수 있습니다. 판결 없이 바로 경매를 신청하는 것은 불가능합니다.</p>
+        <p>다만 공유자 전원이 경매 분할에 합의한 경우라면, 별도의 소 없이 법원에 협의 분할 경매를 신청하는 방법도 검토할 수 있습니다. 이 경우 전원의 동의 서류를 갖추어 신청합니다.</p>
+        <p class="note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+      </div>
+    </div>
+
+    <div class="qna-item">
+      <div class="qna-q">Q. 형식적경매 낙찰자가 기존 임차인을 내보낼 수 있나요?</div>
+      <div class="qna-a">
+        <p>형식적경매도 강제경매 규정을 준용하므로, 말소기준권리 이후의 임차인은 매각으로 소멸합니다. 낙찰자는 인도명령 신청(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=013600" target="_blank" rel="noopener">민사집행법 제136조</a>)으로 명도를 요구할 수 있습니다.</p>
+        <p>반면 말소기준권리보다 선순위의 대항력 있는 임차인은 낙찰자가 인수해야 합니다. 입찰 전 권리분석에서 임차인 현황을 반드시 확인하세요.</p>
+        <p class="note">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>판례</h2>
+    <div class="ruling-box">
+      <p>대법원은 공유물분할 청구의 소에서 법원이 경매에 의한 분할을 명하는 것은 현물분할이 불가능하거나 현물분할 시 가액이 현저히 감소할 우려가 있는 경우에 한한다고 판시하고 있습니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=026900" target="_blank" rel="noopener">민법 제269조 제2항</a>). 단순히 공유자 간에 분쟁이 있다는 이유만으로 경매 분할을 명하지는 않습니다.</p>
+      <p>또한 공유물분할 경매에서 각 공유자의 지분에 저당권이 설정되어 있는 경우, 그 저당권자는 해당 공유자에게 귀속될 매각대금에서 우선 변제받게 됩니다. 전체 매각대금에서 순위 없이 우선 변제받는 것이 아니라 지분별로 안분하여 계산됩니다.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>주의사항</h2>
+    <div class="warn-box">
+      <p>⚠️ <strong>공유물분할 소송 비용과 시간</strong>: 분할 청구 소송 → 판결 확정 → 형식적경매 신청까지 수 년이 소요될 수 있습니다. 조정·협의 분할이 가능하다면 먼저 시도하세요.</p>
+    </div>
+    <div class="warn-box">
+      <p>⚠️ <strong>유치권 경매의 한계</strong>: 유치권자는 경매 후 우선변제권이 없어 배당을 충분히 받지 못할 수 있습니다. 유치권 경매 전에 전문가와 배당 가능성을 검토하세요.</p>
+    </div>
+    <div class="info-box">
+      <p>ℹ️ 형식적경매는 입찰자 입장에서 일반 경매와 절차가 동일합니다. 권리분석, 감정가 확인, 임차인 현황 파악 등 일반 경매와 같은 주의가 필요합니다.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>다음에 확인할 사항</h2>
+    <div class="next-links">
+      <a href="경매_27_공유부동산경매.html">🏠 공유 부동산 경매 (지분경매)</a>
+      <a href="경매_19_유치권대응.html">⚖️ 유치권 성립 요건과 대응</a>
+      <a href="경매_10_배당순위.html">📊 배당순위 구조</a>
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <h2>이 내용이 해당되시나요?</h2>
+    <p>첫 상담은 무료입니다. 절차 전반을 법무사가 안내해 드립니다.</p>
+    <div class="btn-row">
+      <a href="tel:0000000000" class="btn-tel">📞 전화 상담</a>
+      <a href="https://open.kakao.com/" class="btn-kako">💬 카카오톡 상담</a>
+    </div>
+  </div>
+</div>
+<footer>
+  <p>본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 자문이 아닙니다.</p>
+  <p>이 페이지는 2025년 현행 법령 기준으로 작성되었습니다. 법령 개정 시 내용이 달라질 수 있습니다.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>상속인이란? | 법무사 종합 안내</title>
+  <meta name="description" content="누가 상속인이 되는지, 상속 순위와 배우자·대습상속·결격사유까지 일반인도 쉽게 이해할 수 있도록 법무사가 안내합니다.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Pretendard', 'Noto Sans KR', -apple-system, sans-serif;
+      color: #1a1a2e; background: #f8f9fc;
+      line-height: 1.85; font-size: 16.5px;
+    }
+    a { color: #2563eb; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .page-wrapper {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 300px;
+      gap: 36px; padding: 40px 24px;
+    }
+    @media (max-width: 860px) {
+      .page-wrapper { grid-template-columns: 1fr; }
+      .sidebar { order: -1; }
+    }
+
+    .content { min-width: 0; }
+
+    .hero {
+      background: linear-gradient(135deg, #14532d 0%, #166534 50%, #1e6b45 100%);
+      color: #fff; border-radius: 16px;
+      padding: 48px 40px; margin-bottom: 36px;
+    }
+    .hero h1 { font-size: 32px; font-weight: 800; margin-bottom: 14px; }
+    .hero .subtitle { font-size: 17px; opacity: 0.92; line-height: 1.7; }
+    .hero .badge {
+      display: inline-block; background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 4px 14px; border-radius: 20px;
+      font-size: 13px; margin-bottom: 12px;
+    }
+
+    .section {
+      background: #fff; border-radius: 14px;
+      padding: 36px 32px; margin-bottom: 24px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      border: 1px solid #e8eaf0;
+    }
+    .section h2 {
+      font-size: 22px; font-weight: 700; color: #14532d;
+      margin-bottom: 20px; padding-bottom: 12px;
+      border-bottom: 2px solid #d1e7dd;
+    }
+    .section h3 {
+      font-size: 18px; font-weight: 600; color: #166534;
+      margin: 24px 0 12px 0;
+    }
+    .section p { margin-bottom: 14px; text-align: justify; }
+
+    .law-ref {
+      display: inline; background: #ecfdf5; color: #065f46;
+      padding: 1px 8px; border-radius: 4px; font-size: 14.5px;
+      font-weight: 500; white-space: nowrap; cursor: help;
+      border-bottom: 1px dashed #6ee7b7;
+    }
+
+    .highlight-box {
+      background: #ecfdf5; border-left: 4px solid #16a34a;
+      padding: 20px 24px; border-radius: 0 10px 10px 0; margin: 20px 0;
+    }
+    .highlight-box.example { background: #faf5ff; border-left-color: #7c3aed; }
+    .highlight-box.warning { background: #fef9ee; border-left-color: #d97706; }
+    .highlight-box.info { background: #f0f7ff; border-left-color: #2563eb; }
+    .highlight-box strong { display: block; margin-bottom: 6px; font-size: 15px; }
+
+    /* 순위 카드 */
+    .rank-cards { display: flex; flex-direction: column; gap: 0; margin: 20px 0; }
+    .rank-card {
+      display: flex; align-items: flex-start; gap: 16px;
+      padding: 20px; border: 1px solid #e0e7ef;
+      background: #fff; position: relative;
+    }
+    .rank-card:first-child { border-radius: 12px 12px 0 0; }
+    .rank-card:last-child { border-radius: 0 0 12px 12px; }
+    .rank-card + .rank-card { border-top: none; }
+    .rank-num {
+      flex-shrink: 0; width: 44px; height: 44px;
+      background: #14532d; color: #fff; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 18px;
+    }
+    .rank-content { flex: 1; }
+    .rank-content strong { color: #14532d; font-size: 16px; }
+    .rank-content p { margin: 6px 0 0; font-size: 15px; color: #475569; }
+    .rank-connector {
+      position: absolute; left: 42px; bottom: -1px;
+      width: 2px; height: 20px; background: #d1d9e6;
+    }
+
+    /* 비교 표 */
+    .compare-table {
+      width: 100%; border-collapse: separate; border-spacing: 0;
+      margin: 20px 0; font-size: 15px; border-radius: 10px;
+      overflow: hidden; border: 1px solid #d1d9e6;
+    }
+    .compare-table thead th {
+      background: #14532d; color: #fff; padding: 14px 16px;
+      font-weight: 600; text-align: center;
+    }
+    .compare-table tbody td {
+      padding: 12px 16px; border-bottom: 1px solid #e8eaf0; vertical-align: top;
+    }
+    .compare-table tbody tr:nth-child(even) { background: #f8fafd; }
+    .compare-table tbody tr:last-child td { border-bottom: none; }
+
+    .sidebar { position: relative; }
+    .sidebar-inner { position: sticky; top: 24px; }
+    .sidebar-card {
+      background: #fff; border-radius: 14px;
+      padding: 24px 20px; margin-bottom: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      border: 1px solid #e8eaf0;
+    }
+    .sidebar-card h3 {
+      font-size: 16px; font-weight: 700; color: #14532d;
+      margin-bottom: 16px; padding-bottom: 10px;
+      border-bottom: 2px solid #16a34a;
+    }
+    .law-list { list-style: none; }
+    .law-list li {
+      padding: 10px 0; border-bottom: 1px solid #f0f2f5;
+      font-size: 14px; line-height: 1.6;
+    }
+    .law-list li:last-child { border-bottom: none; }
+    .law-list .law-name { font-weight: 600; color: #065f46; display: block; margin-bottom: 2px; }
+    .law-list .law-desc { color: #64748b; font-size: 13px; }
+
+    .toc-list { list-style: none; }
+    .toc-list li { padding: 6px 0; }
+    .toc-list a {
+      color: #475569; font-size: 14px; display: block;
+      padding: 4px 10px; border-radius: 6px; transition: background 0.15s;
+    }
+    .toc-list a:hover { background: #f1f5f9; color: #14532d; text-decoration: none; }
+
+    .cta-card {
+      background: linear-gradient(135deg, #14532d, #166534);
+      color: #fff; border-radius: 14px; padding: 28px 22px; text-align: center;
+    }
+    .cta-card h3 { color: #fff; border-bottom: none; font-size: 17px; margin-bottom: 12px; padding-bottom: 0; }
+    .cta-card p { font-size: 14px; opacity: 0.9; margin-bottom: 18px; line-height: 1.6; }
+    .cta-btn {
+      display: inline-block; background: #fff; color: #14532d;
+      padding: 12px 28px; border-radius: 8px; font-weight: 700; font-size: 15px;
+    }
+
+    /* 법령 클릭 연동 */
+    .law-ref { cursor: pointer; transition: background 0.2s, transform 0.1s; }
+    .law-ref:hover { background: #d1fae5; transform: translateY(-1px); }
+    .law-ref:active { transform: scale(0.97); }
+
+    .law-list li { transition: background 0.3s, box-shadow 0.3s, transform 0.3s; border-radius: 8px; padding-left: 10px; padding-right: 10px; }
+    .law-list li.highlight {
+      background: #d1fae5; box-shadow: 0 0 0 2px #16a34a, 0 4px 12px rgba(22,163,74,0.18);
+      transform: scale(1.03); position: relative; z-index: 1;
+    }
+    .law-list li.highlight .law-name { color: #14532d; }
+  </style>
+</head>
+<body>
+
+<div class="page-wrapper">
+  <main class="content">
+
+    <div class="hero">
+      <span class="badge">상속인 &middot; 상속순위</span>
+      <h1>누가 상속인이 되나요?</h1>
+      <p class="subtitle">
+        가족이 세상을 떠나면, 누가 재산을 물려받을까요?<br>
+        배우자, 자녀, 부모, 형제자매&hellip; 상속인의 순위와 자격을 쉽게 정리해 드립니다.
+      </p>
+    </div>
+
+    <!-- 1. 상속인이란 -->
+    <div class="section" id="sec-who">
+      <h2>1. 상속인이란?</h2>
+      <p>
+        <strong>상속인</strong>이란, 돌아가신 분(피상속인)의 재산과 채무를 법률에 따라 물려받는 사람을 말합니다.
+        우리 민법은 상속인이 될 수 있는 사람과 그 순위를 미리 정해 두고 있습니다
+        (<span class="law-ref">민법 제1000조</span>).
+      </p>
+      <p>
+        아들과 딸, 장남과 차녀, 기혼과 미혼 등을 <strong>차별 없이</strong> 동등하게 상속받습니다.
+        과거에는 남녀 차별이 있었지만, 1991년 1월 1일부터 시행된 현행 민법은
+        모든 자녀에게 동일한 상속 자격을 인정합니다.
+      </p>
+    </div>
+
+    <!-- 2. 상속 순위 -->
+    <div class="section" id="sec-order">
+      <h2>2. 상속인의 순위</h2>
+      <p>
+        상속인은 아래 순위에 따라 정해지며, 앞 순위의 상속인이 있으면 뒤 순위의 상속인은 상속받을 수 없습니다.
+      </p>
+
+      <div class="rank-cards">
+        <div class="rank-card">
+          <div class="rank-num">1</div>
+          <div class="rank-content">
+            <strong>직계비속 (자녀, 손자녀)</strong>
+            <p>
+              아들·딸, 손자·손녀 등 피상속인의 아래 세대입니다.
+              자녀가 여러 명이면 모두 같은 순위의 공동상속인이 됩니다.
+              촌수가 가까운 사람이 우선합니다(자녀 &gt; 손자녀).
+              양자도 친생자와 동일하게 상속권이 있습니다.
+            </p>
+          </div>
+        </div>
+        <div class="rank-card">
+          <div class="rank-num">2</div>
+          <div class="rank-content">
+            <strong>직계존속 (부모, 조부모)</strong>
+            <p>
+              자녀가 없을 때, 돌아가신 분의 부모·조부모가 상속받습니다.
+              부계(아버지 쪽)와 모계(어머니 쪽)를 구별하지 않습니다.
+              양부모와 친부모 모두 상속인이 될 수 있습니다.
+              다만 적모(법적 어머니가 아닌 아버지의 처)나 계모는 상속권이 없습니다.
+            </p>
+          </div>
+        </div>
+        <div class="rank-card">
+          <div class="rank-num">3</div>
+          <div class="rank-content">
+            <strong>형제자매</strong>
+            <p>
+              직계비속·직계존속·배우자가 <strong>모두 없을 때</strong> 형제자매가 상속합니다.
+              이복 형제자매도 동일하게 상속권이 있습니다.
+              부계·모계 구분 없이 모든 형제자매가 포함됩니다.
+            </p>
+          </div>
+        </div>
+        <div class="rank-card">
+          <div class="rank-num">4</div>
+          <div class="rank-content">
+            <strong>4촌 이내 방계혈족</strong>
+            <p>
+              큰아버지, 고모, 외숙부, 이모 등 3촌과 그 자녀인 4촌을 말합니다.
+              위 1~3순위 상속인이 모두 없을 때 비로소 상속합니다.
+              촌수가 가까운 사람이 우선합니다(3촌 &gt; 4촌).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-box info">
+        <strong>상속인이 아무도 없다면?</strong>
+        4순위까지 모두 없으면 <strong>특별연고자</strong>(사실상 부양한 사람 등)가 재산 분여를 청구할 수 있고
+        (<span class="law-ref">민법 제1057조의2</span>),
+        그마저 없으면 재산은 <strong>국가에 귀속</strong>됩니다
+        (<span class="law-ref">민법 제1058조</span>).
+      </div>
+    </div>
+
+    <!-- 3. 배우자의 특별한 지위 -->
+    <div class="section" id="sec-spouse">
+      <h2>3. 배우자의 특별한 지위</h2>
+      <p>
+        배우자는 다른 상속인과 다르게 <strong>특별한 지위</strong>를 갖습니다
+        (<span class="law-ref">민법 제1003조</span>).
+      </p>
+
+      <table class="compare-table">
+        <thead>
+          <tr><th>상황</th><th>배우자의 상속</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>자녀가 있는 경우</td>
+            <td>자녀와 <strong>같은 순위</strong>로 공동상속 (상속분 5할 가산)</td>
+          </tr>
+          <tr>
+            <td>자녀 없고 부모가 있는 경우</td>
+            <td>부모와 <strong>같은 순위</strong>로 공동상속 (상속분 5할 가산)</td>
+          </tr>
+          <tr>
+            <td>자녀도 부모도 없는 경우</td>
+            <td>배우자가 <strong>단독</strong>으로 전부 상속</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>사실혼 배우자는 상속받을 수 있나요?</h3>
+      <p>
+        혼인신고를 하지 않은 <strong>사실혼 배우자는 상속권이 없습니다</strong>.
+        현행 민법은 법률혼만 인정하기 때문입니다.
+        다만, 재산 형성에 기여했다면 재산분할 청구는 가능합니다.
+      </p>
+
+      <h3>이혼 소송 중 배우자가 사망하면?</h3>
+      <p>
+        이혼소송 중에 배우자 한쪽이 사망하면, 이혼이 확정되지 않은 상태이므로
+        <strong>생존 배우자에게 상속권이 있습니다</strong>.
+        이혼청구권은 일신전속적 권리이므로 사망과 동시에 소송이 종료됩니다.
+      </p>
+    </div>
+
+    <!-- 4. 대습상속 -->
+    <div class="section" id="sec-substitute">
+      <h2>4. 대습상속 &mdash; 대신 물려받는 상속</h2>
+      <p>
+        원래 상속인이 될 사람이 피상속인보다 <strong>먼저 사망</strong>하거나
+        <strong>상속결격</strong>에 해당하면, 그 사람의 자녀(또는 배우자)가
+        대신 상속받을 수 있습니다. 이것이 <strong>대습상속</strong>입니다
+        (<span class="law-ref">민법 제1001조</span>,
+        <span class="law-ref">민법 제1003조 제2항</span>).
+      </p>
+
+      <div class="highlight-box example">
+        <strong>대습상속이 인정되는 경우</strong>
+        &bull; 제1순위 상속인(자녀)이 먼저 사망 &rarr; 그 <strong>자녀(손자녀)와 배우자(며느리·사위)</strong>가 대습상속<br>
+        &bull; 제3순위 상속인(형제자매)이 먼저 사망 &rarr; 그 <strong>자녀(조카)와 배우자</strong>가 대습상속<br>
+        &bull; 같은 사고로 <strong>동시 사망</strong>한 경우에도 대습상속이 인정됩니다
+      </div>
+
+      <div class="highlight-box warning">
+        <strong>주의: 상속포기와 대습상속은 다릅니다</strong>
+        상속을 <strong>포기</strong>한 경우에는 대습상속이 인정되지 않습니다.
+        포기한 사람은 처음부터 상속인이 아니었던 것으로 보기 때문입니다
+        (<span class="law-ref">민법 제1042조</span>).
+        이 경우 같은 순위의 다른 상속인에게 몫이 돌아가거나,
+        다음 순위 상속인에게 넘어갑니다.
+      </div>
+    </div>
+
+    <!-- 5. 태아와 혼인 외 출생자 -->
+    <div class="section" id="sec-special">
+      <h2>5. 태아와 혼인 외 출생자</h2>
+
+      <h3>태아도 상속받을 수 있나요?</h3>
+      <p>
+        네, 받을 수 있습니다. 민법은 <strong>태아는 상속 순위에 관하여 이미 출생한 것으로 본다</strong>고
+        규정하고 있습니다(<span class="law-ref">민법 제1000조 제3항</span>).
+        다만, 살아서 태어나야 실제로 상속이 확정됩니다.
+      </p>
+
+      <h3>혼인 외 출생자(혼외자)의 상속권</h3>
+      <p>
+        결혼하지 않은 관계에서 태어난 자녀도, 아버지가 <strong>인지</strong>하거나
+        자녀로 출생신고를 했다면 다른 자녀와 <strong>동일한 상속권</strong>이 인정됩니다.
+        상속비율도 똑같습니다. 이미 상속이 시작된 후에 인지 판결을 받더라도
+        공동상속인으로서 권리를 주장할 수 있습니다.
+      </p>
+    </div>
+
+    <!-- 6. 상속결격 -->
+    <div class="section" id="sec-disqualify">
+      <h2>6. 상속을 받을 수 없는 경우 (상속결격)</h2>
+      <p>
+        다음에 해당하는 사람은 법률에 의해 <strong>상속인이 될 자격을 잃습니다</strong>
+        (<span class="law-ref">민법 제1004조</span>).
+        별도의 재판 없이 자동으로 적용됩니다.
+      </p>
+
+      <table class="compare-table">
+        <thead>
+          <tr><th style="width:8%">번호</th><th>결격 사유</th></tr>
+        </thead>
+        <tbody>
+          <tr><td style="text-align:center">1</td><td>고의로 피상속인, 상속의 선순위·동순위자를 <strong>살해하거나 살해하려 한</strong> 사람</td></tr>
+          <tr><td style="text-align:center">2</td><td>고의로 피상속인, 상속의 선순위·동순위자에게 <strong>상해를 가하여 사망에 이르게</strong> 한 사람</td></tr>
+          <tr><td style="text-align:center">3</td><td><strong>사기·강박</strong>으로 피상속인의 유언이나 유언 철회를 방해한 사람</td></tr>
+          <tr><td style="text-align:center">4</td><td>사기·강박으로 피상속인의 유언을 <strong>하게 한</strong> 사람</td></tr>
+          <tr><td style="text-align:center">5</td><td>피상속인의 유언서를 <strong>위조·변조·파기·은닉</strong>한 사람</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        상속결격자는 유증(유언으로 재산을 받는 것)도 받을 수 없습니다.
+        다만, 생전에 증여를 받은 것은 영향을 받지 않습니다.
+      </p>
+    </div>
+
+  </main>
+
+  <!-- ═══ SIDEBAR ═══ -->
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <div class="sidebar-card">
+        <h3>목차</h3>
+        <ol class="toc-list">
+          <li><a href="#sec-who">1. 상속인이란?</a></li>
+          <li><a href="#sec-order">2. 상속인의 순위</a></li>
+          <li><a href="#sec-spouse">3. 배우자의 특별한 지위</a></li>
+          <li><a href="#sec-substitute">4. 대습상속</a></li>
+          <li><a href="#sec-special">5. 태아와 혼인 외 출생자</a></li>
+          <li><a href="#sec-disqualify">6. 상속결격</a></li>
+        </ol>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>관련 법령</h3>
+        <ul class="law-list">
+          <li><span class="law-name">민법 제1000조</span><span class="law-desc">상속의 순위 (1~4순위)</span></li>
+          <li><span class="law-name">민법 제1001조</span><span class="law-desc">대습상속</span></li>
+          <li><span class="law-name">민법 제1003조</span><span class="law-desc">배우자의 상속순위 및 대습상속</span></li>
+          <li><span class="law-name">민법 제1004조</span><span class="law-desc">상속결격 사유</span></li>
+          <li><span class="law-name">민법 제1042조</span><span class="law-desc">상속포기의 소급효</span></li>
+          <li><span class="law-name">민법 제1043조</span><span class="law-desc">포기한 상속분의 귀속</span></li>
+          <li><span class="law-name">민법 제1057조의2</span><span class="law-desc">특별연고자의 재산분여</span></li>
+          <li><span class="law-name">민법 제1058조</span><span class="law-desc">상속재산의 국가 귀속</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>주요 판례</h3>
+        <ul class="law-list">
+          <li><span class="law-name">대법원 1997.11.28. 96다5421</span><span class="law-desc">형제자매에 모계 포함</span></li>
+          <li><span class="law-name">대법원 1995.1.20. 94마535</span><span class="law-desc">양자 사망 시 양부모·친부모 공동상속</span></li>
+          <li><span class="law-name">대법원 2001.3.9. 99다13157</span><span class="law-desc">동시사망 시 대습상속 인정</span></li>
+        </ul>
+      </div>
+
+      <div class="cta-card">
+        <h3>상속인 확인 상담</h3>
+        <p>복잡한 가족관계, 정확한<br>상속인 판단이 필요하세요?</p>
+        <a href="#" class="cta-btn">무료 상담 신청</a>
+      </div>
+
+    </div>
+  </aside>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.law-list .law-name').forEach(function (el) {
+    var li = el.closest('li');
+    if (li) li.setAttribute('data-law', el.textContent.trim());
+  });
+
+  document.querySelectorAll('.law-ref').forEach(function (ref) {
+    ref.addEventListener('click', function () {
+      var rawText = this.textContent.trim();
+      var baseText = rawText.replace(/\s+제\d+항.*$/, '');
+
+      document.querySelectorAll('.law-list li.highlight').forEach(function (li) {
+        li.classList.remove('highlight');
+      });
+
+      var target = null;
+      var allItems = document.querySelectorAll('.law-list li[data-law]');
+
+      allItems.forEach(function (li) {
+        var lawName = li.getAttribute('data-law');
+        if (!target && lawName === rawText) target = li;
+      });
+      if (!target) {
+        allItems.forEach(function (li) {
+          var lawName = li.getAttribute('data-law');
+          if (!target && lawName === baseText) target = li;
+        });
+      }
+      if (!target) {
+        allItems.forEach(function (li) {
+          var lawName = li.getAttribute('data-law');
+          if (!target && (lawName.indexOf(baseText) !== -1 || baseText.indexOf(lawName) !== -1)) target = li;
+        });
+      }
+
+      if (target) {
+        target.classList.add('highlight');
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(function () { target.classList.remove('highlight'); }, 3000);
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>

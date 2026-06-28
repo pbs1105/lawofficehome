@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공정증서 유언 작성 | 상속등기 실무</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{--navy:#1a2e4a;--navy-light:#2d4a73;--gold:#c9a84c;--gold-light:#e8d5a3;--ivory:#fdf8f0;--ivory-dark:#f5ede0;--text:#2c2c2c;--text-light:#5a5a5a;--blue-box:#e8f0f8;--blue-border:#2d6aa0;--warn-bg:#fff8e1;--warn-border:#f0a500;}
+        *{box-sizing:border-box;margin:0;padding:0;}
+        body{font-family:'Noto Sans KR',sans-serif;background:var(--ivory);color:var(--text);font-size:15px;line-height:1.8;}
+        .page-header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);color:white;padding:40px 24px 32px;text-align:center;}
+        .page-header h1{font-size:2rem;font-weight:700;margin-bottom:8px;}
+        .page-header .subtitle{color:var(--gold-light);font-size:1rem;}
+        .breadcrumb{font-size:0.82rem;color:rgba(255,255,255,0.6);margin-bottom:12px;}
+        .layout{display:grid;grid-template-columns:240px 1fr 300px;gap:0;max-width:1280px;margin:0 auto;}
+        .toc-sidebar{background:var(--navy);color:white;padding:24px 0;position:sticky;top:0;height:100vh;overflow-y:auto;}
+        .toc-sidebar h3{font-size:0.78rem;letter-spacing:2px;color:var(--gold);text-transform:uppercase;padding:0 20px 12px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:8px;}
+        .toc-sidebar ul{list-style:none;}
+        .toc-sidebar ul li a{display:block;padding:9px 20px;font-size:0.85rem;color:rgba(255,255,255,0.75);text-decoration:none;border-left:3px solid transparent;transition:all 0.2s;}
+        .toc-sidebar ul li a:hover,.toc-sidebar ul li a.active{color:white;background:rgba(255,255,255,0.08);border-left-color:var(--gold);}
+        .main-content{padding:40px 48px;min-height:100vh;}
+        .section{margin-bottom:56px;scroll-margin-top:24px;}
+        .section h2{font-size:1.35rem;color:var(--navy);border-bottom:2px solid var(--gold);padding-bottom:10px;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+        .section h2 .sec-num{background:var(--navy);color:var(--gold);font-size:0.78rem;padding:2px 8px;border-radius:12px;}
+        .section h3{font-size:1.05rem;color:var(--navy-light);margin:24px 0 10px;font-weight:600;}
+        .summary-box{background:var(--blue-box);border-left:4px solid var(--blue-border);border-radius:0 8px 8px 0;padding:18px 22px;margin-bottom:20px;}
+        .summary-box strong{color:var(--blue-border);display:block;margin-bottom:6px;font-size:0.9rem;}
+        .detail-content{color:var(--text-light);}
+        .detail-content p{margin-bottom:14px;}
+        .law-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.88rem;}
+        .law-table th{background:var(--navy);color:white;padding:10px 14px;text-align:left;}
+        .law-table td{padding:10px 14px;border-bottom:1px solid #e0d8cc;vertical-align:top;}
+        .law-table tr:nth-child(even) td{background:var(--ivory-dark);}
+        .law-ref{color:var(--blue-border);font-weight:600;cursor:pointer;border-bottom:1px dashed var(--blue-border);font-size:0.9em;}
+        .warn-box{background:var(--warn-bg);border-left:4px solid var(--warn-border);border-radius:0 8px 8px 0;padding:16px 20px;margin:16px 0;}
+        .warn-box strong{color:#c07000;display:block;margin-bottom:6px;}
+        .case-box{background:#f5f5f5;border:1px solid #ddd;border-radius:8px;padding:16px 20px;margin:16px 0;font-size:0.87rem;}
+        .case-box .case-title{font-weight:700;color:var(--navy);margin-bottom:8px;font-size:0.85rem;}
+        .process-steps{margin:16px 0;}
+        .step{display:flex;gap:16px;margin-bottom:16px;align-items:flex-start;}
+        .step-num{background:var(--navy);color:var(--gold);font-weight:700;min-width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;}
+        .step-content .step-title{font-weight:600;color:var(--navy);margin-bottom:4px;}
+        .step-content .step-desc{font-size:0.88rem;color:var(--text-light);}
+        .checklist-box{background:var(--ivory-dark);border:1px solid var(--gold-light);border-radius:10px;padding:20px 24px;margin:24px 0;}
+        .checklist-box h4{color:var(--navy);margin-bottom:14px;font-size:0.95rem;}
+        .checklist-box ul{list-style:none;}
+        .checklist-box ul li{padding:5px 0;font-size:0.88rem;display:flex;gap:10px;}
+        .checklist-box ul li::before{content:"☑";color:var(--gold);}
+        .cta-box{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);color:white;border-radius:12px;padding:28px 32px;margin:32px 0;text-align:center;}
+        .cta-box h3{font-size:1.2rem;margin-bottom:10px;color:var(--gold-light);}
+        .cta-box p{font-size:0.9rem;color:rgba(255,255,255,0.85);margin-bottom:18px;}
+        .cta-btn{background:var(--gold);color:var(--navy);font-weight:700;padding:12px 32px;border-radius:24px;border:none;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;}
+        .next-links{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}
+        .next-link{background:white;border:1px solid #d0c8ba;border-radius:8px;padding:16px;text-decoration:none;color:var(--navy);transition:all 0.2s;display:flex;align-items:center;justify-content:space-between;}
+        .next-link:hover{border-color:var(--gold);box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+        .next-link .label{font-size:0.78rem;color:var(--text-light);}
+        .next-link .title{font-size:0.92rem;font-weight:600;}
+        .next-link .arrow{color:var(--gold);font-size:1.2rem;}
+        .disclaimer{background:#f0f0f0;border-radius:8px;padding:16px 20px;margin-top:40px;font-size:0.8rem;color:#777;line-height:1.6;}
+        .right-sidebar{background:white;border-left:1px solid #e0d8cc;padding:0;position:sticky;top:0;height:100vh;overflow-y:auto;}
+        .sidebar-tabs{display:flex;border-bottom:2px solid var(--navy);}
+        .sidebar-tab{flex:1;padding:12px 8px;text-align:center;font-size:0.82rem;font-weight:600;cursor:pointer;color:var(--text-light);background:var(--ivory);border:none;transition:all 0.2s;}
+        .sidebar-tab.active{background:var(--navy);color:white;}
+        .sidebar-panel{padding:16px;display:none;}
+        .sidebar-panel.active{display:block;}
+        .law-item{border:1px solid #e0d8cc;border-radius:6px;margin-bottom:8px;overflow:hidden;}
+        .law-item-header{background:var(--ivory-dark);padding:10px 14px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:0.83rem;font-weight:600;color:var(--navy);}
+        .law-item-header:hover{background:var(--gold-light);}
+        .law-item-body{display:none;padding:12px 14px;font-size:0.82rem;line-height:1.7;color:var(--text-light);border-top:1px solid #e0d8cc;}
+        .law-item-body.open{display:block;}
+        .practice-section{margin-bottom:16px;}
+        .practice-section h5{font-size:0.82rem;font-weight:700;color:var(--navy);background:var(--ivory-dark);padding:7px 12px;border-radius:4px;margin-bottom:8px;}
+        .practice-section ul{list-style:none;padding:0;}
+        .practice-section ul li{font-size:0.81rem;padding:4px 8px;color:var(--text-light);border-bottom:1px solid #f0ece6;display:flex;gap:6px;}
+        .practice-section ul li::before{content:"•";color:var(--gold);}
+        @media(max-width:900px){.layout{grid-template-columns:1fr;}.toc-sidebar,.right-sidebar{display:none;}.main-content{padding:24px 20px;}.next-links{grid-template-columns:1fr;}}
+    </style>
+</head>
+<body>
+    <div class="page-header">
+        <div class="breadcrumb">상속 · 등기 · 실무</div>
+        <h1>공정증서 유언 작성</h1>
+        <p class="subtitle">안전하고 신뢰할 수 있는 유언 방식의 완벽 가이드</p>
+    </div>
+
+    <div class="layout">
+        <!-- 왼쪽 TOC 사이드바 -->
+        <div class="toc-sidebar">
+            <h3>목차</h3>
+            <ul>
+                <li><a class="toc-link active" href="#sec1">공정증서 유언이란</a></li>
+                <li><a class="toc-link" href="#sec2">공정증서의 요건</a></li>
+                <li><a class="toc-link" href="#sec3">증인 자격</a></li>
+                <li><a class="toc-link" href="#sec4">공증 절차</a></li>
+                <li><a class="toc-link" href="#sec5">필요 서류</a></li>
+                <li><a class="toc-link" href="#sec6">효력과 한계</a></li>
+                <li><a class="toc-link" href="#sec7">유언장 작성 요령</a></li>
+                <li><a class="toc-link" href="#sec8">FAQ</a></li>
+            </ul>
+        </div>
+
+        <!-- 중앙 메인 콘텐츠 -->
+        <div class="main-content">
+            <!-- 섹션 1 -->
+            <div class="section" id="sec1">
+                <h2><span class="sec-num">1</span>공정증서 유언이란</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    공정증서 유언은 공증인 앞에서 유언자가 구술하고, 공증인이 필기하며, 증인 2인이 서명하는 방식입니다. 분실이나 위조의 위험이 없어 가장 안전한 유언 방식입니다.
+                </div>
+                <div class="detail-content">
+                    <h3>공정증서 유언의 특징</h3>
+                    <p>공정증서 유언 (<span class="law-ref" onclick="openLaw('민법1068')">민법 제1068조</span>)은 다음과 같은 특징을 가집니다:</p>
+                    <ul style="margin-left:20px;margin-bottom:14px;">
+                        <li><strong>공증인 입회:</strong> 국가 자격의 공증인이 절차를 주관하므로 신뢰도가 높음</li>
+                        <li><strong>공식 기록:</strong> 공증인 사무소에 원본이 20년 이상 보관되어 분실 위험 제로</li>
+                        <li><strong>검인 불필요:</strong> 자필증서처럼 법원 검인 절차가 불필요</li>
+                        <li><strong>신속한 등기:</strong> 사망 후 바로 상속등기 신청 가능</li>
+                        <li><strong>위조 불가능:</strong> 공증인의 공식 인장과 서명으로 진정성 입증</li>
+                    </ul>
+                    <h3>다른 방식과의 비교</h3>
+                    <p>공정증서 유언이 다른 5가지 방식(자필증서, 녹음, 비밀증서, 구수증서)보다 우수한 이유는 <strong>공증인이라는 중립적 제3자의 입회</strong>와 <strong>공식적인 원본 보관</strong> 때문입니다.</p>
+                </div>
+            </div>
+
+            <!-- 섹션 2 -->
+            <div class="section" id="sec2">
+                <h2><span class="sec-num">2</span>공정증서 유언의 요건</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    유언자가 공증인 앞에서 유언 내용을 구술하고, 공증인이 필기·낭독한 후, 유언자와 증인 2인이 서명·날인해야 합니다.
+                </div>
+                <div class="detail-content">
+                    <h3>법정 요건 (민법 제1068조)</h3>
+                    <table class="law-table">
+                        <thead>
+                            <tr>
+                                <th>요건</th>
+                                <th>상세 내용</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1. 공증인 앞 구술</td>
+                                <td>유언자가 공증인 앞에서 유언 내용을 직접 말함</td>
+                            </tr>
+                            <tr>
+                                <td>2. 증인 2인 참석</td>
+                                <td><span class="law-ref" onclick="openLaw('민법1072')">민법 제1072조</span> 결격자가 아닌 증인 2인 이상</td>
+                            </tr>
+                            <tr>
+                                <td>3. 공증인 필기</td>
+                                <td>공증인이 유언 내용을 문서로 기록</td>
+                            </tr>
+                            <tr>
+                                <td>4. 낭독</td>
+                                <td>공증인이 작성 문서를 유언자 및 증인에게 낭독</td>
+                            </tr>
+                            <tr>
+                                <td>5. 서명 또는 날인</td>
+                                <td>유언자와 증인이 서명 또는 기명날인(서명 불가능 시)</td>
+                            </tr>
+                            <tr>
+                                <td>6. 공증인 서명·날인</td>
+                                <td>공증인이 공증 일자를 기재하고 서명·날인</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3>요건 준수의 중요성</h3>
+                    <p>위 요건 중 하나라도 결여되면 유언이 무효가 될 수 있습니다. 특히 <strong>증인 결격 여부</strong>와 <strong>공증인의 절차 준수</strong>가 가장 흔한 분쟁 쟁점입니다.</p>
+                    <div class="case-box">
+                        <div class="case-title">판례 참고</div>
+                        대법원은 공정증서 유언이 법정 절차를 정확히 따르면 원칙적으로 유효하다고 판단합니다. 다만 공증인이 절차를 누락한 경우에는 무효가 될 수 있습니다.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 섹션 3 -->
+            <div class="section" id="sec3">
+                <h2><span class="sec-num">3</span>증인 자격</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    공정증서 유언의 증인은 반드시 <span class="law-ref" onclick="openLaw('민법1072')">민법 제1072조</span> 결격자가 아닌 사람이어야 합니다. 미성년자, 수증자, 4촌 이내 혈족은 증인이 될 수 없습니다.
+                </div>
+                <div class="detail-content">
+                    <h3>증인 결격자</h3>
+                    <p>다음 사람들은 유언의 증인이 될 수 없습니다:</p>
+                    <table class="law-table">
+                        <thead>
+                            <tr>
+                                <th>결격 사유</th>
+                                <th>설명</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>미성년자</td>
+                                <td>만 19세 미만의 미성년자 (민법 제4조)</td>
+                            </tr>
+                            <tr>
+                                <td>피한정후견인</td>
+                                <td>한정후견 대상자</td>
+                            </tr>
+                            <tr>
+                                <td>피특정후견인</td>
+                                <td>특정후견 대상자</td>
+                            </tr>
+                            <tr>
+                                <td>유언자의 직계혈족</td>
+                                <td>자녀, 부모, 조부모 등 (다만 부모의 수증자인 경우 이중 결격)</td>
+                            </tr>
+                            <tr>
+                                <td>유언자의 배우자</td>
+                                <td>배우자 (현재 혼인 중인 사람)</td>
+                            </tr>
+                            <tr>
+                                <td>유언자의 형제자매</td>
+                                <td>유언자의 형, 누나, 오빠, 언니 등</td>
+                            </tr>
+                            <tr>
+                                <td>수증자</td>
+                                <td>유언으로 재산을 받을 예정인 사람</td>
+                            </tr>
+                            <tr>
+                                <td>수증자의 배우자</td>
+                                <td>수증자의 배우자</td>
+                            </tr>
+                            <tr>
+                                <td>수증자의 직계혈족</td>
+                                <td>수증자의 자녀, 부모 등</td>
+                            </tr>
+                            <tr>
+                                <td>공증인의 배우자·혈족</td>
+                                <td>공증인의 4촌 이내 혈족</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3>증인 선정 팁</h3>
+                    <p>증인은 <strong>이해관계가 없는 제3자</strong>를 선택해야 합니다. 일반적으로 변호사, 법무사, 친한 직장 동료나 친구를 증인으로 선정합니다.</p>
+                    <div class="warn-box">
+                        <strong>주의</strong>
+                        상속인이나 그 배우자·직계혈족이 증인이 되면 나중에 다툼의 소지가 될 수 있습니다. 반드시 이해관계 없는 사람을 선택하세요.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 섹션 4 -->
+            <div class="section" id="sec4">
+                <h2><span class="sec-num">4</span>공증 절차 5단계</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    공정증서 유언 작성은 사전 준비→공증인 예약→공증 작성→서명→원본 보관의 5단계로 진행됩니다.
+                </div>
+                <div class="detail-content">
+                    <h3>절차별 상세 내용</h3>
+                    <div class="process-steps">
+                        <div class="step">
+                            <div class="step-num">1</div>
+                            <div class="step-content">
+                                <div class="step-title">사전 준비</div>
+                                <div class="step-desc">
+                                    유언 내용 정리 → 신분증, 인감증명서 준비 → 증인 선정 → 증인 연락
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">2</div>
+                            <div class="step-content">
+                                <div class="step-title">공증인 예약</div>
+                                <div class="step-desc">
+                                    관할 공증인 사무소 선택 (유언자 주소지, 재산지, 또는 편의지 선택 가능) → 전화/방문으로 예약
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">3</div>
+                            <div class="step-content">
+                                <div class="step-title">공증 작성</div>
+                                <div class="step-desc">
+                                    유언자와 증인 2인이 공증인 사무소 방문 → 유언자가 구술 → 공증인이 필기 → 낭독 → 서명·날인
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">4</div>
+                            <div class="step-content">
+                                <div class="step-title">서명 및 날인</div>
+                                <div class="step-desc">
+                                    유언자 서명 (또는 인감 날인) → 증인 2인 서명 → 공증인 서명·날인 및 공증인 인장 날인
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">5</div>
+                            <div class="step-content">
+                                <div class="step-title">원본 보관 및 사본 교부</div>
+                                <div class="step-desc">
+                                    공증인이 원본을 20년 이상 보관 → 유언자에게 정본(사본) 및 확정본 교부 → 필요시 추가 사본 발급 가능
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>소요 시간</h3>
+                    <p>공정증서 유언 작성에는 보통 <strong>30분~1시간</strong> 정도 소요됩니다. 내용이 복잡하면 더 길어질 수 있습니다.</p>
+                </div>
+            </div>
+
+            <!-- 섹션 5 -->
+            <div class="section" id="sec5">
+                <h2><span class="sec-num">5</span>필요 서류</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    신분증, 인감증명서, 부동산 표시 자료(필요시), 증인 신분증이 필요합니다. 각 항목별로 정확히 준비해야 공증이 지연되지 않습니다.
+                </div>
+                <div class="detail-content">
+                    <h3>유언자 준비 서류</h3>
+                    <table class="law-table">
+                        <thead>
+                            <tr>
+                                <th>서류</th>
+                                <th>설명 및 유의사항</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>주민등록증 또는 여권</td>
+                                <td>사진 있는 신분증 필수. 만료 여부 확인</td>
+                            </tr>
+                            <tr>
+                                <td>인감증명서</td>
+                                <td>발급 후 3개월 유효. 구청에서 발급. 1~2통 준비</td>
+                            </tr>
+                            <tr>
+                                <td>등본 또는 호적등본</td>
+                                <td>상속인 확인용. 필요시 법원청구 서류와 함께 준비</td>
+                            </tr>
+                            <tr>
+                                <td>부동산 등기부등본</td>
+                                <td>부동산 유증 시 정확한 표시를 위해 필요. 등기소에서 발급</td>
+                            </tr>
+                            <tr>
+                                <td>금융자산 명세서</td>
+                                <td>은행, 증권 계좌 정보. 유언에 포함할 경우 준비</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3>증인 준비 서류</h3>
+                    <p>증인 2인 각각이 준비할 서류:</p>
+                    <ul style="margin-left:20px;margin-bottom:14px;">
+                        <li>신분증 (주민등록증 또는 여권): 본인 확인용</li>
+                        <li>인감증명서 또는 서명: 공증인이 필요에 따라 요청</li>
+                    </ul>
+                    <div class="warn-box">
+                        <strong>준비 조언</strong>
+                        공증 전 공증인 사무소에 미리 연락하여 필요한 서류를 정확히 확인하세요. 서류가 미비하면 공증이 지연될 수 있습니다.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 섹션 6 -->
+            <div class="section" id="sec6">
+                <h2><span class="sec-num">6</span>공정증서 유언의 효력과 한계</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    공정증서 유언은 법적 효력이 매우 높지만, 유류분(상속인의 법정 최소 상속분)은 제한될 수 없습니다.
+                </div>
+                <div class="detail-content">
+                    <h3>공정증서 유언의 효력</h3>
+                    <p>공정증서 유언이 법정 요건을 충족하면, 다음과 같은 효력이 인정됩니다:</p>
+                    <ul style="margin-left:20px;margin-bottom:14px;">
+                        <li><strong>확정력:</strong> 위조·변조 의심이 거의 없어 법원도 높은 신뢰도 부여</li>
+                        <li><strong>즉시 실행:</strong> 검인 절차 없이 바로 상속등기·금융자산 인수 가능</li>
+                        <li><strong>분쟁 최소화:</strong> 공증인이 절차를 확인했으므로 상속인이 다투기 어려움</li>
+                        <li><strong>번복 불가:</strong> 공증인이 확인한 내용이므로 재검토 불필요</li>
+                    </ul>
+                    <h3>유류분의 제한</h3>
+                    <p>그러나 유언자가 특정인에게 전재산을 유증하거나, 특정 상속인을 완전히 배제하더라도, <strong>법정 상속인의 유류분은 보호</strong>됩니다 (<span class="law-ref" onclick="openLaw('민법1112')">민법 제1112조</span>).</p>
+                    <table class="law-table">
+                        <thead>
+                            <tr>
+                                <th>상속인 지위</th>
+                                <th>유류분 비율</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>직계비속 (자녀)</td>
+                                <td>법정상속분의 1/2</td>
+                            </tr>
+                            <tr>
+                                <td>직계존속 (부모)</td>
+                                <td>법정상속분의 1/3</td>
+                            </tr>
+                            <tr>
+                                <td>배우자</td>
+                                <td>법정상속분의 1/2</td>
+                            </tr>
+                            <tr>
+                                <td>형제자매</td>
+                                <td>유류분 없음 (법정상속분의 1/3이지만 유류분청구권 미보유)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="case-box">
+                        <div class="case-title">판례 참고</div>
+                        유류분청구권자는 유언의 내용이 자신의 유류분을 침해하면 <span class="law-ref" onclick="openLaw('민법1114')">민법 제1114조</span>에 따라 유류분 반환청구를 할 수 있습니다.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 섹션 7 -->
+            <div class="section" id="sec7">
+                <h2><span class="sec-num">7</span>유언장 내용 작성 요령</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    부동산은 정확한 표시, 금융자산은 정확한 은행명·계좌, 수유자는 정확한 신원으로 기재해야 나중에 분쟁이 적습니다.
+                </div>
+                <div class="detail-content">
+                    <h3>부동산 표시 방법</h3>
+                    <p>부동산을 유증할 때는 반드시 등기부등본의 표시와 정확히 일치하게 기재해야 합니다:</p>
+                    <ul style="margin-left:20px;margin-bottom:14px;">
+                        <li>도로명 주소가 아닌 <strong>지번</strong>으로 표시</li>
+                        <li>소유권 표시 정확히 (전유면적, 대지지분 등)</li>
+                        <li>건물 구조, 용도 명시 (주택, 상가 등)</li>
+                        <li>예: "서울시 강남구 테헤란로 123, 지번 대치동 456-7번지의 대지 및 지상 건물"</li>
+                    </ul>
+                    <h3>금융자산 기재</h3>
+                    <p>금융자산을 유증할 때는:</p>
+                    <ul style="margin-left:20px;margin-bottom:14px;">
+                        <li>은행명 명확히 표시</li>
+                        <li>계좌번호 정확히 기재</li>
+                        <li>상품명 (예금, 적금, 주식 등) 명시</li>
+                        <li>예: "국민은행 계좌번호 123-456-789012의 정기예금"</li>
+                    </ul>
+                    <h3>수유자 특정 방법</h3>
+                    <p>수유자(유증을 받는 사람)는 명확히 특정해야 합니다:</p>
+                    <ul style="margin-left:20px;margin-bottom:14px;">
+                        <li>주민등록번호 기재</li>
+                        <li>현재 주소지 명확히</li>
+                        <li>성명 한글/한자 정확히</li>
+                        <li>상속인인 경우: "자녀 ○○○ (1990년생, 서울시 강남구 거주)"</li>
+                    </ul>
+                    <div class="warn-box">
+                        <strong>중요</strong>
+                        부동산이나 금융자산의 표시가 모호하면, 상속 후 등기나 인수 절차에서 분쟁이 발생할 수 있습니다. 공증 전에 정확히 확인하세요.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 섹션 8 -->
+            <div class="section" id="sec8">
+                <h2><span class="sec-num">8</span>자주 묻는 질문</h2>
+                <div class="detail-content">
+                    <h3>Q. 공정증서 유언 작성 비용은 얼마인가요?</h3>
+                    <p><strong>A.</strong> 공증 수수료는 재산의 규모와 복잡도에 따라 다릅니다. 일반적으로 50만원~300만원 대입니다. 공증인 사무소에 미리 상담하면 정확한 비용을 알 수 있습니다.</p>
+
+                    <h3>Q. 증인을 구할 수 없으면 어떻게 하나요?</h3>
+                    <p><strong>A.</strong> 공증인 사무소가 전문 증인을 소개해 줄 수 있습니다. 공증 예약 시 공증인에게 "증인 소개를 부탁한다"고 요청하세요. 추가 비용이 소요될 수 있습니다.</p>
+
+                    <h3>Q. 공정증서 유언을 작성한 후 변경할 수 있나요?</h3>
+                    <p><strong>A.</strong> 네, 가능합니다. 새로운 공정증서 유언을 작성하면 이전 유언은 자동으로 철회됩니다. 다만 <strong>최후의 유언</strong>만 효력을 가지므로 날짜가 명확해야 합니다.</p>
+
+                    <h3>Q. 공정증서 유언은 검인을 받아야 하나요?</h3>
+                    <p><strong>A.</strong> 아니요, 검인이 불필요합니다. 공정증서는 공증인이 이미 절차를 확인했으므로, 상속 후 바로 등기나 금융 인수에 사용할 수 있습니다.</p>
+
+                    <h3>Q. 공정증서 유언서를 잃어버렸으면 어떻게 하나요?</h3>
+                    <p><strong>A.</strong> 공증인이 원본을 보관하고 있으므로 안심하셔도 됩니다. 공증인 사무소에 요청하면 <strong>정본(사본) 또는 확정본</strong>을 다시 발급받을 수 있습니다.</p>
+
+                    <h3>Q. 공정증서 유언을 작성할 때 유언자가 중병일 수 있나요?</h3>
+                    <p><strong>A.</strong> 네, 가능합니다. 다만 유언자가 의사 능력이 있어야 합니다. 공증인이 면담할 때 명확한 의식과 판단력을 보여야 합니다. 불가능하면 공증인이 거부할 수 있습니다.</p>
+                </div>
+            </div>
+
+            <!-- 상담 준비 체크리스트 -->
+            <div class="checklist-box">
+                <h4>공정증서 유언 준비 체크리스트</h4>
+                <ul>
+                    <li>주민등록증 또는 여권 준비</li>
+                    <li>인감증명서 (구청 발급) 준비</li>
+                    <li>부동산 등기부등본 준비 (유증 시)</li>
+                    <li>금융자산 명세서 정리</li>
+                    <li>신뢰할 증인 2인 선정 및 연락</li>
+                    <li>증인 신분증 확인</li>
+                    <li>공증인 사무소 예약</li>
+                    <li>유언 내용 사전 정리</li>
+                    <li>상속인 관계도 준비</li>
+                    <li>수유자 신원정보 확인</li>
+                </ul>
+            </div>
+
+            <!-- CTA 박스 -->
+            <div class="cta-box">
+                <h3>안전한 상속을 위한 공정증서 유언</h3>
+                <p>전문 법무사의 도움으로 정확하고 분쟁 없는 유언을 작성하세요.</p>
+                <button class="cta-btn">상담 예약하기</button>
+            </div>
+
+            <!-- 다음/이전 링크 -->
+            <div class="next-links">
+                <a href="17 유언의 5가지 방식.html" class="next-link">
+                    <div>
+                        <div class="label">이전 주제</div>
+                        <div class="title">유언의 5가지 방식</div>
+                    </div>
+                    <div class="arrow">←</div>
+                </a>
+                <a href="19 유언의 집행과 검인.html" class="next-link">
+                    <div>
+                        <div class="label">다음 주제</div>
+                        <div class="title">유언의 집행과 검인</div>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+            </div>
+
+            <!-- 면책 문구 -->
+            <div class="disclaimer">
+                <strong>면책 공지</strong><br>
+                본 콘텐츠는 일반적인 상속등기 실무 정보를 제공하기 위한 것으로, 특정 사건의 법적 조언이 아닙니다. 실제 공정증서 유언 작성은 반드시 공증인 및 법무사와 상담하세요. 본 정보에 의존한 행동으로 인한 손실에 대해서는 책임지지 않습니다.
+            </div>
+        </div>
+
+        <!-- 오른쪽 사이드바 -->
+        <div class="right-sidebar">
+            <div class="sidebar-tabs">
+                <button class="sidebar-tab active" onclick="switchTab('law')">법령</button>
+                <button class="sidebar-tab" onclick="switchTab('practice')">실무정보</button>
+            </div>
+
+            <!-- 법령 패널 -->
+            <div id="panel-law" class="sidebar-panel active">
+                <div class="law-item" id="law-민법1068">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>민법 제1068조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>공정증서</strong><br>
+                        공정증서로 하는 유언은 유언자가 증인 2인 이상의 참여하에 공증인 앞에서 유언의 내용을 구술하고 공증인이 이를 필기낭독하여 유언자와 증인이 서명 또는 기명날인하여야 한다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-민법1072">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>민법 제1072조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>증인의 결격사유</strong><br>
+                        미성년자, 피한정후견인, 피특정후견인, 피신뢰관리인이 된 자, 유언자의 직계혈족·배우자 또는 형제자매, 수증자 및 그 배우자나 직계혈족, 공증인의 배우자나 4촌 이내 혈족은 유언의 증인이 될 수 없다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-민법1112">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>민법 제1112조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>유류분의 권리자 및 비율</strong><br>
+                        (1) 유류분은 다음 각 호의 자가 받는다: 1. 직계비속은 그 직계비속이 받을 법정상속분의 2분의 1
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-민법1114">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>민법 제1114조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>유류분청구권</strong><br>
+                        유류분권리자가 유류분을 받지 못한 경우에는 유증, 증여를 받은 자에 대하여 그 반환을 청구할 수 있다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-공증인법2">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>공증인법 제2조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>공증인의 권한</strong><br>
+                        공증인은 공정증서 작성, 계약서 인증, 서명·서인 공증 등의 업무를 담당한다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-공증인법14">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>공증인법 제14조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>공증인의 자격</strong><br>
+                        공증인이 되려면 변호사 자격을 가진 후 5년 이상 또는 법관·검사로 3년 이상 근무한 자여야 한다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-민법1091">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>민법 제1091조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>검인</strong><br>
+                        자필, 녹음, 비밀증서로 한 유언은 유언자 사망 후 가정법원에 그 검인을 청구하여야 한다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-부동산등기법23">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>부동산등기법 제23조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>상속에 의한 등기</strong><br>
+                        상속, 합병, 전부승계에 의하여 소유권이 이전되었을 때에는 신청인의 청구에 의해 등기를 한다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-부동산등기법27">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>부동산등기법 제27조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>등기권리자 및 등기의무자</strong><br>
+                        상속에 의한 등기의 경우 상속인이 등기권리자가 되고 피상속인(또는 그 상속인)이 등기의무자가 된다.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 실무정보 패널 -->
+            <div id="panel-practice" class="sidebar-panel">
+                <div class="practice-section">
+                    <h5>공증 사무소 위치 선택</h5>
+                    <ul>
+                        <li>유언자 주소지 관할 공증인 (일반적)</li>
+                        <li>재산 소재지 관할 공증인</li>
+                        <li>편의상 다른 지역 공증인도 가능</li>
+                        <li>공증인협회 홈페이지에서 검색</li>
+                    </ul>
+                </div>
+
+                <div class="practice-section">
+                    <h5>준비 기간</h5>
+                    <ul>
+                        <li>예약: 1~2주 전</li>
+                        <li>서류 준비: 1주일</li>
+                        <li>증인 확보: 2주 전</li>
+                        <li>공증 절차: 30분~1시간</li>
+                    </ul>
+                </div>
+
+                <div class="practice-section">
+                    <h5>주요 공증 비용 항목</h5>
+                    <ul>
+                        <li>공증 수수료: 재산규모별 상이</li>
+                        <li>등본·초본 발급: 1,000~2,000원</li>
+                        <li>인감증명서: 1,000원</li>
+                        <li>추가 정본: 1통당 5,000원</li>
+                    </ul>
+                </div>
+
+                <div class="practice-section">
+                    <h5>상속등기 시 필요 서류</h5>
+                    <ul>
+                        <li>공정증서 유언 원본 또는 정본</li>
+                        <li>유언자 사망 증명서 (사망일 기재)</li>
+                        <li>상속인 인감증명서</li>
+                        <li>상속인 현재 주소 확인서</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tab){
+            document.querySelectorAll('.sidebar-tab').forEach(t=>t.classList.remove('active'));
+            document.querySelectorAll('.sidebar-panel').forEach(p=>p.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById('panel-'+tab).classList.add('active');
+        }
+        function toggleLaw(header){
+            const body=header.nextElementSibling;
+            const isOpen=body.classList.contains('open');
+            body.classList.toggle('open');
+            header.querySelector('span:last-child').textContent=isOpen?'＋':'－';
+        }
+        function openLaw(id){
+            const lawTab=document.querySelector('.sidebar-tab:first-child');
+            const lawPanel=document.getElementById('panel-law');
+            document.querySelectorAll('.sidebar-tab').forEach(t=>t.classList.remove('active'));
+            document.querySelectorAll('.sidebar-panel').forEach(p=>p.classList.remove('active'));
+            lawTab.classList.add('active');
+            lawPanel.classList.add('active');
+            const item=document.getElementById('law-'+id);
+            if(item){
+                const body=item.querySelector('.law-item-body');
+                const header=item.querySelector('.law-item-header');
+                body.classList.add('open');
+                header.querySelector('span:last-child').textContent='－';
+                item.scrollIntoView({behavior:'smooth',block:'center'});
+            }
+        }
+        const sections=document.querySelectorAll('.section');
+        const tocLinks=document.querySelectorAll('.toc-link');
+        const observer=new IntersectionObserver((entries)=>{
+            entries.forEach(e=>{
+                if(e.isIntersecting){
+                    tocLinks.forEach(l=>l.classList.remove('active'));
+                    const active=document.querySelector('.toc-link[href="#'+e.target.id+'"]');
+                    if(active)active.classList.add('active');
+                }
+            });
+        },{rootMargin:'-20% 0px -70% 0px'});
+        sections.forEach(s=>observer.observe(s));
+    </script>
+</body>
+</html>

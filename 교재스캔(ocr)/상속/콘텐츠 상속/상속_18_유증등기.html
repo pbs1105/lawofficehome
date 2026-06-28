@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>유증으로 인한 소유권이전등기 | 상속등기 실무안내</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>/* ===== UNIFIED BASE CSS ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #1a2e4a;
+  --gold: #c8a96e;
+  --bg: #faf8f5;
+  --text: #2c2c2c;
+  --summary-bg: #eef2f8;
+  --summary-bd: #2d4a7a;
+  --cta-bg: #fdf6e9;
+  --cta-bd: #c8a96e;
+  --case-bg: #f0f8f0;
+  --case-bd: #1a5c2e;
+  --ruling-bg: #f7f4f0;
+  --ruling-bd: #6b7280;
+  --warn-bg: #fff3e8;
+  --warn-bd: #c05000;
+  --rank-bg: #f4f7fb;
+  --rank-bd: #2d4a7a;
+  /* 하위 호환 */
+  --proc-bg: #e8f0fb;
+  --step-bg: #f0f4fb;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  font-size: 16px;
+}
+a { color: var(--navy); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ─── 헤더 ─── */
+header {
+  background: var(--navy);
+  color: #fff;
+  padding: 48px 24px 40px;
+  text-align: center;
+}
+header .breadcrumb {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 12px;
+  letter-spacing: 0.03em;
+}
+header h1 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+header .subtitle {
+  font-size: 15px;
+  color: var(--gold);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* ─── 레이아웃 ─── */
+.container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+/* 하위 호환: 기존 .page-wrap, .sec-inner 등 */
+.page-wrap, .sec-inner, .hd-inner { max-width: 820px; margin: 0 auto; padding: 0 20px; }
+
+section {
+  padding: 48px 0;
+  border-bottom: 1px solid #e4ddd4;
+}
+section:last-of-type { border-bottom: none; }
+/* 하위 호환: 기존 section 안에 있는 .sec-inner가 패딩 담당하는 구조 */
+section.sec-padded { padding: 48px 24px; }
+
+/* ─── 섹션 제목 ─── */
+h2 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--navy);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+h2 .tag {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: var(--navy);
+  color: var(--gold);
+  margin-right: 8px;
+  vertical-align: middle;
+}
+/* 하위 호환: 기존 .section-title 스타일을 h2 스펙에 맞게 재정의 */
+.section-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--navy);
+  border-bottom: 2px solid var(--gold);
+  border-left: none;
+  padding-bottom: 10px;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+.section-title .num {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: var(--navy);
+  color: var(--gold);
+  margin-right: 8px;
+  vertical-align: middle;
+  display: inline;
+}
+h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 28px 0 12px;
+}
+
+/* ─── 태그 & 배지 ─── */
+.law-tag {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: #e8edf5;
+  color: #2d4a7a;
+  display: inline-block;
+}
+.badge-red {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: #fde8e8;
+  color: #b00;
+  display: inline-block;
+}
+.badge-green {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: #e8f5e9;
+  color: #1a5c2e;
+  display: inline-block;
+}
+.q-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: var(--navy);
+  color: var(--gold);
+  display: inline-block;
+}
+
+/* ─── 컬러 박스 공통 (좌측 보더 패턴) ─── */
+.summary-box, .case-box, .ruling-box, .warn-box {
+  border-left: 4px solid;
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+
+/* 핵심요약 */
+.summary-box {
+  background: var(--summary-bg);
+  border-left-color: var(--summary-bd);
+}
+.summary-box .label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--summary-bd);
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+  display: block;
+}
+.summary-box ul { padding-left: 18px; }
+.summary-box li { margin-bottom: 8px; font-size: 14.5px; }
+
+/* 사례 */
+.case-box {
+  background: var(--case-bg);
+  border-left-color: var(--case-bd);
+}
+.case-box .case-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--case-bd);
+  margin-bottom: 8px;
+  display: block;
+}
+.case-box p { font-size: 14.5px; }
+
+/* 판례 */
+.ruling-box {
+  background: var(--ruling-bg);
+  border-left-color: var(--ruling-bd);
+}
+.ruling-box .ruling-header {
+  font-size: 13px;
+  font-weight: 700;
+  color: #444;
+  margin-bottom: 8px;
+  display: block;
+}
+.ruling-box .ruling-header::before {
+  content: "判";
+  background: var(--ruling-bd);
+  color: #fff;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-right: 8px;
+  font-size: 11px;
+}
+.ruling-box p { font-size: 14.5px; }
+/* 하위 호환: 기존 .ruling-card 클래스도 동일 스타일로 */
+.ruling-card {
+  background: var(--ruling-bg);
+  border-left: 4px solid var(--ruling-bd);
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+.ruling-card .r-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #5a6475;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+.ruling-card .r-label::before {
+  content: "判";
+  background: var(--ruling-bd);
+  color: #fff;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-right: 8px;
+  font-size: 11px;
+}
+.ruling-card .r-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.ruling-card .r-body { font-size: 14.5px; line-height: 1.65; }
+
+/* 주의사항 */
+.warn-box {
+  background: var(--warn-bg);
+  border-left-color: var(--warn-bd);
+}
+.warn-box .warn-title, .warn-box .w-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--warn-bd);
+  margin-bottom: 8px;
+  display: block;
+}
+.warn-box p, .warn-box li { font-size: 14.5px; }
+.warn-box ul { padding-left: 18px; }
+.warn-box li { margin-bottom: 6px; }
+
+/* ─── 테이블 ─── */
+.table-wrap { overflow-x: auto; margin: 20px 0; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 480px;
+}
+.tbl-wrap { overflow-x: auto; margin: 20px 0; }
+thead th {
+  background: var(--navy);
+  color: #fff;
+  padding: 11px 14px;
+  font-size: 13px;
+  text-align: left;
+  font-weight: 700;
+}
+tbody td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #e4ddd4;
+  line-height: 1.6;
+  vertical-align: top;
+}
+tbody tr:nth-child(even) td { background: #f5f2ee; }
+tbody tr:hover td { background: #eee8e0; }
+td.highlight { font-weight: 700; color: var(--navy); }
+td.gold { font-weight: 700; color: #8a5e00; background: #fffbf0; }
+
+/* ─── 체크리스트 ─── */
+.checklist {
+  background: #fff;
+  border: 1px solid #ddd6ce;
+  border-radius: 8px;
+  padding: 24px 28px;
+  list-style: none;
+}
+.checklist li {
+  padding: 6px 0;
+  font-size: 14.5px;
+  border-bottom: 1px dashed #e8e0d8;
+}
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before {
+  content: "✓";
+  color: var(--gold);
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+/* ─── Q&A (통합: .qna- 및 하위 호환 .qa-) ─── */
+.qna-item, .qa-item {
+  border: 1px solid #e0d9d0;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+.qna-q, .qa-q {
+  background: #fff;
+  padding: 16px 20px;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--navy);
+  cursor: pointer;
+}
+.qna-a, .qa-a {
+  background: #faf8f5;
+  padding: 16px 20px 16px 48px;
+  font-size: 14.5px;
+  border-top: 1px solid #e0d9d0;
+  line-height: 1.75;
+}
+.qna-a .disclaimer {
+  font-size: 12px;
+  color: #888;
+  margin-top: 10px;
+  border-top: 1px dashed #ccc;
+  padding-top: 8px;
+}
+
+/* ─── 기간 경고 배너 ─── */
+.deadline-banner {
+  background: #fff8f6;
+  border: 2px solid #c0392b;
+  border-radius: 8px;
+  margin: 24px 0;
+  padding: 18px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.deadline-banner .dl-icon, .deadline-banner .icon {
+  font-size: 26px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.deadline-banner .dl-text, .deadline-banner .text { flex: 1; }
+.deadline-banner h4, .deadline-banner strong { color: #7a0000; font-weight: 700; }
+.deadline-banner p { font-size: 13.5px; color: #555; line-height: 1.6; margin-top: 4px; }
+
+/* ─── 다음 페이지 링크 ─── */
+.next-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+.next-link {
+  background: #fff;
+  border: 1px solid #ddd6ce;
+  border-radius: 8px;
+  padding: 16px 18px;
+  font-size: 14px;
+  color: var(--navy);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.next-link:hover {
+  border-color: var(--gold);
+  box-shadow: 0 2px 8px rgba(200,169,110,0.15);
+  text-decoration: none;
+}
+.next-link .arrow { color: var(--gold); font-size: 18px; flex-shrink: 0; }
+
+/* ─── CTA 박스 ─── */
+.cta-box {
+  background: var(--cta-bg);
+  border: 1px solid var(--cta-bd);
+  border-radius: 10px;
+  padding: 32px 28px;
+  text-align: center;
+  margin: 40px 0 0;
+}
+.cta-box h3 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+  border: none;
+  padding: 0;
+}
+.cta-box p {
+  font-size: 14.5px;
+  color: #4a4a5a;
+  margin-bottom: 20px;
+}
+.cta-btn {
+  display: inline-block;
+  background: var(--navy);
+  color: #fff;
+  padding: 14px 36px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.cta-btn:hover { background: #26426a; text-decoration: none; }
+
+/* ─── 면책 섹션 ─── */
+.disclaimer-section {
+  background: #f2f0ec;
+  padding: 28px;
+  border-radius: 8px;
+  margin: 40px 0 0;
+}
+.disclaimer-section p, .disclaimer {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.8;
+}
+
+/* ─── 반응형 ─── */
+@media (max-width: 600px) {
+  header { padding: 36px 16px 28px; }
+  section { padding: 36px 0; }
+  .summary-box, .case-box, .ruling-box, .warn-box,
+  .ruling-card { padding: 16px 18px; }
+  .qna-a, .qa-a { padding-left: 20px; }
+  .cta-box { padding: 24px 20px; }
+  .cta-btn { padding: 12px 28px; }
+  .next-links { grid-template-columns: 1fr; }
+}
+
+
+/* ===== PAGE-SPECIFIC STYLES ===== */
+*{box-sizing:border-box;margin:0;padding:0;}
+
+.target-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:4px;}
+.target-card{background:var(--summary-bg);border-left:4px solid var(--summary-bd);border-radius:6px;padding:14px 16px;font-size:14px;line-height:1.6;}
+.target-card strong{display:block;color:var(--navy);font-size:13px;margin-bottom:4px;}
+@media(max-width:600px){.target-grid{grid-template-columns:1fr;}}
+
+.summary-row:last-child{margin-bottom:0;}
+.s-key{min-width:110px;font-weight:700;color:var(--navy);}
+.s-val{flex:1;color:#333;}
+
+.legacy-compare{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px;}
+.legacy-compare th{background:var(--navy);color:#fff;padding:11px 14px;text-align:center;font-weight:600;}
+.legacy-compare th:first-child{text-align:left;}
+.legacy-compare td{padding:11px 14px;border-bottom:1px solid #dde3ec;vertical-align:top;}
+.legacy-compare td:first-child{font-weight:600;color:var(--navy);background:#f5f7fb;white-space:nowrap;}
+.legacy-compare tr:last-child td{border-bottom:none;}
+.tag-포괄{display:inline-block;background:#e8f0fb;color:#1a3a6a;font-size:11px;font-weight:700;padding:2px 8px;border-radius:3px;margin-right:4px;}
+.tag-특정{display:inline-block;background:#fef3e0;color:#7a4000;font-size:11px;font-weight:700;padding:2px 8px;border-radius:3px;}
+@media(max-width:600px){.legacy-compare{font-size:13px;}.legacy-compare th,.legacy-compare td{padding:9px 10px;}}
+
+.flow-wrap{margin:8px 0 28px;}
+.flow-step{display:flex;gap:16px;align-items:flex-start;margin-bottom:0;}
+.flow-node{display:flex;flex-direction:column;align-items:center;min-width:54px;}
+.flow-circle{width:42px;height:42px;border-radius:50%;background:var(--navy);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.flow-arrow{width:2px;height:28px;background:var(--gold);margin:3px auto;}
+.flow-
+.flow-title{font-weight:700;color:var(--navy);font-size:15px;margin-bottom:4px;}
+.flow-desc{font-size:13px;color:#444;line-height:1.6;}
+.flow-step:last-child .flow-arrow{display:none;}
+
+.step-block{background:var(--step-bg);border:1px solid #c8d4ea;border-radius:10px;padding:22px 24px;margin-bottom:20px;}
+.step-block-head{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.step-num{background:var(--navy);color:#fff;width:30px;height:30px;border-radius:50%;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.step-block-head 
+
+.exec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:10px 0;}
+.exec-card{background:#fff;border:2px solid var(--summary-bd);border-radius:8px;padding:16px 14px;}
+.exec-type{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:.05em;margin-bottom:6px;}
+.exec-name{font-weight:700;color:var(--navy);font-size:15px;margin-bottom:8px;}
+.exec-desc{font-size:13px;color:#444;line-height:1.5;}
+.exec-note{font-size:12px;color:#777;margin-top:6px;font-style:italic;}
+@media(max-width:600px){.exec-grid{grid-template-columns:1fr;}}
+
+.confirm-
+.confirm-table th{background:var(--navy);color:#fff;padding:10px 12px;text-align:center;font-weight:600;}
+.confirm-table td{padding:10px 12px;border-bottom:1px solid #dde3ec;text-align:center;}
+.confirm-table td:first-child{text-align:left;font-weight:600;color:var(--navy);}
+.confirm-table tr:last-child td{border-bottom:none;}
+.badge-yes{display:inline-block;background:#e8f5e9;color:#1b5e20;font-size:12px;font-weight:700;padding:3px 10px;border-radius:12px;}
+.badge-no{display:inline-block;background:#fce4ec;color:#880e4f;font-size:12px;font-weight:700;padding:3px 10px;border-radius:12px;}
+
+.cause-box{background:#fffdf5;border:1.5px solid var(--gold);border-radius:8px;padding:18px 20px;margin:12px 0;}
+.cause-box h4{font-weight:700;color:var(--navy);margin-bottom:10px;font-size:14px;}
+.cause-row{display:flex;gap:10px;margin-bottom:7px;font-size:14px;}
+.cause-row:last-child{margin-bottom:0;}
+.c-label{min-width:100px;font-weight:600;color:#555;}
+
+.unreg-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:10px 0;}
+.unreg-card{border-radius:8px;padding:16px 16px;font-size:14px;}
+.unreg-card.포괄{background:var(--case-bg);border-left:4px solid var(--case-bd);}
+.unreg-card.특정{background:var(--warn-bg);border-left:4px solid var(--warn-bd);}
+.unreg-card strong{display:block;margin-bottom:6px;font-size:13px;}
+@media(max-width:600px){.unreg-grid{grid-template-columns:1fr;}}
+
+.doc-category{margin-bottom:24px;}
+.doc-cat-title{font-weight:700;color:var(--navy);font-size:15px;margin-bottom:12px;padding-left:10px;border-left:4px solid var(--gold);}
+.doc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.doc-card{background:#fff;border:1px solid #dde3ec;border-radius:8px;padding:14px 16px;}
+.doc-name{font-weight:700;font-size:14px;color:var(--navy);margin-bottom:4px;}
+.doc-note{font-size:12px;color:#666;line-height:1.5;}
+.doc-req{font-size:11px;font-weight:700;padding:2px 6px;border-radius:3px;margin-left:6px;}
+.req-필수{background:#e8f0fb;color:#1a3a6a;}
+.req-조건{background:#fef3e0;color:#7a4000;}
+@media(max-width:600px){.doc-grid{grid-template-columns:1fr;}}
+
+.fee-
+.fee-table th{background:var(--navy);color:#fff;padding:10px 14px;text-align:left;font-weight:600;}
+.fee-table td{padding:10px 14px;border-bottom:1px solid #dde3ec;vertical-align:top;}
+.fee-table tr:last-child td{border-bottom:none;}
+.fee-note{font-size:12px;color:#666;margin-top:14px;line-height:1.6;}
+
+.ruling-cite{font-size:12px;font-weight:700;color:#555;margin-bottom:6px;}
+.ruling-summary{font-size:14px;color:#333;line-height:1.65;}
+.ruling-point{display:inline-block;background:#ede9e5;color:var(--navy);font-size:12px;font-weight:700;padding:2px 8px;border-radius:3px;margin-top:8px;}
+
+.warn-list{display:flex;flex-direction:column;gap:12px;}
+.warn-item{display:flex;gap:14px;background:var(--warn-bg);border:1px solid var(--warn-bd);border-radius:8px;padding:16px 18px;align-items:flex-start;}
+.warn-icon{font-size:20px;flex-shrink:0;margin-top:1px;}
+.warn-text strong{display:block;color:#7a3000;font-size:14px;margin-bottom:4px;}
+.warn-text p{font-size:13px;color:#555;line-height:1.6;}
+
+.qa-q::after{content:'＋';font-size:18px;flex-shrink:0;}
+.qa-
+
+.next-card{background:#fff;border:1px solid #dde3ec;border-radius:8px;padding:18px;text-decoration:none;transition:border-color .2s,box-shadow .2s;}
+.next-card:hover{border-color:var(--navy);box-shadow:0 2px 12px rgba(26,46,74,.08);}
+.next-dir{font-size:11px;font-weight:700;color:var(--gold);margin-bottom:4px;letter-spacing:.05em;}
+.next-title{font-size:14px;font-weight:700;color:var(--navy);}
+.next-desc{font-size:12px;color:#666;margin-top:4px;}
+@media(max-width:600px){}
+
+.cta-btn.outline{background:#fff;color:var(--navy);border:2px solid var(--navy);}
+@media(max-width:600px){}
+/* ─── 법령·판례 클릭 태그 ─── */
+.ref-tags {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.tag-law {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: #eef2f8;
+  color: #2d4a7a;
+  border: 1px solid #2d4a7a;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.tag-law:hover { background-color: #dce6f5; }
+.tag-case {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: #f7f4f0;
+  color: #5a3e28;
+  border: 1px solid #6b7280;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.tag-case:hover { background-color: #ede8e2; }
+/* law-ref 인라인 스타일을 tag-law 와 통일 */
+span.law-ref a, .tag-law { cursor: pointer; }
+
+</style></head>
+<body>
+<!-- ────────────────────── HEADER ────────────────────── -->
+<header>
+<div class="breadcrumb">유형2 · 절차형</div>
+<h1>유증으로 인한<br/>소유권이전등기</h1>
+<div class="subtitle">유언장으로 부동산을 받았다면? — 유증 등기의 절차와 핵심 쟁점</div>
+</header>
+<!-- ────────────────────── 1. 이런분께 ────────────────────── -->
+<section>
+<div class="container">
+<p class="sec-label">Section 01</p>
+<h2 class="sec-title">이런 분께 필요한 안내입니다</h2>
+<div class="target-grid">
+<div class="target-card"><strong>유언장에서 부동산을 받은 분</strong>돌아가신 분(유증자)이 남긴 유언장에 부동산 상속을 받도록 지정되었으나, 등기 절차를 모르는 수증자</div>
+<div class="target-card"><strong>상속인이 유증 이행을 거부하는 경우</strong>수증자인데 상속인들이 등기에 협조하지 않아 단독으로 진행하고 싶은 분</div>
+<div class="target-card"><strong>유언집행자로 지정된 분</strong>유언장에서 유언집행자로 지정되어 유증 등기를 처리해야 하는 분</div>
+<div class="target-card"><strong>포괄유증과 특정유증을 구분하고 싶은 분</strong>"재산 전부를 준다"와 "특정 아파트를 준다"는 등기 방법이 다릅니다</div>
+</div>
+</div>
+</section>
+<!-- ────────────────────── 2. 핵심요약 ────────────────────── -->
+<section>
+<div class="container">
+<p class="sec-label">Section 02</p>
+<h2 class="sec-title">핵심 요약 — 한눈에 보기</h2>
+<div class="summary-box">
+<h3>유증 등기의 핵심 원칙</h3>
+<div class="summary-row"><span class="s-key">등기원인</span><span class="s-val">"○년 ○월 ○일 유증" — 원인일자는 유증자(유언자)의 <strong>사망일</strong></span></div>
+<div class="summary-row"><span class="s-key">신청방법</span><span class="s-val">수증자(등기권리자) + 유언집행자 또는 상속인(등기의무자) <strong>공동신청 원칙</strong></span></div>
+<div class="summary-row"><span class="s-key">선행등기</span><span class="s-val">상속등기 없이 유증자 → 수증자로 직접 이전 가능 (상속등기가 이미 된 경우는 상속인 → 수증자 이전)</span></div>
+<div class="summary-row"><span class="s-key">유언검인</span><span class="s-val">공정증서 유언 외에는 가정법원 <strong>검인 필요</strong> (검인조서 등본 첨부)</span></div>
+<div class="summary-row"><span class="s-key">기간 제한</span><span class="s-val">없음 — 단, 채무超過 우려 시 유증 포기는 유언자 사망 후 3개월 내 고려</span></div>
+</div>
+<!-- 포괄유증 vs 특정유증 비교표 -->
+<table class="legacy-compare">
+<colgroup><col style="width:20%"/><col style="width:40%"/><col style="width:40%"/></colgroup>
+<thead>
+<tr><th>구분</th><th><span class="tag-포괄">포괄적 유증</span></th><th><span class="tag-특정">특정적 유증</span></th></tr>
+</thead>
+<tbody>
+<tr><td>의의</td><td>재산 전부 또는 일정 비율을 유증 (예: "재산의 1/2을 ○○에게")</td><td>특정 재산만 유증 (예: "서울 ○○ 아파트를 ○○에게")</td></tr>
+<tr><td>법적 효력</td><td>물권적 효력 (민법 §1078) — 상속인과 동일 권리의무 취득, 사망과 동시에 취득</td><td>채권적 효력 — 이행청구권만 취득, 별도 이전행위 필요</td></tr>
+<tr><td>등기 의무자</td><td>유언집행자 또는 상속인 (공동신청)</td><td>유언집행자 또는 상속인 (공동신청)</td></tr>
+<tr><td>미등기 부동산</td><td>수증자 명의로 직접 보존등기 가능 (부동산등기법 §65)</td><td>먼저 상속인 명의 보존등기 후 → 수증자에게 이전</td></tr>
+<tr><td>농지취득자격증명</td><td>불필요 (예규 제1415호)</td><td>상속인이 수증자이면 불필요, 제3자이면 필요</td></tr>
+<tr><td>유류분 침해</td><td colspan="2">등기관은 형식적 심사권만 가지므로 유류분 침해 여부와 무관하게 등기 수리 (선례 2-329)</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- ────────────────────── 3. 절차흐름도 ────────────────────── -->
+<section>
+<div class="container">
+<p class="sec-label">Section 03</p>
+<h2 class="sec-title">절차 흐름도</h2>
+<div class="flow-wrap">
+<div class="flow-step">
+<div class="flow-node">
+<div class="flow-circle">1</div>
+<div class="flow-arrow"></div>
+</div>
+<div class="flow-body">
+<div class="flow-title">유언자 사망 — 유언 내용 확인</div>
+<div class="flow-desc">유언의 존재와 방식(자필·공정증서 등)을 확인합니다. 공정증서 유언이 아니면 검인 절차가 필요합니다.</div>
+</div>
+</div>
+<div class="flow-step">
+<div class="flow-node">
+<div class="flow-circle">2</div>
+<div class="flow-arrow"></div>
+</div>
+<div class="flow-body">
+<div class="flow-title">유언 검인 (공정증서 유언은 생략)</div>
+<div class="flow-desc">자필증서·녹음·비밀증서 유언 → 가정법원에 검인 신청 → 검인기일 출석 → 검인조서 등본 수령. 구수증서는 검인심판서 등본 첨부.</div>
+</div>
+</div>
+<div class="flow-step">
+<div class="flow-node">
+<div class="flow-circle">3</div>
+<div class="flow-arrow"></div>
+</div>
+<div class="flow-body">
+<div class="flow-title">유언집행자 확정</div>
+<div class="flow-desc">유언에 유언집행자가 지정되어 있으면 그 사람이 집행. 없으면 상속인 전원이 법정 유언집행자. 필요시 가정법원에 선임 신청.</div>
+</div>
+</div>
+<div class="flow-step">
+<div class="flow-node">
+<div class="flow-circle">4</div>
+<div class="flow-arrow"></div>
+</div>
+<div class="flow-body">
+<div class="flow-title">서류 준비 — 수증자 · 집행자 공동 준비</div>
+<div class="flow-desc">등기신청서, 유언장(검인조서 포함), 유언집행자 증명 서류, 수증자 주민등록등본, 취득세 영수증 등을 준비합니다.</div>
+</div>
+</div>
+<div class="flow-step">
+<div class="flow-node">
+<div class="flow-circle">5</div>
+<div class="flow-arrow"></div>
+</div>
+<div class="flow-body">
+<div class="flow-title">취득세 납부 (시·군·구청)</div>
+<div class="flow-desc">유증 취득 — 증여세율(3.5%) 적용. 주택 수·조정지역 여부에 따라 중과세율 적용 가능. 농어촌특별세·지방교육세 병과.</div>
+</div>
+</div>
+<div class="flow-step">
+<div class="flow-node">
+<div class="flow-circle">6</div>
+<div class="flow-arrow"></div>
+</div>
+<div class="flow-body">
+<div class="flow-title">등기 신청 — 관할 등기소 접수</div>
+<div class="flow-desc">수증자와 유언집행자(또는 상속인)가 공동신청. 방문 또는 전자신청 가능. 이미 상속등기가 된 경우 상속인이 의무자로 신청.</div>
+</div>
+</div>
+<div class="flow-step">
+<div class="flow-node">
+<div class="flow-circle">7</div>
+</div>
+<div class="flow-body">
+<div class="flow-title">등기 완료 — 등기사항증명서 확인</div>
+<div class="flow-desc">등기관 심사 후 완료. 등기사항증명서에 소유권이전 내용과 원인("○년 ○월 ○일 유증") 기재 확인.</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ────────────────────── 4. 단계별 상세 ────────────────────── -->
+<section>
+<div class="container">
+<p class="sec-label">Section 04</p>
+<h2 class="sec-title">단계별 상세 안내</h2>
+<!-- STEP 1: 유언집행자 -->
+<div class="step-block">
+<div class="step-block-head">
+<div class="step-num">1</div>
+<h3>유언집행자 — 누가 등기의무자가 되는가</h3>
+</div>
+<p style="font-size:14px;color:#444;margin-bottom:14px;">유증 등기에서 등기의무자는 <strong>유언집행자</strong>입니다. 유언집행자가 없거나 선임되지 않은 경우 상속인 전원이 법정 유언집행자로서 의무자가 됩니다.</p>
+<div class="exec-grid">
+<div class="exec-card">
+<div class="exec-type">① 지정유언집행자</div>
+<div class="exec-name">유언으로 지정</div>
+<div class="exec-desc">유언장에서 직접 지정된 집행자. 제3자도 가능. 별도 법원 선임 불필요.</div>
+<div class="exec-note">취임 거부·사망 시 가정법원에 선임 신청</div>
+</div>
+<div class="exec-card">
+<div class="exec-type">② 법정유언집행자</div>
+<div class="exec-name">상속인 전원</div>
+<div class="exec-desc">유언집행자 지정이 없는 경우 상속인 전원이 집행. 과반수 동의로 신청 불가 — 전원 참여 원칙.</div>
+<div class="exec-note">상속인이 수증자인 경우도 동일</div>
+</div>
+<div class="exec-card">
+<div class="exec-type">③ 선임유언집행자</div>
+<div class="exec-name">가정법원 선임</div>
+<div class="exec-desc">집행자 부재 또는 결격 시 이해관계인이 가정법원에 선임 신청. 심판서 등본이 자격 증명.</div>
+<div class="exec-note">선임심판서 등본을 첨부정보로 제출</div>
+</div>
+</div>
+<div class="cause-box" style="margin-top:14px;">
+<h4>📌 유언집행자 수인(數人)인 경우 — 예규 제1024호, 선례 5-329</h4>
+<div class="cause-row"><span class="c-label">원칙</span><span>유언집행자 전원이 공동으로 직무 수행</span></div>
+<div class="cause-row"><span class="c-label">예외</span><span>유언에서 과반수 동의로 결정하도록 정한 경우, 과반수 이상의 동의를 증명하면 과반수만으로 신청 가능</span></div>
+</div>
+</div>
+<!-- STEP 2: 검인 절차 -->
+<div class="step-block">
+<div class="step-block-head">
+<div class="step-num">2</div>
+<h3>유언 검인 — 방식별 처리</h3>
+</div>
+<p style="font-size:14px;color:#444;margin-bottom:14px;">유언의 방식에 따라 검인 필요 여부와 첨부 서류가 달라집니다. 검인 없이 등기를 신청하면 <strong>각하 사유</strong>가 됩니다.</p>
+<table class="confirm-table">
+<thead>
+<tr><th>유언 방식</th><th>검인 필요 여부</th><th>첨부 서류</th></tr>
+</thead>
+<tbody>
+<tr><td>자필증서 유언</td><td><span class="badge-yes">검인 필요</span></td><td>가정법원 검인조서 등본</td></tr>
+<tr><td>녹음 유언</td><td><span class="badge-yes">검인 필요</span></td><td>가정법원 검인조서 등본</td></tr>
+<tr><td>비밀증서 유언</td><td><span class="badge-yes">검인 필요</span></td><td>가정법원 검인조서 등본</td></tr>
+<tr><td>공정증서 유언</td><td><span class="badge-no">검인 불필요</span></td><td>공정증서 원본 또는 정본</td></tr>
+<tr><td>구수증서 유언</td><td><span class="badge-yes">검인심판 필요</span></td><td>검인심판서 등본 (확정증명서 포함)</td></tr>
+</tbody>
+</table>
+<div class="cause-box" style="margin-top:14px;">
+<h4>⚠️ 검인의 의미</h4>
+<div class="cause-row"><span class="c-label">검인이란</span><span>유언의 위변조를 방지하기 위한 보존·확인 절차. 유언의 유효성을 법원이 인정하는 것이 아님</span></div>
+<div class="cause-row"><span class="c-label">등기관 심사</span><span>검인 여부만 형식적으로 심사 — 유언이 실질적으로 유효한지는 심사하지 않음</span></div>
+</div>
+</div>
+<!-- STEP 3: 등기원인 -->
+<div class="step-block">
+<div class="step-block-head">
+<div class="step-num">3</div>
+<h3>등기원인과 원인일자</h3>
+</div>
+<div class="cause-box">
+<h4>등기원인 기재 방법</h4>
+<div class="cause-row"><span class="c-label">등기원인</span><span>"○년 ○월 ○일 유증"</span></div>
+<div class="cause-row"><span class="c-label">원인일자 원칙</span><span>유증자(유언자)의 <strong>사망일</strong></span></div>
+<div class="cause-row"><span class="c-label">조건부 유증</span><span>조건이 붙은 유증이라면 — <strong>조건 성취일</strong></span></div>
+<div class="cause-row"><span class="c-label">등기필정보</span><span>유증자가 권리를 취득할 당시의 등기필정보 제공 (예규 제1024호)</span></div>
+</div>
+</div>
+<!-- STEP 4: 선행 상속등기 여부 -->
+<div class="step-block">
+<div class="step-block-head">
+<div class="step-num">4</div>
+<h3>상속등기 선행 여부 — 두 가지 경우</h3>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+<div style="background:#e8f0fb;border-radius:8px;padding:16px 16px;font-size:14px;">
+<strong style="display:block;color:var(--navy);margin-bottom:8px;">📌 상속등기 전 (원칙)</strong>
+          유증자 명의 그대로인 경우<br/><br/>
+<span style="font-weight:700;">유증자 → 수증자</span>로 직접 소유권이전등기 신청.<br/>
+          상속인 명의로 상속등기 불필요.
+        </div>
+<div style="background:#fef3e0;border-radius:8px;padding:16px 16px;font-size:14px;">
+<strong style="display:block;color:#7a4000;margin-bottom:8px;">⚠️ 상속등기 완료 후</strong>
+          이미 상속인 명의로 상속등기가 된 경우<br/><br/>
+<span style="font-weight:700;">상속인 → 수증자</span>로 이전등기 신청.<br/>
+          상속인이 의무자로서 신청에 참여.
+        </div>
+</div>
+</div>
+<!-- STEP 5: 미등기 부동산 -->
+<div class="step-block">
+<div class="step-block-head">
+<div class="step-num">5</div>
+<h3>미등기 부동산 — 포괄·특정유증 처리 차이</h3>
+</div>
+<div class="unreg-grid">
+<div class="unreg-card 포괄">
+<strong>포괄적 유증 (물권적 효력)</strong>
+          수증자는 상속인과 동일한 지위 취득.<br/>
+          → <strong>수증자 명의로 직접 보존등기 가능</strong><br/>
+          (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=59791&joNo=006500" target="_blank" class="tag-law">📋 부동산등기법 제65조 1호</a>)
+        </div>
+<div class="unreg-card 특정">
+<strong>특정적 유증 (채권적 효력)</strong>
+          수증자는 이행청구권만 가짐.<br/>
+          → 먼저 <strong>상속인 명의로 보존등기</strong> 후<br/>
+          수증자에게 이전등기 신청
+        </div>
+</div>
+</div>
+</div>
+</section>
+<!-- ────────────────────── 5. 준비서류 ────────────────────── -->
+<section>
+<div class="container">
+<p class="sec-label">Section 05</p>
+<h2 class="sec-title">준비 서류</h2>
+<div class="doc-category">
+<div class="doc-cat-title">공통 필수 서류</div>
+<div class="doc-grid">
+<div class="doc-card">
+<div class="doc-name">등기신청서 <span class="doc-req req-필수">필수</span></div>
+<div class="doc-note">등기소 양식 또는 대법원 인터넷등기소 작성</div>
+</div>
+<div class="doc-card">
+<div class="doc-name">유언장 원본 <span class="doc-req req-필수">필수</span></div>
+<div class="doc-note">공정증서는 정본 또는 원본; 기타 방식은 원본</div>
+</div>
+<div class="doc-card">
+<div class="doc-name">유증자(유언자) 기본증명서·가족관계증명서 <span class="doc-req req-필수">필수</span></div>
+<div class="doc-note">사망 사실 확인용; 상세 기본증명서(사망 기재) 필요</div>
+</div>
+<div class="doc-card">
+<div class="doc-name">수증자 주민등록등본 <span class="doc-req req-필수">필수</span></div>
+<div class="doc-note">현재 주소 및 주민등록번호 확인</div>
+</div>
+<div class="doc-card">
+<div class="doc-name">취득세 납부 영수증 <span class="doc-req req-필수">필수</span></div>
+<div class="doc-note">시·군·구청에서 납부 후 납부확인서 수령</div>
+</div>
+<div class="doc-card">
+<div class="doc-name">등기필정보 <span class="doc-req req-필수">필수</span></div>
+<div class="doc-note">유증자가 소유권을 취득할 당시의 등기필정보 (예규 제1024호)</div>
+</div>
+</div>
+</div>
+<div class="doc-category">
+<div class="doc-cat-title">검인 관련 서류 (방식별)</div>
+<div class="doc-grid">
+<div class="doc-card">
+<div class="doc-name">검인조서 등본 <span class="doc-req req-조건">자필·녹음·비밀</span></div>
+<div class="doc-note">가정법원 검인 절차 완료 후 수령. 원본대조필 날인 필요</div>
+</div>
+<div class="doc-card">
+<div class="doc-name">검인심판서 등본 + 확정증명서 <span class="doc-req req-조건">구수증서</span></div>
+<div class="doc-note">가정법원 검인심판 확정 후 수령</div>
+</div>
+</div>
+</div>
+<div class="doc-category">
+<div class="doc-cat-title">유언집행자 관련 서류</div>
+<div class="doc-grid">
+<div class="doc-card">
+<div class="doc-name">선임심판서 등본 <span class="doc-req req-조건">선임집행자</span></div>
+<div class="doc-note">가정법원 유언집행자 선임 심판서; 확정증명서 포함</div>
+</div>
+<div class="doc-card">
+<div class="doc-name">인감증명서 <span class="doc-req req-필수">집행자</span></div>
+<div class="doc-note">유언집행자 또는 상속인(법정집행자)의 인감증명서; 매도용 아님</div>
+</div>
+<div class="doc-card">
+<div class="doc-name">상속인 전원의 인감증명서 <span class="doc-req req-조건">법정집행자</span></div>
+<div class="doc-note">집행자 미지정 시 상속인 전원 참여; 전원 인감 필요</div>
+</div>
+<div class="doc-card">
+<div class="doc-name">농지취득자격증명 <span class="doc-req req-조건">특정유증+제3자</span></div>
+<div class="doc-note">포괄유증·상속인에게의 특정유증은 불필요 (예규 제1415호); 제3자에 대한 특정유증 시 농지라면 필요</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ────────────────────── 6. 비용 안내 ────────────────────── -->
+<section>
+<div class="container">
+<p class="sec-label">Section 06</p>
+<h2 class="sec-title">비용 안내</h2>
+<table class="fee-table">
+<thead><tr><th>항목</th><th>기준</th><th>비고</th></tr></thead>
+<tbody>
+<tr><td>취득세</td><td>과세표준의 3.5% (증여세율)</td><td>유증은 증여세율 적용; 1주택 이하 비조정지역 기준. 중과 주의</td></tr>
+<tr><td>지방교육세</td><td>취득세의 20%</td><td>취득세와 동시 납부</td></tr>
+<tr><td>농어촌특별세</td><td>취득세의 10% (감면 시 20%)</td><td>해당하는 경우</td></tr>
+<tr><td>등록면허세</td><td>0원</td><td>소유권이전은 취득세에 통합, 별도 없음</td></tr>
+<tr><td>교육세(지방)</td><td>취득세 병과분에 포함</td><td>-</td></tr>
+<tr><td>국민주택채권 매입</td><td>시가표준액 × 요율</td><td>주택 규모·지역에 따라 요율 차이</td></tr>
+<tr><td>등기신청수수료</td><td>15,000원 (대법원규칙)</td><td>인터넷 신청 시 일부 감면</td></tr>
+<tr><td>가정법원 검인 신청</td><td>인지대 1,000원 + 송달료</td><td>검인이 필요한 유언 방식에 해당 시</td></tr>
+<tr><td>법무사 보수</td><td>대한법무사협회 보수규정</td><td>부동산 가액에 따라 산정</td></tr>
+</tbody>
+</table>
+<p class="fee-note">※ 취득세율은 취득 시점과 주택 보유 수, 조정대상지역 여부에 따라 달라질 수 있습니다.<br/>
+    ※ 유증을 받는 수증자가 상속인이 아닌 제3자인 경우, 상속이 아닌 일반 취득으로 간주되어 별도 세율이 적용될 수 있습니다.</p>
+</div>
+</section>
+<!-- ────────────────────── 7. 판례 ────────────────────── -->
+<section>
+<div class="container">
+<p class="sec-label">Section 07</p>
+<h2 class="sec-title">관련 판례 및 선례</h2>
+<div class="ruling-card">
+<div class="ruling-cite">등기선례 제5-327호</div>
+<div class="ruling-summary">유증을 원인으로 하는 소유권이전등기를 신청할 때는 수증자와 유언집행자(유언집행자가 없는 때에는 상속인)가 공동신청하여야 하며, 수증자가 단독으로 신청할 수 없다. 등기원인은 "유증"이고, 등기원인일자는 유증자의 사망일이다.</div>
+<span class="ruling-point">공동신청 원칙 · 원인일자</span>
+</div>
+<div class="ruling-card">
+<div class="ruling-cite">등기선례 제6-249호</div>
+<div class="ruling-summary">유언집행자가 있음에도 수증자가 상속인을 등기의무자로 하여 단독으로 등기신청을 하는 것은 허용되지 않는다. 유언집행자가 존재하는 경우에는 반드시 유언집행자가 의무자로 참여하여야 한다.</div>
+<span class="ruling-point">유언집행자 우선 원칙</span>
+</div>
+<div class="ruling-card">
+<div class="ruling-cite">등기선례 제5-329호</div>
+<div class="ruling-summary">유언집행자가 수인인 경우, 유언에서 과반수의 결의로 직무를 처리하도록 정하였다면 과반수 이상의 유언집행자가 동의하였음을 증명하는 서면을 첨부하여 과반수 이상이 신청인으로 등기신청을 할 수 있다.</div>
+<span class="ruling-point">복수 집행자 처리</span>
+</div>
+<div class="ruling-card">
+<div class="ruling-cite">등기선례 제2-329호</div>
+<div class="ruling-summary">유증 등기를 신청받은 등기관은 당해 유증이 유류분을 침해하는지 여부에 대하여 심사할 권한이 없으므로, 유류분을 침해하는 유증이라 하더라도 등기 신청이 적법한 이상 이를 수리하여야 한다.</div>
+<span class="ruling-point">유류분 침해와 등기수리</span>
+</div>
+</div>
+</section>
+<!-- ────────────────────── 8. 주의사항 ────────────────────── -->
+<section>
+<div class="container">
+<p class="sec-label">Section 08</p>
+<h2 class="sec-title">반드시 확인할 주의사항</h2>
+<div class="warn-list">
+<div class="warn-item">
+<div class="warn-icon">⚠️</div>
+<div class="warn-text">
+<strong>검인 없는 유언장으로 등기 불가</strong>
+<p>공정증서 유언이 아닌데 검인을 받지 않은 유언장으로 등기 신청을 하면 각하됩니다. 검인 기일에는 원본 유언장을 반드시 지참해야 하며, 검인조서 등본을 수령하는 데 수 주가 걸릴 수 있으므로 일정을 미리 계획하십시오.</p>
+</div>
+</div>
+<div class="warn-item">
+<div class="warn-icon">⚠️</div>
+<div class="warn-text">
+<strong>취득세는 증여세율(3.5%) 적용 — 상속세율이 아님</strong>
+<p>유증은 법적으로 상속이 아닌 증여와 유사하게 취급되어 취득세율 3.5%가 적용됩니다. 다주택자·조정대상지역에서는 중과세율이 적용될 수 있으므로 납부 전 세무사와 상담하는 것이 권장됩니다.</p>
+</div>
+</div>
+<div class="warn-item">
+<div class="warn-icon">⚠️</div>
+<div class="warn-text">
+<strong>유류분 침해 유증도 등기는 수리 — 그러나 분쟁 위험 존재</strong>
+<p>등기관은 유류분 침해 여부를 심사하지 않으므로 일단 등기는 됩니다. 그러나 다른 상속인이 유류분반환청구 소송을 제기하면 나중에 등기가 말소될 수 있습니다. 유류분 문제가 있는 경우 법적 조언을 먼저 구하십시오.</p>
+</div>
+</div>
+<div class="warn-item">
+<div class="warn-icon">⚠️</div>
+<div class="warn-text">
+<strong>특정유증에서 농지는 농지취득자격증명 필요</strong>
+<p>제3자에 대한 특정유증으로 농지를 받는 경우, 농지취득자격증명을 발급받아 첨부해야 합니다(예규 제1415호). 단, 포괄유증이나 상속인에 대한 특정유증은 불필요합니다.</p>
+</div>
+</div>
+<div class="warn-item">
+<div class="warn-icon">⚠️</div>
+<div class="warn-text">
+<strong>상속인이 협조를 거부해도 유언집행자가 있으면 단독 가능</strong>
+<p>상속인들이 등기에 협조하지 않더라도, 유언집행자가 지정되어 있다면 수증자와 유언집행자가 공동으로 신청할 수 있습니다. 유언집행자도 없다면 수증자가 상속인을 상대로 협조 의무 이행을 구하는 소송을 제기해야 합니다.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ────────────────────── 9. Q&A ────────────────────── -->
+<section>
+<div class="container">
+<p class="sec-label">Section 09</p>
+<h2 class="sec-title">자주 묻는 질문</h2>
+<div class="qna-item">
+<div class="qna-q">유언장에 "내 재산 전부를 ○○에게 준다"고 했는데, 어떻게 다른가요?</div>
+<div class="qna-a">이는 <strong>포괄적 유증</strong>으로, 수증자는 유언자 사망과 동시에 상속인과 동일한 권리와 의무를 취득합니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=107800" target="_blank" class="tag-law">📋 민법 제1078조</a>). 특정 부동산이 아닌 재산 전부나 일정 비율을 받는 것입니다. 반면 "특정 아파트만 준다"고 하면 특정적 유증으로, 별도의 이전 절차가 필요한 채권적 청구권을 취득합니다.</div>
+</div>
+<div class="qna-item">
+<div class="qna-q">상속인들이 등기에 도장을 찍어주지 않습니다. 어떻게 해야 하나요?</div>
+<div class="qna-a">유언장에 유언집행자가 지정되어 있다면 상속인의 협조 없이 유언집행자와 수증자가 공동신청할 수 있습니다. 유언집행자가 없는데 상속인들이 거부한다면, 법원에 유언집행자 선임 신청을 하거나, 상속인들을 상대로 등기절차 이행 소송을 제기하는 방법이 있습니다.</div>
+</div>
+<div class="qna-item">
+<div class="qna-q">유언장이 자필로 작성된 것인데, 공증을 받지 않았습니다. 사용할 수 있나요?</div>
+<div class="qna-a">자필증서 유언은 공증이 필요 없습니다. 다만 가정법원에서 <strong>검인</strong> 절차를 받아야 합니다. 검인은 유언장의 위변조 방지를 위한 것으로, 검인 후 받은 검인조서 등본을 등기 신청 시 첨부해야 합니다.</div>
+</div>
+<div class="qna-item">
+<div class="qna-q">유증자가 사망하기 전에 먼저 등기할 수 있나요?</div>
+<div class="qna-a">아닙니다. 유증은 유언자의 <strong>사망</strong>으로 효력이 발생합니다. 유언자가 생존 중에는 언제든지 유언을 철회할 수 있으므로, 사망 전에는 유증을 원인으로 하는 등기를 신청할 수 없습니다.</div>
+</div>
+<div class="qna-item">
+<div class="qna-q">유증을 포기하고 싶습니다. 어떻게 해야 하나요?</div>
+<div class="qna-a">수증자는 유증을 포기할 수 있습니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=107400" target="_blank" class="tag-law">📋 민법 제1074조</a>). 단, 포기는 유언자의 사망 후에 해야 합니다. 특정적 유증의 포기는 의무자에게 의사표시만 하면 되지만, 포괄적 유증의 경우 상속 포기에 준하는 효과가 있어 법원에 신고해야 합니다. 유증받은 재산에 채무가 과다한 경우 포기를 검토하십시오.</div>
+</div>
+<div class="qna-item">
+<div class="qna-q">유증받은 부동산에 근저당권이 설정되어 있습니다. 어떻게 되나요?</div>
+<div class="qna-a">유증은 유언자 사망 당시 상태 그대로 이전됩니다. 근저당권이 설정된 부동산을 유증받으면 해당 채무도 같이 인수하는 것과 마찬가지이므로, 유증을 받기 전에 부동산등기사항증명서를 발급받아 담보 설정 현황을 꼭 확인하십시오. 채무 부담이 크다면 유증 포기도 고려해야 합니다.</div>
+</div>
+</div>
+</section>
+<!-- ────────────────────── 10. 다음으로 ────────────────────── -->
+<section>
+<div class="container">
+<p class="sec-label">Section 10</p>
+<h2 class="sec-title">다음으로 확인할 내용</h2>
+<div class="next-links">
+<a class="next-card" href="상속_17_유언효력.html">
+<div class="next-dir">← 이전 페이지</div>
+<div class="next-title">유언의 방식과 효력</div>
+<div class="next-desc">이 유언장이 유효한가? 5가지 방식별 요건 확인</div>
+</a>
+<a class="next-card" href="#">
+<div class="next-dir">다음 페이지 →</div>
+<div class="next-title">상속재산 분할과 등기</div>
+<div class="next-desc">협의분할·조정분할·심판분할 이후 등기 절차</div>
+</a>
+</div>
+</div>
+</section>
+<!-- ────────────────────── 11. CTA ────────────────────── -->
+<section>
+<div class="container">
+<div class="cta-box">
+<h2>유증 등기, 직접 하기 어려우신가요?</h2>
+<p>유언집행자 확정, 검인 절차, 등기 신청까지 전 과정을<br/>법무사가 정확하고 빠르게 처리해 드립니다.</p>
+<a class="cta-btn" href="tel:00000000000">📞 전화 상담 예약</a>
+<a class="cta-btn outline" href="#">온라인 문의하기</a>
+</div>
+</div>
+</section>
+<!-- ────────────────────── 면책 ────────────────────── -->
+<div class="disclaimer">
+  본 페이지는 일반적인 법률 정보 제공을 목적으로 작성되었으며, 개별 사안에 대한 법률 조언이 아닙니다.<br/>
+  구체적인 사안은 반드시 법무사 또는 변호사와 상담하시기 바랍니다.<br/>
+  법령 및 예규는 개정될 수 있으므로 최신 정보를 확인하십시오.<br/>
+  © 2025 법무사 사무소. All rights reserved.
+</div>
+</body>
+</html>

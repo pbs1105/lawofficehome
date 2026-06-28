@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[내부용] 소장 작성과 서류 제출 — 법무사 실무</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1a2e4a;--gold:#c8a96e;--ivory:#faf8f5;--ink:#2b2b2b;--muted:#5b5b5b;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:'Noto Sans KR',sans-serif;line-height:1.75;font-size:16px;}
+.topbar{position:sticky;top:0;z-index:999;background:#2d2d2d;color:#fff;text-align:center;padding:8px 16px;font-size:.85rem;letter-spacing:.05em;}
+.topbar span{color:#f4c97a;font-weight:700;}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px 80px;}
+h1,h2,h3{font-family:'Noto Serif KR',serif;color:var(--navy);line-height:1.4;}
+.admin-header{background:linear-gradient(135deg,#1a2e4a 0%,#27406a 100%);color:#fff;padding:44px 28px 36px;border-bottom:4px solid var(--gold);}
+.admin-header h1{color:#fff;font-size:1.85rem;margin:0 0 10px;}
+.admin-header p{color:#c8d8f0;margin:0;font-size:.97rem;}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;}
+.badge{background:rgba(200,169,110,.18);border:1px solid var(--gold);color:var(--gold);border-radius:20px;padding:4px 13px;font-size:.8rem;font-weight:700;}
+section{margin-top:42px;}
+h2.sec{font-size:1.35rem;margin:0 0 16px;padding-bottom:9px;border-bottom:2px solid var(--gold);display:flex;align-items:center;gap:10px;}
+h2.sec .num{background:var(--navy);color:#fff;font-family:'Noto Sans KR';font-size:.88rem;width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;}
+h3{font-size:1.08rem;margin:20px 0 7px;}
+p{margin:9px 0;}
+.box{border-radius:8px;padding:16px 20px;margin:14px 0;}
+.box-warn{background:#fff3e8;border:1px solid #c05000;border-left:5px solid #c05000;}
+.box-issue{background:#f4f7fb;border:1px solid #2d4a7a;border-left:5px solid #2d4a7a;}
+.box-tip{background:#f0f8f0;border:1px solid #1a5c2e;border-left:5px solid #1a5c2e;}
+.box-memo{background:#fffdf5;border:1px dashed var(--gold);border-radius:8px;padding:16px 20px;margin:14px 0;}
+.box h3,.box-memo h3{margin-top:0;font-size:1rem;}
+.warn-title{color:#c05000;font-weight:700;font-size:1.05rem;}
+.checklist{list-style:none;padding:0;margin:10px 0;}
+.checklist li{padding:5px 0 5px 26px;position:relative;border-bottom:1px solid #f0e8d8;}
+.checklist li:last-child{border-bottom:none;}
+.checklist li::before{content:"☐";position:absolute;left:0;color:#c05000;font-size:1rem;}
+.flow-step{background:#fff;border:1px solid #e3ddd2;border-radius:10px;padding:16px 20px;margin:10px 0;box-shadow:0 2px 6px rgba(26,46,74,.05);}
+.flow-step .stbadge{display:inline-block;background:var(--navy);color:#fff;font-size:.75rem;font-weight:700;padding:3px 10px;border-radius:10px;margin-bottom:7px;}
+.flow-arrow{text-align:center;color:var(--gold);font-size:1.3rem;margin:4px 0;}
+.tip-mark{display:inline-block;background:#e8f4e8;border:1px solid #1a5c2e;color:#1a5c2e;font-size:.82rem;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:4px;}
+table{border-collapse:collapse;width:100%;background:#fff;font-size:.92rem;margin:14px 0;}
+th,td{border:1px solid #d9d3c7;padding:10px 12px;text-align:left;vertical-align:top;}
+th{background:var(--navy);color:#fff;font-weight:500;}
+tbody tr:nth-child(even){background:#f6f3ee;}
+td a{color:#2d4a7a;text-decoration:none;font-weight:500;}
+td a:hover{text-decoration:underline;}
+.badge-ok{background:#e8f4e8;color:#1a5c2e;border:1px solid #1a5c2e;border-radius:4px;padding:1px 7px;font-size:.78rem;font-weight:700;}
+.badge-warn2{background:#fff3e8;color:#c05000;border:1px solid #c05000;border-radius:4px;padding:1px 7px;font-size:.78rem;font-weight:700;}
+.deadline{color:#c05000;font-weight:700;}
+.foot-memo{background:#f1ede6;border-radius:8px;padding:18px 22px;margin-top:50px;font-size:.85rem;color:#555;line-height:1.8;}
+</style>
+</head>
+<body>
+<div class="topbar">🔒 <span>내부용 · 대외 배포 금지</span> — 법무사 사무소 전용 실무 참고자료</div>
+<div class="admin-header">
+  <h1>소장 작성과 서류 제출 — 법무사 실무</h1>
+  <p>소장 필수 기재사항, 인지·송달료 납부, 첨부서류 준비, 접수·심사·보정 대응까지 실무 체크리스트</p>
+  <div class="badges">
+    <span class="badge">사건유형: 민사 제1심 일반</span>
+    <span class="badge">관할: 소가 기준 단독/합의</span>
+    <span class="badge">근거법령: 민소 248~258조, 인지법, 민소규 2조</span>
+    <span class="badge">당사자: 원고·피고</span>
+    <span class="badge">처리기간: 접수 후 보정 포함 1~3주</span>
+  </div>
+</div>
+<div class="wrap">
+
+<section>
+  <div class="box box-warn">
+    <div class="warn-title">⚠️ 법무사 업무범위 · 수임 판단</div>
+    <p><strong>소장 작성·제출 대행은 법무사의 핵심 업무입니다.</strong> 단, 청구취지·청구원인의 법적 판단(어떤 권리 주장을 할지)은 의뢰인이 결정. 법무사는 그 내용을 법률 형식에 맞게 서면화하는 역할.</p>
+    <ul class="checklist">
+      <li>의뢰인으로부터 사실관계·증거 자료 충분히 수집</li>
+      <li>청구취지·청구원인 초안 의뢰인 확인 후 최종 작성</li>
+      <li>인지·송달료 납부 대행 — 영수증 보관</li>
+      <li>첨부서류 목록 체크 후 누락 없이 접수</li>
+      <li>보정명령 수령 즉시 의뢰인 연락 및 기간 관리</li>
+      <li>소 제기 전략·소송 방향 결정 → 의뢰인 또는 변호사 담당</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec"><span class="num">1</span>핵심 쟁점</h2>
+  <div class="box box-issue">
+    <h3>소장의 필수 기재사항 (민소 249조)</h3>
+    <ul>
+      <li><strong>당사자</strong>: 원고·피고(법인이면 대표자), 주소·전화번호</li>
+      <li><strong>법정대리인</strong>: 미성년자·법인 등 대리인 필요 시 기재</li>
+      <li><strong>청구취지</strong>: 어떤 판결을 구하는지 — 집행 가능한 형태로 특정</li>
+      <li><strong>청구원인</strong>: 청구 이유 사실관계 — 간결·명확하게</li>
+      <li>기명날인 또는 서명 (민소규 2조)</li>
+    </ul>
+    <h3>심사 단계별 체크포인트</h3>
+    <ul>
+      <li><strong>접수 담당자 심사</strong>: 형식·인지·송달료 납부 여부</li>
+      <li><strong>재판장 심사(민소 254조)</strong>: 필수 기재사항 누락, 보정 명령</li>
+      <li>보정 기간 내 미보정 → 소장 각하(민소 254조 3항)</li>
+    </ul>
+    <h3>결정적 체크포인트</h3>
+    <ul>
+      <li>청구취지가 집행 가능 형태인가? (피고는 원고에게 금 ○○원을 지급하라)</li>
+      <li>피고 주소 특정 여부 — 주민등록초본·등기부 확인</li>
+      <li>인지·송달료 납부 완료 여부</li>
+      <li>보정명령 기간(통상 7~14일) — 달력 즉시 등록</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec"><span class="num">2</span>업무 절차 흐름</h2>
+  <div class="flow-step">
+    <span class="stbadge">STEP 1 · 자료 수집</span>
+    <h3>의뢰인 면담 → 사실관계·증거 확보</h3>
+    <p>계약서·영수증·통신기록·등기부 등 관련 서류 전부 수집. 피고 주소지 확정(주민등록초본·법인등기부).</p>
+    <p><span class="tip-mark">💡 TIP</span> 증거 목록 시트를 미리 준비해 의뢰인에게 체크리스트 형태로 제공.</p>
+  </div>
+  <div class="flow-arrow">▼</div>
+  <div class="flow-step">
+    <span class="stbadge">STEP 2 · 소가 산정 · 인지·송달료 계산</span>
+    <h3>소가 확정 → 인지액·송달료 계산</h3>
+    <p>인지법 2조 계산식 적용. 송달료: 당사자 수 × 15회분. 전자납부 또는 은행 납부.</p>
+    <p><span class="tip-mark">💡 TIP</span> 대법원 인지계산기로 사전 확인. 전자소송 납부 시 10% 감면.</p>
+  </div>
+  <div class="flow-arrow">▼</div>
+  <div class="flow-step">
+    <span class="stbadge">STEP 3 · 소장 초안 작성</span>
+    <h3>청구취지·청구원인 작성 → 의뢰인 확인</h3>
+    <p>청구취지: 집행권원 형태로 특정. 청구원인: 시간순, 육하원칙으로 간결하게. 증거 목록·첨부서류 목록 작성.</p>
+    <p><span class="tip-mark">💡 TIP</span> 소장 작성 완료 후 의뢰인에게 내용 확인 서명 받아두기.</p>
+  </div>
+  <div class="flow-arrow">▼</div>
+  <div class="flow-step">
+    <span class="stbadge">STEP 4 · 접수</span>
+    <h3>전자소송(ecfs.scourt.go.kr) 또는 방문 제출</h3>
+    <p>소장 + 첨부서류 + 인지영수증 + 송달료영수증 일괄 제출. 접수번호·사건번호 수령 후 의뢰인 전달.</p>
+    <p><span class="tip-mark">💡 TIP</span> 접수 즉시 사건번호 메모. 전자소송은 접수증 PDF 저장.</p>
+  </div>
+  <div class="flow-arrow">▼</div>
+  <div class="flow-step">
+    <span class="stbadge">STEP 5 · 보정 명령 대응</span>
+    <h3>보정명령 수령 → 기간 내 보정 완료</h3>
+    <p class="deadline">⚡ 보정기간(통상 7~14일) 도과 시 소장 각하. 수령 즉시 의뢰인 연락 필수.</p>
+    <p>보정 사유: 인지 부족·피고 주소 불분명·청구취지 불특정·첨부서류 누락 등. 보정서 제출로 해결.</p>
+    <p><span class="tip-mark">💡 TIP</span> 보정 명령서 수령일을 파일에 기록. 보정 완료 후 접수증 별도 보관.</p>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec"><span class="num">3</span>첨부서류 목록</h2>
+  <div style="overflow-x:auto;">
+    <table>
+      <thead>
+        <tr><th>서류명</th><th>필수/선택</th><th>법령근거</th><th>발급처</th><th>유효기간</th><th>실무 비고</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>소장 부본(피고 수만큼)</td><td>필수</td><td>민소규 65조</td><td>법무사 작성</td><td>—</td><td>피고 1인이면 1부</td></tr>
+        <tr><td>인지 납부 영수증</td><td>필수</td><td>인지법 2조</td><td>전자납부·은행</td><td>—</td><td>소장에 첨부</td></tr>
+        <tr><td>송달료 납부 영수증</td><td>필수</td><td>민소규 19조</td><td>법원·은행</td><td>—</td><td>당사자 수 × 15회분</td></tr>
+        <tr><td>주민등록초본(원고·피고)</td><td>필수</td><td>—</td><td>주민센터·정부24</td><td>3개월</td><td>주소 특정용</td></tr>
+        <tr><td>법인등기사항증명서(법인)</td><td>필수(법인)</td><td>—</td><td>인터넷등기소</td><td>3개월</td><td>대표자 확인</td></tr>
+        <tr><td>위임장 + 인감증명</td><td>필수(대리인)</td><td>민소 89조</td><td>의뢰인·주민센터</td><td>3개월</td><td>인감날인</td></tr>
+        <tr><td>계약서(사본)</td><td>필수(있는 경우)</td><td>민소규 65조</td><td>의뢰인</td><td>—</td><td>원본 대조 후 사본</td></tr>
+        <tr><td>토지대장·건축물대장</td><td>필수(부동산 사건)</td><td>—</td><td>정부24·주민센터</td><td>3개월</td><td>소가 산정 자료</td></tr>
+        <tr><td>공시지가확인서(토지)</td><td>필수(부동산 사건)</td><td>—</td><td>정부24·시군구청</td><td>3개월</td><td>소가 산정 기준</td></tr>
+        <tr><td>증거 목록</td><td>선택(서증 있는 경우)</td><td>민소규 72조</td><td>법무사 작성</td><td>—</td><td>갑 제1호증부터 순차</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec"><span class="num">4</span>비용·소가 산정</h2>
+  <div class="box box-issue">
+    <h3>비용 항목 총정리</h3>
+    <table>
+      <thead><tr><th>비용 항목</th><th>계산 기준</th><th>납부처</th></tr></thead>
+      <tbody>
+        <tr><td>인지액</td><td>소가별 인지법 2조 산식 적용</td><td>전자납부(ecfs) 또는 은행</td></tr>
+        <tr><td>송달료</td><td>당사자 수 × 15회분 × 1회 우편료</td><td>법원 내 은행</td></tr>
+        <tr><td>법무사 보수</td><td>법무사 보수표(대법원 규칙) 기준</td><td>의뢰인 직접 납부</td></tr>
+        <tr><td>서류 발급비</td><td>항목별 실비(초본 400원 등)</td><td>해당 기관</td></tr>
+      </tbody>
+    </table>
+    <p style="color:#888;font-size:.88rem;">※ 전자소송 제출 시 인지 10% 감면. 계산 보조: ecfs.scourt.go.kr 인지계산기</p>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec"><span class="num">5</span>법령 검증</h2>
+  <div style="overflow-x:auto;">
+    <table>
+      <thead><tr><th>법령</th><th>요지</th><th>링크</th><th>상태</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>민사소송법 248조 (소 제기 방식)</td>
+          <td>소장 제출로 소 제기</td>
+          <td><a href="https://www.law.go.kr/lsSc.do?query=민사소송법" target="_blank">law.go.kr</a></td>
+          <td><span class="badge-ok">✅ 현행</span></td>
+        </tr>
+        <tr>
+          <td>민사소송법 249조 (소장 기재사항)</td>
+          <td>당사자·청구취지·청구원인·날인</td>
+          <td><a href="https://www.law.go.kr/lsSc.do?query=민사소송법" target="_blank">law.go.kr</a></td>
+          <td><span class="badge-ok">✅ 현행</span></td>
+        </tr>
+        <tr>
+          <td>민사소송법 254조 (소장 심사·보정)</td>
+          <td>재판장 보정 명령·각하</td>
+          <td><a href="https://www.law.go.kr/lsSc.do?query=민사소송법" target="_blank">law.go.kr</a></td>
+          <td><span class="badge-ok">✅ 현행</span></td>
+        </tr>
+        <tr>
+          <td>민사소송규칙 2조 (서면 형식)</td>
+          <td>서면 작성 형식, 기명날인·서명</td>
+          <td><a href="https://www.law.go.kr/lsSc.do?query=민사소송규칙" target="_blank">law.go.kr</a></td>
+          <td><span class="badge-ok">✅ 현행</span></td>
+        </tr>
+        <tr>
+          <td>민사소송규칙 65조 (첨부서류)</td>
+          <td>소장 부본, 서증 첨부</td>
+          <td><a href="https://www.law.go.kr/lsSc.do?query=민사소송규칙" target="_blank">law.go.kr</a></td>
+          <td><span class="badge-ok">✅ 현행</span></td>
+        </tr>
+        <tr>
+          <td>민사소송 등 인지법 2조</td>
+          <td>인지액 산정 기준</td>
+          <td><a href="https://www.law.go.kr/lsSc.do?query=민사소송등인지법" target="_blank">law.go.kr</a></td>
+          <td><span class="badge-ok">✅ 현행</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec"><span class="num">6</span>법무사 실무 노하우</h2>
+  <div class="box box-tip">
+    <h3>💡 TIP 1 — 청구취지 작성 원칙</h3>
+    <p>"피고는 원고에게 금 ○○원 및 이에 대한 ○○일부터 이 사건 소장 부본 송달일까지는 연 5%, 그 다음날부터 다 갚는 날까지는 연 12%의 각 비율에 의한 금원을 지급하라" 형태. 집행 가능하도록 특정 필수.</p>
+  </div>
+  <div class="box box-tip">
+    <h3>💡 TIP 2 — 보정명령 사전 방지</h3>
+    <p>소장 제출 전 체크리스트 항목별 검토. 특히 ① 인지액 정확성, ② 피고 주소 특정(초본 첨부), ③ 청구취지 명확성, ④ 날인·서명 여부 확인. 이 4가지가 보정 명령의 90%를 차지.</p>
+  </div>
+  <div class="box box-tip">
+    <h3>💡 TIP 3 — 전자소송 활용</h3>
+    <p>전자소송(ecfs.scourt.go.kr): 인지 10% 감면, 접수 즉시 사건번호 확인, 서류 PDF 첨부. 공동인증서(구 공인인증서) 필수. 종이 제출은 우편·방문 모두 가능.</p>
+  </div>
+  <div class="box-memo">
+    <h3>📝 현장 메모 [직접 추가]</h3>
+    <p style="color:#888;">이 사건 접수일, 사건번호, 보정명령 날짜, 의뢰인 확인 사항 등을 기재하세요.</p>
+    <p>&nbsp;</p><p>&nbsp;</p>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec"><span class="num">7</span>주의사항 &amp; 사고·실수 사례</h2>
+  <div class="box box-warn">
+    <h3>⚡ 기간 도과 주의</h3>
+    <ul>
+      <li class="deadline">보정기간(7~14일) 도과 → 소장 각하 — 수령 즉시 달력 등록</li>
+      <li>소멸시효 임박 시: 보정 기간 중에도 제소 효력은 유지되나 각하되면 제소 효력 소멸</li>
+    </ul>
+    <h3>🔴 흔한 실수</h3>
+    <ul>
+      <li>청구취지가 불특정 → "금 ○원을 지급하라"로 정확히 기재해야 함</li>
+      <li>인지 과소 → 보정 명령 → 절차 지연</li>
+      <li>피고 주소지를 사업장으로 기재 → 본점·주소지가 원칙</li>
+      <li>부본 수 부족 → 피고 수와 동일해야 함</li>
+      <li>원고 날인 누락 → 보정 대상</li>
+    </ul>
+    <h3>🚫 변호사법 경계</h3>
+    <ul>
+      <li>청구취지·청구원인의 법적 판단(어떤 청구를 할지) → 의뢰인이 결정, 법무사는 서면화</li>
+      <li>소 제기 여부·전략 조언 → 변호사 연결</li>
+    </ul>
+  </div>
+</section>
+
+<div class="foot-memo">
+  <strong>작성일:</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+  <strong>근거기준일:</strong> 민사소송법·민사소송규칙·인지법 (2024. 2. 시행 기준) |
+  <strong>최종검토자:</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+  <strong>비고:</strong> 법령 개정 시 반드시 재검토
+</div>
+</div>
+</body>
+</html>

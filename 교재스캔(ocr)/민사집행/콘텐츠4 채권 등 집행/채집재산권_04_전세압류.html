@@ -1,0 +1,266 @@
+<\!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전세보증금·임차보증금 압류 — 전세 사는 상대방의 재산도 압류 가능</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1a2e4a;
+            --gold: #c8a96e;
+            --bg: #faf8f5;
+            --text: #2c2c2c;
+            --summary-bg: #eef2f8;
+            --summary-bd: #2d4a7a;
+            --cta-bg: #fdf6e9;
+            --cta-bd: #c8a96e;
+            --case-bg: #f0f8f0;
+            --case-bd: #1a5c2e;
+            --ruling-bg: #f7f4f0;
+            --ruling-bd: #6b7280;
+            --warn-bg: #fff3e8;
+            --warn-bd: #c05000;
+            --info-bg: #f4f7fb;
+            --info-bd: #2d4a7a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Noto Sans KR', sans-serif; color: var(--text); background-color: var(--bg); line-height: 1.8; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        h1 { font-family: 'Noto Serif KR', serif; color: var(--navy); font-size: 2.2em; margin-bottom: 10px; font-weight: 700; line-height: 1.4; }
+        .page-info { color: #666; font-size: 0.95em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #ddd; }
+        h2 { font-family: 'Noto Serif KR', serif; color: var(--navy); font-size: 1.6em; margin-top: 35px; margin-bottom: 20px; font-weight: 700; border-left: 4px solid var(--gold); padding-left: 15px; }
+        h3 { font-family: 'Noto Serif KR', serif; color: var(--navy); font-size: 1.2em; margin-top: 25px; margin-bottom: 15px; font-weight: 600; }
+        .checklist { background-color: var(--summary-bg); border-left: 5px solid var(--summary-bd); padding: 25px; margin-bottom: 25px; border-radius: 4px; }
+        .checklist ul { list-style: none; padding: 0; }
+        .checklist li { padding: 8px 0; padding-left: 30px; position: relative; }
+        .checklist li:before { content: "✓"; position: absolute; left: 0; color: var(--summary-bd); font-weight: bold; font-size: 1.1em; }
+        .summary-box { background-color: var(--summary-bg); border-left: 5px solid var(--summary-bd); padding: 20px; margin: 20px 0; border-radius: 4px; line-height: 1.7; }
+        .summary-box p { margin: 10px 0; font-size: 0.98em; }
+        .detail-section { margin: 30px 0; line-height: 1.8; }
+        .detail-section p { margin: 12px 0; text-align: justify; }
+        .highlight { background-color: #fffacd; padding: 2px 4px; }
+        
+        .case-box { background-color: var(--case-bg); border-left: 5px solid var(--case-bd); padding: 20px; margin: 20px 0; border-radius: 4px; }
+        .case-box h4 { color: var(--case-bd); margin-bottom: 10px; font-weight: 600; }
+        .case-box p { font-size: 0.95em; line-height: 1.7; margin: 8px 0; }
+        .ruling-box { background-color: var(--ruling-bg); border-left: 5px solid var(--ruling-bd); padding: 20px; margin: 20px 0; border-radius: 4px; }
+        .ruling-box h4 { color: var(--ruling-bd); margin-bottom: 10px; font-weight: 600; }
+        .ruling-box p { font-size: 0.95em; line-height: 1.7; margin: 8px 0; }
+        .warn-box { background-color: var(--warn-bg); border-left: 5px solid var(--warn-bd); padding: 20px; margin: 20px 0; border-radius: 4px; }
+        .warn-box h4 { color: var(--warn-bd); margin-bottom: 10px; font-weight: 600; }
+        .warn-box p { font-size: 0.95em; line-height: 1.7; margin: 8px 0; }
+        .info-box { background-color: var(--info-bg); border-left: 5px solid var(--info-bd); padding: 20px; margin: 20px 0; border-radius: 4px; }
+        .info-box h4 { color: var(--info-bd); margin-bottom: 10px; font-weight: 600; }
+        .info-box p { font-size: 0.95em; line-height: 1.7; margin: 8px 0; }
+        .qa-section { margin: 30px 0; }
+        .qa-item { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #e0e0e0; }
+        .qa-item:last-child { border-bottom: none; }
+        .qa-question { font-family: 'Noto Serif KR', serif; color: var(--navy); font-size: 1.05em; font-weight: 600; margin-bottom: 10px; }
+        .qa-question::before { content: "Q. "; color: var(--navy); font-weight: 700; }
+        .qa-answer { color: var(--text); font-size: 0.95em; line-height: 1.7; }
+        .qa-answer::before { content: "A. "; color: var(--summary-bd); font-weight: 600; margin-right: 5px; }
+        .cta-box { background-color: var(--cta-bg); border-left: 5px solid var(--cta-bd); padding: 30px; margin: 40px 0; border-radius: 4px; text-align: center; }
+        .cta-box h3 { color: var(--navy); margin-bottom: 10px; }
+        .cta-box p { color: var(--text); margin: 10px 0; font-size: 0.95em; }
+        .cta-buttons { display: flex; gap: 15px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+        .cta-button { padding: 12px 25px; border: none; border-radius: 4px; font-size: 0.95em; cursor: pointer; font-weight: 600; text-decoration: none; display: inline-block; }
+        .cta-button-primary { background-color: var(--navy); color: white; }
+        .cta-button-primary:hover { background-color: #0d1a2f; }
+        .cta-button-secondary { background-color: white; color: var(--navy); border: 2px solid var(--navy); }
+        .cta-button-secondary:hover { background-color: #f0f0f0; }
+        .disclaimer { background-color: #f9f9f9; color: #666; font-size: 0.85em; padding: 20px; margin-top: 40px; border-radius: 4px; line-height: 1.6; }
+        .next-topics { background-color: var(--info-bg); border-left: 5px solid var(--info-bd); padding: 20px; margin: 30px 0; border-radius: 4px; }
+        .next-topics h3 { margin-top: 0; }
+        .next-topics ul { list-style: none; padding: 0; }
+        .next-topics li { padding: 8px 0; padding-left: 25px; position: relative; }
+        .next-topics li:before { content: "→"; position: absolute; left: 0; color: var(--info-bd); font-weight: bold; }
+        .next-topics a { color: var(--navy); text-decoration: none; font-weight: 500; }
+        .next-topics a:hover { text-decoration: underline; }
+    .law-tag {
+      display: inline-block; background: #e8edf5; color: #2d4a7a;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #b0c4de; cursor: pointer; transition: background 0.15s;
+    }
+    .law-tag:hover { background: #c8daf7; color: #1a2e4a; }
+    .case-tag {
+      display: inline-block; background: #f0ece4; color: #5a4a30;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #c8a96e; cursor: pointer; transition: background 0.15s;
+    }
+    .case-tag:hover { background: #f5dfa8; color: #3a2a10; }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <h1>전세보증금·임차보증금 압류</h1>
+        <p style="font-size: 1.1em; color: var(--navy); font-weight: 600; margin-bottom: 20px;">전세 사는 상대방의 재산도 압류 가능</p>
+        <div class="page-info"><p>채권집행 절차 | 재산권 압류 | 2025년 4월 기준</p></div>
+
+        <h2>이런 분께 필요합니다</h2>
+        <div class="checklist">
+            <ul>
+                <li>상대방이 전세 또는 월세로 살고 있으며, 전세보증금·월세보증금을 압류하고 싶은 경우</li>
+                <li>상대방이 임차인이고, 집주인(임대인)에게 보증금 반환채권이 있는 경우</li>
+                <li>보증금이 아직 반환되지 않은 상황을 파악하고 싶은 경우</li>
+                <li>임대차 계약이 곧 끝나는데 보증금을 압류할 수 있는지 궁금한 경우</li>
+                <li>압류 시 임차인의 우선변제권이나 대항력과의 관계를 알고 싶은 경우</li>
+                <li>실제 사건 사례를 통해 이해하고 싶은 경우</li>
+            </ul>
+        </div>
+
+        <h2>핵심정리</h2>
+        <div class="summary-box">
+            <h3>한눈에 보기</h3>
+            <p><span class="highlight">전세보증금, 월세보증금, 임차보증금은 모두 '금전채권'</span>입니다. 따라서 '금전채권 압류' 절차를 그대로 적용할 수 있습니다.</p>
+            <p>상대방이 빌려 사는 주택의 집주인(임대인)에게 보증금 반환채권을 압류 신청하면 됩니다. 집주인이 '제3채무자'가 되는 구조입니다.</p>
+            <p><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=022300" target="_blank" rel="noopener">민사집행법 제223조</a>에 따른 채권 압류이므로, 상대방이 부동산이나 동산을 많이 가지지 않아도 보증금을 통해 채권 회수가 가능합니다.</p>
+        </div>
+
+        <h2>상세설명</h2>
+
+        <div class="detail-section">
+            <h3>3-1. 전세보증금도 압류 가능한가</h3>
+            <p>네, <span class="highlight">충분히 가능합니다</span>. 전세보증금, 월세보증금, 임차보증금은 모두 '금전채권'으로 분류되기 때문입니다.</p>
+            <h4 style="color: var(--navy); margin-top: 20px; font-weight: 600;">금전채권으로 분류되는 이유</h4>
+            <p><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=022300" target="_blank" rel="noopener">민사집행법 제223조</a>는 금전채권에 대한 압류를 규정합니다. 전세보증금 반환채권은:</p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>금전을 목적으로 하는 채권</li>
+                <li>금액이 명확함 (전세계약서에 기재)</li>
+                <li>임차인의 재산 중 하나</li>
+                <li>임대차 계약 종료 시 집주인에게 청구 가능</li>
+            </ul>
+            <h4 style="color: var(--navy); margin-top: 20px; font-weight: 600;">상대방의 다른 재산과의 차이</h4>
+            <p>상대방이 현금, 예금, 주식을 가지지 않아도 <span class="highlight">보증금이 있으면 그것을 압류할 수 있습니다</span>. 전세나 월세는 대부분의 임차인이 가장 큰 재산이므로, 다른 집행 대상이 없을 때 매우 유용합니다.</p>
+        </div>
+
+        <div class="detail-section">
+            <h3>3-2. 압류 방법과 제3채무자</h3>
+            <h4 style="color: var(--navy); margin-top: 20px; font-weight: 600;">일반 채권 압류와 동일</h4>
+            <p>전세보증금 압류는 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=022300" target="_blank" rel="noopener">민사집행법 제223조</a>에 따른 일반 채권 압류와 동일한 절차를 따릅니다.</p>
+            <p style="margin-top: 15px;"><strong>기본 구조:</strong></p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li><strong>채권자:</strong> 당신 (돈을 빌려준 사람)</li>
+                <li><strong>채무자:</strong> 상대방 (돈을 빌린 사람 = 임차인)</li>
+                <li><strong>제3채무자:</strong> 집주인 (임대인)</li>
+            </ul>
+            <h4 style="color: var(--navy); margin-top: 20px; font-weight: 600;">압류 신청 시 기재 사항</h4>
+            <p>압류명령 신청서에 다음을 명시합니다:</p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>채무자 (상대방): 이름, 주민등록번호</li>
+                <li>제3채무자 (집주인): 이름, 주소</li>
+                <li>임차 부동산: 주소 (전세계약서 참조)</li>
+                <li>보증금 액수: 금액</li>
+                <li>임차 기간: 계약 개시 및 종료일</li>
+            </ul>
+        </div>
+
+        <div class="detail-section">
+            <h3>3-3. 보증금이 아직 반환되지 않은 경우</h3>
+            <h4 style="color: var(--navy); margin-top: 20px; font-weight: 600;">임차 중인 경우 (계약 종료 전)</h4>
+            <p>상대방이 아직 그 주택에 살고 있다면, 보증금 반환채권은 '장래채권'이 됩니다. 이미 발생했지만 아직 지급 시기가 오지 않은 채권이라는 뜻입니다.</p>
+            <p style="margin-top: 10px;"><span class="highlight">장래채권도 압류할 수 있습니다</span>. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=022300" target="_blank" rel="noopener">민사집행법 제223조</a>는 "현재의 또는 장래의 금전채권"이라고 명시하고 있습니다.</p>
+            <h4 style="color: var(--navy); margin-top: 20px; font-weight: 600;">임차 계약 종료 후</h4>
+            <p>임차 계약이 종료되면 보증금 반환채권은 '현재 채권'이 됩니다. 이미 발생했으므로 더 강력하게 압류할 수 있습니다.</p>
+        </div>
+
+        <div class="detail-section">
+            <h3>3-4. 실제 사례</h3>
+        </div>
+
+        <div class="case-box">
+            <h4>전세 사는 채무자의 보증금 압류</h4>
+            <p><strong>상황:</strong> A는 B에게 1,000만 원을 빌렸고, 약속한 날짜에 돈을 돌려받지 못했습니다. B가 알아본 결과, A는 현금이나 예금은 거의 없고, 서울 강남의 전세집에 살고 있으며 보증금이 5,000만 원이었습니다.</p>
+            <p><strong>압류 신청:</strong> B는 법원에 다음을 신청했습니다: "채무자 A의 집주인을 상대로, A의 보증금 반환채권 5,000만 원을 압류합니다"</p>
+            <p><strong>결과:</strong> 압류명령이 인가되고, 집주인(제3채무자)에게 송달되었습니다. 집주인은 A의 전세계약이 만료되면 A에게 보증금을 돌려주는 대신, 그 돈 중 일부를 B에게 먼저 지급해야 합니다.</p>
+        </div>
+
+        <h2>자주 하는 질문</h2>
+        <div class="qa-section">
+            <div class="qa-item">
+                <div class="qa-question">상대방이 월세를 내면서 보증금(deposit)이 있으면 그것도 압류할 수 있나요?</div>
+                <div class="qa-answer">네, 할 수 있습니다. 월세 계약에도 보증금이 있는 경우가 많으며, 이것도 "금전채권"이므로 동일하게 압류됩니다.</div>
+            </div>
+            <div class="qa-item">
+                <div class="qa-question">보증금 압류를 신청했는데 집주인이 "이미 다른 채권자에게 압류당했다"고 할 수는 없나요?</div>
+                <div class="qa-answer">여러 채권자가 같은 보증금을 압류한 경우, <span class="highlight">선착순</span>으로 배당됩니다. 당신이 먼저 압류명령을 신청했다면 우선권을 가지며, 나중에 신청한 채권자는 배당 순위에서 뒤로 밀립니다.</div>
+            </div>
+            <div class="qa-item">
+                <div class="qa-question">상대방이 전세를 해지하고 다른 곳으로 이사 가면 어떻게 되나요?</div>
+                <div class="qa-answer">이사를 가도 문제없습니다. 당신의 압류명령은 "그 집의 보증금 반환채권"에 대한 것이지, 상대방의 신체나 거주지에 대한 것이 아니기 때문입니다.</div>
+            </div>
+            <div class="qa-item">
+                <div class="qa-question">상대방과 집주인이 "보증금을 상대방에게 주지 말고 내가 받겠다"고 합의하면 압류가 무효가 되나요?</div>
+                <div class="qa-answer">절대 그렇지 않습니다. 당신의 압류명령이 유효하면, 상대방과 집주인의 합의는 무의미합니다. 법원의 압류명령은 그 이후의 모든 거래를 무효화합니다.</div>
+            </div>
+            <div class="qa-item">
+                <div class="qa-question">압류된 보증금에서 실제로 돈을 받으려면 어떤 절차를 더 거쳐야 하나요?</div>
+                <div class="qa-answer">압류 후 다음 단계는 <strong>추심명령</strong> 또는 <strong>배당 절차</strong>입니다. 추심명령은 집주인에게 "이 돈을 직접 당신(채권자)에게 주라"는 명령입니다.</div>
+            </div>
+            <div class="qa-item">
+                <div class="qa-question">상대방이 임차 계약을 연장하거나 새로운 임차인으로 변경되면 어떻게 되나요?</div>
+                <div class="qa-answer">압류는 "현재 상대방의 보증금 반환채권"에 대한 것입니다. 계약을 연장하면 보증금 액수가 변경될 수 있고, 새로운 임차인이 되면 상대방의 보증금은 집주인에게서 반환되어야 하므로, 반환 시점에 당신의 압류가 작용하게 됩니다.</div>
+            </div>
+        </div>
+
+        <div class="warn-box">
+            <h4>주의: Q&A 내용은 일반적인 정보입니다</h4>
+            <p>위 답변은 교육 목적의 일반 정보일 뿐, 특정 상황에 대한 법률 조언이 아닙니다.</p>
+        </div>
+
+        <h2>관련 판례</h2>
+        <div class="ruling-box">
+            <h4>전세보증금 반환채권은 금전채권</h4>
+            <p>전세보증금 반환채권은 금전을 목적으로 하는 채권이므로 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=022300" target="_blank" rel="noopener">민사집행법 제223조</a>의 금전채권 압류 규정을 그대로 적용할 수 있습니다.</p>
+        </div>
+        <div class="ruling-box">
+            <h4>장래채권의 압류</h4>
+            <p>임차 계약이 아직 진행 중이라 보증금 반환채권이 발생하지 않았더라도 (장래채권), 이미 계약이 체결되어 있으므로 압류할 수 있습니다.</p>
+        </div>
+
+        <h2>주의사항</h2>
+        <div class="warn-box">
+            <h4>집주인의 재무 상태 확인</h4>
+            <p>집주인이 다른 빚 때문에 파산할 수 있습니다. 압류 전에 집주인의 신용 평가나 재정 상태를 파악하는 것이 좋습니다.</p>
+        </div>
+        <div class="warn-box">
+            <h4>⚡ 보증금 반환 기한 주의</h4>
+            <p><a class="law-tag" href="https://www.law.go.kr/lsSc.do?menuId=1&subMenuId=15&tabMenuId=81&eventGubun=060101&query=%EC%A3%BC%ED%83%9D%EC%9E%84%EC%B0%A8%EC%9D%B8%EC%9D%98%20%EB%B3%B4%EC%A6%9D%EA%B8%88%20%EC%9A%B0%EC%84%A0%EB%B3%80%EC%A0%9C%EC%97%90%20%EA%B4%80%ED%95%9C%20%EB%B2%95%EB%A5%A0" target="_blank" rel="noopener">주택임차인의 보증금 우선변제에 관한 법률</a>에 따르면, 임차인의 우선변제권은 임차 계약 종료 후 6개월 이내에만 인정됩니다. 따라서 당신의 압류도 그 전에 진행해야 우선순위에서 유리합니다.</p>
+        </div>
+        <div class="warn-box">
+            <h4>순환 채권 상황</h4>
+            <p>상대방이 집주인에게 임차인으로서 채무가 있을 수 있습니다 (예: 연체료, 손해배상). 이 경우 집주인이 상계권을 행사할 수 있어 보증금이 감소할 수 있습니다.</p>
+        </div>
+        <div class="info-box">
+            <h4>⚡ 압류명령의 유효 기간</h4>
+            <p>압류명령 송달 후 <span class="highlight">1년</span> 이내에 추심 또는 배당 절차를 진행해야 합니다. 그렇지 않으면 압류 효력이 소멸될 수 있습니다.</p>
+        </div>
+
+        <div class="next-topics">
+            <h3>다음에 확인할 사항</h3>
+            <ul>
+                <li><a href="#">채권 압류 절차 — 금전채권 압류의 기본</a></li>
+                <li><a href="#">추심명령 신청 — 압류 후 실제 돈을 받는 절차</a></li>
+                <li><a href="#">배당 절차 — 여러 채권자가 있을 때의 우선순위와 분배</a></li>
+            </ul>
+        </div>
+
+        <div class="cta-box">
+            <h3>보증금 압류, 정말 가능할까요?</h3>
+            <p>상대방이 빌려 사는 집의 보증금도 강제집행의 대상입니다. 금액이 클수록 회수 가능성이 높습니다.</p>
+            <p style="font-size: 0.9em; color: #666;">집주인 파악, 보증금 액수 확인, 압류 신청부터 추심까지 법무사가 전 과정을 담당합니다. 첫 상담은 무료입니다.</p>
+            <div class="cta-buttons">
+                <a href="tel:" class="cta-button cta-button-primary">☎️ 전화 상담</a>
+                <a href="#" class="cta-button cta-button-secondary">💬 카카오톡 상담</a>
+            </div>
+        </div>
+
+        <div class="disclaimer">
+            <p><strong>면책 문구</strong></p>
+            <p>본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 특정 상황에 대한 법률 조언이 아닙니다. 이 페이지의 내용에 따라 행동하기 전에 반드시 법무사나 변호사와 상담하여 정확한 조언을 받으시기 바랍니다. 본 페이지의 내용은 2025년 현행 법령 기준으로 작성되었으며, 법령 개정 시 내용이 변경될 수 있습니다.</p>
+        </div>
+    </div>
+</body>
+</html>

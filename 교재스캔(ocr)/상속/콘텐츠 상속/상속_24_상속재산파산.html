@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>상속재산 파산절차 | 상속 실무 안내</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>/* ===== UNIFIED BASE CSS ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #1a2e4a;
+  --gold: #c8a96e;
+  --bg: #faf8f5;
+  --text: #2c2c2c;
+  --summary-bg: #eef2f8;
+  --summary-bd: #2d4a7a;
+  --cta-bg: #fdf6e9;
+  --cta-bd: #c8a96e;
+  --case-bg: #f0f8f0;
+  --case-bd: #1a5c2e;
+  --ruling-bg: #f7f4f0;
+  --ruling-bd: #6b7280;
+  --warn-bg: #fff3e8;
+  --warn-bd: #c05000;
+  --rank-bg: #f4f7fb;
+  --rank-bd: #2d4a7a;
+  /* 하위 호환 */
+  --proc-bg: #e8f0fb;
+  --step-bg: #f0f4fb;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  font-size: 16px;
+}
+a { color: var(--navy); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ─── 헤더 ─── */
+header {
+  background: var(--navy);
+  color: #fff;
+  padding: 48px 24px 40px;
+  text-align: center;
+}
+header .breadcrumb {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 12px;
+  letter-spacing: 0.03em;
+}
+header h1 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+header .subtitle {
+  font-size: 15px;
+  color: var(--gold);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* ─── 레이아웃 ─── */
+.container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+/* 하위 호환: 기존 .page-wrap, .sec-inner 등 */
+.page-wrap, .sec-inner, .hd-inner { max-width: 820px; margin: 0 auto; padding: 0 20px; }
+
+section {
+  padding: 48px 0;
+  border-bottom: 1px solid #e4ddd4;
+}
+section:last-of-type { border-bottom: none; }
+/* 하위 호환: 기존 section 안에 있는 .sec-inner가 패딩 담당하는 구조 */
+section.sec-padded { padding: 48px 24px; }
+
+/* ─── 섹션 제목 ─── */
+h2 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--navy);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+h2 .tag {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: var(--navy);
+  color: var(--gold);
+  margin-right: 8px;
+  vertical-align: middle;
+}
+/* 하위 호환: 기존 .section-title 스타일을 h2 스펙에 맞게 재정의 */
+.section-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--navy);
+  border-bottom: 2px solid var(--gold);
+  border-left: none;
+  padding-bottom: 10px;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+.section-title .num {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: var(--navy);
+  color: var(--gold);
+  margin-right: 8px;
+  vertical-align: middle;
+  display: inline;
+}
+h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 28px 0 12px;
+}
+
+/* ─── 태그 & 배지 ─── */
+.law-tag {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: #e8edf5;
+  color: #2d4a7a;
+  display: inline-block;
+}
+.badge-red {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: #fde8e8;
+  color: #b00;
+  display: inline-block;
+}
+.badge-green {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: #e8f5e9;
+  color: #1a5c2e;
+  display: inline-block;
+}
+.q-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: var(--navy);
+  color: var(--gold);
+  display: inline-block;
+}
+
+/* ─── 컬러 박스 공통 (좌측 보더 패턴) ─── */
+.summary-box, .case-box, .ruling-box, .warn-box {
+  border-left: 4px solid;
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+
+/* 핵심요약 */
+.summary-box {
+  background: var(--summary-bg);
+  border-left-color: var(--summary-bd);
+}
+.summary-box .label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--summary-bd);
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+  display: block;
+}
+.summary-box ul { padding-left: 18px; }
+.summary-box li { margin-bottom: 8px; font-size: 14.5px; }
+
+/* 사례 */
+.case-box {
+  background: var(--case-bg);
+  border-left-color: var(--case-bd);
+}
+.case-box .case-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--case-bd);
+  margin-bottom: 8px;
+  display: block;
+}
+.case-box p { font-size: 14.5px; }
+
+/* 판례 */
+.ruling-box {
+  background: var(--ruling-bg);
+  border-left-color: var(--ruling-bd);
+}
+.ruling-box .ruling-header {
+  font-size: 13px;
+  font-weight: 700;
+  color: #444;
+  margin-bottom: 8px;
+  display: block;
+}
+.ruling-box .ruling-header::before {
+  content: "判";
+  background: var(--ruling-bd);
+  color: #fff;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-right: 8px;
+  font-size: 11px;
+}
+.ruling-box p { font-size: 14.5px; }
+/* 하위 호환: 기존 .ruling-card 클래스도 동일 스타일로 */
+.ruling-card {
+  background: var(--ruling-bg);
+  border-left: 4px solid var(--ruling-bd);
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+.ruling-card .r-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #5a6475;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+.ruling-card .r-label::before {
+  content: "判";
+  background: var(--ruling-bd);
+  color: #fff;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-right: 8px;
+  font-size: 11px;
+}
+.ruling-card .r-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.ruling-card .r-body { font-size: 14.5px; line-height: 1.65; }
+
+/* 주의사항 */
+.warn-box {
+  background: var(--warn-bg);
+  border-left-color: var(--warn-bd);
+}
+.warn-box .warn-title, .warn-box .w-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--warn-bd);
+  margin-bottom: 8px;
+  display: block;
+}
+.warn-box p, .warn-box li { font-size: 14.5px; }
+.warn-box ul { padding-left: 18px; }
+.warn-box li { margin-bottom: 6px; }
+
+/* ─── 테이블 ─── */
+.table-wrap { overflow-x: auto; margin: 20px 0; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 480px;
+}
+.tbl-wrap { overflow-x: auto; margin: 20px 0; }
+thead th {
+  background: var(--navy);
+  color: #fff;
+  padding: 11px 14px;
+  font-size: 13px;
+  text-align: left;
+  font-weight: 700;
+}
+tbody td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #e4ddd4;
+  line-height: 1.6;
+  vertical-align: top;
+}
+tbody tr:nth-child(even) td { background: #f5f2ee; }
+tbody tr:hover td { background: #eee8e0; }
+td.highlight { font-weight: 700; color: var(--navy); }
+td.gold { font-weight: 700; color: #8a5e00; background: #fffbf0; }
+
+/* ─── 체크리스트 ─── */
+.checklist {
+  background: #fff;
+  border: 1px solid #ddd6ce;
+  border-radius: 8px;
+  padding: 24px 28px;
+  list-style: none;
+}
+.checklist li {
+  padding: 6px 0;
+  font-size: 14.5px;
+  border-bottom: 1px dashed #e8e0d8;
+}
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before {
+  content: "✓";
+  color: var(--gold);
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+/* ─── Q&A (통합: .qna- 및 하위 호환 .qa-) ─── */
+.qna-item, .qa-item {
+  border: 1px solid #e0d9d0;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+.qna-q, .qa-q {
+  background: #fff;
+  padding: 16px 20px;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--navy);
+  cursor: pointer;
+}
+.qna-a, .qa-a {
+  background: #faf8f5;
+  padding: 16px 20px 16px 48px;
+  font-size: 14.5px;
+  border-top: 1px solid #e0d9d0;
+  line-height: 1.75;
+}
+.qna-a .disclaimer {
+  font-size: 12px;
+  color: #888;
+  margin-top: 10px;
+  border-top: 1px dashed #ccc;
+  padding-top: 8px;
+}
+
+/* ─── 기간 경고 배너 ─── */
+.deadline-banner {
+  background: #fff8f6;
+  border: 2px solid #c0392b;
+  border-radius: 8px;
+  margin: 24px 0;
+  padding: 18px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.deadline-banner .dl-icon, .deadline-banner .icon {
+  font-size: 26px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.deadline-banner .dl-text, .deadline-banner .text { flex: 1; }
+.deadline-banner h4, .deadline-banner strong { color: #7a0000; font-weight: 700; }
+.deadline-banner p { font-size: 13.5px; color: #555; line-height: 1.6; margin-top: 4px; }
+
+/* ─── 다음 페이지 링크 ─── */
+.next-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+.next-link {
+  background: #fff;
+  border: 1px solid #ddd6ce;
+  border-radius: 8px;
+  padding: 16px 18px;
+  font-size: 14px;
+  color: var(--navy);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.next-link:hover {
+  border-color: var(--gold);
+  box-shadow: 0 2px 8px rgba(200,169,110,0.15);
+  text-decoration: none;
+}
+.next-link .arrow { color: var(--gold); font-size: 18px; flex-shrink: 0; }
+
+/* ─── CTA 박스 ─── */
+.cta-box {
+  background: var(--cta-bg);
+  border: 1px solid var(--cta-bd);
+  border-radius: 10px;
+  padding: 32px 28px;
+  text-align: center;
+  margin: 40px 0 0;
+}
+.cta-box h3 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+  border: none;
+  padding: 0;
+}
+.cta-box p {
+  font-size: 14.5px;
+  color: #4a4a5a;
+  margin-bottom: 20px;
+}
+.cta-btn {
+  display: inline-block;
+  background: var(--navy);
+  color: #fff;
+  padding: 14px 36px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.cta-btn:hover { background: #26426a; text-decoration: none; }
+
+/* ─── 면책 섹션 ─── */
+.disclaimer-section {
+  background: #f2f0ec;
+  padding: 28px;
+  border-radius: 8px;
+  margin: 40px 0 0;
+}
+.disclaimer-section p, .disclaimer {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.8;
+}
+
+/* ─── 반응형 ─── */
+@media (max-width: 600px) {
+  header { padding: 36px 16px 28px; }
+  section { padding: 36px 0; }
+  .summary-box, .case-box, .ruling-box, .warn-box,
+  .ruling-card { padding: 16px 18px; }
+  .qna-a, .qa-a { padding-left: 20px; }
+  .cta-box { padding: 24px 20px; }
+  .cta-btn { padding: 12px 28px; }
+  .next-links { grid-template-columns: 1fr; }
+}
+
+
+/* ===== PAGE-SPECIFIC STYLES ===== */
+main { max-width: 860px; margin: 0 auto; padding: 40px 20px 60px; }
+
+section 
+section 
+p { margin-bottom: 14px; }
+ul, ol { padding-left: 1.4em; margin-bottom: 14px; }
+li { margin-bottom: 6px; line-height: 1.75; }
+
+.check-list {
+  background: var(--summary-bg);
+  border-left: 4px solid var(--summary-bd);
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px 20px 52px;
+  list-style: none;
+}
+.check-list li {
+  padding: 5px 0 5px 28px;
+  position: relative;
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 2px;
+}
+.check-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--summary-bd);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.cg-card {
+  border-radius: 8px;
+  padding: 18px 16px;
+  border: 1px solid #ddd;
+}
+.cg-card .cg-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  color: #888;
+}
+.cg-card .cg-title {
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+.cg-card .cg-
+.cg-card .cg-body li { margin-bottom: 4px; font-size: 13.5px; }
+.cg-card.blue { border-left: 4px solid #2d4a7a; background: #f5f8ff; }
+.cg-card.blue .cg-title { color: #2d4a7a; }
+.cg-card.green { border-left: 4px solid #1a5c2e; background: #f4fbf5; }
+.cg-card.green .cg-title { color: #1a5c2e; }
+.cg-card.purple { border-left: 4px solid #6b21a8; background: #f8f0ff; }
+.cg-card.purple .cg-title { color: #5b21b6; }
+
+.flow-wrap { display: flex; flex-direction: column; }
+.flow-step { display: flex; align-items: flex-start; }
+.flow-left { display: flex; flex-direction: column; align-items: center; width: 56px; flex-shrink: 0; }
+.flow-num {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--navy); color: #fff;
+  font-weight: 700; font-size: 15px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.flow-line { width: 2px; flex: 1; min-height: 28px; background: var(--gold); }
+.flow-content {
+  flex: 1; background: #fff;
+  border: 1px solid #ddd; border-radius: 8px;
+  padding: 14px 18px; margin-bottom: 6px; margin-left: 12px;
+}
+.flow-content .fc-title { font-weight: 700; color: var(--navy); font-size: 15px; margin-bottom: 4px; }
+.flow-content .fc-sub { font-size: 13.5px; color: #555; line-height: 1.65; }
+.flow-content .fc-sub em { color: #c0392b; font-style: normal; font-weight: 600; }
+.law-cite {
+  display: inline-block; background: #eef2f8; color: #2d4a7a;
+  font-size: 12px; padding: 1px 7px; border-radius: 4px;
+  margin-left: 4px; font-weight: 600;
+}
+.flow-gap { height: 6px; }
+
+.step-detail { border: 1px solid #ddd; border-radius: 10px; margin-bottom: 18px; overflow: hidden; }
+.step-detail-
+.step-detail-header .step-badge {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--gold); color: var(--navy);
+  font-weight: 700; font-size: 14px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.step-detail-header .step-title { font-weight: 700; font-size: 15px; }
+.step-detail-
+.step-detail-body p { font-size: 14.5px; margin-bottom: 10px; }
+.step-detail-body p:last-child { margin-bottom: 0; }
+.step-detail-body li { font-size: 14.5px; }
+.step-detail-body .law-tag {
+  display: inline-block; background: #eef2f8; color: #2d4a7a;
+  font-size: 12.5px; padding: 2px 8px; border-radius: 4px;
+  margin-left: 6px; font-weight: 600;
+}
+
+.applicant-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.ap-card {
+  background: #fff;
+  border: 1px solid #d0d7e4;
+  border-radius: 8px;
+  padding: 14px 16px;
+  text-align: center;
+}
+.ap-card .ap-icon { font-size: 22px; margin-bottom: 6px; }
+.ap-card .ap-name { font-weight: 700; color: var(--navy); font-size: 14px; margin-bottom: 4px; }
+.ap-card .ap-desc { font-size: 12.5px; color: #666; line-height: 1.5; }
+
+.doc-
+.doc-section-title {
+  font-weight: 700; color: var(--navy); font-size: 15px;
+  margin-bottom: 10px; padding: 6px 12px;
+  background: var(--summary-bg);
+  border-left: 3px solid var(--summary-bd);
+  border-radius: 0 6px 6px 0;
+}
+.doc-list {
+  list-style: none; padding-left: 0;
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.doc-list li {
+  background: #fff; border: 1px solid #d0d7e4; border-radius: 6px;
+  padding: 8px 14px; font-size: 14px; line-height: 1.5; margin-bottom: 0;
+  display: flex; align-items: flex-start; gap: 6px;
+}
+.doc-list li::before { content: "📄"; font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+.doc-note {
+  font-size: 13px; color: #666;
+  background: var(--warn-bg); border-left: 3px solid var(--warn-bd);
+  padding: 10px 14px; border-radius: 0 6px 6px 0; margin-top: 10px;
+}
+.doc-note strong { color: #c05000; }
+
+.cost-
+.cost-table th {
+  background: var(--navy); color: #fff;
+  padding: 11px 16px; text-align: left; font-weight: 600; font-size: 14px;
+}
+.cost-table td { padding: 11px 16px; border-bottom: 1px solid #e5e5e5; vertical-align: top; line-height: 1.6; }
+.cost-table tr:nth-child(even) td { background: #f8f8f8; }
+.cost-table tr:last-child td { border-bottom: none; }
+.cost-note { font-size: 13px; color: #666; margin-top: 10px; padding: 10px 14px; background: #f5f5f5; border-radius: 6px; }
+
+.warn-card {
+  background: var(--warn-bg);
+  border-left: 4px solid var(--warn-bd);
+  border-radius: 0 8px 8px 0;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+.warn-card .warn-title { font-weight: 700; color: #a03000; margin-bottom: 8px; font-size: 15px; display: flex; align-items: center; gap: 6px; }
+.warn-card p, .warn-card li { font-size: 14.5px; }
+
+.qa-q .q-badge { background: var(--gold); color: var(--navy); border-radius: 4px; padding: 1px 8px; font-size: 13px; flex-shrink: 0; margin-top: 2px; }
+.qa-
+.qa-a p { font-size: 14.5px; margin-bottom: 10px; }
+.qa-a p:last-child { margin-bottom: 0; }
+.qa-disclaimer { font-size: 12.5px; color: #888; border-top: 1px dashed #ccc; margin-top: 10px; padding-top: 8px; font-style: italic; }
+
+.nav-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.nav-card {
+  border: 1px solid #ddd; border-radius: 10px; padding: 18px 20px;
+  background: #fff; text-decoration: none; color: var(--text); display: block;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.nav-card:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.09); border-color: var(--gold); }
+.nav-card .nc-dir { font-size: 12px; color: #888; margin-bottom: 6px; font-weight: 600; letter-spacing: 0.06em; }
+.nav-card .nc-title { font-weight: 700; color: var(--navy); font-size: 15px; line-height: 1.4; }
+.nav-card .nc-desc { font-size: 13px; color: #666; margin-top: 6px; line-height: 1.5; }
+.nav-card.next { border-left: 4px solid var(--gold); }
+.nav-card.prev { border-right: 4px solid var(--gold); border-left: none; }
+
+.cta-sub { font-size: 13px; color: #888; margin-top: 14px; margin-bottom: 0; }
+
+.disclaimer-box { background: #f5f5f5; border: 1px solid #ccc; border-radius: 8px; padding: 20px 24px; font-size: 13px; color: #666; line-height: 1.75; }
+.disclaimer-box strong { color: #444; }
+
+.when-box {
+  border-radius: 10px;
+  padding: 22px 24px;
+  margin-bottom: 20px;
+}
+.when-box.good { background: var(--case-bg); border: 2px solid var(--case-bd); }
+.when-box.bad { background: var(--warn-bg); border: 2px solid var(--warn-bd); }
+.when-box .wb-title {
+  font-weight: 700; font-size: 15px; margin-bottom: 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.when-box.good .wb-title { color: #1a5c2e; }
+.when-box.bad .wb-title { color: #a03000; }
+.when-box ul { margin: 0; }
+.when-box li { font-size: 14.5px; }
+/* ─── 법령·판례 클릭 태그 ─── */
+.ref-tags {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.tag-law {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: #eef2f8;
+  color: #2d4a7a;
+  border: 1px solid #2d4a7a;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.tag-law:hover { background-color: #dce6f5; }
+.tag-case {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: #f7f4f0;
+  color: #5a3e28;
+  border: 1px solid #6b7280;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.tag-case:hover { background-color: #ede8e2; }
+/* law-ref 인라인 스타일을 tag-law 와 통일 */
+span.law-ref a, .tag-law { cursor: pointer; }
+
+</style></head>
+<body>
+<!-- ── 헤더 ── -->
+<header>
+<p class="breadcrumb">상속 실무 안내 › 상속채무 청산 제도</p>
+<h1>상속재산 파산절차</h1>
+<p class="subtitle">파산관재인을 통한 공정한 법정 청산 — 회생법원 절차 완전 안내</p>
+</header>
+<main>
+<!-- ── 0. 이런 분께 ── -->
+<section id="for-whom">
+<h2>이런 분께 이 안내가 필요합니다</h2>
+<ul class="check-list">
+<li>망인의 채무가 재산을 크게 초과하고, 채권자 수도 많아 상속인이 직접 청산하기 부담스러운 분</li>
+<li>한정승인을 받았으나 상속재산에 부동산이 많거나 청산 절차가 지나치게 복잡한 분</li>
+<li>법원이 선임한 파산관재인에게 청산 전반을 맡겨 공정하고 안전하게 마무리하고 싶은 분</li>
+<li>상속재산 파산을 통해 상속채권자와 상속인의 채권자를 법적으로 분리하고 싶은 분</li>
+<li>한정승인·상속포기 외의 세 번째 청산 선택지가 있다는 것을 처음 알게 된 분</li>
+</ul>
+</section>
+<!-- ── 1. 핵심 요약 ── -->
+<section id="summary">
+<h2>핵심 요약</h2>
+<div class="summary-box">
+<div class="summary-title">📋 상속재산 파산 핵심 포인트</div>
+<ul>
+<li><strong>의의:</strong> 채무초과 망인의 상속재산에 대해 법원이 선임한 파산관재인이 청산하는 절차 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=267359&joNo=029900" target="_blank" class="tag-law">📋 채무자회생법 제299조</a>)</li>
+<li><strong>신청 기관:</strong> 가정법원이 아닌 <em>회생법원</em> (서울은 서울회생법원)</li>
+<li><strong>신청 자격:</strong> 상속채권자, 유증 받은 자, 상속인, 상속재산관리인, 유언집행자</li>
+<li><strong>특징:</strong> 상속재산과 상속인의 고유재산이 법적으로 분리 → 상속인의 고유재산 보호</li>
+<li><strong>한정승인과의 차이:</strong> 한정승인은 상속인이 직접 청산(임의변제) / 파산은 파산관재인이 청산(법정절차)</li>
+<li><strong>기간 제한:</strong> 별도의 신청 기한 없음 (한정승인·상속포기의 3개월 기한 불적용)</li>
+</ul>
+</div>
+<h3>상속채무 청산 3가지 방법 비교</h3>
+<div class="compare-grid">
+<div class="cg-card blue">
+<div class="cg-label">방법 1</div>
+<div class="cg-title">한정승인</div>
+<div class="cg-body">
+<ul>
+<li>관할: 가정법원</li>
+<li>청산 주체: 상속인 직접</li>
+<li>방식: 임의변제 (형식적 경매)</li>
+<li>기한: 3개월 이내</li>
+<li>비용: 상대적으로 적음</li>
+<li>복잡도: 상속인 부담 있음</li>
+</ul>
+</div>
+</div>
+<div class="cg-card green">
+<div class="cg-label">방법 2</div>
+<div class="cg-title">상속포기</div>
+<div class="cg-body">
+<ul>
+<li>관할: 가정법원</li>
+<li>청산 주체: 없음 (포기)</li>
+<li>방식: 상속 자체 거부</li>
+<li>기한: 3개월 이내</li>
+<li>비용: 가장 적음</li>
+<li>차순위 이전 위험 있음</li>
+</ul>
+</div>
+</div>
+<div class="cg-card purple">
+<div class="cg-label">방법 3</div>
+<div class="cg-title">상속재산 파산</div>
+<div class="cg-body">
+<ul>
+<li>관할: 회생법원</li>
+<li>청산 주체: 파산관재인</li>
+<li>방식: 법정 파산 절차</li>
+<li>기한: 제한 없음</li>
+<li>비용: 상대적으로 높음</li>
+<li>복잡도: 전문가 처리</li>
+</ul>
+</div>
+</div>
+</div>
+<h3>상속재산 파산이 유리한 경우 / 불리한 경우</h3>
+<div class="when-box good">
+<div class="wb-title">✅ 파산 절차가 유리한 경우</div>
+<ul>
+<li>채권자 수가 많고 채무 관계가 복잡하여 상속인이 직접 청산하기 어려운 경우</li>
+<li>상속재산에 부동산이 다수 포함되어 있고 변제 순서에 분쟁이 예상되는 경우</li>
+<li>상속인의 채권자가 상속재산에 집행하려는 시도를 차단하고 싶은 경우</li>
+<li>상속인이 청산 실수로 인한 법적 책임을 피하고 싶은 경우 (파산관재인이 처리)</li>
+<li>한정승인 후 청산이 너무 복잡해 파산으로 전환하려는 경우</li>
+</ul>
+</div>
+<div class="when-box bad">
+<div class="wb-title">⚠️ 파산 절차보다 한정승인이 유리한 경우</div>
+<ul>
+<li>상속재산 규모가 작고 채권자 수가 적어 상속인이 직접 청산할 수 있는 경우</li>
+<li>파산 절차 비용(파산관재인 보수 등)이 상속재산보다 과다해질 우려가 있는 경우</li>
+<li>신속하게 청산을 마무리하고 싶고 절차 간소화를 원하는 경우</li>
+</ul>
+</div>
+</section>
+<!-- ── 2. 절차 흐름도 ── -->
+<section id="flow">
+<h2>한눈에 보는 상속재산 파산 절차 흐름도</h2>
+<div class="flow-wrap">
+<div class="flow-step">
+<div class="flow-left">
+<div class="flow-num">1</div>
+<div class="flow-line"></div>
+</div>
+<div class="flow-content">
+<div class="fc-title">파산원인 확인 — 채무초과 여부 파악</div>
+<div class="fc-sub">망인의 상속재산(적극재산)과 채무(소극재산)를 조사하여 채무초과 여부를 확인합니다. 채무초과가 파산의 기본 요건입니다. <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=267359&joNo=029900" target="_blank" class="tag-law">📋 채무자회생법 제299조</a></div>
+</div>
+</div>
+<div class="flow-gap"></div>
+<div class="flow-step">
+<div class="flow-left">
+<div class="flow-num">2</div>
+<div class="flow-line"></div>
+</div>
+<div class="flow-content">
+<div class="fc-title">파산신청서 작성 및 제출 — 회생법원</div>
+<div class="fc-sub">파산신청서, 상속재산목록, 채권자 목록, 상속관계 증빙서류를 준비하여 <em>회생법원</em>에 신청합니다. 서울의 경우 서울회생법원에 제출합니다. <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=267359&joNo=030000" target="_blank" class="tag-law">📋 채무자회생법 제300조</a></div>
+</div>
+</div>
+<div class="flow-gap"></div>
+<div class="flow-step">
+<div class="flow-left">
+<div class="flow-num">3</div>
+<div class="flow-line"></div>
+</div>
+<div class="flow-content">
+<div class="fc-title">파산선고 및 파산관재인 선임</div>
+<div class="fc-sub">법원이 파산 요건을 심리한 후 <em>파산선고</em>를 내리고, 파산관재인을 선임합니다. 파산선고 이후 상속재산에 대한 관리·처분 권한은 파산관재인에게 이전됩니다. <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=267359&joNo=030900" target="_blank" class="tag-law">📋 채무자회생법 제309조</a></div>
+</div>
+</div>
+<div class="flow-gap"></div>
+<div class="flow-step">
+<div class="flow-left">
+<div class="flow-num">4</div>
+<div class="flow-line"></div>
+</div>
+<div class="flow-content">
+<div class="fc-title">파산재단 구성 — 상속재산 확정</div>
+<div class="fc-sub">파산관재인이 상속재산 전체를 조사하여 <em>파산재단</em>을 구성합니다. 파산재단은 상속인의 고유재산과 엄격히 분리됩니다. <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=267359&joNo=038200" target="_blank" class="tag-law">📋 채무자회생법 제382조</a></div>
+</div>
+</div>
+<div class="flow-gap"></div>
+<div class="flow-step">
+<div class="flow-left">
+<div class="flow-num">5</div>
+<div class="flow-line"></div>
+</div>
+<div class="flow-content">
+<div class="fc-title">채권자 신고 및 채권 조사</div>
+<div class="fc-sub">법원이 채권신고 기간을 정하여 공고합니다. 알려진 채권자에게는 개별 통지합니다. 신고된 채권은 파산관재인이 조사하여 확정합니다. <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=267359&joNo=044700" target="_blank" class="tag-law">📋 채무자회생법 제447조~제464조</a></div>
+</div>
+</div>
+<div class="flow-gap"></div>
+<div class="flow-step">
+<div class="flow-left">
+<div class="flow-num">6</div>
+<div class="flow-line"></div>
+</div>
+<div class="flow-content">
+<div class="fc-title">파산재단 환가 및 배당</div>
+<div class="fc-sub">파산관재인이 상속재산을 환가(매각)하고, 확정된 채권에 따라 법정 순위대로 배당합니다. <em>담보권자 → 우선채권자(조세 등) → 일반파산채권자</em> 순으로 배당됩니다. <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=267359&joNo=047600" target="_blank" class="tag-law">📋 채무자회생법 제476조~제500조</a></div>
+</div>
+</div>
+<div class="flow-gap"></div>
+<div class="flow-step">
+<div class="flow-left">
+<div class="flow-num">7</div>
+</div>
+<div class="flow-content">
+<div class="fc-title">파산절차 종결</div>
+<div class="fc-sub">배당이 완료되면 파산절차가 종결됩니다. 잔여 채무는 소멸하지 않지만, 상속인의 고유재산으로는 집행할 수 없게 됩니다. 상속채권자는 파산재단으로만 변제받습니다. <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=267359&joNo=053800" target="_blank" class="tag-law">📋 채무자회생법 제538조</a></div>
+</div>
+</div>
+</div>
+</section>
+<!-- ── 3. 단계별 상세 설명 ── -->
+<section id="step-detail">
+<h2>단계별 상세 설명</h2>
+<div class="step-detail">
+<div class="step-detail-header">
+<div class="step-badge">1</div>
+<div class="step-title">파산신청 자격 — 누가 신청할 수 있나</div>
+</div>
+<div class="step-detail-body">
+<p>상속재산 파산은 다음 중 어느 한 명이 신청할 수 있습니다.</p>
+<div class="applicant-grid" style="margin-top:12px;">
+<div class="ap-card">
+<div class="ap-icon">👤</div>
+<div class="ap-name">상속인</div>
+<div class="ap-desc">한정승인 후 또는 직접 신청 가능</div>
+</div>
+<div class="ap-card">
+<div class="ap-icon">💳</div>
+<div class="ap-name">상속채권자</div>
+<div class="ap-desc">채무변제를 받지 못한 채권자</div>
+</div>
+<div class="ap-card">
+<div class="ap-icon">📜</div>
+<div class="ap-name">유증 받은 자</div>
+<div class="ap-desc">유언으로 재산을 받을 사람</div>
+</div>
+<div class="ap-card">
+<div class="ap-icon">🏛️</div>
+<div class="ap-name">상속재산관리인</div>
+<div class="ap-desc">법원이 선임한 관리인</div>
+</div>
+<div class="ap-card">
+<div class="ap-icon">✍️</div>
+<div class="ap-name">유언집행자</div>
+<div class="ap-desc">유언을 집행하는 자</div>
+</div>
+</div>
+<p style="margin-top:12px;">한정승인을 한 이후에도 파산신청이 가능합니다. 실무에서는 상속인이 한정승인 수리 후 청산 절차가 복잡할 경우 파산으로 전환하는 사례가 있습니다.</p>
+</div>
+</div>
+<div class="step-detail">
+<div class="step-detail-header">
+<div class="step-badge">2</div>
+<div class="step-title">관할 법원 — 반드시 회생법원에 신청</div>
+</div>
+<div class="step-detail-body">
+<p>상속재산 파산은 가정법원이 아닌 회생법원(파산법원)에 신청합니다.</p>
+<ul>
+<li><strong>관할:</strong> 상속이 개시된 당시 피상속인의 주소지를 관할하는 지방법원 본원 합의부 (회생법원) <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=267359&joNo=000300" target="_blank" class="tag-law">📋 채무자회생법 제3조 제8항·제9항</a></li>
+<li><strong>서울:</strong> 서울회생법원 (서울가정법원과 별개)</li>
+<li><strong>지방:</strong> 각 지방법원 파산부 또는 합의부</li>
+<li><strong>협업 체계:</strong> 2017년 7월부터 서울가정법원이 한정승인 수리심판서 송달 시 파산제도 안내문을 함께 발송하고 있습니다.</li>
+</ul>
+</div>
+</div>
+<div class="step-detail">
+<div class="step-detail-header">
+<div class="step-badge">3</div>
+<div class="step-title">파산관재인의 역할 — 청산의 중심</div>
+</div>
+<div class="step-detail-body">
+<p>파산선고 후 법원이 선임한 파산관재인이 청산 전 과정을 담당합니다.</p>
+<ul>
+<li><strong>재산 조사·목록 작성:</strong> 파산재단에 속하는 상속재산 전체를 조사하여 목록화</li>
+<li><strong>재산 관리·보전:</strong> 상속재산이 유출되거나 훼손되지 않도록 관리</li>
+<li><strong>채권자 관리:</strong> 신고된 채권 조사, 채권자 집회 주재</li>
+<li><strong>재산 환가:</strong> 부동산·동산 매각, 채권 추심 등을 통해 현금화</li>
+<li><strong>배당 실시:</strong> 법정 순위에 따라 채권자에게 배당</li>
+<li><strong>보고·감독:</strong> 법원에 주기적으로 업무 보고, 법원의 감독 하에 운영</li>
+</ul>
+<p>파산관재인은 통상 변호사 또는 법무사가 선임되며, 그 보수는 파산재단에서 지출됩니다.</p>
+</div>
+</div>
+<div class="step-detail">
+<div class="step-detail-header">
+<div class="step-badge">4</div>
+<div class="step-title">재산 분리 효과 — 상속인 고유재산 보호</div>
+</div>
+<div class="step-detail-body">
+<p>상속재산 파산의 핵심 효과는 상속재산과 상속인 고유재산의 법적 분리입니다.</p>
+<ul>
+<li><strong>상속채권자:</strong> 파산재단(상속재산)에서만 변제받을 수 있으며, 상속인의 고유재산에 대해서는 집행 불가</li>
+<li><strong>상속인의 채권자:</strong> 파산채권자에서 배제 <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=267359&joNo=043800" target="_blank" class="tag-law">📋 채무자회생법 제438조</a> → 상속재산에서 배당받지 못함</li>
+<li><strong>분리 효과:</strong> 한정승인의 경우 상속인이 직접 분리를 유지해야 하는 반면, 파산 시에는 법적으로 자동 분리됨</li>
+<li><strong>상속인 보호:</strong> 파산 후 잔여 채무에 대해 상속인이 책임지지 않아도 됨 (파산재단 한도 내 처리)</li>
+</ul>
+</div>
+</div>
+<div class="step-detail">
+<div class="step-detail-header">
+<div class="step-badge">5</div>
+<div class="step-title">배당 우선순위 — 채권자 변제 순서</div>
+</div>
+<div class="step-detail-body">
+<p>파산재단의 배당은 다음 법정 순서에 따라 진행됩니다.</p>
+<ol>
+<li><strong>재단채권 (최우선):</strong> 파산절차 비용, 파산관재인 보수, 파산재단 관리·처분 비용 <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=267359&joNo=047300" target="_blank" class="tag-law">📋 채무자회생법 제473조</a></li>
+<li><strong>담보권자:</strong> 상속재산에 설정된 저당권·전세권·질권 등 담보권에 기한 채권 (목적물 한도)</li>
+<li><strong>우선채권:</strong> 조세(상속세·취득세 등), 공과금, 근로자 임금채권 등</li>
+<li><strong>일반 파산채권:</strong> 담보 없는 일반 채권자 (채권액 비율로 배당)</li>
+<li><strong>후순위 파산채권:</strong> 이자·벌금 등</li>
+</ol>
+<p>배당 후 잔여재산이 있으면 상속인에게 귀속됩니다. 재산이 부족하면 하위 순위 채권자는 변제를 받지 못할 수 있습니다.</p>
+</div>
+</div>
+</section>
+<!-- ── 4. 준비 서류 ── -->
+<section id="documents">
+<h2>준비 서류 목록</h2>
+<p>파산신청서에는 상속관계 증빙서류와 재산·채무 현황 서류를 첨부합니다. 한정승인 서류와 일부 겹치지만, 채권자 목록과 재산목록이 특히 중요합니다.</p>
+<div class="doc-section">
+<div class="doc-section-title">📁 상속관계 증빙서류</div>
+<ul class="doc-list">
+<li>가족관계증명서 (피상속인·상속인) 각 1통</li>
+<li>기본증명서 (피상속인·상속인) 각 1통</li>
+<li>말소자 주민등록표등본 (피상속인) 1통</li>
+<li>주민등록표등본 (상속인) 1통</li>
+<li>제적등본 각 1통</li>
+</ul>
+</div>
+<div class="doc-section">
+<div class="doc-section-title">📁 상속재산 현황 서류</div>
+<ul class="doc-list">
+<li>상속재산목록 (적극·소극재산 포함)</li>
+<li>부동산 등기사항증명서</li>
+<li>예금잔액증명서 (각 금융기관)</li>
+<li>자동차등록원부</li>
+<li>주식·유가증권 잔고증명</li>
+<li>상속인 금융거래조회 결과</li>
+</ul>
+</div>
+<div class="doc-section">
+<div class="doc-section-title">📁 채무 관련 서류</div>
+<ul class="doc-list">
+<li>채권자 목록 (채권자명·채무금액·채무종류 포함)</li>
+<li>채무확인서 또는 부채증명서 (금융기관 발급)</li>
+<li>판결문 또는 지급명령 정본 (있는 경우)</li>
+<li>세금 체납 확인서 (국세·지방세)</li>
+</ul>
+<div class="doc-note"><strong>채권자 목록이 핵심:</strong> 파산신청 시 알려진 채권자를 가능한 한 빠짐없이 기재해야 합니다. 누락된 채권자는 추후 별도로 권리를 주장할 수 있으며, 분쟁의 원인이 됩니다.</div>
+</div>
+<div class="doc-section">
+<div class="doc-section-title">📁 신청인 관련 서류 (상속인이 신청하는 경우)</div>
+<ul class="doc-list">
+<li>인감증명서 (상속인) 1통</li>
+<li>한정승인 수리심판서 등본 (한정승인 후 신청 시)</li>
+<li>한정승인 확정증명서 (동)</li>
+</ul>
+</div>
+</section>
+<!-- ── 5. 비용 안내 ── -->
+<section id="cost">
+<h2>비용 안내</h2>
+<p>상속재산 파산은 한정승인보다 절차가 복잡하여 비용이 더 많이 발생합니다. 주요 비용 항목은 아래와 같습니다.</p>
+<table class="cost-table">
+<thead>
+<tr><th>항목</th><th>내용</th><th>비고</th></tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>신청 인지액</strong></td>
+<td>파산신청에 따른 법원 수수료</td>
+<td>법원 규정에 따름</td>
+</tr>
+<tr>
+<td><strong>파산관재인 보수</strong></td>
+<td>파산재단에서 지출 (재산 규모에 비례)</td>
+<td>법원이 결정</td>
+</tr>
+<tr>
+<td><strong>파산재단 관리 비용</strong></td>
+<td>재산 보전·관리 비용</td>
+<td>재단채권으로 최우선 변제</td>
+</tr>
+<tr>
+<td><strong>공고 비용</strong></td>
+<td>파산선고·채권신고 공고 (신문 등)</td>
+<td>재단비용으로 처리</td>
+</tr>
+<tr>
+<td><strong>변호사·법무사 보수</strong></td>
+<td>신청 대리 및 절차 지원</td>
+<td>별도 협의</td>
+</tr>
+</tbody>
+</table>
+<div class="cost-note">
+    ※ 파산 비용은 파산재단(상속재산)에서 먼저 공제됩니다. 상속재산이 파산 비용에도 미치지 못할 경우에는 파산 절차 자체가 진행되기 어려울 수 있습니다. 신청 전에 비용 대비 실익을 전문가와 면밀히 검토하시기 바랍니다.
+  </div>
+</section>
+<!-- ── 6. 관련 판례 ── -->
+<section id="rulings">
+<h2>관련 판례</h2>
+<div class="ruling-card">
+<div class="ruling-cite"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2003다30968" target="_blank" class="tag-case">⚖️ 대법원 2003다30968</a></div>
+<div class="ruling-text">한정승인에 의하여 상속재산이 한정상속인의 고유재산으로부터 분리·독립되고 일종의 파산적 청산절차를 밟게 되는 점을 종합하면, 한정상속인의 채권자는 상속재산에 대하여 집행할 수 없고, 상속채권자는 한정상속인의 채권자들의 상속재산에 대한 집행에 대하여 제3자 이의의 소로써 이를 저지할 수 있다.</div>
+<div class="ruling-point">실무 포인트: 한정승인과 파산 모두 상속채권자와 상속인의 채권자를 분리하는 효과가 있습니다. 상속채권자는 상속인의 채권자가 상속재산에 집행하려 할 때 이의를 제기할 수 있습니다.</div>
+</div>
+<div class="ruling-card">
+<div class="ruling-cite"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2021다224446" target="_blank" class="tag-case">⚖️ 대법원 2021다224446</a></div>
+<div class="ruling-text">상속채권자는 상속인이 상속승인·포기를 하지 않은 동안에도 상속인을 상대로 상속재산에 관한 가압류결정을 받아 집행할 수 있다. 그 후 상속인이 상속포기를 하더라도 이미 발생한 가압류의 효력에는 영향이 없고, 해당 채권자는 파산 등의 절차에서 가압류채권자로서 배당을 받을 수 있다.</div>
+<div class="ruling-point">실무 포인트: 파산신청 전에 채권자가 가압류를 집행한 경우에도 파산 배당 절차에서 적법하게 배당을 받을 수 있습니다.</div>
+</div>
+<div class="ruling-card">
+<div class="ruling-cite"><a href="https://search.ccourt.go.kr/ths/sp/selectThsSpA01R03.do?caseId=96헌가22" target="_blank" class="tag-case">⚖️ 헌재 96헌가22</a></div>
+<div class="ruling-text">상속채무가 상속재산을 초과하는 경우 상속인을 보호하지 않는 구 <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=102600" target="_blank" class="tag-law">📋 민법 제1026조</a> 제2호는 헌법불합치 결정을 받았다. 이로 인해 2002년 특별한정승인 제도(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101900" target="_blank" class="tag-law">📋 민법 제1019조 제3항</a>)가 신설되었고, 상속재산 파산 제도의 중요성이 부각되었다.</div>
+<div class="ruling-point">실무 포인트: 상속채무 청산 제도 전반(한정승인·파산)은 상속인 보호를 위한 헌법적 요청에서 발전해 왔습니다.</div>
+</div>
+<div class="ruling-card">
+<div class="ruling-cite"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2015다75308" target="_blank" class="tag-case">⚖️ 대법원 2015다75308</a></div>
+<div class="ruling-text">한정승인자가 알고 있는 채권자에 해당하는지 여부는 배당변제를 하는 시점을 기준으로 판단한다. 파산 절차에서도 이 원칙이 준용되어, 파산관재인이 알게 된 채권자에게는 배당을 해야 한다.</div>
+<div class="ruling-point">실무 포인트: 파산 절차에서도 나중에 알게 된 채권자를 배당에서 임의로 제외할 수 없습니다. 채권자 파악을 소홀히 하면 추후 분쟁이 생길 수 있습니다.</div>
+</div>
+</section>
+<!-- ── 7. 주의사항 ── -->
+<section id="warnings">
+<h2>주의사항</h2>
+<div class="warn-card">
+<div class="warn-title">⚠️ 가정법원이 아닌 회생법원에 신청해야 합니다</div>
+<p>상속재산 파산은 가정법원(한정승인·상속포기)이 아닌 회생법원에 신청합니다. 서울의 경우 서울회생법원, 지방의 경우 해당 지방법원 파산부에 접수해야 합니다. 신청 법원을 혼동하면 각하 처분을 받을 수 있습니다.</p>
+</div>
+<div class="warn-card">
+<div class="warn-title">⚠️ 파산 비용이 상속재산을 초과하는 경우</div>
+<p>파산재단의 재산이 파산 절차 비용(파산관재인 보수, 공고비 등)에도 미치지 못할 경우, 법원은 파산폐지 결정을 내릴 수 있습니다. 이 경우 절차가 진행되지 않으므로, 신청 전에 반드시 비용 대비 실익을 전문가와 확인하십시오.</p>
+</div>
+<div class="warn-card">
+<div class="warn-title">⚠️ 파산 후에도 잔여 채무는 소멸하지 않습니다</div>
+<p>파산재단으로 변제를 받지 못한 채권자의 채권이 소멸하는 것은 아닙니다. 다만, 상속인의 고유재산에는 집행할 수 없습니다. 잔여 채무는 법적으로 남아 있지만 실질적으로 집행이 제한됩니다.</p>
+</div>
+<div class="warn-card">
+<div class="warn-title">⚠️ 한정승인과 파산을 병행하거나 전환할 수 있습니다</div>
+<p>한정승인을 받은 후에도 청산 과정이 복잡해지면 추가로 상속재산 파산을 신청할 수 있습니다. 또한 처음부터 파산 절차를 선택하는 것도 가능합니다. 어느 방법이 더 유리한지는 재산 규모·채권자 수·비용을 종합하여 판단해야 합니다.</p>
+</div>
+<div class="warn-card">
+<div class="warn-title">⚠️ 전문가 조력이 반드시 필요한 절차입니다</div>
+<p>상속재산 파산은 채무자 회생 및 파산에 관한 법률에 따른 복잡한 법원 절차입니다. 한정승인보다 훨씬 전문적인 지식이 요구되므로, 변호사 또는 규모 있는 법무사사무소의 도움을 받아 진행하는 것이 필수적입니다.</p>
+</div>
+</section>
+<!-- ── 8. Q&A ── -->
+<section id="qa">
+<h2>자주 묻는 질문 (Q&amp;A)</h2>
+<div class="qna-item">
+<div class="qna-q"><span class="q-badge">Q</span>한정승인과 상속재산 파산 중 어느 것을 선택해야 하나요?</div>
+<div class="qna-a">
+<p>채무 규모가 작고 채권자가 적은 경우 한정승인이 비용·절차 면에서 유리합니다. 반면 채권자가 많거나 부동산 등 복잡한 재산이 있고 변제 순서에 분쟁이 예상된다면 파산을 통해 파산관재인에게 맡기는 것이 더 안전합니다.</p>
+<p>두 제도를 단계적으로 활용하는 것도 가능합니다. 먼저 한정승인을 받아 상속재산 보전을 확보한 뒤, 청산 과정에서 복잡성이 커지면 파산으로 전환할 수 있습니다.</p>
+<div class="qa-disclaimer">※ 이 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 조언이 아닙니다. 개별 사안에 대해서는 법무사 또는 변호사와 상담하시기 바랍니다.</div>
+</div>
+</div>
+<div class="qna-item">
+<div class="qna-q"><span class="q-badge">Q</span>상속재산 파산을 신청하면 상속인의 신용에 영향이 있나요?</div>
+<div class="qna-a">
+<p>상속재산 파산은 '사람'이 아닌 '재산'에 대한 파산입니다. 따라서 상속인 개인의 신용정보나 파산 기록에는 영향을 주지 않습니다. 개인파산(채무자 파산)과는 근본적으로 다른 절차이므로 신용불량 등록 등의 불이익이 없습니다.</p>
+<div class="qa-disclaimer">※ 이 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 조언이 아닙니다.</div>
+</div>
+</div>
+<div class="qna-item">
+<div class="qna-q"><span class="q-badge">Q</span>3개월이 지났어도 파산 신청이 가능한가요?</div>
+<div class="qna-a">
+<p>네, 가능합니다. 상속재산 파산에는 한정승인·상속포기와 같은 3개월의 신청 기한이 없습니다. 다만, 3개월이 지나 단순승인이 된 이후에 파산을 신청하면 상속인이 이미 상속채무를 전부 승계한 상태이므로, 파산재단의 범위와 효력에 대해 전문가와 먼저 상담하는 것이 중요합니다.</p>
+<div class="qa-disclaimer">※ 이 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 조언이 아닙니다.</div>
+</div>
+</div>
+<div class="qna-item">
+<div class="qna-q"><span class="q-badge">Q</span>채권자가 파산을 신청할 수도 있나요?</div>
+<div class="qna-a">
+<p>네, 상속채권자도 상속재산 파산을 신청할 수 있습니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=267359&joNo=029900" target="_blank" class="tag-law">📋 채무자회생법 제299조</a>). 채권자 입장에서는 파산관재인을 통해 공정하게 채권을 회수할 수 있고, 다른 채권자와의 변제 경쟁에서 법적 보호를 받을 수 있습니다.</p>
+<p>상속인이 한정승인 후 청산 절차를 이행하지 않거나 청산이 불공정하게 진행되고 있다고 판단하는 채권자는 직접 파산을 신청하는 방법을 검토해볼 수 있습니다.</p>
+<div class="qa-disclaimer">※ 이 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 조언이 아닙니다.</div>
+</div>
+</div>
+<div class="qna-item">
+<div class="qna-q"><span class="q-badge">Q</span>파산 절차 중에 새로운 상속재산이 발견되면 어떻게 되나요?</div>
+<div class="qna-a">
+<p>파산선고 이후 새로 발견된 상속재산도 파산재단에 귀속됩니다. 파산관재인에게 즉시 보고해야 하며, 파산관재인이 해당 재산을 환가하여 채권자 배당에 포함시킵니다.</p>
+<p>상속인이 파산재단에 속하는 재산을 고의로 은닉하거나 훼손하면 법적 책임을 질 수 있으므로, 발견 즉시 파산관재인에게 신고하는 것이 중요합니다.</p>
+<div class="qa-disclaimer">※ 이 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 조언이 아닙니다.</div>
+</div>
+</div>
+<div class="qna-item">
+<div class="qna-q"><span class="q-badge">Q</span>상속재산이 거의 없어 파산 비용도 충당이 안 될 것 같습니다. 어떻게 하나요?</div>
+<div class="qna-a">
+<p>파산재단이 파산 비용(재단채권)을 충당하기에도 부족한 경우, 법원은 파산폐지 결정을 내릴 수 있습니다. 이 경우 파산 절차 자체가 조기에 종료됩니다.</p>
+<p>이런 상황이라면 상속재산 파산보다는 상속포기 또는 한정승인이 더 현실적인 선택일 수 있습니다. 전문가에게 상담하여 비용 대비 효과를 먼저 확인하시기 바랍니다.</p>
+<div class="qa-disclaimer">※ 이 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 조언이 아닙니다.</div>
+</div>
+</div>
+</section>
+<!-- ── 9. 다음으로 확인할 내용 ── -->
+<section id="navigation">
+<h2>다음으로 확인할 내용</h2>
+<div class="nav-cards">
+<a class="nav-card prev" href="상속_07_한정승인.html">
+<div class="nc-dir">← 관련 페이지</div>
+<div class="nc-title">한정승인<br/>절차와 청산 방법</div>
+<div class="nc-desc">파산 대신 한정승인으로 직접 청산을 진행하려면 이 페이지를 확인하세요.</div>
+</a>
+<a class="nav-card next" href="상속_06_상속포기.html">
+<div class="nc-dir">관련 페이지 →</div>
+<div class="nc-title">상속포기<br/>절차와 준비서류</div>
+<div class="nc-desc">파산·한정승인 대신 상속 자체를 포기하는 방법을 알고 싶다면 이 페이지를 참고하세요.</div>
+</a>
+</div>
+</section>
+<!-- ── 10. CTA ── -->
+<section id="cta">
+<div class="cta-box">
+<h3>상속재산 파산, 어느 방법이 맞는지 모르겠으신가요?</h3>
+<p>한정승인·상속포기·파산 중 어떤 선택이 유리한지는 재산 규모, 채권자 수, 비용을 종합해야 합니다.<br/>전문 법무사가 상황을 분석하고 최선의 방법을 안내해 드립니다.</p>
+<a class="cta-btn" href="#contact">무료 상담 예약하기</a>
+<p class="cta-sub">상담은 무료이며, 비밀이 보장됩니다.</p>
+</div>
+</section>
+<!-- ── 11. 면책 ── -->
+<section id="disclaimer">
+<div class="disclaimer-box">
+<strong>【법적 면책 고지】</strong><br/>
+    이 페이지의 내용은 일반적인 법률 정보 제공을 목적으로 하며, 특정 사안에 대한 법률 조언이 아닙니다. 상속재산 파산의 구체적인 요건·효과·절차는 개별 사안에 따라 달리 판단될 수 있으며, 최신 법령 및 판례와 다를 수 있습니다. 실제 상속재산 파산 신청 시에는 반드시 변호사 또는 법무사의 전문적인 법률 상담을 받으시기 바랍니다. 이 안내 내용에 의존하여 발생한 결과에 대해 법무사 사무소는 책임을 지지 않습니다.
+  </div>
+</section>
+</main>
+</body>
+</html>

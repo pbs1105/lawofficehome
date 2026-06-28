@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>유언의 방식과 효력 — 이 유언장이 유효한가 | 상속등기 안내</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>/* ===== UNIFIED BASE CSS ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #1a2e4a;
+  --gold: #c8a96e;
+  --bg: #faf8f5;
+  --text: #2c2c2c;
+  --summary-bg: #eef2f8;
+  --summary-bd: #2d4a7a;
+  --cta-bg: #fdf6e9;
+  --cta-bd: #c8a96e;
+  --case-bg: #f0f8f0;
+  --case-bd: #1a5c2e;
+  --ruling-bg: #f7f4f0;
+  --ruling-bd: #6b7280;
+  --warn-bg: #fff3e8;
+  --warn-bd: #c05000;
+  --rank-bg: #f4f7fb;
+  --rank-bd: #2d4a7a;
+  /* 하위 호환 */
+  --proc-bg: #e8f0fb;
+  --step-bg: #f0f4fb;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  font-size: 16px;
+}
+a { color: var(--navy); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ─── 헤더 ─── */
+header {
+  background: var(--navy);
+  color: #fff;
+  padding: 48px 24px 40px;
+  text-align: center;
+}
+header .breadcrumb {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 12px;
+  letter-spacing: 0.03em;
+}
+header h1 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+header .subtitle {
+  font-size: 15px;
+  color: var(--gold);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* ─── 레이아웃 ─── */
+.container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+/* 하위 호환: 기존 .page-wrap, .sec-inner 등 */
+.page-wrap, .sec-inner, .hd-inner { max-width: 820px; margin: 0 auto; padding: 0 20px; }
+
+section {
+  padding: 48px 0;
+  border-bottom: 1px solid #e4ddd4;
+}
+section:last-of-type { border-bottom: none; }
+/* 하위 호환: 기존 section 안에 있는 .sec-inner가 패딩 담당하는 구조 */
+section.sec-padded { padding: 48px 24px; }
+
+/* ─── 섹션 제목 ─── */
+h2 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--navy);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+h2 .tag {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: var(--navy);
+  color: var(--gold);
+  margin-right: 8px;
+  vertical-align: middle;
+}
+/* 하위 호환: 기존 .section-title 스타일을 h2 스펙에 맞게 재정의 */
+.section-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--navy);
+  border-bottom: 2px solid var(--gold);
+  border-left: none;
+  padding-bottom: 10px;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+.section-title .num {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: var(--navy);
+  color: var(--gold);
+  margin-right: 8px;
+  vertical-align: middle;
+  display: inline;
+}
+h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 28px 0 12px;
+}
+
+/* ─── 태그 & 배지 ─── */
+.law-tag {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: #e8edf5;
+  color: #2d4a7a;
+  display: inline-block;
+}
+.badge-red {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: #fde8e8;
+  color: #b00;
+  display: inline-block;
+}
+.badge-green {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: #e8f5e9;
+  color: #1a5c2e;
+  display: inline-block;
+}
+.q-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: var(--navy);
+  color: var(--gold);
+  display: inline-block;
+}
+
+/* ─── 컬러 박스 공통 (좌측 보더 패턴) ─── */
+.summary-box, .case-box, .ruling-box, .warn-box {
+  border-left: 4px solid;
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+
+/* 핵심요약 */
+.summary-box {
+  background: var(--summary-bg);
+  border-left-color: var(--summary-bd);
+}
+.summary-box .label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--summary-bd);
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+  display: block;
+}
+.summary-box ul { padding-left: 18px; }
+.summary-box li { margin-bottom: 8px; font-size: 14.5px; }
+
+/* 사례 */
+.case-box {
+  background: var(--case-bg);
+  border-left-color: var(--case-bd);
+}
+.case-box .case-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--case-bd);
+  margin-bottom: 8px;
+  display: block;
+}
+.case-box p { font-size: 14.5px; }
+
+/* 판례 */
+.ruling-box {
+  background: var(--ruling-bg);
+  border-left-color: var(--ruling-bd);
+}
+.ruling-box .ruling-header {
+  font-size: 13px;
+  font-weight: 700;
+  color: #444;
+  margin-bottom: 8px;
+  display: block;
+}
+.ruling-box .ruling-header::before {
+  content: "判";
+  background: var(--ruling-bd);
+  color: #fff;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-right: 8px;
+  font-size: 11px;
+}
+.ruling-box p { font-size: 14.5px; }
+/* 하위 호환: 기존 .ruling-card 클래스도 동일 스타일로 */
+.ruling-card {
+  background: var(--ruling-bg);
+  border-left: 4px solid var(--ruling-bd);
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+.ruling-card .r-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #5a6475;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+.ruling-card .r-label::before {
+  content: "判";
+  background: var(--ruling-bd);
+  color: #fff;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-right: 8px;
+  font-size: 11px;
+}
+.ruling-card .r-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.ruling-card .r-body { font-size: 14.5px; line-height: 1.65; }
+
+/* 주의사항 */
+.warn-box {
+  background: var(--warn-bg);
+  border-left-color: var(--warn-bd);
+}
+.warn-box .warn-title, .warn-box .w-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--warn-bd);
+  margin-bottom: 8px;
+  display: block;
+}
+.warn-box p, .warn-box li { font-size: 14.5px; }
+.warn-box ul { padding-left: 18px; }
+.warn-box li { margin-bottom: 6px; }
+
+/* ─── 테이블 ─── */
+.table-wrap { overflow-x: auto; margin: 20px 0; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 480px;
+}
+.tbl-wrap { overflow-x: auto; margin: 20px 0; }
+thead th {
+  background: var(--navy);
+  color: #fff;
+  padding: 11px 14px;
+  font-size: 13px;
+  text-align: left;
+  font-weight: 700;
+}
+tbody td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #e4ddd4;
+  line-height: 1.6;
+  vertical-align: top;
+}
+tbody tr:nth-child(even) td { background: #f5f2ee; }
+tbody tr:hover td { background: #eee8e0; }
+td.highlight { font-weight: 700; color: var(--navy); }
+td.gold { font-weight: 700; color: #8a5e00; background: #fffbf0; }
+
+/* ─── 체크리스트 ─── */
+.checklist {
+  background: #fff;
+  border: 1px solid #ddd6ce;
+  border-radius: 8px;
+  padding: 24px 28px;
+  list-style: none;
+}
+.checklist li {
+  padding: 6px 0;
+  font-size: 14.5px;
+  border-bottom: 1px dashed #e8e0d8;
+}
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before {
+  content: "✓";
+  color: var(--gold);
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+/* ─── Q&A (통합: .qna- 및 하위 호환 .qa-) ─── */
+.qna-item, .qa-item {
+  border: 1px solid #e0d9d0;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+.qna-q, .qa-q {
+  background: #fff;
+  padding: 16px 20px;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--navy);
+  cursor: pointer;
+}
+.qna-a, .qa-a {
+  background: #faf8f5;
+  padding: 16px 20px 16px 48px;
+  font-size: 14.5px;
+  border-top: 1px solid #e0d9d0;
+  line-height: 1.75;
+}
+.qna-a .disclaimer {
+  font-size: 12px;
+  color: #888;
+  margin-top: 10px;
+  border-top: 1px dashed #ccc;
+  padding-top: 8px;
+}
+
+/* ─── 기간 경고 배너 ─── */
+.deadline-banner {
+  background: #fff8f6;
+  border: 2px solid #c0392b;
+  border-radius: 8px;
+  margin: 24px 0;
+  padding: 18px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.deadline-banner .dl-icon, .deadline-banner .icon {
+  font-size: 26px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.deadline-banner .dl-text, .deadline-banner .text { flex: 1; }
+.deadline-banner h4, .deadline-banner strong { color: #7a0000; font-weight: 700; }
+.deadline-banner p { font-size: 13.5px; color: #555; line-height: 1.6; margin-top: 4px; }
+
+/* ─── 다음 페이지 링크 ─── */
+.next-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+.next-link {
+  background: #fff;
+  border: 1px solid #ddd6ce;
+  border-radius: 8px;
+  padding: 16px 18px;
+  font-size: 14px;
+  color: var(--navy);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.next-link:hover {
+  border-color: var(--gold);
+  box-shadow: 0 2px 8px rgba(200,169,110,0.15);
+  text-decoration: none;
+}
+.next-link .arrow { color: var(--gold); font-size: 18px; flex-shrink: 0; }
+
+/* ─── CTA 박스 ─── */
+.cta-box {
+  background: var(--cta-bg);
+  border: 1px solid var(--cta-bd);
+  border-radius: 10px;
+  padding: 32px 28px;
+  text-align: center;
+  margin: 40px 0 0;
+}
+.cta-box h3 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+  border: none;
+  padding: 0;
+}
+.cta-box p {
+  font-size: 14.5px;
+  color: #4a4a5a;
+  margin-bottom: 20px;
+}
+.cta-btn {
+  display: inline-block;
+  background: var(--navy);
+  color: #fff;
+  padding: 14px 36px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.cta-btn:hover { background: #26426a; text-decoration: none; }
+
+/* ─── 면책 섹션 ─── */
+.disclaimer-section {
+  background: #f2f0ec;
+  padding: 28px;
+  border-radius: 8px;
+  margin: 40px 0 0;
+}
+.disclaimer-section p, .disclaimer {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.8;
+}
+
+/* ─── 반응형 ─── */
+@media (max-width: 600px) {
+  header { padding: 36px 16px 28px; }
+  section { padding: 36px 0; }
+  .summary-box, .case-box, .ruling-box, .warn-box,
+  .ruling-card { padding: 16px 18px; }
+  .qna-a, .qa-a { padding-left: 20px; }
+  .cta-box { padding: 24px 20px; }
+  .cta-btn { padding: 12px 28px; }
+  .next-links { grid-template-columns: 1fr; }
+}
+
+
+/* ===== PAGE-SPECIFIC STYLES ===== */
+*{box-sizing:border-box;margin:0;padding:0;}
+
+.page-badge{display:inline-block;background:var(--gold);color:#fff;font-size:12px;font-weight:700;letter-spacing:.08em;padding:3px 12px;border-radius:20px;margin-bottom:14px;}
+
+header p{color:#c8d8e8;font-size:15px;max-width:560px;margin:0 auto;}
+
+.section-label{display:inline-block;background:var(--navy);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;padding:2px 10px;border-radius:3px;margin-bottom:10px;}
+
+p{margin-bottom:12px;}
+
+.target-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.target-card{background:#fff;border:1px solid #dde3ed;border-left:4px solid var(--gold);border-radius:6px;padding:14px 16px;font-size:14px;line-height:1.6;}
+.target-card .icon{font-size:20px;margin-bottom:6px;}
+.target-card strong{display:block;color:var(--navy);font-size:13px;margin-bottom:4px;}
+@media(max-width:600px){.target-grid{grid-template-columns:1fr;}}
+
+.sum-row{display:flex;gap:10px;margin-bottom:8px;font-size:14px;align-items:baseline;}
+.sum-key{flex:0 0 120px;font-weight:700;color:var(--navy);}
+.sum-val{flex:1;color:#333;}
+.sum-val em{color:#c05000;font-style:normal;font-weight:700;}
+
+.method-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px;}
+.method-card{background:#fff;border:1px solid #d4ddef;border-radius:10px;overflow:hidden;}
+.method-card.full{grid-column:1/-1;}
+.mc-head{background:var(--navy);color:#fff;padding:12px 16px;display:flex;align-items:center;gap:10px;}
+.mc-head .mc-num{width:26px;height:26px;background:var(--gold);color:#fff;border-radius:50%;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.mc-head .mc-title{font-weight:700;font-size:15px;}
+.mc-head .mc-sub{font-size:11px;color:#aac0d8;margin-top:1px;}
+.mc-
+.mc-body .req-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;}
+.mc-body .req-row:last-child{margin-bottom:0;}
+.mc-body .req-icon{flex-shrink:0;width:18px;height:18px;background:#1a5c2e;color:#fff;border-radius:50%;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px;}
+.mc-body .req-icon.warn{background:#c05000;}
+.mc-body .warn-text{color:#c05000;font-weight:700;}
+.mc-body .badge{display:inline-block;background:var(--summary-bg);color:var(--summary-bd);font-size:11px;padding:1px 7px;border-radius:3px;font-weight:700;margin-top:4px;}
+.mc-body .badge.nogold{background:#fff8ee;color:#8a5a00;}
+@media(max-width:600px){.method-grid{grid-template-columns:1fr;}.method-card.full{grid-column:auto;}}
+
+.method-compare{width:100%;border-collapse:collapse;font-size:13px;margin-top:12px;}
+.method-compare th{background:var(--navy);color:#fff;padding:9px 12px;text-align:center;font-size:12px;border-right:1px solid #2d4a7a;}
+.method-compare th:last-child{border-right:none;}
+.method-compare td{padding:8px 12px;border-bottom:1px solid #e2e8f0;border-right:1px solid #eaeff8;text-align:center;vertical-align:middle;}
+.method-compare td:first-child{text-align:left;font-weight:700;color:var(--navy);background:#f5f7fb;}
+.method-compare tr:last-child td{border-bottom:none;}
+.method-compare .ok{color:#1a5c2e;font-weight:700;font-size:16px;}
+.method-compare .no{color:#c05000;font-weight:700;font-size:16px;}
+.method-compare .opt{color:#888;font-size:12px;}
+.method-compare .num{font-weight:700;color:var(--navy);}
+
+.checklist-wrap{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px;}
+.checklist-box{background:#fff;border:1px solid #d4ddef;border-radius:8px;padding:14px 16px;}
+.checklist-box .cl-head{font-weight:700;color:var(--navy);margin-bottom:10px;font-size:14px;display:flex;align-items:center;gap:6px;}
+.checklist-box .cl-head .cl-badge{background:var(--navy);color:#fff;font-size:11px;padding:1px 8px;border-radius:3px;}
+.check-item{display:flex;gap:8px;align-items:flex-start;margin-bottom:7px;font-size:13px;line-height:1.55;}
+.check-item .ci-box{flex-shrink:0;width:18px;height:18px;border:2px solid var(--navy);border-radius:3px;margin-top:1px;}
+.check-item.must .ci-box{background:var(--navy);}
+.check-item .ci-text{}
+.check-item .fatal{color:#c05000;font-size:11px;font-weight:700;display:block;}
+@media(max-width:600px){.checklist-wrap{grid-template-columns:1fr;}}
+
+.disqual-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px;}
+.disqual-card{background:#fff3e8;border:1px solid #e8c080;border-radius:7px;padding:12px 14px;font-size:13px;text-align:center;}
+.disqual-card .dc-icon{font-size:22px;margin-bottom:5px;}
+.disqual-card .dc-name{font-weight:700;color:#8a3a00;margin-bottom:4px;}
+.disqual-card .dc-desc{color:#666;font-size:12px;line-height:1.5;}
+.disqual-ok{background:#f0f8f0;border-color:#a0c8a0;}
+.disqual-ok .dc-name{color:#1a5c2e;}
+@media(max-width:600px){.disqual-grid{grid-template-columns:1fr 1fr;}}
+
+.revoke-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;}
+.revoke-card{background:#fff;border-left:4px solid var(--navy);border-radius:0 7px 7px 0;padding:12px 14px;font-size:13px;line-height:1.65;}
+.revoke-card strong{display:block;color:var(--navy);font-size:14px;margin-bottom:4px;}
+@media(max-width:600px){.revoke-grid{grid-template-columns:1fr;}}
+
+.warn-list{list-style:none;}
+.warn-list li{background:var(--warn-bg);border-left:4px solid var(--warn-bd);border-radius:0 6px 6px 0;padding:12px 16px;margin-bottom:10px;font-size:14px;line-height:1.65;}
+.warn-list li strong{color:#c05000;display:block;margin-bottom:3px;}
+
+.qa-
+
+.next-card{background:#fff;border:2px solid #dde3ed;border-radius:10px;padding:20px 24px;display:flex;align-items:center;gap:18px;margin-top:10px;}
+.next-card .nc-icon{font-size:32px;flex-shrink:0;}
+.next-card .nc-text{flex:1;}
+.next-card .nc-text strong{display:block;color:var(--navy);font-size:16px;margin-bottom:4px;}
+.next-card .nc-text span{color:#666;font-size:13px;}
+.next-card .nc-arrow{font-size:24px;color:var(--gold);}
+
+.cta-
+.cta-section 
+.cta-section p{color:#555;font-size:15px;margin-bottom:22px;}
+
+.cta-btn.outline{background:#fff;color:var(--navy);border:2px solid var(--navy);}
+
+.disclaimer strong{color:#555;}
+
+.divider{height:1px;background:linear-gradient(to right,transparent,#c8a96e60,transparent);margin:52px 0 0;}
+
+.info-box{background:var(--summary-bg);border:1px solid var(--summary-bd);border-radius:7px;padding:14px 18px;font-size:14px;margin-bottom:14px;}
+.info-box strong{color:var(--summary-bd);}
+/* ─── 법령·판례 클릭 태그 ─── */
+.ref-tags {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.tag-law {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: #eef2f8;
+  color: #2d4a7a;
+  border: 1px solid #2d4a7a;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.tag-law:hover { background-color: #dce6f5; }
+.tag-case {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: #f7f4f0;
+  color: #5a3e28;
+  border: 1px solid #6b7280;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.tag-case:hover { background-color: #ede8e2; }
+/* law-ref 인라인 스타일을 tag-law 와 통일 */
+span.law-ref a, .tag-law { cursor: pointer; }
+
+</style></head>
+<body>
+<!-- ===== HEADER ===== -->
+<header>
+<div class="breadcrumb">PAGE 17 · 유언의 방식과 효력</div>
+<h1>이 유언장이 유효한가<br/>유언의 방식과 효력</h1>
+<p class="subtitle">민법이 정한 5가지 방식 중 하나를 갖추지 못하면 유언은 무효 — 방식별 요건을 정확히 확인하세요</p>
+</header>
+<div class="container">
+<!-- ===== 이런분께 ===== -->
+<section>
+<span class="section-label">이런 분께</span>
+<h2>이런 경우에 꼭 확인하세요</h2>
+<div class="target-grid">
+<div class="target-card">
+<div class="icon">📝</div>
+<strong>손수 쓴 유언장이 있는 분</strong>
+      자필로 유언장을 작성했는데 연월일·주소·날인이 모두 갖춰져 있는지 확신이 없는 분
+    </div>
+<div class="target-card">
+<div class="icon">🏥</div>
+<strong>입원 중 유언을 남긴 경우</strong>
+      병상에서 급하게 작성된 유언장 — 구수증서 또는 공정증서 방식 요건이 충족됐는지 검토 필요
+    </div>
+<div class="target-card">
+<div class="icon">📜</div>
+<strong>유언장을 발견한 상속인</strong>
+      피상속인이 남긴 유언장의 효력을 먼저 확인해야 유증 등기 등 후속 절차를 진행할 수 있는 분
+    </div>
+<div class="target-card">
+<div class="icon">🔄</div>
+<strong>유언을 새로 작성하거나 변경할 분</strong>
+      기존 유언의 내용을 바꾸거나 철회하려는 분 — 방식과 철회 방법을 사전에 파악해야 하는 분
+    </div>
+</div>
+</section>
+<div class="divider"></div>
+<!-- ===== 핵심요약 ===== -->
+<section>
+<span class="section-label">핵심요약</span>
+<h2>유언 효력의 핵심 3원칙</h2>
+<div class="summary-box">
+<div class="sum-row"><span class="sum-key">요식행위</span><span class="sum-val">민법이 정한 <em>5가지 방식 중 하나</em>를 엄격히 갖추지 않으면 무효 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=106000" target="_blank" class="tag-law">📋 민법 제1060조</a>)</span></div>
+<div class="sum-row"><span class="sum-key">효력발생</span><span class="sum-val">유언자 <em>사망 시부터</em> 효력 발생 — 유언장 작성 시점부터가 아님 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=107300" target="_blank" class="tag-law">📋 민법 제1073조</a>)</span></div>
+<div class="sum-row"><span class="sum-key">유언능력</span><span class="sum-val">만 <em>17세 이상</em>이고 유언 당시 <em>의사능력</em>이 있어야 유효 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=106100" target="_blank" class="tag-law">📋 민법 제1061조</a>)</span></div>
+<div class="sum-row"><span class="sum-key">철회 자유</span><span class="sum-val">유언자는 언제든지 <em>자유롭게 철회</em> 가능 — 철회 포기 약정은 무효 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=110800" target="_blank" class="tag-law">📋 민법 제1108조</a>)</span></div>
+<div class="sum-row"><span class="sum-key">대리 불가</span><span class="sum-val">유언은 본인의 일신전속적 행위 — <em>대리인을 통한 유언은 무효</em></span></div>
+</div>
+<div class="info-box">
+<strong>📌 유언방식은 5가지</strong>: 자필증서 · 녹음 · 공정증서 · 비밀증서 · 구수증서<br/>
+    방식 불비 → <strong style="color:#c05000;">전부 무효</strong>. 아래에서 각 방식의 요건을 꼼꼼히 확인하세요.
+  </div>
+</section>
+<div class="divider"></div>
+<!-- ===== 상세내용 ===== -->
+<section>
+<span class="section-label">상세내용</span>
+<h2>5가지 유언 방식별 요건 상세</h2>
+<!-- ① 자필증서 -->
+<h3>① 자필증서에 의한 유언 — 가장 많이 사용, 가장 많이 무효</h3>
+<div class="method-grid">
+<div class="method-card">
+<div class="mc-head">
+<div class="mc-num">1</div>
+<div>
+<div class="mc-title">자필증서 유언</div>
+<div class="mc-sub"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=106600" target="_blank" class="tag-law">📋 민법 제1066조</a> · 증인 불필요</div>
+</div>
+</div>
+<div class="mc-body">
+<div class="req-row"><span class="req-icon">✓</span><span><strong>전문(全文) 자서</strong> — 컴퓨터·타자기·대필 전부 무효. 외국어·약자 사용은 가능</span></div>
+<div class="req-row"><span class="req-icon warn">!</span><span><strong class="warn-text">작성 연월일 자서</strong> — 연·월만 쓰고 일 누락 시 무효 (<a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2009다9768" target="_blank" class="tag-case">⚖️ 대법원 2009다9768</a>)</span></div>
+<div class="req-row"><span class="req-icon">✓</span><span><strong>주소 자서</strong> — 주민등록상 주소 아니어도 무방, 봉투에 기재해도 유효</span></div>
+<div class="req-row"><span class="req-icon">✓</span><span><strong>성명 자서</strong> — 호·예명도 가능, 동일인 식별 가능하면 이름만도 유효</span></div>
+<div class="req-row"><span class="req-icon">✓</span><span><strong>날인</strong> — 타인 대신 날인 가능, 무인(지장)도 유효</span></div>
+<div class="req-row"><span class="req-icon warn">!</span><span><strong class="warn-text">변경 시</strong>: 삽입·삭제 부분을 자서하고 날인해야 유효</span></div>
+<span class="badge">사후 검인 신청 필요</span>
+</div>
+</div>
+<div class="method-card">
+<div class="mc-head">
+<div class="mc-num">2</div>
+<div>
+<div class="mc-title">녹음에 의한 유언</div>
+<div class="mc-sub"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=106700" target="_blank" class="tag-law">📋 민법 제1067조</a> · 증인 1인 이상</div>
+</div>
+</div>
+<div class="mc-body">
+<div class="req-row"><span class="req-icon">✓</span><span><strong>유언자 구술</strong> — 유언의 취지·성명·연월일을 직접 구술</span></div>
+<div class="req-row"><span class="req-icon warn">!</span><span><strong class="warn-text">증인 참여·구술</strong> — 유언이 유언자 것임과 자신의 성명을 구술하여 녹음. 증인 없으면 무효</span></div>
+<div class="req-row"><span class="req-icon">✓</span><span>증인은 1인 이상이면 충분 (다수견해)</span></div>
+<span class="badge">사후 검인 신청 필요</span>
+</div>
+</div>
+<div class="method-card">
+<div class="mc-head">
+<div class="mc-num">3</div>
+<div>
+<div class="mc-title">공정증서에 의한 유언</div>
+<div class="mc-sub"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=106800" target="_blank" class="tag-law">📋 민법 제1068조</a> · 증인 2인 이상 · 가장 안전</div>
+</div>
+</div>
+<div class="mc-body">
+<div class="req-row"><span class="req-icon warn">!</span><span><strong class="warn-text">증인 2인 이상</strong> 참여 — 1인만 참여하면 무효 (<a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=94다13695" target="_blank" class="tag-case">⚖️ 대법원 94다13695</a>)</span></div>
+<div class="req-row"><span class="req-icon warn">!</span><span><strong class="warn-text">유언자가 공증인 면전에서 구수</strong> — 말로써 표현해야 함. 손짓·고개 끄덕임만으로는 구수 인정 불가 (<a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2002다35386" target="_blank" class="tag-case">⚖️ 대법원 2002다35386</a>)</span></div>
+<div class="req-row"><span class="req-icon">✓</span><span><strong>공증인 필기·낭독</strong> — 사무원 대리 집필 무방</span></div>
+<div class="req-row"><span class="req-icon">✓</span><span><strong>유언자·증인 승인 후 서명 또는 기명날인</strong></span></div>
+<div class="req-row"><span class="req-icon">✓</span><span>출장 공증 가능, 원본은 공증인사무소에 20년 보관</span></div>
+<span class="badge nogold">✅ 검인 절차 불필요 — 바로 집행 가능</span>
+</div>
+</div>
+<div class="method-card">
+<div class="mc-head">
+<div class="mc-num">4</div>
+<div>
+<div class="mc-title">비밀증서에 의한 유언</div>
+<div class="mc-sub"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=106900" target="_blank" class="tag-law">📋 민법 제1069조</a> · 증인 2인 이상</div>
+</div>
+</div>
+<div class="mc-body">
+<div class="req-row"><span class="req-icon">✓</span><span><strong>증서에 필자 성명 기재</strong> — 내용 자필 불필요, 대필 가능</span></div>
+<div class="req-row"><span class="req-icon">✓</span><span><strong>엄봉(봉인)·날인</strong> — 유언자 본인이 봉인</span></div>
+<div class="req-row"><span class="req-icon warn">!</span><span><strong class="warn-text">2인 이상 증인 면전</strong>에서 유언서임을 표시</span></div>
+<div class="req-row"><span class="req-icon">✓</span><span><strong>봉서 표면에 제출연월일</strong> 기재 + 유언자·증인 서명·기명날인</span></div>
+<div class="req-row"><span class="req-icon warn">!</span><span><strong class="warn-text">5일 이내</strong> 공증인 또는 법원서기에게 제출하여 <strong class="warn-text">확정일자</strong> 받을 것</span></div>
+<span class="badge">사후 검인 신청 필요</span>
+</div>
+</div>
+<div class="method-card full">
+<div class="mc-head">
+<div class="mc-num">5</div>
+<div>
+<div class="mc-title">구수증서에 의한 유언 — 급박한 상황 전용</div>
+<div class="mc-sub"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=107000" target="_blank" class="tag-law">📋 민법 제1070조</a> · 증인 2인 이상 · 보충적 방식</div>
+</div>
+</div>
+<div class="mc-body" style="display:grid;grid-template-columns:1fr 1fr;gap:0 24px;">
+<div>
+<div class="req-row"><span class="req-icon warn">!</span><span><strong class="warn-text">질병·급박한 사유</strong>로 보통방식 불가한 경우에만 사용 가능 (부상·전염병·조난 등)</span></div>
+<div class="req-row"><span class="req-icon warn">!</span><span><strong class="warn-text">2인 이상 증인</strong> 참여 — 1인이면 무효</span></div>
+<div class="req-row"><span class="req-icon">✓</span><span><strong>증인 중 1인에게 유언 취지 구수</strong></span></div>
+</div>
+<div>
+<div class="req-row"><span class="req-icon">✓</span><span><strong>구수받은 자가 필기·낭독</strong> 후 유언자와 증인이 정확함 승인·서명날인</span></div>
+<div class="req-row"><span class="req-icon warn">!</span><span><strong class="warn-text">급박한 사유 종료 후 7일 이내</strong> 가정법원에 검인 신청 — 기간 도과 시 무효 (<a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=94스16" target="_blank" class="tag-case">⚖️ 대법원 94스16</a>)</span></div>
+</div>
+</div>
+</div>
+</div>
+<!-- 5방식 비교표 -->
+<h3>5가지 방식 한눈에 비교</h3>
+<div style="overflow-x:auto;">
+<table class="method-compare">
+<thead>
+<tr>
+<th style="text-align:left;">요건 항목</th>
+<th>①자필증서</th>
+<th>②녹음</th>
+<th>③공정증서</th>
+<th>④비밀증서</th>
+<th>⑤구수증서</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>전문 자서</td><td class="ok">●</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
+<tr><td>연월일 기재</td><td class="ok">●</td><td class="ok">●</td><td class="ok">●</td><td class="opt">봉서표면</td><td class="ok">●</td></tr>
+<tr><td>주소 자서</td><td class="ok">●</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
+<tr><td>성명 기재</td><td class="ok">●</td><td class="ok">●</td><td class="ok">●</td><td class="ok">●</td><td class="ok">●</td></tr>
+<tr><td>날인</td><td class="ok">●</td><td class="no">—</td><td class="opt">서명가능</td><td class="ok">●</td><td class="opt">서명가능</td></tr>
+<tr><td>증인 수</td><td class="opt">불필요</td><td class="num">1인 이상</td><td class="num">2인 이상</td><td class="num">2인 이상</td><td class="num">2인 이상</td></tr>
+<tr><td>공증인 참여</td><td class="no">—</td><td class="no">—</td><td class="ok">●</td><td class="opt">확정일자</td><td class="no">—</td></tr>
+<tr><td>검인 필요</td><td class="ok">필요</td><td class="ok">필요</td><td class="no">불필요</td><td class="ok">필요</td><td class="ok">필요</td></tr>
+<tr><td>사용 조건</td><td class="opt">자유</td><td class="opt">자유</td><td class="opt">자유</td><td class="opt">자유</td><td style="color:#c05000;font-weight:700;font-size:12px;">급박한 경우만</td></tr>
+</tbody>
+</table>
+</div>
+<!-- 유효성 자가진단 체크리스트 -->
+<h3>내 유언장의 유효성 자가진단</h3>
+<p style="font-size:14px;color:#555;">작성한 유언장의 방식을 선택하고 아래 항목을 모두 충족하는지 확인하세요. <strong>하나라도 빠지면 전체 무효</strong>가 될 수 있습니다.</p>
+<div class="checklist-wrap">
+<div class="checklist-box">
+<div class="cl-head"><span class="cl-badge">자필증서</span> 유언장 체크리스트</div>
+<div class="check-item must"><div class="ci-box"></div><div class="ci-text">처음부터 끝까지 내 손으로 직접 씀<span class="fatal">컴퓨터·타자기·대필 → 무효</span></div></div>
+<div class="check-item must"><div class="ci-box"></div><div class="ci-text">작성 연·월·일을 모두 자서<span class="fatal">연월만 쓰고 일 누락 → 무효</span></div></div>
+<div class="check-item must"><div class="ci-box"></div><div class="ci-text">주소를 직접 씀 (봉투 기재도 가능)</div></div>
+<div class="check-item must"><div class="ci-box"></div><div class="ci-text">성명을 직접 씀 (호·예명 가능)</div></div>
+<div class="check-item must"><div class="ci-box"></div><div class="ci-text">날인 (무인·타인 대신 날인 가능)</div></div>
+<div class="check-item must"><div class="ci-box"></div><div class="ci-text">수정 시 수정 부분에도 자서·날인</div></div>
+</div>
+<div class="checklist-box">
+<div class="cl-head"><span class="cl-badge">공정증서</span> 유언장 체크리스트</div>
+<div class="check-item must"><div class="ci-box"></div><div class="ci-text">공증인 면전에서 <strong>말로</strong> 유언 취지 구수<span class="fatal">손짓·고개만 → 무효</span></div></div>
+<div class="check-item must"><div class="ci-box"></div><div class="ci-text">증인 2인 이상 참여<span class="fatal">1인만 → 무효</span></div></div>
+<div class="check-item must"><div class="ci-box"></div><div class="ci-text">공증인이 필기하고 낭독함</div></div>
+<div class="check-item must"><div class="ci-box"></div><div class="ci-text">유언자·증인이 정확함 승인 후 서명 또는 기명날인</div></div>
+<div class="check-item must"><div class="ci-box"></div><div class="ci-text">공증인이 부기·서명날인</div></div>
+<div class="check-item must"><div class="ci-box"></div><div class="ci-text">증인은 결격자가 아님</div></div>
+</div>
+</div>
+<!-- 증인 결격자 -->
+<h3>증인 결격자 — 이 사람이 증인이면 유언 전체가 무효</h3>
+<div class="disqual-grid">
+<div class="disqual-card">
+<div class="dc-icon">👦</div>
+<div class="dc-name">미성년자</div>
+<div class="dc-desc">법정대리인 동의가 있어도 절대 불가</div>
+</div>
+<div class="disqual-card">
+<div class="dc-icon">⚖️</div>
+<div class="dc-name">금치산자·한정치산자</div>
+<div class="dc-desc">의사능력 회복·동의가 있어도 절대 불가</div>
+</div>
+<div class="disqual-card">
+<div class="dc-icon">💰</div>
+<div class="dc-name">유언으로 이익 받는 자</div>
+<div class="dc-desc">수유자(수증자) 본인</div>
+</div>
+<div class="disqual-card">
+<div class="dc-icon">💑</div>
+<div class="dc-name">수유자의 배우자</div>
+<div class="dc-desc">이익을 받는 자의 배우자</div>
+</div>
+<div class="disqual-card">
+<div class="dc-icon">👪</div>
+<div class="dc-name">수유자의 직계혈족</div>
+<div class="dc-desc">부모·자녀·조부모 등</div>
+</div>
+<div class="disqual-card disqual-ok">
+<div class="dc-icon">✅</div>
+<div class="dc-name">결격 아닌 자</div>
+<div class="dc-desc">후순위상속인, 유언집행자, 유언으로 이익을 잃는 자 — 증인 가능 (<a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=97다57733" target="_blank" class="tag-case">⚖️ 대법원 97다57733</a>)</div>
+</div>
+</div>
+<!-- 유언의 철회 -->
+<h3>유언의 철회 — 마지막 의사가 항상 우선합니다</h3>
+<div class="revoke-grid">
+<div class="revoke-card">
+<strong>임의철회</strong>
+      유언자는 언제든지 이전 유언과 다른 방식으로도 유언을 철회할 수 있습니다. 유언증서를 고의로 파기해도 철회로 봅니다. <em style="color:#888;font-size:12px;">단, 공정증서 유언은 원본이 남아 있으므로 정본 파기만으로는 철회되지 않음</em>
+</div>
+<div class="revoke-card">
+<strong>전후 유언의 저촉 (법정철회)</strong>
+      두 개의 유언이 저촉될 경우 뒤의 유언이 앞의 유언을 철회한 것으로 봅니다 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=110900" target="_blank" class="tag-law">📋 민법 제1109조</a>). 즉 가장 나중에 작성된 유언이 우선합니다.
+    </div>
+<div class="revoke-card">
+<strong>생전행위와의 저촉 (법정철회)</strong>
+      유언 후 유언자가 그 목적물을 생전에 처분(매매·증여 등)한 경우, 저촉 범위 내에서 유언은 철회된 것으로 봅니다.
+    </div>
+<div class="revoke-card">
+<strong>유언증서 파훼 (법정철회)</strong>
+      유언자가 고의로 유언증서를 파기한 경우 파기된 부분의 유언은 철회된 것으로 봅니다. 단, 분실·멸실로는 철회되지 않습니다 (<a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=96다21119" target="_blank" class="tag-case">⚖️ 대법원 96다21119</a>).
+    </div>
+</div>
+</section>
+<div class="divider"></div>
+<!-- ===== 판례 ===== -->
+<section>
+<span class="section-label">관련 판례</span>
+<h2>유언 효력에 관한 중요 판례</h2>
+<div class="ruling-card">
+<div class="rc-meta">
+<span class="rc-badge">대법원 2009. 5. 14.</span>
+<span class="rc-title">일자 누락 자필유언 무효</span>
+</div>
+<div class="rc-body">
+      (선고 2009다9768 판결) 자필유언증서의 연월일은 유언능력의 유무를 판단하거나 다른 유언증서와 유언 성립의 선후를 결정하는 기준일이 되므로 작성일을 특정할 수 있게 기재하여야 한다. 따라서 연·월만 기재하고 <strong>일(日)의 기재가 없는 자필유언증서는 효력이 없다.</strong>
+</div>
+<div class="rc-result">💡 실무에서 가장 많이 발생하는 무효 사유 — "2024년 3월"만 쓰고 날짜를 쓰지 않으면 무효</div>
+</div>
+<div class="ruling-card">
+<div class="rc-meta">
+<span class="rc-badge">대법원 1994. 12. 22.</span>
+<span class="rc-title">공정증서 유언 — 증인 1인은 무효</span>
+</div>
+<div class="rc-body">
+      (선고 94다13695 판결) 공증사무실에서 유언장에 인증을 받았으나 증인 2명의 참여가 없고 자서된 것도 아니라면, 그 유언장은 공정증서에 의한 유언도 될 수 없고 자필증서 유언도 될 수 없다.
+    </div>
+<div class="rc-result">💡 공정증서 유언의 증인은 반드시 2인 이상 — 공증인 사무직원은 증인으로 카운트되지 않을 수 있으므로 반드시 외부 증인 2인 확보</div>
+</div>
+<div class="ruling-card">
+<div class="rc-meta">
+<span class="rc-badge">대법원 2002. 9. 24.</span>
+<span class="rc-title">손짓·고개만으로는 구수 인정 안 됨</span>
+</div>
+<div class="rc-body">
+      (선고 2002다35386 판결) 공정증서 유언에서 '구수'는 말로써 유언 내용을 전달하는 것을 뜻한다. 뇌질환 등으로 대화할 수 없어 공증인이 친족으로부터 내용을 전해 듣고 유언자에게 '그렇소?'라고 물어 단순히 <strong>손짓·발짓·고개만 끄덕였다면 구수로 볼 수 없다.</strong>
+</div>
+<div class="rc-result">💡 의식이 불명확한 상태에서 작성된 공정증서 유언은 효력이 없을 수 있음 — 녹음유언 또는 사전에 건강할 때 공정증서 유언을 작성해야</div>
+</div>
+<div class="ruling-card">
+<div class="rc-meta">
+<span class="rc-badge">대법원 1999. 11. 26.</span>
+<span class="rc-title">후순위상속인은 증인 결격자 아님</span>
+</div>
+<div class="rc-body">
+      (선고 97다57733 판결) 유언증인의 결격사유는 <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=107200" target="_blank" class="tag-law">📋 민법 제1072조</a>에서 정한 바에 한하며, 후순위상속인·유언으로 이익을 잃는 자·유언집행자 등은 증인 결격자가 아니므로 증인이 될 수 있다.
+    </div>
+<div class="rc-result">💡 결격자의 범위는 법이 명시한 자로 한정 — 수유자(이익 받는 자)의 배우자·직계혈족은 결격, 나머지 상속인은 가능</div>
+</div>
+</section>
+<div class="divider"></div>
+<!-- ===== 주의사항 ===== -->
+<section>
+<span class="section-label">주의사항</span>
+<h2>유언 작성 시 반드시 확인할 사항</h2>
+<ul class="warn-list">
+<li>
+<strong>⚠️ 날짜에서 '일(日)'을 빠뜨리면 무효입니다</strong>
+      자필증서 유언에서 "2024년 3월"처럼 월까지만 쓰고 날짜를 기재하지 않으면 작성일을 특정할 수 없어 무효입니다. 반드시 연·월·일을 모두 직접 기재하세요. "만 70세 생일", "조부 기일" 처럼 날짜를 특정할 수 있는 표현도 유효합니다.
+    </li>
+<li>
+<strong>⚠️ 컴퓨터로 작성한 유언장은 자필증서로 인정되지 않습니다</strong>
+      한글, MS Word 등으로 출력한 문서는 자필증서 유언의 요건을 갖추지 못합니다. 타자기·컴퓨터·대필이 포함된 경우 전부 무효입니다. 컴퓨터로 작성하려면 반드시 공정증서 또는 비밀증서 방식을 이용하세요.
+    </li>
+<li>
+<strong>⚠️ 유언으로 이익 받는 자의 가족이 증인이면 무효입니다</strong>
+      재산을 받게 되는 사람(수유자)은 물론 그의 배우자와 직계혈족도 증인이 될 수 없습니다. 공정증서 작성 시 "친한 가족 지인"을 증인으로 삼았다가 나중에 무효 주장을 받는 사례가 많습니다. 수유자와 무관한 독립적인 증인 2인을 확보하세요.
+    </li>
+<li>
+<strong>⚠️ 구수증서는 7일 이내에 검인을 신청해야 합니다</strong>
+      급박한 사유가 종료된 날로부터 7일 이내에 가정법원에 검인을 신청해야 하며, 이 기간을 넘기면 무효입니다. 급박한 상황이 종료된 직후 즉시 조치해야 합니다.
+    </li>
+<li>
+<strong>⚠️ 유언장이 여러 개라면 가장 나중 것이 우선합니다</strong>
+      내용이 저촉되는 복수의 유언이 있는 경우, 나중에 작성된 유언이 앞의 유언을 철회한 것으로 봅니다. 이전 유언을 명시적으로 철회하지 않아도 됩니다. 유언장 작성일자가 유언 우선순위를 결정하므로 날짜가 더욱 중요합니다.
+    </li>
+</ul>
+</section>
+<div class="divider"></div>
+<!-- ===== Q&A ===== -->
+<section>
+<span class="section-label">자주 묻는 질문</span>
+<h2>Q &amp; A</h2>
+<div class="qna-item">
+<div class="qna-q">Q. 컴퓨터로 내용을 작성하고 서명·날인만 손으로 했는데 유효한가요?</div>
+<div class="qna-a">자필증서 유언으로는 무효입니다. 자필증서 유언은 유언의 전문(全文)을 유언자가 직접 손으로 써야 하므로, 컴퓨터로 내용을 작성하고 서명만 손으로 한 경우에는 방식 불비로 무효입니다. 단, 이 경우에도 작성된 서면을 봉인하여 비밀증서 유언의 요건(증인 2인, 5일 내 확정일자 등)을 갖추면 비밀증서 유언으로는 유효할 수 있습니다.</div>
+</div>
+<div class="qna-item">
+<div class="qna-q">Q. 자필유언장에 날짜를 "2024년 봄"이라고 써도 되나요?</div>
+<div class="qna-a">판례는 날짜가 특정 가능하면 된다고 봅니다. "만 70세 생일", "조부 기일" 등 날짜를 특정할 수 있는 표현은 유효합니다. 그러나 "2024년 봄"과 같이 날짜를 특정하기 어려운 표현은 무효가 될 가능성이 높습니다. 분쟁을 막으려면 반드시 "○○○○년 ○○월 ○○일"로 명확하게 기재하는 것이 안전합니다.</div>
+</div>
+<div class="qna-item">
+<div class="qna-q">Q. 공정증서 유언에서 증인은 누구나 될 수 있나요?</div>
+<div class="qna-a"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=107200" target="_blank" class="tag-law">📋 민법 제1072조</a>에서 정한 결격자(미성년자, 금치산자·한정치산자, 유언으로 이익 받는 자·그 배우자·직계혈족)가 아닌 한 누구나 증인이 될 수 있습니다. 나머지 상속인, 유언집행자, 후순위상속인도 증인이 될 수 있습니다. 다만 공증인법에 의한 결격자(공증인의 친족·피고용인 등)도 주의해야 합니다. 가장 안전한 방법은 수유자와 완전히 무관한 성인 2인을 확보하는 것입니다.</div>
+</div>
+<div class="qna-item">
+<div class="qna-q">Q. 이미 작성한 유언을 나중에 바꾸고 싶은데 어떻게 해야 하나요?</div>
+<div class="qna-a">유언자는 언제든지 자유롭게 유언을 철회하거나 새 유언을 작성할 수 있습니다. 방법은 두 가지입니다. ① 새 유언장을 작성하면서 "이전 유언을 모두 철회한다"고 명시하거나, ② 저촉 내용을 담은 새 유언을 작성하면 저촉 부분의 이전 유언은 자동 철회됩니다. 이전 유언장 원본을 고의로 파기하는 것도 철회가 됩니다(단, 공정증서 유언의 정본 파기는 철회 효력 없음).</div>
+</div>
+<div class="qna-item">
+<div class="qna-q">Q. 공정증서 유언은 나중에 검인 받을 필요 없나요?</div>
+<div class="qna-a">네, 맞습니다. 공정증서에 의한 유언은 공정력이 인정되므로 사후에 별도의 검인 절차 없이 바로 집행할 수 있습니다. 반면 자필증서·녹음·비밀증서·구수증서에 의한 유언은 유언자 사망 후 지체 없이 가정법원에 검인 신청을 해야 합니다. 이것이 공정증서 유언의 가장 큰 실무적 장점입니다.</div>
+</div>
+<div class="qna-item">
+<div class="qna-q">Q. 유언장 내용대로 부동산 등기를 하려면 어떤 절차가 필요한가요?</div>
+<div class="qna-a">유증을 원인으로 한 소유권이전등기를 진행해야 합니다. 공정증서 유언은 검인 없이 바로 진행 가능하고, 자필증서 등 기타 방식은 가정법원의 검인을 먼저 받아야 합니다. 유언집행자가 지정된 경우에는 유언집행자가 등기신청을 하고, 그렇지 않은 경우에는 상속인이 합의하여 진행합니다. 자세한 절차는 다음 페이지(유증 등기)에서 안내합니다.</div>
+</div>
+</section>
+<div class="divider"></div>
+<!-- ===== 다음으로 ===== -->
+<section>
+<span class="section-label">다음으로</span>
+<h2>이어서 알아볼 내용</h2>
+<div class="next-card">
+<div class="nc-icon">🏠</div>
+<div class="nc-text">
+<strong>PAGE 18 · 유증을 원인으로 하는 소유권이전등기</strong>
+<span>유언장이 유효하다면 다음 단계 — 유증을 원인으로 부동산 소유권이전등기를 신청하는 절차와 서류를 안내합니다.</span>
+</div>
+<div class="nc-arrow">›</div>
+</div>
+</section>
+<!-- ===== CTA ===== -->
+<div class="cta-section">
+<h2>유언장이 유효한지 확인이 필요하신가요?</h2>
+<p>방식 불비로 유언이 무효가 되면 법정상속으로 처리됩니다.<br/>유언장 작성 전 상담부터, 발견된 유언장의 효력 검토까지 도와드립니다.</p>
+<a class="cta-btn" href="tel:0000000000">📞 전화 상담 예약</a>
+<a class="cta-btn outline" href="#">💬 온라인 문의</a>
+</div>
+</div><!-- /container -->
+<!-- ===== 면책 ===== -->
+<footer class="disclaimer">
+<strong>법적 고지</strong><br/>
+  본 페이지의 내용은 일반적인 법률 정보 제공을 목적으로 작성되었으며, 법률적 조언이 아닙니다.<br/>
+  개별 사안에 따라 적용 법령과 실무가 달라질 수 있으므로, 구체적인 사항은 반드시 법무사 또는 변호사와 상담하시기 바랍니다.<br/>
+  참고 법령: <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=106000" target="_blank" class="tag-law">📋 민법 제1060조</a>~제1072조, 제1073조, 제1108조~제1110조
+</footer>
+</body>
+</html>

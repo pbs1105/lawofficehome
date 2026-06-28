@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상속포기 절차 - 한국 법무사 홈페이지</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1a2e4a;
+            --navy-light: #2d4a73;
+            --gold: #c9a84c;
+            --gold-light: #e8d5a3;
+            --ivory: #fdf8f0;
+            --ivory-dark: #f5ede0;
+            --text: #2c2c2c;
+            --text-light: #5a5a5a;
+            --blue-box: #e8f0f8;
+            --blue-border: #2d6aa0;
+            --warn-bg: #fff8e1;
+            --warn-border: #f0a500;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: var(--ivory);
+            color: var(--text);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        .page-header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: white;
+            padding: 40px 24px 32px;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .page-header .subtitle {
+            color: var(--gold-light);
+            font-size: 1rem;
+        }
+        .breadcrumb {
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 12px;
+        }
+        .layout {
+            display: grid;
+            grid-template-columns: 240px 1fr 300px;
+            gap: 0;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        .toc-sidebar {
+            background: var(--navy);
+            color: white;
+            padding: 24px 0;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        .toc-sidebar h3 {
+            font-size: 0.78rem;
+            letter-spacing: 2px;
+            color: var(--gold);
+            text-transform: uppercase;
+            padding: 0 20px 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 8px;
+        }
+        .toc-sidebar ul {
+            list-style: none;
+        }
+        .toc-sidebar ul li a {
+            display: block;
+            padding: 9px 20px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.75);
+            text-decoration: none;
+            border-left: 3px solid transparent;
+            transition: all 0.2s;
+        }
+        .toc-sidebar ul li a:hover,
+        .toc-sidebar ul li a.active {
+            color: white;
+            background: rgba(255, 255, 255, 0.08);
+            border-left-color: var(--gold);
+        }
+        .main-content {
+            padding: 40px 48px;
+            min-height: 100vh;
+        }
+        .section {
+            margin-bottom: 56px;
+            scroll-margin-top: 24px;
+        }
+        .section h2 {
+            font-size: 1.35rem;
+            color: var(--navy);
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section h2 .sec-num {
+            background: var(--navy);
+            color: var(--gold);
+            font-size: 0.78rem;
+            padding: 2px 8px;
+            border-radius: 12px;
+        }
+        .section h3 {
+            font-size: 1.05rem;
+            color: var(--navy-light);
+            margin: 24px 0 10px;
+            font-weight: 600;
+        }
+        .summary-box {
+            background: var(--blue-box);
+            border-left: 4px solid var(--blue-border);
+            border-radius: 0 8px 8px 0;
+            padding: 18px 22px;
+            margin-bottom: 20px;
+        }
+        .summary-box strong {
+            color: var(--blue-border);
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+        .detail-content {
+            color: var(--text-light);
+        }
+        .detail-content p {
+            margin-bottom: 14px;
+        }
+        .law-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.88rem;
+        }
+        .law-table th {
+            background: var(--navy);
+            color: white;
+            padding: 10px 14px;
+            text-align: left;
+        }
+        .law-table td {
+            padding: 10px 14px;
+            border-bottom: 1px solid #e0d8cc;
+            vertical-align: top;
+        }
+        .law-table tr:nth-child(even) td {
+            background: var(--ivory-dark);
+        }
+        .law-ref {
+            color: var(--blue-border);
+            font-weight: 600;
+            cursor: pointer;
+            border-bottom: 1px dashed var(--blue-border);
+            font-size: 0.9em;
+        }
+        .warn-box {
+            background: var(--warn-bg);
+            border-left: 4px solid var(--warn-border);
+            border-radius: 0 8px 8px 0;
+            padding: 16px 20px;
+            margin: 16px 0;
+        }
+        .warn-box strong {
+            color: #c07000;
+            display: block;
+            margin-bottom: 6px;
+        }
+        .case-box {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 16px 0;
+            font-size: 0.87rem;
+        }
+        .case-box .case-title {
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+        }
+        .process-steps {
+            margin: 16px 0;
+        }
+        .step {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            align-items: flex-start;
+        }
+        .step-num {
+            background: var(--navy);
+            color: var(--gold);
+            font-weight: 700;
+            min-width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+        .step-content .step-title {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+        .step-content .step-desc {
+            font-size: 0.88rem;
+            color: var(--text-light);
+        }
+        .checklist-box {
+            background: var(--ivory-dark);
+            border: 1px solid var(--gold-light);
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+        .checklist-box h4 {
+            color: var(--navy);
+            margin-bottom: 14px;
+            font-size: 0.95rem;
+        }
+        .checklist-box ul {
+            list-style: none;
+        }
+        .checklist-box ul li {
+            padding: 5px 0;
+            font-size: 0.88rem;
+            display: flex;
+            gap: 10px;
+        }
+        .checklist-box ul li::before {
+            content: "☑";
+            color: var(--gold);
+        }
+        .cta-box {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin: 32px 0;
+            text-align: center;
+        }
+        .cta-box h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--gold-light);
+        }
+        .cta-box p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 18px;
+        }
+        .cta-btn {
+            background: var(--gold);
+            color: var(--navy);
+            font-weight: 700;
+            padding: 12px 32px;
+            border-radius: 24px;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .next-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin: 32px 0;
+        }
+        .next-link {
+            background: white;
+            border: 1px solid #d0c8ba;
+            border-radius: 8px;
+            padding: 16px;
+            text-decoration: none;
+            color: var(--navy);
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .next-link:hover {
+            border-color: var(--gold);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .next-link .label {
+            font-size: 0.78rem;
+            color: var(--text-light);
+        }
+        .next-link .title {
+            font-size: 0.92rem;
+            font-weight: 600;
+        }
+        .next-link .arrow {
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+        .disclaimer {
+            background: #f0f0f0;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: #777;
+            line-height: 1.6;
+        }
+        .right-sidebar {
+            background: white;
+            border-left: 1px solid #e0d8cc;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        .sidebar-tabs {
+            display: flex;
+            border-bottom: 2px solid var(--navy);
+        }
+        .sidebar-tab {
+            flex: 1;
+            padding: 12px 8px;
+            text-align: center;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--text-light);
+            background: var(--ivory);
+            border: none;
+            transition: all 0.2s;
+        }
+        .sidebar-tab.active {
+            background: var(--navy);
+            color: white;
+        }
+        .sidebar-panel {
+            padding: 16px;
+            display: none;
+        }
+        .sidebar-panel.active {
+            display: block;
+        }
+        .law-item {
+            border: 1px solid #e0d8cc;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            overflow: hidden;
+        }
+        .law-item-header {
+            background: var(--ivory-dark);
+            padding: 10px 14px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.83rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+        .law-item-header:hover {
+            background: var(--gold-light);
+        }
+        .law-item-body {
+            display: none;
+            padding: 12px 14px;
+            font-size: 0.82rem;
+            line-height: 1.7;
+            color: var(--text-light);
+            border-top: 1px solid #e0d8cc;
+        }
+        .law-item-body.open {
+            display: block;
+        }
+        .practice-section {
+            margin-bottom: 16px;
+        }
+        .practice-section h5 {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--navy);
+            background: var(--ivory-dark);
+            padding: 7px 12px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+        .practice-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .practice-section ul li {
+            font-size: 0.81rem;
+            padding: 4px 8px;
+            color: var(--text-light);
+            border-bottom: 1px solid #f0ece6;
+            display: flex;
+            gap: 6px;
+        }
+        .practice-section ul li::before {
+            content: "•";
+            color: var(--gold);
+        }
+        @media (max-width: 900px) {
+            .layout {
+                grid-template-columns: 1fr;
+            }
+            .toc-sidebar,
+            .right-sidebar {
+                display: none;
+            }
+            .main-content {
+                padding: 24px 20px;
+            }
+            .next-links {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-header">
+        <div class="breadcrumb">상속등기 실무 → 상속 절차</div>
+        <h1>상속포기 절차</h1>
+        <p class="subtitle">상속인이 상속을 포기하는 법적 절차와 방법</p>
+    </div>
+
+    <div class="layout">
+        <!-- 왼쪽: 목차 사이드바 -->
+        <aside class="toc-sidebar">
+            <h3>목차</h3>
+            <ul>
+                <li><a href="#sec1" class="toc-link">①상속포기란</a></li>
+                <li><a href="#sec2" class="toc-link">②상속포기의 효과</a></li>
+                <li><a href="#sec3" class="toc-link">③신청 요건과 기간</a></li>
+                <li><a href="#sec4" class="toc-link">④신청 절차 6단계</a></li>
+                <li><a href="#sec5" class="toc-link">⑤취소·철회 불가</a></li>
+                <li><a href="#sec6" class="toc-link">⑥포기와 대습상속</a></li>
+                <li><a href="#sec7" class="toc-link">⑦주의사항·FAQ</a></li>
+            </ul>
+        </aside>
+
+        <!-- 중앙: 본문 -->
+        <main class="main-content">
+            <!-- 섹션 1 -->
+            <section id="sec1" class="section">
+                <h2><span class="sec-num">①</span>상속포기란</h2>
+                <div class="summary-box">
+                    <strong>정의</strong>
+                    상속포기는 상속인이 자신의 상속권을 포기하여 처음부터 상속인이 아닌 것으로 취급되는 법적 행위입니다.
+                </div>
+                <div class="detail-content">
+                    <p>상속포기(相續放棄)는 <span class="law-ref" onclick="openLaw('민법1041')">§ 민법 제1041조</span>에서 규정한 절차에 따라 상속인의 지위를 포기하는 행위입니다.</p>
+
+                    <h3>1) 상속포기의 의의</h3>
+                    <p><strong>상속포기는:</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>상속인이 자발적으로 상속권을 포기</li>
+                        <li>가정법원에 신고하여 법적 효력 발생</li>
+                        <li>3개월 이내에 신고해야 함</li>
+                        <li>일단 포기하면 취소 불가능</li>
+                    </ul>
+
+                    <h3>2) 상속포기의 목적</h3>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>채무가 많은 경우 채무 회피</li>
+                        <li>상속인 간 분쟁 회피</li>
+                        <li>상속재산 관리 부담 회피</li>
+                        <li>다른 상속인을 돕기 위함</li>
+                    </ul>
+
+                    <div class="warn-box">
+                        <strong>중요</strong>
+                        상속포기와 한정승인은 다른 절차입니다. 상속포기는 상속인 전체에서 제외되지만, 한정승인은 채무를 상속재산 범위 내에서만 부담합니다.
+                    </div>
+                </div>
+            </section>
+
+            <!-- 섹션 2 -->
+            <section id="sec2" class="section">
+                <h2><span class="sec-num">②</span>상속포기의 효과</h2>
+                <div class="summary-box">
+                    <strong>법적 효력</strong>
+                    상속포기한 자는 처음부터 상속인이 아닌 것으로 취급되며, 상속재산에 대한 권리와 의무를 모두 상실합니다.
+                </div>
+                <div class="detail-content">
+                    <h3>1) 상속인 지위 상실</h3>
+                    <p>상속포기한 자는 <span class="law-ref" onclick="openLaw('민법1042')">§ 민법 제1042조</span>(포기의 효력)에 따라 상속인이 될 수 없습니다. 이는 소급적으로 적용되므로, 마치 처음부터 상속인이 아니었던 것처럼 취급됩니다.</p>
+
+                    <h3>2) 채무 면제</h3>
+                    <p>상속포기하면 상속된 채무를 부담하지 않습니다. 이는 상속포기의 가장 큰 장점입니다.</p>
+
+                    <h3>3) 상속재산 권리 상실</h3>
+                    <p>동시에 상속재산에 대한 모든 권리도 상실합니다. 즉, 재산도 받지 못합니다.</p>
+
+                    <h3>4) 후순위 상속인으로의 전환</h3>
+                    <p>상속포기한 상속인의 차상위 상속인(다음 순위 상속인)이 상속인이 됩니다.</p>
+
+                    <table class="law-table">
+                        <thead>
+                            <tr>
+                                <th>포기 전</th>
+                                <th>포기 후</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>상속인 지위 보유</td>
+                                <td>상속인 지위 상실</td>
+                            </tr>
+                            <tr>
+                                <td>채무 부담</td>
+                                <td>채무 면제</td>
+                            </tr>
+                            <tr>
+                                <td>재산 취득 가능</td>
+                                <td>재산 취득 불가</td>
+                            </tr>
+                            <tr>
+                                <td>상속분 있음</td>
+                                <td>상속분 없음</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 섹션 3 -->
+            <section id="sec3" class="section">
+                <h2><span class="sec-num">③</span>신청 요건과 기간</h2>
+                <div class="summary-box">
+                    <strong>신청 기한</strong>
+                    상속포기는 <span class="law-ref" onclick="openLaw('민법1019')">§ 민법 제1019조</span>에 따라 상속개시를 안 날부터 <strong>3개월 이내</strong>에 가정법원에 신고해야 합니다.
+                </div>
+                <div class="detail-content">
+                    <h3>1) 상속포기 신청 자격</h3>
+                    <p><span class="law-ref" onclick="openLaw('민법1041')">§ 민법 제1041조</span>에 따라 상속인이라면 누구든 상속포기를 신청할 수 있습니다.</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>법정상속인 (자녀, 배우자, 부모, 형제자매)</li>
+                        <li>이들 모두가 단독으로 또는 함께 포기 가능</li>
+                    </ul>
+
+                    <h3>2) 신청 기간: 3개월</h3>
+                    <p><strong>상속개시를 안 날부터 3개월 이내:</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>상속개시 = 피상속인이 사망한 날</li>
+                        <li>통상 사망 후 3개월 내 신고</li>
+                        <li>기간 내 신고하지 않으면 자동 포기 불가</li>
+                    </ul>
+
+                    <div class="warn-box">
+                        <strong>중요: 기간 도과의 후속 조치</strong>
+                        3개월이 경과하면 상속포기를 신청할 수 없습니다. 대신 한정승인을 선택했거나, 포기의 의사표시로 보는 판례가 있을 수 있습니다.
+                    </div>
+
+                    <h3>3) 기간 계산</h3>
+                    <p><strong>예시:</strong> 2026년 4월 5일 사망 → 2026년 7월 5일까지 신고 필요</p>
+
+                    <h3>4) 선택적 신청</h3>
+                    <p>상속인이 여럿일 경우:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>일부 상속인만 포기 가능</li>
+                        <li>전체 상속인이 포기할 수도 있음</li>
+                        <li>각자 3개월 기한 적용</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 섹션 4 -->
+            <section id="sec4" class="section">
+                <h2><span class="sec-num">④</span>신청 절차 6단계</h2>
+                <div class="summary-box">
+                    <strong>절차 흐름</strong>
+                    가정법원에 신고하는 것이 기본입니다. 법무사의 도움을 받으면 절차가 수월합니다.
+                </div>
+                <div class="detail-content">
+                    <div class="process-steps">
+                        <div class="step">
+                            <div class="step-num">1</div>
+                            <div class="step-content">
+                                <div class="step-title">상속개시 확인</div>
+                                <div class="step-desc">피상속인 사망 사실 확인, 사망진단서 또는 사망기본증명서 확보</div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">2</div>
+                            <div class="step-content">
+                                <div class="step-title">필수 서류 준비</div>
+                                <div class="step-desc">상속포기신청서, 신분증 사본, 사망기본증명서, 가족관계증명서, 상속관계증명서</div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">3</div>
+                            <div class="step-content">
+                                <div class="step-title">관할 가정법원 확인</div>
+                                <div class="step-desc">피상속인의 최후 주소지 또는 상속인의 주소지 관할 가정법원</div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">4</div>
+                            <div class="step-content">
+                                <div class="step-title">가정법원 방문 또는 우편 신청</div>
+                                <div class="step-desc">신청서와 서류를 가정법원에 제출. 방문, 우편, 대리인을 통해 신청 가능</div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">5</div>
+                            <div class="step-content">
+                                <div class="step-title">법원의 수리</div>
+                                <div class="step-desc">법원이 신청서 수리, 서류 검토. 필요 시 보정 요청</div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">6</div>
+                            <div class="step-content">
+                                <div class="step-title">상속포기 개시 결정</div>
+                                <div class="step-desc">법원이 상속포기를 인정하는 결정. 통상 신청 후 1-2주 내 결정</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>필수 서류</h3>
+                    <table class="law-table">
+                        <thead>
+                            <tr>
+                                <th>구분</th>
+                                <th>필요 서류</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>기본 서류</td>
+                                <td>상속포기신청서, 신분증 사본</td>
+                            </tr>
+                            <tr>
+                                <td>사망 증명</td>
+                                <td>사망기본증명서</td>
+                            </tr>
+                            <tr>
+                                <td>관계 증명</td>
+                                <td>가족관계증명서, 상속관계증명서</td>
+                            </tr>
+                            <tr>
+                                <td>기타</td>
+                                <td>인감증명서(필요 시)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 섹션 5 -->
+            <section id="sec5" class="section">
+                <h2><span class="sec-num">⑤</span>포기의 취소·철회 불가</h2>
+                <div class="summary-box">
+                    <strong>절대적 효력</strong>
+                    상속포기한 후에는 이를 취소하거나 철회할 수 없습니다. 법원의 결정이 확정되면 영구적입니다.
+                </div>
+                <div class="detail-content">
+                    <h3>1) 포기의 불가역성</h3>
+                    <p><span class="law-ref" onclick="openLaw('민법1043')">§ 민법 제1043조</span>(포기의 소급효)에 따르면, 상속포기는 상속개시에까지 소급하여 효력이 있습니다. 즉, 한 번 포기하면 처음부터 상속인이 아니었던 것처럼 취급되므로 취소가 불가능합니다.</p>
+
+                    <h3>2) 취소 불가능한 이유</h3>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>상속포기는 신분법상 중요한 결정</li>
+                        <li>이미 다음 상속인에게 재산이 이전됨</li>
+                        <li>제3자의 신뢰 보호 필요</li>
+                        <li>법적 안정성 보장</li>
+                    </ul>
+
+                    <div class="warn-box">
+                        <strong>신중한 결정 필요</strong>
+                        상속포기는 취소할 수 없으므로, 신청 전에 충분히 검토하고 필요하면 전문가 상담을 받아야 합니다.
+                    </div>
+
+                    <h3>3) 포기 전 신중한 검토</h3>
+                    <p>포기 전에 다음을 확인하세요:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>상속재산과 채무의 정확한 규모</li>
+                        <li>다른 상속인들의 입장</li>
+                        <li>포기의 장기적 영향</li>
+                        <li>다른 대안(한정승인) 검토</li>
+                    </ul>
+
+                    <div class="case-box">
+                        <div class="case-title">판례: 포기의 불가역성</div>
+                        상속포기의 결정이 확정되면 어떤 사유가 있어도 이를 취소하거나 철회할 수 없습니다. 심지어 새로운 사실이 발견되었어도 마찬가지입니다. (대법원 판례)
+                    </div>
+                </div>
+            </section>
+
+            <!-- 섹션 6 -->
+            <section id="sec6" class="section">
+                <h2><span class="sec-num">⑥</span>포기와 대습상속</h2>
+                <div class="summary-box">
+                    <strong>중요한 구분</strong>
+                    상속포기한 자의 자녀는 대습상속이 불가능합니다. 이는 결격과의 중요한 차이입니다.
+                </div>
+                <div class="detail-content">
+                    <h3>1) 포기와 대습상속의 관계</h3>
+                    <table class="law-table">
+                        <thead>
+                            <tr>
+                                <th>상황</th>
+                                <th>대습상속 가능</th>
+                                <th>설명</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>상속인 사망</td>
+                                <td>가능</td>
+                                <td>직계비속이 대습상속</td>
+                            </tr>
+                            <tr>
+                                <td>상속인 결격</td>
+                                <td>가능</td>
+                                <td>직계비속이 대습상속</td>
+                            </tr>
+                            <tr>
+                                <td>상속인 포기</td>
+                                <td>불가능</td>
+                                <td>자녀는 직접 상속인이 됨</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>2) 포기한 자의 자녀는</h3>
+                    <p>상속포기한 자의 자녀는:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>대습상속이 불가능</li>
+                        <li>대신 다른 상속인의 자녀로서 상속인이 될 가능성이 있음</li>
+                        <li>또는 차상위 상속인으로 직접 상속인이 됨</li>
+                    </ul>
+
+                    <h3>3) 구체적 예시</h3>
+                    <p><strong>상황:</strong> 아버지 사망, 첫째 아들이 상속포기</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>첫째 아들의 자녀는 대습상속 불가능</li>
+                        <li>아버지의 다른 자녀(둘째, 셋째)가 상속인</li>
+                        <li>만약 다른 자녀도 없으면 부모(할아버지, 할머니)가 상속인</li>
+                    </ul>
+
+                    <div class="warn-box">
+                        <strong>중요한 구분</strong>
+                        상속포기는 대습상속이 불가능하지만, 결격은 대습상속이 가능합니다. 이는 상속포기가 상속인의 자발적 의사이므로 그 효과를 자녀에게까지 미치지 않는다는 정책적 고려입니다.
+                    </div>
+                </div>
+            </section>
+
+            <!-- 섹션 7 -->
+            <section id="sec7" class="section">
+                <h2><span class="sec-num">⑦</span>주의사항과 FAQ</h2>
+                <div class="summary-box">
+                    <strong>신청 전 주의사항</strong>
+                    상속포기는 매우 중요한 결정이므로 신중한 검토가 필요합니다.
+                </div>
+                <div class="detail-content">
+                    <h3>1) 재산 처분 금지</h3>
+                    <p><span class="law-ref" onclick="openLaw('민법1044')">§ 민법 제1044조</span>(포기자의 관리)에 따르면, 상속포기 전에 상속재산을 임의로 처분하면 포기가 무효가 될 수 있습니다.</p>
+                    <p><strong>피해야 할 행위:</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>상속재산 매각</li>
+                        <li>상속재산으로 채무 변제</li>
+                        <li>상속재산 증여</li>
+                        <li>사용이나 수익</li>
+                    </ul>
+
+                    <h3>2) 기간 준수</h3>
+                    <p>3개월이라는 기한이 절대적입니다. 기한 내에 신청하지 않으면 포기가 불가능해집니다.</p>
+
+                    <h3>3) 한정승인과의 비교</h3>
+                    <p>채무가 많은 경우, 포기 대신 한정승인을 검토해볼 수 있습니다:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li><strong>포기:</strong> 모든 권리·의무 상실</li>
+                        <li><strong>한정승인:</strong> 상속재산 범위 내에서만 채무 부담</li>
+                    </ul>
+
+                    <h3>FAQ</h3>
+                    <p><strong>Q1. 포기 후 다시 상속인이 될 수 있나요?</strong><br/>
+                    <strong>A.</strong> 아니요. 상속포기는 절대적이며 취소할 수 없습니다.</p>
+
+                    <p><strong>Q2. 상속포기하면 채무도 면제되나요?</strong><br/>
+                    <strong>A.</strong> 네. 상속포기하면 상속채무는 모두 면제됩니다.</p>
+
+                    <p><strong>Q3. 부분 포기가 가능한가요?</strong><br/>
+                    <strong>A.</strong> 아니요. 포기는 전부 또는 전무입니다. 부분 포기는 불가능합니다.</p>
+
+                    <p><strong>Q4. 3개월을 초과하면?</strong><br/>
+                    <strong>A.</strong> 포기를 신청할 수 없습니다. 자동으로 승인한 것으로 취급됩니다.</p>
+
+                    <p><strong>Q5. 법무사의 도움이 필요한가요?</strong><br/>
+                    <strong>A.</strong> 개인이 신청할 수도 있지만, 법무사의 도움을 받으면 절차가 수월합니다.</p>
+
+                    <p><strong>Q6. 포기 신청서는 어디서 구하나요?</strong><br/>
+                    <strong>A.</strong> 가정법원 웹사이트에서 다운로드하거나, 방문하여 받을 수 있습니다.</p>
+                </div>
+            </section>
+
+            <!-- 체크리스트 -->
+            <div class="checklist-box">
+                <h4>상속포기 신청 전 확인 체크리스트</h4>
+                <ul>
+                    <li>상속개시일부터 3개월이 경과하지 않았는가?</li>
+                    <li>포기의 결정이 확실한가?</li>
+                    <li>상속재산과 채무를 파악했는가?</li>
+                    <li>다른 상속인과 협의했는가?</li>
+                    <li>한정승인과 비교 검토했는가?</li>
+                    <li>상속재산을 처분하지 않았는가?</li>
+                    <li>필수 서류를 모두 준비했는가?</li>
+                    <li>관할 가정법원을 확인했는가?</li>
+                </ul>
+            </div>
+
+            <!-- CTA -->
+            <div class="cta-box">
+                <h3>상속포기 절차 상담이 필요하신가요?</h3>
+                <p>복잡한 상속포기 절차를 법무사와 함께 진행하세요.</p>
+                <button class="cta-btn">상담 신청</button>
+            </div>
+
+            <!-- 다음 링크 -->
+            <div class="next-links">
+                <a href="#" class="next-link">
+                    <div>
+                        <div class="label">이전 주제</div>
+                        <div class="title">사실혼 배우자의 상속권</div>
+                    </div>
+                    <div class="arrow">←</div>
+                </a>
+                <a href="#" class="next-link">
+                    <div>
+                        <div class="label">다음 주제</div>
+                        <div class="title">법정단순승인</div>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+            </div>
+
+            <!-- 면책 문구 -->
+            <div class="disclaimer">
+                본 콘텐츠는 일반적인 법률 정보 제공을 목적으로 작성되었습니다. 개별 사건의 법적 판단은 구체적 사실관계에 따라 달라질 수 있으므로, 정확한 법적 조언이 필요한 경우 반드시 법무사 또는 변호사와 상담하시기 바랍니다. 본 자료는 변론 제시를 의도하지 않습니다.
+            </div>
+        </main>
+
+        <!-- 오른쪽: 정보 사이드바 -->
+        <aside class="right-sidebar">
+            <div class="sidebar-tabs">
+                <button class="sidebar-tab active" onclick="switchTab('law')">관련 법령</button>
+                <button class="sidebar-tab" onclick="switchTab('practice')">실무 정보</button>
+            </div>
+
+            <!-- 법령 패널 -->
+            <div id="panel-law" class="sidebar-panel active">
+                <div class="law-item" id="law-민법1019">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>민법 제1019조 (숙려기간)</span>
+                        <span>+</span>
+                    </div>
+                    <div class="law-item-body">
+                        상속인은 상속개시를 안 날부터 3개월 이내에 상속을 승인하거나 포기해야 한다. 부득이한 사유가 있으면 가정법원이 이 기간을 연장할 수 있다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-민법1041">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>민법 제1041조 (포기의 방법)</span>
+                        <span>+</span>
+                    </div>
+                    <div class="law-item-body">
+                        상속인이 상속을 포기하려면 상속개시를 안 날부터 3개월 이내에 가정법원에 그 뜻을 신고하여야 한다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-민법1042">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>민법 제1042조 (포기의 효력)</span>
+                        <span>+</span>
+                    </div>
+                    <div class="law-item-body">
+                        상속의 포기는 상속개시에 소급하여 그 효력이 생긴다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-민법1043">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>민법 제1043조 (포기의 소급효)</span>
+                        <span>+</span>
+                    </div>
+                    <div class="law-item-body">
+                        상속인이 포기하면 그 상속인이 없었던 것으로 본다. 포기자의 직계비속은 대습상속하지 못한다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-민법1044">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>민법 제1044조 (포기자의 관리)</span>
+                        <span>+</span>
+                    </div>
+                    <div class="law-item-body">
+                        상속인이 포기하기 전에 상속재산을 임의로 처분하거나 상속채무를 변제한 때에는 포기를 할 수 없다.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 실무 정보 패널 -->
+            <div id="panel-practice" class="sidebar-panel">
+                <div class="practice-section">
+                    <h5>상속포기 필수 서류</h5>
+                    <ul>
+                        <li>상속포기신청서</li>
+                        <li>사망기본증명서</li>
+                        <li>가족관계증명서</li>
+                        <li>신분증 사본</li>
+                        <li>상속관계증명서</li>
+                        <li>인감증명서(대리 시)</li>
+                    </ul>
+                </div>
+
+                <div class="practice-section">
+                    <h5>신청 시 주의사항</h5>
+                    <ul>
+                        <li>3개월 기한 준수 필수</li>
+                        <li>재산 처분 절대 금지</li>
+                        <li>관할 법원 확인</li>
+                        <li>신청서 정확히 작성</li>
+                        <li>우편 신청 가능</li>
+                    </ul>
+                </div>
+
+                <div class="practice-section">
+                    <h5>포기 후 조치</h5>
+                    <ul>
+                        <li>포기 확정 후 다음 상속인 공지</li>
+                        <li>상속등기 절차 진행</li>
+                        <li>채권자 고지</li>
+                        <li>재산 관리 의무 종료</li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script>
+        function switchTab(tab) {
+            document.querySelectorAll('.sidebar-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.sidebar-panel').forEach(p => p.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById('panel-' + tab).classList.add('active');
+        }
+
+        function toggleLaw(header) {
+            const body = header.nextElementSibling;
+            const isOpen = body.classList.contains('open');
+            body.classList.toggle('open');
+            header.querySelector('span:last-child').textContent = isOpen ? '+' : '−';
+        }
+
+        function openLaw(id) {
+            const lawTab = document.querySelector('.sidebar-tab:first-child');
+            const lawPanel = document.getElementById('panel-law');
+            document.querySelectorAll('.sidebar-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.sidebar-panel').forEach(p => p.classList.remove('active'));
+            lawTab.classList.add('active');
+            lawPanel.classList.add('active');
+            const item = document.getElementById('law-' + id);
+            if (item) {
+                const body = item.querySelector('.law-item-body');
+                const header = item.querySelector('.law-item-header');
+                body.classList.add('open');
+                header.querySelector('span:last-child').textContent = '−';
+                item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        const sections = document.querySelectorAll('.section');
+        const tocLinks = document.querySelectorAll('.toc-link');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    const active = document.querySelector(`.toc-link[href="#${e.target.id}"]`);
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(s => observer.observe(s));
+    </script>
+</body>
+</html>

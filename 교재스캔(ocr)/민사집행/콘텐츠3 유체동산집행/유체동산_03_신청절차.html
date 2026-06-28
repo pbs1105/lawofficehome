@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>집행관 신청 절차 및 준비서류 — 유체동산 강제집행</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1a2e4a;
+  --gold: #c8a96e;
+  --bg: #faf8f5;
+  --text: #2c2c2c;
+  --summary-bg: #eef2f8;
+  --summary-bd: #2d4a7a;
+  --cta-bg: #fdf6e9;
+  --cta-bd: #c8a96e;
+  --case-bg: #f0f8f0;
+  --case-bd: #1a5c2e;
+  --ruling-bg: #f7f4f0;
+  --ruling-bd: #6b7280;
+  --warn-bg: #fff3e8;
+  --warn-bd: #c05000;
+  --rank-bg: #f4f7fb;
+  --rank-bd: #2d4a7a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans KR', sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; font-size: 16px; }
+a { color: var(--navy); text-decoration: none; }
+header { background: var(--navy); color: #fff; padding: 48px 24px 40px; text-align: center; }
+.breadcrumb { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 12px; }
+header h1 { font-family: 'Noto Serif KR', serif; font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 700; line-height: 1.4; margin-bottom: 12px; }
+.subtitle { font-size: 15px; color: var(--gold); font-weight: 500; }
+.container { max-width: 820px; margin: 0 auto; padding: 0 20px; }
+section { padding: 48px 0; border-bottom: 1px solid #e4ddd4; }
+section:last-of-type { border-bottom: none; }
+h2 { font-family: 'Noto Serif KR', serif; font-size: 1.35rem; font-weight: 700; color: var(--navy); border-bottom: 2px solid var(--gold); padding-bottom: 10px; margin-bottom: 20px; }
+h2 .tag { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px; background: var(--navy); color: var(--gold); margin-right: 8px; vertical-align: middle; }
+h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin: 28px 0 12px; }
+p { margin-bottom: 14px; line-height: 1.85; }
+.summary-box { background: var(--summary-bg); border-left: 4px solid var(--summary-bd); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 16px 0; }
+.summary-box .label { font-size: 11px; font-weight: 700; color: var(--summary-bd); letter-spacing: 0.08em; margin-bottom: 8px; display: block; }
+.summary-box ul { list-style: none; padding: 0; }
+.summary-box ul li { padding: 4px 0; padding-left: 20px; position: relative; }
+.summary-box ul li::before { content: "▶"; position: absolute; left: 0; color: var(--summary-bd); font-size: 11px; top: 7px; }
+.case-box { background: var(--case-bg); border-left: 4px solid var(--case-bd); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 20px 0; }
+.case-title { font-size: 13px; font-weight: 700; color: var(--case-bd); margin-bottom: 10px; }
+.case-box p { font-size: 14.5px; margin-bottom: 8px; }
+.ruling-box { background: var(--ruling-bg); border-left: 4px solid var(--ruling-bd); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 20px 0; }
+.ruling-header { font-size: 13px; font-weight: 700; color: #444; margin-bottom: 10px; }
+.ruling-header::before { content: "判"; background: var(--ruling-bd); color: #fff; padding: 1px 6px; border-radius: 3px; margin-right: 8px; }
+.ruling-box p { font-size: 14.5px; margin-bottom: 8px; }
+.warn-box { background: var(--warn-bg); border-left: 4px solid var(--warn-bd); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 20px 0; }
+.warn-title { font-size: 13px; font-weight: 700; color: var(--warn-bd); margin-bottom: 10px; }
+.warn-box p { font-size: 14.5px; margin-bottom: 8px; }
+.checklist { background: #fff; border: 1px solid #ddd6ce; border-radius: 8px; padding: 24px 28px; }
+.checklist ul { list-style: none; padding: 0; }
+.checklist li { padding: 6px 0 6px 28px; position: relative; border-bottom: 1px solid #f0ebe4; }
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before { content: "✓"; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+
+.table-wrap { overflow-x: auto; margin: 20px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 480px; }
+thead th { background: var(--navy); color: #fff; padding: 11px 14px; font-size: 13px; text-align: left; }
+tbody td { padding: 10px 14px; border-bottom: 1px solid #e4ddd4; line-height: 1.6; vertical-align: top; }
+tbody tr:nth-child(even) td { background: #f5f2ee; }
+tbody tr:hover td { background: #eee8e0; }
+td.highlight { font-weight: 700; color: var(--navy); }
+.qna-item { border: 1px solid #e0d9d0; border-radius: 8px; overflow: hidden; margin: 12px 0; }
+.qna-q { background: #fff; padding: 16px 20px; font-weight: 700; font-size: 15px; color: var(--navy); }
+.q-badge { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px; background: var(--navy); color: var(--gold); margin-right: 8px; }
+.qna-a { background: #faf8f5; padding: 16px 20px 16px 48px; font-size: 14.5px; border-top: 1px solid #e0d9d0; }
+.qna-a .disclaimer { font-size: 12px; color: #888; margin-top: 10px; border-top: 1px dashed #ccc; padding-top: 8px; }
+.cta-box { background: var(--cta-bg); border: 1px solid var(--cta-bd); border-radius: 10px; padding: 32px 28px; text-align: center; margin: 40px 0 0; }
+.cta-box h3 { color: var(--navy); font-family: 'Noto Serif KR', serif; font-size: 1.15rem; margin-bottom: 8px; margin-top: 0; }
+.cta-box p { color: #555; font-size: 14.5px; margin-bottom: 20px; }
+.cta-buttons { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.cta-btn { background: var(--navy); color: #fff; padding: 14px 36px; border-radius: 6px; font-size: 15px; font-weight: 700; display: inline-block; }
+.cta-btn-kakao { background: #fee500; color: #3c1e1e; padding: 14px 36px; border-radius: 6px; font-size: 15px; font-weight: 700; display: inline-block; }
+.next-links { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px; }
+.next-link { background: #fff; border: 1px solid #ddd6ce; border-radius: 8px; padding: 16px 18px; display: flex; align-items: center; justify-content: space-between; transition: border-color 0.2s; }
+.next-link:hover { border-color: var(--gold); box-shadow: 0 2px 8px rgba(200,169,110,0.15); }
+.next-link .arrow { color: var(--gold); font-size: 18px; }
+.disclaimer-section { background: #f2f0ec; padding: 28px; border-radius: 8px; margin: 40px 0 0; }
+.disclaimer-section p { font-size: 12px; color: #666; line-height: 1.8; margin-bottom: 6px; }
+.step-block { background: #fff; border: 1px solid #ddd6ce; border-radius: 10px; padding: 22px 24px; margin: 16px 0; position: relative; }
+.step-num { display: inline-block; background: var(--navy); color: #fff; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 12px; margin-bottom: 10px; }
+.step-block h4 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+.step-block p { font-size: 14.5px; margin-bottom: 6px; }
+.step-connector { text-align: center; color: var(--gold); font-size: 22px; margin: 4px 0; }
+@media (max-width: 600px) {
+  header { padding: 36px 16px 28px; }
+  section { padding: 36px 0; }
+  .summary-box, .case-box, .ruling-box, .warn-box { padding: 16px 18px; }
+  .qna-a { padding-left: 20px; }
+  .cta-box { padding: 24px 20px; }
+  .cta-btn, .cta-btn-kakao { padding: 12px 28px; }
+}
+    .law-tag {
+      display: inline-block; background: #e8edf5; color: #2d4a7a;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #b0c4de; cursor: pointer; transition: background 0.15s;
+    }
+    .law-tag:hover { background: #c8daf7; color: #1a2e4a; }
+    .case-tag {
+      display: inline-block; background: #f0ece4; color: #5a4a30;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #c8a96e; cursor: pointer; transition: background 0.15s;
+    }
+    .case-tag:hover { background: #f5dfa8; color: #3a2a10; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="breadcrumb">민사집행 &gt; 유체동산 강제집행</div>
+  <h1>집행관 신청 절차 및 준비서류</h1>
+  <p class="subtitle">집행 위임 신청부터 현장 압류·경매까지 — 단계별 완전 안내</p>
+</header>
+
+<div class="container">
+
+<!-- SECTION 1: 이런 분께 필요합니다 -->
+<section>
+  <h2>이런 분께 필요합니다</h2>
+  <div class="checklist">
+    <ul>
+      <li>판결문(또는 공정증서)을 가지고 있고, 이제 실제로 집행을 신청하려고 합니다.</li>
+      <li>집행관이 어디에 있는지, 어떻게 찾아가야 하는지 모릅니다.</li>
+      <li>집행 신청에 필요한 서류가 무엇인지 목록을 확인하고 싶습니다.</li>
+      <li>신청 후 집행관이 언제 현장에 오는지, 경매는 어떻게 진행되는지 궁금합니다.</li>
+      <li>집행 비용이 어느 정도 들며 어떻게 납부하는지 알고 싶습니다.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SECTION 2: 핵심정리 -->
+<section>
+  <h2>핵심정리</h2>
+  <div class="summary-box">
+    <span class="label">절차 흐름 요약</span>
+    <ul>
+      <li>유체동산 강제집행은 채권자가 집행관(지방법원 소속)에게 서면으로 집행을 위임(신청)함으로써 시작됩니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=000400" target="_blank" rel="noopener">민사집행법 제4조</a>).</li>
+      <li>집행관은 신청을 받은 후 수수료·비용 예납을 받고, 채무자 점유 장소로 나가 압류를 실시한 뒤 경매(주로 호가경매)를 진행합니다.</li>
+      <li>⚡ <strong>소멸시효 주의:</strong> 집행권원에 기재된 채권의 소멸시효가 완성되기 전에 집행을 신청해야 합니다. 집행 신청은 시효 중단 사유가 됩니다.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SECTION 3: 상세설명 -->
+<section>
+  <h2>단계별 상세 절차</h2>
+
+  <div class="step-block">
+    <div class="step-num">STEP 1</div>
+    <h4>집행문 부여 받기 — 신청 전 반드시 필요</h4>
+    <p>판결문·지급명령·공정증서 등 집행권원이 있더라도, <strong>집행문</strong>을 별도로 받아야 집행 신청이 가능합니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=002800" target="_blank" rel="noopener">민사집행법 제28조</a>). 집행문은 집행권원에 집행력이 있다는 것을 공증하는 문서로, 집행력 있는 정본이라고도 합니다.</p>
+    <p><strong>발급 방법:</strong> 판결·지급명령 → 판결을 내린 법원의 법원서기관·법원주사보에게 신청 | 공정증서 → 해당 공증인 사무소에 신청</p>
+    <p><strong>소요 시간:</strong> 통상 당일~수일 내 발급 | <strong>수수료:</strong> 집행문 부여 수수료 납부 필요</p>
+  </div>
+  <div class="step-connector">↓</div>
+
+  <div class="step-block">
+    <div class="step-num">STEP 2</div>
+    <h4>관할 집행관 확인 및 방문</h4>
+    <p>집행관은 지방법원 소속 독립 사법기관입니다. 채무자의 주소지 또는 집행할 물건 소재지를 관할하는 지방법원에 소속된 집행관에게 신청해야 합니다. 집행관 사무소는 해당 지방법원 청사 내에 있습니다.</p>
+    <p><strong>관할 기준:</strong> 채무자 주소지 관할 지방법원 소속 집행관 (채무자가 물건을 보관하는 장소 기준도 가능)</p>
+  </div>
+  <div class="step-connector">↓</div>
+
+  <div class="step-block">
+    <div class="step-num">STEP 3</div>
+    <h4>집행 신청서 작성 및 제출</h4>
+    <p>유체동산에 대한 강제집행 신청은 반드시 <strong>서면</strong>으로 해야 합니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=000400" target="_blank" rel="noopener">민사집행법 제4조</a>). 집행관 사무소에 비치된 '유체동산에 대한 강제집행신청서' 양식을 작성하여 제출합니다.</p>
+    <div class="summary-box">
+      <span class="label">신청서에 기재할 사항</span>
+      <ul>
+        <li>채권자·채무자의 성명(상호)·주소·주민등록번호(법인번호)</li>
+        <li>대리인이 신청하는 경우 대리인 정보</li>
+        <li>집행권원의 표시 (판결 사건번호 등)</li>
+        <li>청구금액 및 집행 목적물 소재지(채무자 주소)</li>
+        <li>집행 위임의 취지</li>
+      </ul>
+    </div>
+  </div>
+  <div class="step-connector">↓</div>
+
+  <div class="step-block">
+    <div class="step-num">STEP 4</div>
+    <h4>첨부서류 제출 및 비용 예납</h4>
+    <p>신청서와 함께 아래 서류를 첨부하고, 집행관이 산정한 수수료 및 비용을 예납해야 합니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=001200" target="_blank" rel="noopener">민사집행법 제12조</a>). 예납이 완료되어야 집행 절차가 개시됩니다.</p>
+
+    <h3 style="margin-top:20px;">첨부서류 목록</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>서류명</th><th>발급 기관</th><th>주의사항</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="highlight">집행력 있는 정본<br>(집행문 부여된 판결·공정증서 등)</td><td>판결 법원 / 공증인 사무소</td><td>집행문 부여 받은 것이어야 함</td></tr>
+          <tr><td class="highlight">집행권원 관련 서류<br>(송달증명원 등)</td><td>판결 법원</td><td>채무자에게 판결이 송달되었음을 증명 (확정판결의 경우 확정증명원도 필요할 수 있음)</td></tr>
+          <tr><td class="highlight">채무자 주소 확인 서류<br>(주민등록초본·법인등기부등본 등)</td><td>주민센터 / 등기소</td><td>채무자 현재 주소가 정확해야 집행 가능</td></tr>
+          <tr><td class="highlight">위임장<br>(대리인이 신청하는 경우)</td><td>채권자 작성</td><td>법무사 등 대리인이 신청하는 경우 인감도장 날인 등 요건 확인</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:20px;">비용 안내</h3>
+    <div class="summary-box">
+      <span class="label">납부 비용 종류 (금액 표시 불가 — 집행관에게 확인)</span>
+      <ul>
+        <li><strong>집행관 수수료:</strong> 집행관 수수료규칙에 따라 산정 — 예납 방식으로 납부</li>
+        <li><strong>집행비용 예납금:</strong> 교통비·잠금장치 비용·보관료 등 실비 — 정산 후 정확한 금액 확정</li>
+        <li><strong>집행문 부여 수수료:</strong> 법원에 별도 납부 (집행관 신청과는 별개)</li>
+      </ul>
+    </div>
+    <p>비용 정확한 금액은 집행관 사무소에 직접 확인하거나 법무사에게 문의하시기 바랍니다.</p>
+  </div>
+  <div class="step-connector">↓</div>
+
+  <div class="step-block">
+    <div class="step-num">STEP 5</div>
+    <h4>집행관의 현장 방문 및 압류 실시</h4>
+    <p>집행관은 예납 완료 후 채무자의 주거·사무소·창고 등을 방문하여 채무자가 점유하는 유체동산에 압류표(딱지)를 부착합니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=018800" target="_blank" rel="noopener">민사집행법 제188조</a>). 집행관은 필요한 경우 잠긴 문을 열거나 경찰 원조를 요청할 수 있습니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=000500" target="_blank" rel="noopener">민사집행법 제5조</a>). 채권자나 대리인은 현장에 동행할 수 있으며, 동행 시 압류 가능한 물건을 직접 확인할 수 있어 효율적입니다.</p>
+    <p>집행관은 압류물을 원칙적으로 채무자에게 보관시키나(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=018900" target="_blank" rel="noopener">민사집행법 제189조 제1항</a> 단서), 채권자·제3자에게 위탁 보관하거나 집행관이 직접 보관할 수도 있습니다.</p>
+
+    <div class="warn-box" style="margin-top: 12px;">
+      <div class="warn-title">⚠️ 현장 동행을 강력히 권장합니다</div>
+      <p>집행관 단독으로 현장에 방문할 경우 압류 가능한 물건을 놓치거나, 채무자의 방해로 집행이 제대로 이루어지지 않는 사례가 있습니다. 채권자 본인 또는 법무사 대리인이 현장에 동행하면 적극적으로 의견을 제시하고 집행을 도울 수 있습니다.</p>
+    </div>
+  </div>
+  <div class="step-connector">↓</div>
+
+  <div class="step-block">
+    <div class="step-num">STEP 6</div>
+    <h4>호가경매(매각) 진행</h4>
+    <p>압류 후 집행관은 매각기일을 정하고 호가경매 또는 입찰의 방법으로 압류물을 매각합니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=019900" target="_blank" rel="noopener">민사집행법 제199조</a>, <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=117387&joNo=014500" target="_blank" rel="noopener">민집규칙 제145조</a>~제150조). 호가경매는 현장에서 여러 매수 희망자가 가격을 불러 최고가에 낙찰하는 방식입니다.</p>
+    <div class="summary-box">
+      <span class="label">경매 관련 주요 사항</span>
+      <ul>
+        <li>매각기일: 집행관이 결정하며, 이해관계인에게 고지</li>
+        <li>매각 장소: 원칙적으로 압류 장소 (필요시 다른 장소에서 진행 가능)</li>
+        <li>최저매각가격: 집행관이 상당하다고 인정하는 가격 (<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=117387&joNo=014400" target="_blank" rel="noopener">민집규칙 제144조</a>)</li>
+        <li>적당한 방법으로의 매각: 특수 물건의 경우 집행관이 적합한 방법 선택 가능 (<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=020900" target="_blank" rel="noopener">민사집행법 제209조, 제210조</a>)</li>
+        <li>특별현금화: 법원이 명하면 일반 방법이 아닌 특별한 방법으로 현금화 가능 (<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=021400" target="_blank" rel="noopener">민사집행법 제214조</a>)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="step-connector">↓</div>
+
+  <div class="step-block">
+    <div class="step-num">STEP 7</div>
+    <h4>매각대금 교부 또는 배당</h4>
+    <p>채권자가 한 명이면 집행관이 매각대금을 채권자에게 직접 교부합니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=020100" target="_blank" rel="noopener">민사집행법 제201조 제1항</a>). 채권자가 여럿이거나 배당요구가 있는 경우, 배당협의가 이루어지면 협의에 따라, 협의가 안 되면 집행관이 매각대금을 공탁하고 법원이 배당절차를 진행합니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=022200" target="_blank" rel="noopener">민사집행법 제222조</a>).</p>
+  </div>
+
+  <div class="case-box" style="margin-top: 24px;">
+    <div class="case-title">📋 실제 진행 사례</div>
+    <p>C씨는 D씨에 대해 3,000만 원의 확정 판결을 받았습니다. D씨가 돈을 주지 않자, C씨는 판결을 내린 법원에서 집행문을 받아 D씨 사업장(음식점) 소재지 관할 집행관 사무소에 강제집행 신청서를 제출했습니다. 집행관은 수수료 예납 후 날짜를 정해 D씨 음식점에 방문, 냉장고·주방기기·현금(185만 원 초과분)에 압류표를 부착했습니다. 2주 후 매각기일에 호가경매를 진행하여 총 350만 원에 낙찰되었고, 집행비용을 공제한 나머지를 C씨에게 교부했습니다.</p>
+  </div>
+</section>
+
+<!-- SECTION 4: Q&A -->
+<section>
+  <h2>자주 하는 질문</h2>
+
+  <div class="qna-item">
+    <div class="qna-q"><span class="q-badge">Q1</span> 집행 신청부터 실제 압류까지 얼마나 걸리나요?</div>
+    <div class="qna-a">
+      <p>집행 신청 후 수수료 예납까지 완료하면, 집행관이 일정을 잡아 현장 방문을 합니다. 일반적으로 신청 후 수일~수 주 내에 현장 방문이 이루어지나, 집행관의 업무량에 따라 달라질 수 있습니다. 압류 후 호가경매까지는 통상 1~2주 정도 소요됩니다. 급하게 처리해야 하는 경우(채무자가 물건을 빼돌릴 우려 등)에는 집행관에게 빠른 집행을 요청하고, 가압류를 먼저 실행하는 방법도 검토할 수 있습니다.</p>
+      <div class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+    </div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q"><span class="q-badge">Q2</span> 채무자가 이사를 가서 주소를 모르면 어떻게 하나요?</div>
+    <div class="qna-a">
+      <p>집행관은 신청서에 기재된 주소를 기준으로 방문합니다. 채무자 주소를 모르는 경우에는 채권자가 채무자의 현재 주소를 확인해야 합니다. 주민등록초본은 채권자도 법원 제출 목적으로 발급받을 수 있습니다. 만약 채무자의 주소지가 달라졌다면 신청서를 수정하거나 새 주소지 관할 집행관에게 재신청해야 합니다. 채무자가 주소를 숨기거나 이사를 반복하는 경우에는 법원을 통한 재산 명시 명령·재산 조회 신청을 병행하는 것이 효과적입니다.</p>
+      <div class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+    </div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q"><span class="q-badge">Q3</span> ⚡ 집행 신청 기간에 제한이 있나요?</div>
+    <div class="qna-a">
+      <p>집행권원에 기재된 채권의 <strong>소멸시효</strong>가 완성되기 전에 집행을 신청해야 합니다. 확정 판결에 기한 채권의 소멸시효는 10년이며(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=252393&joNo=016500" target="_blank" rel="noopener">민사소송법 제165조</a>), 시효가 완성되면 강제집행을 신청할 수 없습니다. 강제집행 신청(집행 위임)은 소멸시효 중단 사유에 해당하므로(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=016800" target="_blank" rel="noopener">민법 제168조 제2호</a>), 시효 만료 전에 신청하면 시효가 중단됩니다. ⚡ 이 기간을 넘기면 권리를 잃으므로, 판결 후 오랜 시간이 지났다면 반드시 소멸시효 여부를 먼저 확인하십시오.</p>
+      <div class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+    </div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q"><span class="q-badge">Q4</span> 집행 신청을 취하할 수 있나요?</div>
+    <div class="qna-a">
+      <p>네, 채권자는 집행이 완료되기 전까지 집행 신청을 취하할 수 있습니다. 다만 집행관이 이미 수수료·비용을 지출한 경우에는 이를 정산해야 합니다. 채무자가 집행 과정 중에 채무를 변제하거나 합의가 이루어지는 경우 취하하는 것이 일반적입니다. 취하는 구두 또는 서면으로 가능하나, 분쟁 예방을 위해 서면으로 하는 것이 좋습니다.</p>
+      <div class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+    </div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q"><span class="q-badge">Q5</span> 법무사에게 대리 신청을 맡길 수 있나요?</div>
+    <div class="qna-a">
+      <p>네, 법무사는 유체동산 강제집행 신청에 관한 대리 업무를 수행할 수 있습니다. 법무사에게 위임하면 집행문 부여 신청, 집행관 사무소 방문·서류 제출, 현장 동행, 배당금 수령까지 전 과정을 대리하거나 지원받을 수 있습니다. 특히 여러 채권자가 있거나, 채무자의 재산 파악이 어렵거나, 집행 과정에서 이의가 예상되는 경우에는 법무사의 도움을 받는 것이 훨씬 효율적이고 안전합니다.</p>
+      <div class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: 주의사항 -->
+<section>
+  <h2>주의사항 — 자주 발생하는 오류</h2>
+
+  <div class="warn-box">
+    <div class="warn-title">⚠️ 가장 흔한 실수 1 — 집행문 없이 신청</div>
+    <p>판결문을 가지고 있어도 집행문 부여를 받지 않으면 집행 신청이 수리되지 않습니다. 집행문 부여 신청을 먼저 완료한 후 집행관 사무소를 방문하세요.</p>
+  </div>
+
+  <div class="warn-box">
+    <div class="warn-title">⚠️ 가장 흔한 실수 2 — 채무자 주소 불명확</div>
+    <p>신청서에 기재한 주소가 채무자의 현재 주소와 다르면 집행관이 현장에 가도 압류를 실시하지 못할 수 있습니다. 신청 전 반드시 최신 주민등록초본 또는 법인등기부등본으로 현재 주소를 확인하세요.</p>
+  </div>
+
+  <div class="warn-box">
+    <div class="warn-title">⚡ 소멸시효 10년 — 판결 후에도 관리 필요</div>
+    <p>확정 판결 이후 아무 조치를 취하지 않으면 10년 후 소멸시효가 완성됩니다. 시효 완성 전에 집행 신청이나 시효 중단 조치를 취해야 권리가 유지됩니다. ⚡ 이 기간을 넘기면 권리를 잃습니다.</p>
+  </div>
+
+  <div class="warn-box">
+    <div class="warn-title">ℹ️ 압류 물건이 없을 때 — 재산명시·재산조회 신청</div>
+    <p>집행관이 현장을 방문했는데 압류 가능한 물건이 없거나 채무자가 없는 경우, 집행이 불발될 수 있습니다. 이런 경우에는 법원에 <strong>재산명시 명령</strong>(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006100" target="_blank" rel="noopener">민사집행법 제61조</a>) 또는 <strong>재산조회 신청</strong>(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007400" target="_blank" rel="noopener">민사집행법 제74조</a>)을 통해 채무자의 재산을 파악한 뒤 적합한 집행 방법을 선택하세요.</p>
+  </div>
+</section>
+
+<!-- SECTION 6: 다음에 확인할 사항 -->
+<section>
+  <h2>다음에 확인할 사항</h2>
+  <p>신청 절차를 확인하셨다면, 다음 내용도 함께 준비하세요.</p>
+  <div class="next-links">
+    <a href="유체동산_02_압류대상.html" class="next-link">
+      <span>압류 대상 vs 압류금지 물건<br><small style="color:#888; font-weight:400;">어떤 물건을 압류할 수 있나요?</small></span>
+      <span class="arrow">→</span>
+    </a>
+    <a href="유체동산_05_배당.html" class="next-link">
+      <span>매각·배당 — 돈은 어떻게 받나요?<br><small style="color:#888; font-weight:400;">매각대금 교부 및 배당 절차</small></span>
+      <span class="arrow">→</span>
+    </a>
+    <a href="유체동산_01_개요.html" class="next-link">
+      <span>유체동산 강제집행 기본 개요<br><small style="color:#888; font-weight:400;">전체 절차와 기본 개념</small></span>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-box">
+  <h3>이 절차가 필요하신가요? 첫 상담은 무료입니다.</h3>
+  <p>서류 준비부터 집행관 신청, 현장 동행까지 법무사가 함께합니다.</p>
+  <div class="cta-buttons">
+    <a href="tel:0000000000" class="cta-btn">📞 전화 상담</a>
+    <a href="https://open.kakao.com/" class="cta-btn-kakao">💬 카카오톡 상담</a>
+  </div>
+</div>
+
+<!-- 면책 -->
+<div class="disclaimer-section">
+  <p>본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 개별 사안에 따라 결과가 달라질 수 있습니다. 구체적인 사안은 법무사와 상담하시기 바랍니다.</p>
+  <p>이 페이지는 2025년 현행 법령 기준으로 작성되었습니다.</p>
+</div>
+
+</div><!-- /container -->
+</body>
+</html>

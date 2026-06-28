@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>집행문 부여에 대한 이의 — 집행문 자체가 잘못 발급됐다면</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#1a2e4a;--gold:#c8a96e;--bg:#faf8f5;--text:#2c2c2c;--summary-bg:#eef2f8;--summary-bd:#2d4a7a;--cta-bg:#fdf6e9;--cta-bd:#c8a96e;--case-bg:#f0f8f0;--case-bd:#1a5c2e;--ruling-bg:#f7f4f0;--ruling-bd:#6b7280;--warn-bg:#fff3e8;--warn-bd:#c05000}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;font-size:16px}
+.container{max-width:820px;margin:0 auto;padding:0 20px}
+header{background:var(--navy);color:#fff;padding:48px 24px 40px;text-align:center}
+.breadcrumb{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:12px}
+header h1{font-family:'Noto Serif KR',serif;font-size:clamp(1.5rem,4vw,2.2rem);font-weight:700;line-height:1.4;margin-bottom:10px}
+.subtitle{font-size:15px;color:var(--gold);font-weight:500}
+section{padding:48px 0;border-bottom:1px solid #e4ddd4}
+h2{font-family:'Noto Serif KR',serif;font-size:1.35rem;font-weight:700;color:var(--navy);border-bottom:2px solid var(--gold);padding-bottom:10px;margin-bottom:20px}
+h3{font-size:1.05rem;font-weight:700;color:var(--navy);margin:28px 0 12px}
+p{margin-bottom:14px}
+.summary-box{background:var(--summary-bg);border-left:4px solid var(--summary-bd);border-radius:0 8px 8px 0;padding:20px 24px;margin:20px 0}
+.summary-box .label{font-size:11px;font-weight:700;color:var(--summary-bd);letter-spacing:0.08em;margin-bottom:10px}
+.ruling-box{background:var(--ruling-bg);border-left:4px solid var(--ruling-bd);border-radius:0 8px 8px 0;padding:20px 24px;margin:16px 0;font-size:14.5px}
+.ruling-box .ruling-header{font-size:13px;font-weight:700;color:#444;margin-bottom:8px}
+.ruling-box .ruling-header::before{content:"判";background:var(--ruling-bd);color:#fff;padding:1px 6px;border-radius:3px;margin-right:6px}
+.warn-box{background:var(--warn-bg);border-left:4px solid var(--warn-bd);border-radius:0 8px 8px 0;padding:20px 24px;margin:16px 0}
+.warn-box .warn-title{font-size:13px;font-weight:700;color:var(--warn-bd);margin-bottom:8px}
+.checklist{background:#fff;border:1px solid #ddd6ce;border-radius:8px;padding:24px 28px;margin:20px 0}
+.checklist ul{list-style:none;padding:0;margin-top:12px}
+.checklist li{padding:6px 0;padding-left:24px;position:relative}
+.checklist li::before{content:"✓";color:var(--gold);font-weight:700;position:absolute;left:0}
+.qna-item{border:1px solid #e0d9d0;border-radius:8px;overflow:hidden;margin:12px 0}
+.qna-q{background:#fff;padding:16px 20px;font-weight:700;font-size:15px;color:var(--navy)}
+.qna-a{background:#faf8f5;padding:16px 20px;font-size:14.5px;border-top:1px solid #e0d9d0}
+.cta-box{background:var(--cta-bg);border:1px solid var(--cta-bd);border-radius:10px;padding:32px 28px;text-align:center;margin:40px 0 0}
+.cta-btn{display:inline-block;background:var(--navy);color:#fff;padding:14px 36px;border-radius:6px;font-size:15px;font-weight:700;text-decoration:none;margin:8px}
+.cta-btn.kakao{background:#FEE500;color:#3c1e1e}
+.case-tag{display:inline-block;background:#f4ede0;color:#7a4a1a;font-size:11px;font-weight:700;padding:2px 8px;border-radius:3px;margin-left:6px;vertical-align:middle;letter-spacing:0.3px}
+.law-tag{display:inline-block;background:#e8edf5;color:#2d4a7a;font-size:11px;font-weight:700;padding:2px 8px;border-radius:3px;margin-left:4px;vertical-align:middle}
+.disclaimer-section{background:#f2f0ec;padding:28px;border-radius:8px;margin:40px 0 0;font-size:12px;color:#666;line-height:1.8}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+thead th{background:var(--navy);color:#fff;padding:11px 14px;font-size:13px;text-align:left}
+tbody td{padding:10px 14px;border-bottom:1px solid #e4ddd4;line-height:1.6}
+tbody tr:nth-child(even){background:#f5f2ee}
+.next-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:20px 0}
+.next-link{background:#fff;border:1px solid #ddd6ce;border-radius:8px;padding:16px 18px;text-decoration:none;color:var(--navy);display:block}
+.next-link:hover{border-color:var(--gold)}
+.next-link .arrow{color:var(--gold);font-size:18px;display:block;margin-bottom:4px}
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="breadcrumb">민사집행 총론 › 집행 불복</div>
+    <h1>집행문 부여에 대한 이의</h1>
+    <div class="subtitle">집행문 자체가 잘못 발급됐을 때 취소를 구하는 방법</div>
+  </div>
+</header>
+
+<div class="container">
+
+<section>
+  <h2>이런 분께 필요합니다</h2>
+  <div class="checklist">
+    <ul>
+      <li>집행권원에 표시된 것 이상의 집행문이 발급됐다고 판단되는 경우</li>
+      <li>집행 당사자가 아닌 사람에게 집행문이 부여됐다고 생각되는 경우</li>
+      <li>집행문 발급 요건이 갖춰지지 않았음에도 집행문이 부여된 경우</li>
+      <li>채권자가 집행문 부여를 거절당하여 법원에 집행문 부여를 구하려는 경우</li>
+      <li>집행권원상의 청구권이 이미 소멸했는데 집행문이 발급된 경우</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>핵심 정리</h2>
+  <div class="summary-box">
+    <div class="label">▶ 집행문 관련 3가지 불복 제도</div>
+    <p>집행문과 관련하여 민사집행법은 3가지 불복 방법을 두고 있습니다. ① 집행문 부여 <strong>거절</strong>에 대한 이의신청(채권자의 불복), ② 집행문 부여의 소(요건 미비 시 채권자의 소), ③ 집행문 부여에 대한 이의의 소(채무자 등의 불복)입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003300" target="_blank" rel="noopener" title="민사집행법 제45조 — 국가법령정보센터">민사집행법 제33조, 제34조, 제45조</a></p>
+  </div>
+  <div class="summary-box">
+    <div class="label">▶ 핵심 포인트</div>
+    <p>집행문이 <strong>잘못 발급됐다</strong>고 주장하는 쪽(채무자 등)은 집행문 부여에 대한 이의의 소(민사집행법 제45조)를 제기해야 합니다. 집행문 <strong>발급 거절</strong>에 불복하는 쪽(채권자)은 이의신청(제34조)이나 집행문 부여의 소(제33조)를 이용합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003300" target="_blank" rel="noopener" title="민사집행법 제45조 — 국가법령정보센터">민사집행법 제33조, 제34조, 제45조</a></p>
+  </div>
+</section>
+
+<section>
+  <h2>집행문 관련 불복 제도 상세</h2>
+
+  <h3>① 집행문 부여에 관한 이의신청 (채권자의 불복)</h3>
+  <p>법원사무관등이 집행문 부여를 거절한 경우, 채권자는 법원에 이의신청을 할 수 있습니다. 법원이 이의를 인용하면 집행문 부여를 명합니다. 이 이의신청은 즉시항고와 달리 기간 제한이 없습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003400" target="_blank" rel="noopener" title="민사집행법 제34조 제1항 — 대법원 종합법률정보">민사집행법 제34조 제1항</a></p>
+
+  <h3>② 집행문 부여의 소 (채권자가 소송으로 집행문 부여를 구하는 경우)</h3>
+  <p>집행문 부여에 조건이 성취됐음을 증명해야 하는데(조건부 집행문), 이를 서류로 증명하기 어려운 경우 채권자는 집행문 부여의 소를 제기합니다. 수소법원 또는 채무자 주소지 법원이 관할합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003300" target="_blank" rel="noopener" title="민사집행법 제33조 — 국가법령정보센터">민사집행법 제33조</a></p>
+
+  <h3>③ 집행문 부여에 대한 이의의 소 (채무자 등의 불복)</h3>
+  <p>채무자나 이해관계인이 집행문 자체가 위법하게 또는 잘못 발급됐다고 주장할 때 제기하는 소송입니다. 집행권원에 표시된 청구권이 집행문 부여 시점에 이미 소멸했다는 것 등을 주장합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004500" target="_blank" rel="noopener" title="민사집행법 제45조 — 국가법령정보센터">민사집행법 제45조</a></p>
+
+  <h3>세 가지 제도 비교</h3>
+  <table>
+    <thead>
+      <tr><th>구분</th><th>누가 이용하는가</th><th>이용 상황</th><th>근거</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>집행문 부여 거절에 대한 이의신청</td><td>채권자</td><td>집행문 부여 거절당한 경우</td><td><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003400" target="_blank" rel="noopener" title="민사집행법 제34조 — 국가법령정보센터">제34조</a></td></tr>
+      <tr><td>집행문 부여의 소</td><td>채권자</td><td>조건 성취를 소송으로 증명</td><td><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003300" target="_blank" rel="noopener" title="민사집행법 제33조 — 국가법령정보센터">제33조</a></td></tr>
+      <tr><td>집행문 부여에 대한 이의의 소</td><td>채무자·이해관계인</td><td>집행문이 위법하게 발급된 경우</td><td><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004500" target="_blank" rel="noopener" title="민사집행법 제45조 — 국가법령정보센터">제45조</a></td></tr>
+    </tbody>
+  </table>
+
+  <h3>집행문 이의와 청구이의의 차이</h3>
+  <p>집행문 부여에 대한 이의의 소(제45조)는 집행문 부여 당시의 사유(청구권 소멸 등)를 다루는 반면, 청구이의의 소(제44조)는 집행권원 성립 이후 변론종결 후에 생긴 사유를 다룹니다. 상황에 따라 두 소송을 함께 제기하는 것도 가능합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004400" target="_blank" rel="noopener" title="민사집행법 제45조 — 국가법령정보센터">민사집행법 제44조, 제45조</a></p>
+</section>
+
+<section>
+  <h2>자주하는 질문 (Q&amp;A)</h2>
+
+  <div class="qna-item">
+    <div class="qna-q">집행문 부여에 대한 이의의 소와 청구이의의 소는 어떻게 다른가요?</div>
+    <div class="qna-a">청구이의의 소는 "변론종결 후"에 발생한 사유(변제, 면제, 시효 등)를 주장하는 것입니다. 반면 집행문 부여에 대한 이의의 소는 집행문이 발급될 당시 이미 집행문 부여 요건이 갖춰지지 않았다는 것을 다툽니다. 상황에 따라 두 소송을 함께 진행할 수도 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004400" target="_blank" rel="noopener" title="민사집행법 제45조 — 국가법령정보센터">민사집행법 제44조, 제45조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">집행문 부여를 거절당한 채권자는 어떻게 해야 하나요?</div>
+    <div class="qna-a">집행문 부여를 거절당하면 법원에 이의신청을 할 수 있습니다. 이의신청이 받아들여지지 않는 경우에는 집행문 부여의 소를 제기하여 소송을 통해 집행문 부여를 구할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003400" target="_blank" rel="noopener" title="민사집행법 제33조 — 국가법령정보센터">민사집행법 제34조, 제33조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">승계집행문이 잘못 부여됐다고 주장할 수 있나요?</div>
+    <div class="qna-a">승계집행문이 적격 없는 자에게 부여됐다면 집행문 부여에 대한 이의의 소 또는 집행문 부여에 관한 이의신청을 통해 다툴 수 있습니다. 승계 사실이 없거나 승계 요건이 갖춰지지 않은 경우가 그 예입니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003100" target="_blank" rel="noopener" title="민사집행법 제45조 — 국가법령정보센터">민사집행법 제31조, 제34조, 제45조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">집행문 이의의 소를 제기하면 집행이 멈추나요?</div>
+    <div class="qna-a">집행문 부여에 대한 이의의 소를 제기해도 집행이 자동으로 정지되지 않습니다. 집행정지를 원한다면 별도로 집행정지 신청을 해야 합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004600" target="_blank" rel="noopener" title="민사집행법 제46조 — 대법원 종합법률정보">민사집행법 제46조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">집행문이 여러 장 발급됐는데 이의를 제기할 수 있나요?</div>
+    <div class="qna-a">집행문은 1개의 집행권원에 대해 원칙적으로 1장 발급이 원칙이며, 두 번째 이후의 집행문을 발급받으려면 요건을 갖춰야 합니다. 요건 없이 여러 장이 발급됐다면 집행문 부여에 관한 이의신청을 통해 이의를 제기할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003400" target="_blank" rel="noopener" title="민사집행법 제34조 — 국가법령정보센터">민사집행법 제34조</a></div>
+  </div>
+</section>
+
+<section>
+  <h2>관련 판례</h2>
+  <div class="ruling-box">
+    <div class="ruling-header">집행문 부여에 대한 이의의 소의 성격</div>
+    <p>대법원은 집행문 부여에 대한 이의의 소는 집행문 부여 요건이 갖춰지지 않았음을 이유로 집행문의 취소를 구하는 소로서, 집행권원에 표시된 실체적 권리에 관한 다툼을 내용으로 하는 청구이의의 소와 구별된다고 해석합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004500" target="_blank" rel="noopener" title="민사집행법 제45조 — 국가법령정보센터">민사집행법 제45조</a> <span class="case-tag"><a class="case-tag" href="https://www.law.go.kr/precSc.do?menuId=7&subMenuId=47&tabMenuId=213&eventGubun=060101&query=2016%EB%8B%A4268695" target="_blank" rel="noopener" title="2016다268695 — 대법원 종합법률정보">2016다268695</a></span></p>
+  </div>
+</section>
+
+<section>
+  <h2>주의사항</h2>
+  <div class="warn-box">
+    <div class="warn-title">⚡ 집행 중단이 필요하면 즉시 집행정지 신청</div>
+    <p>집행문 이의의 소만으로는 집행이 멈추지 않습니다. 집행 중단이 필요하다면 소 제기와 동시에 집행정지 신청을 해야 합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004600" target="_blank" rel="noopener" title="민사집행법 제46조 — 대법원 종합법률정보">민사집행법 제46조</a></p>
+  </div>
+  <div class="warn-box">
+    <div class="warn-title">⚠️ 적절한 불복방법 선택이 중요</div>
+    <p>상황에 따라 집행이의신청, 집행문 부여에 관한 이의신청, 집행문 부여에 대한 이의의 소, 청구이의의 소 중 적절한 방법을 선택해야 합니다. 잘못된 불복방법을 선택하면 각하될 수 있으므로 법무사와 상담하는 것이 안전합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=003300" target="_blank" rel="noopener" title="민사집행법 제45조 — 국가법령정보센터">민사집행법 제33조, 제34조, 제44조, 제45조</a></p>
+  </div>
+</section>
+
+<section>
+  <h2>다음에 확인할 사항</h2>
+  <div class="next-links">
+    <a href="민집_03_집행문부여.html" class="next-link">
+      <span class="arrow">→</span>
+      집행문 부여 신청<br><small>집행문을 받는 정상적인 절차</small>
+    </a>
+    <a href="민집_09_청구이의.html" class="next-link">
+      <span class="arrow">→</span>
+      청구이의의 소<br><small>실체적 권리를 다투는 방법</small>
+    </a>
+    <a href="민집_12_집행정지.html" class="next-link">
+      <span class="arrow">→</span>
+      강제집행 정지<br><small>집행을 일시적으로 멈추는 방법</small>
+    </a>
+  </div>
+</section>
+
+<div class="cta-box">
+  <h3 style="color:var(--navy);margin-bottom:8px">이 내용이 해당되시나요?</h3>
+  <p style="margin:8px 0 20px;color:#555">집행문 관련 불복 방법을 모르겠다면 법무사가 도와드립니다.<br>첫 상담은 무료입니다.</p>
+  <a href="tel:[전화번호]" class="cta-btn">📞 전화 상담</a>
+  <a href="#" class="cta-btn kakao">💬 카카오톡 상담</a>
+</div>
+
+<div class="disclaimer-section">
+  <p>본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 개별 사안에 따라 결과가 달라질 수 있습니다. 구체적인 사안은 법무사와 상담하시기 바랍니다.</p>
+  <p style="margin-top:8px">이 페이지는 2025년 현행 법령 기준으로 작성되었습니다.</p>
+</div>
+
+</div>
+</body>
+</html>

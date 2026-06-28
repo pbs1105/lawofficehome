@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>한정승인 — 절차와 청산 방법 | 상속 실무 안내</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>/* ===== UNIFIED BASE CSS ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #1a2e4a;
+  --gold: #c8a96e;
+  --bg: #faf8f5;
+  --text: #2c2c2c;
+  --summary-bg: #eef2f8;
+  --summary-bd: #2d4a7a;
+  --cta-bg: #fdf6e9;
+  --cta-bd: #c8a96e;
+  --case-bg: #f0f8f0;
+  --case-bd: #1a5c2e;
+  --ruling-bg: #f7f4f0;
+  --ruling-bd: #6b7280;
+  --warn-bg: #fff3e8;
+  --warn-bd: #c05000;
+  --rank-bg: #f4f7fb;
+  --rank-bd: #2d4a7a;
+  /* 하위 호환 */
+  --proc-bg: #e8f0fb;
+  --step-bg: #f0f4fb;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  font-size: 16px;
+}
+a { color: var(--navy); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ─── 헤더 ─── */
+header {
+  background: var(--navy);
+  color: #fff;
+  padding: 48px 24px 40px;
+  text-align: center;
+}
+header .breadcrumb {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 12px;
+  letter-spacing: 0.03em;
+}
+header h1 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+header .subtitle {
+  font-size: 15px;
+  color: var(--gold);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* ─── 레이아웃 ─── */
+.container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+/* 하위 호환: 기존 .page-wrap, .sec-inner 등 */
+.page-wrap, .sec-inner, .hd-inner { max-width: 820px; margin: 0 auto; padding: 0 20px; }
+
+section {
+  padding: 48px 0;
+  border-bottom: 1px solid #e4ddd4;
+}
+section:last-of-type { border-bottom: none; }
+/* 하위 호환: 기존 section 안에 있는 .sec-inner가 패딩 담당하는 구조 */
+section.sec-padded { padding: 48px 24px; }
+
+/* ─── 섹션 제목 ─── */
+h2 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--navy);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+h2 .tag {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: var(--navy);
+  color: var(--gold);
+  margin-right: 8px;
+  vertical-align: middle;
+}
+/* 하위 호환: 기존 .section-title 스타일을 h2 스펙에 맞게 재정의 */
+.section-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--navy);
+  border-bottom: 2px solid var(--gold);
+  border-left: none;
+  padding-bottom: 10px;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+.section-title .num {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: var(--navy);
+  color: var(--gold);
+  margin-right: 8px;
+  vertical-align: middle;
+  display: inline;
+}
+h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 28px 0 12px;
+}
+
+/* ─── 태그 & 배지 ─── */
+.law-tag {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: #e8edf5;
+  color: #2d4a7a;
+  display: inline-block;
+}
+.badge-red {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: #fde8e8;
+  color: #b00;
+  display: inline-block;
+}
+.badge-green {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: #e8f5e9;
+  color: #1a5c2e;
+  display: inline-block;
+}
+.q-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: var(--navy);
+  color: var(--gold);
+  display: inline-block;
+}
+
+/* ─── 컬러 박스 공통 (좌측 보더 패턴) ─── */
+.summary-box, .case-box, .ruling-box, .warn-box {
+  border-left: 4px solid;
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+
+/* 핵심요약 */
+.summary-box {
+  background: var(--summary-bg);
+  border-left-color: var(--summary-bd);
+}
+.summary-box .label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--summary-bd);
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+  display: block;
+}
+.summary-box ul { padding-left: 18px; }
+.summary-box li { margin-bottom: 8px; font-size: 14.5px; }
+
+/* 사례 */
+.case-box {
+  background: var(--case-bg);
+  border-left-color: var(--case-bd);
+}
+.case-box .case-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--case-bd);
+  margin-bottom: 8px;
+  display: block;
+}
+.case-box p { font-size: 14.5px; }
+
+/* 판례 */
+.ruling-box {
+  background: var(--ruling-bg);
+  border-left-color: var(--ruling-bd);
+}
+.ruling-box .ruling-header {
+  font-size: 13px;
+  font-weight: 700;
+  color: #444;
+  margin-bottom: 8px;
+  display: block;
+}
+.ruling-box .ruling-header::before {
+  content: "判";
+  background: var(--ruling-bd);
+  color: #fff;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-right: 8px;
+  font-size: 11px;
+}
+.ruling-box p { font-size: 14.5px; }
+/* 하위 호환: 기존 .ruling-card 클래스도 동일 스타일로 */
+.ruling-card {
+  background: var(--ruling-bg);
+  border-left: 4px solid var(--ruling-bd);
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+.ruling-card .r-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #5a6475;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+.ruling-card .r-label::before {
+  content: "判";
+  background: var(--ruling-bd);
+  color: #fff;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-right: 8px;
+  font-size: 11px;
+}
+.ruling-card .r-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.ruling-card .r-body { font-size: 14.5px; line-height: 1.65; }
+
+/* 주의사항 */
+.warn-box {
+  background: var(--warn-bg);
+  border-left-color: var(--warn-bd);
+}
+.warn-box .warn-title, .warn-box .w-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--warn-bd);
+  margin-bottom: 8px;
+  display: block;
+}
+.warn-box p, .warn-box li { font-size: 14.5px; }
+.warn-box ul { padding-left: 18px; }
+.warn-box li { margin-bottom: 6px; }
+
+/* ─── 테이블 ─── */
+.table-wrap { overflow-x: auto; margin: 20px 0; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 480px;
+}
+.tbl-wrap { overflow-x: auto; margin: 20px 0; }
+thead th {
+  background: var(--navy);
+  color: #fff;
+  padding: 11px 14px;
+  font-size: 13px;
+  text-align: left;
+  font-weight: 700;
+}
+tbody td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #e4ddd4;
+  line-height: 1.6;
+  vertical-align: top;
+}
+tbody tr:nth-child(even) td { background: #f5f2ee; }
+tbody tr:hover td { background: #eee8e0; }
+td.highlight { font-weight: 700; color: var(--navy); }
+td.gold { font-weight: 700; color: #8a5e00; background: #fffbf0; }
+
+/* ─── 체크리스트 ─── */
+.checklist {
+  background: #fff;
+  border: 1px solid #ddd6ce;
+  border-radius: 8px;
+  padding: 24px 28px;
+  list-style: none;
+}
+.checklist li {
+  padding: 6px 0;
+  font-size: 14.5px;
+  border-bottom: 1px dashed #e8e0d8;
+}
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before {
+  content: "✓";
+  color: var(--gold);
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+/* ─── Q&A (통합: .qna- 및 하위 호환 .qa-) ─── */
+.qna-item, .qa-item {
+  border: 1px solid #e0d9d0;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+.qna-q, .qa-q {
+  background: #fff;
+  padding: 16px 20px;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--navy);
+  cursor: pointer;
+}
+.qna-a, .qa-a {
+  background: #faf8f5;
+  padding: 16px 20px 16px 48px;
+  font-size: 14.5px;
+  border-top: 1px solid #e0d9d0;
+  line-height: 1.75;
+}
+.qna-a .disclaimer {
+  font-size: 12px;
+  color: #888;
+  margin-top: 10px;
+  border-top: 1px dashed #ccc;
+  padding-top: 8px;
+}
+
+/* ─── 기간 경고 배너 ─── */
+.deadline-banner {
+  background: #fff8f6;
+  border: 2px solid #c0392b;
+  border-radius: 8px;
+  margin: 24px 0;
+  padding: 18px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.deadline-banner .dl-icon, .deadline-banner .icon {
+  font-size: 26px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.deadline-banner .dl-text, .deadline-banner .text { flex: 1; }
+.deadline-banner h4, .deadline-banner strong { color: #7a0000; font-weight: 700; }
+.deadline-banner p { font-size: 13.5px; color: #555; line-height: 1.6; margin-top: 4px; }
+
+/* ─── 다음 페이지 링크 ─── */
+.next-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+.next-link {
+  background: #fff;
+  border: 1px solid #ddd6ce;
+  border-radius: 8px;
+  padding: 16px 18px;
+  font-size: 14px;
+  color: var(--navy);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.next-link:hover {
+  border-color: var(--gold);
+  box-shadow: 0 2px 8px rgba(200,169,110,0.15);
+  text-decoration: none;
+}
+.next-link .arrow { color: var(--gold); font-size: 18px; flex-shrink: 0; }
+
+/* ─── CTA 박스 ─── */
+.cta-box {
+  background: var(--cta-bg);
+  border: 1px solid var(--cta-bd);
+  border-radius: 10px;
+  padding: 32px 28px;
+  text-align: center;
+  margin: 40px 0 0;
+}
+.cta-box h3 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+  border: none;
+  padding: 0;
+}
+.cta-box p {
+  font-size: 14.5px;
+  color: #4a4a5a;
+  margin-bottom: 20px;
+}
+.cta-btn {
+  display: inline-block;
+  background: var(--navy);
+  color: #fff;
+  padding: 14px 36px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.cta-btn:hover { background: #26426a; text-decoration: none; }
+
+/* ─── 면책 섹션 ─── */
+.disclaimer-section {
+  background: #f2f0ec;
+  padding: 28px;
+  border-radius: 8px;
+  margin: 40px 0 0;
+}
+.disclaimer-section p, .disclaimer {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.8;
+}
+
+/* ─── 반응형 ─── */
+@media (max-width: 600px) {
+  header { padding: 36px 16px 28px; }
+  section { padding: 36px 0; }
+  .summary-box, .case-box, .ruling-box, .warn-box,
+  .ruling-card { padding: 16px 18px; }
+  .qna-a, .qa-a { padding-left: 20px; }
+  .cta-box { padding: 24px 20px; }
+  .cta-btn { padding: 12px 28px; }
+  .next-links { grid-template-columns: 1fr; }
+}
+
+
+/* ===== PAGE-SPECIFIC STYLES ===== */
+main { max-width: 860px; margin: 0 auto; padding: 40px 20px 60px; }
+
+section 
+section 
+p { margin-bottom: 14px; }
+ul, ol { padding-left: 1.4em; margin-bottom: 14px; }
+li { margin-bottom: 6px; line-height: 1.75; }
+
+.check-list {
+  background: var(--summary-bg);
+  border-left: 4px solid var(--summary-bd);
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px;
+  list-style: none;
+  padding-left: 24px;
+}
+.check-list li {
+  padding: 6px 0 6px 28px;
+  position: relative;
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+.check-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--summary-bd);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.compare-
+.compare-table th {
+  background: var(--navy);
+  color: #fff;
+  padding: 11px 16px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+.compare-table th:first-child { text-align: left; }
+.compare-table td {
+  padding: 11px 16px;
+  border-bottom: 1px solid #e5e5e5;
+  vertical-align: top;
+  line-height: 1.6;
+}
+.compare-table td:first-child { font-weight: 600; color: var(--navy); background: #f5f7fb; }
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table .td-limited { background: #f0f8f0; color: #1a5c2e; font-weight: 600; }
+.compare-table .td-waive { background: #fdf0f0; color: #8b1a1a; }
+
+.flow-wrap { display: flex; flex-direction: column; gap: 0; }
+.flow-step { display: flex; align-items: flex-start; gap: 0; }
+.flow-left { display: flex; flex-direction: column; align-items: center; width: 56px; flex-shrink: 0; }
+.flow-num {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--navy); color: #fff;
+  font-weight: 700; font-size: 15px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.flow-line { width: 2px; flex: 1; min-height: 28px; background: var(--gold); }
+.flow-content {
+  flex: 1; background: #fff;
+  border: 1px solid #ddd; border-radius: 8px;
+  padding: 14px 18px; margin: 0 0 6px 12px;
+}
+.flow-content .fc-title { font-weight: 700; color: var(--navy); font-size: 15px; margin-bottom: 4px; }
+.flow-content .fc-sub { font-size: 13.5px; color: #555; line-height: 1.65; }
+.flow-content .fc-sub em { color: #c0392b; font-style: normal; font-weight: 600; }
+.flow-content .law-cite {
+  display: inline-block; background: #eef2f8; color: #2d4a7a;
+  font-size: 12px; padding: 1px 6px; border-radius: 4px;
+  margin-left: 4px; font-weight: 600;
+}
+.flow-gap { height: 8px; }
+
+.step-detail { border: 1px solid #ddd; border-radius: 10px; margin-bottom: 18px; overflow: hidden; }
+.step-detail-
+.step-detail-header .step-num-badge {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--gold); color: var(--navy);
+  font-weight: 700; font-size: 14px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.step-detail-header .step-title { font-weight: 700; font-size: 15px; }
+.step-detail-
+.step-detail-body ul { margin: 0; }
+.step-detail-body p { font-size: 14.5px; margin-bottom: 10px; }
+.step-detail-body p:last-child { margin-bottom: 0; }
+.step-detail-body li { font-size: 14.5px; }
+.step-detail-body .law-tag {
+  display: inline-block; background: #eef2f8; color: #2d4a7a;
+  font-size: 12.5px; padding: 2px 8px; border-radius: 4px; margin-left: 6px; font-weight: 600;
+}
+
+.liquidation-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.liq-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px 18px;
+}
+.liq-badge {
+  min-width: 34px; height: 34px;
+  border-radius: 6px;
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.liq-
+.liq-title { font-weight: 700; color: var(--navy); font-size: 15px; margin-bottom: 4px; }
+.liq-desc { font-size: 14px; color: #555; line-height: 1.65; }
+.liq-desc em { color: #c0392b; font-style: normal; font-weight: 600; }
+.liq-law {
+  display: inline-block; background: #eef2f8; color: #2d4a7a;
+  font-size: 12px; padding: 1px 6px; border-radius: 4px;
+  margin-left: 4px; font-weight: 600;
+}
+.liq-arrow {
+  text-align: center;
+  color: var(--gold);
+  font-size: 22px;
+  line-height: 1;
+}
+
+.asset-
+.asset-table th {
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 13px;
+}
+.asset-table th.plus { background: #e8f5e9; color: #1a5c2e; border: 1px solid #c8e6c9; }
+.asset-table th.minus { background: #fdecea; color: #8b1a1a; border: 1px solid #f5c6cb; }
+.asset-table td {
+  padding: 10px 14px;
+  border: 1px solid #e5e5e5;
+  font-size: 14px;
+  line-height: 1.6;
+  vertical-align: top;
+}
+.asset-table td.plus { background: #f5faf5; border-color: #c8e6c9; }
+.asset-table td.minus { background: #fef9f9; border-color: #f5c6cb; }
+
+.doc-
+.doc-section-title {
+  font-weight: 700; color: var(--navy); font-size: 15px;
+  margin-bottom: 10px; padding: 6px 12px;
+  background: var(--summary-bg);
+  border-left: 3px solid var(--summary-bd);
+  border-radius: 0 6px 6px 0;
+}
+.doc-list {
+  list-style: none; padding-left: 0;
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.doc-list li {
+  background: #fff; border: 1px solid #d0d7e4; border-radius: 6px;
+  padding: 8px 14px; font-size: 14px; line-height: 1.5; margin-bottom: 0;
+  display: flex; align-items: flex-start; gap: 6px;
+}
+.doc-list li::before { content: "📄"; font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+.doc-note {
+  font-size: 13px; color: #666;
+  background: var(--warn-bg); border-left: 3px solid var(--warn-bd);
+  padding: 10px 14px; border-radius: 0 6px 6px 0; margin-top: 10px;
+}
+.doc-note strong { color: #c05000; }
+
+.cost-
+.cost-table th {
+  background: var(--navy); color: #fff;
+  padding: 11px 16px; text-align: left;
+  font-weight: 600; font-size: 14px;
+}
+.cost-table td {
+  padding: 11px 16px; border-bottom: 1px solid #e5e5e5;
+  vertical-align: top; line-height: 1.6;
+}
+.cost-table tr:nth-child(even) td { background: #f8f8f8; }
+.cost-table tr:last-child td { border-bottom: none; }
+.cost-note { font-size: 13px; color: #666; margin-top: 10px; padding: 10px 14px; background: #f5f5f5; border-radius: 6px; }
+
+.warn-card {
+  background: var(--warn-bg);
+  border-left: 4px solid var(--warn-bd);
+  border-radius: 0 8px 8px 0;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+.warn-card .warn-title {
+  font-weight: 700; color: #a03000; margin-bottom: 8px;
+  font-size: 15px; display: flex; align-items: center; gap: 6px;
+}
+.warn-card p, .warn-card li { font-size: 14.5px; }
+
+.qa-q .q-badge {
+  background: var(--gold); color: var(--navy);
+  border-radius: 4px; padding: 1px 8px; font-size: 13px;
+  flex-shrink: 0; margin-top: 2px;
+}
+.qa-
+.qa-a p { font-size: 14.5px; margin-bottom: 10px; }
+.qa-a p:last-child { margin-bottom: 0; }
+.qa-disclaimer {
+  font-size: 12.5px; color: #888;
+  border-top: 1px dashed #ccc; margin-top: 10px; padding-top: 8px; font-style: italic;
+}
+
+.nav-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.nav-card {
+  border: 1px solid #ddd; border-radius: 10px; padding: 18px 20px;
+  background: #fff; text-decoration: none; color: var(--text); display: block;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.nav-card:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.09); border-color: var(--gold); }
+.nav-card .nc-dir { font-size: 12px; color: #888; margin-bottom: 6px; font-weight: 600; letter-spacing: 0.06em; }
+.nav-card .nc-title { font-weight: 700; color: var(--navy); font-size: 15px; line-height: 1.4; }
+.nav-card .nc-desc { font-size: 13px; color: #666; margin-top: 6px; line-height: 1.5; }
+.nav-card.next { border-left: 4px solid var(--gold); }
+.nav-card.prev { border-right: 4px solid var(--gold); border-left: none; }
+
+.cta-sub { font-size: 13px; color: #888; margin-top: 14px; margin-bottom: 0; }
+
+.disclaimer-box {
+  background: #f5f5f5; border: 1px solid #ccc; border-radius: 8px;
+  padding: 20px 24px; font-size: 13px; color: #666; line-height: 1.75;
+}
+.disclaimer-box strong { color: #444; }
+
+.special-box {
+  background: #f5f0ff;
+  border: 2px solid #7c3aed;
+  border-radius: 10px;
+  padding: 22px 24px;
+  margin: 20px 0;
+}
+.special-box .sp-title {
+  font-weight: 700; color: #5b21b6; font-size: 16px; margin-bottom: 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.special-box ul { margin: 0; }
+.special-box li { font-size: 14.5px; }
+/* ─── 법령·판례 클릭 태그 ─── */
+.ref-tags {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.tag-law {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: #eef2f8;
+  color: #2d4a7a;
+  border: 1px solid #2d4a7a;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.tag-law:hover { background-color: #dce6f5; }
+.tag-case {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: #f7f4f0;
+  color: #5a3e28;
+  border: 1px solid #6b7280;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.tag-case:hover { background-color: #ede8e2; }
+/* law-ref 인라인 스타일을 tag-law 와 통일 */
+span.law-ref a, .tag-law { cursor: pointer; }
+
+</style></head>
+<body>
+<!-- ── 헤더 ── -->
+<header>
+<p class="breadcrumb">상속 실무 안내 › 상속포기 · 한정승인</p>
+<h1>한정승인<br/>절차와 청산 방법</h1>
+<p class="subtitle">재산 한도 내 변제 — 신고부터 채권자 청산까지 완전 안내</p>
+</header>
+<!-- ── 기간 경고 배너 ── -->
+<div style="max-width:860px;margin:0 auto;padding:0 20px;">
+<div class="deadline-banner">
+<div class="dl-icon">⏰</div>
+<div class="dl-body">
+<strong>한정승인 신고 기한 — 사망일로부터 3개월 이내</strong>
+<p>한정승인은 상속개시 있음을 안 날로부터 <strong>3개월</strong> 내에 가정법원에 신고해야 합니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101900" target="_blank" class="tag-law">📋 민법 제1019조 제1항</a>). 단, 뒤늦게 채무 초과 사실을 알게 된 경우라면 <strong>특별한정승인</strong>(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101900" target="_blank" class="tag-law">📋 민법 제1019조 제3항</a>)을 검토하시기 바랍니다.</p>
+</div>
+</div>
+</div>
+<main>
+<!-- ── 0. 이런 분께 ── -->
+<section id="for-whom">
+<h2>이런 분께 이 안내가 필요합니다</h2>
+<ul class="check-list">
+<li>망인의 재산과 채무 중 어느 쪽이 더 많은지 불확실하여, 일단 재산 한도 내에서만 책임지는 방식을 선택하려는 분</li>
+<li>상속포기 시 다음 순위 상속인에게 채무가 이전되는 것을 원치 않아 한정승인을 선택하려는 분</li>
+<li>한정승인 신고 후 실제 청산 절차(채권자 공고·배당)를 어떻게 진행하는지 궁금하신 분</li>
+<li>3개월 기한이 이미 지났으나 최근 뒤늦게 채무 초과 사실을 알게 된 분 (특별한정승인 검토)</li>
+<li>망인 명의의 부동산이 있어 한정승인 후 등기 및 경매 절차가 필요한 분</li>
+</ul>
+</section>
+<!-- ── 1. 핵심 요약 ── -->
+<section id="summary">
+<h2>핵심 요약</h2>
+<div class="summary-box">
+<div class="summary-title">📋 한정승인 핵심 포인트</div>
+<ul>
+<li><strong>의의:</strong> 상속으로 취득한 재산의 한도에서만 피상속인의 채무를 변제하는 조건부 상속 승인 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=102800" target="_blank" class="tag-law">📋 민법 제1028조</a>)</li>
+<li><strong>효과:</strong> 채무 초과분은 상속인의 고유재산으로 변제할 의무 없음 — 상속인으로서의 지위는 유지</li>
+<li><strong>신고 기한:</strong> 상속개시 있음을 안 날로부터 3개월 이내 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101900" target="_blank" class="tag-law">📋 민법 제1019조 제1항</a>)</li>
+<li><strong>필수 첨부:</strong> 청구서 + <em>상속재산목록</em> (적극재산·소극재산 모두 기재) → 목록 없으면 각하</li>
+<li><strong>청산 의무:</strong> 수리 후 5일 내에 채권자에게 공고하고, 2개월 이상 채권신고 기간 운영 → 배당변제</li>
+<li><strong>실무 선택:</strong> 공동상속인 중 1인만 한정승인, 나머지는 상속포기 — 연쇄 이전 방지에 효과적</li>
+</ul>
+</div>
+<h3>한정승인 vs 상속포기 — 한눈에 비교</h3>
+<table class="compare-table">
+<thead>
+<tr>
+<th>구분</th>
+<th class="td-limited">한정승인</th>
+<th class="td-waive">상속포기</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>상속인 지위</td>
+<td class="td-limited">유지 (상속인으로 남음)</td>
+<td class="td-waive">소멸 (처음부터 상속인 아님)</td>
+</tr>
+<tr>
+<td>채무 책임</td>
+<td class="td-limited">상속재산 한도 내에서만 부담</td>
+<td class="td-waive">전혀 없음</td>
+</tr>
+<tr>
+<td>재산 취득</td>
+<td class="td-limited">채무 변제 후 잔여분 취득 가능</td>
+<td class="td-waive">없음</td>
+</tr>
+<tr>
+<td>차순위 이전</td>
+<td class="td-limited">없음 (상속인 지위 유지)</td>
+<td class="td-waive">있음 (다음 순위로 이전)</td>
+</tr>
+<tr>
+<td>청산 절차</td>
+<td class="td-limited">필요 (공고·채권자 최고·배당)</td>
+<td class="td-waive">불필요</td>
+</tr>
+<tr>
+<td>재산목록 제출</td>
+<td class="td-limited">필수 (없으면 각하)</td>
+<td class="td-waive">불필요</td>
+</tr>
+</tbody>
+</table>
+<div class="special-box">
+<div class="sp-title">🔮 특별한정승인 — 3개월이 지난 경우의 구제책</div>
+<ul>
+<li><strong>요건:</strong> 상속채무가 상속재산을 초과하는 사실을 <em>중대한 과실 없이</em> 3개월 내에 알지 못하고 단순승인이 된 경우</li>
+<li><strong>기한:</strong> 채무 초과 사실을 안 날로부터 3개월 이내 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101900" target="_blank" class="tag-law">📋 민법 제1019조 제3항</a>)</li>
+<li><strong>소명자료:</strong> 채무 초과 사실을 언제 알았는지 입증할 자료 필요 (소장 사본, 채권자 독촉장, 송달증명서 등)</li>
+<li><strong>주의:</strong> 3개월 기한이 경과한 경우에도 신고 자체를 포기하지 말고 전문가와 상담하시기 바랍니다.</li>
+</ul>
+</div>
+</section>
+<!-- ── 2. 절차 흐름도 ── -->
+<section id="flow">
+<h2>한눈에 보는 한정승인 절차 흐름도</h2>
+<div class="flow-wrap">
+<div class="flow-step">
+<div class="flow-left">
+<div class="flow-num">1</div>
+<div class="flow-line"></div>
+</div>
+<div class="flow-content">
+<div class="fc-title">상속재산 조회 및 목록 작성</div>
+<div class="fc-sub">금융거래 조회·부동산 등기·세금 체납 등 망인의 적극재산과 소극재산(채무)을 빠짐없이 조사합니다.<br/><em>재산목록은 적극재산과 소극재산 모두 포함해야 하며, 고의 누락 시 단순승인 간주</em> <span class="law-cite"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=102600" target="_blank" class="tag-law">📋 민법 제1026조</a> 제3호</span></div>
+</div>
+</div>
+<div class="flow-gap"></div>
+<div class="flow-step">
+<div class="flow-left">
+<div class="flow-num">2</div>
+<div class="flow-line"></div>
+</div>
+<div class="flow-content">
+<div class="fc-title">청구서 및 상속재산목록 작성</div>
+<div class="fc-sub">한정승인 심판청구서에 상속재산목록을 첨부합니다.<br/>청구취지 기재례: <em>"청구인이 피상속인 망 ○○○의 재산을 상속함에 있어 별지 상속재산목록을 첨부하여서 한 한정승인 신고는 이를 수리한다"</em></div>
+</div>
+</div>
+<div class="flow-gap"></div>
+<div class="flow-step">
+<div class="flow-left">
+<div class="flow-num">3</div>
+<div class="flow-line"></div>
+</div>
+<div class="flow-content">
+<div class="fc-title">첨부서류 준비</div>
+<div class="fc-sub">가족관계증명서·기본증명서·주민등록표등본·인감증명서·상속재산목록 등 필요 서류를 수집합니다.<br/>미성년자 포함 시 <em>법정대리인(부모 전원) 인감증명서</em> 추가 필요</div>
+</div>
+</div>
+<div class="flow-gap"></div>
+<div class="flow-step">
+<div class="flow-left">
+<div class="flow-num">4</div>
+<div class="flow-line"></div>
+</div>
+<div class="flow-content">
+<div class="fc-title">관할 가정법원 접수</div>
+<div class="fc-sub"><em>피상속인의 마지막 주소지 관할 가정법원</em>에 청구서·첨부서류 제출<br/>피상속인 주소가 외국인 경우: 대법원 소재지 가정법원(서울가정법원)</div>
+</div>
+</div>
+<div class="flow-gap"></div>
+<div class="flow-step">
+<div class="flow-left">
+<div class="flow-num">5</div>
+<div class="flow-line"></div>
+</div>
+<div class="flow-content">
+<div class="fc-title">법원 심리 (서면 심리 원칙)</div>
+<div class="fc-sub">가정법원이 형식적 요건을 검토합니다. 보정 명령이 있으면 기한 내 보완해야 합니다.<br/>상속재산목록 미첨부로 보정 불응 시 → 각하 <span class="law-cite">가사소송규칙 제75조</span></div>
+</div>
+</div>
+<div class="flow-gap"></div>
+<div class="flow-step">
+<div class="flow-left">
+<div class="flow-num">6</div>
+<div class="flow-line"></div>
+</div>
+<div class="flow-content">
+<div class="fc-title">수리 심판 및 확정</div>
+<div class="fc-sub">법원이 한정승인을 수리하는 심판을 내립니다. 심판서 정본·확정증명서 수령<br/>수리심판은 요건 충족 인정 → <em>효력 확정이 아님</em> (최종 효력은 민사소송에서 결정)</div>
+</div>
+</div>
+<div class="flow-gap"></div>
+<div class="flow-step">
+<div class="flow-left">
+<div class="flow-num">7</div>
+</div>
+<div class="flow-content">
+<div class="fc-title">청산 절차 개시</div>
+<div class="fc-sub">수리 후 <em>5일 내</em> 채권자에게 공고, <em>2개월 이상</em> 채권신고 기간 운영, 채권계산서 최고, 배당표 작성, 배당변제 실시 <span class="law-cite"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=103200" target="_blank" class="tag-law">📋 민법 제1032조</a></span></div>
+</div>
+</div>
+</div>
+</section>
+<!-- ── 3. 단계별 상세 설명 ── -->
+<section id="step-detail">
+<h2>단계별 상세 설명</h2>
+<div class="step-detail">
+<div class="step-detail-header">
+<div class="step-num-badge">1</div>
+<div class="step-title">상속재산목록 작성 — 한정승인의 핵심 서류</div>
+</div>
+<div class="step-detail-body">
+<p>상속재산목록은 한정승인의 필수 첨부서류입니다. 목록이 없으면 보정 불응 시 각하됩니다. 작성 시 다음 원칙을 지키십시오.</p>
+<ul>
+<li><strong>적극재산(상속재산):</strong> 부동산(등기사항증명서), 예금(잔액증명서), 자동차(등록원부), 주식·유가증권, 보증금 등 교환가치 있는 모든 재산 포함</li>
+<li><strong>소극재산(상속채무):</strong> 대출금, 카드빚, 보증채무, 세금 체납, 개인채무 등 채권자·채무종류·금액 기재</li>
+<li><strong>누락 금지:</strong> 소액 채권이나 추심 가능성이 낮은 채권도 반드시 포함. 고의로 누락하면 단순승인 간주 <span class="law-tag"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=102600" target="_blank" class="tag-law">📋 민법 제1026조</a> 제3호</span></li>
+<li><strong>소명자료:</strong> 적극재산(등기부·통장잔액증명), 소극재산(부채증명서·소장 사본) 함께 제출</li>
+<li><strong>자동차 포함:</strong> 자동차는 적극재산란에 기재하되 해당 채무(할부·근저당)는 소극재산란에 별도 기재</li>
+</ul>
+</div>
+</div>
+<div class="step-detail">
+<div class="step-detail-header">
+<div class="step-num-badge">2</div>
+<div class="step-title">특별한정승인 — 단순승인 후에도 가능한 구제</div>
+</div>
+<div class="step-detail-body">
+<p>3개월 기한 내에 한정승인을 하지 못하여 단순승인이 된 경우라도, 다음 요건을 충족하면 특별한정승인을 할 수 있습니다.</p>
+<ul>
+<li><strong>요건:</strong> 상속채무가 상속재산을 초과하는 사실을 중대한 과실 없이 3개월 기간 내에 알지 못하고 단순승인(법정단순승인 포함)이 된 경우</li>
+<li><strong>기한:</strong> 채무 초과 사실을 <em>안 날로부터 3개월</em> 이내 <span class="law-tag"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101900" target="_blank" class="tag-law">📋 민법 제1019조 제3항</a></span></li>
+<li><strong>소명자료:</strong> 채무 초과 사실을 알게 된 경위를 입증할 자료 (채권자의 소장 접수일, 독촉장 수령일 확인 가능한 송달증명서 등)</li>
+<li><strong>협의분할 후에도 가능:</strong> 이미 상속재산을 협의분할로 처분한 경우에도 특별한정승인이 허용됩니다 (<a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2003다29562" target="_blank" class="tag-case">⚖️ 대법원 2003다29562</a>)</li>
+<li><strong>주의:</strong> 특별한정승인의 3개월 기한은 제척기간으로, 추후 보완이 불가능합니다.</li>
+</ul>
+</div>
+</div>
+<div class="step-detail">
+<div class="step-detail-header">
+<div class="step-num-badge">3</div>
+<div class="step-title">공동상속인 중 1인만 한정승인하는 실무 전략</div>
+</div>
+<div class="step-detail-body">
+<p>실무에서 가장 많이 사용하는 방법입니다. 상속인 중 1인이 한정승인을 하여 상속인 지위를 유지하고, 나머지 상속인은 모두 상속포기를 합니다.</p>
+<ul>
+<li><strong>효과:</strong> 포기한 상속인들은 채무 부담이 없고, 한정승인한 1인이 상속재산 한도 내에서 청산을 담당합니다.</li>
+<li><strong>차순위 이전 방지:</strong> 공동상속인 중 1인이 한정승인을 유지하므로 다음 순위(형제자매, 직계존속 등)로 상속이 이전되지 않습니다.</li>
+<li><strong>하나의 청구서로 가능:</strong> 한정승인과 상속포기를 하나의 청구서에 함께 신청할 수 있습니다.</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- ── 청산 절차 상세 ── -->
+<section id="liquidation">
+<h2>한정승인 후 청산 절차</h2>
+<p>한정승인 심판이 수리된 이후에는 상속재산을 청산하는 절차를 이행해야 합니다. 청산을 이행하지 않으면 채권자에게 책임을 질 수 있습니다.</p>
+<div class="liquidation-flow">
+<div class="liq-step">
+<div class="liq-badge">①</div>
+<div class="liq-body">
+<div class="liq-title">채권자 공고 — 수리 후 5일 이내</div>
+<div class="liq-desc">
+          한정승인이 수리된 날로부터 <em>5일 이내</em>에 일간신문에 1회 이상 공고합니다. 공고에는 채권신고 기간(최소 2개월 이상)을 명시하고, 기간 내 미신고 시 청산에서 제외됨을 표시해야 합니다. <span class="liq-law"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=103200" target="_blank" class="tag-law">📋 민법 제1032조</a></span>
+</div>
+</div>
+</div>
+<div class="liq-arrow">↓</div>
+<div class="liq-step">
+<div class="liq-badge">②</div>
+<div class="liq-body">
+<div class="liq-title">알고 있는 채권자에게 개별 최고</div>
+<div class="liq-desc">
+          공고와 별도로, 알고 있는 채권자에게는 내용증명으로 채권신고 최고를 해야 합니다. 알고 있는 채권자는 신고기간 내 미신고라도 청산에서 제외할 수 없습니다. <em>배당변제 시점</em>에 알게 된 채권자도 포함됩니다. <span class="liq-law"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=008900" target="_blank" class="tag-law">📋 민법 제89조</a> 준용</span>
+</div>
+</div>
+</div>
+<div class="liq-arrow">↓</div>
+<div class="liq-step">
+<div class="liq-badge">③</div>
+<div class="liq-body">
+<div class="liq-title">채권계산서 제출 최고 — 1주 이내</div>
+<div class="liq-desc">
+          채권신고기간 만료 후, 배당에 참가하는 채권자 전원에게 내용증명으로 원금·이자·비용 등 채권계산서를 <em>1주 이내</em>에 제출하도록 최고합니다. 압류채권자, 가압류채권자, 배당요구채권자 모두 포함합니다.
+        </div>
+</div>
+</div>
+<div class="liq-arrow">↓</div>
+<div class="liq-step">
+<div class="liq-badge">④</div>
+<div class="liq-body">
+<div class="liq-title">부동산이 있는 경우 — 상속등기 후 경매 신청</div>
+<div class="liq-desc">
+          망인 명의의 부동산이 있다면 한정승인자 명의로 상속을 원인으로 한 소유권이전등기를 마친 후, 한정승인자가 직접 경매신청을 해야 합니다. 경매 대금이 상속재산에 해당하며 채권자에게 배당됩니다. <span class="liq-law">등기선례 제200612-4호</span>
+</div>
+</div>
+</div>
+<div class="liq-arrow">↓</div>
+<div class="liq-step">
+<div class="liq-badge">⑤</div>
+<div class="liq-body">
+<div class="liq-title">배당표 작성 및 배당변제</div>
+<div class="liq-desc">
+          신고기간 내 신고한 채권자와 알고 있는 채권자를 대상으로 <em>채권액 비율로 배당변제</em>합니다. <span class="liq-law"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=103400" target="_blank" class="tag-law">📋 민법 제1034조 제1항</a></span><br/>
+          신고기간 내 미신고하고 한정승인자가 알지 못한 채권자 → 잔여재산이 있는 경우에만 변제 <span class="liq-law"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=103900" target="_blank" class="tag-law">📋 민법 제1039조</a></span><br/>
+          배당 완료 후 잔여재산이 있으면 상속인이 취득합니다.
+        </div>
+</div>
+</div>
+</div>
+<div class="warn-card" style="margin-top:20px;">
+<div class="warn-title">⚠️ 배분할 재산이 없는 경우에도 절차는 이행해야 합니다</div>
+<p>상속재산이 거의 없거나 채권자에게 배분할 것이 없는 경우에도, 원칙적으로 공고와 채권자 통지 절차를 이행해야 합니다. 이를 생략하면 추후 분쟁 발생 시 불리할 수 있습니다. 다만 현실적으로 재산이 전혀 없다면 이를 통지하는 방식으로 절차를 마무리합니다.</p>
+</div>
+</section>
+<!-- ── 4. 상속재산목록 작성 안내 ── -->
+<section id="asset-list">
+<h2>상속재산목록 — 항목별 기재 안내</h2>
+<table style="width:100%;border-collapse:collapse;">
+<thead>
+<tr>
+<th style="background:#e8f5e9;color:#1a5c2e;border:1px solid #c8e6c9;padding:10px 14px;text-align:left;font-size:14px;">적극재산 (상속재산)</th>
+<th style="background:#fdecea;color:#8b1a1a;border:1px solid #f5c6cb;padding:10px 14px;text-align:left;font-size:14px;">소극재산 (상속채무)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border:1px solid #c8e6c9;background:#f5faf5;padding:10px 14px;font-size:14px;vertical-align:top;">
+<ul style="margin:0;padding-left:1.2em;">
+<li>부동산 (토지·건물, 등기사항증명서 첨부)</li>
+<li>예금·적금 (통장잔액증명서 첨부)</li>
+<li>자동차 (자동차등록원부 첨부)</li>
+<li>주식·유가증권·회원권</li>
+<li>보증금 (임대차계약서 등)</li>
+<li>대여금·보험금 등 금전채권</li>
+</ul>
+</td>
+<td style="border:1px solid #f5c6cb;background:#fef9f9;padding:10px 14px;font-size:14px;vertical-align:top;">
+<ul style="margin:0;padding-left:1.2em;">
+<li>금융기관 대출금 (부채증명서 첨부)</li>
+<li>카드 미결제금 (카드사 채무확인서)</li>
+<li>개인 채무 (차용증, 판결문 등)</li>
+<li>연대보증채무</li>
+<li>자동차 할부금·근저당채무</li>
+<li>세금 체납액 (국세·지방세)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="doc-note" style="margin-top:12px;">
+<strong>고의 누락 금지:</strong> 재산목록에 고의로 기재하지 않은 재산이 있으면 단순승인을 한 것으로 간주됩니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=102600" target="_blank" class="tag-law">📋 민법 제1026조 제3호</a>). 적극재산과 소극재산 모두 빠짐없이 기재하십시오.
+  </div>
+</section>
+<!-- ── 5. 준비 서류 ── -->
+<section id="documents">
+<h2>준비 서류 목록</h2>
+<div class="doc-section">
+<div class="doc-section-title">📁 피상속인(망자) 관련 서류</div>
+<ul class="doc-list">
+<li>가족관계증명서 (피상속인) 1통</li>
+<li>기본증명서 (피상속인) 1통</li>
+<li>말소자 주민등록표등본 (피상속인) 1통</li>
+<li>제적등본 (피상속인) 1통</li>
+</ul>
+</div>
+<div class="doc-section">
+<div class="doc-section-title">📁 상속인 관련 서류</div>
+<ul class="doc-list">
+<li>가족관계증명서 (상속인) 각 1통</li>
+<li>기본증명서 (상속인) 각 1통</li>
+<li>주민등록표등본 (상속인) 각 1통</li>
+<li>인감증명서 (상속인) 각 1통</li>
+</ul>
+<div class="doc-note"><strong>미성년자 포함 시:</strong> 법정대리인(부모) 전원의 인감증명서 각 1통이 추가로 필요합니다.</div>
+</div>
+<div class="doc-section">
+<div class="doc-section-title">📁 직계비속이 아닌 경우 추가</div>
+<ul class="doc-list">
+<li>가계도 1통</li>
+</ul>
+</div>
+<div class="doc-section">
+<div class="doc-section-title">📁 한정승인 필수 첨부 서류</div>
+<ul class="doc-list">
+<li>상속재산목록 (적극재산·소극재산 모두 기재)</li>
+<li>상속재산목록 부본 1통</li>
+<li>소명자료 (등기부·잔액증명·부채증명서 등)</li>
+<li>납부서 (인지·송달료)</li>
+</ul>
+<div class="doc-note"><strong>특별한정승인의 경우 추가:</strong> 채무 초과 사실을 알게 된 시점을 소명하는 자료 (소장 사본, 독촉장, 송달증명서 등)를 첨부해야 합니다.</div>
+</div>
+</section>
+<!-- ── 6. 비용 안내 ── -->
+<section id="cost">
+<h2>비용 안내</h2>
+<p>한정승인 신고는 가사비송 라류 사건으로 처리됩니다. 법원 수수료는 청구인 수와 첨부 내용에 따라 달라질 수 있으므로 정확한 금액은 법원 접수 시 확인하시기 바랍니다.</p>
+<table class="cost-table">
+<thead>
+<tr><th>항목</th><th>산정 기준</th><th>비고</th></tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>인지액</strong></td>
+<td>사건본인(상속인) 1인당 일정 금액<br/>(가사비송 라류 기준)</td>
+<td>청구인 수에 비례</td>
+</tr>
+<tr>
+<td><strong>송달료</strong></td>
+<td>당사자 수 × 회당 단가 × 6회분</td>
+<td>접수 시 예납</td>
+</tr>
+<tr>
+<td><strong>재산목록 경정신청 비용</strong></td>
+<td>인지 일정 금액 + 송달료</td>
+<td>목록 수정이 필요한 경우</td>
+</tr>
+<tr>
+<td><strong>신문 공고 비용</strong></td>
+<td>일간신문 공고료</td>
+<td>청산 절차 진행 시</td>
+</tr>
+<tr>
+<td><strong>법무사 보수</strong></td>
+<td>법무사 보수 규정에 따름</td>
+<td>대리 신청 시</td>
+</tr>
+</tbody>
+</table>
+<div class="cost-note">※ 이 안내에는 정확한 금액을 기재하지 않습니다. 사건 규모·청구인 수에 따라 달라질 수 있으므로 법원 민원실 또는 법무사 사무실에 문의하시기 바랍니다.</div>
+</section>
+<!-- ── 7. 관련 판례 ── -->
+<section id="rulings">
+<h2>관련 판례</h2>
+<div class="ruling-card">
+<div class="ruling-cite"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2015다75308" target="_blank" class="tag-case">⚖️ 대법원 2015다75308</a></div>
+<div class="ruling-text">한정승인자가 배당변제를 받을 수 있는 '알고 있는 채권자' 해당 여부는 채권신고의 최고를 하는 시점이 아니라 <strong>배당변제를 하는 시점</strong>을 기준으로 판단하여야 한다. 따라서 최고 시에는 알지 못했더라도 배당변제 전까지 알게 된 채권자에게는 배당변제를 해야 한다.</div>
+<div class="ruling-point">실무 포인트: 배당 직전에 알게 된 채권자라도 배당 대상에 포함해야 합니다. 채권자 목록을 지속적으로 업데이트하십시오.</div>
+</div>
+<div class="ruling-card">
+<div class="ruling-cite"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2003다29562" target="_blank" class="tag-case">⚖️ 대법원 2003다29562</a></div>
+<div class="ruling-text">상속인들이 상속재산 협의분할을 통해 이미 상속재산을 처분한 경우라도, 상속채무 초과사실을 중대한 과실 없이 알지 못하였다면 <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101900" target="_blank" class="tag-law">📋 민법 제1019조 제3항</a>에 의한 특별한정승인이 허용된다. 협의분할로 인해 한정승인 효력이 없다고 할 수 없다.</div>
+<div class="ruling-point">실무 포인트: 이미 상속재산을 처분(협의분할)했더라도 특별한정승인의 가능성은 열려 있습니다.</div>
+</div>
+<div class="ruling-card">
+<div class="ruling-cite"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2005두9491" target="_blank" class="tag-case">⚖️ 대법원 2005두9491</a></div>
+<div class="ruling-text">한정승인에 의하여 부동산을 상속받은 자에게는 취득세 납부의무가 있다. 부동산취득세는 소유권이전의 형식에 의한 부동산취득의 모든 경우를 포함하므로, 한정승인으로 상속받은 경우에도 취득세를 납부하여야 한다.</div>
+<div class="ruling-point">실무 포인트: 부동산이 있는 경우 한정승인자 명의로 이전등기 시 취득세가 발생합니다. 비용 계획 시 반드시 포함하십시오.</div>
+</div>
+<div class="ruling-card">
+<div class="ruling-cite"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2017다289651" target="_blank" class="tag-case">⚖️ 대법원 2017다289651</a></div>
+<div class="ruling-text">상속인이 단순승인을 하거나 법정단순승인된 후 한정승인신고를 하여 수리심판을 받은 경우, 해당 한정승인이 <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101900" target="_blank" class="tag-law">📋 민법 제1019조 제3항</a>의 요건을 갖춘 특별한정승인으로서 유효한지 여부를 법원이 심리·판단하여야 한다. 수리심판은 효력을 확정하는 것이 아니다.</div>
+<div class="ruling-point">실무 포인트: 수리심판을 받았다고 해서 한정승인의 효력이 완전히 확정되는 것은 아닙니다. 채권자가 소송으로 다툴 수 있으므로 요건을 충실히 갖추어야 합니다.</div>
+</div>
+</section>
+<!-- ── 8. 주의사항 ── -->
+<section id="warnings">
+<h2>주의사항</h2>
+<div class="warn-card">
+<div class="warn-title">⚠️ 재산목록 고의 누락 — 단순승인으로 간주됩니다</div>
+<p>한정승인 신고 후에도 재산목록에 고의로 기재하지 않은 재산이 발견되면 단순승인한 것으로 간주됩니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=102600" target="_blank" class="tag-law">📋 민법 제1026조 제3호</a>). 조금이라도 의심스러운 재산과 채무는 모두 목록에 포함하는 것이 안전합니다.</p>
+<p>재산목록에 기재하지 않은 재산을 나중에 발견하면 <strong>재산목록 경정신청</strong>을 통해 보완할 수 있습니다. 이미 수리된 한정승인의 효력이 취소되지는 않습니다.</p>
+</div>
+<div class="warn-card">
+<div class="warn-title">⚠️ 채권자 소송을 받은 경우 반드시 답변서 제출</div>
+<p>한정승인 수리 후 망인의 채권자가 상속채무 이행을 구하는 소송을 제기한 경우, 법원에 한정승인·특별한정승인을 했다는 사실을 담은 <strong>답변서를 반드시 제출</strong>해야 합니다. 답변서를 제출하지 않으면 한정승인의 이익을 주장하지 않은 것으로 처리될 수 있습니다.</p>
+</div>
+<div class="warn-card">
+<div class="warn-title">⚠️ 청산 전 상속재산 처분 금지</div>
+<p>한정승인 수리 후 청산 절차를 거치기 전에 상속재산을 임의로 처분하면, 채권자에 대한 배당이 감소하여 법적 책임을 질 수 있습니다. 청산 절차(공고 → 배당)가 완료되기 전까지 상속재산을 보존·관리해야 합니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=102200" target="_blank" class="tag-law">📋 민법 제1022조</a>).</p>
+</div>
+<div class="warn-card">
+<div class="warn-title">⚠️ 부동산 취득세 및 상속세 납부 의무</div>
+<p>한정승인으로 부동산을 상속받아 이전등기를 하는 경우, 취득세 납부 의무가 발생합니다(<a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2005두9491" target="_blank" class="tag-case">⚖️ 대법원 2005두9491</a>). 또한 상속재산이 상속세 과세기준을 초과하면 상속세도 신고·납부해야 합니다. 청산 비용에 세금을 반드시 포함하여 계획하십시오.</p>
+</div>
+<div class="warn-card">
+<div class="warn-title">⚠️ 보증채무는 한정승인으로 소멸하지 않습니다</div>
+<p>피상속인의 채무에 보증인이 있는 경우, 상속인이 한정승인을 하더라도 보증인의 책임은 그대로 유지됩니다. 보증인이 보증채무를 변제한 경우 구상권을 청산 절차에서 행사할 수 있습니다.</p>
+</div>
+</section>
+<!-- ── 9. Q&A ── -->
+<section id="qa">
+<h2>자주 묻는 질문 (Q&amp;A)</h2>
+<div class="qna-item">
+<div class="qna-q"><span class="q-badge">Q</span>한정승인을 하면 채무를 전혀 갚지 않아도 되나요?</div>
+<div class="qna-a">
+<p>그렇지 않습니다. 한정승인을 하면 상속으로 얻은 재산의 한도 내에서 채무를 변제해야 합니다. 상속재산이 1억 원이고 채무가 2억 원이라면, 1억 원 한도 내에서 채무를 이행하면 나머지 1억 원에 대해서는 상속인의 고유재산으로 변제할 의무가 없습니다.</p>
+<p>단, 청산 절차(채권자 공고·배당)를 이행해야 이 한정 책임이 보장됩니다. 청산 절차 없이 임의로 처분하면 문제가 생길 수 있습니다.</p>
+<div class="qa-disclaimer">※ 이 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 조언이 아닙니다. 개별 사안에 대해서는 법무사 또는 변호사와 상담하시기 바랍니다.</div>
+</div>
+</div>
+<div class="qna-item">
+<div class="qna-q"><span class="q-badge">Q</span>3개월이 이미 지났습니다. 방법이 없나요?</div>
+<div class="qna-a">
+<p>3개월이 지났더라도 포기하지 마십시오. 채무 초과 사실을 뒤늦게 알게 된 경우 특별한정승인(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101900" target="_blank" class="tag-law">📋 민법 제1019조 제3항</a>)을 활용할 수 있습니다. 채무 초과 사실을 알게 된 날로부터 3개월 이내에 신고해야 하므로, 신속히 법무사나 변호사에게 상담을 받으시기 바랍니다.</p>
+<p>다만, 채무 초과 사실을 중대한 과실 없이 알지 못하였어야 한다는 요건이 있으므로, 사실관계를 면밀히 검토해야 합니다.</p>
+<div class="qa-disclaimer">※ 이 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 조언이 아닙니다.</div>
+</div>
+</div>
+<div class="qna-item">
+<div class="qna-q"><span class="q-badge">Q</span>상속재산에 부동산이 있는데, 어떻게 처리해야 하나요?</div>
+<div class="qna-a">
+<p>부동산이 있는 경우, 한정승인 수리 후 먼저 한정승인자 명의로 상속등기(소유권이전등기)를 마쳐야 합니다. 그 이후에 경매신청을 하여 부동산을 매각하고, 그 대금으로 채권자에게 배당변제합니다.</p>
+<p>이 과정에서 취득세가 발생합니다. 또한 경매 비용도 상속재산에서 공제되므로 비용 계획을 세워두시기 바랍니다.</p>
+<div class="qa-disclaimer">※ 이 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 조언이 아닙니다.</div>
+</div>
+</div>
+<div class="qna-item">
+<div class="qna-q"><span class="q-badge">Q</span>채권자가 소송을 제기했는데, 한정승인을 하면 소송에서 이길 수 있나요?</div>
+<div class="qna-a">
+<p>한정승인이 수리되었다고 해서 소송이 자동으로 기각되지는 않습니다. 채권자의 소송이 진행 중이라면, 법원에 한정승인 수리 사실을 담은 답변서를 반드시 제출해야 합니다. 한정승인이 유효하게 성립된 경우, 판결 주문에 '상속재산의 한도 내에서 이행하라'는 취지가 명시됩니다.</p>
+<p>이 경우 판결 금액이 상속재산을 초과하더라도, 상속인의 고유재산에는 강제집행을 할 수 없게 됩니다.</p>
+<div class="qa-disclaimer">※ 이 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 조언이 아닙니다.</div>
+</div>
+</div>
+<div class="qna-item">
+<div class="qna-q"><span class="q-badge">Q</span>공동상속인 중 1인만 한정승인하고 나머지가 포기하면, 채무는 그 1인이 다 부담하나요?</div>
+<div class="qna-a">
+<p>한정승인한 1인은 상속재산의 한도 내에서만 채무를 부담합니다. 포기한 상속인들은 처음부터 상속인이 아닌 것으로 간주되므로 채무를 부담하지 않습니다.</p>
+<p>한정승인자는 상속재산 전체를 관리하고 청산 절차를 진행하게 됩니다. 결과적으로 청산 후 잔여재산이 있으면 한정승인자가 이를 취득할 수 있습니다.</p>
+<div class="qa-disclaimer">※ 이 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 조언이 아닙니다.</div>
+</div>
+</div>
+<div class="qna-item">
+<div class="qna-q"><span class="q-badge">Q</span>한정승인 신고 후 목록에서 빠진 재산을 발견했습니다. 어떻게 하나요?</div>
+<div class="qna-a">
+<p>이미 수리된 한정승인의 상속재산목록을 보완할 필요가 있다면 <strong>상속재산목록 경정신청</strong>을 법원에 제출할 수 있습니다. 경정신청서에 수정된 목록을 첨부하면 됩니다.</p>
+<p>단, 고의로 누락한 것이 아닌 경우에는 단순승인으로 간주되지 않습니다. 다만 추후 채권자와의 분쟁에서 고의성을 다투는 상황이 생길 수 있으므로, 경정신청을 통해 목록을 정확하게 유지하는 것이 바람직합니다.</p>
+<div class="qa-disclaimer">※ 이 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 조언이 아닙니다.</div>
+</div>
+</div>
+</section>
+<!-- ── 10. 다음으로 확인할 내용 ── -->
+<section id="navigation">
+<h2>다음으로 확인할 내용</h2>
+<div class="nav-cards">
+<a class="nav-card prev" href="상속_06_상속포기.html">
+<div class="nc-dir">← 이전 페이지</div>
+<div class="nc-title">상속포기<br/>절차와 준비서류</div>
+<div class="nc-desc">한정승인 대신 상속포기를 선택하려는 경우 이 페이지를 확인하세요.</div>
+</a>
+<a class="nav-card next" href="상속_08_다음페이지.html">
+<div class="nc-dir">다음 페이지 →</div>
+<div class="nc-title">다음 주제로 이어집니다</div>
+<div class="nc-desc">상속등기 절차 및 이후 단계로 이어집니다.</div>
+</a>
+</div>
+</section>
+<!-- ── 11. CTA ── -->
+<section id="cta">
+<div class="cta-box">
+<h3>한정승인과 청산, 혼자 하기 복잡하신가요?</h3>
+<p>재산목록 작성부터 채권자 공고·배당·부동산 경매까지, 전문 법무사가 전 과정을 도와드립니다.<br/>3개월 기한이 촉박하다면 지금 바로 연락하세요.</p>
+<a class="cta-btn" href="#contact">무료 상담 예약하기</a>
+<p class="cta-sub">상담은 무료이며, 비밀이 보장됩니다.</p>
+</div>
+</section>
+<!-- ── 면책 ── -->
+<section id="disclaimer">
+<div class="disclaimer-box">
+<strong>【법적 면책 고지】</strong><br/>
+    이 페이지의 내용은 일반적인 법률 정보 제공을 목적으로 하며, 특정 사안에 대한 법률 조언이 아닙니다. 한정승인의 구체적인 요건·효과·청산 절차는 개별 사안에 따라 달리 판단될 수 있으며, 최신 법령 및 판례와 다를 수 있습니다. 실제 한정승인 사건 처리 시에는 반드시 법무사 또는 변호사의 전문적인 법률 상담을 받으시기 바랍니다. 이 안내 내용에 의존하여 발생한 결과에 대해 법무사 사무소는 책임을 지지 않습니다.
+  </div>
+</section>
+</main>
+</body>
+</html>

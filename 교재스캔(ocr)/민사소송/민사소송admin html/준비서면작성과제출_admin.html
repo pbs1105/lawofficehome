@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[내부용] 준비서면 작성과 제출 — 법무사 실무 어드민</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1a2e4a;--gold:#c8a96e;--ivory:#faf8f5;--ink:#2b2b2b;--muted:#5b5b5b;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--ivory);color:var(--ink);font-family:'Noto Sans KR',sans-serif;line-height:1.75;font-size:15px;padding-top:44px;}
+.top-bar{position:fixed;top:0;left:0;right:0;background:#2d2d2d;color:#fff;text-align:center;font-size:.82rem;font-weight:700;letter-spacing:.08em;padding:10px 16px;z-index:999;}
+.wrap{max-width:900px;margin:0 auto;padding:28px 20px 100px;}
+h1,h2,h3,h4{font-family:'Noto Serif KR',serif;color:var(--navy);line-height:1.4;}
+h1{font-size:1.7rem;margin-bottom:6px;}
+h3{font-size:1.08rem;margin:20px 0 6px;}
+h4{font-size:.98rem;margin:14px 0 4px;color:#2d4a7a;}
+p{margin:8px 0;}
+ul,ol{padding-left:1.4em;margin:8px 0;}
+li{margin:4px 0;}
+.summary-header{background:var(--navy);color:#fff;border-radius:10px;padding:22px 26px;margin-bottom:24px;}
+.summary-header h1{color:#fff;}
+.summary-header .sub{color:#c8c8c8;font-size:.88rem;margin-top:4px;}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+.badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:4px 14px;font-size:.8rem;font-weight:600;}
+.badge.gold{background:#c8a96e;color:#2b1a00;border-color:#c8a96e;}
+section{margin-top:32px;}
+h2.sec{font-size:1.25rem;padding-bottom:8px;border-bottom:2px solid var(--gold);display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+h2.sec .num{background:var(--navy);color:#fff;font-family:'Noto Sans KR';font-size:.85rem;width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;}
+.box{border-radius:8px;padding:16px 20px;margin:12px 0;}
+.box-scope{background:#fff3e8;border:2px solid #c05000;border-left:6px solid #c05000;}
+.box-issue{background:#f4f7fb;border:1px solid #2d4a7a;border-left:5px solid #2d4a7a;}
+.box-tip{background:#f0f8f0;border:1px solid #1a5c2e;border-left:5px solid #1a5c2e;}
+.box-memo{background:#fffdf5;border:2px dashed #c8a96e;border-radius:8px;padding:14px 18px;margin:12px 0;}
+.box-trap{background:#fff3e8;border:1px solid #c05000;border-left:5px solid #c05000;}
+.box h3{margin-top:0;font-size:1rem;}
+.tablebox{overflow-x:auto;margin:12px 0;}
+table{border-collapse:collapse;width:100%;background:#fff;font-size:.9rem;}
+th,td{border:1px solid #d9d3c7;padding:9px 12px;text-align:left;vertical-align:top;}
+th{background:var(--navy);color:#fff;font-weight:500;}
+tbody tr:nth-child(even){background:#f6f3ee;}
+td.val{font-weight:600;color:#2d4a7a;}
+td.warn{color:#c05000;font-weight:600;}
+td.ok{color:#1a5c2e;font-weight:600;}
+.steps{counter-reset:step;margin:12px 0;}
+.step{background:#fff;border:1px solid #e3ddd2;border-left:4px solid var(--gold);border-radius:8px;padding:14px 18px 14px 54px;position:relative;margin:10px 0;}
+.step::before{counter-increment:step;content:counter(step);position:absolute;left:14px;top:14px;width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;font-size:.88rem;display:flex;align-items:center;justify-content:center;}
+.step h4{margin:0 0 4px;}
+.ref-tags{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0;}
+.tag-law{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.76rem;font-weight:600;text-decoration:none;background:#eef2f8;color:#2d4a7a;border:1px solid #2d4a7a;}
+.tag-law:hover{background:#dce6f5;}
+.tag-case{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.76rem;font-weight:600;text-decoration:none;background:#f7f4f0;color:#5a3e28;border:1px solid #6b7280;}
+.checklist{list-style:none;padding:0;}
+.checklist li{padding:6px 0 6px 28px;position:relative;border-bottom:1px dashed #ece7dd;}
+.checklist li:last-child{border-bottom:none;}
+.checklist li::before{content:"☐";position:absolute;left:0;top:6px;color:var(--gold);font-size:1.1rem;}
+.footer-meta{margin-top:48px;border-top:2px solid #e3ddd2;padding-top:20px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
+.footer-meta .col{background:#fff;border:1px solid #e3ddd2;border-radius:8px;padding:14px 16px;}
+.footer-meta label{display:block;font-size:.76rem;color:var(--muted);font-weight:600;margin-bottom:4px;}
+.footer-meta .val{font-size:.88rem;color:var(--ink);}
+@media(max-width:600px){.footer-meta{grid-template-columns:1fr;}.badges{gap:6px;}}
+</style>
+</head>
+<body>
+<div class="top-bar">🔒 내부용 · 대외 배포 금지 — 법무사 사무소 전용</div>
+<div class="wrap">
+<div class="summary-header">
+  <h1>준비서면 작성과 제출</h1>
+  <div class="sub">민사소송법 제272조~제279조 / 법무사 업무: 준비서면 작성·제출 대행 (핵심 업무)</div>
+  <div class="badges">
+    <span class="badge">사건유형: 민사소송 모든 단계</span>
+    <span class="badge">관할: 수소법원</span>
+    <span class="badge">근거법령: 민사소송법 제272조~제279조</span>
+    <span class="badge">당사자: 원고·피고</span>
+    <span class="badge gold">핵심기간: 변론기일 5일 전 제출 권장</span>
+  </div>
+</div>
+<section>
+  <h2 class="sec"><span class="num">0</span>⚠️ 법무사 업무범위 · 수임 판단</h2>
+  <div class="box box-scope">
+    <h3>업무범위 한계</h3>
+    <ul>
+      <li><strong>가능:</strong> 준비서면 작성·제출 대행 (법무사 핵심 업무), 답변서·반소장 외의 서면작성, 증거목록 작성, 전자소송 파일 업로드</li>
+      <li><strong>불가(변호사법 위반):</strong> 준비서면에 담을 법리 판단·소송전략 조언, 상대방 준비서면의 법률적 반박 방향 제시, 법정 대리</li>
+    </ul>
+    <h3 style="margin-top:14px;">수임 판단 포인트</h3>
+    <ul>
+      <li>의뢰인으로부터 사실관계만 수령 후 서면 형식으로 정리 — 법리 판단은 의뢰인이 제공한 사실에 기반</li>
+      <li>변론준비절차 회부 사건 — 준비서면 교환 방식으로 진행됨</li>
+      <li>상대방 준비서면에 대한 반박 내용은 의뢰인이 직접 제공해야 함</li>
+    </ul>
+    <h3 style="margin-top:14px;">받지 말아야 할 신호 체크리스트</h3>
+    <ul class="checklist">
+      <li>"어떤 내용을 주장해야 이기나요?" — 법률 조언 요구</li>
+      <li>"상대방 주장의 문제점을 찾아주세요" — 법리 분석 요구</li>
+      <li>법원 석명사항에 대한 법률적 답변 작성 요구</li>
+    </ul>
+  </div>
+</section>
+<section>
+  <h2 class="sec"><span class="num">1</span>핵심쟁점</h2>
+  <div class="box box-issue">
+    <h3>실체적 쟁점 — 준비서면의 법적 성격</h3>
+    <ul>
+      <li><strong>진술 전치 효과:</strong> 준비서면은 변론기일에서의 진술을 예고하는 것 — 변론기일에서 반드시 진술해야 재판자료가 됨 (민소 §134①, §272)</li>
+      <li><strong>실권효 위험:</strong> 변론준비기일 이후 새로운 공격방어방법은 원칙적으로 제출 불가 (민소 §285)</li>
+      <li><strong>적시제출주의:</strong> 공격방어방법은 소송 진행 정도에 따라 적절한 시기에 제출 필요 (민소 §146)</li>
+    </ul>
+    <h3 style="margin-top:14px;">절차적 쟁점 (결정적 체크포인트)</h3>
+    <div class="tablebox">
+      <table>
+        <thead><tr><th>구분</th><th>내용</th><th>주의사항</th></tr></thead>
+        <tbody>
+          <tr><td class="val">제출 기한</td><td>변론기일 5일 전 (권고)</td><td class="warn">늦은 제출 시 법원 제지 가능</td></tr>
+          <tr><td class="val">상대방 열람</td><td>전자소송 시스템으로 자동 열람 가능</td><td>지면 제출 시 부본 별도 필요</td></tr>
+          <tr><td class="val">변론준비절차</td><td>서면에 의한 준비절차 — 당사자 준비서면 교환</td><td class="warn">결과를 변론기일에서 진술해야 효력 발생</td></tr>
+          <tr><td class="val">실권효</td><td>변론준비기일 종결 후 새로운 공격방어방법 제출 불가 원칙</td><td class="warn">민소 §285, 예외: 故意·重過失 없이 제출 못한 경우</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<section>
+  <h2 class="sec"><span class="num">2</span>업무 절차 흐름</h2>
+  <div class="steps">
+    <div class="step">
+      <h4>의뢰인으로부터 사실관계 확인</h4>
+      <p>상대방 준비서면 내용, 반박할 사실관계, 추가 주장 사항을 의뢰인에게 서면으로 제공받음.</p>
+      <div class="box box-tip" style="margin-top:8px;">💡 <strong>실무 TIP:</strong> 의뢰인이 제공한 사실관계를 그대로 정리하는 것이 법무사 역할 — 법리 방향 제시 금지</div>
+    </div>
+    <div class="step">
+      <h4>준비서면 양식 작성</h4>
+      <p>사건번호, 당사자 표시 정확히 기재. 사실 주장은 항목별로 구분하여 명확하게 작성. 첨부 서증 목록 포함.</p>
+    </div>
+    <div class="step">
+      <h4>전자소송 제출 또는 법원 접수</h4>
+      <p>전자소송(ecfs.scourt.go.kr)으로 업로드. 지면 제출 시 법원 접수처에 원본 + 상대방 수 부본 함께 제출.</p>
+      <div class="box box-tip" style="margin-top:8px;">💡 <strong>실무 TIP:</strong> 전자소송 제출 시 접수 영수증 저장 — 제출 시각 확인 가능</div>
+    </div>
+    <div class="step">
+      <h4>변론기일 진술 안내</h4>
+      <p>의뢰인(또는 대리인)에게 변론기일에 준비서면 내용을 진술해야 효력 발생함을 안내.</p>
+    </div>
+    <div class="step">
+      <h4>다음 기일 준비서면 여부 확인</h4>
+      <p>다음 변론기일 전 추가 준비서면 필요 여부 의뢰인에게 확인. 증거신청 필요 시 별도 작성.</p>
+    </div>
+  </div>
+</section>
+<section>
+  <h2 class="sec"><span class="num">3</span>첨부서류 표</h2>
+  <div class="tablebox">
+    <table>
+      <thead><tr><th>서류명</th><th>필수/선택</th><th>법령근거</th><th>발급처</th><th>유효기간</th><th>실무 비고</th></tr></thead>
+      <tbody>
+        <tr><td class="val">준비서면</td><td class="ok">필수</td><td>민소 §272</td><td>작성</td><td>—</td><td>기일 5일 전 제출 권장, 사건번호·당사자 표시 필수</td></tr>
+        <tr><td class="val">서증 사본</td><td>선택</td><td>민소 §289, §292</td><td>수집</td><td>—</td><td>서증목록과 함께 제출, 원본 지참 필요</td></tr>
+        <tr><td class="val">증거신청서</td><td>선택</td><td>민소 §289</td><td>작성</td><td>—</td><td>증거방법과 증명취지 명시</td></tr>
+        <tr><td class="val">서증목록</td><td>선택</td><td>민소규 §107</td><td>작성</td><td>—</td><td>갑/을 제○호증 순서대로 목록화</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section>
+  <h2 class="sec"><span class="num">4</span>비용 · 소가 산정</h2>
+  <div class="box box-issue">
+    <div class="tablebox">
+      <table>
+        <thead><tr><th>항목</th><th>금액/산식</th><th>비고</th></tr></thead>
+        <tbody>
+          <tr><td class="val">준비서면 인지</td><td>없음</td><td>별도 인지 불필요</td></tr>
+          <tr><td class="val">서증 사본 제출비용</td><td>실비 (복사비)</td><td>소송비용 인정 가능 (민사소송비용법 §9)</td></tr>
+          <tr><td class="val">법무사 서류작성 보수</td><td>대법원 법무사 보수표 적용</td><td>[계산 프로그램 입력란]</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<section>
+  <h2 class="sec"><span class="num">5</span>법령 · 판례 검증</h2>
+  <div class="box box-issue">
+    <h3>주요 근거 법령</h3>
+    <div class="ref-tags">
+      <a class="tag-law" href="https://www.law.go.kr/lsEfInfoR.do?lsiSeq=252393&joNo=027200" target="_blank">✅ 민소 §272 — 준비서면의 의의</a>
+      <a class="tag-law" href="https://www.law.go.kr/lsEfInfoR.do?lsiSeq=252393&joNo=027300" target="_blank">✅ 민소 §273 — 준비서면의 기재사항</a>
+      <a class="tag-law" href="https://www.law.go.kr/lsEfInfoR.do?lsiSeq=252393&joNo=027400" target="_blank">✅ 민소 §274 — 준비서면 미제출의 효과</a>
+      <a class="tag-law" href="https://www.law.go.kr/lsEfInfoR.do?lsiSeq=252393&joNo=014600" target="_blank">✅ 민소 §146 — 적시제출주의</a>
+      <a class="tag-law" href="https://www.law.go.kr/lsEfInfoR.do?lsiSeq=252393&joNo=028500" target="_blank">✅ 민소 §285 — 변론준비절차 후 실권효</a>
+    </div>
+    <h3 style="margin-top:14px;">주요 판례</h3>
+    <div class="ref-tags">
+      <span class="tag-case">대법원 2001. 12. 14. 선고 2001므1728 — 서면 제출만으로는 재판자료 불인정, 변론진술 필요</span>
+    </div>
+  </div>
+</section>
+<section>
+  <h2 class="sec"><span class="num">6</span>법무사 실무 노하우</h2>
+  <div class="box box-tip">
+    <h3>💡 실무 TIP 모음</h3>
+    <ul>
+      <li>준비서면 작성 시 사실 주장은 번호를 매겨 정리 — 법원이 보기 쉬운 형식으로</li>
+      <li>변론준비절차 중인 사건은 실권효 예방을 위해 모든 주장·증거를 조기에 망라하여 제출</li>
+      <li>전자소송 제출 후 접수 확인 메시지 스크린샷 보관 (제출기한 분쟁 예방)</li>
+      <li>상대방 준비서면 수령 즉시 의뢰인에게 전달 — 반박 사실관계 제공 요청</li>
+      <li>준비서면에 서증 첨부 시 갑/을 제○호증 번호를 준비서면 본문에 명시</li>
+    </ul>
+  </div>
+  <div class="box-memo">
+    <strong>📝 현장 메모 [직접 추가]</strong>
+    <p style="color:#888;font-size:.88rem;margin-top:6px;">자주 사용하는 준비서면 문구 템플릿, 재판부별 선호 형식, 특이 사항 등을 기록하세요.</p>
+    <br><br><br>
+  </div>
+</section>
+<section>
+  <h2 class="sec"><span class="num">7</span>주의사항 &amp; 사고 · 실수 사례</h2>
+  <div class="box box-trap">
+    <h3>⚡ 기간도과 위험</h3>
+    <ul>
+      <li><strong>실권효:</strong> 변론준비기일 종결 후 새로운 공격방어방법 제출 원칙 불가 — 사전에 모든 주장 망라 필수</li>
+      <li><strong>기일 5일 전 제출 미준수:</strong> 법원이 해당 기일 심리 거부 가능</li>
+    </ul>
+    <h3 style="margin-top:14px;">흔한 실수</h3>
+    <ul>
+      <li>준비서면에 기재하고 변론기일에서 진술하지 않음 — 재판자료 불인정</li>
+      <li>서증 첨부 시 갑/을 번호 혼동</li>
+      <li>전자소송 제출 후 접수 완료 확인 미실시 — 기술적 오류로 미접수 가능</li>
+      <li>상대방 준비서면 열람 지연 — 반박서면 준비 기간 부족</li>
+    </ul>
+    <h3 style="margin-top:14px;">변호사법 경계선</h3>
+    <ul>
+      <li>준비서면에 담을 법리 주장 직접 작성 — 사실관계 정리 수준 초과 시 법률 조언에 해당</li>
+    </ul>
+  </div>
+</section>
+<div class="footer-meta">
+  <div class="col"><label>작성일</label><div class="val">2026. 6. 4.</div></div>
+  <div class="col"><label>근거기준일 (법령)</label><div class="val">민사소송법 (2024. 2. 13. 시행 기준)</div></div>
+  <div class="col"><label>최종검토자 메모</label><div class="val" style="color:#888;">[검토자 이름 · 날짜 기재]</div></div>
+</div>
+</div>
+</body>
+</html>

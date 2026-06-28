@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>법정상속분의 계산 | 법무사 상속 가이드</title>
+<style>
+  :root { --navy:#1a2e4a; --navy-light:#2d4a73; --gold:#c9a84c; --gold-light:#e8d5a3; --ivory:#fdf8f0; --ivory-dark:#f5ede0; --text:#2c2c2c; --text-light:#5a5a5a; --blue-box:#e8f0f8; --blue-border:#2d6aa0; --warn-bg:#fff8e1; --warn-border:#f0a500; }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Noto Sans KR',sans-serif;background:var(--ivory);color:var(--text);font-size:15px;line-height:1.8;}
+  .page-header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);color:white;padding:40px 24px 32px;text-align:center;}
+  .page-header h1{font-size:2rem;font-weight:700;margin-bottom:8px;}
+  .page-header .subtitle{color:var(--gold-light);font-size:1rem;}
+  .breadcrumb{font-size:0.82rem;color:rgba(255,255,255,0.6);margin-bottom:12px;}
+  .layout{display:grid;grid-template-columns:240px 1fr 300px;gap:0;max-width:1280px;margin:0 auto;}
+  .toc-sidebar{background:var(--navy);color:white;padding:24px 0;position:sticky;top:0;height:100vh;overflow-y:auto;}
+  .toc-sidebar h3{font-size:0.78rem;letter-spacing:2px;color:var(--gold);text-transform:uppercase;padding:0 20px 12px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:8px;}
+  .toc-sidebar ul{list-style:none;}
+  .toc-sidebar ul li a{display:block;padding:9px 20px;font-size:0.85rem;color:rgba(255,255,255,0.75);text-decoration:none;border-left:3px solid transparent;transition:all 0.2s;}
+  .toc-sidebar ul li a:hover,.toc-sidebar ul li a.active{color:white;background:rgba(255,255,255,0.08);border-left-color:var(--gold);}
+  .main-content{padding:40px 48px;min-height:100vh;}
+  .section{margin-bottom:56px;scroll-margin-top:24px;}
+  .section h2{font-size:1.35rem;color:var(--navy);border-bottom:2px solid var(--gold);padding-bottom:10px;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+  .section h2 .sec-num{background:var(--navy);color:var(--gold);font-size:0.78rem;padding:2px 8px;border-radius:12px;}
+  .section h3{font-size:1.05rem;color:var(--navy-light);margin:24px 0 10px;font-weight:600;}
+  .summary-box{background:var(--blue-box);border-left:4px solid var(--blue-border);border-radius:0 8px 8px 0;padding:18px 22px;margin-bottom:20px;}
+  .summary-box strong{color:var(--blue-border);display:block;margin-bottom:6px;font-size:0.9rem;letter-spacing:0.5px;}
+  .detail-content{color:var(--text-light);}
+  .detail-content p{margin-bottom:14px;}
+  .law-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.88rem;}
+  .law-table th{background:var(--navy);color:white;padding:10px 14px;text-align:left;}
+  .law-table td{padding:10px 14px;border-bottom:1px solid #e0d8cc;vertical-align:top;}
+  .law-table tr:nth-child(even) td{background:var(--ivory-dark);}
+  .law-ref{color:var(--blue-border);font-weight:600;cursor:pointer;border-bottom:1px dashed var(--blue-border);font-size:0.9em;}
+  .warn-box{background:var(--warn-bg);border-left:4px solid var(--warn-border);border-radius:0 8px 8px 0;padding:16px 20px;margin:16px 0;}
+  .warn-box strong{color:#c07000;display:block;margin-bottom:6px;}
+  .case-box{background:#f5f5f5;border:1px solid #ddd;border-radius:8px;padding:16px 20px;margin:16px 0;font-size:0.87rem;}
+  .case-box .case-title{font-weight:700;color:var(--navy);margin-bottom:8px;font-size:0.85rem;}
+  /* 상속분 계산기 스타일 */
+  .calc-box{background:white;border:2px solid var(--navy);border-radius:12px;padding:24px;margin:16px 0;}
+  .calc-box .calc-title{font-weight:700;color:var(--navy);margin-bottom:16px;font-size:1rem;}
+  .calc-scenario{background:var(--ivory-dark);border-radius:8px;padding:16px;margin-bottom:14px;}
+  .calc-scenario .scenario-title{font-weight:600;color:var(--navy-light);margin-bottom:10px;font-size:0.9rem;}
+  .calc-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px dashed #d0c8ba;font-size:0.88rem;}
+  .calc-row:last-child{border-bottom:none;}
+  .calc-row .person{color:var(--text);}
+  .calc-row .share{font-weight:700;color:var(--navy);background:var(--gold-light);padding:2px 10px;border-radius:10px;}
+  .checklist-box{background:var(--ivory-dark);border:1px solid var(--gold-light);border-radius:10px;padding:20px 24px;margin:24px 0;}
+  .checklist-box h4{color:var(--navy);margin-bottom:14px;font-size:0.95rem;}
+  .checklist-box ul{list-style:none;}
+  .checklist-box ul li{padding:5px 0;font-size:0.88rem;display:flex;gap:10px;}
+  .checklist-box ul li::before{content:"☑";color:var(--gold);}
+  .cta-box{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);color:white;border-radius:12px;padding:28px 32px;margin:32px 0;text-align:center;}
+  .cta-box h3{font-size:1.2rem;margin-bottom:10px;color:var(--gold-light);}
+  .cta-box p{font-size:0.9rem;color:rgba(255,255,255,0.85);margin-bottom:18px;}
+  .cta-btn{background:var(--gold);color:var(--navy);font-weight:700;padding:12px 32px;border-radius:24px;border:none;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;}
+  .next-links{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}
+  .next-link{background:white;border:1px solid #d0c8ba;border-radius:8px;padding:16px;text-decoration:none;color:var(--navy);transition:all 0.2s;display:flex;align-items:center;justify-content:space-between;}
+  .next-link:hover{border-color:var(--gold);box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+  .next-link .label{font-size:0.78rem;color:var(--text-light);}
+  .next-link .title{font-size:0.92rem;font-weight:600;}
+  .next-link .arrow{color:var(--gold);font-size:1.2rem;}
+  .disclaimer{background:#f0f0f0;border-radius:8px;padding:16px 20px;margin-top:40px;font-size:0.8rem;color:#777;line-height:1.6;}
+  .right-sidebar{background:white;border-left:1px solid #e0d8cc;padding:0;position:sticky;top:0;height:100vh;overflow-y:auto;}
+  .sidebar-tabs{display:flex;border-bottom:2px solid var(--navy);}
+  .sidebar-tab{flex:1;padding:12px 8px;text-align:center;font-size:0.82rem;font-weight:600;cursor:pointer;color:var(--text-light);background:var(--ivory);border:none;transition:all 0.2s;}
+  .sidebar-tab.active{background:var(--navy);color:white;}
+  .sidebar-panel{padding:16px;display:none;}
+  .sidebar-panel.active{display:block;}
+  .law-item{border:1px solid #e0d8cc;border-radius:6px;margin-bottom:8px;overflow:hidden;}
+  .law-item-header{background:var(--ivory-dark);padding:10px 14px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:0.83rem;font-weight:600;color:var(--navy);}
+  .law-item-header:hover{background:var(--gold-light);}
+  .law-item-body{display:none;padding:12px 14px;font-size:0.82rem;line-height:1.7;color:var(--text-light);border-top:1px solid #e0d8cc;}
+  .law-item-body.open{display:block;}
+  .practice-section{margin-bottom:16px;}
+  .practice-section h5{font-size:0.82rem;font-weight:700;color:var(--navy);background:var(--ivory-dark);padding:7px 12px;border-radius:4px;margin-bottom:8px;}
+  .practice-section ul{list-style:none;padding:0;}
+  .practice-section ul li{font-size:0.81rem;padding:4px 8px;color:var(--text-light);border-bottom:1px solid #f0ece6;display:flex;gap:6px;}
+  .practice-section ul li::before{content:"•";color:var(--gold);}
+  @media(max-width:900px){.layout{grid-template-columns:1fr;}.toc-sidebar,.right-sidebar{display:none;}.main-content{padding:24px 20px;}.next-links{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="page-header">
+  <div class="breadcrumb">홈 &gt; 상속 안내 &gt; 법정상속분의 계산</div>
+  <h1>법정상속분의 계산</h1>
+  <div class="subtitle">각 상속인은 얼마나 받나요? — 구체적인 계산 방법과 사례</div>
+</div>
+<div class="layout">
+  <aside class="toc-sidebar">
+    <h3>목 차</h3>
+    <ul>
+      <li><a href="#s1" class="toc-link">01. 법정상속분이란</a></li>
+      <li><a href="#s2" class="toc-link">02. 균등 상속의 원칙</a></li>
+      <li><a href="#s3" class="toc-link">03. 배우자 상속분 가산</a></li>
+      <li><a href="#s4" class="toc-link">04. 구체적 계산 사례</a></li>
+      <li><a href="#s5" class="toc-link">05. 특별수익과 기여분</a></li>
+      <li><a href="#s6" class="toc-link">06. 대습상속인의 상속분</a></li>
+      <li><a href="#s7" class="toc-link">07. 자주 묻는 질문</a></li>
+    </ul>
+  </aside>
+  <main class="main-content">
+
+    <section class="section" id="s1">
+      <h2><span class="sec-num">01</span> 법정상속분이란</h2>
+      <div class="summary-box">
+        <strong>📌 핵심 요약</strong>
+        법정상속분이란 유언 없이 피상속인이 사망한 경우, 민법이 정한 비율에 따라 각 상속인에게 돌아가는 몫입니다. 유언이 있으면 유언이 우선하지만, 법정상속분의 일정 비율은 유류분으로 보호받습니다.
+      </div>
+      <div class="detail-content">
+        <p>우리 민법은 동순위 상속인 사이에서는 <strong>균등 상속</strong>을 원칙으로 하되, 배우자에게는 다른 상속인의 <strong>1.5배</strong>를 인정합니다(<span class="law-ref" onclick="openLaw('민법1009')">§ 민법 제1009조</span>). 상속재산에는 부동산·예금·주식 등 적극재산뿐 아니라 대출·보증채무 등 소극재산도 포함됩니다.</p>
+        <p>법정상속분은 <strong>구체적 상속분과 다를 수 있습니다.</strong> 피상속인으로부터 사전 증여(특별수익)를 받은 상속인은 그 금액을 공제한 후 나머지를 받게 되고, 상속재산 형성에 특별히 기여한 상속인은 기여분을 추가로 인정받을 수 있습니다.</p>
+      </div>
+    </section>
+
+    <section class="section" id="s2">
+      <h2><span class="sec-num">02</span> 균등 상속의 원칙</h2>
+      <div class="summary-box">
+        <strong>📌 핵심 요약</strong>
+        동순위 상속인은 균등한 비율로 상속합니다. 장남이라도, 남자라도 추가 상속분이 없습니다. 1990년 민법 개정(1991.1.1. 시행)으로 성별·혼인 여부에 따른 차별이 폐지되었습니다.
+      </div>
+      <div class="detail-content">
+        <p>1990년 민법 개정 전에는 장남, 동거여부, 혼인 여부 등에 따라 상속분이 달랐습니다. 그러나 1991년 1월 1일 이후 개시된 상속부터는 동순위 상속인 사이에 완전한 균분 상속이 시행됩니다.</p>
+        <p><strong>중요:</strong> 1991년 1월 1일 이전 사망으로 개시된 상속은 구 민법의 차등 상속분이 적용될 수 있습니다. 이 경우 제적등본 등을 통해 사망일을 반드시 확인해야 합니다.</p>
+        <div class="warn-box">
+          <strong>⚠️ 구 민법 적용 주의</strong>
+          1960년 이전 개시된 상속은 관습법, 1960~1990년 개시된 상속은 구 민법이 적용됩니다. 과거 상속 등기나 명의 정리 시 반드시 전문가 확인이 필요합니다.
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="s3">
+      <h2><span class="sec-num">03</span> 배우자 상속분 가산</h2>
+      <div class="summary-box">
+        <strong>📌 핵심 요약</strong>
+        배우자는 직계비속(1순위) 또는 직계존속(2순위)과 공동상속 시 이들 상속분의 5할(50%)을 가산하여 받습니다. 다른 상속인이 없으면 단독 상속합니다.
+      </div>
+      <div class="detail-content">
+        <p>배우자의 특별한 상속분은 혼인 중 공동으로 재산을 형성한 기여를 인정하는 취지입니다(<span class="law-ref" onclick="openLaw('민법1009②')">§ 민법 제1009조 제2항</span>).</p>
+        <p><strong>계산 방법:</strong> ① 배우자를 제외한 공동상속인의 상속분을 1로 볼 때, 배우자는 1.5의 비율로 나눕니다. ② 전체 상속재산을 [자녀 수 + 1.5]로 나누어 1인분을 계산합니다.</p>
+        <div class="case-box">
+          <div class="case-title">📐 공식: 배우자 + 자녀 N명인 경우</div>
+          배우자 상속분 = 1.5 ÷ (N + 1.5)<br>
+          자녀 1인 상속분 = 1 ÷ (N + 1.5)
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="s4">
+      <h2><span class="sec-num">04</span> 구체적 계산 사례</h2>
+      <div class="summary-box">
+        <strong>📌 핵심 요약</strong>
+        상속재산이 6억 원인 경우를 기준으로, 상속인 구성에 따른 구체적인 상속분 계산 사례를 정리했습니다.
+      </div>
+      <div class="detail-content">
+
+        <div class="calc-box">
+          <div class="calc-title">📊 상속재산 6억 원 기준 — 계산 사례</div>
+
+          <div class="calc-scenario">
+            <div class="scenario-title">① 배우자 + 자녀 1명</div>
+            <div class="calc-row"><span class="person">배우자</span><span class="share">3/5 = 3억 6천만 원</span></div>
+            <div class="calc-row"><span class="person">자녀 1명</span><span class="share">2/5 = 2억 4천만 원</span></div>
+          </div>
+
+          <div class="calc-scenario">
+            <div class="scenario-title">② 배우자 + 자녀 2명</div>
+            <div class="calc-row"><span class="person">배우자</span><span class="share">3/7 ≈ 2억 5,714만 원</span></div>
+            <div class="calc-row"><span class="person">자녀 각 1명</span><span class="share">2/7 ≈ 1억 7,143만 원</span></div>
+          </div>
+
+          <div class="calc-scenario">
+            <div class="scenario-title">③ 배우자 + 자녀 3명</div>
+            <div class="calc-row"><span class="person">배우자</span><span class="share">3/9 = 2억 원</span></div>
+            <div class="calc-row"><span class="person">자녀 각 1명</span><span class="share">2/9 ≈ 1억 3,333만 원</span></div>
+          </div>
+
+          <div class="calc-scenario">
+            <div class="scenario-title">④ 자녀 3명만 (배우자 없음)</div>
+            <div class="calc-row"><span class="person">자녀 각 1명</span><span class="share">1/3 = 2억 원</span></div>
+          </div>
+
+          <div class="calc-scenario">
+            <div class="scenario-title">⑤ 배우자 + 부모 2명 (자녀 없음)</div>
+            <div class="calc-row"><span class="person">배우자</span><span class="share">3/5 = 3억 6천만 원</span></div>
+            <div class="calc-row"><span class="person">부모 각 1명</span><span class="share">1/5 = 1억 2천만 원</span></div>
+          </div>
+        </div>
+
+        <h3>부동산이 있는 경우 계산 기준</h3>
+        <p>상속재산 중 부동산은 <strong>시가</strong>를 기준으로 평가합니다. 부동산과 현금이 혼재하는 경우 전체 가액을 합산하여 법정상속분 비율로 계산한 후, 협의분할을 통해 현물(부동산)과 금전을 배분합니다.</p>
+      </div>
+    </section>
+
+    <section class="section" id="s5">
+      <h2><span class="sec-num">05</span> 특별수익과 기여분</h2>
+      <div class="summary-box">
+        <strong>📌 핵심 요약</strong>
+        법정상속분은 출발점일 뿐, 실제 상속분은 특별수익(사전 증여 등)을 공제하거나 기여분을 추가하여 결정됩니다. 이를 통해 상속인들 사이의 실질적 공평이 도모됩니다.
+      </div>
+      <div class="detail-content">
+        <h3>특별수익 (민법 제1008조)</h3>
+        <p>피상속인으로부터 재산의 증여 또는 유증을 받은 공동상속인(특별수익자)은 그 금액을 상속재산에 합산한 후, 자신의 법정상속분에서 그 금액을 공제한 나머지만 추가로 상속받습니다(<span class="law-ref" onclick="openLaw('민법1008')">§ 민법 제1008조</span>).</p>
+
+        <div class="case-box">
+          <div class="case-title">📐 특별수익 계산 예시</div>
+          상속재산 3억, 자녀 A(특별수익 1억), 자녀 B(없음)<br>
+          ▸ 간주상속재산 = 3억 + 1억 = 4억<br>
+          ▸ 법정상속분: A = 2억, B = 2억<br>
+          ▸ A의 구체적 상속분 = 2억 - 1억 = <strong>1억</strong><br>
+          ▸ B의 구체적 상속분 = <strong>2억</strong>
+        </div>
+
+        <h3>기여분 (민법 제1008조의2)</h3>
+        <p>공동상속인 중에서 상당한 기간 동거·간호하거나 피상속인의 재산 유지·증가에 특별히 기여한 자는 상속분에 기여분을 가산하여 받을 수 있습니다(<span class="law-ref" onclick="openLaw('민법1008의2')">§ 민법 제1008조의2</span>). 기여분은 공동상속인 간 협의 또는 가정법원 심판으로 결정합니다.</p>
+      </div>
+    </section>
+
+    <section class="section" id="s6">
+      <h2><span class="sec-num">06</span> 대습상속인의 상속분</h2>
+      <div class="summary-box">
+        <strong>📌 핵심 요약</strong>
+        대습상속인(피대습인 대신 상속하는 자)은 피대습인이 받았을 상속분만큼 받습니다. 복수의 대습상속인이 있으면 그 상속분을 다시 균등 분배합니다.
+      </div>
+      <div class="detail-content">
+        <p>예컨대 장남이 피상속인보다 먼저 사망한 경우, 장남의 자녀들(손자녀)이 장남의 상속분을 대습상속합니다. 장남의 배우자도 손자녀와 함께 대습상속인이 되며, 배우자에게는 1.5배의 상속분이 적용됩니다(<span class="law-ref" onclick="openLaw('민법1001')">§ 민법 제1001조</span>, <span class="law-ref" onclick="openLaw('민법1010')">§ 민법 제1010조</span>).</p>
+        <div class="case-box">
+          <div class="case-title">📐 대습상속 계산 예시</div>
+          피상속인 사망, 상속재산 6억<br>
+          생존 자녀: 딸 A(2/5), 장남 선(先)사망(장남 몫 2/5를 대습)<br>
+          배우자: 3/5<br><br>
+          장남 몫 2/5를 → 장남의 처(1.5배)와 장남의 자녀 2명이 대습<br>
+          ▸ 장남의 처 = 1.5/(2+1.5) × 2/5 = 3/7 × 2/5 = <strong>6/35</strong><br>
+          ▸ 장남의 자녀 각 = 1/3.5 × 2/5 = <strong>4/35</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="s7">
+      <h2><span class="sec-num">07</span> 자주 묻는 질문</h2>
+
+      <h3>Q1. 채무(빚)도 법정상속분대로 나누어지나요?</h3>
+      <div class="summary-box">
+        <strong>A.</strong> 네, 금전채무는 상속개시와 동시에 자동으로 법정상속분 비율에 따라 공동상속인에게 분할됩니다. 협의분할로 특정인에게 채무를 귀속시키더라도 채권자에게는 대항하지 못합니다.
+      </div>
+
+      <h3>Q2. 유언으로 법정상속분을 변경할 수 있나요?</h3>
+      <div class="summary-box">
+        <strong>A.</strong> 가능합니다. 유언은 법정상속분보다 우선합니다. 단, 법정상속분의 1/2(직계비속·배우자) 또는 1/3(직계존속·형제자매)에 해당하는 유류분은 유언으로도 침해할 수 없습니다.
+      </div>
+
+      <h3>Q3. 협의분할로 법정상속분과 다르게 나눌 수 있나요?</h3>
+      <div class="summary-box">
+        <strong>A.</strong> 가능합니다. 상속인 전원이 합의하면 법정상속분과 다른 비율로 분할할 수 있습니다. 단, 상속인 전원의 동의가 반드시 필요하며, 한 명이라도 거부하면 협의분할 대신 법원 심판을 통해야 합니다.
+      </div>
+    </section>
+
+    <div class="checklist-box">
+      <h4>📋 상속분 계산 시 필요한 정보</h4>
+      <ul>
+        <li>상속인 구성 (배우자·자녀·부모 수 및 관계)</li>
+        <li>피상속인 명의 부동산 시가 (공시지가 아닌 시세 기준)</li>
+        <li>금융재산 목록 (예금·주식·보험금 등)</li>
+        <li>피상속인의 채무 총액 (대출·보증·세금 체납 등)</li>
+        <li>사전 증여 내역 (특별수익 해당 여부)</li>
+        <li>기여 상속인 여부 (장기 간병·재산 관리 등)</li>
+      </ul>
+    </div>
+
+    <div class="cta-box">
+      <h3>상속분 계산이 복잡하신가요?</h3>
+      <p>특별수익·기여분·대습상속이 얽힌 경우 법무사와의 상담이 필요합니다.<br>정확한 상속분을 파악하여 분쟁 없이 마무리하세요.</p>
+      <a href="#" class="cta-btn">무료 상담 신청하기</a>
+    </div>
+
+    <div class="next-links">
+      <a href="01 상속인의 범위와 순위.html" class="next-link">
+        <div><div class="label">← 이전 주제</div><div class="title">상속인의 범위와 순위</div></div>
+        <span class="arrow">‹</span>
+      </a>
+      <a href="03 대습상속.html" class="next-link">
+        <div><div class="label">다음 주제 →</div><div class="title">대습상속이란?</div></div>
+        <span class="arrow">›</span>
+      </a>
+    </div>
+    <div class="disclaimer">※ 본 페이지의 내용은 일반적인 법률 정보 제공을 목적으로 하며, 개별 사안에 대한 법률 조언이 아닙니다. 구체적인 상속 문제는 반드시 전문 법무사 또는 변호사와 상담하시기 바랍니다.</div>
+  </main>
+
+  <aside class="right-sidebar">
+    <div class="sidebar-tabs">
+      <button class="sidebar-tab active" onclick="switchTab('law')">관련 법령</button>
+      <button class="sidebar-tab" onclick="switchTab('practice')">실무 정보</button>
+    </div>
+    <div class="sidebar-panel active" id="panel-law">
+      <div class="law-item" id="law-민법1009">
+        <div class="law-item-header" onclick="toggleLaw(this)">§ 민법 제1009조 (법정상속분) <span>＋</span></div>
+        <div class="law-item-body">① 동순위의 상속인이 수인인 때에는 그 상속분은 균등으로 한다.<br>② 피상속인의 배우자의 상속분은 직계비속과 공동으로 상속하는 때에는 직계비속의 상속분의 5할을 가산하고, 직계존속과 공동으로 상속하는 때에도 직계존속의 상속분의 5할을 가산한다.</div>
+      </div>
+      <div class="law-item" id="law-민법1009②">
+        <div class="law-item-header" onclick="toggleLaw(this)">§ 민법 제1009조 제2항 (배우자 가산) <span>＋</span></div>
+        <div class="law-item-body">피상속인의 배우자의 상속분은 직계비속과 공동으로 상속하는 때에는 직계비속의 상속분의 5할을 가산하고, 직계존속과 공동으로 상속하는 때에도 직계존속의 상속분의 5할을 가산한다.</div>
+      </div>
+      <div class="law-item" id="law-민법1008">
+        <div class="law-item-header" onclick="toggleLaw(this)">§ 민법 제1008조 (특별수익자의 상속분) <span>＋</span></div>
+        <div class="law-item-body">공동상속인 중에 피상속인으로부터 재산의 증여 또는 유증을 받은 자가 있는 경우에 그 수증재산이 자기의 상속분에 달하지 못한 때에는 그 부족한 부분의 한도에서 상속분이 있다.</div>
+      </div>
+      <div class="law-item" id="law-민법1008의2">
+        <div class="law-item-header" onclick="toggleLaw(this)">§ 민법 제1008조의2 (기여분) <span>＋</span></div>
+        <div class="law-item-body">① 공동상속인 중에 상당한 기간 동거·간호 그 밖의 방법으로 피상속인을 특별히 부양하거나 피상속인의 재산의 유지 또는 증가에 특별히 기여한 자가 있을 때에는 상속개시 당시의 피상속인의 재산가액에서 공동상속인의 협의로 정한 그 자의 기여분을 공제한 것을 상속재산으로 보고 제1009조 및 제1010조에 의하여 산정한 상속분에 기여분을 가산한 액으로써 그 자의 상속분으로 한다.</div>
+      </div>
+      <div class="law-item" id="law-민법1001">
+        <div class="law-item-header" onclick="toggleLaw(this)">§ 민법 제1001조 (대습상속) <span>＋</span></div>
+        <div class="law-item-body">전조 제1항 제1호와 제3호의 규정에 의한 상속인이 상속개시 전에 사망하거나 결격자가 된 경우에 그 직계비속이 있는 때에는 그 직계비속이 사망하거나 결격된 자의 순위에 갈음하여 상속인이 된다.</div>
+      </div>
+      <div class="law-item" id="law-민법1010">
+        <div class="law-item-header" onclick="toggleLaw(this)">§ 민법 제1010조 (대습상속인의 상속분) <span>＋</span></div>
+        <div class="law-item-body">① 제1001조의 경우에 사망하거나 결격된 자의 직계비속이 수인인 때에는 그 상속분은 사망하거나 결격된 자의 상속분의 한도에서 전조의 규정에 의하여 이를 정한다.<br>② 전항의 경우에 사망하거나 결격된 자의 배우자는 동항의 직계비속과 동순위로 공동상속인이 되고 그 직계비속이 없는 때에는 단독상속인이 된다.</div>
+      </div>
+    </div>
+    <div class="sidebar-panel" id="panel-practice">
+      <div class="practice-section">
+        <h5>📊 상속분 계산 공식</h5>
+        <ul>
+          <li>배우자+자녀N: 배우자 1.5/(N+1.5)</li>
+          <li>배우자+부모N: 배우자 1.5/(N+1.5)</li>
+          <li>자녀만N명: 각 1/N 균등</li>
+          <li>배우자단독: 전부(100%)</li>
+        </ul>
+      </div>
+      <div class="practice-section">
+        <h5>⚖️ 주의 사항</h5>
+        <ul>
+          <li>1991.1.1. 이후 상속은 균분상속</li>
+          <li>사전증여는 특별수익 공제 가능</li>
+          <li>간병 기여는 기여분으로 인정 가능</li>
+          <li>협의분할로 법정상속분 변경 가능</li>
+        </ul>
+      </div>
+      <div class="practice-section">
+        <h5>📅 상속세 신고 기간</h5>
+        <ul>
+          <li>상속개시일(사망일)부터 6개월 이내</li>
+          <li>비거주자는 9개월 이내</li>
+          <li>상속세 납부는 분납·연부연납 가능</li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+</div>
+<script>
+function switchTab(tab){document.querySelectorAll('.sidebar-tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.sidebar-panel').forEach(p=>p.classList.remove('active'));event.target.classList.add('active');document.getElementById('panel-'+tab).classList.add('active');}
+function toggleLaw(header){const body=header.nextElementSibling;const isOpen=body.classList.contains('open');body.classList.toggle('open');header.querySelector('span').textContent=isOpen?'＋':'－';}
+function openLaw(id){const lawTab=document.querySelector('.sidebar-tab:first-child');const lawPanel=document.getElementById('panel-law');document.querySelectorAll('.sidebar-tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.sidebar-panel').forEach(p=>p.classList.remove('active'));lawTab.classList.add('active');lawPanel.classList.add('active');const item=document.getElementById('law-'+id);if(item){const body=item.querySelector('.law-item-body');const header=item.querySelector('.law-item-header');body.classList.add('open');header.querySelector('span').textContent='－';item.scrollIntoView({behavior:'smooth',block:'center'});}}
+const sections=document.querySelectorAll('.section');const tocLinks=document.querySelectorAll('.toc-link');const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){tocLinks.forEach(l=>l.classList.remove('active'));const active=document.querySelector(`.toc-link[href="#${e.target.id}"]`);if(active)active.classList.add('active');}});},{rootMargin:'-20% 0px -70% 0px'});sections.forEach(s=>observer.observe(s));
+</script>
+</body>
+</html>

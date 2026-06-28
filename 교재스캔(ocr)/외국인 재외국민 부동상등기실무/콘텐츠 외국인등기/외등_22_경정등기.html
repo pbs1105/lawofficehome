@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>경정등기 - 상속등기 후 협의분할 신청 방법</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #faf8f5;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #ffffff;
+            min-height: 100vh;
+        }
+
+        /* ========== 헤더 ========== */
+        header {
+            border-bottom: 3px solid #1a2e4a;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        .header-subtitle {
+            color: #c8a96e;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-family: 'Noto Serif KR', serif;
+            color: #1a2e4a;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .header-desc {
+            color: #666;
+            font-size: 16px;
+        }
+
+        /* ========== 섹션 ========== */
+        section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            font-family: 'Noto Serif KR', serif;
+            color: #1a2e4a;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e8e5e0;
+        }
+
+        h3 {
+            font-family: 'Noto Serif KR', serif;
+            color: #1a2e4a;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            margin-top: 20px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        /* ========== 1. 이런 분께 필요합니다 ========== */
+        .checklist {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .checklist li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #555;
+        }
+
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #c8a96e;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        /* ========== 핵심 요약 박스 ========== */
+        .summary-box {
+            background-color: #eef2f8;
+            border: 2px solid #2d4a7a;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+            line-height: 1.8;
+        }
+
+        .summary-box strong {
+            color: #1a2e4a;
+            font-weight: 700;
+        }
+
+        .summary-box p {
+            margin-bottom: 12px;
+        }
+
+        .summary-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ========== 개요 섹션 ========== */
+        .definition-list {
+            margin: 20px 0;
+        }
+
+        .definition-list dt {
+            font-weight: 700;
+            color: #1a2e4a;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+
+        .definition-list dd {
+            margin-left: 20px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        /* ========== 절차 흐름도 ========== */
+        .flow-diagram {
+            background-color: #faf8f5;
+            border: 1px solid #e8e5e0;
+            border-radius: 8px;
+            padding: 30px 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .flow-step {
+            display: inline-block;
+            background-color: #ffffff;
+            border: 2px solid #1a2e4a;
+            border-radius: 6px;
+            padding: 15px 25px;
+            margin: 10px 15px;
+            min-width: 120px;
+            font-weight: 500;
+            color: #1a2e4a;
+        }
+
+        .flow-arrow {
+            display: inline-block;
+            color: #c8a96e;
+            font-size: 24px;
+            margin: 10px 5px;
+        }
+
+        @media (max-width: 600px) {
+            .flow-step {
+                display: block;
+                margin: 10px 0;
+            }
+            .flow-arrow {
+                display: block;
+            }
+        }
+
+        /* ========== 테이블 ========== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #ffffff;
+            border: 1px solid #d9d6d1;
+        }
+
+        thead {
+            background-color: #1a2e4a;
+            color: #ffffff;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #d9d6d1;
+        }
+
+        th {
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #faf8f5;
+        }
+
+        tbody tr:hover {
+            background-color: #f5f3f0;
+        }
+
+        /* ========== 판례·예규 박스 ========== */
+        .precedent-box {
+            background-color: #f7f4f0;
+            border-left: 4px solid #6b7280;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+
+        .precedent-box strong {
+            color: #1a2e4a;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .precedent-box p {
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .precedent-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ========== 사례 박스 ========== */
+        .case-box {
+            background-color: #f0f8f0;
+            border-left: 4px solid #1a5c2e;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+
+        .case-box strong {
+            color: #1a5c2e;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .case-box p {
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .case-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ========== 경고 박스 ========== */
+        .warning-box {
+            background-color: #fff3e8;
+            border-left: 4px solid #c05000;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+
+        .warning-box strong {
+            color: #c05000;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .warning-box p {
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .warning-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ========== 상담 CTA 박스 ========== */
+        .cta-box {
+            background-color: #fdf6e9;
+            border: 2px solid #c8a96e;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .cta-box p {
+            color: #1a2e4a;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .cta-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #c8a96e;
+            color: #1a2e4a;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #b39458;
+        }
+
+        /* ========== 관련 링크 ========== */
+        .related-links {
+            background-color: #f5f3f0;
+            border: 1px solid #d9d6d1;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .related-links ul {
+            list-style: none;
+            margin: 0;
+        }
+
+        .related-links li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e8e5e0;
+        }
+
+        .related-links li:last-child {
+            border-bottom: none;
+        }
+
+        .related-links a {
+            color: #1a2e4a;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .related-links a:hover {
+            color: #c8a96e;
+            text-decoration: underline;
+        }
+
+        /* ========== 면책 문구 ========== */
+        .disclaimer {
+            background-color: #f5f3f0;
+            border-top: 2px solid #d9d6d1;
+            padding: 20px;
+            margin-top: 50px;
+            font-size: 13px;
+            color: #999;
+            line-height: 1.6;
+        }
+
+        /* ========== 단계 리스트 ========== */
+        .steps {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .steps li {
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #faf8f5;
+            border-left: 4px solid #c8a96e;
+            border-radius: 4px;
+        }
+
+        .steps li strong {
+            color: #1a2e4a;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* ========== 반응형 ========== */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            h3 {
+                font-size: 16px;
+            }
+
+            th, td {
+                padding: 12px 8px;
+                font-size: 14px;
+            }
+
+            .summary-box {
+                padding: 15px;
+            }
+
+            .cta-box {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ========== 헤더 ========== -->
+        <header>
+            <div class="header-subtitle">외국인·재외국민 부동산등기 실무</div>
+            <h1>경정등기</h1>
+            <p class="header-desc">상속등기 후 협의분할이 된 경우 경정등기 신청 방법</p>
+        </header>
+
+        <!-- ========== 1. 이런 분께 필요합니다 ========== -->
+        <section>
+            <h2>이런 분께 필요합니다</h2>
+            <ul class="checklist">
+                <li>공동상속등기가 완료된 부동산을 협의분할로 처리하려는 경우</li>
+                <li>상속인 중 1인이 단독으로 부동산을 소유하기로 합의한 경우</li>
+                <li>외국인 또는 재외국민이 상속인에 포함되어 있는 경우</li>
+                <li>이미 완료된 상속등기를 정정하는 절차가 궁금한 경우</li>
+                <li>경정등기 신청 시 필요한 서류와 절차를 알고 싶은 경우</li>
+                <li>이해관계인 처리에 대해 확인하고 싶은 경우</li>
+            </ul>
+        </section>
+
+        <!-- ========== 2. 핵심 요약 ========== -->
+        <section>
+            <div class="summary-box">
+                <h3 style="margin-top: 0; color: #2d4a7a;">핵심 요약</h3>
+                <p><strong>경정등기</strong>는 공동상속등기가 완료된 부동산을 상속인들의 협의분할에 따라 특정 1인이 단독 소유하도록 이미 완료된 등기의 일부 내용을 정정하는 등기입니다.</p>
+                <p>상속등기를 말소하고 새로 등기하는 것이 아니라, 등기부에 기재된 내용을 정정하므로 더욱 간편하고 비용 효율적입니다.</p>
+                <p><strong>외국인이나 재외국민이 포함된 경우</strong> 신분 확인 및 서명 인증 방식이 달라지므로, 국적·체류 자격·입국 여부에 따라 준비 서류를 달리해야 합니다.</p>
+            </div>
+        </section>
+
+        <!-- ========== 3. 개요 ========== -->
+        <section>
+            <h2>경정등기란?</h2>
+
+            <h3>공동상속등기 후 협의분할</h3>
+            <p>상속인이 2명 이상인 경우, 법정상속분에 따라 각 상속인이 공동으로 소유하는 등기(공동상속등기)가 먼저 완료됩니다. 이후 상속인들이 합의하여 특정 부동산을 1인이 단독으로 소유하기로 결정한 경우, 이를 반영하기 위해 이미 완료된 등기를 정정합니다.</p>
+
+            <dl class="definition-list">
+                <dt>경정등기의 의미</dt>
+                <dd>이미 완료된 등기의 일부 내용을 정정하는 등기로서, 상속등기를 말소하고 새로 등기하는 방식이 아닙니다. 공동상속의 등기사항을 협의분할 결과에 따라 수정하는 절차입니다.</dd>
+
+                <dt>법령 근거</dt>
+                <dd>
+                    <strong>등기예규 제1675호</strong> — 공동상속 후 협의분할에 의한 경정등기 처리 기준<br>
+                    <strong>등기예규 제1795호</strong> — 경정등기 관할에 관한 특례 규정<br>
+                    <strong>등기예규 제1835호 제25조</strong> — 이해관계인 처리
+                </dd>
+
+                <dt>경정등기의 장점</dt>
+                <dd>
+                    • 상속등기 말소 후 신규 등기보다 비용이 저렴<br>
+                    • 등기 절차가 간단하고 신속<br>
+                    • 등기부의 연속성 유지
+                </dd>
+            </dl>
+        </section>
+
+        <!-- ========== 4. 경정등기 절차 흐름도 ========== -->
+        <section>
+            <h2>경정등기 절차 흐름도</h2>
+
+            <div class="flow-diagram">
+                <div class="flow-step">공동상속<br/>등기 완료</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">상속재산<br/>분할협의</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">필요 서류<br/>준비</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">부동산<br/>관할청에<br/>신청</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">경정등기<br/>완료</div>
+            </div>
+
+            <h3>단계별 상세 절차</h3>
+            <ul class="steps">
+                <li>
+                    <strong>1단계: 상속재산 분할협의서 작성</strong>
+                    모든 상속인이 참여하여 누가 어느 부동산을 소유할 것인지 합의하고, 협의서를 작성합니다. 외국인·재외국민의 경우 국적별로 서명 인증 방식이 달라집니다.
+                </li>
+                <li>
+                    <strong>2단계: 필요 서류 수집</strong>
+                    신분증명, 주소증명, 인감증명서(또는 공증), 이해관계인 승낙서 등을 준비합니다. 외국인·재외국민의 경우 추가 서류가 필요할 수 있습니다.
+                </li>
+                <li>
+                    <strong>3단계: 경정등기 신청</strong>
+                    부동산 소재지 관할 등기소에 신청합니다. 대리인을 통해 신청할 수 있습니다.
+                </li>
+                <li>
+                    <strong>4단계: 등기 완료</strong>
+                    등기소에서 필요한 경우 추가 서류를 요청할 수 있으며, 모든 서류가 완비되면 경정등기가 완료됩니다.
+                </li>
+            </ul>
+        </section>
+
+        <!-- ========== 5. 이해관계인 처리 ========== -->
+        <section>
+            <h2>이해관계인 처리</h2>
+
+            <h3>이해관계인이란?</h3>
+            <p>등기사항의 변경으로 인하여 불이익을 받을 수 있는 자를 의미합니다. 부동산에 설정된 근저당권, 가압류권, 압류권 등의 소유자가 해당됩니다.</p>
+
+            <h3>이해관계인 승낙서의 필요 여부</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>상황</th>
+                        <th>승낙서 필요 여부</th>
+                        <th>비고</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>이해관계인이 없는 경우</td>
+                        <td>불필요</td>
+                        <td>부동산에 담보권이 설정되지 않은 경우</td>
+                    </tr>
+                    <tr>
+                        <td>이해관계인이 있는 경우</td>
+                        <td>필요</td>
+                        <td>근저당권자 등의 승낙서를 첨부해야 함</td>
+                    </tr>
+                    <tr>
+                        <td>이해관계인이 승낙을 거부하는 경우</td>
+                        <td>특별 절차 필요</td>
+                        <td>법원의 허가를 받거나 다른 방법 검토</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>외국인·재외국민 이해관계인 처리</h3>
+            <p>이해관계인이 외국인 또는 재외국민인 경우, 국적별·체류 여부별로 서명 인증 방식이 달라집니다.</p>
+            <ul style="margin-left: 20px; color: #666;">
+                <li><strong>국내 거주 외국인:</strong> 인감 날인 + 인감증명서 (대사관·영사관에서 발급)</li>
+                <li><strong>해외 거주 외국인:</strong> 재외공관 공증 또는 아포스티유</li>
+                <li><strong>재외국민:</strong> 국가·체류 지역에 따라 공증 또는 아포스티유</li>
+            </ul>
+        </section>
+
+        <!-- ========== 6. 첨부서류 ========== -->
+        <section>
+            <h2>첨부서류</h2>
+
+            <h3>국내 거주자 vs. 외국인·재외국민</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>서류</th>
+                        <th>국내 거주자</th>
+                        <th>해외 거주 외국인·재외국민</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>상속재산분할협의서</strong></td>
+                        <td>인감 날인 + 인감증명서</td>
+                        <td>재외공관 공증 또는 아포스티유</td>
+                    </tr>
+                    <tr>
+                        <td><strong>이해관계인 승낙서</strong></td>
+                        <td>인감 날인 + 인감증명서</td>
+                        <td>재외공관 공증 또는 아포스티유</td>
+                    </tr>
+                    <tr>
+                        <td><strong>신분증명</strong></td>
+                        <td>주민등록증 사본 또는 여권</td>
+                        <td>여권 사본 (공증 필요)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>주소증명</strong></td>
+                        <td>주민등록등본</td>
+                        <td>재외국민등록부 등본 또는 거주확인서</td>
+                    </tr>
+                    <tr>
+                        <td><strong>기타 서류</strong></td>
+                        <td>상속등기부 등본, 상속인 확인 서류</td>
+                        <td>상동</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>아포스티유와 공증</h3>
+            <p><strong>아포스티유(Apostille):</strong> 외국의 공문서가 국내에서 효력을 갖도록 하기 위한 국제 인증서입니다. 헤이그 협약 가입국의 문서에 필요합니다.</p>
+            <p><strong>공증(Notarization):</strong> 재외공관(대사관·영사관)에서 문서의 진정성을 증명하는 절차입니다. 헤이그 협약 비가입국의 문서나 추가 증명이 필요한 경우 사용됩니다.</p>
+
+            <div class="warning-box">
+                <strong>주의: 국가별 요구 서류 차이</strong>
+                <p>외국인·재외국민이 서명한 서류는 국가별로 요구되는 인증 방식이 다릅니다. 사전에 부동산 관할청 또는 법무사와 상담하여 정확한 서류를 준비해야 불필요한 재작성을 막을 수 있습니다.</p>
+            </div>
+        </section>
+
+        <!-- ========== 7. 이해관계인 승낙서 처리 ========== -->
+        <section>
+            <h2>이해관계인 승낙서 처리</h2>
+
+            <h3>승낙서의 역할</h3>
+            <p>경정등기 신청 시 이해관계인이 존재하면, 이해관계인의 승낙서를 첨부해야 합니다. 이는 등기 변경으로 인한 불이익을 감수한다는 의사를 표시하는 중요한 서류입니다.</p>
+
+            <h3>승낙서 작성 시 주의사항</h3>
+            <ul class="steps">
+                <li>
+                    <strong>정확한 이해관계인 파악</strong>
+                    근저당권자, 가압류권자, 압류권자 등 모든 이해관계인을 정확히 파악하여 각각의 승낙서를 받아야 합니다.
+                </li>
+                <li>
+                    <strong>서명 인증 방식 준수</strong>
+                    국내 거주자는 인감증명서, 외국인·재외국민은 재외공관 공증 또는 아포스티유를 받아야 합니다.
+                </li>
+                <li>
+                    <strong>부동산 특정</strong>
+                    승낙서에는 부동산의 정확한 소재지, 지목, 지번, 면적 등을 명확히 기재해야 합니다.
+                </li>
+                <li>
+                    <strong>서명 날짜</strong>
+                    경정등기 신청 직전에 서명하는 것이 좋으므로, 너무 오래전에 받은 승낙서는 다시 받는 것이 바람직합니다.
+                </li>
+            </ul>
+
+            <h3>승낙을 받을 수 없는 경우</h3>
+            <p>이해관계인이 승낙을 거부하거나 행방이 불명인 경우:</p>
+            <ul style="margin-left: 20px; color: #666;">
+                <li><strong>법원의 허가:</strong> 가정법원에 경정등기 허가 신청</li>
+                <li><strong>담보권 말소:</strong> 사전에 근저당권 등을 말소하고 경정등기 신청</li>
+                <li><strong>대금 지급:</strong> 이해관계인과 합의하여 대금을 지급하고 승낙 취득</li>
+            </ul>
+        </section>
+
+        <!-- ========== 8. 주의사항 ========== -->
+        <section>
+            <h2>주의사항</h2>
+
+            <div class="warning-box">
+                <strong>협의분할협의서의 효력</strong>
+                <p>상속재산분할협의는 모든 상속인의 서명과 인감증명이 필요합니다. 1인이라도 참여하지 않으면 협의 자체가 성립되지 않습니다.</p>
+            </div>
+
+            <div class="warning-box">
+                <strong>외국인·재외국민의 서명 인증</strong>
+                <p>국내 거주 외국인은 재외공관에서 인감증명서를 받아야 하며, 해외 거주 외국인이나 재외국민은 현지 재외공관에서 공증을 받거나 아포스티유를 첨부해야 합니다. 이를 잘못하면 등기소에서 반려될 수 있습니다.</p>
+            </div>
+
+            <div class="warning-box">
+                <strong>다른 상속인의 권리 침해 우려</strong>
+                <p>협의분할로 1인이 부동산을 단독 소유하게 되면, 다른 상속인들의 상속 지분이 사라집니다. 따라서 상속인들 간 충분한 협의 및 대금 정산이 이루어져야 분쟁이 생기지 않습니다.</p>
+            </div>
+
+            <div class="warning-box">
+                <strong>등기예규 변경 확인</strong>
+                <p>등기 관련 예규는 수시로 변경될 수 있습니다. 경정등기 신청 직전에 관할 등기소 또는 법무사와 최신 내용을 확인하시기 바랍니다.</p>
+            </div>
+
+            <div class="warning-box">
+                <strong>조세 문제</strong>
+                <p>협의분할로 인한 이전등기 시 증여세나 양도소득세 등 세금 문제가 발생할 수 있습니다. 세무사와 함께 검토하여 세금 최소화 방안을 모색하시기 바랍니다.</p>
+            </div>
+        </section>
+
+        <!-- ========== 9. 판례·예규 ========== -->
+        <section>
+            <h2>판례·예규</h2>
+
+            <div class="precedent-box">
+                <strong>등기예규 제1675호</strong>
+                <p><strong>제목:</strong> 공동상속 후 협의분할에 의한 경정등기</p>
+                <p><strong>내용:</strong> 공동상속인이 상속재산분할협의를 통해 특정 부동산을 1인이 단독으로 소유하기로 합의한 경우, 이미 완료된 공동상속등기를 정정하는 경정등기로 처리한다는 기준을 제시하고 있습니다.</p>
+            </div>
+
+            <div class="precedent-box">
+                <strong>등기예규 제1795호</strong>
+                <p><strong>제목:</strong> 경정등기 관할에 관한 특례</p>
+                <p><strong>내용:</strong> 경정등기는 원칙적으로 부동산 소재지의 관할 등기소에 신청하되, 특정 경우 다른 등기소에서도 신청할 수 있다는 특례 규정을 두고 있습니다.</p>
+            </div>
+
+            <div class="precedent-box">
+                <strong>등기예규 제1835호 제25조</strong>
+                <p><strong>제목:</strong> 이해관계인의 승낙</p>
+                <p><strong>내용:</strong> 부동산에 설정된 담보권자 등 이해관계인의 승낙서를 첨부해야 경정등기가 가능하다는 절차 기준을 정하고 있습니다.</p>
+            </div>
+
+            <div class="precedent-box">
+                <strong>대법원 판례 — 상속재산분할협의의 성립 요건</strong>
+                <p><strong>핵심:</strong> 상속재산분할협의는 모든 상속인이 참여하여 합의한 경우에만 효력이 발생합니다. 일부 상속인을 제외한 협의는 무효입니다.</p>
+            </div>
+        </section>
+
+        <!-- ========== 10. 다음으로 확인할 내용 ========== -->
+        <section>
+            <h2>다음으로 확인할 내용</h2>
+            <div class="related-links">
+                <ul>
+                    <li>
+                        <a href="외등_23_변경경정.html">외등_23: 외국인·재외국민 등기부 변경·경정등기</a>
+                        <p style="margin: 5px 0 0 0; font-size: 14px; color: #999;">변경등기와 경정등기의 차이, 절차별 요구 서류를 상세히 설명합니다.</p>
+                    </li>
+                    <li>
+                        <a href="외등_10_외국인협의분할.html">외등_10: 외국인이 포함된 상속재산 협의분할</a>
+                        <p style="margin: 5px 0 0 0; font-size: 14px; color: #999;">외국인 상속인이 포함된 상속재산 협의분할의 전체 절차를 안내합니다.</p>
+                    </li>
+                    <li>
+                        <a href="외등_20_재외국민협의분할.html">외등_20: 재외국민이 포함된 상속재산 협의분할</a>
+                        <p style="margin: 5px 0 0 0; font-size: 14px; color: #999;">재외국민 상속인이 포함된 상속재산 협의분할의 전체 절차를 안내합니다.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ========== 11. 상담 CTA ========== -->
+        <section>
+            <div class="cta-box">
+                <p>이 내용이 해당되시나요?</p>
+                <p>외국인·재외국민 등기는 국적·체류 자격·입국 여부에 따라 준비 서류가 달라집니다.</p>
+                <p style="margin-top: 20px; font-weight: 700;">첫 상담은 무료입니다.</p>
+                <a href="#contact" class="cta-button">무료 상담 신청하기</a>
+            </div>
+        </section>
+
+        <!-- ========== 면책 문구 ========== -->
+        <footer class="disclaimer">
+            <strong>면책 문구</strong><br>
+            본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 개별 사안에 대한 법률 조언이 아닙니다.
+            이 페이지는 2025년 현행 법령 기준으로 작성되었습니다.
+            법령 개정, 판례 변화, 실무 관행의 변경 등으로 인해 내용이 달라질 수 있으므로,
+            구체적인 사안에 대해서는 반드시 법무사·변호사 등 전문가와 상담하시기 바랍니다.
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>소가(소송목적의 값)는 어떻게 정하나요? — 소가 산정 방법</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#1a2e4a; --gold:#c8a96e; --ivory:#faf8f5; --ink:#2b2b2b; --muted:#5b5b5b;}
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--ivory); color:var(--ink);
+    font-family:'Noto Sans KR',sans-serif; line-height:1.75; font-size:16px;}
+  .wrap{max-width:820px; margin:0 auto; padding:0 20px 80px;}
+  h1,h2,h3{font-family:'Noto Serif KR',serif; color:var(--navy); line-height:1.4;}
+
+  header.hero{background:linear-gradient(135deg,#1a2e4a 0%,#27406a 100%);
+    color:#fff; padding:54px 20px 46px; text-align:center; border-bottom:4px solid var(--gold);}
+  header.hero .kicker{display:inline-block; letter-spacing:.18em; font-size:.78rem;
+    color:var(--gold); font-weight:700; margin-bottom:14px;}
+  header.hero h1{color:#fff; font-size:1.9rem; margin:0 0 14px;}
+  header.hero p{margin:0 auto; max-width:620px; color:#dbe3ef; font-size:1.02rem;}
+
+  section{margin-top:46px;}
+  h2.sec{font-size:1.4rem; margin:0 0 18px; padding-bottom:10px;
+    border-bottom:2px solid var(--gold); display:flex; align-items:center; gap:10px;}
+  h2.sec .num{background:var(--navy); color:#fff; font-family:'Noto Sans KR';
+    font-size:.92rem; width:30px; height:30px; border-radius:50%;
+    display:inline-flex; align-items:center; justify-content:center; flex:0 0 auto;}
+  h3{font-size:1.12rem; margin:26px 0 8px;}
+  p{margin:10px 0;}
+
+  .summary{background:#eef2f8; border-left:5px solid #2d4a7a;
+    padding:16px 20px; border-radius:6px; margin:14px 0 6px;}
+  .summary strong{color:#2d4a7a;}
+
+  .checklist{background:#fff; border:1px solid #e3ddd2; border-radius:10px;
+    padding:22px 26px; box-shadow:0 2px 8px rgba(26,46,74,.05);}
+  .checklist li{list-style:none; padding:9px 0 9px 34px; position:relative; border-bottom:1px dashed #ece7dd;}
+  .checklist li:last-child{border-bottom:none;}
+  .checklist li::before{content:"✓"; position:absolute; left:0; top:8px; color:var(--gold); font-weight:700; font-size:1.1rem;}
+
+  /* 원칙 카드 */
+  .principle{background:#fff; border:1px solid #e3ddd2; border-left:4px solid var(--gold);
+    border-radius:8px; padding:16px 20px; margin:12px 0;}
+  .principle h3{margin:0 0 4px; font-size:1.06rem;}
+  .principle .lead{display:inline-block; background:var(--navy); color:#fff; font-size:.78rem;
+    font-weight:700; padding:2px 10px; border-radius:12px; margin-bottom:6px;}
+
+  .tablebox{overflow-x:auto; margin:16px 0;}
+  table{border-collapse:collapse; width:100%; background:#fff; font-size:.95rem;}
+  th,td{border:1px solid #d9d3c7; padding:11px 13px; text-align:left; vertical-align:top;}
+  th{background:var(--navy); color:#fff; font-weight:500;}
+  tbody tr:nth-child(even){background:#f6f3ee;}
+  td.val{white-space:nowrap; font-weight:500; color:#2d4a7a;}
+  .frac{color:#c05000; font-weight:700;}
+
+  /* Q&A — 질문과 답변 항상 표시 */
+  .qa{background:#fff; border:1px solid #e3ddd2; border-radius:10px; padding:8px 24px; margin-top:8px;}
+  .qa-item{padding:18px 0; border-bottom:1px solid #ece7dd;}
+  .qa-item:last-child{border-bottom:none;}
+  .qa .q,.qa .a{position:relative; padding-left:36px; margin:0;}
+  .qa .q{font-weight:500; color:var(--navy); font-size:1.05rem;}
+  .qa .a{margin-top:10px; color:#3a3a3a;}
+  .qa .q::before,.qa .a::before{position:absolute; left:0; top:2px; width:25px; height:25px;
+    border-radius:6px; font-size:.8rem; font-weight:700; color:#fff;
+    display:inline-flex; align-items:center; justify-content:center;}
+  .qa .q::before{content:"Q"; background:var(--gold);}
+  .qa .a::before{content:"A"; background:var(--navy);}
+
+  .box{border-radius:8px; padding:16px 20px; margin:14px 0;}
+  .box-case{background:#f7f4f0; border:1px solid #6b7280; border-left:5px solid #6b7280;}
+  .box-warn{background:#fff3e8; border:1px solid #c05000; border-left:5px solid #c05000;}
+  .box-warn2{background:#f4f7fb; border:1px solid #2d4a7a; border-left:5px solid #2d4a7a;}
+  .box-ex{background:#f0f8f0; border:1px solid #1a5c2e; border-left:5px solid #1a5c2e;}
+  .box h3{margin-top:0;}
+  .deadline{color:#c05000; font-weight:700;}
+
+  .ref-tags{margin-top:8px; display:flex; flex-wrap:wrap; gap:6px;}
+  .tag-law{display:inline-block; padding:3px 10px; border-radius:12px; font-size:.78rem;
+    font-weight:600; text-decoration:none; background:#eef2f8; color:#2d4a7a; border:1px solid #2d4a7a; transition:background .2s;}
+  .tag-law:hover{background:#dce6f5;}
+  .tag-case{display:inline-block; padding:3px 10px; border-radius:12px; font-size:.78rem;
+    font-weight:600; text-decoration:none; background:#f7f4f0; color:#5a3e28; border:1px solid #6b7280; transition:background .2s;}
+  .tag-case:hover{background:#ede8e2;}
+
+  .next a{display:block; background:#fff; border:1px solid #e3ddd2; border-left:4px solid var(--gold);
+    border-radius:8px; padding:14px 18px; margin:10px 0; text-decoration:none; color:var(--navy); font-weight:500;}
+  .next a:hover{background:#fcf8f1;}
+  .next a span{display:block; color:var(--muted); font-weight:400; font-size:.9rem; margin-top:3px;}
+
+  .cta{background:#fdf6e9; border:2px solid var(--gold); border-radius:14px;
+    padding:34px 28px; text-align:center; margin-top:54px;}
+  .cta h2{font-size:1.5rem; margin:0 0 10px; border:none;}
+  .cta p{color:#5a4a2e; max-width:540px; margin:8px auto;}
+  .cta .btns{margin-top:22px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;}
+  .btn{display:inline-block; padding:14px 30px; border-radius:30px; font-weight:700; text-decoration:none; font-size:1.02rem;}
+  .btn-call{background:var(--navy); color:#fff;}
+  .btn-kakao{background:#fae100; color:#3a1d1d;}
+  .btn:hover{opacity:.9;}
+
+  .disclaimer{margin-top:40px; padding:20px; background:#f1ede6; border-radius:8px;
+    font-size:.84rem; color:#6b6b6b; line-height:1.7;}
+
+  @media(max-width:560px){header.hero h1{font-size:1.5rem;} h2.sec{font-size:1.2rem;}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <span class="kicker">민사소송 — 접수사무 · 소가</span>
+  <h1>소가(소송목적의 값)는<br>어떻게 정하나요?</h1>
+  <p>소가는 인지액(수수료)과 어느 법원(단독·합의부)이 맡을지를 동시에 정하는 기준입니다.
+     소의 종류마다 계산법이 다르고, 여러 청구가 있으면 합산·흡수·불산입의 원칙이 적용됩니다.</p>
+</header>
+
+<div class="wrap">
+
+  <!-- 1 -->
+  <section>
+    <h2 class="sec"><span class="num">1</span>이런 분께 필요합니다</h2>
+    <ul class="checklist">
+      <li>소송을 준비 중인데, 인지대를 정하는 "소가"를 어떻게 계산하는지 모르겠습니다.</li>
+      <li>내 사건이 단독판사 사건인지 합의부 사건인지 가늠해 보고 싶습니다.</li>
+      <li>한 소장에 여러 청구를 넣을 때 금액을 더하는지, 큰 것 하나만 보는지 궁금합니다.</li>
+      <li>부동산 인도·등기말소 소송의 소가가 시가 전부인지, 일부인지 헷갈립니다.</li>
+      <li>이자·지연손해금도 소가에 포함되는지 확인하고 싶습니다.</li>
+      <li>금액을 매기기 어려운 사건(신분·단체 관계 등)은 어떻게 되는지 알고 싶습니다.</li>
+    </ul>
+  </section>
+
+  <!-- 2 -->
+  <section>
+    <h2 class="sec"><span class="num">2</span>핵심부터 정리하면</h2>
+    <div class="summary">
+      <strong>소가(소송목적의 값)</strong>란, 원고가 청구취지로 구하는 범위에서 <strong>전부 승소했을 때 직접 받게 될
+      경제적 이익</strong>을 객관적으로 평가해 금액으로 정한 것입니다. 이 값으로 ① 인지액(수수료)과
+      ② 사물관할(단독·합의부)이 함께 정해집니다.
+    </div>
+    <p>몇 가지 기본 전제를 먼저 짚으면 다음과 같습니다.</p>
+    <div class="tablebox">
+      <table>
+        <thead><tr><th style="width:30%">기준</th><th>내용</th></tr></thead>
+        <tbody>
+          <tr><td><strong>누구 기준</strong></td><td>원고가 전부 승소할 경우의 이익 — 피고 사정이나 사건 난이도는 고려하지 않음</td></tr>
+          <tr><td><strong>언제 기준</strong></td><td>소를 제기한 때 — 이후 시세 변동·가치 손상이 있어도 영향 없음</td></tr>
+          <tr><td><strong>무엇을 반영</strong></td><td>직접적·객관적 이익만 — 주관적 가치나 간접·반사적 이익은 제외</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="ref-tags">
+      <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=252393&joNo=002600" target="_blank" class="tag-law">📋 민사소송법 제26조</a>
+      <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=252393&joNo=002700" target="_blank" class="tag-law">📋 민사소송법 제27조</a>
+      <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=252393&joNo=003300" target="_blank" class="tag-law">📋 민사소송법 제33조</a>
+    </div>
+    <p style="font-size:.86rem; color:#777;">※ 세부 계산기준은 「민사소송 등 인지법」과 「민사소송 등 인지규칙」에서 정합니다.</p>
+  </section>
+
+  <!-- 3 -->
+  <section>
+    <h2 class="sec"><span class="num">3</span>자세히 살펴보기</h2>
+
+    <h3>① 여러 청구가 함께 있을 때 — 3가지 원칙</h3>
+    <div class="summary">
+      한 소장에 여러 청구를 담으면, 청구들의 경제적 이익이 <strong>별개인지(합산)</strong>,
+      <strong>겹치는지(흡수)</strong>, <strong>딸린 것인지(불산입)</strong>에 따라 소가가 달라집니다.
+    </div>
+
+    <div class="principle">
+      <span class="lead">합산</span>
+      <h3>이익이 서로 별개이면 더한다</h3>
+      <p>여러 청구의 경제적 이익이 독립한 별개의 것이면 그 값을 모두 합하여 소가를 정합니다.
+      주관적 병합(여러 당사자)이든 객관적 병합(여러 청구)이든 같습니다.</p>
+    </div>
+    <div class="principle">
+      <span class="lead">흡수</span>
+      <h3>이익이 같거나 겹치면 가장 큰 것 하나로</h3>
+      <p>청구들의 경제적 이익이 동일하거나 중복되면, 겹치는 범위에서 흡수되어 <strong>가장 큰 청구 하나의 값</strong>이
+      소가가 됩니다. 선택적·예비적 병합, 본래청구와 대상청구의 병합, 연대채무자나 주채무자·보증인을 함께 상대하는 경우,
+      같은 부동산의 이전등기와 근저당권설정등기 말소를 함께 구하는 경우 등이 해당합니다.</p>
+    </div>
+    <div class="principle">
+      <span class="lead">불산입</span>
+      <h3>딸린 청구·수단 청구는 넣지 않는다</h3>
+      <p><strong>부대청구</strong>(이자·지연손해금·과실·위약금·비용 등이 주된 청구에 딸린 경우)는 소가에 넣지 않습니다.
+      다만 이것만 독립해 청구하면 그 자체가 소가가 됩니다. <strong>수단청구</strong>(한 청구가 다른 청구의 수단에 불과한 경우)도
+      넣지 않으나, 수단청구의 값이 주된 청구보다 크면 그 큰 값으로 합니다.</p>
+    </div>
+    <div class="ref-tags">
+      <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=252393&joNo=002700" target="_blank" class="tag-law">📋 민사소송법 제27조</a>
+    </div>
+
+    <h3>② 소의 종류별 소가 기준</h3>
+    <div class="summary">소의 성격에 따라 "권리 가액 전부"인지 "가액의 일부(1/2·1/3)"인지가 정해져 있습니다.</div>
+    <div class="tablebox">
+      <table>
+        <thead><tr><th style="width:58%">소의 종류</th><th>소가</th></tr></thead>
+        <tbody>
+          <tr><td>확인의 소(소극적 확인 포함)</td><td class="val">권리의 가액</td></tr>
+          <tr><td>금전지급청구</td><td class="val">청구금액</td></tr>
+          <tr><td>기간이 확정되지 않은 정기금 청구</td><td class="val">기발생분 + 1년분 합산액</td></tr>
+          <tr><td>물건 인도·방해예방 — 소유권에 기한 경우</td><td class="val">목적물 가액의 <span class="frac">1/2</span></td></tr>
+          <tr><td>〃 지상권·전세권·임차권·담보물권에 기한 경우</td><td class="val">목적물 가액의 <span class="frac">1/2</span></td></tr>
+          <tr><td>〃 점유권에 기한 경우</td><td class="val">목적물 가액의 <span class="frac">1/3</span></td></tr>
+          <tr><td>〃 소유권 이전을 목적으로 하는 계약에 기한 경우</td><td class="val">목적물 가액 전부</td></tr>
+          <tr><td>공유물분할청구</td><td class="val">목적물 가액 × 원고 지분비율 × <span class="frac">1/3</span></td></tr>
+          <tr><td>경계확정의 소</td><td class="val">다툼 있는 토지부분 가액</td></tr>
+          <tr><td>사해행위취소</td><td class="val">취소되는 법률행위 목적의 가액을 한도로 한 원고의 채권액</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:.86rem; color:#777;">※ 민사소송 등 인지규칙 제12조 기준.</p>
+
+    <h3>③ 등기·등록 청구의 소가 기준</h3>
+    <div class="tablebox">
+      <table>
+        <thead><tr><th style="width:58%">소의 종류</th><th>소가</th></tr></thead>
+        <tbody>
+          <tr><td>소유권이전등기</td><td class="val">목적물 가액</td></tr>
+          <tr><td>제한물권(지상권·임차권) 설정·이전등기</td><td class="val">목적물 가액의 <span class="frac">1/2</span></td></tr>
+          <tr><td>담보물권·전세권 설정·이전등기</td><td class="val">목적물 가액 한도의 피담보채권액(근저당은 채권최고액)</td></tr>
+          <tr><td>말소·말소회복 — 계약 해지·해제에 기한 경우</td><td class="val">목적물 가액</td></tr>
+          <tr><td>〃 등기원인의 무효·취소에 기한 경우</td><td class="val">목적물 가액의 <span class="frac">1/2</span></td></tr>
+          <tr><td>등기 인수를 구하는 소</td><td class="val">목적물 가액의 <span class="frac">1/10</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:.86rem; color:#777;">※ 민사소송 등 인지규칙 제13조 기준. 진정명의회복을 원인으로 한 소유권이전등기청구는 목적물 가액(소유권이전등기)에 따릅니다.</p>
+
+    <h3>④ "목적물 가액"은 무엇으로 정하나</h3>
+    <p>위 표의 "목적물 가액"을 정하려면 기초 자료가 필요합니다. 특히 부동산은 개별공시지가나 시가표준액을 기준으로 하므로,
+    소장에 <strong>토지대장등본·공시지가확인원·건축물대장등본</strong> 등 소가 산정 자료를 함께 첨부해야 합니다.</p>
+
+    <div class="box box-ex">
+      <h3>금액을 매기기 어려운 사건은?</h3>
+      <p>재산권상의 소이지만 가액을 산출할 수 없는 것과, 비재산권을 목적으로 하는 소송(신분·인격권, 단체관계 등)은
+      소가를 <strong>5,000만 원</strong>으로 봅니다. 다만 회사 등 관계소송·단체소송·특허소송·무체재산권 소송은
+      <strong>1억 원</strong>으로 봅니다. "계산이 어렵다"는 이유만으로 무조건 5,000만 원으로 처리하지는 않고,
+      법원이 자료를 조사해 가액을 인정할 수 있습니다.</p>
+    </div>
+  </section>
+
+  <!-- 4 Q&A -->
+  <section>
+    <h2 class="sec"><span class="num">4</span>자주 하는 질문</h2>
+    <div class="qa">
+      <div class="qa-item">
+        <p class="q">소가는 결국 무엇을 기준으로 정하나요?</p>
+        <p class="a">원고가 청구취지로 구하는 범위에서 전부 승소했을 때 직접 받게 될 경제적 이익을 객관적으로 평가한 금액입니다.
+          피고의 형편이나 사건의 어려움, 원고가 그 물건에 두는 주관적 애착 같은 것은 반영하지 않습니다.</p>
+      </div>
+      <div class="qa-item">
+        <p class="q">한 소장에 여러 청구를 넣으면 금액을 다 더하나요?</p>
+        <p class="a">청구들의 경제적 이익이 서로 별개이면 합산합니다. 그러나 이익이 같거나 겹치면(예: 선택적·예비적 병합, 연대채무자
+          여럿) 가장 큰 청구 하나의 값으로 흡수됩니다. 이자·지연손해금 같은 딸린 청구는 아예 넣지 않습니다.</p>
+      </div>
+      <div class="qa-item">
+        <p class="q">건물을 비워달라(인도)는 소송의 소가는 건물 시가 전부인가요?</p>
+        <p class="a">아닙니다. 소유권에 기한 물건 인도 청구는 목적물 가액의 1/2이 소가입니다. 점유권에 기한 경우는 1/3입니다.
+          반면 소유권 이전을 목적으로 하는 계약(매매 등)에 기한 청구는 목적물 가액 전부가 소가입니다.</p>
+      </div>
+      <div class="qa-item">
+        <p class="q">이자나 지연손해금도 소가에 포함되나요?</p>
+        <p class="a">원금 청구에 딸린 이자·지연손해금은 부대청구로 보아 소가에 넣지 않습니다. 다만 이자·지연손해금만 따로 독립해
+          청구하는 경우에는 그 청구금액 자체가 소가가 됩니다.</p>
+      </div>
+      <div class="qa-item">
+        <p class="q">등기말소 소송의 소가는 어떻게 되나요?</p>
+        <p class="a">말소 사유에 따라 다릅니다. 계약의 해지·해제에 기한 말소는 목적물 가액, 등기원인의 무효·취소에 기한 말소는
+          목적물 가액의 1/2입니다. 같은 부동산의 이전등기와 근저당권설정등기 말소를 함께 구하면 흡수되어 가장 큰 청구 하나로
+          계산합니다.</p>
+      </div>
+      <div class="qa-item">
+        <p class="q">금액으로 환산하기 어려운 사건은 소가가 없는 건가요?</p>
+        <p class="a">그렇지 않습니다. 가액을 산출할 수 없는 재산권상의 소와 비재산권 소송은 5,000만 원으로 봅니다.
+          회사관계·단체·특허·무체재산권 소송은 1억 원으로 봅니다. 인지액과 관할을 정하려면 어떤 사건이든 소가가 필요하기 때문입니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 판례 -->
+  <section>
+    <h2 class="sec"><span class="num">5</span>참고가 되는 대법원 판단</h2>
+    <div class="box box-case">
+      <h3>여러 등기 말소를 함께 구하면 흡수된다</h3>
+      <p>소유권보존등기, 근저당권설정등기, 소유권이전등기의 각 말소를 한 소로 구하는 경우, 여러 청구의 경제적 이익이
+      동일·중복되는 때에 해당하므로 흡수되어 가장 큰 청구 하나의 가액이 소가가 된다고 보았습니다.</p>
+      <div class="ref-tags">
+        <a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=98마938" target="_blank" class="tag-case">⚖️ 대법원 98마938</a>
+      </div>
+    </div>
+    <div class="box box-case">
+      <h3>해고무효확인 + 임금지급을 함께 구하면 다액 기준</h3>
+      <p>비재산권 소송(해고무효확인)과 그 원인된 사실에서 생기는 재산권 소송(임금지급)을 한 소로 병합한 경우에는
+      둘 중 다액인 소송목적의 값을 기준으로 인지를 붙인다고 보았습니다.</p>
+      <div class="ref-tags">
+        <a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=94마1390" target="_blank" class="tag-case">⚖️ 대법원 94마1390</a>
+      </div>
+    </div>
+    <div class="box box-case">
+      <h3>지연손해금 일부에 대한 항소는 독립한 소송물</h3>
+      <p>판결 중 지연손해금의 일부에 대해서만 항소한 경우, 이를 독립된 소송물로 보아 그에 따라 인지를 계산해야 한다고
+      보았습니다.</p>
+      <div class="ref-tags">
+        <a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=62라11" target="_blank" class="tag-case">⚖️ 대법원 62라11</a>
+      </div>
+    </div>
+    <p style="font-size:.86rem; color:#777; margin-top:14px;">※ 위 판례는 일반적 이해를 돕기 위한 요약이며, 구체적 사건의 결론은 사실관계에 따라 달라질 수 있습니다.</p>
+  </section>
+
+  <!-- 6 주의 -->
+  <section>
+    <h2 class="sec"><span class="num">6</span>꼭 주의하세요</h2>
+    <div class="box box-warn">
+      <h3>① 소가 계산이 틀리면 보정명령을 받습니다</h3>
+      <p>소가를 잘못 산정해 인지가 부족하면 보정명령이 내려지고, <span class="deadline">⚡ 정해진 기간 내에 보정하지 않으면
+      소장이 각하</span>될 수 있습니다. 소장에 소가 산정 자료를 빠짐없이 첨부하세요.</p>
+    </div>
+    <div class="box box-warn">
+      <h3>② 소가는 관할까지 좌우합니다</h3>
+      <p>소가가 5억 원을 넘으면 합의부, 그 이하면 단독판사 사건입니다. 잘못 계산하면 엉뚱한 법원에 내어 이송으로
+      시간을 허비할 수 있습니다.</p>
+    </div>
+    <div class="box box-warn2">
+      <h3>③ "계산이 어렵다"고 무조건 5,000만 원은 아닙니다</h3>
+      <p>가액 산출이 곤란해 보여도 법원은 자료를 조사해 실제 가액을 인정할 수 있습니다. 간주 규정(5,000만 원·1억 원)은
+      제한적으로 적용되므로, 처음부터 근거 자료로 정확히 산정하는 것이 안전합니다.</p>
+    </div>
+  </section>
+
+  <!-- 7 다음 -->
+  <section>
+    <h2 class="sec"><span class="num">7</span>다음에 확인하면 좋은 내용</h2>
+    <div class="next">
+      <a href="관할-어느법원에소송을내야하나.html">소송, 어느 법원에 내야 하나요? — 관할 안내<span>소가는 단독·합의부 관할을 정하는 기준입니다.</span></a>
+      <a href="소장작성과서류제출-필요한사항.html">소장 작성과 서류 제출 — 필요한 사항<span>소가 산정 자료도 소장에 함께 첨부합니다.</span></a>
+      <a href="소송비용.html">소송비용 — 누가 얼마나 부담하나요?<span>소가는 인지액·변호사보수 산입의 기준입니다.</span></a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h2>소가 계산, 직접 하기 막막하신가요?</h2>
+    <p>이 내용이 해당되시나요? 첫 상담은 무료입니다.</p>
+    <p>사건별 소가 산정, 인지액 계산, 부동산 가액 자료 준비까지 직접 처리하기 어려운 부분을 법무사가 도와드립니다.</p>
+    <div class="btns">
+      <a href="[전화번호 입력]" class="btn btn-call">📞 전화 상담</a>
+      <a href="[카카오톡 채널 링크 입력]" class="btn btn-kakao">💬 카카오톡 상담</a>
+    </div>
+  </div>
+
+  <!-- 면책 -->
+  <div class="disclaimer">
+    본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 개별 사건에 대한 법률 자문이나 그 결과를 보장하지 않습니다.
+    구체적인 사건은 사실관계에 따라 결론이 달라질 수 있으므로 반드시 전문가와 상담하시기 바랍니다.
+    이 페이지는 2025년 현행 법령을 기준으로 작성되었습니다.
+  </div>
+
+</div>
+</body>
+</html>

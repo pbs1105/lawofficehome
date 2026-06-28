@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[내부용] 상소(항소·상고·항고·재심) — 법무사 실무 어드민</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1a2e4a;--gold:#c8a96e;--ivory:#faf8f5;--ink:#2b2b2b;--muted:#5b5b5b;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--ivory);color:var(--ink);font-family:'Noto Sans KR',sans-serif;line-height:1.75;font-size:15px;padding-top:44px;}
+.top-bar{position:fixed;top:0;left:0;right:0;background:#2d2d2d;color:#fff;text-align:center;font-size:.82rem;font-weight:700;letter-spacing:.08em;padding:10px 16px;z-index:999;}
+.wrap{max-width:900px;margin:0 auto;padding:28px 20px 100px;}
+h1,h2,h3,h4{font-family:'Noto Serif KR',serif;color:var(--navy);line-height:1.4;}
+h1{font-size:1.7rem;margin-bottom:6px;}
+h3{font-size:1.08rem;margin:20px 0 6px;}
+h4{font-size:.98rem;margin:14px 0 4px;color:#2d4a7a;}
+p{margin:8px 0;}
+ul,ol{padding-left:1.4em;margin:8px 0;}
+li{margin:4px 0;}
+
+/* 업무요약 헤더 */
+.summary-header{background:var(--navy);color:#fff;border-radius:10px;padding:22px 26px;margin-bottom:24px;}
+.summary-header h1{color:#fff;}
+.summary-header .sub{color:#c8c8c8;font-size:.88rem;margin-top:4px;}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+.badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:4px 14px;font-size:.8rem;font-weight:600;}
+.badge.gold{background:#c8a96e;color:#2b1a00;border-color:#c8a96e;}
+
+/* 섹션 */
+section{margin-top:32px;}
+h2.sec{font-size:1.25rem;padding-bottom:8px;border-bottom:2px solid var(--gold);display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+h2.sec .num{background:var(--navy);color:#fff;font-family:'Noto Sans KR';font-size:.85rem;width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;}
+
+/* 박스들 */
+.box{border-radius:8px;padding:16px 20px;margin:12px 0;}
+.box-scope{background:#fff3e8;border:2px solid #c05000;border-left:6px solid #c05000;}
+.box-issue{background:#f4f7fb;border:1px solid #2d4a7a;border-left:5px solid #2d4a7a;}
+.box-flow{background:#eef2f8;border:1px solid #2d4a7a;border-left:5px solid #2d4a7a;}
+.box-tip{background:#f0f8f0;border:1px solid #1a5c2e;border-left:5px solid #1a5c2e;}
+.box-memo{background:#fffdf5;border:2px dashed #c8a96e;border-radius:8px;padding:14px 18px;margin:12px 0;}
+.box-trap{background:#fff3e8;border:1px solid #c05000;border-left:5px solid #c05000;}
+.box h3{margin-top:0;font-size:1rem;}
+
+/* 표 */
+.tablebox{overflow-x:auto;margin:12px 0;}
+table{border-collapse:collapse;width:100%;background:#fff;font-size:.9rem;}
+th,td{border:1px solid #d9d3c7;padding:9px 12px;text-align:left;vertical-align:top;}
+th{background:var(--navy);color:#fff;font-weight:500;}
+tbody tr:nth-child(even){background:#f6f3ee;}
+td.val{font-weight:600;color:#2d4a7a;}
+td.warn{color:#c05000;font-weight:600;}
+td.ok{color:#1a5c2e;font-weight:600;}
+
+/* 절차 단계 */
+.steps{counter-reset:step;margin:12px 0;}
+.step{background:#fff;border:1px solid #e3ddd2;border-left:4px solid var(--gold);border-radius:8px;padding:14px 18px 14px 54px;position:relative;margin:10px 0;}
+.step::before{counter-increment:step;content:counter(step);position:absolute;left:14px;top:14px;width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;font-size:.88rem;display:flex;align-items:center;justify-content:center;}
+.step h4{margin:0 0 4px;}
+
+/* 법령 태그 */
+.ref-tags{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0;}
+.tag-law{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.76rem;font-weight:600;text-decoration:none;background:#eef2f8;color:#2d4a7a;border:1px solid #2d4a7a;}
+.tag-law:hover{background:#dce6f5;}
+.tag-case{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.76rem;font-weight:600;text-decoration:none;background:#f7f4f0;color:#5a3e28;border:1px solid #6b7280;}
+.tag-check{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.74rem;font-weight:700;}
+.tag-ok{background:#e6f4ea;color:#1a5c2e;border:1px solid #1a5c2e;}
+.tag-warn{background:#fff3e8;color:#c05000;border:1px solid #c05000;}
+
+/* 체크리스트 */
+.checklist{list-style:none;padding:0;}
+.checklist li{padding:6px 0 6px 28px;position:relative;border-bottom:1px dashed #ece7dd;}
+.checklist li:last-child{border-bottom:none;}
+.checklist li::before{content:"☐";position:absolute;left:0;top:6px;color:var(--gold);font-size:1.1rem;}
+
+/* 최하단 메타 */
+.footer-meta{margin-top:48px;border-top:2px solid #e3ddd2;padding-top:20px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
+.footer-meta .col{background:#fff;border:1px solid #e3ddd2;border-radius:8px;padding:14px 16px;}
+.footer-meta label{display:block;font-size:.76rem;color:var(--muted);font-weight:600;margin-bottom:4px;}
+.footer-meta .val{font-size:.88rem;color:var(--ink);}
+
+@media(max-width:600px){.footer-meta{grid-template-columns:1fr;}.badges{gap:6px;}}
+</style>
+</head>
+<body>
+
+<div class="top-bar">🔒 내부용 · 대외 배포 금지 — 법무사 사무소 전용</div>
+
+<div class="wrap">
+
+<!-- 업무요약 헤더 -->
+<div class="summary-header">
+  <h1>상소 (항소 · 상고 · 항고 · 재심)</h1>
+  <div class="sub">민사소송법 제390조 이하 / 법무사 업무: 항소장·상고장·항소이유서·재심소장 작성·제출 대행</div>
+  <div class="badges">
+    <span class="badge">사건유형: 불복신청 절차</span>
+    <span class="badge">관할: 항소장→제1심법원 제출, 항소심→고등법원 또는 지법합의부</span>
+    <span class="badge">근거법령: 민사소송법 제390~제460조</span>
+    <span class="badge">당사자: 항소인/피항소인, 상고인/피상고인</span>
+    <span class="badge gold">핵심기간: 항소·상고 2주 / 즉시항고 1주 (불변기간)</span>
+  </div>
+</div>
+
+<!-- 섹션 0: 업무범위·수임 판단 -->
+<section>
+  <h2 class="sec"><span class="num">0</span>⚠️ 법무사 업무범위 · 수임 판단</h2>
+  <div class="box box-scope">
+    <h3>업무범위 한계</h3>
+    <ul>
+      <li><strong>가능:</strong> 항소장·상고장·항소이유서·상고이유서·재심소장 작성 및 제출 대행, 항고장 작성, 인지·송달료 계산 및 납부 대행</li>
+      <li><strong>불가(변호사법 위반):</strong> 상소 여부에 대한 법률적 조언, 상소이유의 법리적 판단·평가, 상소심 변론 대리, 소송전략 수립</li>
+    </ul>
+    <h3 style="margin-top:14px;">수임 판단 포인트</h3>
+    <ul>
+      <li>항소기간 잔존 여부 확인 (판결정본 수령일 + 14일 = 마감일) — <strong>기간 확인 없이 절대 수임 금지</strong></li>
+      <li>항소이유서 기간: 항소기록 접수통지 수령일 + 40일 이내</li>
+      <li>상고이유서 기간: 소송기록 접수통지 수령일 + 20일 이내</li>
+      <li>의뢰인이 법리적 판단·평가를 요구하면 정중히 거절하고 변호사 연결</li>
+    </ul>
+    <h3 style="margin-top:14px;">받지 말아야 할 신호 체크리스트</h3>
+    <ul class="checklist">
+      <li>"이기 기 가능성이 얼마나 돼요?" 등 승패 예측 요구</li>
+      <li>"어떤 주장을 해야 이길 수 있나요?" 등 법리 전략 요구</li>
+      <li>항소기간이 이미 도과한 경우 (추후보완 요건 해당 여부는 변호사가 판단)</li>
+      <li>심리불속행 기각 우려가 있는 상고 사건에서 무조건 진행 압박</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 섹션 1: 핵심쟁점 -->
+<section>
+  <h2 class="sec"><span class="num">1</span>핵심쟁점</h2>
+  <div class="box box-issue">
+    <h3>실체적 쟁점</h3>
+    <ul>
+      <li><strong>항소의 이익(불이익 여부):</strong> 판결 주문을 기준으로 판단 — 전부 승소한 원고·청구기각 피고는 원칙적으로 항소 불가 (대법원 2020다207765)</li>
+      <li><strong>상고이유 제한:</strong> 판결에 영향을 미친 헌법·법령 위반만 가능 (민소 §423) — 사실오인·증거판단 부당은 원칙적 불가</li>
+      <li><strong>불이익변경금지:</strong> 항소한 자의 불복 범위를 초과해 더 불리하게 변경 불가 (§415) — 상대방 부대항소 시 예외</li>
+    </ul>
+    <h3 style="margin-top:14px;">절차적 쟁점 (결정적 체크포인트)</h3>
+    <div class="tablebox">
+      <table>
+        <thead><tr><th>종류</th><th>기간</th><th>제출처</th><th>기간 성격</th></tr></thead>
+        <tbody>
+          <tr><td class="val">항소장</td><td>판결정본 송달일로부터 2주</td><td>제1심 법원</td><td class="warn">불변기간</td></tr>
+          <tr><td class="val">항소이유서</td><td>항소기록 접수통지 수령일로부터 40일</td><td>항소법원</td><td class="warn">기간 미준수 시 각하</td></tr>
+          <tr><td class="val">상고장</td><td>항소심 판결정본 송달일로부터 2주</td><td>항소심 법원</td><td class="warn">불변기간</td></tr>
+          <tr><td class="val">상고이유서</td><td>소송기록 접수통지 수령일로부터 20일</td><td>대법원</td><td class="warn">기간 미준수 시 기각</td></tr>
+          <tr><td class="val">즉시항고</td><td>재판 고지일로부터 1주</td><td>원심법원</td><td class="warn">불변기간</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="box box-issue">
+    <h3>항소 관할 — 어느 법원으로 가나</h3>
+    <div class="tablebox">
+      <table>
+        <thead><tr><th>제1심</th><th>소가</th><th>항소법원</th></tr></thead>
+        <tbody>
+          <tr><td>지방법원 단독</td><td>2억 원 초과</td><td class="val">고등법원</td></tr>
+          <tr><td>지방법원 단독</td><td>2억 원 이하</td><td class="val">지방법원 합의부</td></tr>
+          <tr><td>지방법원 합의부</td><td>제한 없음</td><td class="val">고등법원</td></tr>
+          <tr><td>특허권등 지재권 침해 (단독)</td><td>제한 없음</td><td class="val">특허법원</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:.83rem;color:#666;">※ 2025. 6. 12. 대법원 2025다209952: 소제기 당시 2억 초과였다가 감축·취하로 이하가 된 경우에도 고등법원 관할</p>
+  </div>
+</section>
+
+<!-- 섹션 2: 업무 절차 흐름 -->
+<section>
+  <h2 class="sec"><span class="num">2</span>업무 절차 흐름</h2>
+
+  <h3>① 항소 절차</h3>
+  <div class="steps">
+    <div class="step">
+      <h4>판결정본 수령일 확인 → 항소기간 계산</h4>
+      <p>송달일 다음 날부터 기산, 말일이 토요일·공휴일이면 다음 날로 연장. 전자소송 송달의 경우 확인일 또는 통지 후 1주 경과 시점을 송달일로 봄.</p>
+    </div>
+    <div class="step">
+      <h4>항소장 작성 (민소 §397)</h4>
+      <p>필수 기재: 당사자·법정대리인, 제1심판결 표시, 항소취지. 인지: 소장 인지의 1.5배 (불복 부분 기준 계산). 전자소송 이용 시 자동 산정. 부본 제출 필요(서면 제출 시 상대방 수만큼).</p>
+      <div class="box-tip" style="margin-top:8px;padding:10px 14px;border-radius:6px;">
+        💡 실무 TIP: 인지 계산 시 불복 범위(원고 패소 부분)를 정확히 특정해야 함. 전부 불복이면 소가 전액, 일부 불복이면 불복 금액 기준으로 인지 계산.
+      </div>
+    </div>
+    <div class="step">
+      <h4>항소장 제출 → 제1심 법원에 제출 (항소심 법원이 아님)</h4>
+      <p>송달료 예납 (당사자 1인당 12회분). 전자소송은 자동으로 제1심 법원으로 제출됨. 제1심 재판장이 형식 심사 후 흠 있으면 보정명령 → 불응 시 각하명령.</p>
+    </div>
+    <div class="step">
+      <h4>항소기록 접수통지 수령 → 40일 이내 항소이유서 제출</h4>
+      <p>기간 내 미제출 시 항소 각하. 항소이유서는 준비서면에 준해 작성. 제1심에서 주장하지 않은 새 공격방어방법도 제출 가능 (단, 적시제출의무 주의).</p>
+    </div>
+    <div class="step">
+      <h4>항소심 변론·판결</h4>
+      <p>항소심에서도 청구취지 변경·새 증거 제출 가능 (사실심). 부대항소: 피항소인이 변론종결 전까지 제기 가능, 항소기간 경과 후에도 허용됨 (대법원 2011다91777).</p>
+    </div>
+  </div>
+
+  <h3>② 상고 절차</h3>
+  <div class="steps">
+    <div class="step">
+      <h4>상고장 작성 → 항소심 법원에 제출</h4>
+      <p>인지: 항소심 인지의 1.5배. 상고이유는 상고장에 기재하거나 별도 상고이유서 제출. 법률심 — 새로운 사실 주장 불가.</p>
+    </div>
+    <div class="step">
+      <h4>소송기록 접수통지 수령 → 20일 이내 상고이유서 제출</h4>
+      <p>미제출 시 상고 기각. 상고이유: 헌법·법률·명령·규칙 위반 (일반적 상고이유), 판결법원 구성 위법 등 (절대적 상고이유, §424).</p>
+    </div>
+    <div class="step">
+      <h4>심리불속행 기각 여부</h4>
+      <p>상고심절차에 관한 특례법: 중대한 법령 위반 등 특례사유 없으면 본안 심리 없이 기각. 실무상 대부분의 상고가 여기서 종결됨 → 의뢰인에게 명확히 설명 필요.</p>
+    </div>
+  </div>
+
+  <h3>③ 항고 절차</h3>
+  <div class="steps">
+    <div class="step">
+      <h4>통상항고 vs 즉시항고 구분</h4>
+      <p>통상항고: 기간 제한 없이 실익 있는 한 가능. 즉시항고: "즉시항고를 할 수 있다" 규정이 있는 경우에만, 고지일로부터 1주 (불변기간). 결정문에서 즉시항고 여부 반드시 확인.</p>
+    </div>
+    <div class="step">
+      <h4>항고장 제출 → 원심법원</h4>
+      <p>결정·명령에 대한 불복. 재항고(대법원)도 동일 방식.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 섹션 3: 첨부서류 -->
+<section>
+  <h2 class="sec"><span class="num">3</span>첨부서류</h2>
+  <div class="tablebox">
+    <table>
+      <thead><tr><th>서류명</th><th>필수/선택</th><th>법령근거</th><th>발급처</th><th>유효기간</th><th>실무 비고</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="val">항소장 (소정 양식)</td><td class="warn">필수</td><td>민소 §397</td><td>직접 작성</td><td>—</td>
+          <td>전자소송 포털 또는 서면 작성</td>
+        </tr>
+        <tr>
+          <td class="val">인지 (소장 인지의 1.5배)</td><td class="warn">필수</td><td>인지법 §3</td><td>수납은행</td><td>—</td>
+          <td>불복 범위 기준 계산, 전자는 온라인 납부</td>
+        </tr>
+        <tr>
+          <td class="val">송달료 (당사자 1인당 12회분)</td><td class="warn">필수</td><td>송달료예규</td><td>수납은행</td><td>—</td>
+          <td>예납 후 잔액 환급 절차 확인</td>
+        </tr>
+        <tr>
+          <td class="val">제1심 판결정본 사본</td><td>선택</td><td>—</td><td>제1심 법원</td><td>—</td>
+          <td>항소취지 작성을 위해 판결문 원문 필수 확인</td>
+        </tr>
+        <tr>
+          <td class="val">위임장 (소송대리권 확인용)</td><td class="warn">필수</td><td>민소 §87</td><td>의뢰인 작성</td><td>—</td>
+          <td>법무사는 소송대리인이 아닌 서류 작성·제출 대행</td>
+        </tr>
+        <tr>
+          <td class="val">항소이유서</td><td class="warn">필수</td><td>민소 §402의2</td><td>직접 작성</td><td>접수통지 후 40일</td>
+          <td>기간 미준수 시 항소 각하, 별도 기일 관리 필요</td>
+        </tr>
+        <tr>
+          <td class="val">집행정지신청서 (필요 시)</td><td>선택</td><td>민소 §501</td><td>직접 작성</td><td>—</td>
+          <td>가집행선고 판결에 항소 시 집행정지 필요하면 동시 제출</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 섹션 4: 비용·소가 산정 -->
+<section>
+  <h2 class="sec"><span class="num">4</span>비용 · 소가 산정</h2>
+  <div class="box box-issue">
+    <h3>인지 계산 공식</h3>
+    <div class="tablebox">
+      <table>
+        <thead><tr><th>구분</th><th>인지액 산식</th><th>비고</th></tr></thead>
+        <tbody>
+          <tr><td>항소장</td><td class="val">소장 인지 × 1.5</td><td>불복 부분 소가 기준</td></tr>
+          <tr><td>상고장</td><td class="val">항소심 인지 × 1.5 (= 소장 인지 × 2.25)</td><td>항소심 판결 기준</td></tr>
+          <tr><td>항고장</td><td class="val">해당 결정의 인지 기준</td><td>결정·명령 종류에 따라 다름</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:.83rem;color:#666;margin-top:8px;">※ 소가별 인지액: 소가 1억 이하 = 소가×0.5% + 5,000원 / 1억~10억 = 소가×0.45% + 5,500원 / 10억 초과 = 소가×0.4% + 55,500원 (민사 인지액표 참조)</p>
+    <p style="font-size:.83rem;color:#555;font-weight:600;margin-top:8px;">계산 프로그램: 대법원 나의사건검색 / 법원 인지계산기 활용</p>
+  </div>
+  <div class="box box-flow">
+    <h3>일부 불복 시 인지 계산</h3>
+    <ul>
+      <li>일부 패소 후 그 부분만 항소: 불복 신청 부분 소가 기준</li>
+      <li>부대청구(이자·지연손해금)만 불복: 독립 불복 시 별도 인지 필요</li>
+      <li>이자·지연손해금을 원본과 함께 청구한 경우: 원본 기준 인지에 포함 (민소 §27②)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 섹션 5: 법령·판례 검증 -->
+<section>
+  <h2 class="sec"><span class="num">5</span>법령 · 판례 검증</h2>
+  <div class="tablebox">
+    <table>
+      <thead><tr><th>조문</th><th>내용 요약</th><th>링크</th><th>확인</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="val">민소 §390</td><td>항소의 의의 — 지방법원 제1심 종국판결에 대한 불복</td>
+          <td><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=252393&joNo=039000" target="_blank" class="tag-law">law.go.kr</a></td>
+          <td><span class="tag-check tag-ok">✅ 현행</span></td>
+        </tr>
+        <tr>
+          <td class="val">민소 §396</td><td>항소기간 — 판결서 송달 후 2주, 불변기간</td>
+          <td><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=252393&joNo=039600" target="_blank" class="tag-law">law.go.kr</a></td>
+          <td><span class="tag-check tag-ok">✅ 현행</span></td>
+        </tr>
+        <tr>
+          <td class="val">민소 §397</td><td>항소장 기재사항 — 당사자, 판결 표시, 항소취지</td>
+          <td><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=252393&joNo=039700" target="_blank" class="tag-law">law.go.kr</a></td>
+          <td><span class="tag-check tag-ok">✅ 현행</span></td>
+        </tr>
+        <tr>
+          <td class="val">민소 §399</td><td>항소장 심사 — 제1심 재판장의 보정명령·각하명령</td>
+          <td><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=252393&joNo=039900" target="_blank" class="tag-law">law.go.kr</a></td>
+          <td><span class="tag-check tag-ok">✅ 현행</span></td>
+        </tr>
+        <tr>
+          <td class="val">민소 §402의2</td><td>항소이유서 제출기간 — 접수통지 후 40일</td>
+          <td><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=252393&joNo=040200" target="_blank" class="tag-law">law.go.kr</a></td>
+          <td><span class="tag-check tag-ok">✅ 현행</span></td>
+        </tr>
+        <tr>
+          <td class="val">민소 §415</td><td>불이익변경금지 원칙</td>
+          <td><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=252393&joNo=041500" target="_blank" class="tag-law">law.go.kr</a></td>
+          <td><span class="tag-check tag-ok">✅ 현행</span></td>
+        </tr>
+        <tr>
+          <td class="val">민소 §423</td><td>상고이유 — 법령 위반</td>
+          <td><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=252393&joNo=042300" target="_blank" class="tag-law">law.go.kr</a></td>
+          <td><span class="tag-check tag-ok">✅ 현행</span></td>
+        </tr>
+        <tr>
+          <td class="val">민소 §424</td><td>절대적 상고이유</td>
+          <td><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=252393&joNo=042400" target="_blank" class="tag-law">law.go.kr</a></td>
+          <td><span class="tag-check tag-ok">✅ 현행</span></td>
+        </tr>
+        <tr>
+          <td class="val">민소 §444</td><td>즉시항고 기간 — 1주, 불변기간</td>
+          <td><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=252393&joNo=044400" target="_blank" class="tag-law">law.go.kr</a></td>
+          <td><span class="tag-check tag-ok">✅ 현행</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>주요 판례</h3>
+  <div class="box box-flow">
+    <p><strong>대법원 2020다207765</strong> — 항소의 이익은 판결 주문을 기준으로 판단. 전부 승소한 원고는 원칙적으로 항소 불가.</p>
+    <p><strong>대법원 96다12276</strong> — 일부청구임을 명시하지 않은 전부 승소 시 나머지 부분 청구를 위해 항소 가능 (예외).</p>
+    <p><strong>대법원 2011다91777</strong> — 부대항소는 항소기간 경과 후에도 변론종결 전까지 가능.</p>
+    <p><strong>대법원 2025다209952 (2025. 6. 12.)</strong> — 소제기 당시 소가가 2억 초과였다가 청구취지 감축 등으로 이하가 된 경우에도 고등법원 관할.</p>
+  </div>
+</section>
+
+<!-- 섹션 6: 법무사 실무 노하우 -->
+<section>
+  <h2 class="sec"><span class="num">6</span>법무사 실무 노하우</h2>
+  <div class="box box-tip">
+    <h3>💡 기간 관리 — 달력에 반드시 이중 표시</h3>
+    <ul>
+      <li>항소장 제출 마감: 판결정본 수령일 + 14일 (불변, 연장 불가)</li>
+      <li>항소이유서 마감: 항소기록 접수통지 수령일 + 40일 — 통지서 수령 즉시 날짜 계산 후 사무실 캘린더 등록</li>
+      <li>상고이유서 마감: 소송기록 접수통지 수령일 + 20일 — 대법원 사건은 기간이 매우 짧음</li>
+      <li>즉시항고 마감: 결정 고지일 + 7일 — 결정문 수령 당일 기산 주의</li>
+    </ul>
+  </div>
+  <div class="box box-tip">
+    <h3>💡 항소취지 작성 요령</h3>
+    <ul>
+      <li>원고 전부 패소→항소: "1. 제1심판결을 취소한다. 2. 피고는 원고에게 ○○원을 지급하라."</li>
+      <li>원고 일부 패소→항소: "1. 제1심판결 중 원고 패소 부분을 취소한다. 2. 피고는 원고에게 ○○원을 지급하라."</li>
+      <li>피고 패소→항소: "1. 제1심판결을 취소한다. 2. 원고의 청구를 기각한다."</li>
+    </ul>
+  </div>
+  <div class="box box-tip">
+    <h3>💡 전자소송 항소장 실무</h3>
+    <ul>
+      <li>전자소송포털에서 제1심 사건번호 입력 시 당사자·판결정보 자동 입력됨</li>
+      <li>원판결의 표시란에는 제1심 판결 주문을 기재</li>
+      <li>부본 제출 불필요, 인지·송달료는 온라인 납부</li>
+    </ul>
+  </div>
+  <div class="box-memo">
+    <strong>📝 현장 메모 자리표시자</strong>
+    <p style="color:#888;font-size:.88rem;margin-top:6px;">[담당자 메모: 특이사항·의뢰인 요청사항·기간 확인 결과 등 기재]</p>
+    <br><br>
+  </div>
+</section>
+
+<!-- 섹션 7: 주의사항 & 사고·실수 사례 -->
+<section>
+  <h2 class="sec"><span class="num">7</span>주의사항 &amp; 사고 · 실수 사례</h2>
+  <div class="box box-trap">
+    <h3>⚡ 기간 도과 위험 — 가장 흔한 사고</h3>
+    <ul>
+      <li>전자소송 송달: 등재 후 1주 내 미확인 시 통지일 + 7일 후 송달 간주 → 그 시점부터 2주 기산 (대법원 2014다229016)</li>
+      <li>발송송달: 발송한 때에 송달된 것으로 간주 → 실제 도달일과 무관하게 기간 진행</li>
+      <li>항소이유서·상고이유서 기간: 접수통지서를 받은 즉시 기간 계산하지 않으면 놓침</li>
+      <li>항소장을 항소심 법원에 잘못 제출 → 제1심 도달 시점 기준으로 기간 계산 (불이익)</li>
+    </ul>
+  </div>
+  <div class="box box-trap">
+    <h3>흔한 실수</h3>
+    <ul>
+      <li>인지 과부족: 불복 범위를 잘못 계산해 인지 부족 → 보정명령·각하 위험</li>
+      <li>부본 미제출: 서면 제출 시 상대방 수만큼 부본 필요 (전자소송 불필요)</li>
+      <li>항소장을 항소심에 제출: 제1심이 아닌 항소심에 제출 → 제1심 도달일 기준이므로 지연 발생</li>
+      <li>인지액을 송달료로 잘못 납부: 인지 보정 효과 없음 → 재납부 기회 부여되나 위험</li>
+    </ul>
+  </div>
+  <div class="box box-trap">
+    <h3>변호사법 경계선</h3>
+    <ul>
+      <li>상소 여부에 대한 유불리 판단·법리 분석 → 변호사 영역</li>
+      <li>심리불속행 가능성 평가·상고이유의 법리적 타당성 검토 → 변호사 영역</li>
+      <li>항소이유서 내용의 법리적 구성·주장 → 변호사 영역</li>
+      <li>법무사 가능 범위: 기간 계산·확인, 항소장 형식 작성, 인지·송달료 계산·납부 대행, 기록 관리</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 최하단 메타 -->
+<div class="footer-meta">
+  <div class="col">
+    <label>작성일</label>
+    <div class="val">2026-06-04</div>
+  </div>
+  <div class="col">
+    <label>근거 기준일 (법령)</label>
+    <div class="val">민사소송법 2025년 현행 / 대법원 2025다209952 (2025. 6. 12.)</div>
+  </div>
+  <div class="col">
+    <label>최종 검토자 메모</label>
+    <div class="val" style="color:#aaa;font-size:.82rem;">[검토자 서명·날짜 기재]</div>
+    <br>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

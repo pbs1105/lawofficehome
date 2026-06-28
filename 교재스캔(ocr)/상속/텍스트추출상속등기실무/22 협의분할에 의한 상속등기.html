@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>협의분할에 의한 상속등기 | 상속등기 실무</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{--navy:#1a2e4a;--navy-light:#2d4a73;--gold:#c9a84c;--gold-light:#e8d5a3;--ivory:#fdf8f0;--ivory-dark:#f5ede0;--text:#2c2c2c;--text-light:#5a5a5a;--blue-box:#e8f0f8;--blue-border:#2d6aa0;--warn-bg:#fff8e1;--warn-border:#f0a500;}
+        *{box-sizing:border-box;margin:0;padding:0;}
+        body{font-family:'Noto Sans KR',sans-serif;background:var(--ivory);color:var(--text);font-size:15px;line-height:1.8;}
+        .page-header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);color:white;padding:40px 24px 32px;text-align:center;}
+        .page-header h1{font-size:2rem;font-weight:700;margin-bottom:8px;}
+        .page-header .subtitle{color:var(--gold-light);font-size:1rem;}
+        .breadcrumb{font-size:0.82rem;color:rgba(255,255,255,0.6);margin-bottom:12px;}
+        .layout{display:grid;grid-template-columns:240px 1fr 300px;gap:0;max-width:1280px;margin:0 auto;}
+        .toc-sidebar{background:var(--navy);color:white;padding:24px 0;position:sticky;top:0;height:100vh;overflow-y:auto;}
+        .toc-sidebar h3{font-size:0.78rem;letter-spacing:2px;color:var(--gold);text-transform:uppercase;padding:0 20px 12px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:8px;}
+        .toc-sidebar ul{list-style:none;}
+        .toc-sidebar ul li a{display:block;padding:9px 20px;font-size:0.85rem;color:rgba(255,255,255,0.75);text-decoration:none;border-left:3px solid transparent;transition:all 0.2s;}
+        .toc-sidebar ul li a:hover,.toc-sidebar ul li a.active{color:white;background:rgba(255,255,255,0.08);border-left-color:var(--gold);}
+        .main-content{padding:40px 48px;min-height:100vh;}
+        .section{margin-bottom:56px;scroll-margin-top:24px;}
+        .section h2{font-size:1.35rem;color:var(--navy);border-bottom:2px solid var(--gold);padding-bottom:10px;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+        .section h2 .sec-num{background:var(--navy);color:var(--gold);font-size:0.78rem;padding:2px 8px;border-radius:12px;}
+        .section h3{font-size:1.05rem;color:var(--navy-light);margin:24px 0 10px;font-weight:600;}
+        .summary-box{background:var(--blue-box);border-left:4px solid var(--blue-border);border-radius:0 8px 8px 0;padding:18px 22px;margin-bottom:20px;}
+        .summary-box strong{color:var(--blue-border);display:block;margin-bottom:6px;font-size:0.9rem;}
+        .detail-content{color:var(--text-light);}
+        .detail-content p{margin-bottom:14px;}
+        .law-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.88rem;}
+        .law-table th{background:var(--navy);color:white;padding:10px 14px;text-align:left;}
+        .law-table td{padding:10px 14px;border-bottom:1px solid #e0d8cc;vertical-align:top;}
+        .law-table tr:nth-child(even) td{background:var(--ivory-dark);}
+        .law-ref{color:var(--blue-border);font-weight:600;cursor:pointer;border-bottom:1px dashed var(--blue-border);font-size:0.9em;}
+        .warn-box{background:var(--warn-bg);border-left:4px solid var(--warn-border);border-radius:0 8px 8px 0;padding:16px 20px;margin:16px 0;}
+        .warn-box strong{color:#c07000;display:block;margin-bottom:6px;}
+        .case-box{background:#f5f5f5;border:1px solid #ddd;border-radius:8px;padding:16px 20px;margin:16px 0;font-size:0.87rem;}
+        .case-box .case-title{font-weight:700;color:var(--navy);margin-bottom:8px;font-size:0.85rem;}
+        .process-steps{margin:16px 0;}
+        .step{display:flex;gap:16px;margin-bottom:16px;align-items:flex-start;}
+        .step-num{background:var(--navy);color:var(--gold);font-weight:700;min-width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;}
+        .step-content .step-title{font-weight:600;color:var(--navy);margin-bottom:4px;}
+        .step-content .step-desc{font-size:0.88rem;color:var(--text-light);}
+        .checklist-box{background:var(--ivory-dark);border:1px solid var(--gold-light);border-radius:10px;padding:20px 24px;margin:24px 0;}
+        .checklist-box h4{color:var(--navy);margin-bottom:14px;font-size:0.95rem;}
+        .checklist-box ul{list-style:none;}
+        .checklist-box ul li{padding:5px 0;font-size:0.88rem;display:flex;gap:10px;}
+        .checklist-box ul li::before{content:"☑";color:var(--gold);}
+        .cta-box{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);color:white;border-radius:12px;padding:28px 32px;margin:32px 0;text-align:center;}
+        .cta-box h3{font-size:1.2rem;margin-bottom:10px;color:var(--gold-light);}
+        .cta-box p{font-size:0.9rem;color:rgba(255,255,255,0.85);margin-bottom:18px;}
+        .cta-btn{background:var(--gold);color:var(--navy);font-weight:700;padding:12px 32px;border-radius:24px;border:none;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;}
+        .next-links{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}
+        .next-link{background:white;border:1px solid #d0c8ba;border-radius:8px;padding:16px;text-decoration:none;color:var(--navy);transition:all 0.2s;display:flex;align-items:center;justify-content:space-between;}
+        .next-link:hover{border-color:var(--gold);box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+        .next-link .label{font-size:0.78rem;color:var(--text-light);}
+        .next-link .title{font-size:0.92rem;font-weight:600;}
+        .next-link .arrow{color:var(--gold);font-size:1.2rem;}
+        .disclaimer{background:#f0f0f0;border-radius:8px;padding:16px 20px;margin-top:40px;font-size:0.8rem;color:#777;line-height:1.6;}
+        .right-sidebar{background:white;border-left:1px solid #e0d8cc;padding:0;position:sticky;top:0;height:100vh;overflow-y:auto;}
+        .sidebar-tabs{display:flex;border-bottom:2px solid var(--navy);}
+        .sidebar-tab{flex:1;padding:12px 8px;text-align:center;font-size:0.82rem;font-weight:600;cursor:pointer;color:var(--text-light);background:var(--ivory);border:none;transition:all 0.2s;}
+        .sidebar-tab.active{background:var(--navy);color:white;}
+        .sidebar-panel{padding:16px;display:none;}
+        .sidebar-panel.active{display:block;}
+        .law-item{border:1px solid #e0d8cc;border-radius:6px;margin-bottom:8px;overflow:hidden;}
+        .law-item-header{background:var(--ivory-dark);padding:10px 14px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:0.83rem;font-weight:600;color:var(--navy);}
+        .law-item-header:hover{background:var(--gold-light);}
+        .law-item-body{display:none;padding:12px 14px;font-size:0.82rem;line-height:1.7;color:var(--text-light);border-top:1px solid #e0d8cc;}
+        .law-item-body.open{display:block;}
+        .practice-section{margin-bottom:16px;}
+        .practice-section h5{font-size:0.82rem;font-weight:700;color:var(--navy);background:var(--ivory-dark);padding:7px 12px;border-radius:4px;margin-bottom:8px;}
+        .practice-section ul{list-style:none;padding:0;}
+        .practice-section ul li{font-size:0.81rem;padding:4px 8px;color:var(--text-light);border-bottom:1px solid #f0ece6;display:flex;gap:6px;}
+        .practice-section ul li::before{content:"•";color:var(--gold);}
+        @media(max-width:900px){.layout{grid-template-columns:1fr;}.toc-sidebar,.right-sidebar{display:none;}.main-content{padding:24px 20px;}.next-links{grid-template-columns:1fr;}}
+    </style>
+</head>
+<body>
+    <div class="page-header">
+        <div class="breadcrumb">상속 · 등기 · 실무</div>
+        <h1>협의분할에 의한 상속등기</h1>
+        <p class="subtitle">상속인 전원 합의 후 신속하게 진행하는 등기 방식</p>
+    </div>
+
+    <div class="layout">
+        <div class="toc-sidebar">
+            <h3>목차</h3>
+            <ul>
+                <li><a class="toc-link active" href="#sec1">협의분할이란</a></li>
+                <li><a class="toc-link" href="#sec2">협의분할서 작성</a></li>
+                <li><a class="toc-link" href="#sec3">첨부서류 완전 목록</a></li>
+                <li><a class="toc-link" href="#sec4">신청 절차 5단계</a></li>
+                <li><a class="toc-link" href="#sec5">등기 신청 방법</a></li>
+                <li><a class="toc-link" href="#sec6">취득세 및 상속세</a></li>
+                <li><a class="toc-link" href="#sec7">특정인 단독 취득</a></li>
+                <li><a class="toc-link" href="#sec8">FAQ</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <div class="section" id="sec1">
+                <h2><span class="sec-num">1</span>협의분할이란</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    협의분할은 상속인 전원이 합의하여 상속 재산을 분할하는 방식입니다 (<span class="law-ref" onclick="openLaw('민법1013')">민법 제1013조</span>). 법정상속분과 다르게 분할할 수 있는 자유도가 가장 높습니다.
+                </div>
+                <div class="detail-content">
+                    <h3>협의분할의 특징</h3>
+                    <ul style="margin-left:20px;margin-bottom:14px;">
+                        <li><strong>전원 합의:</strong> 상속인 전원의 동의 필수</li>
+                        <li><strong>자유 분할:</strong> 법정상속분과 상관없이 자유롭게 분할 가능</li>
+                        <li><strong>신속성:</strong> 절차가 간단하고 빠른 등기 가능</li>
+                        <li><strong>유연성:</strong> 특정인이 모든 재산을 받을 수도 있음</li>
+                    </ul>
+                    <h3>협의분할의 장점</h3>
+                    <p>법정상속분 외에 특정 부동산을 다른 상속인에게 주고 싶거나, 특정인이 모든 부동산을 취득하기를 원할 때 협의분할이 가장 효과적입니다.</p>
+                    <div class="warn-box">
+                        <strong>중요</strong>
+                        협의분할 후에는 상속세 신고 기한이 6개월이므로, 빨리 등기를 마무리하고 세무사에 신고해야 합니다.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="sec2">
+                <h2><span class="sec-num">2</span>협의분할서 작성</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    협의분할서는 상속 재산을 누가 어떻게 취득할지를 명시하는 문서입니다. 부동산 표시, 취득자 명시, 상속인 전원 인감이 필수입니다.
+                </div>
+                <div class="detail-content">
+                    <h3>협의분할서 필수 기재사항</h3>
+                    <table class="law-table">
+                        <thead>
+                            <tr>
+                                <th>항목</th>
+                                <th>기재 방법</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1. 피상속인</td>
+                                <td>사망자 성명, 주민번호, 사망일자</td>
+                            </tr>
+                            <tr>
+                                <td>2. 상속인</td>
+                                <td>모든 법정상속인 명시</td>
+                            </tr>
+                            <tr>
+                                <td>3. 부동산 표시</td>
+                                <td>지번, 지목, 면적 등기부 기재와 정확히 일치</td>
+                            </tr>
+                            <tr>
+                                <td>4. 취득자</td>
+                                <td>각 부동산을 누가 취득하는지 명시</td>
+                            </tr>
+                            <tr>
+                                <td>5. 금전 조정</td>
+                                <td>필요 시 보정금 기재</td>
+                            </tr>
+                            <tr>
+                                <td>6. 작성일자</td>
+                                <td>협의분할서 작성한 연월일</td>
+                            </tr>
+                            <tr>
+                                <td>7. 상속인 인감</td>
+                                <td>모든 상속인이 인감날인 (반드시 인감증명서와 일치)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3>협의분할서 작성 샘플 구조</h3>
+                    <p>협의분할서는 공증인 작성 또는 변호사·법무사 작성이 권장됩니다. 자필 작성도 가능하지만 후일 분쟁을 피하기 위해 전문가 도움을 받는 것이 좋습니다.</p>
+                </div>
+            </div>
+
+            <div class="section" id="sec3">
+                <h2><span class="sec-num">3</span>첨부서류 완전 목록</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    협의분할 등기 신청 시 필요한 서류는 협의분할서, 피상속인 사망 증명, 상속인 신분증, 부동산 등기부 등입니다.
+                </div>
+                <div class="detail-content">
+                    <h3>필수 첨부서류</h3>
+                    <table class="law-table">
+                        <thead>
+                            <tr>
+                                <th>구분</th>
+                                <th>서류명</th>
+                                <th>설명</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="2"><strong>피상속인</strong></td>
+                                <td>협의분할서</td>
+                                <td>상속인 전원 인감날인</td>
+                            </tr>
+                            <tr>
+                                <td>사망 증명서</td>
+                                <td>의료기관 사망진단서 또는 사망신고 수리증명서</td>
+                            </tr>
+                            <tr>
+                                <td><strong>상속인</strong></td>
+                                <td>인감증명서</td>
+                                <td>상속인 전원 (협의분할서 인감과 일치)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>부동산</strong></td>
+                                <td>현재 등기부등본</td>
+                                <td>협의분할 대상 부동산 전부</td>
+                            </tr>
+                            <tr>
+                                <td><strong>신청인</strong></td>
+                                <td>신분증 사본</td>
+                                <td>등기 신청하는 상속인 신분증</td>
+                            </tr>
+                            <tr>
+                                <td><strong>관계 증명</strong></td>
+                                <td>호적등본 또는 가족관계증명서</td>
+                                <td>상속인 관계 확인용</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="warn-box">
+                        <strong>주의</strong>
+                        협의분할서의 인감과 인감증명서가 일치하지 않으면 등기소에서 반려합니다. 반드시 확인하세요.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="sec4">
+                <h2><span class="sec-num">4</span>신청 절차 5단계</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    서류 준비 → 협의분할서 작성 → 인감날인 → 등기 신청 → 완료의 5단계로 진행됩니다.
+                </div>
+                <div class="detail-content">
+                    <div class="process-steps">
+                        <div class="step">
+                            <div class="step-num">1</div>
+                            <div class="step-content">
+                                <div class="step-title">서류 준비</div>
+                                <div class="step-desc">
+                                    피상속인 사망 증명서 → 상속인 신분증 및 주소 확인 → 부동산 등기부등본 → 호적등본/가족관계증명서
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">2</div>
+                            <div class="step-content">
+                                <div class="step-title">협의분할서 작성</div>
+                                <div class="step-desc">
+                                    상속인 전원이 분할 내용 협의 → 변호사·법무사·공증인 도움으로 협의분할서 작성 → 각 부동산 취득자 명시
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">3</div>
+                            <div class="step-content">
+                                <div class="step-title">인감 및 인감증명서</div>
+                                <div class="step-desc">
+                                    상속인 전원이 협의분할서에 인감 날인 → 각 상속인이 구청에서 인감증명서 발급 (3개월 유효)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">4</div>
+                            <div class="step-content">
+                                <div class="step-title">등기 신청</div>
+                                <div class="step-desc">
+                                    부동산 소재지 관할 등기소에 협의분할 등기 신청 → 등기원인: "협의분할" → 각 부동산별 신청 → 등기수수료 납부
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">5</div>
+                            <div class="step-content">
+                                <div class="step-title">등기 완료</div>
+                                <div class="step-desc">
+                                    등기소 검토 및 등기 완료 (통상 1~2주) → 등기부등본 발급 → 상속세 신고
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="sec5">
+                <h2><span class="sec-num">5</span>등기 신청 방법</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    협의분할 등기는 방문, 우편, e-Form(전자신청) 중 선택하여 신청할 수 있습니다.
+                </div>
+                <div class="detail-content">
+                    <h3>신청 방법별 절차</h3>
+                    <table class="law-table">
+                        <thead>
+                            <tr>
+                                <th>방법</th>
+                                <th>절차</th>
+                                <th>소요 기간</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>방문 신청</strong></td>
+                                <td>등기소 직접 방문 → 신청서 제출 → 수수료 납부 → 등기번호 받음</td>
+                                <td>1~2주</td>
+                            </tr>
+                            <tr>
+                                <td><strong>우편 신청</strong></td>
+                                <td>신청서 + 서류 우편 발송 → 등기소 접수 → 검토 및 완료</td>
+                                <td>2~3주</td>
+                            </tr>
+                            <tr>
+                                <td><strong>e-Form</strong></td>
+                                <td>등기소 홈페이지에서 전자신청 → 부동산등기 민원포털 로그인 → 신청서 작성 및 제출</td>
+                                <td>1~2주</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3>신청서 작성 팁</h3>
+                    <ul style="margin-left:20px;margin-bottom:14px;">
+                        <li>등기의 목적: "소유권이전"</li>
+                        <li>등기원인: "협의분할"</li>
+                        <li>등기원인 발생 연월일: 협의분할서 작성일</li>
+                        <li>등기권리자: 각 부동산의 취득자</li>
+                        <li>등기의무자: 피상속인의 상속인 전원</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section" id="sec6">
+                <h2><span class="sec-num">6</span>취득세 및 상속세</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    협의분할에 따른 부동산 취득은 취득세 과세 대상이 아닙니다. 다만 상속세는 신고 기한(사망 후 6개월) 내에 신고해야 합니다.
+                </div>
+                <div class="detail-content">
+                    <h3>취득세 처리</h3>
+                    <p><span class="law-ref" onclick="openLaw('지방세법15')">지방세법 제15조</span>에 따르면, <strong>협의분할에 의한 부동산 취득은 취득세 과세 대상이 아닙니다</strong>. 이는 상속인에게 매우 유리한 점입니다.</p>
+                    <h3>상속세 신고</h3>
+                    <table class="law-table">
+                        <thead>
+                            <tr>
+                                <th>항목</th>
+                                <th>내용</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>신고 기한</td>
+                                <td>피상속인 사망 후 6개월 이내</td>
+                            </tr>
+                            <tr>
+                                <td>신고 기관</td>
+                                <td>관할 세무서</td>
+                            </tr>
+                            <tr>
+                                <td>필수 첨부</td>
+                                <td>협의분할서, 등기부등본, 상속인 확인서류</td>
+                            </tr>
+                            <tr>
+                                <td>기한 내 신고 시</td>
+                                <td>가산세 없음 (기한 경과 시 가산세 발생)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="warn-box">
+                        <strong>중요</strong>
+                        상속세 신고는 반드시 세무사의 도움을 받으세요. 부동산 평가, 채무 공제, 세액 계산 등이 복잡하기 때문입니다.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="sec7">
+                <h2><span class="sec-num">7</span>특정인 단독 취득</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    협의분할을 통해 특정인이 전체 부동산을 단독 취득할 수 있습니다. 이 경우 다른 상속인에게 보상금을 지급하는 형태가 일반적입니다.
+                </div>
+                <div class="detail-content">
+                    <h3>특정인 단독 취득의 예시</h3>
+                    <p><strong>예시:</strong> 부동산 가액이 10억원, 상속인은 배우자와 자녀 1명인 경우</p>
+                    <ul style="margin-left:20px;margin-bottom:14px;">
+                        <li>배우자가 전체 부동산을 취득하고, 자녀에게 5억원의 보정금을 지급</li>
+                        <li>자녀가 전체 부동산을 취득하고, 배우자에게 5억원의 보정금을 지급</li>
+                    </ul>
+                    <h3>보정금 처리</h3>
+                    <p>협의분할에서 보정금이 발생한 경우:</p>
+                    <ul style="margin-left:20px;margin-bottom:14px;">
+                        <li>보정금은 상속세 대상이 아닙니다</li>
+                        <li>현금 또는 다른 자산으로 지급 가능</li>
+                        <li>협의분할서에 보정금 내용 명시 필수</li>
+                    </ul>
+                    <div class="case-box">
+                        <div class="case-title">판례 참고</div>
+                        대법원은 협의분할에 따른 보정금이 법정상속분을 초과해도 상속세 재계산 대상이 아니라고 판단합니다. 협의분할은 상속인들의 자유로운 합의이기 때문입니다.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="sec8">
+                <h2><span class="sec-num">8</span>자주 묻는 질문</h2>
+                <div class="detail-content">
+                    <h3>Q. 협의분할서가 없어도 등기할 수 있나요?</h3>
+                    <p><strong>A.</strong> 아니요, 협의분할서는 필수입니다. 협의분할서가 없으면 등기소에서 접수를 거절할 수 있습니다. 반드시 작성하세요.</p>
+
+                    <h3>Q. 상속인 중 한 명이 서명을 거부하면?</h3>
+                    <p><strong>A.</strong> 협의분할은 상속인 전원의 동의가 필수입니다. 한 명이 거부하면 협의분할이 불가능하며, <span class="law-ref" onclick="openLaw('민법1012')">민법 제1012조</span> 법정상속 또는 법원의 분할 소송으로 진행해야 합니다.</p>
+
+                    <h3>Q. 협의분할 후 다시 변경할 수 있나요?</h3>
+                    <p><strong>A.</strong> 공식적으로는 어렵습니다. 협의분할이 완료되고 등기가 된 후에는 다시 협의분할서를 작성하여 소유권을 변경해야 합니다. 이는 새로운 등기 절차를 요구합니다.</p>
+
+                    <h3>Q. 협의분할서의 인감이 맞지 않으면?</h3>
+                    <p><strong>A.</strong> 등기소에서 반려됩니다. 협의분할서의 인감과 인감증명서가 정확히 일치해야 합니다. 반드시 확인하고 다시 신청하세요.</p>
+
+                    <h3>Q. 협의분할 등기에 취득세가 나오나요?</h3>
+                    <p><strong>A.</strong> 아니요, 협의분할에 의한 부동산 취득은 <strong>취득세 과세 대상이 아닙니다</strong>. 이것이 협의분할의 큰 장점입니다.</p>
+
+                    <h3>Q. 협의분할 등기는 얼마나 걸리나요?</h3>
+                    <p><strong>A.</strong> 일반적으로 신청 후 <strong>1~2주</strong가 소요됩니다. 부동산 개수, 등기소 업무 부하에 따라 달라질 수 있습니다.</p>
+                </div>
+            </div>
+
+            <div class="checklist-box">
+                <h4>협의분할 등기 준비 체크리스트</h4>
+                <ul>
+                    <li>상속인 전원과 분할 내용 협의</li>
+                    <li>피상속인 사망 증명서 취득</li>
+                    <li>부동산 등기부등본 확인</li>
+                    <li>협의분할서 작성 (변호사·법무사 도움)</li>
+                    <li>상속인 전원 인감 준비</li>
+                    <li>상속인 전원 인감증명서 발급</li>
+                    <li>가족관계증명서 또는 호적등본 준비</li>
+                    <li>등기 신청서 작성</li>
+                    <li>등기소에 신청</li>
+                    <li>등기 완료 확인 및 세무사 상담</li>
+                </ul>
+            </div>
+
+            <div class="cta-box">
+                <h3>상속인 전원의 합의로 신속한 등기를 완성하세요</h3>
+                <p>법무사와 함께 협의분할 절차를 정확하게 진행하세요.</p>
+                <button class="cta-btn">상담 예약하기</button>
+            </div>
+
+            <div class="next-links">
+                <a href="20 유증과 등기.html" class="next-link">
+                    <div>
+                        <div class="label">이전 주제</div>
+                        <div class="title">유증과 등기</div>
+                    </div>
+                    <div class="arrow">←</div>
+                </a>
+                <a href="23 미등기 부동산 상속.html" class="next-link">
+                    <div>
+                        <div class="label">다음 주제</div>
+                        <div class="title">미등기 부동산 상속</div>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+            </div>
+
+            <div class="disclaimer">
+                <strong>면책 공지</strong><br>
+                본 콘텐츠는 일반적인 상속등기 실무 정보를 제공하기 위한 것으로, 특정 사건의 법적 조언이 아닙니다. 실제 협의분할 등기는 반드시 법무사·변호사와 상담하세요. 본 정보에 의존한 행동으로 인한 손실에 대해서는 책임지지 않습니다.
+            </div>
+        </div>
+
+        <div class="right-sidebar">
+            <div class="sidebar-tabs">
+                <button class="sidebar-tab active" onclick="switchTab('law')">법령</button>
+                <button class="sidebar-tab" onclick="switchTab('practice')">실무정보</button>
+            </div>
+
+            <div id="panel-law" class="sidebar-panel active">
+                <div class="law-item" id="law-민법1013">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>민법 제1013조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>상속분의 변경</strong><br>
+                        상속인들은 협의에 의해 상속분을 달리 정할 수 있다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-민법1012">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>민법 제1012조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>상속재산의 분할</strong><br>
+                        상속재산은 상속인들의 협의 또는 법원의 분할에 의해 분할된다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-부동산등기법65">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>부동산등기법 제65조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>상속등기</strong><br>
+                        협의분할에 의한 상속등기는 협의분할서를 첨부하여 신청한다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-지방세법15">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>지방세법 제15조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>취득세</strong><br>
+                        협의분할에 의한 부동산 취득은 취득세 과세 대상이 아니다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-상속세법1">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>상속세 및 증여세법</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>상속세 신고</strong><br>
+                        협의분할 후 피상속인 사망 후 6개월 내에 상속세를 신고해야 한다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-부동산등기법23">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>부동산등기법 제23조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>상속에 의한 등기</strong><br>
+                        상속에 의하여 소유권이 이전된 경우 신청인의 청구에 의해 등기한다.
+                    </div>
+                </div>
+            </div>
+
+            <div id="panel-practice" class="sidebar-panel">
+                <div class="practice-section">
+                    <h5>협의분할 신청 가능 지역</h5>
+                    <ul>
+                        <li>부동산 소재지 관할 등기소</li>
+                        <li>방문, 우편, 전자신청 모두 가능</li>
+                        <li>부동산 위치별로 각각 신청 필요</li>
+                    </ul>
+                </div>
+
+                <div class="practice-section">
+                    <h5>필수 서류 정리</h5>
+                    <ul>
+                        <li>협의분할서 (상속인 전원 인감)</li>
+                        <li>상속인 인감증명서 (3개월 유효)</li>
+                        <li>사망 증명서</li>
+                        <li>현재 등기부등본</li>
+                        <li>가족관계증명서</li>
+                    </ul>
+                </div>
+
+                <div class="practice-section">
+                    <h5>등기수수료 (목안)</h5>
+                    <ul>
+                        <li>기본료: 8,000원</li>
+                        <li>등기가격 0.1% (예: 5억원 부동산 → 약 50만원)</li>
+                        <li>부동산별 추가료</li>
+                    </ul>
+                </div>
+
+                <div class="practice-section">
+                    <h5>상속세 신고 주의</h5>
+                    <ul>
+                        <li>신고 기한: 사망 후 6개월</li>
+                        <li>기한 경과 시 가산세 발생</li>
+                        <li>세무사 상담 필수</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tab){
+            document.querySelectorAll('.sidebar-tab').forEach(t=>t.classList.remove('active'));
+            document.querySelectorAll('.sidebar-panel').forEach(p=>p.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById('panel-'+tab).classList.add('active');
+        }
+        function toggleLaw(header){
+            const body=header.nextElementSibling;
+            const isOpen=body.classList.contains('open');
+            body.classList.toggle('open');
+            header.querySelector('span:last-child').textContent=isOpen?'＋':'－';
+        }
+        function openLaw(id){
+            const lawTab=document.querySelector('.sidebar-tab:first-child');
+            const lawPanel=document.getElementById('panel-law');
+            document.querySelectorAll('.sidebar-tab').forEach(t=>t.classList.remove('active'));
+            document.querySelectorAll('.sidebar-panel').forEach(p=>p.classList.remove('active'));
+            lawTab.classList.add('active');
+            lawPanel.classList.add('active');
+            const item=document.getElementById('law-'+id);
+            if(item){
+                const body=item.querySelector('.law-item-body');
+                const header=item.querySelector('.law-item-header');
+                body.classList.add('open');
+                header.querySelector('span:last-child').textContent='－';
+                item.scrollIntoView({behavior:'smooth',block:'center'});
+            }
+        }
+        const sections=document.querySelectorAll('.section');
+        const tocLinks=document.querySelectorAll('.toc-link');
+        const observer=new IntersectionObserver((entries)=>{
+            entries.forEach(e=>{
+                if(e.isIntersecting){
+                    tocLinks.forEach(l=>l.classList.remove('active'));
+                    const active=document.querySelector('.toc-link[href="#'+e.target.id+'"]');
+                    if(active)active.classList.add('active');
+                }
+            });
+        },{rootMargin:'-20% 0px -70% 0px'});
+        sections.forEach(s=>observer.observe(s));
+    </script>
+</body>
+</html>

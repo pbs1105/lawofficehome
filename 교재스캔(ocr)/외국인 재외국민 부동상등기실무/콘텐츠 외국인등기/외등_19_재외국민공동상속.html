@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공동상속인 중 재외국민이 있을 때 법정상속 등기 | 법무사</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #faf8f5;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* 헤더 */
+        .page-header {
+            border-bottom: 4px solid #c8a96e;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a2e4a;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .page-header p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* 섹션 */
+        section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a2e4a;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        h3 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a2e4a;
+            margin-top: 20px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        li {
+            margin-left: 20px;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        /* 체크리스트 */
+        .checklist {
+            background-color: #fdf6e9;
+            border-left: 5px solid #c8a96e;
+            padding: 25px 20px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .checklist h3 {
+            margin-top: 0;
+            color: #1a2e4a;
+        }
+
+        .checklist ul {
+            list-style: none;
+        }
+
+        .checklist li {
+            margin-left: 0;
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .checklist li:before {
+            content: "☑";
+            position: absolute;
+            left: 0;
+            color: #c8a96e;
+            font-size: 18px;
+        }
+
+        /* 핵심 요약 박스 */
+        .summary-box {
+            background-color: #eef2f8;
+            border-left: 5px solid #2d4a7a;
+            padding: 25px 20px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+
+        .summary-box h3 {
+            margin-top: 0;
+            color: #2d4a7a;
+        }
+
+        .summary-box ul {
+            list-style: none;
+        }
+
+        .summary-box li {
+            margin-left: 0;
+            padding-left: 28px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .summary-box li:before {
+            content: "●";
+            position: absolute;
+            left: 0;
+            color: #2d4a7a;
+        }
+
+        /* 경고 박스 */
+        .warning-box {
+            background-color: #fff3e8;
+            border-left: 5px solid #c05000;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .warning-box strong {
+            color: #c05000;
+        }
+
+        /* 판례·예규 박스 */
+        .precedent-box {
+            background-color: #f7f4f0;
+            border-left: 5px solid #6b7280;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .precedent-box h4 {
+            color: #6b7280;
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* 사례 박스 */
+        .case-box {
+            background-color: #f0f8f0;
+            border-left: 5px solid #1a5c2e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .case-box h4 {
+            color: #1a5c2e;
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* 표 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        table thead {
+            background-color: #1a2e4a;
+            color: white;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        table th {
+            font-weight: 600;
+        }
+
+        table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* 흐름도 */
+        .flowchart {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .flowchart-step {
+            background-color: #eef2f8;
+            border: 2px solid #2d4a7a;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 6px;
+            font-weight: 500;
+            color: #1a2e4a;
+        }
+
+        .flowchart-arrow {
+            font-size: 20px;
+            color: #2d4a7a;
+            margin: 8px 0;
+        }
+
+        /* 상담 CTA */
+        .cta-box {
+            background-color: #fdf6e9;
+            border: 2px solid #c8a96e;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .cta-box h3 {
+            margin-top: 0;
+            color: #1a2e4a;
+        }
+
+        .cta-box p {
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .cta-btn {
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-btn-primary {
+            background-color: #1a2e4a;
+            color: white;
+        }
+
+        .cta-btn-primary:hover {
+            background-color: #0f1a2e;
+        }
+
+        .cta-btn-secondary {
+            background-color: white;
+            color: #1a2e4a;
+            border: 2px solid #1a2e4a;
+        }
+
+        .cta-btn-secondary:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* 관련 링크 */
+        .related-links {
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 6px;
+            margin: 30px 0;
+        }
+
+        .related-links h3 {
+            margin-top: 0;
+        }
+
+        .related-links ul {
+            list-style: none;
+        }
+
+        .related-links li {
+            margin-left: 0;
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 12px;
+        }
+
+        .related-links li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #c8a96e;
+            font-weight: bold;
+        }
+
+        .related-links a {
+            color: #1a2e4a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #c8a96e;
+        }
+
+        .related-links a:hover {
+            color: #c8a96e;
+        }
+
+        /* 면책 문구 */
+        .disclaimer {
+            background-color: #f5f5f5;
+            border-top: 2px solid #ddd;
+            padding: 20px;
+            margin-top: 50px;
+            font-size: 12px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* 반응형 */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            h3 {
+                font-size: 16px;
+            }
+
+            .container {
+                padding: 30px 15px;
+            }
+
+            table th, table td {
+                padding: 12px 8px;
+                font-size: 13px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .cta-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 헤더 -->
+        <div class="page-header">
+            <h1>공동상속인 중 재외국민이 있을 때<br>법정상속 등기</h1>
+            <p>서류 준비 완벽 가이드 | 귀국한 경우·미귀국인 경우 구분</p>
+        </div>
+
+        <!-- 섹션 1: 이런 분께 필요합니다 -->
+        <section>
+            <div class="checklist">
+                <h3>이런 분께 필요합니다</h3>
+                <ul>
+                    <li>상속인 중에 재외국민(해외 거주 한국국적자)이 있는 경우</li>
+                    <li>여러 명의 상속인이 한국 부동산을 공동으로 상속받으려고 할 때</li>
+                    <li>재외국민 상속인이 귀국했는지 아직 해외에 머물고 있는지에 따라 준비 서류가 다른지 알고 싶을 때</li>
+                    <li>공동상속 등기를 신청할 때 누가 신청서에 서명해야 하는지 확인하고 싶을 때</li>
+                    <li>재외국민의 인감증명서 문제와 재외공관 공증에 대해 알고 싶을 때</li>
+                    <li>다른 상속인이 협력을 거부할 때 혼자서 공동상속 등기를 신청할 수 있는지 확인하고 싶을 때</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 섹션 2: 핵심 요약 -->
+        <section>
+            <div class="summary-box">
+                <h3>핵심 요약</h3>
+                <ul>
+                    <li>공동상속 등기는 상속인 전원이 공동으로 신청하거나, 상속인 중 1인이 단독으로 신청할 수 있습니다(부동산등기법 제77조 제1항).</li>
+                    <li>재외국민 상속인의 서류는 <strong>귀국 여부</strong>에 따라 완전히 달라집니다.</li>
+                    <li><strong>귀국한 경우</strong>: 여권, 주민등록등본, 인감증명서 등 일반 상속인과 같은 서류를 준비합니다.</li>
+                    <li><strong>미귀국인 경우</strong>: 재외공관 공증 위임장과 재외국민등록부 등본이 필수입니다(등기예규 제1778호 제9조 제1항).</li>
+                    <li>협력을 거부하는 상속인이 있어도 법정상속분에 따라 공동상속 등기를 신청할 수 있습니다(등기선례 제201809-4호).</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 섹션 3: 개요 -->
+        <section>
+            <h2>공동상속의 기본 원칙</h2>
+
+            <h3>공동상속이란</h3>
+            <p>상속인이 2명 이상인 경우, 피상속인의 재산을 법정상속분에 따라 지분으로 나누어 공유하는 것입니다. 한국 상속법은 다음과 같은 원칙을 따릅니다.</p>
+
+            <h3>법정상속분</h3>
+            <p>민법 제1000조 및 제1009조에 따라 배우자와 자녀, 부모, 형제자매 간의 상속순위와 상속분이 정해집니다. 예를 들어:</p>
+            <ul>
+                <li>배우자 + 자녀 1명: 배우자 1/2, 자녀 1/2</li>
+                <li>배우자 + 자녀 2명: 배우자 1/3, 자녀 각 1/3</li>
+                <li>자녀 2명 (배우자 없음): 각 1/2</li>
+            </ul>
+
+            <h3>상속인 신청 원칙</h3>
+            <p>부동산등기법 제77조 제1항에 따르면:</p>
+            <ul>
+                <li><strong>공동 신청</strong>: 상속인 전원이 함께 신청</li>
+                <li><strong>단독 신청</strong>: 상속인 중 1인이 자신의 법정상속분만 신청 가능 (다른 상속인의 협조 불필요)</li>
+            </ul>
+
+            <div class="warning-box">
+                <strong>⚠️ 중요:</strong> 공동상속 등기는 보존행위입니다. 따라서 상속인 중 1인이 다른 상속인의 협조 없이 법정상속분에 대해 단독으로 신청할 수 있습니다. 이는 해당 상속인의 권리를 보호하는 차원에서 인정됩니다.
+            </div>
+
+            <h3>재외국민이 포함된 공동상속의 특수성</h3>
+            <p>재외국민 상속인이 포함되면 다음의 추가 요소를 고려해야 합니다:</p>
+            <ul>
+                <li><strong>법적 지위</strong>: 재외국민은 한국 국적을 유지하면서 외국에 거주하는 사람입니다.</li>
+                <li><strong>상속 적용법</strong>: 국제사법 제49조에 따라 상속은 피상속인의 국적지법에 따릅니다. 피상속인이 한국 국적이었으면 한국 민법이 적용됩니다.</li>
+                <li><strong>입국 여부</strong>: 재외국민이 귀국했는지 여부에 따라 준비 서류가 달라집니다.</li>
+                <li><strong>인감증명</strong>: 귀국하지 않은 재외국민은 한국에서 인감증명서를 받을 수 없으므로 재외공관 공증으로 대체합니다.</li>
+            </ul>
+        </section>
+
+        <!-- 섹션 4: 절차 흐름도 -->
+        <section>
+            <h2>공동상속 법정상속 등기 절차</h2>
+
+            <div class="flowchart">
+                <div class="flowchart-step">1단계: 피상속인의 사망 확인<br><small>사망 신고서, 사망진단서</small></div>
+
+                <div class="flowchart-arrow">↓</div>
+
+                <div class="flowchart-step">2단계: 상속인 확정<br><small>가족관계증명서, 기본증명서로 상속인 범위 결정</small></div>
+
+                <div class="flowchart-arrow">↓</div>
+
+                <div class="flowchart-step">3단계: 재외국민 상속인 확인<br><small>귀국 여부에 따라 준비 서류 결정</small></div>
+
+                <div class="flowchart-arrow">↓</div>
+
+                <div class="flowchart-step">4단계: 첨부서류 준비<br><small>상속인별·귀국 여부별로 서류 구성</small></div>
+
+                <div class="flowchart-arrow">↓</div>
+
+                <div class="flowchart-step">5단계: 등기신청<br><small>상속인 전원 신청 또는 1인 단독 신청</small></div>
+
+                <div class="flowchart-arrow">↓</div>
+
+                <div class="flowchart-step">6단계: 등기부 등본 확인<br><small>공동상속 등기 완료</small></div>
+            </div>
+        </section>
+
+        <!-- 섹션 5: 귀국한 경우 서류 -->
+        <section>
+            <h2>재외국민 상속인 서류 준비 (귀국한 경우)</h2>
+
+            <p>재외국민이 한국으로 귀국한 후 주민등록을 신고했다면, 일반 상속인과 동일한 서류를 준비합니다.</p>
+
+            <h3>1단계: 신분증명</h3>
+            <ul>
+                <li><strong>여권 + 주민등록증</strong>: 귀국 사실과 한국 주민등록번호를 증명합니다.</li>
+                <li>외국에서 귀국한 재외국민은 입국 후 1개월 내에 주민등록 신고를 하면 주민등록번호를 받습니다.</li>
+                <li>여권 (원본)과 주민등록증 (사본) 모두 준비하는 것이 좋습니다.</li>
+            </ul>
+
+            <h3>2단계: 가족관계 증명</h3>
+            <ul>
+                <li><strong>가족관계증명서</strong>: 서로 혈족 관계임을 증명합니다 (피상속인과의 관계).</li>
+                <li><strong>기본증명서</strong>: 피상속인의 사망 및 상속인 지위를 증명합니다.</li>
+                <li>시·구청 또는 대법원 국가법령정보시스템(elaw.go.kr)을 통해 발급받을 수 있습니다.</li>
+                <li>발급일로부터 3개월 이내여야 합니다.</li>
+            </ul>
+
+            <h3>3단계: 주소 증명</h3>
+            <ul>
+                <li><strong>주민등록등본</strong>: 귀국한 재외국민의 현재 주소지를 증명합니다.</li>
+                <li>주민등록이 말소되었던 경우: <strong>재외국민등록부 등본</strong>을 추가로 준비할 수 있습니다.</li>
+                <li>등기신청 당시의 현주소를 반영해야 합니다.</li>
+            </ul>
+
+            <h3>4단계: 인감 및 인감증명</h3>
+            <ul>
+                <li><strong>인감 신고</strong>: 귀국 후 주민등록을 하면 인감을 신고할 수 있습니다.</li>
+                <li><strong>인감도장</strong>: 위임장 (대리인이 신청하는 경우) 또는 신청서에 날인합니다.</li>
+                <li><strong>인감증명서</strong>: 대리인 신청 시 필수입니다 (대리인 위임장과 함께).</li>
+                <li>시·구청에서 발급받으며, 발급일로부터 3개월 이내여야 합니다.</li>
+            </ul>
+
+            <div class="case-box">
+                <h4>사례: 호주 거주 자녀의 귀국 상속 등기</h4>
+                <p>피상속인(부)이 서울의 아파트를 남기고 사망했습니다. 자녀 A는 호주에 거주하다가 장례 후 1개월 후 귀국했습니다. A가 공동상속 등기를 신청할 때 준비한 서류:</p>
+                <ul>
+                    <li>여권 (호주에서의 체류 증명)</li>
+                    <li>주민등록등본 (귀국 후 신고한 주소지)</li>
+                    <li>가족관계증명서 및 기본증명서</li>
+                    <li>인감증명서 (귀국 후 인감 신고 후 발급)</li>
+                    <li>직인 (인감도장)</li>
+                </ul>
+                <p>이 경우 A는 일반 상속인과 동일하게 취급되어 신청할 수 있습니다.</p>
+            </div>
+        </section>
+
+        <!-- 섹션 6: 미귀국인 경우 서류 -->
+        <section>
+            <h2>재외국민 상속인 서류 준비 (미귀국인 경우)</h2>
+
+            <p>재외국민이 외국에 계속 거주하면서 귀국하지 않은 경우, 다음과 같이 서류를 준비합니다.</p>
+
+            <h3>1단계: 위임장</h3>
+            <ul>
+                <li><strong>재외공관 공증 위임장</strong>: 한국의 재외공관(대사관, 총영사관)에서 공증 받은 위임장입니다.</li>
+                <li>등기예규 제1778호 제9조 제1항에 따라, 미귀국 재외국민은 재외공관 공증으로 인감증명을 대체할 수 있습니다.</li>
+                <li>위임장 작성 → 재외공관 방문 → 공증(또는 인증) → 한국으로 송부</li>
+                <li><strong>아포스티유 대신 재외공관 확인</strong>: 헤이그 아포스티유 협약 가입국의 공관에서 발급받은 경우, 아포스티유 없이 재외공관 확인만 받으면 됩니다.</li>
+            </ul>
+
+            <h3>2단계: 신분 증명</h3>
+            <ul>
+                <li><strong>여권 사본</strong>: 유효한 여권 또는 여권 사본 (아포스티유 또는 재외공관 확인)</li>
+                <li>외국인등록증 사본 (해당 국가의 거주권 증명)</li>
+            </ul>
+
+            <h3>3단계: 가족관계 증명</h3>
+            <ul>
+                <li><strong>가족관계증명서</strong>: 한국 시·구청에서 발급 (국내 주소지 필요 없음)</li>
+                <li><strong>기본증명서</strong>: 피상속인 사망 증명</li>
+                <li><strong>아포스티유 또는 재외공관 확인</strong>: 이 서류들을 외국에서 사용할 목적으로 준비했다면 공증이 필요할 수 있습니다.</li>
+                <li>등기신청 시점에 재외국민이 제출하는 경우, 아포스티유가 필수일 수 있습니다 (등기소 확인 필요).</li>
+            </ul>
+
+            <h3>4단계: 주소 증명</h3>
+            <ul>
+                <li><strong>재외국민등록부 등본</strong>: 재외동포청에 등록된 재외국민의 해외 주소를 증명합니다.</li>
+                <li><strong>또는 재외공관 거주확인서</strong>: 해당 국가의 대사관·총영사관에서 발급받은 거주 증명.</li>
+                <li><strong>또는 외국 정부 발급 주소 증명</strong>: 해당 국가의 거주지 인정 증명서 (아포스티유 필요).</li>
+            </ul>
+
+            <h3>5단계: 등록번호</h3>
+            <ul>
+                <li><strong>재외국민등록번호</strong>: 재외동포청에 등록된 번호 (있을 경우)</li>
+                <li><strong>또는 등기소 부여번호</strong>: 재외국민등록번호가 없으면 등기신청 시 등기소가 임시 번호를 부여합니다 (등기예규 제1778호 제11조).</li>
+            </ul>
+
+            <div class="warning-box">
+                <strong>⚠️ 인감증명서 대체:</strong> 미귀국 재외국민은 한국의 시·구청에서 인감증명서를 받을 수 없습니다. 대신 재외공관 공증 위임장(또는 아포스티유가 첨부된 공증)으로 인감증명을 갈음할 수 있습니다(등기예규 제1778호 제9조 제1항).
+            </div>
+
+            <div class="case-box">
+                <h4>사례: 미국 거주 상속인의 미귀국 상속 등기</h4>
+                <p>피상속인(모)이 부산의 상가를 남기고 사망했습니다. 자녀 B는 미국에 거주하면서 시민권을 취득했지만 한국 국적도 유지하고 있습니다(재외국민). B가 미국에서 귀국하지 않고 공동상속 등기를 신청할 때 준비한 서류:</p>
+                <ul>
+                    <li>미국 대사관(또는 총영사관)에서 공증받은 위임장</li>
+                    <li>여권 사본 (미국 대사관 확인 또는 아포스티유)</li>
+                    <li>가족관계증명서 및 기본증명서 (한국 시청에서 발급)</li>
+                    <li>재외국민등록부 등본 또는 미국의 거주지 증명</li>
+                    <li>재외국민등록번호 (있을 경우) 또는 등기소 부여번호</li>
+                </ul>
+                <p>B는 미국 변호사를 대리인으로 지정하거나, 한국의 친인척을 대리인으로 하는 위임장을 작성하여 진행했습니다.</p>
+            </div>
+        </section>
+
+        <!-- 섹션 7: 첨부서류 표 -->
+        <section>
+            <h2>첨부서류 비교표</h2>
+
+            <p>재외국민 상속인을 포함한 공동상속 등기의 첨부서류를 귀국 여부별로 정리했습니다. 다른 상속인(한국 국적, 국내 거주)은 일반 상속 등기 서류를 따릅니다.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>구분</th>
+                        <th>귀국한 재외국민</th>
+                        <th>미귀국 재외국민</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>위임장</strong></td>
+                        <td>인감도장 날인 + 인감증명서</td>
+                        <td>재외공관 공증 위임장 (또는 아포스티유)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>신분증명</strong></td>
+                        <td>여권 (또는 외국인등록증) + 주민등록증</td>
+                        <td>여권 사본 (아포스티유 또는 재외공관 확인)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>가족관계증명</strong></td>
+                        <td>가족관계증명서 + 기본증명서</td>
+                        <td>가족관계증명서 + 기본증명서 (아포스티유 또는 재외공관 확인)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>주소증명</strong></td>
+                        <td>주민등록등본 (또는 재외국민등록부 등본)</td>
+                        <td>재외국민등록부 등본 또는 재외공관 거주확인서</td>
+                    </tr>
+                    <tr>
+                        <td><strong>등록번호</strong></td>
+                        <td>주민등록번호 (또는 재외국민등록번호)</td>
+                        <td>재외국민등록번호 (또는 등기소 부여번호)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>인감증명</strong></td>
+                        <td>인감증명서 (귀국 후 신고하여 발급)</td>
+                        <td>재외공관 공증으로 대체</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 섹션 8: 주의사항 -->
+        <section>
+            <h2>주의사항</h2>
+
+            <h3>1. 협력을 거부하는 상속인이 있을 때</h3>
+            <ul>
+                <li>공동상속 등기는 보존행위로서 상속인 중 1인이 단독으로 신청할 수 있습니다.</li>
+                <li>다른 상속인이 협력을 거부해도 법정상속분에 따라 자신의 몫을 등기할 수 있습니다(등기선례 제201809-4호).</li>
+                <li>이 경우 신청서에 다른 상속인의 서명이 필요하지 않습니다.</li>
+            </ul>
+
+            <h3>2. 현주소 불명인 재외국민</h3>
+            <ul>
+                <li>재외국민 상속인의 현주소를 파악할 수 없으면, 재외국민등록부에 등재된 주소를 사용합니다(등기선례 7-74).</li>
+                <li>재외동포청에 미등록 상태면 등기소와 사전 협의가 필요합니다.</li>
+            </ul>
+
+            <h3>3. 아포스티유 확인</h3>
+            <ul>
+                <li>미귀국 재외국민이 제출하는 외국 문서(여권, 주소증명 등)는 아포스티유 협약 가입국이면 아포스티유가 필요합니다.</li>
+                <li>재외공관(대사관·총영사관)에서 공증받으면 아포스티유 대신 재외공관 확인으로 가능합니다.</li>
+            </ul>
+
+            <h3>4. 번역공증</h3>
+            <ul>
+                <li>외국어 문서는 한글 번역이 필요합니다. 공식 번역공증을 받아 함께 제출합니다.</li>
+                <li>대사관의 "영사 확인"을 받거나, 한국의 공증사무소에서 공증을 받을 수 있습니다.</li>
+            </ul>
+
+            <h3>5. 기한 준수</h3>
+            <ul>
+                <li>가족관계증명서, 기본증명서, 인감증명서는 발급일로부터 <strong>3개월 이내</strong>여야 합니다.</li>
+                <li>아포스티유 첨부 서류도 동일하게 3개월 기준을 적용합니다.</li>
+            </ul>
+
+            <div class="warning-box">
+                <strong>⚡ 기간 제한:</strong> 상속 등기에 특별한 기간 제한은 없지만, 증명서 효력이 3개월이므로 이 기간 내에 신청을 마쳐야 합니다.
+            </div>
+        </section>
+
+        <!-- 섹션 9: 판례·예규 -->
+        <section>
+            <h2>관련 판례 및 예규</h2>
+
+            <div class="precedent-box">
+                <h4>등기예규 제1778호 제9조 제1항</h4>
+                <p>재외국민이 국내에 주소를 두지 아니하고 있는 경우 등기신청서에 대한 서명을 하지 아니하고, 대신 재외공관에서 공증을 받은 위임장을 제출하면, 이를 인감증명서에 갈음할 수 있다.</p>
+            </div>
+
+            <div class="precedent-box">
+                <h4>등기예규 제1778호 제11조</h4>
+                <p>재외국민의 등록번호를 알 수 없는 경우, 등기신청서에 '등록번호 미기재'로 표시하고 신청하면, 등기소에서 임시 번호를 부여하여 처리한다.</p>
+            </div>
+
+            <div class="precedent-box">
+                <h4>등기선례 7-74 (현주소 불명)</h4>
+                <p>상속인의 현주소를 알 수 없는 경우, 최후에 등록되어 있던 주소를 기재하여 등기신청을 할 수 있다. 재외국민의 경우 재외국민등록부에 등재된 주소를 사용한다.</p>
+            </div>
+
+            <div class="precedent-box">
+                <h4>등기선례 제201809-4호 (협력 거부 시 단독 신청)</h4>
+                <p>공동상속인 중 일부가 협력을 거부하는 경우, 협력하는 상속인이 자신의 법정상속분에 해당하는 부분에 대해 단독으로 공동상속 등기를 신청할 수 있다.</p>
+            </div>
+        </section>
+
+        <!-- 섹션 10: 관련 링크 -->
+        <section>
+            <div class="related-links">
+                <h3>다음으로 확인할 내용</h3>
+                <ul>
+                    <li><a href="외등_18_재외국민단독상속.html">재외국민 단독 상속 등기</a> — 재외국민이 유일한 상속인인 경우</li>
+                    <li><a href="외등_20_재외국민협의분할.html">재외국민이 포함된 상속재산 협의분할</a> — 공동상속인이 상속재산을 나누어 가질 때</li>
+                    <li><a href="외등_09_외국인법정상속.html">외국인의 법정상속 등기</a> — 외국인 상속인의 경우 (재외국민과의 차이)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 섹션 11: 상담 CTA 및 면책문구 -->
+        <section>
+            <div class="cta-box">
+                <h3>이 내용이 해당되시나요?</h3>
+                <p><strong>첫 상담은 무료입니다.</strong></p>
+                <p>외국인·재외국민 등기는 국적·체류 자격·입국 여부에 따라 준비 서류가 달라집니다. 개별 상황에 맞게 정확하게 준비하려면 전문가 상담이 필요합니다.</p>
+                <div class="cta-buttons">
+                    <a href="tel:02-1234-5678" class="cta-btn cta-btn-primary">☎ 전화 상담</a>
+                    <a href="https://pf.kakao.com/_" class="cta-btn cta-btn-secondary">💬 카카오톡</a>
+                </div>
+            </div>
+
+            <div class="disclaimer">
+                <p><strong>면책 문구</strong></p>
+                <p>본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 개별 사안에 대한 법률 조언이 아닙니다. 법무사 사무소와의 법률자문 계약 없이 본 페이지 내용을 근거로 한 어떤 행위도 권장하지 않습니다. 이 페이지는 2025년 현행 법령 기준으로 작성되었습니다. 실제 등기 신청 시 등기소의 최신 지침을 확인하시기 바랍니다.</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<\!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>임의경매 신청 절차 | 법무사 부동산집행 안내</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1a2e4a;--gold:#c8a96e;--bg:#faf8f5;--text:#2c2c2c;--summary-bg:#eef2f8;--summary-bd:#2d4a7a;--cta-bg:#fdf6e9;--cta-bd:#c8a96e;--case-bg:#f0f8f0;--case-bd:#1a5c2e;--ruling-bg:#f7f4f0;--ruling-bd:#6b7280;--warn-bg:#fff3e8;--warn-bd:#c05000}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;font-size:16px}
+a{color:var(--navy);text-decoration:none}
+header{background:var(--navy);color:#fff;padding:48px 24px 40px;text-align:center}
+.breadcrumb{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:12px}
+header h1{font-family:'Noto Serif KR',serif;font-size:clamp(1.5rem,4vw,2.2rem);font-weight:700;line-height:1.4}
+.subtitle{font-size:15px;color:var(--gold);font-weight:500;margin-top:8px}
+.container{max-width:820px;margin:0 auto;padding:0 20px}
+section{padding:48px 0;border-bottom:1px solid #e4ddd4}
+section:last-of-type{border-bottom:none}
+h2{font-family:'Noto Serif KR',serif;font-size:1.35rem;font-weight:700;color:var(--navy);border-bottom:2px solid var(--gold);padding-bottom:10px;margin-bottom:20px}
+h3{font-size:1.05rem;font-weight:700;color:var(--navy);margin:28px 0 12px}
+p{margin-bottom:14px}
+.tag{font-size:11px;font-weight:700;padding:2px 8px;border-radius:3px;background:var(--navy);color:var(--gold);margin-right:8px;vertical-align:middle}
+
+.summary-box{background:var(--summary-bg);border-left:4px solid var(--summary-bd);border-radius:0 8px 8px 0;padding:20px 24px;margin:16px 0}
+.summary-box .label{font-size:11px;font-weight:700;color:var(--summary-bd);letter-spacing:.08em;margin-bottom:10px}
+.summary-box ul{padding-left:0;list-style:none}
+.summary-box li{padding:4px 0}
+.summary-box li::before{content:"▶ ";color:var(--summary-bd);font-weight:700}
+.case-box{background:var(--case-bg);border-left:4px solid var(--case-bd);border-radius:0 8px 8px 0;padding:20px 24px;margin:16px 0}
+.case-title{font-size:13px;font-weight:700;color:var(--case-bd);margin-bottom:10px}
+.case-box p{font-size:14.5px}
+.ruling-box{background:var(--ruling-bg);border-left:4px solid var(--ruling-bd);border-radius:0 8px 8px 0;padding:20px 24px;margin:16px 0}
+.ruling-header{font-size:13px;font-weight:700;color:#444;margin-bottom:10px}
+.ruling-header::before{content:"判";background:var(--ruling-bd);color:#fff;padding:1px 6px;border-radius:3px;margin-right:8px}
+.ruling-box p{font-size:14.5px}
+.warn-box{background:var(--warn-bg);border-left:4px solid var(--warn-bd);border-radius:0 8px 8px 0;padding:20px 24px;margin:16px 0}
+.warn-title{font-size:13px;font-weight:700;color:var(--warn-bd);margin-bottom:10px}
+.warn-box p{font-size:14.5px}
+.checklist{background:#fff;border:1px solid #ddd6ce;border-radius:8px;padding:24px 28px}
+.checklist ul{list-style:none;padding-left:0}
+.checklist li{padding:6px 0}
+.checklist li::before{content:"✓ ";color:var(--gold);font-weight:700}
+.table-wrap{overflow-x:auto;margin:20px 0}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:480px}
+thead th{background:var(--navy);color:#fff;padding:11px 14px;font-size:13px;text-align:left}
+tbody td{padding:10px 14px;border-bottom:1px solid #e4ddd4;line-height:1.6}
+tbody tr:nth-child(even) td{background:#f5f2ee}
+tbody tr:hover td{background:#eee8e0}
+.highlight{font-weight:700;color:var(--navy)}
+.qna-item{border:1px solid #e0d9d0;border-radius:8px;overflow:hidden;margin:12px 0}
+.qna-q{background:#fff;padding:16px 20px;font-weight:700;font-size:15px;color:var(--navy)}
+.qna-q::before{content:"Q. ";color:var(--gold)}
+.qna-a{background:#faf8f5;padding:16px 20px 16px 48px;font-size:14.5px;border-top:1px solid #e0d9d0}
+.qna-a .disclaimer{font-size:12px;color:#888;margin-top:10px;border-top:1px dashed #ccc;padding-top:8px}
+.cta-box{background:var(--cta-bg);border:1px solid var(--cta-bd);border-radius:10px;padding:32px 28px;text-align:center;margin:40px 0 0}
+.cta-box h3{color:var(--navy);font-size:1.15rem;margin-bottom:8px}
+.cta-box p{color:#555;font-size:14.5px;margin-bottom:20px}
+.cta-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cta-btn{background:var(--navy);color:#fff;padding:14px 36px;border-radius:6px;font-size:15px;font-weight:700;display:inline-block}
+.cta-btn.kakao{background:#FAE100;color:#3A1D1D}
+.next-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:16px}
+.next-link{background:#fff;border:1px solid #ddd6ce;border-radius:8px;padding:16px 18px;display:block}
+.next-link:hover{border-color:var(--gold);box-shadow:0 2px 8px rgba(200,169,110,.15)}
+.next-link .arrow{color:var(--gold);font-size:18px;display:block;margin-bottom:4px}
+.next-link .title{font-weight:700;font-size:14px;color:var(--navy)}
+.next-link .desc{font-size:12px;color:#777;margin-top:4px}
+.disclaimer-section{background:#f2f0ec;padding:28px;border-radius:8px;margin:40px 0 0}
+.disclaimer-section p{font-size:12px;color:#666;line-height:1.8;margin-bottom:6px}
+ol.steps{padding-left:0;list-style:none;counter-reset:step}
+ol.steps li{counter-increment:step;padding:14px 14px 14px 56px;position:relative;border-bottom:1px solid #e8e2dc}
+ol.steps li::before{content:counter(step);position:absolute;left:14px;top:12px;width:28px;height:28px;background:var(--navy);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px}
+ol.steps li:last-child{border-bottom:none}
+@media(max-width:600px){header{padding:36px 16px 28px}section{padding:36px 0}.summary-box,.case-box,.ruling-box,.warn-box{padding:16px 18px}.qna-a{padding-left:20px}.cta-box{padding:24px 20px}.cta-btn{padding:12px 28px}}
+    .law-tag {
+      display: inline-block; background: #e8edf5; color: #2d4a7a;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #b0c4de; cursor: pointer; transition: background 0.15s;
+    }
+    .law-tag:hover { background: #c8daf7; color: #1a2e4a; }
+    .case-tag {
+      display: inline-block; background: #f0ece4; color: #5a4a30;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #c8a96e; cursor: pointer; transition: background 0.15s;
+    }
+    .case-tag:hover { background: #f5dfa8; color: #3a2a10; }
+  </style>
+
+</head>
+<body>
+<header>
+  <div class="container">
+    <p class="breadcrumb">법무사 부동산집행 안내 > 채권자 > 임의경매 신청</p>
+    <h1>임의경매 신청 절차</h1>
+    <p class="subtitle">저당권·근저당권·전세권이 있다면 판결 없이 신청 가능합니다</p>
+  </div>
+</header>
+<div class="container">
+
+<section>
+  <h2>이런 분께 필요합니다</h2>
+  <div class="checklist"><ul>
+    <li>저당권·근저당권이 설정된 부동산의 채무자가 원리금을 상환하지 않는다</li>
+    <li>전세권자로서 전세금을 돌려받지 못해 경매를 신청하려 한다</li>
+    <li>임의경매 신청에 필요한 서류와 절차를 알고 싶다</li>
+    <li>담보권 실행 경매와 강제경매의 차이를 알고 싶다</li>
+  </ul></div>
+</section>
+<section>
+  <h2>핵심정리</h2>
+  <div class="summary-box">
+    <p class="label">핵심 요약</p>
+    <ul>
+      <li>임의경매는 저당권·근저당권·전세권 등 담보물권의 실행으로 신청하는 경매로, 판결(집행권원)이 없어도 됩니다.</li>
+      <li>담보권이 등기부에 등재되어 있음을 소명하는 서류만 있으면 법원에 신청 가능합니다.</li>
+      <li>절차 흐름은 강제경매와 동일하며, <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=026400" target="_blank" rel="noopener">민사집행법 제264조</a>~제270조가 적용됩니다.</li>
+    </ul>
+  </div>
+</section>
+<section>
+  <h2>상세설명</h2>
+  <h3>3-1. 신청 전 체크사항</h3>
+  <p>임의경매 신청 전 반드시 확인할 사항: ① 담보권(저당권·근저당권·전세권 등)이 등기부에 현재 유효하게 등재되어 있는가, ② 피담보채권(대출금, 전세금 등)의 변제기가 도래했는가, ③ 채무 불이행 사실(연체 등)이 있는가, ④ 관련 계약서, 약정서가 준비되어 있는가.</p>
+  <h3>3-2. 신청 단계별 절차</h3>
+  <ol class="steps">
+    <li><strong>등기사항증명서 확인</strong> — 담보권이 유효하게 등재된 최신 등기사항증명서 발급.</li>
+    <li><strong>경매신청서 작성</strong> — 채권자·채무자·목적물 표시·청구금액 기재. 법원 양식 이용.</li>
+    <li><strong>첨부서류 준비</strong> — 아래 표 참조.</li>
+    <li><strong>관할 법원 접수</strong> — 부동산 소재지 관할 지방법원 경매계에 제출.</li>
+    <li><strong>인지대·송달료 납부</strong> — 수납창구 납부 또는 전자납부.</li>
+    <li><strong>경매개시결정</strong> — 접수 당일 결정, 3일 이내 등기 촉탁(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=026800" target="_blank" rel="noopener">민집 제268조, 제83조</a>).</li>
+  </ol>
+  <h3>3-3. 첨부서류 목록</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>서류명</th><th>발급기관</th><th>주의사항</th></tr></thead>
+    <tbody>
+      <tr><td class="highlight">부동산 등기사항증명서</td><td>등기소·인터넷등기소</td><td>담보권 등재 확인</td></tr>
+      <tr><td class="highlight">근저당권 설정계약서 사본</td><td>채권자 보관</td><td>채권최고액 확인</td></tr>
+      <tr><td class="highlight">대출약정서·금전소비대차계약서 사본</td><td>채권자 보관</td><td>채무 원인 소명용</td></tr>
+      <tr><td class="highlight">연체확인서 또는 채권계산서</td><td>채권자 작성</td><td>원금·이자·비용 내역 포함</td></tr>
+      <tr><td class="highlight">전세권 설정계약서 (전세권 경매 시)</td><td>채권자 보관</td><td>전세권 만기·반환 거절 증명</td></tr>
+      <tr><td class="highlight">법인: 법인등기부등본</td><td>등기소</td><td>법인 채권자인 경우</td></tr>
+    </tbody>
+  </table></div>
+  <h3>3-4. 비용 안내</h3>
+  <p>인지대(청구금액에 따라 결정), 송달료(예납), 현황조사비용·감정비용(절차 중 예납). 정확한 금액은 대법원 전자소송 홈페이지(ecfs.scourt.go.kr)에서 확인 가능합니다.</p>
+  <div class="case-box">
+    <p class="case-title">📋 실제 사례</p>
+    <p>A은행은 채무자 박씨의 아파트에 채권최고액 3억 원의 근저당권을 보유하고 있었습니다. 박씨가 6개월 이상 원리금을 연체하자, A은행은 근저당권 설정계약서, 대출약정서, 연체내역서를 첨부하여 임의경매를 신청했습니다. 접수 당일 경매개시결정이 났고, 3일 후 등기부에 기재됐습니다.</p>
+  </div>
+</section>
+<section>
+  <h2>자주 하는 질문 Q&A</h2>
+  <div class="qna-item">
+    <p class="qna-q">채무자가 이미 다른 곳에 부동산을 팔았어도 경매를 신청할 수 있나요?</p>
+    <div class="qna-a">
+      <p>근저당권 설정 이후 부동산이 제3자에게 양도됐더라도, 근저당권은 부동산을 추적하는 물권이므로 현재 소유자(제3취득자)의 부동산에 대해 임의경매를 신청할 수 있습니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=036300" target="_blank" rel="noopener">민법 제363조</a>). 이 경우 제3취득자는 피담보채무를 변제하거나 담보권 소멸 청구를 할 수 있습니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=036400" target="_blank" rel="noopener">민법 제364조</a>).</p>
+      <p class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+    </div>
+  </div>
+  <div class="qna-item">
+    <p class="qna-q">채권최고액이 있는 근저당권인데, 실제 채권액이 채권최고액을 초과하면 어떻게 되나요?</p>
+    <div class="qna-a">
+      <p>근저당권의 피담보채권은 채권최고액을 한도로 보장됩니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=035700" target="_blank" rel="noopener">민법 제357조</a>). 따라서 실제 채권액이 채권최고액을 초과하더라도, 경매에서 우선 배당받을 수 있는 금액은 채권최고액 범위 내입니다. 초과분은 일반 채권자와 같은 순위로 배당을 요청해야 합니다.</p>
+      <p class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+    </div>
+  </div>
+  <div class="qna-item">
+    <p class="qna-q">전세권자도 임의경매를 신청할 수 있나요?</p>
+    <div class="qna-a">
+      <p>네, 등기된 전세권은 담보물권으로서 전세권자가 직접 임의경매를 신청할 수 있습니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=031800" target="_blank" rel="noopener">민법 제318조</a>, <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=026400" target="_blank" rel="noopener">민집 제264조</a>). 다만 전세권의 존속기간이 만료됐고 전세금 반환을 요구했음에도 집주인이 반환하지 않는 경우에 신청 가능합니다. 전세권 등기가 되어 있지 않은 경우(주택임대차보호법상 임차인)는 임의경매 대신 배당요구 등 다른 방법을 이용해야 합니다.</p>
+      <p class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+    </div>
+  </div>
+  <div class="qna-item">
+    <p class="qna-q">임의경매 신청 후 채무자가 채무를 갚겠다고 하면 어떻게 하나요?</p>
+    <div class="qna-a">
+      <p>경매 신청 후라도 낙찰자가 대금을 납부하기 전이라면 채권자는 언제든지 취하할 수 있습니다. 채무자가 채권 전액(원금·이자·집행비용 포함)을 변제하면 경매를 취하하는 것이 일반적입니다. 다만 일부 변제만으로는 취하 의무가 없으므로, 전액 변제를 조건으로 협상하는 것이 좋습니다.</p>
+      <p class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+    </div>
+  </div>
+</section>
+<section>
+  <h2>주의사항</h2>
+  <div class="warn-box">
+    <p class="warn-title">⚠️ 담보권 소멸 여부 확인 필수</p>
+    <p>이미 변제 완료된 담보권을 실행하면 법원이 경매를 취소하고(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=026600" target="_blank" rel="noopener">민집 제266조</a>), 채권자는 손해배상 책임을 질 수 있습니다. 경매 신청 전 담보권이 유효하게 존재하는지 반드시 확인하세요.</p>
+  </div>
+  <div class="warn-box">
+    <p class="warn-title">ℹ️ 물상보증인 소유 부동산</p>
+    <p>채무자가 아닌 물상보증인(타인의 빚을 위해 자기 부동산에 담보를 설정한 자)의 부동산에도 임의경매 신청이 가능합니다. 이 경우 물상보증인은 채무자에게 구상권을 행사할 수 있습니다.</p>
+  </div>
+</section>
+<section>
+  <h2>다음에 확인할 사항</h2>
+  <div class="next-links">
+    <a href="경매_10_배당순위.html" class="next-link"><span class="arrow">→</span><span class="title">배당 순위</span><span class="desc">경매 대금 배당 순서 확인</span></a>
+    <a href="경매_16_권리분석.html" class="next-link"><span class="arrow">→</span><span class="title">권리분석</span><span class="desc">낙찰 시 인수·소멸되는 권리</span></a>
+    <a href="경매_11_배당요구신청.html" class="next-link"><span class="arrow">→</span><span class="title">배당요구 신청</span><span class="desc">경매에 참여해 배당받는 방법</span></a>
+  </div>
+</section>
+
+<div class="cta-box">
+  <h3>이 내용이 해당되시나요? 첫 상담은 무료입니다.</h3>
+  <p>직접 처리하시기 어려운 부분을 법무사가 도와드립니다.</p>
+  <div class="cta-buttons">
+    <a href="tel:0000000000" class="cta-btn">📞 전화 상담</a>
+    <a href="#" class="cta-btn kakao">💬 카카오톡 상담</a>
+  </div>
+</div>
+<div class="disclaimer-section">
+  <p>본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 개별 사안에 따라 결과가 달라질 수 있습니다. 구체적인 사안은 법무사와 상담하시기 바랍니다.</p>
+  <p>이 페이지는 2025년 현행 법령 기준으로 작성되었습니다.</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>신탁재산권 압류 — 신탁수익권·신탁종료 후 권리의 집행방법</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1a2e4a;
+  --gold: #c8a96e;
+  --bg: #faf8f5;
+  --text: #2c2c2c;
+  --summary-bg: #eef2f8;
+  --summary-bd: #2d4a7a;
+  --cta-bg: #fdf6e9;
+  --cta-bd: #c8a96e;
+  --case-bg: #f0f8f0;
+  --case-bd: #1a5c2e;
+  --ruling-bg: #f7f4f0;
+  --ruling-bd: #6b7280;
+  --warn-bg: #fff3e8;
+  --warn-bd: #c05000;
+  --rank-bg: #f4f7fb;
+  --rank-bd: #2d4a7a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  font-size: 16px;
+}
+header {
+  background: var(--navy);
+  color: #fff;
+  padding: 48px 24px 40px;
+  text-align: center;
+}
+.breadcrumb {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 12px;
+}
+header h1 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+.subtitle {
+  font-size: 15px;
+  color: var(--gold);
+  font-weight: 500;
+}
+.container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+section {
+  padding: 48px 0;
+  border-bottom: 1px solid #e4ddd4;
+}
+section:last-of-type { border-bottom: none; }
+
+h2 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--navy);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+h2 .tag {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: var(--navy);
+  color: var(--gold);
+  margin-right: 8px;
+  vertical-align: middle;
+}
+h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 28px 0 12px;
+}
+
+/* 박스 공통 */
+.summary-box, .case-box, .ruling-box, .warn-box {
+  border-left: 4px solid;
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px;
+  margin: 20px 0;
+}
+.summary-box {
+  background: var(--summary-bg);
+  border-left-color: var(--summary-bd);
+}
+.summary-box .label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--summary-bd);
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+  display: block;
+}
+.summary-box ul { list-style: none; padding: 0; }
+.summary-box li { padding: 4px 0; font-size: 15px; }
+.summary-box li::before { content: "▶"; color: var(--summary-bd); margin-right: 8px; font-size: 11px; }
+
+.case-box { background: var(--case-bg); border-left-color: var(--case-bd); }
+.case-title {
+  font-size: 13px; font-weight: 700; color: var(--case-bd);
+  margin-bottom: 10px; display: block;
+}
+.case-box p { font-size: 14.5px; }
+
+.ruling-box { background: var(--ruling-bg); border-left-color: var(--ruling-bd); }
+.ruling-header {
+  font-size: 13px; font-weight: 700; color: #444;
+  margin-bottom: 10px; display: block;
+}
+.ruling-header::before {
+  content: "判";
+  background: var(--ruling-bd); color: #fff;
+  padding: 1px 6px; border-radius: 3px; margin-right: 8px;
+}
+.ruling-box p { font-size: 14.5px; }
+
+.warn-box { background: var(--warn-bg); border-left-color: var(--warn-bd); }
+.warn-title {
+  font-size: 13px; font-weight: 700; color: var(--warn-bd);
+  margin-bottom: 10px; display: block;
+}
+.warn-box p { font-size: 14.5px; }
+
+/* 체크리스트 */
+.checklist {
+  background: #fff;
+  border: 1px solid #ddd6ce;
+  border-radius: 8px;
+  padding: 24px 28px;
+}
+.checklist ul { list-style: none; padding: 0; }
+.checklist li {
+  padding: 6px 0;
+  font-size: 15px;
+}
+.checklist li::before {
+  content: "✓";
+  color: var(--gold);
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+/* 태그 */
+
+.badge-red { background: #fde8e8; color: #b00; font-size: 11px; padding: 2px 8px; border-radius: 3px; font-weight: 700; }
+.badge-green { background: #e8f5e9; color: #1a5c2e; font-size: 11px; padding: 2px 8px; border-radius: 3px; font-weight: 700; }
+.q-badge {
+  background: var(--navy); color: var(--gold);
+  font-size: 11px; font-weight: 700;
+  padding: 2px 8px; border-radius: 3px; margin-right: 8px;
+}
+
+/* 테이블 */
+.table-wrap { overflow-x: auto; margin: 20px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 480px; }
+thead th {
+  background: var(--navy); color: #fff;
+  padding: 11px 14px; font-size: 13px; text-align: left;
+}
+tbody td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #e4ddd4;
+  line-height: 1.6;
+}
+tbody tr:nth-child(even) { background: #f5f2ee; }
+tbody tr:hover { background: #eee8e0; }
+.highlight { font-weight: 700; color: var(--navy); }
+.gold-text { font-weight: 700; color: #8a5e00; background: #fffbf0; }
+
+/* Q&A */
+.qna-item {
+  border: 1px solid #e0d9d0;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+.qna-q {
+  background: #fff;
+  padding: 16px 20px;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--navy);
+}
+.qna-a {
+  background: #faf8f5;
+  padding: 16px 20px 16px 48px;
+  font-size: 14.5px;
+  border-top: 1px solid #e0d9d0;
+}
+.qna-a .disclaimer {
+  font-size: 12px;
+  color: #888;
+  margin-top: 10px;
+  border-top: 1px dashed #ccc;
+  padding-top: 8px;
+}
+
+/* CTA */
+.cta-box {
+  background: var(--cta-bg);
+  border: 1px solid var(--cta-bd);
+  border-radius: 10px;
+  padding: 32px 28px;
+  text-align: center;
+  margin: 40px 0 0;
+}
+.cta-box h3 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.2rem;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+.cta-box p { font-size: 15px; color: #555; margin-bottom: 24px; }
+.cta-btn-wrap { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.cta-btn {
+  background: var(--navy);
+  color: #fff;
+  padding: 14px 36px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s;
+}
+.cta-btn:hover { background: #26426a; }
+.cta-btn.kakao { background: #fee500; color: #1a1a1a; }
+.cta-btn.kakao:hover { background: #e6ce00; }
+
+/* 다음 페이지 */
+.next-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+.next-link {
+  background: #fff;
+  border: 1px solid #ddd6ce;
+  border-radius: 8px;
+  padding: 16px 18px;
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.next-link:hover {
+  border-color: var(--gold);
+  box-shadow: 0 2px 8px rgba(200,169,110,0.15);
+}
+.next-link .arrow { color: var(--gold); font-size: 18px; margin-right: 6px; }
+.next-link .link-title { font-weight: 700; font-size: 14px; color: var(--navy); display: block; margin-bottom: 4px; }
+.next-link .link-desc { font-size: 13px; color: #666; }
+
+/* 면책 */
+.disclaimer-section {
+  background: #f2f0ec;
+  padding: 28px;
+  border-radius: 8px;
+  margin: 40px 0 0;
+}
+.disclaimer-section p { font-size: 12px; color: #666; line-height: 1.8; }
+
+/* 순위 박스 */
+.rank-box {
+  background: var(--rank-bg);
+  border-left: 4px solid var(--rank-bd);
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px;
+  margin: 20px 0;
+}
+
+/* 유형 구분 */
+.type-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 20px 0;
+}
+.type-card {
+  background: #fff;
+  border: 1px solid #ddd6ce;
+  border-radius: 8px;
+  padding: 18px 20px;
+}
+.type-card .type-badge {
+  font-size: 11px; font-weight: 700;
+  padding: 3px 10px; border-radius: 3px;
+  display: inline-block; margin-bottom: 10px;
+}
+.type-card.basic .type-badge { background: #e8edf5; color: #2d4a7a; }
+.type-card.concrete .type-badge { background: #e8f5e9; color: #1a5c2e; }
+.type-card h4 { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+.type-card p { font-size: 13.5px; color: #444; }
+
+@media (max-width: 600px) {
+  header { padding: 36px 16px 28px; }
+  section { padding: 36px 0; }
+  .summary-box, .case-box, .ruling-box, .warn-box { padding: 16px 18px; }
+  .qna-a { padding-left: 20px; }
+  .cta-box { padding: 24px 20px; }
+  .cta-btn { padding: 12px 28px; }
+  .type-grid { grid-template-columns: 1fr; }
+}
+    .law-tag {
+      display: inline-block; background: #e8edf5; color: #2d4a7a;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #b0c4de; cursor: pointer; transition: background 0.15s;
+    }
+    .law-tag:hover { background: #c8daf7; color: #1a2e4a; }
+    .case-tag {
+      display: inline-block; background: #f0ece4; color: #5a4a30;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #c8a96e; cursor: pointer; transition: background 0.15s;
+    }
+    .case-tag:hover { background: #f5dfa8; color: #3a2a10; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <p class="breadcrumb">채권집행 &gt; 그 밖의 재산권에 대한 집행</p>
+    <h1>신탁재산권 압류<br>— 신탁수익권과 신탁종료 후 권리의 집행</h1>
+    <p class="subtitle">수탁자를 제3채무자로 하는 집행 · 기본적 수익권 · 구체화된 수익권 · 귀속권리자의 권리</p>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- 1. 고객의 상황 -->
+<section>
+  <h2><span class="tag">CHECK</span> 이런 분께 필요합니다</h2>
+  <div class="checklist">
+    <ul>
+      <li>채무자가 신탁회사나 은행에 신탁수익권을 가지고 있다는 것을 알았습니다.</li>
+      <li>채무자의 자산이 신탁으로 묶여 있어 일반 채권집행이 어렵습니다.</li>
+      <li>채무자가 부동산담보신탁에서 수익자(우선수익자 또는 일반수익자)로 등록되어 있습니다.</li>
+      <li>신탁이 종료된 후 채무자가 신탁재산을 돌려받을 권리(귀속권리자의 권리)를 가지고 있습니다.</li>
+      <li>채무자가 신탁계약을 통해 재산을 이전했는데, 그 수익권에 대해 집행을 검토 중입니다.</li>
+      <li>신탁재산 자체는 집행이 안 된다고 하는데, 수익권에 대한 집행이 가능한지 알고 싶습니다.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 2. 핵심정리 -->
+<section>
+  <h2><span class="tag">POINT</span> 핵심정리</h2>
+  <div class="summary-box">
+    <span class="label">▌ 이 상황에서 법은 이렇게 정하고 있습니다</span>
+    <ul>
+      <li>신탁재산 자체에 대한 강제집행은 원칙적으로 금지됩니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=154007&joNo=002200" target="_blank" rel="noopener">신탁법 제22조</a>). 그러나 수익자가 가지는 <strong>신탁수익권</strong>은 재산권이므로 집행 대상이 됩니다.</li>
+      <li>신탁수익권은 <strong>기본적 수익권</strong>과 <strong>구체화된 수익권</strong>으로 나뉘고, 각각 집행방법이 다릅니다. 수탁자(신탁회사·은행)가 제3채무자가 됩니다.</li>
+      <li>신탁이 종료된 후에는 귀속권리자가 신탁재산에 대한 권리를 갖는데, 이 권리도 채권집행의 대상이 됩니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=154007&joNo=010100" target="_blank" rel="noopener">신탁법 제101조</a>).</li>
+      <li>부동산담보신탁에서 채무자가 받을 <strong>잔여재산반환청구권</strong>이나 <strong>소유권이전등기청구권</strong>도 압류 가능합니다.</li>
+    </ul>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>집행 대상</th>
+          <th>법적 성격</th>
+          <th>제3채무자</th>
+          <th>집행방법</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="highlight">기본적 수익권<br>(수익권 자체)</td>
+          <td>그 밖의 재산권<br>(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=025100" target="_blank" rel="noopener">민집 제251조</a>)</td>
+          <td>수탁자</td>
+          <td>압류 + 특별현금화명령<br>(매각명령·양도명령)</td>
+        </tr>
+        <tr>
+          <td class="highlight">구체화된 수익권<br>(이미 발생한 급부채권)</td>
+          <td>금전채권</td>
+          <td>수탁자</td>
+          <td>압류 + 추심명령 또는<br>전부명령</td>
+        </tr>
+        <tr>
+          <td class="highlight">귀속권리자의 권리<br>(신탁종료 후)</td>
+          <td>채권(법정신탁<br>수익자 지위)</td>
+          <td>수탁자</td>
+          <td>압류 + 추심명령 또는<br>전부명령</td>
+        </tr>
+        <tr>
+          <td class="highlight">부동산신탁 잔여재산<br>반환청구권·등기청구권</td>
+          <td>채권</td>
+          <td>수탁자</td>
+          <td>압류 + 추심명령 또는<br>특별현금화명령</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 3. 상세설명 -->
+<section>
+  <h2><span class="tag">LAW</span> 상세설명</h2>
+
+  <h3>3-1. 기본 개념과 법적 근거</h3>
+  <p>신탁이란 위탁자가 수탁자에게 특정 재산을 이전하거나 담보권을 설정하고, 수탁자로 하여금 수익자의 이익을 위하여 그 재산을 관리·처분하게 하는 법률관계입니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=154007&joNo=000200" target="_blank" rel="noopener">신탁법 제2조</a>). 신탁재산은 수탁자 명의로 이전되므로 수익자의 채권자가 신탁재산 자체에 강제집행하는 것은 금지됩니다<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=154007&joNo=002200" target="_blank" rel="noopener">신탁법 제22조 제1항</a>.</p>
+  <p>그러나 수익자가 보유하는 <strong>신탁수익권</strong>은 재산권이므로 집행 대상에서 제외되지 않습니다. 신탁법은 수익권의 양도성을 명문으로 인정하고 있고<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=154007&joNo=006400" target="_blank" rel="noopener">신탁법 제64조·제65조</a>, 수익자의 채권자는 이 수익권에 대해 채권집행의 방법으로 집행할 수 있습니다.</p>
+
+  <div class="summary-box">
+    <span class="label">▌ 신탁수익권의 개념 구조</span>
+    <ul>
+      <li><strong>협의의 수익권(자익권)</strong>: 신탁재산에 대해 수익자가 갖는 기본적 권리. ① 신탁존속 중의 급부청구권, ② 신탁종료 후의 신탁재산인도청구권 포함<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=154007&joNo=005600" target="_blank" rel="noopener">신탁법 제56조·제101조</a></li>
+      <li><strong>광의의 수익권</strong>: 협의의 수익권 + 수탁자 감독권능(열람청구권·취소권·환취권 등) 전부를 포괄하는 포괄적 권리</li>
+      <li><strong>수익채권</strong>: 수익자가 수탁자에게 신탁재산에 속한 재산의 인도나 그 밖의 급부를 요구하는 청구권<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=154007&joNo=006200" target="_blank" rel="noopener">신탁법 제62조</a></li>
+    </ul>
+  </div>
+
+  <h3>3-2. 신탁수익권의 종류와 집행방법</h3>
+
+  <div class="type-grid">
+    <div class="type-card basic">
+      <span class="type-badge">기본적 수익권</span>
+      <h4>수익권 자체 (포괄적 권리)</h4>
+      <p>수익권의 여러 내용 전체를 포괄하는 권리로서, 수익권 그 자체를 의미합니다. 현재 확정된 권리이지만 권면액이 없어 추심명령·전부명령은 원칙적으로 허용되지 않습니다.</p>
+      <p style="margin-top:8px;"><strong>집행방법:</strong> <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=025100" target="_blank" rel="noopener">민사집행법 제251조</a>의 '그 밖의 재산권'으로서, 특별현금화명령(매각명령·양도명령)에 의해 환가합니다.</p>
+    </div>
+    <div class="type-card concrete">
+      <span class="type-badge">구체화된 수익권</span>
+      <h4>이미 발생한 급부청구권</h4>
+      <p>기본적 수익권에 기하여 수탁자의 지급의무가 이미 구체적으로 발생한 급부청구권입니다. 이행기가 도래한 것은 일반 금전채권과 동일하게 취급됩니다.</p>
+      <p style="margin-top:8px;"><strong>집행방법:</strong> 채권압류명령 + 추심명령 또는 전부명령 가능. 금전급부를 내용으로 하는 장래에 확정될 구체화된 수익권도 추심명령 가능.</p>
+    </div>
+  </div>
+
+  <div class="case-box" style="margin-top:20px;">
+    <span class="case-title">📋 사례 — 기본적 수익권과 구체화된 수익권의 구분</span>
+    <p>甲이 수탁자 乙(신탁회사)에게 부동산을 신탁하고 수익자 丙에게 월 200만 원씩 지급하는 신탁계약을 체결했다고 가정합니다. 2024. 10. 1. 기준으로:</p>
+    <p>① <strong>이미 구체화된 수익권</strong>: 수탁자가 아직 지급하지 않은 과거 수익금(예: 2024. 1. ~ 9.분, 합계 1,800만 원) → 추심명령·전부명령 가능</p>
+    <p>② <strong>앞으로 구체화될 수익권</strong>: 2024. 10.부터 신탁종료시까지 매월 받을 200만 원 → 장래 채권으로서 추심명령 가능</p>
+    <p>③ <strong>기본적 수익권</strong>: 위 모든 권리를 포괄하는 수익권 자체 → 특별현금화명령(매각명령 또는 양도명령)</p>
+  </div>
+
+  <h3>3-3. 신탁종료 후의 권리 — 귀속권리자의 지위</h3>
+  <p>신탁이 종료하면 신탁재산은 잔여재산수익자 또는 귀속권리자에게 귀속됩니다<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=154007&joNo=010100" target="_blank" rel="noopener">신탁법 제101조 제1항</a>. 잔여재산수익자·귀속권리자가 권리를 포기한 경우에는 위탁자와 그 상속인에게 귀속됩니다<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=154007&joNo=010100" target="_blank" rel="noopener">신탁법 제101조 제2항</a>.</p>
+
+  <div class="rank-box">
+    <p><strong><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=154007&joNo=010100" target="_blank" rel="noopener">신탁법 제101조 제4항</a> — 법정신탁 성립</strong></p>
+    <p>신탁이 종료하더라도 신탁재산이 귀속권리자에게 이전되기 <strong>전까지</strong>는 신탁은 존속하는 것으로 간주됩니다. 이때 귀속권리자는 <strong>수익자로 간주</strong>됩니다(귀속권리자를 위한 법정신탁). 이는 귀속권리자의 권리를 신탁법적으로 보호하는 구조입니다.</p>
+    <p>→ 따라서 귀속권리자가 갖는 신탁재산인도청구권·소유권이전등기청구권은 <strong>신탁수익채권의 형태로 존재</strong>하며, 채권집행의 대상이 됩니다.</p>
+  </div>
+
+  <h3>3-4. 부동산담보신탁과 우선수익권</h3>
+  <p>부동산담보신탁이란, 채무자(위탁자)가 자신의 부동산을 수탁자에게 신탁하면서 채권자를 우선수익자로, 자신을 수익자로 정하고, 채무불이행 시 신탁재산을 매각한 대금으로 채권자가 우선 변제를 받는 구조입니다<a class="case-tag" href="https://www.law.go.kr/precSc.do?menuId=7&subMenuId=47&tabMenuId=213&eventGubun=060101&query=2014%EB%8B%A4225809" target="_blank" rel="noopener">대법원 2017. 6. 22. 선고 2014다225809 전원합의체</a>.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>압류 대상</th>
+          <th>권리자</th>
+          <th>내용</th>
+          <th>집행방법</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>위탁자(채무자)의 수익권</strong></td>
+          <td>위탁자 겸 수익자</td>
+          <td>신탁종료 후 잔여재산을 반환받거나, 신탁존속 중 신탁재산 사용·수익할 권리</td>
+          <td>압류 + 특별현금화명령</td>
+        </tr>
+        <tr>
+          <td><strong>잔여신탁재산반환청구권</strong></td>
+          <td>위탁자(채무자)</td>
+          <td>우선수익자의 채권변제 후 남은 잔여재산을 반환받을 권리</td>
+          <td>압류 + 추심명령</td>
+        </tr>
+        <tr>
+          <td><strong>소유권이전등기청구권</strong></td>
+          <td>귀속권리자·위탁자</td>
+          <td>신탁 종료 후 부동산의 소유권이전등기를 청구할 권리</td>
+          <td>압류 + 추심명령 또는 이전등기신청</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p style="margin-top:16px;">위탁자가 금전채권을 담보하기 위하여 채권자를 우선수익자로 설정한 경우, <strong>우선수익권</strong>은 경제적으로 금전채권에 대한 담보로 기능하지만, 금전채권과는 독립한 신탁계약상의 별개의 권리입니다. 따라서 금전채권이 제3자에게 양도·전부되었다고 하여 우선수익권이 당연히 이전되는 것은 아닙니다<a class="case-tag" href="https://www.law.go.kr/precSc.do?menuId=7&subMenuId=47&tabMenuId=213&eventGubun=060101&query=2014%EB%8B%A4225809" target="_blank" rel="noopener">대법원 2017. 6. 22. 선고 2014다225809</a>.</p>
+
+  <h3>3-5. 압류명령 신청 방법</h3>
+  <div class="summary-box">
+    <span class="label">▌ 신탁수익권 압류명령 신청 시 표시 방법</span>
+    <ul>
+      <li><strong>기본적 수익권</strong>: "채무자(수익자)가 제3채무자(수탁자 ○○신탁주식회사)에 대하여 가지는 ○○○신탁계약(계약일자 ○○○)에 의한 신탁수익권(기본적 수익권) 중 청구채권에 이르는 금액"</li>
+      <li><strong>구체화된 수익권</strong>: "채무자가 제3채무자에 대하여 가지는 ○○신탁계약에 기한 수익금으로서, ○○○.부터 매월 말일 수령할 금 ○○○만원의 채권 중 청구채권에 이르는 금액"</li>
+      <li><strong>귀속권리자의 권리</strong>: "채무자가 제3채무자(수탁자)에 대하여 가지는 ○○신탁계약 종료로 인한 신탁재산인도청구권(또는 소유권이전등기청구권) 중 청구채권에 이르는 금액"</li>
+      <li>⚠️ 수익권을 압류할 때는 기본적 수익권과 구체화된 수익권을 구분하여 각각 명확하게 표시하는 것이 중요합니다.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 4. Q&A -->
+<section>
+  <h2><span class="tag">Q&A</span> 자주 하는 질문</h2>
+
+  <div class="qna-item">
+    <div class="qna-q"><span class="q-badge">Q1</span> 신탁재산에는 집행이 안 된다고 하는데, 신탁수익권도 집행이 안 되는 건가요?</div>
+    <div class="qna-a">
+      <p>신탁재산 자체에 대한 강제집행은 원칙적으로 금지됩니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=154007&joNo=002200" target="_blank" rel="noopener">신탁법 제22조 제1항</a>). 이는 신탁재산이 수탁자에게 이전되어 수탁자 명의로 관리되기 때문입니다. 그러나 수익자가 가지는 <strong>신탁수익권은 전혀 다른 문제</strong>입니다. 신탁수익권은 수익자가 수탁자에 대하여 가지는 채권적 권리이고 재산권이므로, 집행 대상이 됩니다. 신탁법도 수익권의 양도성을 명문으로 인정하고 있습니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=154007&joNo=006400" target="_blank" rel="noopener">신탁법 제64조·제65조</a>). <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=154007&joNo=002200" target="_blank" rel="noopener">신탁법 제22조</a>는 신탁재산 자체에 대한 강제집행을 금지하는 것이지, 수익권에 대한 집행을 금지하는 것이 아닙니다.</p>
+      <div class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+    </div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q"><span class="q-badge">Q2</span> 신탁수익권을 압류할 때 제3채무자는 누구인가요?</div>
+    <div class="qna-a">
+      <p>신탁수익권에 대한 채권압류명령에서 제3채무자는 <strong>수탁자</strong>입니다. 신탁수익권은 수익자(채무자)가 수탁자(신탁회사·은행 등)에 대하여 가지는 권리이므로, 수탁자를 제3채무자로 하여 압류명령을 신청해야 합니다. 압류명령이 수탁자에게 송달되면 수탁자는 수익자(채무자)에 대한 신탁수익의 지급을 금지받게 됩니다. 이후 추심명령이나 전부명령 또는 특별현금화명령을 통해 채권을 만족받게 됩니다.</p>
+      <div class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+    </div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q"><span class="q-badge">Q3</span> 기본적 수익권과 구체화된 수익권 중 어느 것을 압류해야 하나요?</div>
+    <div class="qna-a">
+      <p>두 가지를 함께 표시하여 압류하는 것이 실무상 안전합니다. 기본적 수익권은 수익권 전체를 포괄하는 것이므로 구체화된 수익권도 이에 포함됩니다. 다만 압류결정 효력 발생 전에 이미 구체화된 수익금은 수익권에서 발생한 별개의 채권이므로, 별도로 표시하여 압류하는 것이 바람직합니다. 예를 들어 기본적 수익권을 압류하면서 동시에 "○○○일부터 이미 발생하였으나 미지급인 수익금"도 별도 표시하여 함께 압류하면 누락을 방지할 수 있습니다. 집행방법도 기본적 수익권은 특별현금화명령, 구체화된 수익권은 추심명령 또는 전부명령으로 달리 적용됩니다.</p>
+      <div class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+    </div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q"><span class="q-badge">Q4</span> 신탁이 아직 종료하지 않았는데, 귀속권리자로 예정된 사람의 권리를 압류할 수 있나요?</div>
+    <div class="qna-a">
+      <p>신탁이 존속 중이라면 귀속권리자는 아직 신탁재산에 대한 구체적 권리를 갖지 않고, 신탁종료시 잔여재산이 자신에게 귀속될 것에 대한 기대권을 갖는 상태입니다. 이러한 기대권의 압류는 이론적으로 불가능하지 않지만, 채권이 구체화되어 있지 않아 실효성이 낮습니다. 반면 신탁이 종료하면 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=154007&joNo=010100" target="_blank" rel="noopener">신탁법 제101조 제4항</a>에 따라 법정신탁이 성립하고, 귀속권리자는 간주수익자가 됩니다. 이때부터는 귀속권리자의 신탁재산인도청구권·소유권이전등기청구권이 구체화되므로 채권집행의 대상이 됩니다. 신탁종료 후에는 집행을 서두르는 것이 중요합니다. 또한 대법원 2008. 10. 27.자 <a class="case-tag" href="https://www.law.go.kr/precSc.do?menuId=7&subMenuId=47&tabMenuId=213&eventGubun=060101&query=2007%EB%A7%88389" target="_blank" rel="noopener">2007마389</a> 결정은 귀속권리자가 신탁재산에 대해 가처분할 여지를 남겨두고 있습니다.</p>
+      <div class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+    </div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q"><span class="q-badge">Q5</span> 부동산담보신탁에서 위탁자(채무자)가 가지는 수익권을 압류했는데, 우선수익자(대출은행)가 신탁부동산을 먼저 처분해 버리면 어떻게 되나요?</div>
+    <div class="qna-a">
+      <p>부동산담보신탁에서 위탁자 겸 수익자의 수익권은 우선수익자(대출은행 등)의 채권이 변제된 후 남은 잔여재산에 대한 권리입니다. 우선수익자가 신탁부동산의 처분을 요청하여 매각이 이루어지면, 우선수익자가 먼저 변제를 받고 남는 잔여금이 있어야 위탁자의 수익권이 실현됩니다. 만약 처분대금이 우선수익자의 채권액에도 미치지 못한다면, 위탁자 수익권의 경제적 가치가 없을 수 있습니다. 따라서 압류 시점에서 신탁부동산의 가치, 우선수익자의 채권규모, 잔여재산의 예상 규모를 사전에 파악하는 것이 중요합니다. 우선수익자의 우선수익권은 금전채권과 독립한 별개의 권리이므로, 금전채권이 전부되었다고 해도 우선수익권이 자동으로 이전되지는 않습니다(대법원 2017. 6. 22. 선고 <a class="case-tag" href="https://www.law.go.kr/precSc.do?menuId=7&subMenuId=47&tabMenuId=213&eventGubun=060101&query=2014%EB%8B%A4225809" target="_blank" rel="noopener">2014다225809</a> 전원합의체).</p>
+      <div class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+    </div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q"><span class="q-badge">Q6</span> 연금신탁의 수익권도 압류할 수 있나요?</div>
+    <div class="qna-a">
+      <p>연금신탁의 수익권은 원칙적으로 압류 가능하나, 예외적으로 압류가 금지되는 경우가 있습니다. 신탁수익권이 ① <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=097400" target="_blank" rel="noopener">민법 제974조</a>에 따른 부양료로 지급되는 성격의 것이거나 ② 종신정기금채권의 성질을 갖는 경우에는 성질상 양도가 금지된 채권에 해당하여 압류적격이 없을 수 있습니다. 또한 연금신탁이 타익신탁(수익자를 제3자로 하는 신탁)의 형태로 설정된 경우, <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=024600" target="_blank" rel="noopener">민사집행법 제246조 제1항 제2호</a>(제3자의 도움으로 계속 받는 수입)에 해당하여 압류가 금지될 수 있습니다. 상업적 목적으로 설정된 일반 연금신탁은 자익신탁인 경우가 많아 압류가 가능한 경우가 대부분이지만, 신탁계약의 내용에 따라 달리 판단될 수 있습니다.</p>
+      <div class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+    </div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q"><span class="q-badge">Q7</span> 수익증권이 발행된 신탁의 경우 집행방법이 달라지나요?</div>
+    <div class="qna-a">
+      <p>수익증권이 발행된 신탁의 경우에는 수익증권에 대한 집행방법으로 처리하여야 합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=154007&joNo=007800" target="_blank" rel="noopener">신탁법 제78조 제1항</a>은 신탁행위로 수익권을 표시하는 수익증권을 발행할 수 있도록 허용하고 있습니다. 신탁법상 수익증권은 기본적인 수익권을 화체하고 있는 유가증권으로서 주식회사의 주권과 유사한 성격을 가집니다. 따라서 수익증권이 발행된 신탁에서는 수익증권 자체를 압류의 대상으로 삼아 집행합니다. 수익증권의 집행방법은 주권의 집행방법에 따라 처리하는 것이 타당하다고 해석됩니다. 수익증권이 발행되지 않은 경우에는 앞서 설명한 일반 신탁수익권 집행방법에 따릅니다.</p>
+      <div class="disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. 판례 -->
+<section>
+  <h2><span class="tag">判</span> 주요 판례</h2>
+
+  <div class="ruling-box">
+    <span class="ruling-header">대법원 2012. 7. 12. 선고 <a class="case-tag" href="https://www.law.go.kr/precSc.do?menuId=7&subMenuId=47&tabMenuId=213&eventGubun=060101&query=2010%EB%8B%A41272" target="_blank" rel="noopener">2010다1272</a> 판결 — 신탁종료 후 법정신탁 성립</span>
+    <p>위탁자의 해지청구 등으로 신탁이 종료하더라도 수탁자가 신탁재산의 귀속권리자인 수익자나 위탁자 등에게 신탁재산을 이전할 의무를 부담하게 될 뿐, 신탁재산이 당연히 복귀하거나 승계되는 것은 아닙니다. 신탁재산을 이전할 때까지는 수탁자는 귀속권리자를 위한 법정신탁의 수탁자로서 신탁재산을 계속 관리할 권한과 의무를 부담하며, 귀속권리자는 신탁수익권 형태로 잔여재산에 대한 권리를 보유합니다.</p>
+    <p><strong>실무적 의미:</strong> 신탁 종료 후에도 법정신탁이 성립하여 귀속권리자가 수익자 지위를 갖게 되므로, 이 시점에 귀속권리자의 수익권에 대한 채권집행이 가능해집니다. 신탁재산이 이전될 때까지는 집행의 대상이 신탁수익채권이 되며, 이전이 이루어지면 그 재산 자체에 대한 집행이 가능해집니다.</p>
+  </div>
+
+  <div class="ruling-box">
+    <span class="ruling-header">대법원 2017. 6. 22. 선고 <a class="case-tag" href="https://www.law.go.kr/precSc.do?menuId=7&subMenuId=47&tabMenuId=213&eventGubun=060101&query=2014%EB%8B%A4225809" target="_blank" rel="noopener">2014다225809</a> 전원합의체 판결 — 부동산담보신탁 우선수익권의 법적 성질</span>
+    <p>부동산담보신탁상 우선수익권은 경제적으로 금전채권에 대한 담보로 기능하지만, 금전채권과는 독립한 신탁계약상의 별개의 권리입니다. 금전채권이 제3자에게 양도 또는 전부되었다고 하더라도 그러한 사정만으로 우선수익권이 금전채권에 수반하여 제3자에게 이전되는 것은 아니고, 금전채권과 우선수익권의 귀속이 달라졌다는 이유만으로 우선수익권이나 이를 목적으로 하는 권리질권이 소멸하는 것도 아닙니다.</p>
+    <p><strong>실무적 의미:</strong> 우선수익권과 금전채권은 별개로 취급되므로, 채권 전부명령을 받더라도 우선수익권까지 취득하는 것이 아닙니다. 우선수익권 자체를 별도로 압류·양도받아야 합니다. 채권집행 시 어떤 권리가 집행대상인지를 정확히 파악하고 집행권원을 활용하는 것이 중요합니다.</p>
+  </div>
+
+  <div class="ruling-box">
+    <span class="ruling-header">대법원 1991. 8. 13. 선고 91다12608 판결 외 — 수익권의 법적 성질 (채권설)</span>
+    <p>부동산의 신탁에 있어서 수탁자 앞으로 소유권이전등기가 경료되면 대내외적으로 소유권이 수탁자에게 완전히 이전되고, 신탁종료사유가 발생하더라도 수탁자가 수익자나 위탁자에게 목적부동산의 소유권을 이전할 의무를 부담하게 될 뿐, 당연히 소유권이 복귀된다고 볼 수 없습니다.</p>
+    <p><strong>실무적 의미:</strong> 신탁된 부동산에 대해 위탁자의 채권자가 직접 강제집행할 수 없고, 신탁수익권에 대한 집행을 통해 간접적으로 만족을 추구해야 합니다. 신탁종료 후에는 소유권이전등기청구권이 발생하며, 이를 압류하여 추심하는 방법이 유효합니다.</p>
+  </div>
+</section>
+
+<!-- 6. 주의사항 -->
+<section>
+  <h2><span class="tag">WARN</span> 주의사항</h2>
+
+  <div class="warn-box">
+    <span class="warn-title">⚠️ 압류대상 표시의 정확성이 핵심</span>
+    <p>신탁수익권 압류 시 가장 중요한 것은 압류대상 채권의 정확한 표시입니다. '기본적 수익권'과 '구체화된 수익권'을 혼동하거나 신탁계약의 내용을 정확히 파악하지 못한 채 추심명령을 신청하면 법원이 이를 허가하지 않을 수 있습니다. 특히 기본적 수익권에 대해서는 추심명령이 허용되지 않으므로, 반드시 특별현금화명령(매각명령 또는 양도명령)을 신청해야 합니다.</p>
+  </div>
+
+  <div class="warn-box">
+    <span class="warn-title">⚠️ 수탁자의 압류가능성 제한</span>
+    <p>수탁자(신탁회사·은행)가 자신이 수탁자인 신탁관계의 수익권을 직접 압류하는 것은 신탁법의 충실의무 규정(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=154007&joNo=003400" target="_blank" rel="noopener">신탁법 제34조·제36조</a>)에 반할 수 있습니다. 수탁자가 수익권의 질권자가 되거나 압류가능한 채권자가 된다면 결과적으로 신탁재산에 대한 지배권을 갖게 되어 신탁법 위반이 될 수 있습니다. 다만 수탁자가 기본적 수익권 전체를 압류하여 매각명령을 통해 자신의 채권을 회수하는 것은 허용된다는 견해도 있습니다.</p>
+  </div>
+
+  <div class="warn-box">
+    <span class="warn-title">ℹ️ 압류금지 수익권 — 부양료·연금신탁</span>
+    <p>신탁수익권이 실질적으로 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=097400" target="_blank" rel="noopener">민법 제974조</a>에 따른 부양료에 해당하는 경우, 이는 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=024600" target="_blank" rel="noopener">민사집행법 제246조 제1항 제1호</a>의 압류금지채권이 됩니다. 또한 종신정기금채권의 성질을 갖는 민사신탁 수익권은 일신전속적 성격을 가질 수 있어 압류적격이 부정될 수 있습니다. 집행 전에 신탁계약서를 검토하여 수익권의 실질적 성격을 파악하는 것이 필요합니다.</p>
+  </div>
+
+  <div class="warn-box">
+    <span class="warn-title">ℹ️ 신탁재산의 강제집행 금지 규정 위반 주의</span>
+    <p>신탁수익권 압류의 효력이 신탁재산 자체에 미치지는 않습니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=154007&joNo=002200" target="_blank" rel="noopener">신탁법 제22조</a>). 압류명령 신청 시 대상 채권을 '신탁수익권'으로 명확히 특정하지 않고 막연히 '신탁재산'으로 표시하면 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=154007&joNo=002200" target="_blank" rel="noopener">신탁법 제22조</a> 위반이 될 수 있으므로 주의해야 합니다. 예를 들어, 수익자에게 신탁원본 1억 원의 수익권이 있다 하더라도 신탁재산인 1억 원 자체에 대해 압류효력이 미치지 않습니다.</p>
+  </div>
+</section>
+
+<!-- 7. 다음에 확인할 사항 -->
+<section>
+  <h2><span class="tag">NEXT</span> 다음에 확인할 사항</h2>
+  <p>신탁수익권 압류와 함께 검토해야 할 관련 주제들입니다.</p>
+  <div class="next-links">
+    <a href="채집재산권_01_개관.html" class="next-link">
+      <span class="arrow">→</span>
+      <span class="link-title">그 밖의 재산권 집행 개관</span>
+      <span class="link-desc">압류 가능한 재산권의 종류와 집행방법 전체 흐름</span>
+    </a>
+    <a href="채집재산권_06_저당채권.html" class="next-link">
+      <span class="arrow">→</span>
+      <span class="link-title">저당권이 있는 채권의 압류</span>
+      <span class="link-desc">부동산담보와 채권집행이 결합된 경우 처리방법</span>
+    </a>
+    <a href="채집금전_06_압류신청.html" class="next-link">
+      <span class="arrow">→</span>
+      <span class="link-title">채권압류명령 신청 절차</span>
+      <span class="link-desc">압류명령 신청 서류와 실무적 유의사항</span>
+    </a>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <h3>이 내용이 해당되시나요?</h3>
+    <p>신탁수익권·귀속권리자 권리의 압류는 신탁계약의 내용을 정밀하게 분석해야 적절한 집행방법을 결정할 수 있습니다.<br>첫 상담은 무료입니다. 직접 처리하시기 어려운 부분을 법무사가 함께 도와드립니다.</p>
+    <div class="cta-btn-wrap">
+      <a href="tel:0000000000" class="cta-btn">📞 전화 상담 신청</a>
+      <a href="#" class="cta-btn kakao">💬 카카오톡 문의</a>
+    </div>
+  </div>
+</section>
+
+<!-- 면책 문구 -->
+<section>
+  <div class="disclaimer-section">
+    <p><strong>면책 안내</strong><br>
+    이 페이지의 내용은 일반적인 법률 정보 제공을 목적으로 작성되었으며, 구체적인 법률 자문이 아닙니다. 신탁수익권 집행은 신탁계약의 내용·신탁의 종류·당사자 구성에 따라 개별 사안마다 결론이 달라질 수 있습니다. 실제 사안에서는 반드시 전문 법무사·변호사와 상담하시기 바랍니다.<br>
+    <strong>법령 기준일:</strong> 2026년 4월 현재 | 신탁법(법률 제17893호), 민사집행법(법률 제19148호) 기준</p>
+  </div>
+</section>
+
+</div><!-- /container -->
+</body>
+</html>

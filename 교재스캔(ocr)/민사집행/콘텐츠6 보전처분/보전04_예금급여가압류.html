@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예금·급여 가압류 - 법무사 채권집행 가이드</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1a2e4a;
+            --gold: #c8a96e;
+            --bg: #faf8f5;
+            --text: #2c2c2c;
+            --summary-bg: #eef2f8;
+            --summary-bd: #2d4a7a;
+            --cta-bg: #fdf6e9;
+            --cta-bd: #c8a96e;
+            --case-bg: #f0f8f0;
+            --case-bd: #1a5c2e;
+            --ruling-bg: #f7f4f0;
+            --ruling-bd: #6b7280;
+            --warn-bg: #fff3e8;
+            --warn-bd: #c05000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 3px solid var(--gold);
+            padding-bottom: 30px;
+        }
+
+        h1 {
+            font-family: 'Noto Serif KR', serif;
+            color: var(--navy);
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: var(--gold);
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            font-family: 'Noto Serif KR', serif;
+            color: var(--navy);
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-left: 4px solid var(--gold);
+            padding-left: 15px;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-family: 'Noto Serif KR', serif;
+            color: var(--navy);
+            font-size: 1.3em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        /* 체크리스트 */
+        .checklist {
+            background: #f5f5f5;
+            border-left: 4px solid var(--navy);
+            padding: 25px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .checklist-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .checklist-item::before {
+            content: "✓";
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 28px;
+            height: 28px;
+            background: var(--navy);
+            color: white;
+            border-radius: 50%;
+            margin-right: 15px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* 요약 박스 */
+        .summary-box {
+            background: var(--summary-bg);
+            border-left: 5px solid var(--summary-bd);
+            padding: 25px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .summary-box h3 {
+            color: var(--summary-bd);
+            font-size: 1.15em;
+            margin-bottom: 15px;
+            font-weight: 600;
+            margin-top: 0;
+        }
+
+        .summary-box p {
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        /* 개념 박스 */
+        .concept-box {
+            background: #f9f9f9;
+            border: 2px solid var(--gold);
+            padding: 25px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .concept-box h4 {
+            color: var(--navy);
+            margin-bottom: 12px;
+            font-weight: 600;
+            font-size: 1.05em;
+        }
+
+        .concept-box p {
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        /* 강조 박스 */
+        .highlight-box {
+            background: #fff9e6;
+            border: 2px solid var(--gold);
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 25px;
+        }
+
+        .highlight-box p {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        /* Q&A */
+        .qa-item {
+            margin-bottom: 25px;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .qa-question {
+            background: #f9f9f9;
+            padding: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            color: var(--navy);
+            user-select: none;
+            transition: background 0.3s ease;
+        }
+
+        .qa-question:hover {
+            background: #f0f0f0;
+        }
+
+        .qa-question::before {
+            content: "Q";
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 32px;
+            height: 32px;
+            background: var(--navy);
+            color: white;
+            border-radius: 50%;
+            margin-right: 12px;
+            font-weight: bold;
+            flex-shrink: 0;
+            font-size: 0.9em;
+        }
+
+        .qa-toggle {
+            margin-left: auto;
+            font-size: 1.3em;
+            transition: transform 0.3s ease;
+        }
+
+        .qa-toggle.active {
+            transform: rotate(180deg);
+        }
+
+        .qa-answer {
+            display: none;
+            padding: 20px;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .qa-answer.active {
+            display: block;
+        }
+
+        .qa-answer::before {
+            content: "A";
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 32px;
+            height: 32px;
+            background: #666;
+            color: white;
+            border-radius: 50%;
+            margin-right: 12px;
+            font-weight: bold;
+            vertical-align: top;
+            margin-top: -2px;
+            flex-shrink: 0;
+            font-size: 0.9em;
+        }
+
+        /* 판례 */
+        .case-box {
+            background: var(--case-bg);
+            border-left: 5px solid var(--case-bd);
+            padding: 25px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            line-height: 1.9;
+        }
+
+        .case-box h4 {
+            color: var(--case-bd);
+            font-size: 1.1em;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .case-box p {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        /* 주의사항 */
+        .warning-box {
+            background: var(--warn-bg);
+            border-left: 5px solid var(--warn-bd);
+            padding: 25px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .warning-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 18px;
+        }
+
+        .warning-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .warning-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 40px;
+            height: 40px;
+            background: var(--warn-bd);
+            color: white;
+            border-radius: 50%;
+            margin-right: 15px;
+            font-size: 1.2em;
+            flex-shrink: 0;
+            font-weight: bold;
+        }
+
+        .warning-content {
+            flex: 1;
+            line-height: 1.7;
+        }
+
+        .warning-content strong {
+            color: var(--warn-bd);
+        }
+
+        /* CTA */
+        .cta-section {
+            background: var(--cta-bg);
+            border: 2px solid var(--cta-bd);
+            padding: 35px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .cta-section h3 {
+            color: var(--navy);
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            margin-top: 0;
+        }
+
+        .cta-section p {
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 1em;
+            line-height: 1.7;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--navy);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.05em;
+        }
+
+        .cta-button:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        /* 다음 확인사항 */
+        .next-steps {
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-bottom: 30px;
+        }
+
+        .next-steps h4 {
+            color: var(--navy);
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .next-steps ul {
+            margin-left: 25px;
+        }
+
+        .next-steps li {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        /* 면책 */
+        .disclaimer {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.8;
+            margin-top: 50px;
+        }
+
+        
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            background: white;
+        }
+
+        thead {
+            background: var(--navy);
+            color: white;
+        }
+
+        th {
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid var(--gold);
+            font-size: 0.95em;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tbody tr:hover {
+            background: #f9f9f9;
+        }
+
+        ul, ol {
+            margin-left: 25px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        /* 반응형 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+        }
+    .law-tag {
+      display: inline-block; background: #e8edf5; color: #2d4a7a;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #b0c4de; cursor: pointer; transition: background 0.15s;
+    }
+    .law-tag:hover { background: #c8daf7; color: #1a2e4a; }
+    .case-tag {
+      display: inline-block; background: #f0ece4; color: #5a4a30;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #c8a96e; cursor: pointer; transition: background 0.15s;
+    }
+    .case-tag:hover { background: #f5dfa8; color: #3a2a10; }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>예금·급여 가압류</h1>
+            <p class="subtitle">상대방 통장이나 급여를 묶을 수 있는가</p>
+        </header>
+
+        <!-- 1. 이런 분께 필요합니다 -->
+        <section>
+            <h2>이런 분께 필요합니다</h2>
+            <div class="checklist">
+                <div class="checklist-item"><span>상대방이 부동산은 없고 통장이나 급여소득만 있다</span></div>
+                <div class="checklist-item"><span>통장의 돈이 빠져나가기 전에 묶어두고 싶다</span></div>
+                <div class="checklist-item"><span>급여 가압류가 가능한지, 얼마까지 가능한지 모르겠다</span></div>
+                <div class="checklist-item"><span>어느 은행 계좌인지 알아야 하는지 걱정된다</span></div>
+                <div class="checklist-item"><span>채권(채무자가 제3자에게 받을 돈)을 가압류하는 방법이 궁금하다</span></div>
+            </div>
+        </section>
+
+        <!-- 2. 핵심정리 -->
+        <section>
+            <h2>핵심정리</h2>
+            <div class="summary-box">
+                <h3>채권 가압류란</h3>
+                <p><strong>채무자가 제3자(제3채무자)에게 가지는 채권을 가압류하는 것</strong>입니다. 예금, 급여, 임대차보증금 등이 대상입니다.</p>
+                <p style="margin-top: 15px;"><strong>법적 근거:</strong> <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=029100" target="_blank" rel="noopener">민사집행법 제291조, 제223조</a> (채권 가압류 규정)</p>
+                <p style="margin-top: 15px;"><strong>핵심 효과:</strong> 가압류 결정이 제3채무자(은행, 고용주 등)에게 송달되는 순간, 채무자는 그 금액을 받을 수 없게 됩니다.</p>
+            </div>
+        </section>
+
+        <!-- 3. 상세설명 -->
+        <section>
+            <h2>상세설명</h2>
+
+            <h3>채권 가압류의 개념</h3>
+            <div class="concept-box">
+                <h4>채권이란?</h4>
+                <p>법률적으로 "채권"은 채무자가 제3자에게 가지는 <strong>돈을 받을 권리</strong>를 의미합니다. 예:</p>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li><strong>예금:</strong> 은행에 맡긴 돈</li>
+                    <li><strong>급여:</strong> 회사에서 받을 월급</li>
+                    <li><strong>임대차보증금:</strong> 임차인이 돌려줄 보증금</li>
+                    <li><strong>매출채권:</strong> 고객이 줄 대금</li>
+                </ul>
+            </div>
+
+            <div class="concept-box">
+                <h4>제3채무자란?</h4>
+                <p><strong>채무자가 채권을 가지는 상대방</strong>입니다. 예:</p>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>예금의 경우: 은행 (예금을 보관한 은행이 채무자의 돈을 돌려줄 의무)</li>
+                    <li>급여의 경우: 고용회사 (매달 급여를 줄 의무)</li>
+                    <li>임대차보증금: 임대인 (보증금을 돌려줄 의무)</li>
+                </ul>
+            </div>
+
+            <h3>채권 가압류의 효과</h3>
+            <div class="highlight-box">
+                <p><strong>가압류 결정 송달 즉시 효력 발생</strong></p>
+                <p style="margin-top: 10px;">부동산 가압류와 달리 "등기"가 필요 없습니다. 법원이 제3채무자에게 결정문을 송달하는 그 순간부터 효력이 발생합니다.</p>
+                <p style="margin-top: 10px;"><strong>구체적 효과:</strong></p>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>은행에 예금 가압류 → 은행은 결정문 받은 날부터 지급 금지</li>
+                    <li>회사에 급여 가압류 → 회사는 결정문 받은 날부터 지급 금지</li>
+                    <li>채무자는 그 돈을 받을 수 없음</li>
+                </ul>
+            </div>
+
+            <h3>급여 가압류의 특별 규정 — 압류금지 범위</h3>
+            <p>급여는 생활비이므로, 법률이 정한 범위 내에서만 압류 가능합니다.</p>
+
+            <div class="concept-box">
+                <h4>급여 압류금지 범위 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=024600" target="_blank" rel="noopener">민사집행법 제246조 제1항 제4호</a></h4>
+                <p><strong>기본 규칙: 급여의 1/2 초과분을 압류할 수 있습니다.</strong></p>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>월 급여 500만원 → 250만원까지 압류 가능</li>
+                    <li>월 급여 200만원 → 100만원까지 압류 가능</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>그러나 예외가 있습니다:</strong></p>
+                <p style="margin-top: 10px;"><strong>최저생계비 보장:</strong> 월 급여가 매우 적은 경우(통상 150만원 이하), 최저생계비에 해당하는 금액은 압류할 수 없습니다. 예:</p>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>월 급여 100만원 → 1/2 = 50만원이지만, 생계비 때문에 압류 불가능할 수 있음</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>중요:</strong> 법원이 직접 압류 가능 금액을 계산하여 "가압류 금액"으로 결정합니다. 신청자가 요청한 금액 전체가 인용되지 않을 수 있습니다.</p>
+            </div>
+
+            <h3>채권 가압류 절차</h3>
+            <div style="margin-bottom: 30px;">
+                <p><strong>1단계: 제3채무자 특정</strong></p>
+                <p style="margin-left: 20px; margin-top: 8px;">어느 은행, 어느 지점인지, 계좌번호는 무엇인지 정확히 파악해야 합니다.</p>
+
+                <p style="margin-top: 15px;"><strong>2단계: 신청서 작성</strong></p>
+                <p style="margin-left: 20px; margin-top: 8px;">제3채무자의 상호, 주소, 계좌번호(또는 고용주 정보) 기재. 급여의 경우 고용 기간, 급여액 등 기재.</p>
+
+                <p style="margin-top: 15px;"><strong>3단계: 법원 접수</strong></p>
+                <p style="margin-left: 20px; margin-top: 8px;">신청서, 피보전권리 소명자료 제출. 인지료, 송달료 납부.</p>
+
+                <p style="margin-top: 15px;"><strong>4단계: 법원 결정</strong></p>
+                <p style="margin-left: 20px; margin-top: 8px;">법원이 가압류 금액 결정 (급여는 압류금지 범위 고려).</p>
+
+                <p style="margin-top: 15px;"><strong>5단계: 제3채무자에게 송달</strong></p>
+                <p style="margin-left: 20px; margin-top: 8px;">법원이 제3채무자에게 결정문 송달. 이 순간부터 지급 금지 효력 발생.</p>
+
+                <p style="margin-top: 15px;"><strong>6단계: 채무자의 이의 신청 (가능)</strong></p>
+                <p style="margin-left: 20px; margin-top: 8px;">채무자가 이의를 제기하면 법원이 재판. 하지만 통상 이의가 용이하지 않습니다.</p>
+            </div>
+
+            <h3>계좌 정보를 모르는 경우</h3>
+            <p>상대방의 정확한 계좌번호를 모를 때:</p>
+            <ul>
+                <li><strong>가압류 단계:</strong> 알고 있는 정보(은행명, 예금주, 지점)만 기재하여 신청. 법원이 검토하여 결정할 수 있습니다.</li>
+                <li><strong>강제집행 단계:</strong> 본안소송에서 승소 후 강제집행할 때, "금융정보 조회" 제도를 사용하여 상대방의 계좌 정보를 파악할 수 있습니다.</li>
+                <li><strong>실무:</strong> 거래 관계에서 입금받은 계좌, 급여 이체 계좌 등을 파악하여 신청하는 것이 일반적입니다.</li>
+            </ul>
+
+            <h3>예금 잔액이 부족한 경우</h3>
+            <p>가압류 금액보다 계좌의 잔액이 적으면:</p>
+            <ul>
+                <li><strong>부분 집행:</strong> 있는 금액만 압류됩니다. 예: 100만원을 가압류했으나 통장에 50만원만 있으면 50만원만 압류됨.</li>
+                <li><strong>추후 입금:</strong> 추후 입금되는 금액도 계속 압류 대상이 될 수 있습니다. 급여가 계속 입금되면 그 금액도 압류 범위 내에서 압류됨.</li>
+                <li><strong>기간 제한:</strong> 가압류의 효력은 일정 기간 유지됩니다. 본안소송과의 관계에 따라 달라집니다.</li>
+            </ul>
+        </section>
+
+        <!-- 4. 자주하는 질문 -->
+        <section>
+            <h2>자주하는 질문</h2>
+
+            <div class="qa-item">
+                <div class="qa-question" onclick="toggleQA(this)">
+                    <span>어느 은행 계좌인지 모르는데 가압류를 할 수 있나요?</span>
+                    <span class="qa-toggle">▼</span>
+                </div>
+                <div class="qa-answer">
+                    <p><strong>알고 있는 정보만 기재하여 신청 가능합니다.</strong></p>
+                    <p style="margin-top: 10px;">예를 들어:</p>
+                    <ul style="margin: 10px 0 0 20px;">
+                        <li>"OO상호은행 서울지점 예금" — 계좌번호를 모르는 경우</li>
+                        <li>"OOO 회사 급여" — 구체 계좌번호를 모르는 경우</li>
+                    </ul>
+                    <p style="margin-top: 10px;">법원은 이 정보만으로도 가압류 결정을 내릴 수 있습니다. 다만:</p>
+                    <ul style="margin: 10px 0 0 20px;">
+                        <li>은행이 계좌가 여러 개면 어느 계좌를 압류할지 해석의 여지가 있을 수 있음</li>
+                        <li>법원이 "계좌번호 특정 필요"로 결정할 수도 있음</li>
+                    </ul>
+                    <p style="margin-top: 10px;"><strong>더 나은 방법:</strong> 거래 관계에서 얻은 정보(입금받은 계좌번호, 급여 이체 계좌 정보 등)가 있으면 함께 기재하는 것이 좋습니다.</p>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="qa-question" onclick="toggleQA(this)">
+                    <span>급여가 많지 않은데 전액 가압류가 가능한가요?</span>
+                    <span class="qa-toggle">▼</span>
+                </div>
+                <div class="qa-answer">
+                    <p><strong>아닙니다. 급여 1/2 초과분만 가능합니다.</strong> 법률로 정해진 제한입니다.</p>
+                    <p style="margin-top: 10px;">예시:</p>
+                    <ul style="margin: 10px 0 0 20px;">
+                        <li>월 급여 200만원 → 최대 100만원 가압류 가능</li>
+                        <li>월 급여 150만원 → 최대 75만원 가압류 가능 (단, 최저생계비 고려할 수 있음)</li>
+                    </ul>
+                    <p style="margin-top: 10px;">또한 <strong>최저생계비를 고려</strong>하여 법원이 압류 범위를 재조정할 수 있습니다:</p>
+                    <ul style="margin: 10px 0 0 20px;">
+                        <li>월 급여 100만원인 경우 1/2 = 50만원이지만, 생계비로 전액이 필요할 수 있어서 압류 불가능</li>
+                    </ul>
+                    <p style="margin-top: 10px;"><strong>법원이 결정:</strong> 최종적으로 법원이 압류 가능 금액을 결정합니다. 신청자의 요청이 모두 인용되지 않을 수 있습니다.</p>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="qa-question" onclick="toggleQA(this)">
+                    <span>제3채무자(은행)가 가압류 결정을 무시하면 어떻게 되나요?</span>
+                    <span class="qa-toggle">▼</span>
+                </div>
+                <div class="qa-answer">
+                    <p><strong>실무상 거의 없습니다.</strong> 은행이나 회사는 법원 결정을 따릅니다.</p>
+                    <p style="margin-top: 10px;">다만:</p>
+                    <ul style="margin: 10px 0 0 20px;">
+                        <li><strong>은행의 지급 거절:</strong> 은행이 실수로 돈을 지급했다면, 채권자(당신)에게 반환을 요구할 수 있습니다.</li>
+                        <li><strong>법적 책임:</strong> 제3채무자가 명백히 결정을 무시하면 법원 모욕죄, 강제집행 거부죄 등의 책임을 질 수 있습니다.</li>
+                    </ul>
+                    <p style="margin-top: 10px;"><strong>실제 문제:</strong> 제3채무자가 무시하는 것보다, 문제는 채무자가 그 돈을 미리 인출했거나, 추후 입금을 거부하는 경우입니다.</p>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="qa-question" onclick="toggleQA(this)">
+                    <span>예금 잔액이 가압류 금액보다 적으면 어떻게 되나요?</span>
+                    <span class="qa-toggle">▼</span>
+                </div>
+                <div class="qa-answer">
+                    <p><strong>있는 금액만 압류됩니다.</strong></p>
+                    <p style="margin-top: 10px;">예시:</p>
+                    <ul style="margin: 10px 0 0 20px;">
+                        <li>가압류 결정: 500만원</li>
+                        <li>실제 잔액: 300만원</li>
+                        <li>결과: 300만원만 압류됨</li>
+                    </ul>
+                    <p style="margin-top: 10px;"><strong>추후 입금:</strong> 다만 예금 통장에 추후 입금되는 금액은:</p>
+                    <ul style="margin: 10px 0 0 20px;">
+                        <li>가압류 효력이 유지되는 동안 계속 압류 범위 내</li>
+                        <li>예를 들어, 급여가 계속 입금되면 그 금액도 압류 범위 내에서 압류됨</li>
+                        <li>다만, 가압류 결정의 효력이 언제까지인지는 본안소송과의 관계에 따라 다름</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="qa-question" onclick="toggleQA(this)">
+                    <span>여러 은행 계좌를 동시에 가압류할 수 있나요?</span>
+                    <span class="qa-toggle">▼</span>
+                </div>
+                <div class="qa-answer">
+                    <p><strong>네, 가능합니다.</strong> 알고 있는 여러 계좌를 한 신청서에 기재할 수 있습니다.</p>
+                    <p style="margin-top: 10px;">예시:</p>
+                    <ul style="margin: 10px 0 0 20px;">
+                        <li>신청금액: 1,000만원</li>
+                        <li>제1은행 계좌: 300만원 가압류</li>
+                        <li>제2은행 계좌: 300만원 가압류</li>
+                        <li>제3은행 계좌: 400만원 가압류</li>
+                    </ul>
+                    <p style="margin-top: 10px;"><strong>또는 분리 신청:</strong></p>
+                    <ul style="margin: 10px 0 0 20px;">
+                        <li>각각 별도 신청서로 각 은행에 신청 가능</li>
+                        <li>다만, 비용(인지료, 송달료)이 여러 번 들 수 있음</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. 판례 -->
+        <section>
+            <h2>판례</h2>
+            <div class="case-box">
+                <h4>급여 압류금지 범위의 계산 기준</h4>
+                <p>대법원은 급여 가압류에서 압류금지 범위 계산은 <strong>세후 실수령액 기준이 아닌 세전 급여를 기준</strong>으로 한다고 판시하고 있습니다.</p>
+                <p style="margin-top: 10px;"><strong>의미:</strong> 월 급여 500만원(세전)에서 세금 50만원을 뺀 450만원(실수령액)이 아니라, 원래의 500만원을 기준으로 1/2인 250만원까지만 압류할 수 있다는 의미입니다. 이는 급여 생계비 보호를 위한 판시입니다.</p>
+            </div>
+        </section>
+
+        <!-- 6. 주의사항 -->
+        <section>
+            <h2>주의사항</h2>
+            <div class="warning-box">
+                <div class="warning-item">
+                    <div class="warning-icon">⚡</div>
+                    <div class="warning-content">
+                        <strong>가압류 결정 이후 제3채무자에게 즉시 송달이 중요</strong>
+                        <p style="margin-top: 8px;">법원이 가압류 결정을 내렸어도, 제3채무자(은행, 고용주)에게 결정문이 송달되지 않으면 효력이 발생하지 않습니다. <strong>송달까지가 완성</strong>되어야 지급 금지 효력이 발생합니다.</p>
+                    </div>
+                </div>
+
+                <div class="warning-item">
+                    <div class="warning-icon">⚠️</div>
+                    <div class="warning-content">
+                        <strong>압류금지 채권을 가압류하면 채무자의 이의 신청으로 취소될 수 있음</strong>
+                        <p style="margin-top: 8px;">급여 중 압류금지 범위에 해당하는 부분을 잘못 가압류했다면, 채무자의 이의 신청으로 그 부분은 취소될 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=024600" target="_blank" rel="noopener">민사집행법 제246조</a> 규정을 정확히 파악해야 합니다.</p>
+                    </div>
+                </div>
+
+                <div class="warning-item">
+                    <div class="warning-icon">ℹ️</div>
+                    <div class="warning-content">
+                        <strong>채무자의 생계 유지를 위한 최저 금액은 압류할 수 없음</strong>
+                        <p style="margin-top: 8px;">급여가 일정 수준 이하인 경우, 법원이 생계비 관점에서 압류를 제한할 수 있습니다. "1/2 초과" 규칙만으로 판단하지 않고, 최종적으로 채무자의 생계 가능 여부를 고려합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. 다음 확인사항 -->
+        <section>
+            <div class="next-steps">
+                <h4>다음에 확인할 사항</h4>
+                <ul>
+                    <li><strong>제3채무자 정보:</strong> 은행명, 지점, 계좌번호(또는 고용주 정보)</li>
+                    <li><strong>급여 정보:</strong> 월급액, 급여 이체 계좌, 고용 기간</li>
+                    <li><strong>가압류 신청 절차:</strong> 신청서 작성과 필요 서류</li>
+                    <li><strong>본안소송:</strong> 가압류와 병행할 소송 전략</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 8. CTA -->
+        <section>
+            <div class="cta-section">
+                <h3>예금·급여 가압류로 권리를 보호하세요</h3>
+                <p>상대방 정보 수집부터 법원 신청까지, 경험 많은 법무사가<br>
+                전문적으로 진행해드립니다. 생활비 보호와 효과적인 집행을 함께 고려합니다.</p>
+                <button class="cta-button" onclick="alert('상담 신청 페이지로 이동합니다.');">무료 상담 신청</button>
+            </div>
+        </section>
+
+        <!-- 9. 면책 문구 -->
+        <div class="disclaimer">
+            <strong>면책 문구:</strong><br>
+            본 페이지의 내용은 일반적인 법률 정보 제공을 목적으로 작성되었으며, 구체적 법률 자문이 아닙니다.
+            실제 채권 가압류 신청 시에는 개별 상황에 맞는 법무사의 전문적 상담을 받으시기 바랍니다.
+            특히 급여 가압류의 압류금지 범위는 법원의 재량이 클 수 있으므로, 법원의 최신 판례와 결정 기준을 반영한 전문가의 조언이 필요합니다.
+            법령 및 판례는 변경될 수 있으므로, 최신 정보는 대법원 판례검색(www.law.go.kr)에서 확인하시기 바랍니다.
+        </div>
+    </div>
+
+    <script>
+        function toggleQA(element) {
+            const answer = element.nextElementSibling;
+            const toggle = element.querySelector('.qa-toggle');
+
+            answer.classList.toggle('active');
+            toggle.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

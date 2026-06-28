@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>기여분 제도 - 상속등기실무</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --navy:#1a2e4a; --navy-light:#2d4a73; --gold:#c9a84c; --gold-light:#e8d5a3; --ivory:#fdf8f0; --ivory-dark:#f5ede0; --text:#2c2c2c; --text-light:#5a5a5a; --blue-box:#e8f0f8; --blue-border:#2d6aa0; --warn-bg:#fff8e1; --warn-border:#f0a500; }
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--ivory);color:var(--text);font-size:15px;line-height:1.8;}
+.page-header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);color:white;padding:40px 24px 32px;text-align:center;}
+.page-header h1{font-size:2rem;font-weight:700;margin-bottom:8px;}
+.page-header .subtitle{color:var(--gold-light);font-size:1rem;}
+.breadcrumb{font-size:0.82rem;color:rgba(255,255,255,0.6);margin-bottom:12px;}
+.layout{display:grid;grid-template-columns:240px 1fr 300px;gap:0;max-width:1280px;margin:0 auto;}
+.toc-sidebar{background:var(--navy);color:white;padding:24px 0;position:sticky;top:0;height:100vh;overflow-y:auto;}
+.toc-sidebar h3{font-size:0.78rem;letter-spacing:2px;color:var(--gold);text-transform:uppercase;padding:0 20px 12px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:8px;}
+.toc-sidebar ul{list-style:none;}
+.toc-sidebar ul li a{display:block;padding:9px 20px;font-size:0.85rem;color:rgba(255,255,255,0.75);text-decoration:none;border-left:3px solid transparent;transition:all 0.2s;}
+.toc-sidebar ul li a:hover,.toc-sidebar ul li a.active{color:white;background:rgba(255,255,255,0.08);border-left-color:var(--gold);}
+.main-content{padding:40px 48px;min-height:100vh;}
+.section{margin-bottom:56px;scroll-margin-top:24px;}
+.section h2{font-size:1.35rem;color:var(--navy);border-bottom:2px solid var(--gold);padding-bottom:10px;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+.section h2 .sec-num{background:var(--navy);color:var(--gold);font-size:0.78rem;padding:2px 8px;border-radius:12px;}
+.section h3{font-size:1.05rem;color:var(--navy-light);margin:24px 0 10px;font-weight:600;}
+.summary-box{background:var(--blue-box);border-left:4px solid var(--blue-border);border-radius:0 8px 8px 0;padding:18px 22px;margin-bottom:20px;}
+.summary-box strong{color:var(--blue-border);display:block;margin-bottom:6px;font-size:0.9rem;}
+.detail-content{color:var(--text-light);}
+.detail-content p{margin-bottom:14px;}
+.law-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.88rem;}
+.law-table th{background:var(--navy);color:white;padding:10px 14px;text-align:left;}
+.law-table td{padding:10px 14px;border-bottom:1px solid #e0d8cc;vertical-align:top;}
+.law-table tr:nth-child(even) td{background:var(--ivory-dark);}
+.law-ref{color:var(--blue-border);font-weight:600;cursor:pointer;border-bottom:1px dashed var(--blue-border);font-size:0.9em;}
+.warn-box{background:var(--warn-bg);border-left:4px solid var(--warn-border);border-radius:0 8px 8px 0;padding:16px 20px;margin:16px 0;}
+.warn-box strong{color:#c07000;display:block;margin-bottom:6px;}
+.case-box{background:#f5f5f5;border:1px solid #ddd;border-radius:8px;padding:16px 20px;margin:16px 0;font-size:0.87rem;}
+.case-box .case-title{font-weight:700;color:var(--navy);margin-bottom:8px;font-size:0.85rem;}
+.process-steps{margin:16px 0;}
+.step{display:flex;gap:16px;margin-bottom:16px;align-items:flex-start;}
+.step-num{background:var(--navy);color:var(--gold);font-weight:700;min-width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;}
+.step-content .step-title{font-weight:600;color:var(--navy);margin-bottom:4px;}
+.step-content .step-desc{font-size:0.88rem;color:var(--text-light);}
+.checklist-box{background:var(--ivory-dark);border:1px solid var(--gold-light);border-radius:10px;padding:20px 24px;margin:24px 0;}
+.checklist-box h4{color:var(--navy);margin-bottom:14px;font-size:0.95rem;}
+.checklist-box ul{list-style:none;}
+.checklist-box ul li{padding:5px 0;font-size:0.88rem;display:flex;gap:10px;}
+.checklist-box ul li::before{content:"☑";color:var(--gold);}
+.cta-box{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);color:white;border-radius:12px;padding:28px 32px;margin:32px 0;text-align:center;}
+.cta-box h3{font-size:1.2rem;margin-bottom:10px;color:var(--gold-light);}
+.cta-box p{font-size:0.9rem;color:rgba(255,255,255,0.85);margin-bottom:18px;}
+.cta-btn{background:var(--gold);color:var(--navy);font-weight:700;padding:12px 32px;border-radius:24px;border:none;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;}
+.next-links{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}
+.next-link{background:white;border:1px solid #d0c8ba;border-radius:8px;padding:16px;text-decoration:none;color:var(--navy);transition:all 0.2s;display:flex;align-items:center;justify-content:space-between;}
+.next-link:hover{border-color:var(--gold);box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+.next-link .label{font-size:0.78rem;color:var(--text-light);}
+.next-link .title{font-size:0.92rem;font-weight:600;}
+.next-link .arrow{color:var(--gold);font-size:1.2rem;}
+.disclaimer{background:#f0f0f0;border-radius:8px;padding:16px 20px;margin-top:40px;font-size:0.8rem;color:#777;line-height:1.6;}
+.right-sidebar{background:white;border-left:1px solid #e0d8cc;padding:0;position:sticky;top:0;height:100vh;overflow-y:auto;}
+.sidebar-tabs{display:flex;border-bottom:2px solid var(--navy);}
+.sidebar-tab{flex:1;padding:12px 8px;text-align:center;font-size:0.82rem;font-weight:600;cursor:pointer;color:var(--text-light);background:var(--ivory);border:none;transition:all 0.2s;}
+.sidebar-tab.active{background:var(--navy);color:white;}
+.sidebar-panel{padding:16px;display:none;}
+.sidebar-panel.active{display:block;}
+.law-item{border:1px solid #e0d8cc;border-radius:6px;margin-bottom:8px;overflow:hidden;}
+.law-item-header{background:var(--ivory-dark);padding:10px 14px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:0.83rem;font-weight:600;color:var(--navy);}
+.law-item-header:hover{background:var(--gold-light);}
+.law-item-body{display:none;padding:12px 14px;font-size:0.82rem;line-height:1.7;color:var(--text-light);border-top:1px solid #e0d8cc;}
+.law-item-body.open{display:block;}
+.practice-section{margin-bottom:16px;}
+.practice-section h5{font-size:0.82rem;font-weight:700;color:var(--navy);background:var(--ivory-dark);padding:7px 12px;border-radius:4px;margin-bottom:8px;}
+.practice-section ul{list-style:none;padding:0;}
+.practice-section ul li{font-size:0.81rem;padding:4px 8px;color:var(--text-light);border-bottom:1px solid #f0ece6;display:flex;gap:6px;}
+.practice-section ul li::before{content:"•";color:var(--gold);}
+@media(max-width:900px){.layout{grid-template-columns:1fr;}.toc-sidebar,.right-sidebar{display:none;}.main-content{padding:24px 20px;}.next-links{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+<div class="breadcrumb">상속 / 증여</div>
+<h1>기여분 제도</h1>
+<div class="subtitle">공동상속인의 특별한 기여를 인정하는 제도</div>
+</div>
+
+<div class="layout">
+
+<aside class="toc-sidebar">
+<h3>목차</h3>
+<ul>
+<li><a href="#sec1" class="toc-link">기여분이란</a></li>
+<li><a href="#sec2" class="toc-link">기여분 인정 요건</a></li>
+<li><a href="#sec3" class="toc-link">기여 유형</a></li>
+<li><a href="#sec4" class="toc-link">기여분 결정 방법</a></li>
+<li><a href="#sec5" class="toc-link">계산 예시</a></li>
+<li><a href="#sec6" class="toc-link">유류분과의 관계</a></li>
+<li><a href="#sec7" class="toc-link">FAQ</a></li>
+</ul>
+</aside>
+
+<main class="main-content">
+
+<section id="sec1" class="section">
+<h2><span class="sec-num">①</span>기여분이란</h2>
+<div class="summary-box">
+<strong>기여분의 정의</strong>
+기여분(寄與分)이란 공동상속인이 피상속인의 재산 유지·증가에 특별히 기여한 부분을 상속재산에서 공제하고, 나머지 재산을 법정상속분으로 분배하되, 기여한 상속인이 기여분만큼 추가로 받을 수 있는 제도입니다.
+</div>
+
+<div class="detail-content">
+<p>기여분 제도는 민법 제1008조의2에서 규정하고 있으며, 공동상속인 중 특정인이 피상속인을 부양하거나 재산을 관리하는 등 특별한 기여를 하여 상속재산의 증가에 도움을 준 경우, 그 기여도를 상속분에 반영하는 제도입니다.</p>
+
+<h3>기여분 제도의 도입 배경</h3>
+<p>기여분 제도가 도입되기 이전에는 동일한 상속인이라도 피상속인을 특별히 부양하거나 재산 관리에 크게 기여한 경우와 전혀 기여하지 않은 경우를 법정상속분으로 동일하게 처리함으로써 공평성의 문제가 발생했습니다. 이를 해결하기 위해 기여분 제도가 1990년 민법 개정을 통해 신설되었습니다.</p>
+
+<h3>기여분과 특별수익의 차이</h3>
+<p>기여분과 혼동하기 쉬운 개념으로 특별수익이 있습니다. 특별수익(民法 第1008条)은 상속인이 피상속인으로부터 받은 증여·혼수 등 경제적 이익을 말하며, 상속재산에 가산하여 계산합니다. 기여분은 이와 반대로 상속재산에서 공제합니다. 특별수익은 "받은 것", 기여분은 "준 것"의 관점에서 접근합니다.</p>
+
+<h3>기여분과 유류분의 관계</h3>
+<p>기여분과 유류분(遺留分)은 서로 다른 제도입니다. 유류분은 상속인이 유언에 의해 받을 최소한의 몫을 보장하는 제도인 반면, 기여분은 공동상속인 간의 공평한 상속분 조정을 목적으로 합니다. 자세한 내용은 별도 장에서 다룹니다.</p>
+</div>
+</section>
+
+<section id="sec2" class="section">
+<h2><span class="sec-num">②</span>기여분 인정 요건</h2>
+<div class="summary-box">
+<strong>기여분이 인정되기 위한 필수 요건</strong>
+1) 특별한 부양·기여의 존재 / 2) 상당한 기간의 부양·기여 / 3) 재산 유지·증가 기여 / 4) 상속개시 전 기여
+</div>
+
+<div class="detail-content">
+<p>기여분이 인정되기 위해서는 단순한 부양의무의 이행이 아니라, 법정 부양의무를 초과하는 "특별한" 기여가 있어야 합니다. 대법원 판례도 이를 엄격하게 해석하고 있습니다.</p>
+
+<h3>1) 특별성 요건</h3>
+<p>모든 상속인이 부양의무를 가지고 있으므로, 단순히 생활비를 제공하거나 의료비를 부담하는 정도는 기여분으로 인정되지 않습니다. 다음과 같은 경우들이 기여분으로 인정될 가능성이 높습니다:</p>
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li>장기간에 걸쳐 특별히 정성이 들어간 간호·보살핌</li>
+<li>피상속인의 사업에 무보수로 참여하여 사업 발전에 기여</li>
+<li>피상속인의 재산(농지, 임야 등)을 적극적으로 관리·개발하여 가치 증대</li>
+<li>피상속인의 채무를 상환하거나 변제를 도움</li>
+<li>고가의 기술교육을 받도록 지원</li>
+</ul>
+
+<h3>2) 상당한 기간 요건</h3>
+<p>기여분이 인정되려면 단순한 일시적 도움이 아니라 "상당한 기간"에 걸친 지속적인 기여여야 합니다. 법원 판례에서는 통상적으로 3년 이상을 기준으로 하고 있습니다. 다만, 특수한 경우(예: 중병 중환자의 간호)에는 더 짧은 기간이라도 인정될 수 있습니다.</p>
+
+<h3>3) 재산 유지·증가 기여</h3>
+<p>기여분이 인정되려면 그 기여가 피상속인의 재산을 유지하거나 증가시켰다는 것이 입증되어야 합니다. 예를 들어:</p>
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li>경영비 지출로 인한 사업 손실 방지</li>
+<li>농지 개간으로 인한 생산성 향상</li>
+<li>주택 리모델링으로 인한 자산가치 상승</li>
+<li>채무 변제로 인한 순자산 보호</li>
+</ul>
+
+<h3>4) 상속개시 전 기여</h3>
+<p>기여분으로 인정되는 기여는 피상속인이 생존하고 있는 동안 이루어진 것이어야 합니다. 피상속인 사망 후의 장례비 마련이나 채무 상환은 기여분으로 인정되지 않습니다.</p>
+
+<h3>단순 부양의무 이행은 기여분 아님</h3>
+<p>중요한 점은 자녀의 부모 부양, 배우자의 생활비 제공, 형제자매의 학비 지원 등 법정 부양의무의 범위 내에서의 행위는 기여분으로 인정되지 않는다는 것입니다. 예를 들어, 자녀가 노부모를 요양병원에 입원시키고 입원료를 부담하는 것은 법정 부양의무의 이행이므로 기여분이 아닙니다.</p>
+
+<div class="warn-box">
+<strong>주의</strong>
+기여분 인정은 엄격한 입증책임을 요구합니다. 단순히 "부모님을 오래 모셨다" 또는 "많은 돈을 썼다"는 주장만으로는 인정되지 않으며, 구체적인 사실과 그로 인한 재산 증가의 인과관계를 명확히 입증해야 합니다.
+</strong>
+</div>
+</section>
+
+<section id="sec3" class="section">
+<h2><span class="sec-num">③</span>기여 유형</h2>
+<div class="summary-box">
+<strong>기여분의 주요 유형</strong>
+1) 부양 기여 / 2) 간호·보살핌 기여 / 3) 재산관리 기여
+</div>
+
+<div class="detail-content">
+
+<h3>1) 부양 기여(扶養寄與)</h3>
+<p>부양 기여란 피상속인의 생활비, 의료비, 주택비 등을 부담하는 것을 의미합니다. 다만 앞서 언급한 대로 법정 부양의무의 범위 내에서의 단순 부양은 기여분으로 인정되지 않습니다.</p>
+
+<table class="law-table">
+<tr><th>부양 기여로 인정되는 경우</th><th>부양 기여로 인정 안 되는 경우</th></tr>
+<tr><td>- 재정이 어려운 상황에서 자신의 생활을 희생하며 부양<br>- 과도한 질병 치료비 부담<br>- 자산 형성을 포기하고 부모 부양에 집중</td><td>- 통상적인 자녀 부양의무의 이행<br>- 배우자의 일반적인 생활비 지원<br>- 형제자매에 대한 일반적인 도움</td></tr>
+</table>
+
+<p><strong>판례 사례:</strong> 전남 출신의 농부가 고령의 부모를 모시고 20년간 함께 농업에 종사하면서 부모 생활비와 의료비를 부담한 경우, 대법원은 법정 부양의무의 범위를 초과하는 기여분으로 인정한 사례가 있습니다.</p>
+
+<h3>2) 간호·보살핌 기여(看護寄與)</h3>
+<p>피상속인이 질병이나 노령으로 인해 요양이 필요한 경우, 상속인이 이를 직접 간호하고 보살핀 노력을 인정하는 기여입니다. 이는 부양 기여보다 더욱 엄격하게 심사됩니다.</p>
+
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li><strong>인정 기준:</strong> 신체적·정신적 부담이 큰 간호, 전문 요양인을 고용했다면 소요될 비용이 상당한 경우</li>
+<li><strong>입증 방법:</strong> 의료 기록, 간호 일지, 목격자 증언 등</li>
+<li><strong>주의:</strong> 의료보험 적용 여부도 고려되어 실제 추가 비용이 있었는지를 검토합니다.</li>
+</ul>
+
+<p><strong>판례 사례:</strong> 상속인이 말기 암 환자인 피상속인을 3개월간 전담으로 간호하면서 야간 간호사 비용을 절약하고 24시간 체계적으로 돌본 경우, 법원은 연간 6,000만 원 상당의 간호비 기여분을 인정한 판례가 있습니다.</p>
+
+<h3>3) 재산관리 기여(財産管理寄與)</h3>
+<p>피상속인의 부동산, 사업, 농지 등 재산을 직접 관리·운영하여 그 가치를 유지하거나 증대시킨 기여입니다.</p>
+
+<div class="case-box">
+<div class="case-title">재산관리 기여의 구체적 예시</div>
+<p><strong>1) 농지 관리:</strong> 상속인이 노령 부모의 농지를 직접 경작하고 개간·시설 확충을 통해 생산성 증대. 이 경우 노동력 제공뿐 아니라 투자 비용도 포함됩니다.</p>
+<p><strong>2) 임야 관리:</strong> 산림 조성, 산불 방지 활동 등으로 임야 가치 증대</p>
+<p><strong>3) 건물 관리:</strong> 임대료 징수, 건물 유지보수, 세입자 관리 등</p>
+<p><strong>4) 사업 경영:</strong> 상속인이 실제로 부모 명의의 사업체를 운영하면서 실적 개선</p>
+</div>
+
+<p><strong>판례 기준:</strong> 재산관리 기여가 인정되려면 ① 실제 관리·운영이 있었고 ② 그 결과 재산이 증가 또는 손실이 방지되었으며 ③ 그 재산이 상속재산에 포함되어 있어야 합니다.</p>
+
+<h3>혼합된 기여</h3>
+<p>실제로는 부양과 간호, 그리고 재산관리가 동시에 이루어지는 경우가 많습니다. 이 경우 법원은 각 기여의 특성을 분리하여 평가합니다.</p>
+</section>
+
+<section id="sec4" class="section">
+<h2><span class="sec-num">④</span>기여분 결정 방법</h2>
+<div class="summary-box">
+<strong>기여분 결정의 두 가지 경로</strong>
+1) 상속인 간의 협의 / 2) 가정법원의 심판
+</div>
+
+<div class="detail-content">
+
+<h3>1) 상속인 간 협의에 의한 결정</h3>
+<p>기여분은 상속인들 간의 합의로 결정될 수 있습니다. 이는 가장 간단하고 비용이 적게 드는 방법입니다.</p>
+
+<div class="checklist-box">
+<h4>협의에 의한 기여분 결정 시 체크리스트</h4>
+<ul>
+<li>모든 상속인이 참여하여 협의</li>
+<li>구체적인 기여의 내용과 범위를 명시</li>
+<li>기여분의 금액 또는 비율 결정</li>
+<li>합의 내용을 서면으로 작성</li>
+<li>필요시 공증 또는 협의이혼 조서처럼 공식 문서화</li>
+</ul>
+</div>
+
+<p><strong>협의의 효력:</strong> 상속인 전원이 동의한 기여분 협의는 법적 구속력을 가집니다. 따라서 이후 상속분의 계산, 상속등기, 재산분할에 적용됩니다.</p>
+
+<p><strong>협의 성립 조건:</strong> 기여분 협의는 상속인 전원의 합의가 필요합니다. 한 명이라도 반대하면 협의가 성립하지 않습니다. 또한 협의를 통해 민법 제1009조의 법정상속분 순서를 임의로 변경할 수 없습니다(상속분의 지정은 피상속인의 권리입니다).</p>
+
+<h3>2) 가정법원의 심판</h3>
+<p>상속인 간의 협의가 성립하지 않으면, 기여분 결정을 청구한 상속인은 가정법원에 기여분 심판을 신청해야 합니다.</p>
+
+<div class="process-steps">
+<div class="step">
+<div class="step-num">1</div>
+<div class="step-content">
+<div class="step-title">기여분 심판 청구</div>
+<div class="step-desc">상속인이 가정법원에 기여분의 결정을 청구. 피상속인의 최후 주소지 관할 가정법원에 청구합니다. 청구인은 기여의 사실, 내용, 재산 증가와의 인과관계 등을 구체적으로 주장·입증해야 합니다.</div>
+</div>
+</div>
+
+<div class="step">
+<div class="step-num">2</div>
+<div class="step-content">
+<div class="step-title">기여 사실의 입증</div>
+<div class="step-desc">청구인은 다음과 같은 증거를 제출합니다: 의료기록, 간호비 증빙, 통장 기록, 부동산 등기부등본, 영농일지, 목격자 증언, 감정 평가서 등</div>
+</div>
+</div>
+
+<div class="step">
+<div class="step-num">3</div>
+<div class="step-content">
+<div class="step-title">피청구인의 반박</div>
+<div class="step-desc">다른 상속인들은 기여분 청구에 대해 반박할 수 있습니다. "그 기여는 법정 부양의무 이행일 뿐이다", "재산 증가와의 인과관계가 없다" 등의 주장.</div>
+</div>
+</div>
+
+<div class="step">
+<div class="step-num">4</div>
+<div class="step-content">
+<div class="step-title">조사 및 심리</div>
+<div class="step-desc">판사는 기여의 특별성, 기간, 재산 증가 기여도 등을 종합적으로 검토합니다. 필요시 감정인의 의견을 수렴할 수 있습니다.</div>
+</div>
+</div>
+
+<div class="step">
+<div class="step-num">5</div>
+<div class="step-content">
+<div class="step-title">심판 선고</div>
+<div class="step-desc">법원이 기여분의 인정 여부 및 금액을 결정하는 심판을 선고합니다. 이에 불복하면 항소 가능합니다.</div>
+</div>
+</div>
+</div>
+
+<h3>기여분 심판의 특징</h3>
+<p><strong>재판 절차:</strong> 기여분 심판은 가정법원의 "비송사건" 절차로 진행됩니다(민법 제1008조의2 참조). 일반 민사소송과는 달리 다소 간이한 절차를 따릅니다.</p>
+
+<p><strong>입증책임:</strong> 기여분을 청구하는 상속인이 입증책임을 집니다. 따라서 증거 자료를 충분히 준비하고 제출해야 합니다.</p>
+
+<p><strong>판단 기준:</strong> 법원은 다음 사항들을 종합적으로 고려합니다:</p>
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li>기여의 특별성과 법정 부양의무의 범위</li>
+<li>기여 기간의 길이</li>
+<li>기여로 인한 경제적 이익의 크기</li>
+<li>피상속인의 재산 증감</li>
+<li>다른 상속인과의 형평성</li>
+</ul>
+
+<h3>상속분 산정 위자료와 기여분</h3>
+<p>어떤 경우에는 기여분뿐 아니라 위자료 청구도 함께 제기될 수 있습니다. 예를 들어, 노부모를 돌보면서 신체적·정신적 고통을 받은 경우 기여분과 별도로 위자료를 청구할 수 있습니다(다만, 이는 가정법원이 아닌 일반 민사법원의 관할입니다).</p>
+
+<div class="warn-box">
+<strong>실무 주의</strong>
+기여분 심판을 청구할 때는 충분한 증거 자료를 준비하고, 필요시 변호사의 조력을 받아 구체적이고 명확한 청구 이유서를 작성하는 것이 중요합니다. 막연한 주장은 법원의 인정을 받기 어렵습니다.
+</strong>
+</div>
+</section>
+
+<section id="sec5" class="section">
+<h2><span class="sec-num">⑤</span>기여분 계산 예시</h2>
+<div class="detail-content">
+
+<h3>기본 계산 공식</h3>
+<p>기여분이 결정되면 다음과 같이 상속분을 계산합니다:</p>
+
+<div style="background:var(--blue-box);border-left:4px solid var(--blue-border);padding:18px 22px;margin:20px 0;border-radius:0 8px 8px 0;">
+<p><strong>상속분 = (상속재산 - 기여분) × 법정상속분 비율 + 기여분</strong></p>
+<p style="margin-top:12px;font-size:0.9rem;color:var(--text-light);">또는 더 간단히:</p>
+<p><strong>기여인의 상속분 = 기여분 + [(상속재산-기여분) × 기여인의 법정상속분 비율]</strong></p>
+</div>
+
+<h3>예시 1: 자녀 3명, 부양 기여</h3>
+
+<p><strong>사실관계</strong></p>
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li>피상속인: A (사망)</li>
+<li>상속인: A의 자녀 3명 (B, C, D)</li>
+<li>상속재산: 6억 원</li>
+<li>법정상속분: B, C, D 각 1/3</li>
+<li>법원 인정 기여분(B의 부양 기여): 1억 원</li>
+</ul>
+
+<p><strong>계산 과정</strong></p>
+<table class="law-table">
+<tr><th>항목</th><th>계산</th><th>금액</th></tr>
+<tr><td>상속재산</td><td>-</td><td>6억 원</td></tr>
+<tr><td>기여분 공제</td><td>6억 - 1억</td><td>5억 원</td></tr>
+<tr><td>B의 상속분 (기여자)</td><td>(1억) + (5억 × 1/3)</td><td>2억 6,667만 원</td></tr>
+<tr><td>C의 상속분</td><td>5억 × 1/3</td><td>1억 6,667만 원</td></tr>
+<tr><td>D의 상속분</td><td>5억 × 1/3</td><td>1억 6,667만 원</td></tr>
+<tr><td>합계</td><td>-</td><td>6억 원</td></tr>
+</table>
+
+<p><strong>해석:</strong> B가 기여분 1억 원과 나머지 상속재산에 대한 법정상속분을 받게 되므로, B는 C, D보다 1억 원 더 많은 상속을 받습니다. 이는 B의 특별한 기여를 법적으로 인정한 결과입니다.</p>
+
+<h3>예시 2: 배우자 1명, 자녀 2명, 간호 기여</h3>
+
+<p><strong>사실관계</strong></p>
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li>피상속인: X (사망)</li>
+<li>상속인: 배우자 Y, 자녀 E, F</li>
+<li>상속재산: 9억 원</li>
+<li>법정상속분: 배우자 1/2, 자녀 각 1/4</li>
+<li>법원 인정 기여분(배우자 Y의 간호 기여): 1.5억 원</li>
+</ul>
+
+<p><strong>계산 과정</strong></p>
+<table class="law-table">
+<tr><th>항목</th><th>계산</th><th>금액</th></tr>
+<tr><td>상속재산</td><td>-</td><td>9억 원</td></tr>
+<tr><td>기여분 공제</td><td>9억 - 1.5억</td><td>7.5억 원</td></tr>
+<tr><td>배우자 Y의 상속분</td><td>1.5억 + (7.5억 × 1/2)</td><td>5.25억 원</td></tr>
+<tr><td>자녀 E의 상속분</td><td>7.5억 × 1/4</td><td>1.875억 원</td></tr>
+<tr><td>자녀 F의 상속분</td><td>7.5억 × 1/4</td><td>1.875억 원</td></tr>
+<tr><td>합계</td><td>-</td><td>9억 원</td></tr>
+</table>
+
+<p><strong>해석:</strong> 배우자의 간호 기여로 인해 배우자는 법정상속분(4.5억 원) 외에 1.5억 원의 기여분을 추가로 받습니다.</p>
+
+<h3>예시 3: 농지 관리 기여</h3>
+
+<p><strong>사실관계</strong></p>
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li>피상속인: 고령 농부 G</li>
+<li>상속인: 자녀 H, I (각 1/2)</li>
+<li>상속재산: 5억 원 (농지 3억, 예금 2억)</li>
+<li>H가 20년간 농지를 경작하며 개간·시설 투자로 생산성 대폭 증대</li>
+<li>법원 인정 기여분(H의 재산관리 기여): 8,000만 원</li>
+</ul>
+
+<p><strong>계산 과정</strong></p>
+<table class="law-table">
+<tr><th>항목</th><th>계산</th><th>금액</th></tr>
+<tr><td>상속재산</td><td>-</td><td>5억 원</td></tr>
+<tr><td>기여분 공제</td><td>5억 - 0.8억</td><td>4.2억 원</td></tr>
+<tr><td>H의 상속분</td><td>0.8억 + (4.2억 × 1/2)</td><td>2.9억 원</td></tr>
+<tr><td>I의 상속분</td><td>4.2억 × 1/2</td><td>2.1억 원</td></tr>
+<tr><td>합계</td><td>-</td><td>5억 원</td></tr>
+</table>
+
+<p><strong>해석:</strong> H는 기여분 8,000만 원으로 인해 본래 받을 상속분(2.5억 원)에서 2.9억 원으로 증가했습니다. 이는 H의 장기간 농업 경영 기여를 법적으로 인정한 것입니다.</p>
+
+<h3>기여분 산정 시 주의점</h3>
+<p><strong>1) 기여분의 범위:</strong> 기여분은 상속재산을 초과할 수 없습니다. 만약 기여분이 상속재산 전액을 초과하면, 기여분은 상속재산 전액으로 제한됩니다.</p>
+
+<p><strong>2) 특별수익과의 상충:</strong> 같은 상속인이 기여분과 특별수익을 동시에 청구할 수 있는가? 원칙적으로 가능하지만, 그 내용이 중복되어서는 안 됩니다. 예를 들어, "부모로부터 받은 선물"은 특별수익이고, "받은 선물을 활용하여 부모 재산을 증가시킨 것"은 기여분이 될 수 있습니다.</p>
+
+<p><strong>3) 법정상속분의 포기:</strong> 기여분으로 인해 상속인이 받을 상속분이 결정된 후에는, 상속분 포기를 통해 다른 상속인의 상속분이 증가할 수 있습니다.</p>
+</section>
+
+<section id="sec6" class="section">
+<h2><span class="sec-num">⑥</span>유류분과의 관계</h2>
+<div class="detail-content">
+
+<h3>기여분과 유류분의 상호 작용</h3>
+<p><span class="law-ref" onclick="openLaw('민법1115')">§ 민법 제1115조</span>의 유류분 반환청구와 기여분은 어떻게 조화를 이루는가? 이는 상속법의 복잡한 문제입니다.</p>
+
+<h3>1) 기여분은 유류분 반환청구의 대상이 아님</h3>
+<p>대법원 판례는 기여분이 이미 결정되고 상속분에 반영된 경우, 이를 유류분 반환청구의 대상으로 삼지 않는다고 판시했습니다. 즉, 유류분 계산 시에는 상속재산에서 기여분을 공제하여 계산해야 합니다.</p>
+
+<div class="case-box">
+<div class="case-title">판례</div>
+<p>피상속인이 유언으로 재산의 전부를 한 자녀에게 증여하고, 다른 자녀가 기여분과 유류분을 동시에 청구한 경우, 법원은 먼저 기여분을 인정하고, 이를 상속분에 반영한 후 유류분을 계산합니다.</p>
+</div>
+
+<h3>2) 유류분 계산 기준 재산과 기여분</h3>
+<p><span class="law-ref" onclick="openLaw('민법1113')">§ 민법 제1113조</span>에서 유류분 계산의 기준이 되는 재산은 다음과 같이 정합니다:</p>
+
+<div style="background:var(--blue-box);border-left:4px solid var(--blue-border);padding:18px 22px;margin:20px 0;border-radius:0 8px 8px 0;">
+<p><strong>유류분 계산 기준 재산 = 상속재산 + 증여(1년 내 또는 침해하면서 한 증여) - 채무</strong></p>
+<p style="margin-top:12px;font-size:0.9rem;color:var(--text-light);">여기서 상속재산에 기여분이 포함되는가?</p>
+</div>
+
+<p>현재 법원 판례는 상속재산에서 기여분을 공제하여 유류분을 계산하는 것으로 해석하고 있습니다. 즉:</p>
+
+<div style="background:var(--blue-box);border-left:4px solid var(--blue-border);padding:18px 22px;margin:20px 0;border-radius:0 8px 8px 0;">
+<p><strong>유류분 계산 기준 재산 = (상속재산 - 기여분) + 증여 - 채무</strong></p>
+</div>
+
+<h3>3) 실제 사안의 복잡성</h3>
+<p>다음과 같은 경우를 상정해봅시다:</p>
+
+<p><strong>사실:</strong> A가 사망하고 상속인이 B, C 두 자녀입니다. A의 상속재산은 6억 원입니다. A는 유언으로 전 재산을 C에게 증여했습니다. B는 20년간 A를 부양하며 기여분 1억 원을 인정받을 수 있습니다. B의 법정상속분은 1/2입니다.</p>
+
+<p><strong>기여분 결정 후 상속분:</strong></p>
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li>B의 상속분 = 1억 + (5억 × 1/2) = 3.5억 원</li>
+<li>C의 상속분 = 5억 × 1/2 = 2.5억 원</li>
+</ul>
+
+<p><strong>유류분 계산:</strong>
+유류분 계산 기준 재산은 (6억 - 1억) = 5억 원이 되고, B의 유류분은 5억 × 1/2 × 1/2 = 1.25억 원입니다. 그런데 B는 이미 기여분 1억 원을 받았으므로, 추가로 받을 유류분은 1.25억 - 1억 = 0.25억 원입니다.</p>
+
+<div class="warn-box">
+<strong>실무 주의</strong>
+기여분과 유류분의 관계는 복잡하며, 구체적 사안에 따라 법원의 판단이 달라질 수 있습니다. 실무에서는 변호사의 조력을 받아 권리를 정확히 파악하는 것이 중요합니다.
+</strong>
+</div>
+</section>
+
+<section id="sec7" class="section">
+<h2><span class="sec-num">⑦</span>FAQ</h2>
+<div class="detail-content">
+
+<h3>Q1. 아버지를 20년간 모셨는데 기여분을 청구할 수 있을까요?</h3>
+<p><strong>A:</strong> 20년간의 부양 기간은 기여분 청구의 좋은 기초가 될 수 있습니다. 다만 중요한 것은 그것이 "특별한" 기여인지 여부입니다. 단순히 부모 부양은 법정 부양의무이므로, 다음과 같은 특별한 상황을 입증해야 합니다: (1) 자신의 다른 사업을 포기하고 부양에만 집중했는가, (2) 매우 질병 중인 아버지를 전담으로 간호했는가, (3) 아버지의 재산이 증가했는가 등이 검토됩니다. 구체적인 입증 자료(의료기록, 통장 기록 등)를 준비해야 합니다.</p>
+
+<h3>Q2. 형과 함께 부모를 부양했는데 기여분을 나누어야 할까요?</h3>
+<p><strong>A:</strong> 기여분은 각 상속인의 개별적 기여도에 따라 결정됩니다. 형과 형제가 부양 수준이 다르면, 각각의 기여도를 평가하여 별도의 기여분을 인정받을 수 있습니다. 그러나 정확한 기여도 비교를 위해서는 객관적 증거가 필요합니다. 예를 들어, "형은 부양비를 냈지만 본인은 직접 간호했다"는 경우 다르게 평가될 수 있습니다.</p>
+
+<h3>Q3. 기여분과 유류분 모두 청구할 수 있을까요?</h3>
+<p><strong>A:</strong> 예, 동시에 청구할 수 있습니다. 다만 계산 방식이 복잡합니다. 먼저 기여분을 인정받으면 그것이 상속분에 반영되고, 유류분은 그 기여분을 공제한 상속재산을 기준으로 계산됩니다. 따라서 두 제도를 최대한 활용하려면 변호사와 상담하는 것이 좋습니다.</p>
+
+<h3>Q4. 협의로 기여분을 정했다면 나중에 번복할 수 있을까요?</h3>
+<p><strong>A:</strong> 원칙적으로 어렵습니다. 상속인 전원이 동의한 기여분 협의는 법적 구속력을 가집니다. 다만 (1) 협의가 중대한 착각에 기한 경우, (2) 협의 성립 후 새로운 증거가 발견된 경우 등 예외적 상황에서는 취소를 청구할 수 있습니다. 그러나 기준이 엄격하므로, 처음부터 신중하게 협의하는 것이 중요합니다.</p>
+
+<h3>Q5. 기여분은 상속세 계산에 영향을 미칠까요?</h3>
+<p><strong>A:</strong> 예, 영향을 미칩니다. 상속세법상 상속재산을 계산할 때, 기여분은 상속재산에서 공제되지 않습니다. 즉, 기여분 결정 후에도 상속세 과세 대상 재산은 전체 상속재산입니다. 다만 실제 받은 상속분을 기준으로 상속세 계산이 이루어지므로, 기여분이 많을수록 상속세 부담이 줄어드는 효과가 있습니다. 정확한 상속세 계산은 세무사와 상담해야 합니다.</p>
+
+<h3>Q6. 기여분 심판에서 증거로 어떤 것들이 인정될까요?</h3>
+<p><strong>A:</strong> 다음과 같은 증거들이 유용합니다: (1) 의료 기록 및 입원비 영수증, (2) 본인 명의 통장 기록 (부양비 송금 내역), (3) 부동산 등기부등본 (재산 증가), (4) 농업 일지, 생산물 판매 기록, (5) 목격자 증언, (6) 사진 자료, (7) 감정인 평가서 등입니다. 증거는 구체적이고 객관적일수록 법원의 인정을 받기 쉽습니다.</p>
+
+<h3>Q7. 배우자의 부양이 기여분으로 인정될 수 있을까요?</h3>
+<p><strong>A:</strong> 배우자는 피상속인의 배우자이므로, 피상속인을 부양할 법정 부양의무를 가집니다. 따라서 단순한 생활비 제공은 기여분으로 인정되지 않습니다. 그러나 배우자가 본인의 건강을 해치면서 피상속인을 전담으로 간호하거나, 배우자 자신의 직업활동을 포기하고 피상속인 간호에 집중한 경우라면 기여분이 인정될 수 있습니다.</p>
+
+<h3>Q8. 이미 상속등기를 했는데 나중에 기여분을 청구할 수 있을까요?</h3>
+<p><strong>A:</strong> 예, 기여분 심판 청구와 상속등기는 별개입니다. 상속등기 후에라도 기여분 심판을 청구할 수 있습니다. 다만 기여분이 인정되면, 이후 상속분의 재조정이 필요하므로 추가 등기가 필요할 수 있습니다. 따라서 상속등기 전에 기여분 문제를 해결하는 것이 더 효율적입니다.</p>
+
+<h3>Q9. 상속개시 후에 처음 기여분을 청구하면 시간이 너무 오래 걸리지 않을까요?</h3>
+<p><strong>A:</strong> 기여분 심판은 통상 1~2년 정도 소요될 수 있습니다. 조사 기간, 증거 검토, 감정 등이 필요하기 때문입니다. 가정법원의 비송사건 절차는 일반 소송보다는 간단하지만, 여전히 시간이 소요됩니다. 증거 준비가 충분하면 절차가 빨라질 수 있습니다.</p>
+
+<h3>Q10. 기여분 심판에서 졌을 때 어떻게 할 수 있을까요?</h3>
+<p><strong>A:</strong> 법원의 기여분 심판 결정에 불복하면 항소할 수 있습니다. 항소는 심판 선고 후 2주 이내에 상급 가정법원(또는 지방법원)에 제기해야 합니다. 항소에서는 원심 결정에 오류가 있었는지를 다시 검토합니다. 항소를 통해서도 기여분 인정을 받지 못하면, 대법원에 상고할 수 있지만 대법원 상고는 법률상 판단 오류가 있어야만 인정됩니다.</p>
+</section>
+
+<div class="cta-box">
+<h3>기여분 결정, 법무사의 조력이 필요합니다</h3>
+<p>기여분 관련 상담 및 심판 청구, 협의 서류 작성 등은 법무사의 조력을 받으시기 바랍니다. 개별 사안에 맞춘 전략적 대응이 권리 보장의 핵심입니다.</p>
+<button class="cta-btn">상담 신청</button>
+</div>
+
+<div class="next-links">
+<a href="13 상속재산의 범위.html" class="next-link">
+<div>
+<div class="label">다음 주제</div>
+<div class="title">상속재산의 범위</div>
+</div>
+<div class="arrow">→</div>
+</a>
+<a href="11 상속분의 산정.html" class="next-link">
+<div>
+<div class="label">이전 주제</div>
+<div class="title">상속분의 산정</div>
+</div>
+<div class="arrow">←</div>
+</a>
+</div>
+
+<div class="disclaimer">
+본 내용은 일반적인 법률 정보 제공을 목적으로 합니다. 개별 사건에 대한 법적 조언은 법무사 또는 변호사와의 상담을 통해 받으시기 바랍니다. 본 정보로 인한 손실이나 손해에 대해 법적 책임을 지지 않습니다.
+</div>
+
+</main>
+
+<aside class="right-sidebar">
+<div class="sidebar-tabs">
+<button class="sidebar-tab active" onclick="switchTab('law')">법령</button>
+<button class="sidebar-tab" onclick="switchTab('practice')">실무 Tip</button>
+</div>
+
+<div id="panel-law" class="sidebar-panel active">
+<div class="law-item" id="law-민법1008의2">
+<div class="law-item-header">
+<span>민법 제1008조의2 (기여분)</span>
+<span onclick="toggleLaw(this.parentElement)">＋</span>
+</div>
+<div class="law-item-body">
+공동상속인 중에 피상속인을 부양할 의무가 있는 자로서 피상속인의 療養, 看護 또는 財産 유지·증가에 특별히 寄與한 자(이하 이 조에서 "기여자"라 한다)가 있는 경우에는 상속개시 당시의 상속재산의 가액에서 기여분을 공제한 것을 상속재산으로 하여 각 상속인의 상속분을 정한다. 기여분은 기여자의 협의로 정하고, 협의가 이루어지지 아니한 경우에는 가정법원이 정한다. 기여분의 범위·액수 및 기여분이 상속재산을 초과하는 경우의 처리에 관하여는 대통령령으로 정한다.
+</div>
+</div>
+
+<div class="law-item" id="law-민법1009">
+<div class="law-item-header">
+<span>민법 제1009조 (법정상속분)</span>
+<span onclick="toggleLaw(this.parentElement)">＋</span>
+</div>
+<div class="law-item-body">
+상속인의 상속분은 다음과 같다. 1. 직계비속이 있는 경우에는 피상속인의 배우자는 직계비속의 상속분과 같고, 직계비속은 그 상속분을 균분한다. 2. 직계비속이 없는 경우에는 피상속인의 배우자는 직계존속의 상속분의 5분의 3을, 직계존속은 그 상속분을 균분한다. 3. 직계비속과 직계존속이 없는 경우에는 피상속인의 배우자는 4분의 3을, 형제자매는 4분의 1을 균분한다. 4. 배우자가 없는 경우에는 직계비속, 직계존속, 형제자매의 순서로 상속한다. 5. 제1항 내지 제4항의 규정에 의하여 상속분이 정하여지지 아니한 상속인은 상속을 하지 아니한다.
+</div>
+</div>
+
+<div class="law-item" id="law-민법1013">
+<div class="law-item-header">
+<span>민법 제1013조 (분할 방법)</span>
+<span onclick="toggleLaw(this.parentElement)">＋</span>
+</div>
+<div class="law-item-body">
+상속인이 수인인 경우에 상속재산의 분할은 공동상속인의 협의로 정한다. 협의가 이루어지지 아니한 경우에는 상속인이 가정법원에 분할을 청구할 수 있다. 상속재산의 분할청구권은 상속개시로부터 10년 이내에 행사하여야 한다.
+</div>
+</div>
+
+<div class="law-item" id="law-민법1115">
+<div class="law-item-header">
+<span>민법 제1115조 (유류분 반환청구)</span>
+<span onclick="toggleLaw(this.parentElement)">＋</span>
+</div>
+<div class="law-item-body">
+유류분권리자가 유류분을 초과하는 증여 또는 유증을 받은 자에 대하여 유류분에 해당하는 금액의 반환을 청구할 수 있다. 유증 또는 증여의 목적물을 반환할 수 없는 경우에는 그 가액을 지급하여야 한다.
+</div>
+</div>
+</aside>
+
+</div>
+
+<script>
+function switchTab(tab){document.querySelectorAll('.sidebar-tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.sidebar-panel').forEach(p=>p.classList.remove('active'));event.target.classList.add('active');document.getElementById('panel-'+tab).classList.add('active');}
+function toggleLaw(header){const body=header.nextElementSibling;const isOpen=body.classList.contains('open');body.classList.toggle('open');header.querySelector('span').textContent=isOpen?'＋':'－';}
+function openLaw(id){const lawTab=document.querySelector('.sidebar-tab:first-child');const lawPanel=document.getElementById('panel-law');document.querySelectorAll('.sidebar-tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.sidebar-panel').forEach(p=>p.classList.remove('active'));lawTab.classList.add('active');lawPanel.classList.add('active');const item=document.getElementById('law-'+id);if(item){const body=item.querySelector('.law-item-body');const header=item.querySelector('.law-item-header');body.classList.add('open');header.querySelector('span').textContent='－';item.scrollIntoView({behavior:'smooth',block:'center'});}}
+const sections=document.querySelectorAll('.section');const tocLinks=document.querySelectorAll('.toc-link');const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){tocLinks.forEach(l=>l.classList.remove('active'));const active=document.querySelector(`.toc-link[href="#${e.target.id}"]`);if(active)active.classList.add('active');}});},{rootMargin:'-20% 0px -70% 0px'});sections.forEach(s=>observer.observe(s));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>유류분제도란 - 상속등기실무</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --navy:#1a2e4a; --navy-light:#2d4a73; --gold:#c9a84c; --gold-light:#e8d5a3; --ivory:#fdf8f0; --ivory-dark:#f5ede0; --text:#2c2c2c; --text-light:#5a5a5a; --blue-box:#e8f0f8; --blue-border:#2d6aa0; --warn-bg:#fff8e1; --warn-border:#f0a500; }
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--ivory);color:var(--text);font-size:15px;line-height:1.8;}
+.page-header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);color:white;padding:40px 24px 32px;text-align:center;}
+.page-header h1{font-size:2rem;font-weight:700;margin-bottom:8px;}
+.page-header .subtitle{color:var(--gold-light);font-size:1rem;}
+.breadcrumb{font-size:0.82rem;color:rgba(255,255,255,0.6);margin-bottom:12px;}
+.layout{display:grid;grid-template-columns:240px 1fr 300px;gap:0;max-width:1280px;margin:0 auto;}
+.toc-sidebar{background:var(--navy);color:white;padding:24px 0;position:sticky;top:0;height:100vh;overflow-y:auto;}
+.toc-sidebar h3{font-size:0.78rem;letter-spacing:2px;color:var(--gold);text-transform:uppercase;padding:0 20px 12px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:8px;}
+.toc-sidebar ul{list-style:none;}
+.toc-sidebar ul li a{display:block;padding:9px 20px;font-size:0.85rem;color:rgba(255,255,255,0.75);text-decoration:none;border-left:3px solid transparent;transition:all 0.2s;}
+.toc-sidebar ul li a:hover,.toc-sidebar ul li a.active{color:white;background:rgba(255,255,255,0.08);border-left-color:var(--gold);}
+.main-content{padding:40px 48px;min-height:100vh;}
+.section{margin-bottom:56px;scroll-margin-top:24px;}
+.section h2{font-size:1.35rem;color:var(--navy);border-bottom:2px solid var(--gold);padding-bottom:10px;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+.section h2 .sec-num{background:var(--navy);color:var(--gold);font-size:0.78rem;padding:2px 8px;border-radius:12px;}
+.section h3{font-size:1.05rem;color:var(--navy-light);margin:24px 0 10px;font-weight:600;}
+.summary-box{background:var(--blue-box);border-left:4px solid var(--blue-border);border-radius:0 8px 8px 0;padding:18px 22px;margin-bottom:20px;}
+.summary-box strong{color:var(--blue-border);display:block;margin-bottom:6px;font-size:0.9rem;}
+.detail-content{color:var(--text-light);}
+.detail-content p{margin-bottom:14px;}
+.law-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.88rem;}
+.law-table th{background:var(--navy);color:white;padding:10px 14px;text-align:left;}
+.law-table td{padding:10px 14px;border-bottom:1px solid #e0d8cc;vertical-align:top;}
+.law-table tr:nth-child(even) td{background:var(--ivory-dark);}
+.law-ref{color:var(--blue-border);font-weight:600;cursor:pointer;border-bottom:1px dashed var(--blue-border);font-size:0.9em;}
+.warn-box{background:var(--warn-bg);border-left:4px solid var(--warn-border);border-radius:0 8px 8px 0;padding:16px 20px;margin:16px 0;}
+.warn-box strong{color:#c07000;display:block;margin-bottom:6px;}
+.case-box{background:#f5f5f5;border:1px solid #ddd;border-radius:8px;padding:16px 20px;margin:16px 0;font-size:0.87rem;}
+.case-box .case-title{font-weight:700;color:var(--navy);margin-bottom:8px;font-size:0.85rem;}
+.process-steps{margin:16px 0;}
+.step{display:flex;gap:16px;margin-bottom:16px;align-items:flex-start;}
+.step-num{background:var(--navy);color:var(--gold);font-weight:700;min-width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;}
+.step-content .step-title{font-weight:600;color:var(--navy);margin-bottom:4px;}
+.step-content .step-desc{font-size:0.88rem;color:var(--text-light);}
+.checklist-box{background:var(--ivory-dark);border:1px solid var(--gold-light);border-radius:10px;padding:20px 24px;margin:24px 0;}
+.checklist-box h4{color:var(--navy);margin-bottom:14px;font-size:0.95rem;}
+.checklist-box ul{list-style:none;}
+.checklist-box ul li{padding:5px 0;font-size:0.88rem;display:flex;gap:10px;}
+.checklist-box ul li::before{content:"☑";color:var(--gold);}
+.cta-box{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);color:white;border-radius:12px;padding:28px 32px;margin:32px 0;text-align:center;}
+.cta-box h3{font-size:1.2rem;margin-bottom:10px;color:var(--gold-light);}
+.cta-box p{font-size:0.9rem;color:rgba(255,255,255,0.85);margin-bottom:18px;}
+.cta-btn{background:var(--gold);color:var(--navy);font-weight:700;padding:12px 32px;border-radius:24px;border:none;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;}
+.next-links{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}
+.next-link{background:white;border:1px solid #d0c8ba;border-radius:8px;padding:16px;text-decoration:none;color:var(--navy);transition:all 0.2s;display:flex;align-items:center;justify-content:space-between;}
+.next-link:hover{border-color:var(--gold);box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+.next-link .label{font-size:0.78rem;color:var(--text-light);}
+.next-link .title{font-size:0.92rem;font-weight:600;}
+.next-link .arrow{color:var(--gold);font-size:1.2rem;}
+.disclaimer{background:#f0f0f0;border-radius:8px;padding:16px 20px;margin-top:40px;font-size:0.8rem;color:#777;line-height:1.6;}
+.right-sidebar{background:white;border-left:1px solid #e0d8cc;padding:0;position:sticky;top:0;height:100vh;overflow-y:auto;}
+.sidebar-tabs{display:flex;border-bottom:2px solid var(--navy);}
+.sidebar-tab{flex:1;padding:12px 8px;text-align:center;font-size:0.82rem;font-weight:600;cursor:pointer;color:var(--text-light);background:var(--ivory);border:none;transition:all 0.2s;}
+.sidebar-tab.active{background:var(--navy);color:white;}
+.sidebar-panel{padding:16px;display:none;}
+.sidebar-panel.active{display:block;}
+.law-item{border:1px solid #e0d8cc;border-radius:6px;margin-bottom:8px;overflow:hidden;}
+.law-item-header{background:var(--ivory-dark);padding:10px 14px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:0.83rem;font-weight:600;color:var(--navy);}
+.law-item-header:hover{background:var(--gold-light);}
+.law-item-body{display:none;padding:12px 14px;font-size:0.82rem;line-height:1.7;color:var(--text-light);border-top:1px solid #e0d8cc;}
+.law-item-body.open{display:block;}
+.practice-section{margin-bottom:16px;}
+.practice-section h5{font-size:0.82rem;font-weight:700;color:var(--navy);background:var(--ivory-dark);padding:7px 12px;border-radius:4px;margin-bottom:8px;}
+.practice-section ul{list-style:none;padding:0;}
+.practice-section ul li{font-size:0.81rem;padding:4px 8px;color:var(--text-light);border-bottom:1px solid #f0ece6;display:flex;gap:6px;}
+.practice-section ul li::before{content:"•";color:var(--gold);}
+@media(max-width:900px){.layout{grid-template-columns:1fr;}.toc-sidebar,.right-sidebar{display:none;}.main-content{padding:24px 20px;}.next-links{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+<div class="breadcrumb">상속 / 증여</div>
+<h1>유류분제도란</h1>
+<div class="subtitle">최소 상속분을 보장하는 제도</div>
+</div>
+
+<div class="layout">
+
+<aside class="toc-sidebar">
+<h3>목차</h3>
+<ul>
+<li><a href="#sec1" class="toc-link">유류분이란</a></li>
+<li><a href="#sec2" class="toc-link">제도의 목적</a></li>
+<li><a href="#sec3" class="toc-link">권리자와 비율</a></li>
+<li><a href="#sec4" class="toc-link">계산 기준</a></li>
+<li><a href="#sec5" class="toc-link">침해 여부 판단</a></li>
+<li><a href="#sec6" class="toc-link">유류분 포기</a></li>
+<li><a href="#sec7" class="toc-link">FAQ</a></li>
+</ul>
+</aside>
+
+<main class="main-content">
+
+<section id="sec1" class="section">
+<h2><span class="sec-num">①</span>유류분이란</h2>
+<div class="summary-box">
+<strong>유류분의 정의</strong>
+유류분(遺留分)은 상속인이 유언이나 증여로 인해 상실할 수 있는 최소한의 상속재산상 이익을 말합니다. 이는 민법 <span class="law-ref" onclick="openLaw('민법1112')">§ 제1112조</span>에서 규정합니다.
+</div>
+
+<div class="detail-content">
+<p>유류분은 상속인에게 주어지는 상속권의 최소보장선입니다. 피상속인이 아무리 유언으로 특정 상속인을 제외하거나 다른 사람에게 재산을 모두 유증하더라도, 법정상속인은 최소한의 유류분을 청구할 수 있습니다.</p>
+
+<h3>유류분의 기본 개념</h3>
+<p>예를 들어, 아버지가 유언으로 전 재산을 장남에게만 상속하도록 남기고 사망한 경우를 생각해봅시다. 이 경우 차남과 막내는 유언에 의해 아무것도 받지 못합니다. 하지만 유류분 제도가 있기 때문에, 차남과 막내는 법정상속분의 일부를 유류분으로 청구할 수 있습니다.</p>
+
+<h3>유류분 vs 법정상속분</h3>
+
+<table class="law-table">
+<tr><th>구분</th><th>법정상속분</th><th>유류분</th></tr>
+<tr><td>성격</td><td>피상속인이 유언으로 달리 정하지 않은 경우의 기본 상속분</td><td>유언으로도 침해할 수 없는 최소 상속분</td></tr>
+<tr><td>기준</td><td>민법 제1009조</td><td>민법 제1112조</td></tr>
+<tr><td>비율</td><td>직계비속 기준 1/2 또는 1/3</td><td>법정상속분의 1/2 (배우자·직계비속) 또는 1/3 (직계존속)</td></tr>
+<tr><td>침해 가능성</td><td>유언으로 전혀 배제 가능</td><td>유언으로도 침해 불가</td></tr>
+<tr><td>청구 방법</td><td>상속개시 시 당연 발생</td><td>유류분 침해 시 유류분 반환청구권 행사</td></tr>
+</table>
+
+<h3>유류분의 역사적 의미</h3>
+<p>유류분 제도는 피상속인의 유언의 자유를 인정하면서도, 동시에 상속인의 기본적인 상속권을 보호하려는 법정책적 타협입니다. 만약 유류분이 없다면, 부모가 전 재산을 한 자녀에게 모두 유증할 수 있어 다른 자녀들이 완전히 배제될 수 있습니다. 이는 가족관계의 실질적 불공정으로 이어질 수 있으므로, 법은 최소한의 보호선을 그어두었습니다.</p>
+
+<h3>유류분의 현대적 쟁점</h3>
+<p>2024년 대한민국 헌법재판소는 "형제자매의 유류분은 위헌"이라는 결정을 내렸습니다. 이에 따라 현재 상황이 정리 중에 있습니다:</p>
+
+<div class="warn-box">
+<strong>2024년 헌재 결정</strong>
+헌법재판소는 "직계비속과 배우자는 유류분이 있지만, 형제자매의 유류분 규정은 과도하게 피상속인의 재산처분의 자유를 제한한다"고 판시했습니다. 현재 입법 절차가 진행 중입니다.
+</strong>
+</div>
+</section>
+
+<section id="sec2" class="section">
+<h2><span class="sec-num">②</span>유류분 제도의 목적</h2>
+<div class="detail-content">
+
+<h3>목적 1: 가족관계 보호</h3>
+<p>유류분 제도의 첫 번째 목적은 가족의 기본적인 보호입니다. 상속은 단순한 재산이전이 아니라, 가족관계 속에서의 부모-자녀, 배우자 간의 신뢰와 기대를 반영합니다. 유류분은 이러한 가족관계를 최소한으로 보호하는 장치입니다.</p>
+
+<p>예를 들어, 오래 돌봐온 자녀가 부모의 유언으로 인해 완전히 배제되는 것은 인정될 수 없습니다. 유류분은 이러한 상황을 방지합니다.</p>
+
+<h3>목적 2: 상속인의 생활보장</h3>
+<p>상속인은 피상속인의 사망으로 경제적 기반이 흔들릴 수 있습니다. 특히 배우자는 부부공동생활의 파산, 자녀는 부모 부양 상실이라는 경제적 어려움에 처할 수 있습니다. 유류분은 이러한 경제적 어려움을 완화하기 위한 최소한의 안전망입니다.</p>
+
+<h3>목적 3: 유언의 자유와의 균형</h3>
+<p>민법은 피상속인에게 "유언의 자유"를 부여합니다. 즉, 피상속인이 자신의 재산을 누구에게 줄지를 결정할 권리가 있습니다. 그러나 이 자유가 무제한적이면 안 되므로, 유류분이 그 제한선을 그어줍니다.</p>
+
+<h3>목적 4: 불의적 유언 방지</h3>
+<p>만약 피상속인이 노령이거나 질병으로 판단력이 흐려진 상태에서 불의한 유언을 남겼다면, 유류분 반환청구를 통해 이를 교정할 수 있습니다.</p>
+
+<div class="case-box">
+<div class="case-title">실제 사례</div>
+<p>어머니가 말기 암으로 입원 중 재혼 상대에게 전 재산을 유증하는 유언을 남겼습니다. 비록 유언은 형식적으로 유효하지만, 자녀들은 어머니가 가지는 유류분을 청구할 수 있습니다.</p>
+</div>
+</section>
+
+<section id="sec3" class="section">
+<h2><span class="sec-num">③</span>유류분 권리자와 비율</h2>
+<div class="summary-box">
+<strong>유류분 권리자와 비율 (현행 법정)</strong>
+직계비속·배우자: 법정상속분의 1/2 / 직계존속: 법정상속분의 1/3
+</div>
+
+<div class="detail-content">
+
+<h3>1) 직계비속의 유류분</h3>
+<p><span class="law-ref" onclick="openLaw('민법1112')">§ 민법 제1112조</span>에 따르면, 직계비속은 유류분 권리자입니다.</p>
+
+<table class="law-table">
+<tr><th>상황</th><th>법정상속분</th><th>유류분</th></tr>
+<tr><td>배우자와 자녀</td><td>자녀 각 1/2</td><td>자녀 각 1/4 (1/2 × 1/2)</td></tr>
+<tr><td>자녀만 있는 경우 (자녀 2명)</td><td>자녀 각 1/2</td><td>자녀 각 1/4</td></tr>
+<tr><td>배우자와 대리상속 손자</td><td>손자 1/4</td><td>손자 1/8 (1/4 × 1/2)</td></tr>
+</table>
+
+<p><strong>계산 원칙:</strong> 유류분은 법정상속분에 1/2를 곱합니다.</p>
+
+<h3>2) 배우자의 유류분</h3>
+<p>배우자도 직계비속과 동일하게 유류분 권리자입니다. 즉, 배우자의 유류분 = 배우자의 법정상속분 × 1/2</p>
+
+<p><strong>예시:</strong> 배우자와 자녀 2명이 있는 경우:</p>
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li>배우자의 법정상속분: 1/2</li>
+<li>배우자의 유류분: 1/2 × 1/2 = 1/4</li>
+<li>각 자녀의 유류분: 1/4 × 1/2 = 1/8</li>
+</ul>
+
+<h3>3) 직계존속의 유류분</h3>
+<p>직계존속(부모, 조부모)도 유류분 권리자입니다. 다만 비율이 다릅니다.</p>
+
+<p><strong>계산:</strong> 직계존속의 유류분 = 직계존속의 법정상속분 × 1/3</p>
+
+<p><strong>예시:</strong> 부모만 있는 경우 (배우자 없음):</p>
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li>부모의 법정상속분: 각 1/2</li>
+<li>부모의 유류분: 각 1/2 × 1/3 = 1/6</li>
+</ul>
+
+<h3>4) 형제자매의 유류분 (2024년 헌재 결정 이후)</h3>
+<p>2024년 대한민국 헌법재판소는 "형제자매의 유류분은 피상속인의 재산처분의 자유를 과도하게 제한하므로 위헌"이라고 결정했습니다. 현재 입법 절차가 진행 중이며, 향후 형제자매는 유류분을 청구할 수 없게 될 것으로 예상됩니다.</p>
+
+<h3>유류분 권리자가 없는 경우</h3>
+<p>피상속인의 상속인이 없거나 배우자, 직계비속, 직계존속이 모두 없는 경우, 유류분은 발생하지 않습니다. 이 경우 피상속인의 재산은 국가에 귀속될 수 있습니다(민법 제1057조 "상속인이 없을 때 재산은 국고에 귀속").</p>
+
+<div class="warn-box">
+<strong>주의</strong>
+유류분 비율의 계산은 복잡할 수 있습니다. 특히 대리상속이나 전부상속인과 한정상속인이 섞여 있는 경우, 정확한 계산을 위해 법무사의 조력을 받으시기 바랍니다.
+</strong>
+</div>
+</section>
+
+<section id="sec4" class="section">
+<h2><span class="sec-num">④</span>유류분 계산 기준</h2>
+<div class="summary-box">
+<strong>유류분 계산 재산</strong>
+상속개시 시 재산 + 증여(1년 내 또는 침해하면서 한 것) - 채무
+</div>
+
+<div class="detail-content">
+
+<h3>1) 상속개시 시 재산</h3>
+<p>유류분 계산의 기준이 되는 제1의 재산은 상속개시 당시(사망 당시) 피상속인이 보유하던 재산입니다.</p>
+
+<p><strong>포함 대상:</strong></p>
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li>현금 및 예금</li>
+<li>부동산(토지, 건물)</li>
+<li>주식 및 유가증권</li>
+<li>자동차 등 동산</li>
+<li>채권(빌린 돈, 임차료 채권 등)</li>
+<li>지적재산권 등 무형자산</li>
+</ul>
+
+<p><strong>제외 대상:</strong></p>
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li>수익자 지정 생명보험금 (상속재산이 아니므로 제외)</li>
+<li>유족급여 (상속재산 아님)</li>
+<li>위자료청구권 (일신전속권)</li>
+</ul>
+
+<h3>2) 증여</h3>
+<p><span class="law-ref" onclick="openLaw('민법1114')">§ 민법 제1114조</span>에 따르면, 다음 증여는 상속재산에 가산됩니다:</p>
+
+<div style="background:var(--blue-box);border-left:4px solid var(--blue-border);padding:18px 22px;margin:20px 0;border-radius:0 8px 8px 0;">
+<p><strong>포함되는 증여:</strong></p>
+<ul style="margin-left:20px;margin-top:8px;">
+<li>상속개시 1년 이내에 한 증여</li>
+<li>상속개시 1년 이후라도 유류분을 침해할 의사로 한 증여</li>
+</ul>
+</div>
+
+<p><strong>증여의 예시:</strong></p>
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li>자녀에게 준 결혼비용, 주택자금</li>
+<li>사위에게 준 사업자금</li>
+<li>친구에게 준 선물(다만, 일반적인 증여는 1년 이내만 포함)</li>
+<li>회사 설립 자금 기탁</li>
+</ul>
+
+<h3>3) 채무</h3>
+<p>유류분 계산 기준에서는 상속재산에서 채무를 공제합니다.</p>
+
+<p><strong>공제되는 채무:</strong></p>
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li>은행 대출금</li>
+<li>개인 차용금</li>
+<li>미납 세금</li>
+<li>미납 임차료</li>
+<li>손해배상채무</li>
+<li>보증채무</li>
+</ul>
+
+<h3>유류분 계산 공식</h3>
+
+<div style="background:var(--blue-box);border-left:4px solid var(--blue-border);padding:18px 22px;margin:20px 0;border-radius:0 8px 8px 0;">
+<p><strong>유류분 계산 기준 재산 = 상속재산 + 증여 - 채무</strong></p>
+<p style="margin-top:12px;">유류분액 = 유류분 계산 기준 재산 × 유류분 비율</p>
+</div>
+
+<h3>구체적 예시</h3>
+
+<p><strong>상황:</strong> 피상속인 A가 사망했습니다.</p>
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li>상속개시 시 재산: 6억 원</li>
+<li>생전 증여(자녀 B에게 결혼비용): 5,000만 원 (2년 전)</li>
+<li>생전 증여(자녀 C에게 사업자금): 3,000만 원 (6개월 전)</li>
+<li>채무: 1억 원</li>
+<li>상속인: 자녀 B, C (각 1/2)</li>
+</ul>
+
+<p><strong>계산 과정:</strong></p>
+<table class="law-table">
+<tr><th>항목</th><th>계산</th><th>금액</th></tr>
+<tr><td>상속재산</td><td>-</td><td>6억 원</td></tr>
+<tr><td>증여 (1년 이내)</td><td>3,000만 원</td><td>3,000만 원</td></tr>
+<tr><td>채무</td><td>-</td><td>1억 원</td></tr>
+<tr><td>유류분 계산 기준 재산</td><td>6+0.3-1</td><td>5.3억 원</td></tr>
+<tr><td>B의 유류분</td><td>5.3억 × 1/2 × 1/2</td><td>1.325억 원</td></tr>
+<tr><td>C의 유류분</td><td>5.3억 × 1/2 × 1/2</td><td>1.325억 원</td></tr>
+</table>
+
+<p><strong>결과:</strong> 자녀 B와 C는 각각 최소 1.325억 원의 유류분을 청구할 수 있습니다. (1년 초과 증여인 5,000만 원은 유류분 계산에 포함되지 않습니다)</p>
+
+<h3>증여 인정의 판단 기준</h3>
+<p>"유류분을 침해할 의사"가 있었는가를 판단할 때 법원은 다음을 고려합니다:</p>
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li>증여 당시의 재산 상태</li>
+<li>증여 금액의 크기</li>
+<li>피상속인과 수증자의 관계</li>
+<li>증여의 목적과 사정</li>
+<li>다른 상속인과의 형평성</li>
+</ul>
+</section>
+
+<section id="sec5" class="section">
+<h2><span class="sec-num">⑤</span>유류분 침해 여부 판단</h2>
+<div class="detail-content">
+
+<h3>유류분 침해 요건</h3>
+<p>유류분 반환청구권이 발생하려면, 피상속인이 남긴 유증이나 생전증여가 상속인의 유류분을 침해해야 합니다.</p>
+
+<h3>침해 판단 절차</h3>
+
+<div class="process-steps">
+<div class="step">
+<div class="step-num">1</div>
+<div class="step-content">
+<div class="step-title">유류분 권리자 확인</div>
+<div class="step-desc">배우자, 직계비속, 직계존속 중 누가 있는가</div>
+</div>
+</div>
+
+<div class="step">
+<div class="step-num">2</div>
+<div class="step-content">
+<div class="step-title">유류분 비율 산정</div>
+<div class="step-desc">각 권리자의 법정상속분 결정 후 유류분 비율 적용</div>
+</div>
+</div>
+
+<div class="step">
+<div class="step-num">3</div>
+<div class="step-content">
+<div class="step-title">유류분 계산 기준 재산 계산</div>
+<div class="step-desc">상속재산 + 증여 - 채무</div>
+</div>
+</div>
+
+<div class="step">
+<div class="step-num">4</div>
+<div class="step-content">
+<div class="step-title">유류분액 산정</div>
+<div class="step-desc">계산 기준 재산에 유류분 비율을 곱함</div>
+</div>
+</div>
+
+<div class="step">
+<div class="step-num">5</div>
+<div class="step-content">
+<div class="step-title">침해 여부 판단</div>
+<div class="step-desc">실제 받을 상속분(또는 유증)이 유류분보다 적은가</div>
+</div>
+</div>
+</div>
+
+<h3>침해 판단 예시</h3>
+
+<p><strong>상황:</strong> 아버지가 사망했습니다.</p>
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li>상속재산: 12억 원</li>
+<li>상속인: 배우자 1명, 자녀 2명(A, B)</li>
+<li>유언: "전 재산을 자녀 A에게만 상속한다"</li>
+</ul>
+
+<p><strong>분석:</strong></p>
+<table class="law-table">
+<tr><th>항목</th><th>배우자</th><th>자녀 A</th><th>자녀 B</th></tr>
+<tr><td>법정상속분</td><td>1/2</td><td>1/4</td><td>1/4</td></tr>
+<tr><td>유류분 비율</td><td>1/2 × 1/2 = 1/4</td><td>1/4 × 1/2 = 1/8</td><td>1/4 × 1/2 = 1/8</td></tr>
+<tr><td>유류분액</td><td>12억 × 1/4 = 3억</td><td>12억 × 1/8 = 1.5억</td><td>12억 × 1/8 = 1.5억</td></tr>
+<tr><td>실제 상속분</td><td>0 (유언 미적용)</td><td>12억 (전부 유증)</td><td>0</td></tr>
+<tr><td>침해 여부</td><td>침해 O</td><td>침해 X</td><td>침해 O</td></tr>
+</table>
+
+<p><strong>결론:</strong> 배우자와 자녀 B는 유류분이 침해되었으므로 유류분 반환청구권을 행사할 수 있습니다.</p>
+
+<h3>유류분 침해의 우선순위</h3>
+<p><span class="law-ref" onclick="openLaw('민법1116')">§ 민법 제1116조</span>에 따르면, 유류분 반환청구의 순서가 정해집니다:</p>
+
+<div style="background:var(--blue-box);border-left:4px solid var(--blue-border);padding:18px 22px;margin:20px 0;border-radius:0 8px 8px 0;">
+<p><strong>반환청구 순서</strong></p>
+<p style="margin-top:8px;">1. 유증을 받은 자</p>
+<p>2. 증여를 받은 자 (시간 역순으로 최후부터)</p>
+</div>
+</section>
+
+<section id="sec6" class="section">
+<h2><span class="sec-num">⑥</span>유류분 포기</h2>
+<div class="detail-content">
+
+<h3>유류분 포기의 가능성</h3>
+<p>상속인이 자신의 유류분을 포기할 수 있는가? 이는 포기의 시기에 따라 다릅니다.</p>
+
+<h3>1) 상속개시 전 유류분 포기</h3>
+<p>피상속인이 생존 중에 유류분을 미리 포기하는 것은 <strong>원칙적으로 불가능</strong>합니다. <span class="law-ref" onclick="openLaw('민법1118')">§ 민법 제1118조</span>는 "상속개시 전의 유류분 포기는 할 수 없다"고 규정합니다.</p>
+
+<p><strong>이유:</strong></p>
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li>피상속인의 재산 처분의 자유를 남용으로부터 보호</li>
+<li>상속인 보호의 취지</li>
+<li>상속개시 전에는 유류분이 아직 발생하지 않음</li>
+</ul>
+
+<p><strong>예외:</strong> 대법원은 예외적으로 특수한 상황에서 상속개시 전 유류분 포기가 가능할 수 있다고 판시한 경우가 있으나, 매우 제한적입니다.</p>
+
+<h3>2) 상속개시 후 유류분 포기</h3>
+<p>상속개시 후에는 유류분을 포기할 수 있습니다. 이는 "상속분의 포기"와는 다릅니다.</p>
+
+<table class="law-table">
+<tr><th>구분</th><th>상속분 포기</th><th>유류분 포기</th></tr>
+<tr><td>시기</td><td>상속개시 후 3개월 이내에 가정법원에 신청</td><td>명시적 의사표시 필요</td></tr>
+<tr><td>효과</td><td>상속인이 되지 않음 (상속인 지위 상실)</td><td>유류분 청구권만 상실</td></tr>
+<tr><td>절차</td><td>가정법원 신청 필요</td><td>당사자 간 합의로 가능</td></tr>
+</table>
+
+<h3>3) 유류분 포기의 실무</h3>
+<p>상속개시 후 상속인들이 유류분을 서로 나누지 않기로 합의하는 경우가 있습니다. 예를 들어:</p>
+
+<p><strong>상황:</strong> 어머니 사망 후 자녀 3명이 "형은 사업하느라 엄마를 못 챙겼으니 형만 크게 받고, 우리는 형의 성공을 응원하기로 한다"고 합의한 경우.</p>
+
+<p>이 경우 자녀들은 유류분 청구를 하지 않기로 사실상 포기하는 것입니다. 이를 공식화하려면 상속분 협의서나 유류분 포기 확인서를 작성하는 것이 좋습니다.</p>
+
+<h3>유류분 포기의 법적 문제</h3>
+<p>다만 유류분 포기 시 주의할 점이 있습니다:</p>
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li>강압이나 협박에 의한 포기는 무효</li>
+<li>특정 상속인의 속임수에 의한 포기는 취소 가능</li>
+<li>포기 의사가 진정한가에 대한 법원의 판단</li>
+<li>상속세 회피 목적의 포기는 세무상 문제 가능</li>
+</ul>
+
+<div class="warn-box">
+<strong>주의</strong>
+유류분 포기는 상속인의 기본적인 권리를 포기하는 것이므로, 신중하게 생각하고 필요시 법무사와 상담한 후 진행하시기 바랍니다.
+</strong>
+</div>
+</section>
+
+<section id="sec7" class="section">
+<h2><span class="sec-num">⑦</span>FAQ</h2>
+<div class="detail-content">
+
+<h3>Q1. 유류분이 없어지려고 한다는데 정말 그런가요?</h3>
+<p><strong>A:</strong> 2024년 헌법재판소는 "형제자매의 유류분은 위헌"이라고 결정했습니다. 현재 국회에서 입법안을 논의 중입니다. 다만 배우자와 직계비속(자녀, 손자 등)의 유류분은 여전히 유지될 것으로 예상됩니다. 향후 입법 동향을 주시해야 합니다.</p>
+
+<h3>Q2. 엄마가 전 재산을 언니에게만 주는 유언을 남겼습니다. 저는 아무것도 받을 수 없나요?</h3>
+<p><strong>A:</strong> 유류분 제도가 있으므로 유류분을 청구할 수 있습니다. 당신이 배우자나 자녀가 아니라 형제라면(2024년 헌재 결정 이후) 청구 불가능할 수 있지만, 현재 법상으로는 청구할 수 있습니다. 구체적인 유류분 금액은 전체 상속재산, 다른 상속인, 생전증여 등을 고려하여 계산됩니다. 법무사와 상담하세요.</p>
+
+<h3>Q3. 부모가 자녀 중 한 명에게 많은 선물을 줬는데, 이것이 유류분 계산에 영향을 미치나요?</h3>
+<p><strong>A:</strong> 예, 영향을 미칩니다. 상속개시 1년 이내의 증여는 유류분 계산 기준 재산에 포함됩니다. 따라서 그 선물이 크면 클수록, 유류분 계산 기준이 커져 결국 다른 상속인의 유류분이 커질 수 있습니다. 1년 이후의 증여도 "유류분을 침해할 의사"가 있었다면 포함될 수 있습니다.</p>
+
+<h3>Q4. 유류분을 포기하려고 합니다. 어떻게 하나요?</h3>
+<p><strong>A:</strong> 상속개시 후라면 포기가 가능합니다. 다만 (1) 정말 포기하고 싶은지 신중히 생각하고, (2) 강압이나 협박이 없는지 확인하고, (3) 다른 상속인들과 합의하여 서면으로 남기는 것이 좋습니다. 가정 상황에 따라 다르므로 법무사와 상담하세요.</p>
+
+<h3>Q5. 생명보험금도 유류분 계산에 포함되나요?</h3>
+<p><strong>A:</strong> 수익자가 지정된 생명보험금은 상속재산 자체가 아니므로 유류분 계산에 포함되지 않습니다. 그러나 수익자가 지정되지 않은 경우, 그 보험금은 상속재산에 포함되어 유류분 계산의 기준이 됩니다.</p>
+
+<h3>Q6. 유류분과 상속세는 어떤 관계가 있나요?</h3>
+<p><strong>A:</strong> 유류분과 상속세는 별개의 개념입니다. 유류분은 민법상의 최소 상속분을 의미하고, 상속세는 국세입니다. 상속세는 법정상속분을 기준으로 계산되며, 유류분은 이를 넘어서는 추가 청구권입니다. 상속세 납부와 유류분 청구는 독립적으로 진행됩니다.</p>
+
+<h3>Q7. 유류분 반환청구 기간은 얼마나 되나요?</h3>
+<p><strong>A:</strong> <span class="law-ref" onclick="openLaw('민법1117')">§ 민법 제1117조</span>에 따르면, 유류분 반환청구권의 시효는 (1) 유류분 침해 사실을 안 날부터 1년, (2) 상속개시 후 10년입니다. 따라서 최대 10년 이내에 청구해야 합니다.</p>
+
+<h3>Q8. 유류분 반환청구는 소송을 해야 하나요?</h3>
+<p><strong>A:</strong> 반드시 소송은 아닙니다. 상호 합의로 해결할 수도 있습니다. 예를 들어 유류분 침해자와 협의하여 일부를 받기로 약속하는 방식입니다. 합의가 안 되면 민사소송(민사법원 또는 가정법원)을 제기할 수 있습니다.</p>
+
+<h3>Q9. 유류분을 받으면 상속인으로서의 다른 의무도 함께 지나요?</h3>
+<p><strong>A:</strong> 유류분은 최소한의 청구권입니다. 상속인의 모든 권리의무를 함께 가지는 것은 아닙니다. 다만 상속재산 분할 과정에서 실제로 받는 상속분은 피상속인의 채무도 함께 승계하게 될 수 있습니다.</p>
+
+<h3>Q10. 형제가 아버지의 유언장을 숨기고 재산을 독점했습니다. 어떻게 하나요?</h3>
+<p><strong>A:</strong> 먼저 유언장의 존재를 증명해야 합니다. 공정증서 유언이라면 공증인과에 조회하면 기록이 남아 있습니다. 자필증서 유언이라면 증인이나 다른 증거를 모아야 합니다. 이후 유류분 반환청구권을 행사할 수 있습니다. 동시에 형제의 부당행위에 대해 형사고소를 고려할 수도 있습니다(문서위조, 사기 등). 법무사의 조력을 받으세요.</p>
+</section>
+
+<div class="cta-box">
+<h3>유류분 침해 상황, 전문가 상담이 필수입니다</h3>
+<p>유류분 계산과 반환청구는 복잡한 민법 이론과 실무 경험이 필요합니다. 정확한 권리 보호를 위해 법무사와 상담하세요.</p>
+<button class="cta-btn">상담 신청</button>
+</div>
+
+<div class="next-links">
+<a href="15 유류분 반환청구 절차.html" class="next-link">
+<div>
+<div class="label">다음 주제</div>
+<div class="title">유류분 반환청구 절차</div>
+</div>
+<div class="arrow">→</div>
+</a>
+<a href="13 상속재산의 범위.html" class="next-link">
+<div>
+<div class="label">이전 주제</div>
+<div class="title">상속재산의 범위</div>
+</div>
+<div class="arrow">←</div>
+</a>
+</div>
+
+<div class="disclaimer">
+본 내용은 일반적인 법률 정보 제공을 목적으로 합니다. 개별 사건에 대한 법적 조언은 법무사 또는 변호사와의 상담을 통해 받으시기 바랍니다. 본 정보로 인한 손실이나 손해에 대해 법적 책임을 지지 않습니다.
+</div>
+
+</main>
+
+<aside class="right-sidebar">
+<div class="sidebar-tabs">
+<button class="sidebar-tab active" onclick="switchTab('law')">법령</button>
+<button class="sidebar-tab" onclick="switchTab('practice')">실무 Tip</button>
+</div>
+
+<div id="panel-law" class="sidebar-panel active">
+<div class="law-item" id="law-민법1112">
+<div class="law-item-header">
+<span>민법 제1112조 (유류분 권리자·비율)</span>
+<span onclick="toggleLaw(this.parentElement)">＋</span>
+</div>
+<div class="law-item-body">
+① 유류분은 피상속인의 배우자와 직계비속에게는 그 법정상속분의 2분의 1로, 직계존속에게는 그 법정상속분의 3분의 1로 한다. ② 피상속인이 이 조 제1항의 유류분을 초과하는 증여를 한 경우의 유류분 반환청구는 후순위로 한다.
+</div>
+</div>
+
+<div class="law-item" id="law-민법1113">
+<div class="law-item-header">
+<span>민법 제1113조 (유류분 계산)</span>
+<span onclick="toggleLaw(this.parentElement)">＋</span>
+</div>
+<div class="law-item-body">
+유류분은 상속개시 당시에 있어서의 피상속인의 순재산에 따라 정한다. 순재산은 피상속인이 상속개시 당시에 가지고 있던 재산가액에 증여를 받은 자가 받은 증여를 가산한 것에서 피상속인의 채무를 공제한 것이다.
+</div>
+</div>
+
+<div class="law-item" id="law-민법1114">
+<div class="law-item-header">
+<span>민법 제1114조 (증여의 범위)</span>
+<span onclick="toggleLaw(this.parentElement)">＋</span>
+</div>
+<div class="law-item-body">
+상속개시 1년 이내에 한 증여는 이를 상속재산에 가산한다. 증여가 1년 이전의 것일 때에도 유류분을 침해할 의사로 한 증여는 상속재산에 가산한다.
+</div>
+</div>
+
+<div class="law-item" id="law-민법1115">
+<div class="law-item-header">
+<span>민법 제1115조 (유류분 반환청구)</span>
+<span onclick="toggleLaw(this.parentElement)">＋</span>
+</div>
+<div class="law-item-body">
+유류분권리자가 유류분을 초과하는 증여 또는 유증을 받은 자에 대하여 유류분에 해당하는 금액의 반환을 청구할 수 있다. 유증 또는 증여의 목적물을 반환할 수 없는 경우에는 그 가액을 지급하여야 한다.
+</div>
+</div>
+
+<div class="law-item" id="law-민법1116">
+<div class="law-item-header">
+<span>민법 제1116조 (반환 순서)</span>
+<span onclick="toggleLaw(this.parentElement)">＋</span>
+</div>
+<div class="law-item-body">
+유류분권리자가 유류분의 반환을 청구할 때는 먼저 유증을 받은 자에게 청구하고, 유증이 유류분에 미치지 못한 때에는 증여를 받은 자 중 후순위자에게서 먼저 청구한다.
+</div>
+</div>
+
+<div class="law-item" id="law-민법1117">
+<div class="law-item-header">
+<span>민법 제1117조 (소멸시효)</span>
+<span onclick="toggleLaw(this.parentElement)">＋</span>
+</div>
+<div class="law-item-body">
+유류분반환청구권은 유류분권리자가 상속개시를 알고 유류분을 침해한 증여 또는 유증이 있음을 안 때부터 1년 이내에 행사하여야 한다. 상속개시로부터 10년 이내에 행사하지 아니한 경우에도 소멸한다.
+</div>
+</div>
+
+<div class="law-item" id="law-민법1118">
+<div class="law-item-header">
+<span>민법 제1118조 (포기 금지)</span>
+<span onclick="toggleLaw(this.parentElement)">＋</span>
+</div>
+<div class="law-item-body">
+상속개시 전의 유류분 포기는 할 수 없다. 상속개시 후의 포기에 관하여는 제1130조와 제1145조의 규정을 준용한다.
+</div>
+</div>
+</aside>
+
+</div>
+
+<script>
+function switchTab(tab){document.querySelectorAll('.sidebar-tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.sidebar-panel').forEach(p=>p.classList.remove('active'));event.target.classList.add('active');document.getElementById('panel-'+tab).classList.add('active');}
+function toggleLaw(header){const body=header.nextElementSibling;const isOpen=body.classList.contains('open');body.classList.toggle('open');header.querySelector('span').textContent=isOpen?'＋':'－';}
+function openLaw(id){const lawTab=document.querySelector('.sidebar-tab:first-child');const lawPanel=document.getElementById('panel-law');document.querySelectorAll('.sidebar-tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.sidebar-panel').forEach(p=>p.classList.remove('active'));lawTab.classList.add('active');lawPanel.classList.add('active');const item=document.getElementById('law-'+id);if(item){const body=item.querySelector('.law-item-body');const header=item.querySelector('.law-item-header');body.classList.add('open');header.querySelector('span').textContent='－';item.scrollIntoView({behavior:'smooth',block:'center'});}}
+const sections=document.querySelectorAll('.section');const tocLinks=document.querySelectorAll('.toc-link');const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){tocLinks.forEach(l=>l.classList.remove('active'));const active=document.querySelector(`.toc-link[href="#${e.target.id}"]`);if(active)active.classList.add('active');}});},{rootMargin:'-20% 0px -70% 0px'});sections.forEach(s=>observer.observe(s));
+</script>
+
+</body>
+</html>

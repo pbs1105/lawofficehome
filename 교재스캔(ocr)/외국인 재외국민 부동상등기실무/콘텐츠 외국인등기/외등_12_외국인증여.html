@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>외국인의 부동산 증여 소유권이전등기 - 절차와 필요 서류</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700;900&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #333;
+            background-color: #faf8f5;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* 헤더 */
+        header {
+            background: linear-gradient(135deg, #1a2e4a 0%, #2d4a7a 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 8px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        /* 섹션 */
+        section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 1.8em;
+            color: #1a2e4a;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #c8a96e;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 1.3em;
+            color: #2d4a7a;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1em;
+            line-height: 1.8;
+        }
+
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+
+        strong {
+            color: #1a2e4a;
+            font-weight: 600;
+        }
+
+        /* 체크리스트 */
+        .checklist {
+            background-color: #eef2f8;
+            border-left: 5px solid #2d4a7a;
+            padding: 25px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            font-size: 1em;
+        }
+
+        .checklist-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .checklist-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #2d4a7a;
+            border-radius: 3px;
+            margin-right: 15px;
+            margin-top: 3px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .checklist-checkbox::after {
+            content: '✓';
+            color: #2d4a7a;
+            font-weight: bold;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .checklist-text {
+            flex: 1;
+        }
+
+        /* 핵심 요약 박스 */
+        .summary-box {
+            background-color: #eef2f8;
+            border: 2px solid #2d4a7a;
+            padding: 30px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+        }
+
+        .summary-box h3 {
+            margin-top: 0;
+            color: #1a2e4a;
+        }
+
+        .summary-box ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .summary-box li {
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .summary-box li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: #c8a96e;
+        }
+
+        /* CTA 박스 */
+        .cta-box {
+            background-color: #fdf6e9;
+            border: 2px solid #c8a96e;
+            padding: 25px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .cta-box p {
+            font-size: 1.05em;
+            margin-bottom: 0;
+            color: #1a2e4a;
+        }
+
+        /* 판례·예규 박스 */
+        .precedent-box {
+            background-color: #f7f4f0;
+            border-left: 5px solid #6b7280;
+            padding: 25px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .precedent-box h4 {
+            font-family: 'Noto Serif KR', serif;
+            color: #1a2e4a;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .precedent-box p {
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        /* 사례 박스 */
+        .case-box {
+            background-color: #f0f8f0;
+            border-left: 5px solid #1a5c2e;
+            padding: 25px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .case-box h4 {
+            font-family: 'Noto Serif KR', serif;
+            color: #1a5c2e;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .case-box p {
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        /* 경고 박스 */
+        .warning-box {
+            background-color: #fff3e8;
+            border-left: 5px solid #c05000;
+            padding: 25px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .warning-box h4 {
+            font-family: 'Noto Serif KR', serif;
+            color: #c05000;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .warning-box p {
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        /* 국가별 차이 박스 */
+        .country-box {
+            background-color: #f0f4ff;
+            border: 2px solid #3b5bdb;
+            padding: 25px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .country-box h4 {
+            font-family: 'Noto Serif KR', serif;
+            color: #1a2e4a;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .country-box p {
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        /* 표 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        table thead {
+            background-color: #1a2e4a;
+            color: white;
+        }
+
+        table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid #ddd;
+        }
+
+        table td {
+            padding: 15px;
+            border: 1px solid #ddd;
+        }
+
+        table tbody tr:nth-child(even) {
+            background-color: #f9f7f4;
+        }
+
+        table tbody tr:hover {
+            background-color: #eef2f8;
+        }
+
+        /* 흐름도 */
+        .flowchart {
+            background-color: white;
+            border: 2px solid #2d4a7a;
+            padding: 30px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .flowchart-step {
+            display: inline-block;
+            background-color: #1a2e4a;
+            color: white;
+            padding: 15px 25px;
+            margin: 10px 5px;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 0.95em;
+        }
+
+        .flowchart-arrow {
+            display: inline-block;
+            margin: 0 10px;
+            color: #c8a96e;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+
+        /* 링크 섹션 */
+        .links-section {
+            background-color: #f9f7f4;
+            padding: 25px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+        }
+
+        .links-section ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .links-section li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .links-section li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #c8a96e;
+            font-weight: bold;
+        }
+
+        .links-section a {
+            color: #2d4a7a;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .links-section a:hover {
+            color: #c8a96e;
+            text-decoration: underline;
+        }
+
+        /* 푸터 */
+        footer {
+            background-color: #1a2e4a;
+            color: white;
+            padding: 30px;
+            border-radius: 6px;
+            margin-top: 50px;
+            font-size: 0.9em;
+            line-height: 1.8;
+        }
+
+        footer p {
+            color: #ddd;
+            margin-bottom: 10px;
+        }
+
+        footer p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 반응형 */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            h3 {
+                font-size: 1.1em;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            table th, table td {
+                padding: 12px;
+            }
+
+            .flowchart-step {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .flowchart-arrow {
+                display: block;
+                margin: 8px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>외국인의 부동산 증여</h1>
+            <p>소유권이전등기 절차와 필요 서류</p>
+        </header>
+
+        <!-- 섹션 1: 체크리스트 -->
+        <section>
+            <h2>이런 분께 필요합니다</h2>
+            <div class="checklist">
+                <div class="checklist-item">
+                    <div class="checklist-checkbox"></div>
+                    <div class="checklist-text">외국인이 한국 부동산을 증여받으려고 합니다</div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-checkbox"></div>
+                    <div class="checklist-text">재산이 있는 부모님(외국인)이 자녀에게 부동산을 물려주려고 합니다</div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-checkbox"></div>
+                    <div class="checklist-text">외국 거주자에게 한국 부동산을 무상으로 양도하려고 합니다</div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-checkbox"></div>
+                    <div class="checklist-text">외국인 증여자의 경우 처분 위임장 작성 방법을 알고 싶습니다</div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-checkbox"></div>
+                    <div class="checklist-text">토지 증여 시 외국인토지법 신고 절차가 필요한지 확인하려고 합니다</div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-checkbox"></div>
+                    <div class="checklist-text">입국 여부에 따라 준비 서류가 다른지 알고 싶습니다</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 섹션 2: 핵심 요약 -->
+        <section>
+            <div class="summary-box">
+                <h3>핵심 요약</h3>
+                <ul>
+                    <li><strong>증여 등기의 기초</strong>: 민법 제554조에 따른 증여 계약으로 성립하며, 증여등기청구권으로 소유권이전등기 신청 가능</li>
+                    <li><strong>외국인 증여자</strong>: 등기예규 제1778호 제5조의 처분 위임장 규정 적용, 미입국 시 재외공관 공증 필요</li>
+                    <li><strong>외국인 수증자</strong>: 등기예규 제1778호 제8조의2 적용, 토지 취득 시 외국인토지법에 따른 신고 또는 허가 필요</li>
+                    <li><strong>취득 신고</strong>: 부동산거래신고법에 따라 취득일로부터 60일 이내 신고 필수</li>
+                    <li><strong>첨부서류 이원화</strong>: 증여자 또는 수증자의 입국 여부에 따라 필요 서류가 상이</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 섹션 3: 개요 -->
+        <section>
+            <h2>증여등기의 개요</h2>
+
+            <h3>증여의 법적 개념</h3>
+            <p><strong>증여</strong>는 민법 제554조에 따라 "당사자 일방이 무상으로 재산을 상대방에 수여하는 의사를 표시하고 상대방이 이를 승낙함으로써 성립하는 계약"입니다. 부동산 증여의 경우, 증여자와 수증자 간 증여 계약이 성립된 후 소유권이전등기를 신청할 수 있습니다.</p>
+
+            <h3>외국인 증여의 특수성</h3>
+            <p>외국인이 부동산 증여에 관여하는 경우, 다음 두 가지 상황을 구분하여 절차를 진행해야 합니다:</p>
+            <ul>
+                <li><strong>증여자가 외국인인 경우</strong>: 처분 위임장 작성 시 재외공관 공증, 아포스티유 등 추가 인증 필요 (미입국 시)</li>
+                <li><strong>수증자가 외국인인 경우</strong>: 외국인 등록번호 또는 등기용 등록번호 필수, 토지 취득 시 외국인토지법에 따른 신고·허가 필요</li>
+            </ul>
+
+            <div class="cta-box">
+                <p>외국인·재외국민 등기는 국적·체류 자격·입국 여부에 따라 준비 서류가 달라집니다. 정확한 안내가 필요하신가요?</p>
+            </div>
+        </section>
+
+        <!-- 섹션 4: 증여등기 절차 흐름도 -->
+        <section>
+            <h2>증여등기 절차 흐름도</h2>
+
+            <div class="flowchart">
+                <div style="margin-bottom: 20px;">
+                    <div class="flowchart-step">증여 계약 체결</div>
+                    <div class="flowchart-arrow">↓</div>
+                    <div class="flowchart-step">필요 서류 준비</div>
+                    <div class="flowchart-arrow">↓</div>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <div class="flowchart-step">① 증여자가 외국인 (처분)</div>
+                    <div class="flowchart-arrow">↓</div>
+                    <div class="flowchart-step">처분 위임장 작성·공증</div>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <div class="flowchart-step">② 수증자가 외국인 (취득)</div>
+                    <div class="flowchart-arrow">↓</div>
+                    <div class="flowchart-step">등기용 등록번호 확보</div>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <div class="flowchart-arrow">↓</div>
+                    <div class="flowchart-step">등기소에 소유권이전등기 신청</div>
+                    <div class="flowchart-arrow">↓</div>
+                    <div class="flowchart-step">등기 완료</div>
+                </div>
+                <div>
+                    <div class="flowchart-arrow">↓</div>
+                    <div class="flowchart-step">취득 신고 (60일 이내)</div>
+                    <div class="flowchart-arrow">↓</div>
+                    <div class="flowchart-step">토지 취득 신고/허가 (해당 시)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 섹션 5: 증여자가 외국인인 경우 -->
+        <section>
+            <h2>증여자가 외국인인 경우 (양도)</h2>
+
+            <h3>처분 위임장 작성</h3>
+            <p>외국인 증여자가 부동산을 처분할 때는 <strong>처분 위임장</strong>(위임장)이 필수입니다. 등기예규 제1778호 제5조에 따라 처분 위임장의 인증 방식이 달라집니다.</p>
+
+            <h3>입국한 외국인 증여자</h3>
+            <ul>
+                <li>한국에 입국하여 거주하거나 체류 중인 경우</li>
+                <li><strong>처분 위임장</strong>: 인감 날인 + 인감증명서 (한국 공증인 인증 가능)</li>
+                <li>신분증명: 외국인등록증 또는 여권</li>
+                <li>위임장 작성 장소: 한국 내 공증인 사무실</li>
+            </ul>
+
+            <h3>미입국 외국인 증여자</h3>
+            <ul>
+                <li>한국에 입국하지 않은 경우 (재외국민 포함)</li>
+                <li><strong>처분 위임장</strong>: 재외공관(대사관·총영사관) 공증 또는 아포스티유 + 한국 공증인 인증</li>
+                <li>신분증명: 여권 사본</li>
+                <li>위임장 작성 장소: 해당국 재외공관 또는 공증인</li>
+            </ul>
+
+            <div class="warning-box">
+                <h4>⚠ 중요 주의사항</h4>
+                <p>미입국 외국인 증여자의 처분 위임장은 <strong>반드시 아포스티유 인증</strong> 또는 <strong>재외공관 공증</strong>이 필요합니다. 한국의 공증인 인증만으로는 등기소에서 수리하지 않을 수 있습니다.</p>
+            </div>
+
+            <h3>부동산양도신고확인서</h3>
+            <p>외국인 증여자가 토지 등을 처분하는 경우, 다음 조건을 만족하면 <strong>부동산양도신고확인서</strong>가 필요합니다:</p>
+            <ul>
+                <li>외국인이 보유한 토지를 처분하는 경우</li>
+                <li>그 토지를 취득할 당시 신고 의무가 있었던 토지</li>
+                <li>등기예규 제1778호 제8조의2 적용</li>
+            </ul>
+            <p><strong>신고 방법</strong>: 관할 시·군·구청 외국인토지신고담당부서에서 발급받음</p>
+        </section>
+
+        <!-- 섹션 6: 수증자가 외국인인 경우 -->
+        <section>
+            <h2>수증자가 외국인인 경우 (취득)</h2>
+
+            <h3>외국인 수증자의 특수성</h3>
+            <p>외국인이 부동산을 증여받아 취득하는 경우, 다음 점들이 중요합니다:</p>
+            <ul>
+                <li><strong>부동산양도신고확인서 불필요</strong>: 증여는 유상거래가 아니므로 양도신고 확인이 불필요</li>
+                <li><strong>외국인토지법 신고·허가 필수</strong>: 토지를 취득하는 경우 반드시 신고 또는 허가 필요</li>
+                <li><strong>취득 신고 필수</strong>: 부동산거래신고법에 따라 취득일로부터 60일 이내 신고</li>
+            </ul>
+
+            <h3>등기용 등록번호</h3>
+            <p>외국인 수증자가 등기를 신청하려면 다음 중 하나를 제출해야 합니다:</p>
+            <ul>
+                <li><strong>외국인등록번호</strong> (한국에 입국하여 외국인등록한 경우)</li>
+                <li><strong>등기용 등록번호</strong> (외국인등록번호가 없는 경우, 등기소에 신청하여 발급받음)</li>
+            </ul>
+
+            <div class="country-box">
+                <h4>입국 여부에 따른 구분</h4>
+                <p><strong>입국한 외국인 수증자</strong>: 외국인등록증으로 등록번호 확인, 여권 제시</p>
+                <p><strong>미입국 외국인 수증자</strong>: 여권 사본으로 신원 확인 후 등기용 등록번호 발급 신청</p>
+            </div>
+
+            <h3>외국인토지법에 따른 신고·허가</h3>
+            <p>증여받은 부동산이 다음에 해당하면 외국인토지법에 따른 절차가 필요합니다:</p>
+            <ul>
+                <li><strong>토지 취득</strong>: 취득일로부터 90일 이내 시·군·구청에 신고</li>
+                <li><strong>허가 대상 토지</strong>: 보안지역·개발제한지역 등 제한되는 토지는 신고가 아닌 허가 필요</li>
+                <li><strong>신고/허가 담당처</strong>: 관할 시·군·구청 외국인토지담당부서</li>
+            </ul>
+
+            <div class="precedent-box">
+                <h4>등기선례 5-59</h4>
+                <p>외국인이 부동산을 취득할 때 외국인등록번호 또는 등기용 등록번호가 필요하며, 등기 신청 시 반드시 첨부해야 합니다.</p>
+            </div>
+        </section>
+
+        <!-- 섹션 7: 첨부서류 -->
+        <section>
+            <h2>첨부서류</h2>
+
+            <h3>증여자(양도인)가 외국인인 경우</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">서류명</th>
+                        <th style="width: 37.5%;">입국한 경우</th>
+                        <th style="width: 37.5%;">미입국인 경우</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>처분 위임장</strong></td>
+                        <td>• 인감 날인<br>• 인감증명서 (3개월 이내)</td>
+                        <td>• 재외공관 공증<br>또는<br>• 아포스티유 + 공증인 인증</td>
+                    </tr>
+                    <tr>
+                        <td><strong>증여자 신분증명</strong></td>
+                        <td>• 외국인등록증 사본 또는<br>• 여권 사본</td>
+                        <td>• 여권 사본</td>
+                    </tr>
+                    <tr>
+                        <td><strong>부동산양도신고확인서</strong></td>
+                        <td>• 해당 토지인 경우 필수<br>• 시·군·구청 발급</td>
+                        <td>• 해당 토지인 경우 필수<br>• 시·군·구청 발급</td>
+                    </tr>
+                    <tr>
+                        <td><strong>등기필증 또는<br>등기권리증</strong></td>
+                        <td>필수</td>
+                        <td>필수</td>
+                    </tr>
+                    <tr>
+                        <td><strong>증여 계약서</strong></td>
+                        <td>필요 시 제출<br>(당사자 합의 증명용)</td>
+                        <td>필요 시 제출<br>(당사자 합의 증명용)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>수증자(취득인)가 외국인인 경우</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">서류명</th>
+                        <th style="width: 37.5%;">입국한 경우</th>
+                        <th style="width: 37.5%;">미입국인 경우</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>수증자 신분증명</strong></td>
+                        <td>• 외국인등록증 사본 또는<br>• 여권 사본</td>
+                        <td>• 여권 사본</td>
+                    </tr>
+                    <tr>
+                        <td><strong>등기용 등록번호</strong></td>
+                        <td>• 외국인등록번호<br>(외국인등록증 발급 번호)</td>
+                        <td>• 등기용 등록번호<br>(등기소 신청 후 발급)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>취득 신고서</strong></td>
+                        <td>• 취득일로부터 60일 이내<br>• 관할 시·군·구청 제출</td>
+                        <td>• 취득일로부터 60일 이내<br>• 관할 시·군·구청 제출</td>
+                    </tr>
+                    <tr>
+                        <td><strong>토지 취득 신고/허가</strong></td>
+                        <td>• 해당 토지인 경우 필수<br>• 취득일로부터 90일 이내</td>
+                        <td>• 해당 토지인 경우 필수<br>• 취득일로부터 90일 이내</td>
+                    </tr>
+                    <tr>
+                        <td><strong>증여 계약서</strong></td>
+                        <td>필요 시 제출<br>(수증자 동의 증명용)</td>
+                        <td>필요 시 제출<br>(수증자 동의 증명용)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>공통 필수 서류</h3>
+            <ul>
+                <li><strong>등기권리증/등기필증</strong>: 증여자 명의 현재 권리증</li>
+                <li><strong>증여 계약서</strong>: 당사자 쌍방이 서명한 증여 계약서 (필요 시)</li>
+                <li><strong>소유권이전등기신청서</strong>: 등기소 양식 작성</li>
+            </ul>
+        </section>
+
+        <!-- 섹션 8: 주의사항 -->
+        <section>
+            <h2>주의사항</h2>
+
+            <h3>처분 위임장 관련</h3>
+            <div class="warning-box">
+                <h4>① 아포스티유 생략 불가</h4>
+                <p>미입국 외국인 증여자의 처분 위임장은 아포스티유 또는 재외공관 공증이 <strong>반드시</strong> 필요합니다. 한국의 공증인 인증만으로는 등기 수리 불가능</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>② 인감증명서 유효기간</h4>
+                <p>입국한 외국인의 경우 인감증명서는 발급일로부터 3개월 이내여야 하며, 초과한 경우 등기소에서 새로 발급받아야 함</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>③ 외국인토지법 신고 누락</h4>
+                <p>수증자가 외국인인 경우, 토지 취득 신고를 누락하면 외국인토지법 위반으로 과태료가 부과될 수 있음</p>
+            </div>
+
+            <h3>취득 신고 관련</h3>
+            <ul>
+                <li><strong>신고 기한</strong>: 취득일로부터 60일 이내 (초과 시 과태료)</li>
+                <li><strong>신고 담당처</strong>: 관할 시·군·구청 부동산거래신고담당</li>
+                <li><strong>신고 대상</strong>: 증여는 거래가 아니므로 취득신고만 해당 (양도신고 제외)</li>
+            </ul>
+
+            <h3>외국인등록번호 또는 등기용 등록번호</h3>
+            <ul>
+                <li><strong>입국한 외국인</strong>: 외국인등록번호 확보 (출입국관리사무소에서 외국인등록)</li>
+                <li><strong>미입국 외국인</strong>: 등기소에 등기용 등록번호 신청 (여권 사본 첨부)</li>
+                <li>등기용 등록번호가 없으면 등기 신청 불가</li>
+            </ul>
+
+            <h3>부동산양도신고확인서</h3>
+            <ul>
+                <li>증여자가 외국인이고, 해당 토지를 취득할 당시 신고 의무가 있었던 경우에만 필요</li>
+                <li>신청처: 관할 시·군·구청 외국인토지담당부서</li>
+                <li>부동산양도신고확인서가 필요한데 미제출 시 등기 거절 가능</li>
+            </ul>
+
+            <div class="case-box">
+                <h4>사례</h4>
+                <p>미국 거주 중국인이 한국의 아파트를 자녀(한국 거주 외국인)에게 증여하는 경우: 증여자는 미입국이므로 처분 위임장에 아포스티유 필요, 수증자는 입국했으므로 외국인등록번호로 등기용 등록번호 확보 후 등기 신청 가능</p>
+            </div>
+        </section>
+
+        <!-- 섹션 9: 판례·예규 -->
+        <section>
+            <h2>판례·예규</h2>
+
+            <div class="precedent-box">
+                <h4>등기예규 제1778호 제5조</h4>
+                <p><strong>외국인의 처분 위임장</strong>: 미입국 외국인이 부동산을 처분할 때 처분 위임장은 재외공관 공증 또는 아포스티유 필수. 입국한 외국인은 한국 공증인 인증 가능</p>
+            </div>
+
+            <div class="precedent-box">
+                <h4>등기예규 제1778호 제8조의2</h4>
+                <p><strong>외국인의 부동산양도신고확인서</strong>: 외국인이 토지를 취득할 당시 신고 의무가 있었던 토지를 처분하는 경우, 부동산양도신고확인서 첨부 필수</p>
+            </div>
+
+            <div class="precedent-box">
+                <h4>등기선례 7-38</h4>
+                <p><strong>외국인 부동산 증여 등기</strong>: 외국인이 증여인 또는 수증인인 경우 등기용 등록번호 또는 외국인등록번호를 반드시 기재하여야 등기 가능</p>
+            </div>
+
+            <div class="precedent-box">
+                <h4>등기선례 5-59</h4>
+                <p><strong>외국인 부동산 소유권이전 등기</strong>: 외국인의 신원 확인을 위해 외국인등록번호 또는 등기용 등록번호의 첨부가 필수. 이들 번호 없이는 등기 신청 거절</p>
+            </div>
+
+            <div class="precedent-box">
+                <h4>부동산거래신고법 제3조</h4>
+                <p><strong>취득 신고 의무</strong>: 부동산을 취득한 자는 취득일로부터 60일 이내 시·군·구청에 신고해야 하며, 증여도 취득에 포함됨</p>
+            </div>
+
+            <div class="precedent-box">
+                <h4>외국인토지법 제5조</h4>
+                <p><strong>토지 취득 신고</strong>: 외국인이 토지를 취득한 경우 취득일로부터 90일 이내 신고하거나 허가를 받아야 함</p>
+            </div>
+        </section>
+
+        <!-- 섹션 10: 다음으로 확인할 내용 -->
+        <section>
+            <h2>다음으로 확인할 내용</h2>
+            <div class="links-section">
+                <ul>
+                    <li><a href="#" onclick="alert('외등_02_외국인취득.html로 이동')">외등_02_외국인취득.html</a> — 외국인의 한국 부동산 취득 절차 가이드</li>
+                    <li><a href="#" onclick="alert('외등_07_외국인처분.html로 이동')">외등_07_외국인처분.html</a> — 외국인 처분 위임장 작성 및 인증 방법</li>
+                    <li><a href="#" onclick="alert('외등_21_재외국민증여.html로 이동')">외등_21_재외국민증여.html</a> — 재외국민의 부동산 증여 절차</li>
+                    <li><a href="#" onclick="alert('외등_05_외국인근저당.html로 이동')">외등_05_외국인근저당.html</a> — 외국인 차용증 및 근저당권설정 등기</li>
+                    <li><a href="#" onclick="alert('외등_03_외국인상속.html로 이동')">외등_03_외국인상속.html</a> — 외국인의 부동산 상속 절차</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 섹션 11: 상담 CTA 및 면책 문구 -->
+        <section>
+            <div class="cta-box">
+                <p style="font-size: 1.15em; font-weight: 500; margin-bottom: 10px;">이 내용이 해당되시나요?</p>
+                <p>첫 상담은 무료입니다. 외국인·재외국민 부동산 등기의 정확한 절차를 안내해드립니다.</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p><strong>면책 문구</strong></p>
+        <p>본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 개별 사안에 대한 법률 조언이 아닙니다.</p>
+        <p>이 페이지는 2025년 현행 법령 기준으로 작성되었습니다. 법령의 변경이 있을 경우 내용이 달라질 수 있습니다.</p>
+        <p>외국인·재외국민 부동산 등기는 국적, 체류 자격, 입국 여부 등 개별 상황에 따라 절차가 크게 달라질 수 있으므로, 정확한 법률 조언이 필요한 경우 전문가(법무사, 변호사)와 상담하시기 바랍니다.</p>
+    </footer>
+</body>
+</html>

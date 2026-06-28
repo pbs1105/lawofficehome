@@ -23,7 +23,17 @@
       "Bash(node --check \"C:/Users/pbaes/OneDrive/바탕 화면/LOAS/homepage\\(claudeCode\\)/js/enforcement_topics_data.js\")",
       "Bash(node --check js/enforcement_topics_data.js)",
       "Bash(python update_enforcement.py)",
-      "Bash(python update_ef_reftags.py)"
+      "Bash(python update_ef_reftags.py)",
+      "Bash(env)",
+      "Bash(GIT_TRACE=1 git status)",
+      "Bash(git ls-tree *)",
+      "Bash(mkdir -p C:/Users/pbaes/AppData/Local/Temp/claude/C--Users-pbaes-OneDrive-------04----LOAS----homepage/bbbef0be-381c-4773-9fb0-f544a0ed19b9/scratchpad/stale-worktrees-backup)",
+      "Bash(cp -r 'C:/Users/pbaes/OneDrive/바탕 화면/04 코딩/LOAS/법무사homepage/.claude/worktrees/.' C:/Users/pbaes/AppData/Local/Temp/claude/C--Users-pbaes-OneDrive-------04----LOAS----homepage/bbbef0be-381c-4773-9fb0-f544a0ed19b9/scratchpad/stale-worktrees-backup/)",
+      "Bash(rm -rf .claude/worktrees)",
+      "Bash(git rm *)",
+      "Bash(git ls-remote *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }

@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>유증과 등기 | 상속등기 실무</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{--navy:#1a2e4a;--navy-light:#2d4a73;--gold:#c9a84c;--gold-light:#e8d5a3;--ivory:#fdf8f0;--ivory-dark:#f5ede0;--text:#2c2c2c;--text-light:#5a5a5a;--blue-box:#e8f0f8;--blue-border:#2d6aa0;--warn-bg:#fff8e1;--warn-border:#f0a500;}
+        *{box-sizing:border-box;margin:0;padding:0;}
+        body{font-family:'Noto Sans KR',sans-serif;background:var(--ivory);color:var(--text);font-size:15px;line-height:1.8;}
+        .page-header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);color:white;padding:40px 24px 32px;text-align:center;}
+        .page-header h1{font-size:2rem;font-weight:700;margin-bottom:8px;}
+        .page-header .subtitle{color:var(--gold-light);font-size:1rem;}
+        .breadcrumb{font-size:0.82rem;color:rgba(255,255,255,0.6);margin-bottom:12px;}
+        .layout{display:grid;grid-template-columns:240px 1fr 300px;gap:0;max-width:1280px;margin:0 auto;}
+        .toc-sidebar{background:var(--navy);color:white;padding:24px 0;position:sticky;top:0;height:100vh;overflow-y:auto;}
+        .toc-sidebar h3{font-size:0.78rem;letter-spacing:2px;color:var(--gold);text-transform:uppercase;padding:0 20px 12px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:8px;}
+        .toc-sidebar ul{list-style:none;}
+        .toc-sidebar ul li a{display:block;padding:9px 20px;font-size:0.85rem;color:rgba(255,255,255,0.75);text-decoration:none;border-left:3px solid transparent;transition:all 0.2s;}
+        .toc-sidebar ul li a:hover,.toc-sidebar ul li a.active{color:white;background:rgba(255,255,255,0.08);border-left-color:var(--gold);}
+        .main-content{padding:40px 48px;min-height:100vh;}
+        .section{margin-bottom:56px;scroll-margin-top:24px;}
+        .section h2{font-size:1.35rem;color:var(--navy);border-bottom:2px solid var(--gold);padding-bottom:10px;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+        .section h2 .sec-num{background:var(--navy);color:var(--gold);font-size:0.78rem;padding:2px 8px;border-radius:12px;}
+        .section h3{font-size:1.05rem;color:var(--navy-light);margin:24px 0 10px;font-weight:600;}
+        .summary-box{background:var(--blue-box);border-left:4px solid var(--blue-border);border-radius:0 8px 8px 0;padding:18px 22px;margin-bottom:20px;}
+        .summary-box strong{color:var(--blue-border);display:block;margin-bottom:6px;font-size:0.9rem;}
+        .detail-content{color:var(--text-light);}
+        .detail-content p{margin-bottom:14px;}
+        .law-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.88rem;}
+        .law-table th{background:var(--navy);color:white;padding:10px 14px;text-align:left;}
+        .law-table td{padding:10px 14px;border-bottom:1px solid #e0d8cc;vertical-align:top;}
+        .law-table tr:nth-child(even) td{background:var(--ivory-dark);}
+        .law-ref{color:var(--blue-border);font-weight:600;cursor:pointer;border-bottom:1px dashed var(--blue-border);font-size:0.9em;}
+        .warn-box{background:var(--warn-bg);border-left:4px solid var(--warn-border);border-radius:0 8px 8px 0;padding:16px 20px;margin:16px 0;}
+        .warn-box strong{color:#c07000;display:block;margin-bottom:6px;}
+        .case-box{background:#f5f5f5;border:1px solid #ddd;border-radius:8px;padding:16px 20px;margin:16px 0;font-size:0.87rem;}
+        .case-box .case-title{font-weight:700;color:var(--navy);margin-bottom:8px;font-size:0.85rem;}
+        .process-steps{margin:16px 0;}
+        .step{display:flex;gap:16px;margin-bottom:16px;align-items:flex-start;}
+        .step-num{background:var(--navy);color:var(--gold);font-weight:700;min-width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;}
+        .step-content .step-title{font-weight:600;color:var(--navy);margin-bottom:4px;}
+        .step-content .step-desc{font-size:0.88rem;color:var(--text-light);}
+        .checklist-box{background:var(--ivory-dark);border:1px solid var(--gold-light);border-radius:10px;padding:20px 24px;margin:24px 0;}
+        .checklist-box h4{color:var(--navy);margin-bottom:14px;font-size:0.95rem;}
+        .checklist-box ul{list-style:none;}
+        .checklist-box ul li{padding:5px 0;font-size:0.88rem;display:flex;gap:10px;}
+        .checklist-box ul li::before{content:"☑";color:var(--gold);}
+        .cta-box{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);color:white;border-radius:12px;padding:28px 32px;margin:32px 0;text-align:center;}
+        .cta-box h3{font-size:1.2rem;margin-bottom:10px;color:var(--gold-light);}
+        .cta-box p{font-size:0.9rem;color:rgba(255,255,255,0.85);margin-bottom:18px;}
+        .cta-btn{background:var(--gold);color:var(--navy);font-weight:700;padding:12px 32px;border-radius:24px;border:none;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;}
+        .next-links{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}
+        .next-link{background:white;border:1px solid #d0c8ba;border-radius:8px;padding:16px;text-decoration:none;color:var(--navy);transition:all 0.2s;display:flex;align-items:center;justify-content:space-between;}
+        .next-link:hover{border-color:var(--gold);box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+        .next-link .label{font-size:0.78rem;color:var(--text-light);}
+        .next-link .title{font-size:0.92rem;font-weight:600;}
+        .next-link .arrow{color:var(--gold);font-size:1.2rem;}
+        .disclaimer{background:#f0f0f0;border-radius:8px;padding:16px 20px;margin-top:40px;font-size:0.8rem;color:#777;line-height:1.6;}
+        .right-sidebar{background:white;border-left:1px solid #e0d8cc;padding:0;position:sticky;top:0;height:100vh;overflow-y:auto;}
+        .sidebar-tabs{display:flex;border-bottom:2px solid var(--navy);}
+        .sidebar-tab{flex:1;padding:12px 8px;text-align:center;font-size:0.82rem;font-weight:600;cursor:pointer;color:var(--text-light);background:var(--ivory);border:none;transition:all 0.2s;}
+        .sidebar-tab.active{background:var(--navy);color:white;}
+        .sidebar-panel{padding:16px;display:none;}
+        .sidebar-panel.active{display:block;}
+        .law-item{border:1px solid #e0d8cc;border-radius:6px;margin-bottom:8px;overflow:hidden;}
+        .law-item-header{background:var(--ivory-dark);padding:10px 14px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:0.83rem;font-weight:600;color:var(--navy);}
+        .law-item-header:hover{background:var(--gold-light);}
+        .law-item-body{display:none;padding:12px 14px;font-size:0.82rem;line-height:1.7;color:var(--text-light);border-top:1px solid #e0d8cc;}
+        .law-item-body.open{display:block;}
+        .practice-section{margin-bottom:16px;}
+        .practice-section h5{font-size:0.82rem;font-weight:700;color:var(--navy);background:var(--ivory-dark);padding:7px 12px;border-radius:4px;margin-bottom:8px;}
+        .practice-section ul{list-style:none;padding:0;}
+        .practice-section ul li{font-size:0.81rem;padding:4px 8px;color:var(--text-light);border-bottom:1px solid #f0ece6;display:flex;gap:6px;}
+        .practice-section ul li::before{content:"•";color:var(--gold);}
+        @media(max-width:900px){.layout{grid-template-columns:1fr;}.toc-sidebar,.right-sidebar{display:none;}.main-content{padding:24px 20px;}.next-links{grid-template-columns:1fr;}}
+    </style>
+</head>
+<body>
+    <div class="page-header">
+        <div class="breadcrumb">상속 · 등기 · 실무</div>
+        <h1>유증과 등기</h1>
+        <p class="subtitle">유증의 법적 성질과 부동산 등기 실무</p>
+    </div>
+
+    <div class="layout">
+        <!-- 왼쪽 TOC 사이드바 -->
+        <div class="toc-sidebar">
+            <h3>목차</h3>
+            <ul>
+                <li><a class="toc-link active" href="#sec1">유증이란</a></li>
+                <li><a class="toc-link" href="#sec2">포괄유증과 특정유증</a></li>
+                <li><a class="toc-link" href="#sec3">부동산 유증의 등기 절차</a></li>
+                <li><a class="toc-link" href="#sec4">유증의 등기 시기</a></li>
+                <li><a class="toc-link" href="#sec5">수증자의 권리와 의무</a></li>
+                <li><a class="toc-link" href="#sec6">유증과 증여의 비교</a></li>
+                <li><a class="toc-link" href="#sec7">유증과 유류분</a></li>
+                <li><a class="toc-link" href="#sec8">FAQ</a></li>
+            </ul>
+        </div>
+
+        <!-- 중앙 메인 콘텐츠 -->
+        <div class="main-content">
+            <!-- 섹션 1 -->
+            <div class="section" id="sec1">
+                <h2><span class="sec-num">1</span>유증이란</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    유증은 유언에 의하여 타인에게 무상으로 재산을 이전하는 것입니다 (<span class="law-ref" onclick="openLaw('민법1074')">민법 제1074조</span>). 유언자의 일방적 의사로 성립하는 사인증여(死因贈與)입니다.
+                </div>
+                <div class="detail-content">
+                    <h3>유증의 정의 및 성질</h3>
+                    <p>유증(遺贈)은 <span class="law-ref" onclick="openLaw('민법1074')">민법 제1074조</span>에서 규정하는 바와 같이, <strong>유언자가 유언으로 타인에게 무상으로 재산을 이전하는 행위</strong>입니다.</p>
+                    <p>유증의 주요 특징:</p>
+                    <ul style="margin-left:20px;margin-bottom:14px;">
+                        <li><strong>일방행위:</strong> 상대방의 동의가 필요 없음</li>
+                        <li><strong>사인증여:</strong> 유언자 사망으로 효력 발생</li>
+                        <li><strong>무상이전:</strong> 대가 없이 이루어짐</li>
+                        <li><strong>유언 요식:</strong> 5가지 유언 방식 중 하나 준수 필요</li>
+                        <li><strong>취소 가능:</strong> 언제든지 새 유언으로 변경·철회 가능</li>
+                    </ul>
+                    <h3>유증의 수증자</h3>
+                    <p>유증의 수증자는 <strong>상속인 또는 상속인이 아닌 제3자</strong> 모두 가능합니다. 예를 들어 배우자, 자녀뿐 아니라 친구, 종교단체, 법인 등도 수증자가 될 수 있습니다.</p>
+                    <div class="case-box">
+                        <div class="case-title">판례 참고</div>
+                        대법원은 유증이 상속인이 아닌 제3자에게도 가능하다고 판단하며, 이 경우 상속세가 증여세로 계산되지 않고 상속세 관점에서 처리됩니다.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 섹션 2 -->
+            <div class="section" id="sec2">
+                <h2><span class="sec-num">2</span>포괄유증과 특정유증</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    포괄유증은 상속분의 비율로 재산 전체를 지정하는 방식이고, 특정유증은 개별 재산을 구체적으로 지정하는 방식입니다.
+                </div>
+                <div class="detail-content">
+                    <h3>포괄유증 (民法 第1078條)</h3>
+                    <p>포괄유증은 <strong>"상속인 A에게 재산의 1/2을 유증한다"</strong> 같은 방식으로, 재산의 비율로 지정하는 유증입니다 (<span class="law-ref" onclick="openLaw('민법1078')">민법 제1078조</span>).</p>
+                    <table class="law-table">
+                        <thead>
+                            <tr>
+                                <th>특징</th>
+                                <th>내용</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>범위 지정</td>
+                                <td>상속분의 비율로 지정 (예: 1/2, 1/3 등)</td>
+                            </tr>
+                            <tr>
+                                <td>법적 지위</td>
+                                <td>포괄유증자는 상속인과 유사한 지위 취득</td>
+                            </tr>
+                            <tr>
+                                <td>상속세</td>
+                                <td>상속인으로 취급되어 상속세 적용</td>
+                            </tr>
+                            <tr>
+                                <td>유류분</td>
+                                <td>상속인의 유류분청구 대상이 됨</td>
+                            </tr>
+                            <tr>
+                                <td>채무 책임</td>
+                                <td>그 비율만큼 채무 책임 부담 가능</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3>특정유증</h3>
+                    <p>특정유증은 <strong>"○○○에게 서울시 강남구의 부동산을 유증한다"</strong> 같은 방식으로, 개별적인 특정 재산을 지정하는 유증입니다.</p>
+                    <table class="law-table">
+                        <thead>
+                            <tr>
+                                <th>특징</th>
+                                <th>내용</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>대상</td>
+                                <td>특정 부동산, 계좌, 자동차 등 구체적 지정</td>
+                            </tr>
+                            <tr>
+                                <td>법적 지위</td>
+                                <td>상속인이 아닌 제3자도 가능</td>
+                            </tr>
+                            <tr>
+                                <td>상속세</td>
+                                <td>수증자 신분에 따라 상속세 또는 증여세</td>
+                            </tr>
+                            <tr>
+                                <td>유류분</td>
+                                <td>상속인의 유류분청구 대상이 됨</td>
+                            </tr>
+                            <tr>
+                                <td>채무</td>
+                                <td>특정 재산의 채무만 인수 (협의 필요)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="warn-box">
+                        <strong>유의점</strong>
+                        포괄유증자가 상속인이 아닌 경우, 상속인의 유류분을 침해하면 유류분청구를 받을 수 있습니다.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 섹션 3 -->
+            <div class="section" id="sec3">
+                <h2><span class="sec-num">3</span>부동산 유증의 등기 절차</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    부동산 유증은 유증 등기(소유권이전등기)를 통해 수증자의 소유로 등기됩니다. 등기 신청인은 유언집행자 또는 상속인입니다.
+                </div>
+                <div class="detail-content">
+                    <h3>유증 등기의 법적 근거</h3>
+                    <p><span class="law-ref" onclick="openLaw('부동산등기법23')">부동산등기법 제23조</span>에 따르면, 유증에 의한 소유권이전등기는 다음과 같이 신청됩니다.</p>
+                    <h3>등기 신청 절차</h3>
+                    <div class="process-steps">
+                        <div class="step">
+                            <div class="step-num">1</div>
+                            <div class="step-content">
+                                <div class="step-title">등기 신청권자 확인</div>
+                                <div class="step-desc">
+                                    유언집행자가 지정된 경우: 유언집행자 신청 → 유언집행자가 없는 경우: 상속인 신청
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">2</div>
+                            <div class="step-content">
+                                <div class="step-title">필수 서류 준비</div>
+                                <div class="step-desc">
+                                    유증 유언서 또는 검인 조서 → 유언자 사망 증명서 → 신청인 신분증 및 인감증명서 → 현재 등기부등본
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">3</div>
+                            <div class="step-content">
+                                <div class="step-title">등기소 신청</div>
+                                <div class="step-desc">
+                                    관할 등기소에 소유권이전등기 신청 → 등기원인: "유증" → 등기 수수료 납부 (등기가격 0.1%)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">4</div>
+                            <div class="step-content">
+                                <div class="step-title">등기 완료</div>
+                                <div class="step-desc">
+                                    등기소 심사 후 등기 완료 (통상 1~2주) → 등기부등본에 수증자 명의 기재 → 등기부 사본 발급
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>등기 신청서 기재 사항</h3>
+                    <ul style="margin-left:20px;margin-bottom:14px;">
+                        <li>등기의 목적: "소유권이전"</li>
+                        <li>등기원인: "유증"</li>
+                        <li>등기원인 발생 연월일: 유언자 사망일</li>
+                        <li>등기권리자: 수증자</li>
+                        <li>등기의무자: 피상속인(또는 상속인)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 섹션 4 -->
+            <div class="section" id="sec4">
+                <h2><span class="sec-num">4</span>유증의 등기 시기</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    유증 등기는 유언자 사망 후 언제든지 신청 가능합니다. 다만 상속세 신고 기한(사망 후 6개월)을 고려하여 진행해야 합니다.
+                </div>
+                <div class="detail-content">
+                    <h3>등기 신청 시기의 선택</h3>
+                    <p>유증 등기는 다음 두 가지 시점에서 신청할 수 있습니다:</p>
+                    <table class="law-table">
+                        <thead>
+                            <tr>
+                                <th>시기</th>
+                                <th>특징 및 주의사항</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>사망 직후 신청</td>
+                                <td>검인 절차가 완료되면 곧 신청 → 분쟁 예방 효과</td>
+                            </tr>
+                            <tr>
+                                <td>상속등기와 동시 신청</td>
+                                <td>상속인들이 상속등기를 한 후 그 일부를 유증 등기로 변경 → 효율적</td>
+                            </tr>
+                            <tr>
+                                <td>상속세 신고 전 신청</td>
+                                <td>상속세 신고 기한(사망 후 6개월) 이내에 신청하면 세금 혜택</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3>등기 신청 기한</h3>
+                    <p>유증 등기는 <strong>신청 기한이 따로 없습니다</strong>. 따라서 유언자 사망 수십 년 후에도 신청할 수 있습니다. 다만 <strong>상속세 신고 기한(6개월)</strong>과 협력하여 진행하는 것이 세금상 유리합니다.</p>
+                    <div class="warn-box">
+                        <strong>중요</strong>
+                        상속세 신고 시 유증 등기를 완료하지 않으면, 상속인으로 등기된 후 나중에 유증 등기로 변경해야 하므로 절차가 복잡해집니다. 미리 계획하세요.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 섹션 5 -->
+            <div class="section" id="sec5">
+                <h2><span class="sec-num">5</span>수증자의 권리와 의무</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    수증자는 유증을 통해 재산을 취득하지만, 취득세와 상속세를 부담하며, 포괄유증의 경우 채무도 일부 상속합니다.
+                </div>
+                <div class="detail-content">
+                    <h3>수증자의 권리</h3>
+                    <ul style="margin-left:20px;margin-bottom:14px;">
+                        <li><strong>소유권 취득:</strong> 유증 등기로 유증된 부동산의 소유권 취득</li>
+                        <li><strong>처분권:</strong> 유증받은 재산을 자유롭게 판매, 임대, 담보설정 가능</li>
+                        <li><strong>경영권:</strong> 사업용 자산을 유증받으면 즉시 경영 가능</li>
+                        <li><strong>유류분 보호:</strong> 상속인인 경우 유류분 청구권 보유</li>
+                    </ul>
+                    <h3>수증자의 의무 및 부담</h3>
+                    <table class="law-table">
+                        <thead>
+                            <tr>
+                                <th>의무/부담</th>
+                                <th>내용</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>취득세</td>
+                                <td>취득세 과세 대상. 상속인 여부에 따라 세율 다름 (상속인: 0.5~1%, 비상속인: 1~4%)</td>
+                            </tr>
+                            <tr>
+                                <td>상속세</td>
+                                <td>포괄유증: 상속인으로 간주하여 상속세 적용 (누진세율 10~50%)</td>
+                            </tr>
+                            <tr>
+                                <td>증여세</td>
+                                <td>특정유증이고 수증자가 상속인이 아닌 경우: 증여세 적용 가능</td>
+                            </tr>
+                            <tr>
+                                <td>채무 부담</td>
+                                <td>포괄유증: 유증비율만큼 피상속인 채무 상속. 특정유증: 원칙상 채무 없음</td>
+                            </tr>
+                            <tr>
+                                <td>유증 반환청구</td>
+                                <td>포괄유증자가 상속인의 유류분을 침해하면 반환청구 대상</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="case-box">
+                        <div class="case-title">판례 참고</div>
+                        대법원은 포괄유증자가 상속인과 동등한 지위를 갖는다고 판단합니다. 따라서 유증받은 재산 가액이 유류분을 초과하면 유류분청구 대상이 됩니다.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 섹션 6 -->
+            <div class="section" id="sec6">
+                <h2><span class="sec-num">6</span>유증과 증여의 비교</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    유증은 사후 이전(사인증여)이고, 증여는 생전 이전입니다. 세금, 절차, 법적 성질이 크게 다릅니다.
+                </div>
+                <div class="detail-content">
+                    <h3>유증 vs 증여 vs 상속</h3>
+                    <table class="law-table">
+                        <thead>
+                            <tr>
+                                <th>항목</th>
+                                <th>상속</th>
+                                <th>유증</th>
+                                <th>증여</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>발생 시점</td>
+                                <td>사망 시점</td>
+                                <td>사망 시점 (유언으로)</td>
+                                <td>생전 (계약)</td>
+                            </tr>
+                            <tr>
+                                <td>재산 범위</td>
+                                <td>법정상속분</td>
+                                <td>유언 지정분</td>
+                                <td>협의분</td>
+                            </tr>
+                            <tr>
+                                <td>절차</td>
+                                <td>협의분할, 법정상속</td>
+                                <td>유언 집행</td>
+                                <td>증여계약, 소유권이전</td>
+                            </tr>
+                            <tr>
+                                <td>세금</td>
+                                <td>상속세 (10~50%)</td>
+                                <td>상속세 또는 증여세</td>
+                                <td>증여세 (10~50%)</td>
+                            </tr>
+                            <tr>
+                                <td>취득세</td>
+                                <td>면제</td>
+                                <td>과세 (0.5~4%)</td>
+                                <td>과세 (1~4%)</td>
+                            </tr>
+                            <tr>
+                                <td>유류분</td>
+                                <td>상속인 유류분 보호</td>
+                                <td>상속인 유류분 보호</td>
+                                <td>유류분 대상 (증여는 3년)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3>선택 시 고려사항</h3>
+                    <p><strong>유증을 선택할 때:</strong> 상속 방식의 자유도가 높고, 비상속인에게도 재산 이전 가능 (예: 종교단체 기부). 취득세 부담 있음.</p>
+                    <p><strong>증여를 선택할 때:</strong> 생전에 대가 없이 이전 가능. 상속세보다 세금 계산이 명확함. 일찍이전로 후대 증여 이점.</p>
+                </div>
+            </div>
+
+            <!-- 섹션 7 -->
+            <div class="section" id="sec7">
+                <h2><span class="sec-num">7</span>유증과 유류분의 관계</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    유증은 유류분청구의 대상이 됩니다. 상속인의 유류분을 침해하면 유류분청구를 받을 수 있습니다 (<span class="law-ref" onclick="openLaw('민법1114')">민법 제1114조</span>).
+                </div>
+                <div class="detail-content">
+                    <h3>유류분 기본 개념</h3>
+                    <p>유류분(遺留分)은 <strong>유언자가 이를 침해할 수 없는 법정 상속인의 최소 상속분</strong>입니다. 유언자가 "전재산을 비상속인에게 유증한다"고 하더라도, 상속인의 유류분은 보호됩니다.</p>
+                    <h3>유류분 비율 (민법 제1112조)</h3>
+                    <table class="law-table">
+                        <thead>
+                            <tr>
+                                <th>상속인 지위</th>
+                                <th>법정상속분</th>
+                                <th>유류분</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>배우자</td>
+                                <td>50%</td>
+                                <td>25% (법정상속분의 1/2)</td>
+                            </tr>
+                            <tr>
+                                <td>자녀</td>
+                                <td>50% (또는 배우자와 함께)</td>
+                                <td>25% (또는 배우자와 함께)</td>
+                            </tr>
+                            <tr>
+                                <td>부모</td>
+                                <td>자녀 없을 시 33%</td>
+                                <td>자녀 없을 시 16.7%</td>
+                            </tr>
+                            <tr>
+                                <td>형제자매</td>
+                                <td>자녀, 부모 모두 없을 시</td>
+                                <td>유류분 청구권 없음</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3>유류분청구권의 행사</h3>
+                    <p><span class="law-ref" onclick="openLaw('민법1114')">민법 제1114조</span>에 따르면, 유류분을 받지 못한 상속인은 유증, 증여를 받은 자에게 유류분 반환을 청구할 수 있습니다.</p>
+                    <div class="process-steps">
+                        <div class="step">
+                            <div class="step-num">1</div>
+                            <div class="step-content">
+                                <div class="step-title">청구권자 확인</div>
+                                <div class="step-desc">
+                                    배우자, 직계비속, 직계존속만 유류분청구권 보유
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">2</div>
+                            <div class="step-content">
+                                <div class="step-title">기한 확인</div>
+                                <div class="step-desc">
+                                    유류분침해 사실 안 날부터 1년, 상속개시 10년 이내
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">3</div>
+                            <div class="step-content">
+                                <div class="step-title">청구 절차</div>
+                                <div class="step-desc">
+                                    합의 시도 → 합의 불성립 시 가정법원 조정 또는 소송
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="warn-box">
+                        <strong>유의점</strong>
+                        특정유증이 상속인의 유류분을 침해하는 경우, 반환청구를 받을 수 있습니다. 유증을 할 때 미리 유류분을 고려하여 금액을 조정하는 것이 분쟁을 예방합니다.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 섹션 8 -->
+            <div class="section" id="sec8">
+                <h2><span class="sec-num">8</span>자주 묻는 질문</h2>
+                <div class="detail-content">
+                    <h3>Q. 유증과 상속 중 어느 것이 더 유리한가요?</h3>
+                    <p><strong>A.</strong> 세금, 절차, 상황에 따라 다릅니다. 상속은 취득세 면제이지만 상속세가 누진적이고, 유증은 취득세를 내야 하지만 상속 범위 자유도가 높습니다. 전문가 상담이 필수입니다.</p>
+
+                    <h3>Q. 특정유증받은 부동산을 몇 년 후 팔아도 되나요?</h3>
+                    <p><strong>A.</strong> 네, 가능합니다. 유증 등기가 완료되면 소유권을 얻는 것이므로, 언제든 판매할 수 있습니다. 다만 양도소득세(장기: 6년 초과 시 낮은 세율)를 고려해야 합니다.</p>
+
+                    <h3>Q. 포괄유증을 받으면 피상속인 채무도 받아야 하나요?</h3>
+                    <p><strong>A.</strong> 네, 포괄유증자는 상속인과 동등하게 유증비율만큼 채무를 상속합니다. 예를 들어 1/2 포괄유증을 받으면 채무도 1/2을 부담합니다.</p>
+
+                    <h3>Q. 유증 등기에서 상속인의 도움이 필요한가요?</h3>
+                    <p><strong>A.</strong> 필요합니다. 등기 신청 시 등기의무자(상속인)의 인감증명서가 필요합니다. 상속인의 협력을 받아야 등기가 완료됩니다.</p>
+
+                    <h3>Q. 유증은 취소할 수 있나요?</h3>
+                    <p><strong>A.</strong> 유증은 유언자가 살아있는 동안 새로운 유언으로 철회할 수 있습니다. 다만 사망 후에는 상속인이나 수증자가 임의로 취소할 수 없습니다.</p>
+
+                    <h3>Q. 비상속인에게 유증하면 상속세가 나오나요?</h3>
+                    <p><strong>A.</strong> 특정유증의 경우, 수증자가 상속인이 아니면 증여세로 계산될 수 있습니다. 다만 포괄유증은 상속세로 처리되므로 세금 계산이 복잡합니다. 세무사 상담을 받으세요.</p>
+                </div>
+            </div>
+
+            <!-- 상담 준비 체크리스트 -->
+            <div class="checklist-box">
+                <h4>유증 등기 준비 체크리스트</h4>
+                <ul>
+                    <li>유증 유언서 또는 검인 조서 준비</li>
+                    <li>유언자 사망 증명서 취득</li>
+                    <li>현재 등기부등본 확인</li>
+                    <li>포괄유증인지 특정유증인지 확인</li>
+                    <li>상속인 확정 및 협력 요청</li>
+                    <li>상속인 인감증명서 준비</li>
+                    <li>취득세·상속세 세금 계산</li>
+                    <li>유류분 침해 여부 검토</li>
+                    <li>등기소에 사전 상담 요청</li>
+                    <li>법무사·변호사 상담</li>
+                </ul>
+            </div>
+
+            <!-- CTA 박스 -->
+            <div class="cta-box">
+                <h3>복잡한 유증 등기, 전문가와 함께하세요</h3>
+                <p>정확한 법적 검토와 세금 절감 방안을 제시해드립니다.</p>
+                <button class="cta-btn">상담 예약하기</button>
+            </div>
+
+            <!-- 다음/이전 링크 -->
+            <div class="next-links">
+                <a href="19 유언의 집행과 검인.html" class="next-link">
+                    <div>
+                        <div class="label">이전 주제</div>
+                        <div class="title">유언의 집행과 검인</div>
+                    </div>
+                    <div class="arrow">←</div>
+                </a>
+                <a href="22 협의분할에 의한 상속등기.html" class="next-link">
+                    <div>
+                        <div class="label">다음 주제</div>
+                        <div class="title">협의분할에 의한 상속등기</div>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+            </div>
+
+            <!-- 면책 문구 -->
+            <div class="disclaimer">
+                <strong>면책 공지</strong><br>
+                본 콘텐츠는 일반적인 상속등기 실무 정보를 제공하기 위한 것으로, 특정 사건의 법적 조언이 아닙니다. 실제 유증 등기는 반드시 법무사, 변호사, 세무사와 상담하세요. 본 정보에 의존한 행동으로 인한 손실에 대해서는 책임지지 않습니다.
+            </div>
+        </div>
+
+        <!-- 오른쪽 사이드바 -->
+        <div class="right-sidebar">
+            <div class="sidebar-tabs">
+                <button class="sidebar-tab active" onclick="switchTab('law')">법령</button>
+                <button class="sidebar-tab" onclick="switchTab('practice')">실무정보</button>
+            </div>
+
+            <!-- 법령 패널 -->
+            <div id="panel-law" class="sidebar-panel active">
+                <div class="law-item" id="law-민법1074">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>민법 제1074조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>유증의 효력</strong><br>
+                        유언자는 유언으로 재산을 타인에게 무상으로 이전할 수 있다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-민법1078">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>민법 제1078조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>포괄적 수증자의 권리</strong><br>
+                        포괄유증을 받은 자는 상속인과 동등한 권리와 의무를 가진다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-민법1080">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>민법 제1080조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>유증의 승인·포기</strong><br>
+                        수증자는 유언자 사망 후 유증을 승인하거나 포기할 수 있다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-민법1112">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>민법 제1112조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>유류분의 권리자 및 비율</strong><br>
+                        유류분은 직계비속(1/2), 배우자(1/2), 직계존속(1/3)이 받는다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-민법1114">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>민법 제1114조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>유류분청구권</strong><br>
+                        유류분권리자가 유류분을 받지 못한 경우 유증을 받은 자에게 반환을 청구할 수 있다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-부동산등기법23">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>부동산등기법 제23조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>상속에 의한 등기</strong><br>
+                        유증을 포함한 상속등기는 신청인의 청구에 의해 한다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-부동산등기법27">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>부동산등기법 제27조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>등기권리자 및 등기의무자</strong><br>
+                        유증 등기의 경우 수증자가 등기권리자, 상속인이 등기의무자가 된다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-상속세법1">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>상속세 및 증여세법</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>상속세와 증여세</strong><br>
+                        포괄유증은 상속세 대상, 특정유증은 증여세 대상이 될 수 있다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-지방세법15">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>지방세법 제15조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>취득세</strong><br>
+                        유증에 의한 부동산 취득은 취득세 과세 대상이다 (상속인: 0.5~1%, 비상속인: 1~4%).
+                    </div>
+                </div>
+            </div>
+
+            <!-- 실무정보 패널 -->
+            <div id="panel-practice" class="sidebar-panel">
+                <div class="practice-section">
+                    <h5>유증 등기 신청 기관</h5>
+                    <ul>
+                        <li>관할 등기소 (부동산 소재지 등기소)</li>
+                        <li>온라인 신청 가능 (e-Form)</li>
+                        <li>방문, 우편 신청도 가능</li>
+                    </ul>
+                </div>
+
+                <div class="practice-section">
+                    <h5>필수 서류 체크</h5>
+                    <ul>
+                        <li>유증 유언서 또는 검인 조서</li>
+                        <li>유언자 사망 증명서</li>
+                        <li>신청인 신분증</li>
+                        <li>상속인 인감증명서</li>
+                        <li>현재 등기부등본</li>
+                    </ul>
+                </div>
+
+                <div class="practice-section">
+                    <h5>등기 수수료 (목안)</h5>
+                    <ul>
+                        <li>기본료: 약 8,000원</li>
+                        <li>등기가격 0.1% (예: 5억원 부동산 → 약 50만원)</li>
+                        <li>부동산 개수당 추가료</li>
+                    </ul>
+                </div>
+
+                <div class="practice-section">
+                    <h5>취득세·상속세 안내</h5>
+                    <ul>
+                        <li>취득세 과세: 등기부 기준가격 적용</li>
+                        <li>상속세 신고: 사망 후 6개월 내</li>
+                        <li>세무사 상담 필수</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tab){
+            document.querySelectorAll('.sidebar-tab').forEach(t=>t.classList.remove('active'));
+            document.querySelectorAll('.sidebar-panel').forEach(p=>p.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById('panel-'+tab).classList.add('active');
+        }
+        function toggleLaw(header){
+            const body=header.nextElementSibling;
+            const isOpen=body.classList.contains('open');
+            body.classList.toggle('open');
+            header.querySelector('span:last-child').textContent=isOpen?'＋':'－';
+        }
+        function openLaw(id){
+            const lawTab=document.querySelector('.sidebar-tab:first-child');
+            const lawPanel=document.getElementById('panel-law');
+            document.querySelectorAll('.sidebar-tab').forEach(t=>t.classList.remove('active'));
+            document.querySelectorAll('.sidebar-panel').forEach(p=>p.classList.remove('active'));
+            lawTab.classList.add('active');
+            lawPanel.classList.add('active');
+            const item=document.getElementById('law-'+id);
+            if(item){
+                const body=item.querySelector('.law-item-body');
+                const header=item.querySelector('.law-item-header');
+                body.classList.add('open');
+                header.querySelector('span:last-child').textContent='－';
+                item.scrollIntoView({behavior:'smooth',block:'center'});
+            }
+        }
+        const sections=document.querySelectorAll('.section');
+        const tocLinks=document.querySelectorAll('.toc-link');
+        const observer=new IntersectionObserver((entries)=>{
+            entries.forEach(e=>{
+                if(e.isIntersecting){
+                    tocLinks.forEach(l=>l.classList.remove('active'));
+                    const active=document.querySelector('.toc-link[href="#'+e.target.id+'"]');
+                    if(active)active.classList.add('active');
+                }
+            });
+        },{rootMargin:'-20% 0px -70% 0px'});
+        sections.forEach(s=>observer.observe(s));
+    </script>
+</body>
+</html>

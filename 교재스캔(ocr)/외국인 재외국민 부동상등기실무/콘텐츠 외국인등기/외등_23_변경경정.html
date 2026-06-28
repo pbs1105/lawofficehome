@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>외국인·재외국민 등기부 변경·경정등기 — 국적·주소·성명 정정 방법</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #2c3e50;
+            background-color: #faf8f5;
+            line-height: 1.7;
+        }
+
+        body {
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a2e4a 0%, #2d4a7a 100%);
+            color: #ffffff;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        h2 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 22px;
+            color: #1a2e4a;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #c8a96e;
+        }
+
+        h3 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 18px;
+            color: #2d4a7a;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        h4 {
+            font-size: 15px;
+            color: #2d4a7a;
+            margin-top: 18px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        strong {
+            color: #1a2e4a;
+            font-weight: 600;
+        }
+
+        /* 체크리스트 */
+        .checklist {
+            background-color: #eef2f8;
+            border-left: 4px solid #2d4a7a;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+
+        .checklist h3 {
+            margin-top: 0;
+            color: #1a2e4a;
+        }
+
+        .checklist-items {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            font-size: 14px;
+        }
+
+        .checklist-item::before {
+            content: "☑";
+            color: #2d4a7a;
+            margin-right: 10px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* 핵심 요약 박스 */
+        .summary-box {
+            background-color: #eef2f8;
+            border: 2px solid #2d4a7a;
+            border-radius: 6px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .summary-box h3 {
+            margin-top: 0;
+            color: #1a2e4a;
+        }
+
+        .summary-box p {
+            margin-bottom: 12px;
+        }
+
+        .summary-box strong {
+            color: #2d4a7a;
+        }
+
+        /* 비교 테이블 */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .comparison-table th {
+            background-color: #1a2e4a;
+            color: #ffffff;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .comparison-table .label {
+            background-color: #f0f0f0;
+            font-weight: 600;
+            color: #2d4a7a;
+            width: 25%;
+        }
+
+        /* 흐름도 */
+        .flowchart {
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .flow-step {
+            display: inline-block;
+            background-color: #2d4a7a;
+            color: #ffffff;
+            padding: 12px 20px;
+            border-radius: 4px;
+            margin: 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .flow-arrow {
+            display: inline-block;
+            color: #2d4a7a;
+            margin: 8px;
+            font-size: 18px;
+        }
+
+        /* 판례·예규 박스 */
+        .regulation-box {
+            background-color: #f7f4f0;
+            border-left: 4px solid #6b7280;
+            padding: 18px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+
+        .regulation-box h4 {
+            color: #1a2e4a;
+            margin-top: 0;
+        }
+
+        .regulation-box p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .regulation-box code {
+            background-color: #f0ede8;
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #6b7280;
+            font-family: monospace;
+        }
+
+        /* 사례 박스 */
+        .case-box {
+            background-color: #f0f8f0;
+            border-left: 4px solid #1a5c2e;
+            padding: 18px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+
+        .case-box h4 {
+            color: #1a5c2e;
+            margin-top: 0;
+        }
+
+        .case-box p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        /* 경고 박스 */
+        .warning-box {
+            background-color: #fff3e8;
+            border-left: 4px solid #c05000;
+            padding: 18px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+
+        .warning-box h4 {
+            color: #c05000;
+            margin-top: 0;
+        }
+
+        .warning-box p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        /* 상담 CTA 박스 */
+        .cta-box {
+            background-color: #fdf6e9;
+            border: 2px solid #c8a96e;
+            border-radius: 6px;
+            padding: 25px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .cta-box p {
+            font-size: 16px;
+            color: #1a2e4a;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .cta-box strong {
+            color: #c05000;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #c8a96e;
+            color: #1a2e4a;
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #b8985e;
+        }
+
+        /* 서류 표 */
+        .document-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .document-table th {
+            background-color: #1a2e4a;
+            color: #ffffff;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .document-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .document-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .document-table .category {
+            background-color: #f0f0f0;
+            font-weight: 600;
+            color: #2d4a7a;
+            width: 30%;
+        }
+
+        /* 관련 링크 */
+        .related-links {
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .related-links h3 {
+            margin-top: 0;
+        }
+
+        .related-links ul {
+            list-style: none;
+        }
+
+        .related-links li {
+            margin-bottom: 10px;
+        }
+
+        .related-links a {
+            color: #2d4a7a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .related-links a:hover {
+            color: #c8a96e;
+            text-decoration: underline;
+        }
+
+        /* 면책 문구 */
+        .disclaimer {
+            background-color: #f5f5f5;
+            border-top: 1px solid #ddd;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 12px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .disclaimer p {
+            margin-bottom: 8px;
+        }
+
+        /* 목록 스타일 */
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        /* 반응형 */
+        @media (max-width: 768px) {
+            .content {
+                padding: 25px 20px;
+            }
+
+            .header h1 {
+                font-size: 22px;
+            }
+
+            h2 {
+                font-size: 19px;
+            }
+
+            h3 {
+                font-size: 16px;
+            }
+
+            .checklist-items {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-table .label {
+                width: 40%;
+            }
+
+            .flow-step {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .flow-arrow {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 헤더 -->
+        <div class="header">
+            <h1>외국인·재외국민 등기부<br>변경·경정등기</h1>
+            <p>국적·주소·성명 정정 방법</p>
+        </div>
+
+        <!-- 본문 -->
+        <div class="content">
+            <!-- 섹션 1: 이런 분께 필요합니다 -->
+            <div class="checklist">
+                <h3>이런 분께 필요합니다</h3>
+                <div class="checklist-items">
+                    <div class="checklist-item">외국 국적을 취득한 경우</div>
+                    <div class="checklist-item">한국 국적을 회복한 경우</div>
+                    <div class="checklist-item">등기부상 주소가 변경된 경우</div>
+                    <div class="checklist-item">등기부상 성명이 개명된 경우</div>
+                    <div class="checklist-item">등기부상 정보 오류가 발견된 경우</div>
+                    <div class="checklist-item">영문 성명 표기가 잘못된 경우</div>
+                </div>
+            </div>
+
+            <!-- 섹션 2: 핵심 요약 -->
+            <div class="summary-box">
+                <h3>핵심 요약</h3>
+                <p><strong>변경·경정등기</strong>는 등기부 기록 내용을 정정하는 절차입니다. 국적·주소·성명 정보가 변경되거나 잘못된 경우, 신청인의 신청이나 등기관의 직권으로 진행됩니다.</p>
+                <p><strong>변경등기</strong>는 등기 완료 후 발생한 사실의 변화(예: 주소 이전, 개명)를 반영하고, <strong>경정등기</strong>는 등기 당시부터 잘못된 내용(예: 이름 표기 오류)을 정정합니다.</p>
+                <p>외국인·재외국민은 국적 변동, 체류 국가 변경, 성명 표기 오류 등 특수한 상황이 발생하기 쉬우므로, 정확한 요건과 절차 확인이 필수입니다.</p>
+            </div>
+
+            <!-- 섹션 3: 변경등기 vs 경정등기 구분 -->
+            <h2>변경등기 vs 경정등기</h2>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>구분</th>
+                        <th>변경등기</th>
+                        <th>경정등기</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="label">정의</td>
+                        <td>등기 완료 후 발생한 사실의 변경을 등기부에 반영</td>
+                        <td>등기 당시부터 잘못된 내용을 정정</td>
+                    </tr>
+                    <tr>
+                        <td class="label">발생 시점</td>
+                        <td>등기 이후에 발생</td>
+                        <td>등기 당시부터 존재</td>
+                    </tr>
+                    <tr>
+                        <td class="label">예시</td>
+                        <td>주소 이전, 개명 후 성명 변경, 국적 변경</td>
+                        <td>이름 영문 표기 오류, 주소 기재 오류, 한자 표기 오류</td>
+                    </tr>
+                    <tr>
+                        <td class="label">증명서류</td>
+                        <td>새로운 상태를 증명하는 서류 (주소증명, 개명 허가 결정문 등)</td>
+                        <td>정확한 내용을 증명하는 서류 (여권, 국제 공증, 번역 공증)</td>
+                    </tr>
+                    <tr>
+                        <td class="label">신청권자</td>
+                        <td>일반적으로 신청인 또는 등기관 직권</td>
+                        <td>신청인 또는 등기관 직권</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- 섹션 4: 절차 흐름도 -->
+            <h2>변경·경정등기 절차 흐름</h2>
+
+            <h3>변경등기</h3>
+            <div class="flowchart">
+                <div class="flow-step">상황 발생</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">필수 서류 준비</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">등기소에 신청</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">등기부 변경 반영</div>
+            </div>
+
+            <p style="text-align: center; font-size: 13px; color: #666; margin-top: 10px;">
+                (예: 주소 이전 시 주소증명서류 → 등기소 제출 → 등기부 주소 변경)
+            </p>
+
+            <h3>경정등기</h3>
+            <div class="flowchart">
+                <div class="flow-step">오류 발견</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">증명서류 확보</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">등기소 신청</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">등기부 내용 정정</div>
+            </div>
+
+            <p style="text-align: center; font-size: 13px; color: #666; margin-top: 10px;">
+                (예: 영문 성명 오류 발견 → 여권 원본 제출 → 경정등기 신청)
+            </p>
+
+            <!-- 섹션 5: 국적 변경 등기 -->
+            <h2>국적 변경 등기</h2>
+
+            <h3>한국인이 외국 국적을 취득한 경우</h3>
+
+            <h4>절차</h4>
+            <ol>
+                <li><strong>국적 취득 증명서 준비:</strong> 외국 정부에서 발급한 국적 취득 증명서 또는 귀화 허가 증명서를 준비합니다.</li>
+                <li><strong>번역문 작성:</strong> 외국어 서류는 국내 공인 번역가에 의한 공증 번역문을 첨부합니다.</li>
+                <li><strong>등기소 신청:</strong> 담당 등기소에 변경등기 신청서와 함께 증명 서류를 제출합니다.</li>
+                <li><strong>등기부 변경:</strong> 등기관이 국적 정보 변경 및 주민등록번호 처리를 반영합니다.</li>
+            </ol>
+
+            <div class="warning-box">
+                <h4>주의사항</h4>
+                <p>외국 국적 취득 후 한국 국적을 자동 상실합니다. 등기부상 주민등록번호가 있는 경우, 등기관이 직권으로 처리할 수도 있습니다(등기예규 제1675호 참조).</p>
+            </div>
+
+            <h3>외국인이 한국 국적을 회복한 경우</h3>
+
+            <h4>절차</h4>
+            <ol>
+                <li><strong>국적 회복 증명서 준비:</strong> 법무부 국적과에서 발급한 국적 회복 증명서를 준비합니다.</li>
+                <li><strong>새로운 주민등록번호 취득:</strong> 국적 회복 후 새로운 주민등록번호를 발급받습니다.</li>
+                <li><strong>등기소 신청:</strong> 변경등기 신청서와 국적 회복 증명서, 주민등록증 등본을 제출합니다.</li>
+                <li><strong>등기부 변경:</strong> 등기부상 국적 정보와 주민등록번호가 변경됩니다.</li>
+            </ol>
+
+            <div class="case-box">
+                <h4>사례: 외국 국적 취득 후 등기부 변경</h4>
+                <p>한국인 A가 미국 국적을 취득했습니다. A가 소유한 부동산의 등기부에는 여전히 한국 국적과 주민등록번호가 기재되어 있습니다. A는 미국 정부의 국적 취득 증명서(번역문)를 첨부하여 변경등기를 신청합니다. 등기관이 등기부상 국적 정보를 변경 처리하고, 주민등록번호를 삭제 또는 별도 표기합니다.</p>
+            </div>
+
+            <!-- 섹션 6: 주소 변경 등기 -->
+            <h2>주소 변경 등기</h2>
+
+            <h4>적용 대상</h4>
+            <p>외국인 또는 재외국민의 등기부상 주소가 다음 사항으로 변경된 경우에 적용됩니다:</p>
+            <ul>
+                <li>국내 주소 변경 (시·도, 구·군 변경)</li>
+                <li>국외 주소로 변경 (거주지 변경)</li>
+                <li>외국인등록증상 주소 변경</li>
+                <li>재외국민등록부상 주소 변경</li>
+            </ul>
+
+            <h4>절차</h4>
+            <ol>
+                <li><strong>새로운 주소증명 서류 준비:</strong>
+                    <ul style="margin-left: 30px; margin-top: 10px;">
+                        <li>국내 주소: 주민등록등본, 건물등기부등본, 임차 계약서</li>
+                        <li>국외 주소: 재외국민등록부 등본, 외국 정부 주소 증명서류</li>
+                    </ul>
+                </li>
+                <li><strong>번역문 첨부:</strong> 외국 서류는 번역공증을 받습니다.</li>
+                <li><strong>등기소 신청:</strong> 변경등기 신청서와 함께 새 주소증명 서류를 제출합니다.</li>
+                <li><strong>등기부 반영:</strong> 등기부상 주소가 변경됩니다.</li>
+            </ol>
+
+            <div class="regulation-box">
+                <h4>등기예규 제1795호 참조</h4>
+                <p>등기예규 제1795호는 외국인·재외국민의 주소 변경·경정등기에 대한 관할 특례를 규정하고 있습니다. 특정 경우 다른 등기소에서도 신청 가능할 수 있으므로 사전 문의가 필요합니다.</p>
+            </div>
+
+            <div class="case-box">
+                <h4>사례: 국외 거주지 변경</h4>
+                <p>재외국민 B가 싱가포르에서 홍콩으로 이사했습니다. 등기부상의 싱가포르 주소를 홍콩 주소로 변경하고자 합니다. B는 홍콩의 재외국민등록부 등본 및 거주지 증명서(번역공증)를 첨부하여 주소 변경등기를 신청합니다.</p>
+            </div>
+
+            <!-- 섹션 7: 성명 변경 등기 -->
+            <h2>성명 변경 등기</h2>
+
+            <h3>개명으로 인한 성명 변경</h3>
+
+            <h4>절차</h4>
+            <ol>
+                <li><strong>법원 개명 허가:</strong> 가정법원에 개명 신청을 하여 개명 허가 결정을 받습니다.</li>
+                <li><strong>개명 허가 결정문 준비:</strong> 가정법원의 개명 허가 결정문 정본을 준비합니다.</li>
+                <li><strong>등기소 신청:</strong> 변경등기 신청서와 함께 개명 허가 결정문을 제출합니다.</li>
+                <li><strong>등기부 성명 변경:</strong> 등기부상의 성명이 새로운 이름으로 변경됩니다.</li>
+            </ol>
+
+            <h3>외국인의 영문 성명 표기 오류 경정</h3>
+
+            <h4>절차</h4>
+            <ol>
+                <li><strong>여권 원본 확인:</strong> 외국인의 여권을 원본으로 확인하여 올바른 영문 성명을 확인합니다.</li>
+                <li><strong>등기부와 대조:</strong> 등기부상 기재된 영문 성명과 여권상 성명의 차이를 확인합니다.</li>
+                <li><strong>경정등기 신청:</strong> 여권 사본 및 번역문을 첨부하여 경정등기를 신청합니다.</li>
+                <li><strong>등기부 정정:</strong> 등기부상의 영문 성명이 정정됩니다.</li>
+            </ol>
+
+            <div class="warning-box">
+                <h4>주의사항</h4>
+                <p>영문 성명은 여권 기재 내용을 기준으로 합니다. 국제거래, 계약, 법적 효력 있는 서류에서 사용되므로 정확한 표기가 매우 중요합니다.</p>
+            </div>
+
+            <div class="case-box">
+                <h4>사례: 한자 성명 표기 오류 정정</h4>
+                <p>중국 국적 C는 '李'를 '李'가 아닌 다른 한자로 잘못 기재했습니다. C의 국내 여권 번역본 및 원본 여권을 첨부하여 경정등기를 신청합니다. 등기부상의 한자 성명이 정정됩니다.</p>
+            </div>
+
+            <!-- 섹션 8: 첨부서류 표 -->
+            <h2>변경·경정등기 필수 첨부서류</h2>
+
+            <table class="document-table">
+                <thead>
+                    <tr>
+                        <th>변경/경정 사유</th>
+                        <th>필수 첨부서류</th>
+                        <th>추가 사항</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="category">국내 주소 변경</td>
+                        <td>
+                            • 새로운 주소증명 서류<br>
+                            (주민등록등본, 건물등기부등본, 임차계약서 등)
+                        </td>
+                        <td>— 외국인등록증 등본 첨부 권고</td>
+                    </tr>
+                    <tr>
+                        <td class="category">국외 주소 변경</td>
+                        <td>
+                            • 재외국민등록부 등본<br>
+                            • 외국 정부의 주소 증명서<br>
+                            • 번역공증문
+                        </td>
+                        <td>— 외국 서류는 반드시 번역공증 첨부</td>
+                    </tr>
+                    <tr>
+                        <td class="category">성명 변경<br>(개명)</td>
+                        <td>
+                            • 가정법원 개명 허가 결정문 정본<br>
+                            • 신분증(여권, 외국인등록증 등)
+                        </td>
+                        <td>— 결정문은 정본 필수 (사본 불가)</td>
+                    </tr>
+                    <tr>
+                        <td class="category">성명 경정<br>(영문/한자 오류)</td>
+                        <td>
+                            • 여권 사본<br>
+                            • 여권 번역공증문<br>
+                            • 국제공증(필요시)
+                        </td>
+                        <td>— 여권상 성명이 증거 기준</td>
+                    </tr>
+                    <tr>
+                        <td class="category">국적 취득<br>(외국 국적)</td>
+                        <td>
+                            • 외국 정부의 국적 취득 증명서<br>
+                            • 귀화 허가증<br>
+                            • 번역공증문
+                        </td>
+                        <td>— 외국어 서류는 번역공증 필수</td>
+                    </tr>
+                    <tr>
+                        <td class="category">국적 회복<br>(한국 국적)</td>
+                        <td>
+                            • 법무부 국적 회복 증명서<br>
+                            • 새로운 주민등록증<br>
+                            • 신분증
+                        </td>
+                        <td>— 국적 회복 증명서는 법무부 국적과 발급</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- 섹션 9: 판례·예규 -->
+            <h2>관련 판례 및 예규</h2>
+
+            <div class="regulation-box">
+                <h4>등기예규 제1675호</h4>
+                <p><code>외국인·재외국민의 성명·국적 정정등기 처리 기준</code></p>
+                <p>외국인 또는 재외국민이 등기부상의 성명, 국적, 주민등록번호 정정을 신청할 때의 처리 기준을 제시합니다. 여권, 국제공증, 번역공증 등 각종 증명서류의 효력과 처리 절차를 규정합니다.</p>
+            </div>
+
+            <div class="regulation-box">
+                <h4>등기예규 제1795호</h4>
+                <p><code>외국인·재외국민의 주소 변경·경정등기 관할 특례</code></p>
+                <p>외국인·재외국민의 주소 변경·경정등기에 대한 관할 등기소를 특정합니다. 경우에 따라 다른 등기소에서 신청할 수 있으므로, 사전에 관할 등기소 확인이 필요합니다.</p>
+            </div>
+
+            <div class="regulation-box">
+                <h4>등기예규 제1835호 제25조</h4>
+                <p><code>이해관계인 동의 요건</code></p>
+                <p>변경·경정등기 시 다른 이해관계인(공동소유자, 저당권자 등)의 동의 또는 승낙 여부를 규정합니다. 경우에 따라 이해관계인 승낙서 준비가 필요할 수 있습니다.</p>
+            </div>
+
+            <!-- 섹션 10: 다음으로 확인할 내용 -->
+            <h2>다음으로 확인할 내용</h2>
+
+            <div class="related-links">
+                <ul>
+                    <li>
+                        <a href="외등_22_경정등기.html">외등_22_경정등기.html</a>
+                        <br><span style="font-size: 13px; color: #999;">상속등기 후 협의분할이 된 경우 경정등기 절차</span>
+                    </li>
+                    <li>
+                        <a href="외등_07_외국인처분.html">외등_07_외국인처분.html</a>
+                        <br><span style="font-size: 13px; color: #999;">외국인 처분 위임장 (처분 전 주소 일치 확인 필수)</span>
+                    </li>
+                    <li>
+                        <a href="외등_26_번역공증.html">외등_26_번역공증.html</a>
+                        <br><span style="font-size: 13px; color: #999;">외국어 서류 번역문 첨부 기준 및 방법</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 섹션 11: 상담 CTA + 면책 문구 -->
+            <div class="cta-box">
+                <h3 style="margin-top: 0; border: none;">전문가 상담이 필요하신가요?</h3>
+                <p>외국인·재외국민 등기는 <strong>국적·체류 자격·입국 여부</strong>에 따라 준비 서류가 달라집니다.</p>
+                <p style="margin-bottom: 20px;">정확한 요건 확인과 서류 준비를 위해 <strong>첫 상담은 무료</strong>입니다.</p>
+                <button class="cta-button">전문가와 상담하기</button>
+            </div>
+
+            <div class="disclaimer">
+                <p><strong>면책 문구</strong></p>
+                <p>본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 개별 사안에 대한 법률 조언이 아닙니다. 각 사건의 구체적인 상황에 따라 법적 판단이 달라질 수 있으므로, 중요한 결정을 내리기 전에 전문가의 개별 상담을 받으시기 바랍니다.</p>
+                <p>이 페이지는 2025년 현행 법령 기준으로 작성되었습니다. 법령 개정이나 판례 변화에 따라 내용이 수정될 수 있습니다.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

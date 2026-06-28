@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>유류분과 기여분의 관계 - 상속등기실무</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --navy:#1a2e4a; --navy-light:#2d4a73; --gold:#c9a84c; --gold-light:#e8d5a3; --ivory:#fdf8f0; --ivory-dark:#f5ede0; --text:#2c2c2c; --text-light:#5a5a5a; --blue-box:#e8f0f8; --blue-border:#2d6aa0; --warn-bg:#fff8e1; --warn-border:#f0a500; }
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--ivory);color:var(--text);font-size:15px;line-height:1.8;}
+.page-header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);color:white;padding:40px 24px 32px;text-align:center;}
+.page-header h1{font-size:2rem;font-weight:700;margin-bottom:8px;}
+.page-header .subtitle{color:var(--gold-light);font-size:1rem;}
+.breadcrumb{font-size:0.82rem;color:rgba(255,255,255,0.6);margin-bottom:12px;}
+.layout{display:grid;grid-template-columns:240px 1fr 300px;gap:0;max-width:1280px;margin:0 auto;}
+.toc-sidebar{background:var(--navy);color:white;padding:24px 0;position:sticky;top:0;height:100vh;overflow-y:auto;}
+.toc-sidebar h3{font-size:0.78rem;letter-spacing:2px;color:var(--gold);text-transform:uppercase;padding:0 20px 12px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:8px;}
+.toc-sidebar ul{list-style:none;}
+.toc-sidebar ul li a{display:block;padding:9px 20px;font-size:0.85rem;color:rgba(255,255,255,0.75);text-decoration:none;border-left:3px solid transparent;transition:all 0.2s;}
+.toc-sidebar ul li a:hover,.toc-sidebar ul li a.active{color:white;background:rgba(255,255,255,0.08);border-left-color:var(--gold);}
+.main-content{padding:40px 48px;min-height:100vh;}
+.section{margin-bottom:56px;scroll-margin-top:24px;}
+.section h2{font-size:1.35rem;color:var(--navy);border-bottom:2px solid var(--gold);padding-bottom:10px;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+.section h2 .sec-num{background:var(--navy);color:var(--gold);font-size:0.78rem;padding:2px 8px;border-radius:12px;}
+.section h3{font-size:1.05rem;color:var(--navy-light);margin:24px 0 10px;font-weight:600;}
+.summary-box{background:var(--blue-box);border-left:4px solid var(--blue-border);border-radius:0 8px 8px 0;padding:18px 22px;margin-bottom:20px;}
+.summary-box strong{color:var(--blue-border);display:block;margin-bottom:6px;font-size:0.9rem;}
+.detail-content{color:var(--text-light);}
+.detail-content p{margin-bottom:14px;}
+.law-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.88rem;}
+.law-table th{background:var(--navy);color:white;padding:10px 14px;text-align:left;}
+.law-table td{padding:10px 14px;border-bottom:1px solid #e0d8cc;vertical-align:top;}
+.law-table tr:nth-child(even) td{background:var(--ivory-dark);}
+.law-ref{color:var(--blue-border);font-weight:600;cursor:pointer;border-bottom:1px dashed var(--blue-border);font-size:0.9em;}
+.warn-box{background:var(--warn-bg);border-left:4px solid var(--warn-border);border-radius:0 8px 8px 0;padding:16px 20px;margin:16px 0;}
+.warn-box strong{color:#c07000;display:block;margin-bottom:6px;}
+.case-box{background:#f5f5f5;border:1px solid #ddd;border-radius:8px;padding:16px 20px;margin:16px 0;font-size:0.87rem;}
+.case-box .case-title{font-weight:700;color:var(--navy);margin-bottom:8px;font-size:0.85rem;}
+.process-steps{margin:16px 0;}
+.step{display:flex;gap:16px;margin-bottom:16px;align-items:flex-start;}
+.step-num{background:var(--navy);color:var(--gold);font-weight:700;min-width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;}
+.step-content .step-title{font-weight:600;color:var(--navy);margin-bottom:4px;}
+.step-content .step-desc{font-size:0.88rem;color:var(--text-light);}
+.checklist-box{background:var(--ivory-dark);border:1px solid var(--gold-light);border-radius:10px;padding:20px 24px;margin:24px 0;}
+.checklist-box h4{color:var(--navy);margin-bottom:14px;font-size:0.95rem;}
+.checklist-box ul{list-style:none;}
+.checklist-box ul li{padding:5px 0;font-size:0.88rem;display:flex;gap:10px;}
+.checklist-box ul li::before{content:"☑";color:var(--gold);}
+.cta-box{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);color:white;border-radius:12px;padding:28px 32px;margin:32px 0;text-align:center;}
+.cta-box h3{font-size:1.2rem;margin-bottom:10px;color:var(--gold-light);}
+.cta-box p{font-size:0.9rem;color:rgba(255,255,255,0.85);margin-bottom:18px;}
+.cta-btn{background:var(--gold);color:var(--navy);font-weight:700;padding:12px 32px;border-radius:24px;border:none;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;}
+.next-links{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}
+.next-link{background:white;border:1px solid #d0c8ba;border-radius:8px;padding:16px;text-decoration:none;color:var(--navy);transition:all 0.2s;display:flex;align-items:center;justify-content:space-between;}
+.next-link:hover{border-color:var(--gold);box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+.next-link .label{font-size:0.78rem;color:var(--text-light);}
+.next-link .title{font-size:0.92rem;font-weight:600;}
+.next-link .arrow{color:var(--gold);font-size:1.2rem;}
+.disclaimer{background:#f0f0f0;border-radius:8px;padding:16px 20px;margin-top:40px;font-size:0.8rem;color:#777;line-height:1.6;}
+.right-sidebar{background:white;border-left:1px solid #e0d8cc;padding:0;position:sticky;top:0;height:100vh;overflow-y:auto;}
+.sidebar-tabs{display:flex;border-bottom:2px solid var(--navy);}
+.sidebar-tab{flex:1;padding:12px 8px;text-align:center;font-size:0.82rem;font-weight:600;cursor:pointer;color:var(--text-light);background:var(--ivory);border:none;transition:all 0.2s;}
+.sidebar-tab.active{background:var(--navy);color:white;}
+.sidebar-panel{padding:16px;display:none;}
+.sidebar-panel.active{display:block;}
+.law-item{border:1px solid #e0d8cc;border-radius:6px;margin-bottom:8px;overflow:hidden;}
+.law-item-header{background:var(--ivory-dark);padding:10px 14px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:0.83rem;font-weight:600;color:var(--navy);}
+.law-item-header:hover{background:var(--gold-light);}
+.law-item-body{display:none;padding:12px 14px;font-size:0.82rem;line-height:1.7;color:var(--text-light);border-top:1px solid #e0d8cc;}
+.law-item-body.open{display:block;}
+.practice-section{margin-bottom:16px;}
+.practice-section h5{font-size:0.82rem;font-weight:700;color:var(--navy);background:var(--ivory-dark);padding:7px 12px;border-radius:4px;margin-bottom:8px;}
+.practice-section ul{list-style:none;padding:0;}
+.practice-section ul li{font-size:0.81rem;padding:4px 8px;color:var(--text-light);border-bottom:1px solid #f0ece6;display:flex;gap:6px;}
+.practice-section ul li::before{content:"•";color:var(--gold);}
+@media(max-width:900px){.layout{grid-template-columns:1fr;}.toc-sidebar,.right-sidebar{display:none;}.main-content{padding:24px 20px;}.next-links{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+<div class="breadcrumb">상속 / 증여</div>
+<h1>유류분과 기여분의 관계</h1>
+<div class="subtitle">두 제도의 상호작용과 법적 난제</div>
+</div>
+
+<div class="layout">
+
+<aside class="toc-sidebar">
+<h3>목차</h3>
+<ul>
+<li><a href="#sec1" class="toc-link">문제의 제기</a></li>
+<li><a href="#sec2" class="toc-link">기여분은 반환 대상 아님</a></li>
+<li><a href="#sec3" class="toc-link">유류분 계산과 기여분</a></li>
+<li><a href="#sec4" class="toc-link">병합 불가능</a></li>
+<li><a href="#sec5" class="toc-link">실무적 해결책</a></li>
+<li><a href="#sec6" class="toc-link">FAQ</a></li>
+</ul>
+</aside>
+
+<main class="main-content">
+
+<section id="sec1" class="section">
+<h2><span class="sec-num">①</span>문제의 제기</h2>
+<div class="summary-box">
+<strong>핵심 질문</strong>
+한 상속인이 기여분도 청구하고 유류분도 침해받았을 때, 어떻게 되는가?
+</div>
+
+<div class="detail-content">
+<p>유류분과 기여분은 상속법에서 상속인의 이익을 보호하는 두 가지 제도입니다. 그러나 이 두 제도의 관계는 복잡하고 때로 모순적입니다. 실무에서는 다음과 같은 상황이 발생합니다:</p>
+
+<p><strong>시나리오:</strong> 아버지가 사망했습니다. 상속인은 장남, 차남 두 명입니다.</p>
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li>상속재산: 6억 원</li>
+<li>장남: 20년간 아버지를 부양하여 기여분 1억 원 인정</li>
+<li>차남: 아버지가 유언으로 전 재산을 장남에게만 유증</li>
+<li>각 자녀의 법정상속분: 1/2 (3억 원)</li>
+<li>각 자녀의 유류분: 1/2 × 1/2 = 1/4 (1.5억 원)</li>
+</ul>
+
+<p><strong>질문들:</strong></p>
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li>기여분(1억 원)은 유류분 반환청구 대상이 되는가?</li>
+<li>유류분 계산 시 기여분을 공제하는가?</li>
+<li>차남은 유류분을 청구할 때 기여분을 고려해야 하는가?</li>
+<li>장남은 유류분 반환청구를 받을 때 이미 받은 기여분을 차감하는가?</li>
+</ul>
+
+<p>이런 질문들에 대한 법정(法定)의 답변이 명확하지 않아서 분쟁이 자주 발생합니다.</p>
+
+<h3>유류분과 기여분의 차이 (재확인)</h3>
+
+<table class="law-table">
+<tr><th>구분</th><th>기여분</th><th>유류분</th></tr>
+<tr><td>법적 성격</td><td>공동상속인 간의 공평성 추구</td><td>상속인의 최소 권리 보호</td></tr>
+<tr><td>발생 시기</td><td>상속개시 때</td><td>유류분 침해 시</td></tr>
+<tr><td>청구 방법</td><td>협의 또는 심판</td><td>반환청구(소송)</td></tr>
+<tr><td>대상</td><td>상속재산</td><td>유증자·증여자</td></tr>
+<tr><td>절차</td><td>가정법원 (비송사건)</td><td>민사법원 (소송) 또는 가정법원</td></tr>
+</table>
+</section>
+
+<section id="sec2" class="section">
+<h2><span class="sec-num">②</span>기여분은 유류분 반환청구의 대상이 아님</h2>
+<div class="summary-box">
+<strong>대법원 판례 입장</strong>
+기여분이 이미 결정된 경우, 이를 유류분 반환청구의 대상으로 삼을 수 없습니다.
+</div>
+
+<div class="detail-content">
+
+<h3>대법원의 확립된 판례</h3>
+<p>대법원은 여러 판결을 통해 다음 원칙을 명시했습니다:</p>
+
+<div style="background:var(--blue-box);border-left:4px solid var(--blue-border);padding:18px 22px;margin:20px 0;border-radius:0 8px 8px 0;">
+<p><strong>"기여분이 결정되면 이는 상속분의 일부가 되는 것이지, 유류분 반환청구의 대상이 되는 증여 또는 유증이 아니다."</strong></p>
+<p style="margin-top:12px;font-size:0.9rem;color:var(--text-light);">(대법원 판례 취지)</p>
+</div>
+
+<p>이는 기여분과 유류분이 전혀 다른 차원의 제도라는 인식에서 출발합니다.</p>
+
+<h3>구체적 사례</h3>
+
+<div class="case-box">
+<div class="case-title">판례 해석</div>
+<p><strong>상황:</strong> 장남이 기여분 1억 원을 인정받고, 차남이 유류분을 청구합니다.</p>
+<p><strong>장남의 주장:</strong> "나는 이미 기여분 1억 원을 받았으니, 차남의 유류분 반환청구에서 기여분을 공제해야 한다"</p>
+<p><strong>법원 판단:</strong> 이는 인정되지 않습니다. 기여분은 상속분의 구성 요소이고, 유류분 반환청구는 별개의 청구입니다. 따라서 기여분을 반환청구 대상에서 제외할 수 없습니다.</p>
+</div>
+
+<h3>논리적 근거</h3>
+<p><strong>1) 기여분은 상속재산의 범위 내에서 조정되는 것</strong></p>
+<p>기여분은 상속재산을 먼저 기여분으로 공제한 후, 나머지를 법정상속분으로 분배하는 방식입니다. 즉:</p>
+
+<div style="background:var(--blue-box);border-left:4px solid var(--blue-border);padding:18px 22px;margin:20px 0;border-radius:0 8px 8px 0;">
+<p>기여자의 상속분 = 기여분 + (상속재산 - 기여분) × 법정상속분</p>
+</div>
+
+<p>따라서 기여분은 이미 상속재산 조정에 포함되어 있습니다.</p>
+
+<p><strong>2) 유류분 반환청구는 유증자·증여자를 상대로 진행</strong></p>
+<p>유류분 반환청구는 피상속인의 유증이나 증여로 인해 침해받은 유류분을 돌려받는 청구입니다. 기여분이 있다는 사실이 이 청구를 방해하지 않습니다.</p>
+
+<h3>기여분 공제의 문제점</h3>
+<p>만약 기여분을 유류분 반환청구에서 공제한다면, 다음과 같은 문제가 발생합니다:</p>
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li>기여분 받은 자가 과도한 이익을 얻음</li>
+<li>유류분권리자의 보호가 약해짐</li>
+<li>두 제도의 목적이 충돌</li>
+<li>불형평 초래</li>
+</ul>
+
+<h3>현실의 복잡성</h3>
+<p>실무에서는 다음과 같은 상황이 있을 수 있습니다:</p>
+
+<p><strong>상황 1: 기여분을 먼저 결정한 후 유류분 청구</strong><br/>
+기여분 심판으로 장남의 기여분 1억 원이 확정된 후, 차남이 유류분을 청구합니다. 이 경우 차남의 유류분은 전체 상속재산을 기준으로 계산됩니다.</p>
+
+<p><strong>상황 2: 기여분 청구와 유류분 청구가 병행되는 경우</strong><br/>
+장남과 차남이 동시에 기여분과 유류분을 청구하는 경우, 절차 상 복잡성이 증대됩니다.</p>
+</section>
+
+<section id="sec3" class="section">
+<h2><span class="sec-num">③</span>유류분 계산 시 기여분 참작 여부</h2>
+<div class="summary-box">
+<strong>실무적 쟁점</strong>
+유류분 계산의 기준이 되는 "상속재산"에 기여분을 공제하는가?
+</div>
+
+<div class="detail-content">
+
+<h3>법적 해석의 차이</h3>
+<p>이 부분은 학설과 판례가 아직 완전히 일치하지 않는 영역입니다.</p>
+
+<h3>입장 1: 기여분을 공제하는 견해 (민법 개정안 제안)</h3>
+<p><strong>주장:</strong> 유류분 계산 기준 재산 = (상속재산 - 기여분) + 증여 - 채무</p>
+
+<p><strong>논거:</strong></p>
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li>기여분이 상속재산을 구성하지 않으므로, 유류분 계산에서도 제외해야 함</li>
+<li>기여자의 이중 이익 방지</li>
+<li>다른 상속인 간 공평성</li>
+</ul>
+
+<h3>입장 2: 기여분을 공제하지 않는 견해 (통설)</h3>
+<p><strong>주장:</strong> 유류분 계산 기준 재산 = 상속재산 + 증여 - 채무</p>
+
+<p><strong>논거:</strong></p>
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li>기여분은 상속분의 조정일 뿐, 상속재산이 아님</li>
+<li>민법에서 명확히 규정하지 않음</li>
+<li>유류분은 최소한의 권리보호 제도</li>
+<li>기여분과 유류분은 별개 청구</li>
+</ul>
+
+<h3>대법원 판례의 입장</h3>
+<p>대법원은 아직 명확한 선례를 제시하지 않았으나, 최근 경향은 다음과 같습니다:</p>
+
+<p><strong>2021년 대법원 판례의 취지:</strong> "기여분과 유류분을 동시에 청구하는 경우, 법원은 형평성을 고려하여 판단해야 한다. 다만 기여분이 이미 결정되었다면, 이를 유류분 계산에서 고려할 수 있다."</p>
+
+<h3>구체적 계산 예시</h3>
+
+<p><strong>상황:</strong> 상속재산 6억 원, 장남의 기여분 1억 원 인정, 차남이 유류분 청구</p>
+
+<p><strong>계산 방식 1 (기여분 미공제):</strong></p>
+<table class="law-table">
+<tr><th>항목</th><th>계산</th><th>금액</th></tr>
+<tr><td>상속재산</td><td>-</td><td>6억</td></tr>
+<tr><td>유류분 계산 기준</td><td>-</td><td>6억</td></tr>
+<tr><td>차남의 유류분</td><td>6억 × 1/4</td><td>1.5억</td></tr>
+</table>
+
+<p><strong>계산 방식 2 (기여분 공제):</strong></p>
+<table class="law-table">
+<tr><th>항목</th><th>계산</th><th>금액</th></tr>
+<tr><td>상속재산</td><td>-</td><td>6억</td></tr>
+<tr><td>기여분</td><td>-</td><td>1억</td></tr>
+<tr><td>유류분 계산 기준</td><td>6억 - 1억</td><td>5억</td></tr>
+<tr><td>차남의 유류분</td><td>5억 × 1/4</td><td>1.25억</td></tr>
+</table>
+
+<p><strong>결과:</strong> 기여분을 공제하면 차남의 유류분이 0.25억 원 줄어듭니다. 이는 상당한 차이입니다.</p>
+
+<h3>현행 판례의 동향</h3>
+<p>최근 법원은 다음과 같은 원칙으로 판단하는 경향을 보입니다:</p>
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li>기여분이 아직 결정되지 않은 경우: 유류분 계산에 기여분 미공제</li>
+<li>기여분이 이미 결정된 경우: 형평성 고려하여 유류분 계산 시 기여분 참작 가능</li>
+<li>분쟁을 최소화하기 위해 당사자 간 합의 권장</li>
+</ul>
+
+<div class="warn-box">
+<strong>실무 주의</strong>
+기여분과 유류분이 동시에 문제가 되는 경우는 복잡하므로, 반드시 전문가의 조력을 받아야 합니다. 각 사건의 구체적 사정에 따라 결과가 달라질 수 있습니다.
+</strong>
+</div>
+</section>
+
+<section id="sec4" class="section">
+<h2><span class="sec-num">④</span>기여분과 유류분 청구의 병합 불가</h2>
+<div class="detail-content">
+
+<h3>절차적 장애</h3>
+<p>기여분 청구와 유류분 청구는 절차적으로 완전히 다릅니다. 따라서 한 소송에서 동시에 청구할 수 없습니다.</p>
+
+<h3>기여분 청구의 절차</h3>
+
+<table class="law-table">
+<tr><th>항목</th><th>내용</th></tr>
+<tr><td>관할 법원</td><td>가정법원 (가정법원의 비송사건)</td></tr>
+<tr><td>절차</td><td>비송사건 절차 (신청 형식)</td></tr>
+<tr><td>청구인</td><td>기여분을 주장하는 상속인</td></tr>
+<tr><td>상대방</td><td>다른 상속인 (모두)</td></tr>
+<tr><td>시기</td><td>상속개시 후 언제든 (시효 제한 없음)</td></tr>
+</table>
+
+<h3>유류분 청구의 절차</h3>
+
+<table class="law-table">
+<tr><th>항목</th><th>내용</th></tr>
+<tr><td>관할 법원</td><td>일반 민사법원 또는 가정법원 (소송절차)</td></tr>
+<tr><td>절차</td><td>민사소송 (소장 제출)</td></tr>
+<tr><td>청구인</td><td>유류분권리자</td></tr>
+<tr><td>상대방</td><td>유증자 또는 증여자</td></tr>
+<tr><td>시효</td><td>1년 (침해 사실 인식 후) / 10년 (상속개시 후)</td></tr>
+</table>
+
+<h3>왜 병합이 불가능한가?</h3>
+<p><strong>1) 관할 법원이 다름</strong></p>
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li>기여분: 가정법원</li>
+<li>유류분: 민사법원 또는 가정법원의 소송</li>
+</ul>
+
+<p><strong>2) 절차가 다름</strong></p>
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li>기여분: 비송사건 (신청절차)</li>
+<li>유류분: 소송사건 (송사절차)</li>
+</ul>
+
+<p><strong>3) 상대방이 다름</strong></p>
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li>기여분: 다른 상속인</li>
+<li>유류분: 유증자 또는 증여자 (상속인이 아닐 수 있음)</li>
+</ul>
+
+<h3>병합 시도의 문제점</h3>
+
+<div class="case-box">
+<div class="case-title">예시</div>
+<p>장남이 "가정법원에 기여분 결정을 신청하면서 동시에 유류분 반환청구를 제기"하려고 합니다. 이는 다음의 문제가 발생합니다:</p>
+<ul style="margin-left:20px;margin-top:8px;">
+<li>절차가 혼재됨</li>
+<li>법원이 관할권을 판단하기 어려움</li>
+<li>소송의 지연</li>
+<li>판결문의 명확성 저하</li>
+</ul>
+</div>
+
+<h3>실무적 대응</h3>
+<p>기여분과 유류분을 동시에 청구해야 하는 경우의 올바른 절차:</p>
+
+<div class="process-steps">
+<div class="step">
+<div class="step-num">1</div>
+<div class="step-content">
+<div class="step-title">기여분 청구</div>
+<div class="step-desc">가정법원에 기여분 결정 신청 (비송사건)</div>
+</div>
+</div>
+
+<div class="step">
+<div class="step-num">2</div>
+<div class="step-content">
+<div class="step-title">기여분 결정</div>
+<div class="step-desc">가정법원의 기여분 결정 확정</div>
+</div>
+</div>
+
+<div class="step">
+<div class="step-num">3</div>
+<div class="step-content">
+<div class="step-title">유류분 반환청구</div>
+<div class="step-desc">민사법원에 유류분 반환청구 소송 제기</div>
+</div>
+</div>
+</div>
+
+<p>이렇게 순차적으로 진행해야 하므로, 상당한 시간이 소요될 수 있습니다.</p>
+</section>
+
+<section id="sec5" class="section">
+<h2><span class="sec-num">⑤</span>실무적 해결책</h2>
+<div class="detail-content">
+
+<h3>1) 유언에서 기여분 명시</h3>
+<p>피상속인이 생전에 기여분을 미리 언급하고 유언에 이를 반영하면 분쟁을 예방할 수 있습니다.</p>
+
+<p><strong>예시 유언:</strong> "장남은 20년간 나를 부양했으므로 기여분 1억 원을 받고, 나머지 5억 원은 균등하게 분배한다"</p>
+
+<p><strong>장점:</strong></p>
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li>상속인들이 피상속인의 의사를 명확히 알 수 있음</li>
+<li>기여분 결정을 둘러싼 분쟁 최소화</li>
+<li>유류분도 더 낮은 수준으로 조정 가능</li>
+</ul>
+
+<h3>2) 상속 협의 과정에서 합의</h3>
+<p>상속 개시 후 상속인들이 기여분과 유류분을 함께 고려하여 협의하는 방법:</p>
+
+<p><strong>절차:</strong></p>
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li>상속인 전원 협의</li>
+<li>기여분의 규모 검토</li>
+<li>유류분 영향도 함께 판단</li>
+<li>상속분 협의서 작성 (기여분과 유류분을 모두 고려)</li>
+</ul>
+
+<p><strong>장점:</strong></p>
+<ul style="margin-left:20px;margin-bottom:14px;">
+<li>소송 비용 절감</li>
+<li>신속한 해결</li>
+<li>유류분 분쟁 사전 방지</li>
+<li>상속인 간 감정 악화 방지</li>
+</ul>
+
+<h3>3) 기여분을 먼저 결정한 후 유류분 청구</h3>
+<p>법적 순서를 따라 기여분 심판을 먼저 받은 후, 필요시 유류분 반환청구를 진행하는 방법:</p>
+
+<p><strong>장점:</strong> 법적으로 명확함</p>
+<p><strong>단점:</strong> 시간 소요, 비용 증가</p>
+
+<h3>4) 유류분 침해 시 기여분 고려</h3>
+<p>유류분 반환청구 소송에서 피고(침해자)가 기여분의 존재를 주장하여 유류분액을 낮추는 전략:</p>
+
+<p><strong>실제 소송 사례:</strong> 장남이 "차남의 유류분 반환청구를 받았지만, 내가 이미 기여분을 통해 많이 받았으므로 반환액을 줄여야 한다"고 주장</p>
+
+<p><strong>법원 판단:</strong> 법원은 형평성을 고려하여 판결하되, 이는 판사의 재량에 달려 있습니다.</p>
+
+<h3>5) 법무사의 중재 및 조정</h3>
+<p>분쟁이 법적으로 복잡할 때는 법무사를 통한 중재를 이용하는 것이 효과적입니다.</p>
+
+<div class="checklist-box">
+<h4>기여분과 유류분이 동시에 문제가 될 때의 체크리스트</h4>
+<ul>
+<li>상속인이 누구인지 확인</li>
+<li>기여분의 유무와 규모 파악</li>
+<li>유류분 침해 여부 판단</li>
+<li>서로 다른 절차임을 인식</li>
+<li>시효 확인 (유류분은 1년 또는 10년)</li>
+<li>합의 가능성 모색</li>
+<li>필요시 기여분 심판 먼저 진행</li>
+<li>유류분 반환청구는 별도 소송으로</li>
+<li>법무사 또는 변호사의 조력 받기</li>
+</ul>
+</div>
+</section>
+
+<section id="sec6" class="section">
+<h2><span class="sec-num">⑥</span>FAQ</h2>
+<div class="detail-content">
+
+<h3>Q1. 기여분이 있으면 유류분을 청구할 수 없나요?</h3>
+<p><strong>A:</strong> 아니오. 기여분과 유류분은 독립적인 권리입니다. 기여분을 인정받았다고 해서 유류분을 청구할 수 없는 것은 아닙니다. 다만 두 권리를 동시에 행사할 때는 법적으로 복잡한 문제가 발생할 수 있습니다.</p>
+
+<h3>Q2. 나는 기여분도 있고 유류분도 침해받았습니다. 어떻게 해야 하나요?</h3>
+<p><strong>A:</strong> 다음 순서로 진행하세요: (1) 기여분 결정 신청을 가정법원에 제출, (2) 기여분 결정 받기, (3) 기여분 결정이 확정된 후 필요시 유류분 반환청구 소송 제기. 또는 상속인들과 협의하여 모든 문제를 한 번에 해결하는 것이 더 효율적일 수 있습니다.</p>
+
+<h3>Q3. 기여분 공제가 유류분 계산에 반영되나요?</h3>
+<p><strong>A:</strong> 아직 법정(法定)의 명확한 입장이 없습니다. 현재로서는 기여분을 공제하지 않는 것이 통설이지만, 구체적 사건에서 법원이 형평성을 고려하여 판단할 수 있습니다. 이 부분은 소송에서 주요 쟁점이 될 수 있으므로 전문가와 상담이 필수입니다.</p>
+
+<h3>Q4. 형이 기여분 1억 원을 받았으면, 나의 유류분도 1억 원 줄어드나요?</h3>
+<p><strong>A:</strong> 기본적으로는 아니오. 기여분과 유류분은 다른 차원의 청구입니다. 그러나 소송에서 법원이 형평성을 고려할 수 있으므로, 완전히 무관하다고 할 수는 없습니다.</p>
+
+<h3>Q5. 기여분 소송과 유류분 소송을 동시에 제기할 수 있나요?</h3>
+<p><strong>A:</strong> 절차상 병합이 불가능합니다. 기여분은 가정법원의 비송사건이고, 유류분은 민사소송이기 때문입니다. 순차적으로 진행해야 합니다.</p>
+
+<h3>Q6. 부모 유언에서 기여분을 명시하면 분쟁을 피할 수 있나요?</h3>
+<p><strong>A:</strong> 예, 대부분의 경우 분쟁을 피할 수 있습니다. 다만 유언에 명시된 기여분이 객관적으로 합리적인 수준인지는 판단할 문제가 있을 수 있습니다. "장남은 부양으로 1억 원의 기여분을 받는다"는 식으로 명확하게 기술하는 것이 좋습니다.</p>
+
+<h3>Q7. 이미 기여분 심판을 받았는데, 이후 유류분을 청구하면 기여분이 공제되나요?</h3>
+<p><strong>A:</strong> 판례가 명확하지 않습니다. 법원에 따라 다를 수 있습니다. 그러나 기여분이 이미 결정되었다면, 유류분 반환청구 소송에서 법원은 이를 참작하여 유류분액을 조정할 가능성이 있습니다.</p>
+
+<h3>Q8. 기여분과 유류분을 동시에 청구하는 것이 유리한가요?</h3>
+<p><strong>A:</strong> 상황에 따라 다릅니다. 두 권리 모두 있다면, 법적으로 최대한 받을 수 있는 방안을 법무사와 협의하세요. 그러나 절차의 복잡성 때문에 일부는 포기하고 빠르게 합의하는 것이 실무적으로 더 나을 수 있습니다.</p>
+
+<h3>Q9. 유류분 계산 기준이 명확하지 않으면 어떻게 하나요?</h3>
+<p><strong>A:</strong> 소송을 제기하여 법원이 판단하도록 하면 됩니다. 법원은 증거와 법리를 종합하여 유류분액을 결정합니다. 다만 시간과 비용이 소요되므로, 먼저 합의를 시도하는 것이 좋습니다.</p>
+
+<h3>Q10. 법무사 상담이 꼭 필요한가요?</h3>
+<p><strong>A:</strong> 기여분과 유류분이 동시에 문제가 되는 경우는 매우 복잡합니다. 반드시 법무사 또는 변호사의 상담을 받으세요. 초기 상담에서 올바른 전략을 수립할 수 있으면, 이후의 분쟁과 손실을 크게 줄일 수 있습니다.</p>
+</section>
+
+<div class="cta-box">
+<h3>복잡한 기여분과 유류분의 관계, 전문가 조력이 필수</h3>
+<p>이 두 제도가 동시에 작용하는 경우는 법적으로 매우 복잡합니다. 정확한 권리 보호를 위해 법무사의 상담을 받으세요.</p>
+<button class="cta-btn">상담 신청</button>
+</div>
+
+<div class="next-links">
+<a href="17 유언의 5가지 방식.html" class="next-link">
+<div>
+<div class="label">다음 주제</div>
+<div class="title">유언의 5가지 방식</div>
+</div>
+<div class="arrow">→</div>
+</a>
+<a href="15 유류분 반환청구 절차.html" class="next-link">
+<div>
+<div class="label">이전 주제</div>
+<div class="title">유류분 반환청구 절차</div>
+</div>
+<div class="arrow">←</div>
+</a>
+</div>
+
+<div class="disclaimer">
+본 내용은 일반적인 법률 정보 제공을 목적으로 합니다. 개별 사건에 대한 법적 조언은 법무사 또는 변호사와의 상담을 통해 받으시기 바랍니다. 본 정보로 인한 손실이나 손해에 대해 법적 책임을 지지 않습니다.
+</div>
+
+</main>
+
+<aside class="right-sidebar">
+<div class="sidebar-tabs">
+<button class="sidebar-tab active" onclick="switchTab('law')">법령</button>
+<button class="sidebar-tab" onclick="switchTab('practice')">실무 Tip</button>
+</div>
+
+<div id="panel-law" class="sidebar-panel active">
+<div class="law-item" id="law-민법1008의2">
+<div class="law-item-header">
+<span>민법 제1008조의2 (기여분)</span>
+<span onclick="toggleLaw(this.parentElement)">＋</span>
+</div>
+<div class="law-item-body">
+공동상속인 중에 피상속인을 부양할 의무가 있는 자로서 피상속인의 療養, 看護 또는 財産 유지·증가에 특별히 寄與한 자(이하 이 조에서 "기여자"라 한다)가 있는 경우에는 상속개시 당시의 상속재산의 가액에서 기여분을 공제한 것을 상속재산으로 하여 각 상속인의 상속분을 정한다.
+</div>
+</div>
+
+<div class="law-item" id="law-민법1113">
+<div class="law-item-header">
+<span>민법 제1113조 (유류분 계산)</span>
+<span onclick="toggleLaw(this.parentElement)">＋</span>
+</div>
+<div class="law-item-body">
+유류분은 상속개시 당시에 있어서의 피상속인의 순재산에 따라 정한다. 순재산은 피상속인이 상속개시 당시에 가지고 있던 재산가액에 증여를 받은 자가 받은 증여를 가산한 것에서 피상속인의 채무를 공제한 것이다.
+</div>
+</div>
+
+<div class="law-item" id="law-민법1115">
+<div class="law-item-header">
+<span>민법 제1115조 (유류분 반환청구)</span>
+<span onclick="toggleLaw(this.parentElement)">＋</span>
+</div>
+<div class="law-item-body">
+유류분권리자가 유류분을 초과하는 증여 또는 유증을 받은 자에 대하여 유류분에 해당하는 금액의 반환을 청구할 수 있다. 유증 또는 증여의 목적물을 반환할 수 없는 경우에는 그 가액을 지급하여야 한다.
+</div>
+</div>
+</aside>
+
+</div>
+
+<script>
+function switchTab(tab){document.querySelectorAll('.sidebar-tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.sidebar-panel').forEach(p=>p.classList.remove('active'));event.target.classList.add('active');document.getElementById('panel-'+tab).classList.add('active');}
+function toggleLaw(header){const body=header.nextElementSibling;const isOpen=body.classList.contains('open');body.classList.toggle('open');header.querySelector('span').textContent=isOpen?'＋':'－';}
+function openLaw(id){const lawTab=document.querySelector('.sidebar-tab:first-child');const lawPanel=document.getElementById('panel-law');document.querySelectorAll('.sidebar-tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.sidebar-panel').forEach(p=>p.classList.remove('active'));lawTab.classList.add('active');lawPanel.classList.add('active');const item=document.getElementById('law-'+id);if(item){const body=item.querySelector('.law-item-body');const header=item.querySelector('.law-item-header');body.classList.add('open');header.querySelector('span').textContent='－';item.scrollIntoView({behavior:'smooth',block:'center'});}}
+const sections=document.querySelectorAll('.section');const tocLinks=document.querySelectorAll('.toc-link');const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){tocLinks.forEach(l=>l.classList.remove('active'));const active=document.querySelector(`.toc-link[href="#${e.target.id}"]`);if(active)active.classList.add('active');}});},{rootMargin:'-20% 0px -70% 0px'});sections.forEach(s=>observer.observe(s));
+</script>
+
+</body>
+</html>

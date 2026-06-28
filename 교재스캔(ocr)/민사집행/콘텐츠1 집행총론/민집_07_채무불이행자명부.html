@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>채무불이행자명부 — 채무자를 신용불량으로 등재시킬 수 있나요?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#1a2e4a;--gold:#c8a96e;--bg:#faf8f5;--text:#2c2c2c;--summary-bg:#eef2f8;--summary-bd:#2d4a7a;--cta-bg:#fdf6e9;--cta-bd:#c8a96e;--case-bg:#f0f8f0;--case-bd:#1a5c2e;--ruling-bg:#f7f4f0;--ruling-bd:#6b7280;--warn-bg:#fff3e8;--warn-bd:#c05000}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;font-size:16px}
+.container{max-width:820px;margin:0 auto;padding:0 20px}
+header{background:var(--navy);color:#fff;padding:48px 24px 40px;text-align:center}
+.breadcrumb{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:12px}
+header h1{font-family:'Noto Serif KR',serif;font-size:clamp(1.5rem,4vw,2.2rem);font-weight:700;line-height:1.4;margin-bottom:10px}
+.subtitle{font-size:15px;color:var(--gold);font-weight:500}
+section{padding:48px 0;border-bottom:1px solid #e4ddd4}
+h2{font-family:'Noto Serif KR',serif;font-size:1.35rem;font-weight:700;color:var(--navy);border-bottom:2px solid var(--gold);padding-bottom:10px;margin-bottom:20px}
+h3{font-size:1.05rem;font-weight:700;color:var(--navy);margin:28px 0 12px}
+p{margin-bottom:14px}
+.summary-box{background:var(--summary-bg);border-left:4px solid var(--summary-bd);border-radius:0 8px 8px 0;padding:20px 24px;margin:20px 0}
+.summary-box .label{font-size:11px;font-weight:700;color:var(--summary-bd);letter-spacing:0.08em;margin-bottom:10px}
+.case-box{background:var(--case-bg);border-left:4px solid var(--case-bd);border-radius:0 8px 8px 0;padding:20px 24px;margin:16px 0;font-size:14.5px}
+.ruling-box{background:var(--ruling-bg);border-left:4px solid var(--ruling-bd);border-radius:0 8px 8px 0;padding:20px 24px;margin:16px 0;font-size:14.5px}
+.ruling-box .ruling-header{font-size:13px;font-weight:700;color:#444;margin-bottom:8px}
+.ruling-box .ruling-header::before{content:"判";background:var(--ruling-bd);color:#fff;padding:1px 6px;border-radius:3px;margin-right:6px}
+.warn-box{background:var(--warn-bg);border-left:4px solid var(--warn-bd);border-radius:0 8px 8px 0;padding:20px 24px;margin:16px 0}
+.warn-box .warn-title{font-size:13px;font-weight:700;color:var(--warn-bd);margin-bottom:8px}
+.checklist{background:#fff;border:1px solid #ddd6ce;border-radius:8px;padding:24px 28px;margin:20px 0}
+.checklist ul{list-style:none;padding:0;margin-top:12px}
+.checklist li{padding:6px 0;padding-left:24px;position:relative}
+.checklist li::before{content:"✓";color:var(--gold);font-weight:700;position:absolute;left:0}
+.qna-item{border:1px solid #e0d9d0;border-radius:8px;overflow:hidden;margin:12px 0}
+.qna-q{background:#fff;padding:16px 20px;font-weight:700;font-size:15px;color:var(--navy)}
+.qna-a{background:#faf8f5;padding:16px 20px;font-size:14.5px;border-top:1px solid #e0d9d0}
+.cta-box{background:var(--cta-bg);border:1px solid var(--cta-bd);border-radius:10px;padding:32px 28px;text-align:center;margin:40px 0 0}
+.cta-btn{display:inline-block;background:var(--navy);color:#fff;padding:14px 36px;border-radius:6px;font-size:15px;font-weight:700;text-decoration:none;margin:8px}
+.cta-btn.kakao{background:#FEE500;color:#3c1e1e}
+.law-tag{display:inline-block;background:#e8edf5;color:#2d4a7a;font-size:11px;font-weight:700;padding:2px 8px;border-radius:3px;margin-left:4px;vertical-align:middle}
+.disclaimer-section{background:#f2f0ec;padding:28px;border-radius:8px;margin:40px 0 0;font-size:12px;color:#666;line-height:1.8}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+thead th{background:var(--navy);color:#fff;padding:11px 14px;font-size:13px;text-align:left}
+tbody td{padding:10px 14px;border-bottom:1px solid #e4ddd4;line-height:1.6}
+tbody tr:nth-child(even){background:#f5f2ee}
+.next-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:20px 0}
+.next-link{background:#fff;border:1px solid #ddd6ce;border-radius:8px;padding:16px 18px;text-decoration:none;color:var(--navy);display:block}
+.next-link:hover{border-color:var(--gold)}
+.next-link .arrow{color:var(--gold);font-size:18px;display:block;margin-bottom:4px}
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="breadcrumb">민사집행 총론 › 재산 탐색 &amp; 압박 수단</div>
+    <h1>채무불이행자명부</h1>
+    <div class="subtitle">채무자를 신용불량으로 등재시켜 이행을 촉구하는 방법</div>
+  </div>
+</header>
+
+<div class="container">
+
+<section>
+  <h2>이런 분께 필요합니다</h2>
+  <div class="checklist">
+    <ul>
+      <li>판결을 받았는데 채무자가 계속 변제를 미루는 경우</li>
+      <li>재산명시기일에 채무자가 출석하지 않거나 재산목록 제출을 거부한 경우</li>
+      <li>채무자에게 사회적 신용 제한이라는 압박을 가하고 싶은 경우</li>
+      <li>금융거래나 공공 활동에 제한을 줄 수 있는 법적 수단을 원하는 경우</li>
+      <li>채무자가 나중에 변제하겠다며 시간을 끌고 있는 경우</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>핵심 정리</h2>
+  <div class="summary-box">
+    <div class="label">▶ 채무불이행자명부란</div>
+    <p>채무불이행자명부는 법원이 작성·관리하는 공적 장부로, 판결 등을 받고도 변제하지 않는 채무자의 이름을 등재하는 제도입니다. 등재되면 금융거래, 공공입찰 등에서 불이익을 받아 채무자에게 강력한 이행 압박이 됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007200" target="_blank" rel="noopener" title="민사집행법 제72조 — 대법원 종합법률정보">민사집행법 제72조</a></p>
+  </div>
+  <div class="summary-box">
+    <div class="label">▶ 핵심 포인트</div>
+    <p>채무불이행자명부 등재는 강제집행과는 별도의 절차이며, 채무자에게 실질적 사회적 압박을 가할 수 있는 유효한 수단입니다. 등재 후 채무가 변제되거나 일정 기간이 지나면 말소할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007000" target="_blank" rel="noopener" title="민사집행법 제70조, 제73조 — 대법원 종합법률정보">민사집행법 제70조, 제73조</a></p>
+  </div>
+</section>
+
+<section>
+  <h2>채무불이행자명부 상세 안내</h2>
+
+  <h3>등재 신청 요건</h3>
+  <p>채권자는 다음 중 하나에 해당하는 경우 법원에 채무불이행자명부 등재를 신청할 수 있습니다.</p>
+  <ul style="margin:12px 0 12px 20px;line-height:2">
+    <li>금전채무 불이행으로 확정된 판결 또는 지급명령 등 집행권원을 가진 경우</li>
+    <li>재산명시기일에 채무자가 정당한 이유 없이 출석하지 않은 경우 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007000" target="_blank" rel="noopener" title="민사집행법 제70조 제1항 제1호 — 대법원 종합법률정보">민사집행법 제70조 제1항 제1호</a></li>
+    <li>채무자가 재산목록 제출 거부 또는 선서 거부를 한 경우 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007000" target="_blank" rel="noopener" title="민사집행법 제70조 제1항 제2호 — 대법원 종합법률정보">민사집행법 제70조 제1항 제2호</a></li>
+    <li>채무자가 거짓 재산목록을 제출한 경우 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007000" target="_blank" rel="noopener" title="민사집행법 제70조 제1항 제3호 — 대법원 종합법률정보">민사집행법 제70조 제1항 제3호</a></li>
+    <li>재산명시기일에서 채무자가 재산이 없다고 신고하거나, 명시된 재산으로 집행을 다 마쳐도 채권 변제가 안 되는 경우 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007000" target="_blank" rel="noopener" title="민사집행법 제70조 제1항 제4호 — 대법원 종합법률정보">민사집행법 제70조 제1항 제4호</a></li>
+  </ul>
+
+  <h3>등재 결정 절차</h3>
+  <p>채권자의 신청을 받은 법원은 채무자를 심문하거나 그 기회를 주어야 합니다. 법원이 등재 결정을 내리면 채무자는 즉시항고를 할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007100" target="_blank" rel="noopener" title="민사집행법 제71조 — 대법원 종합법률정보">민사집행법 제71조</a></p>
+
+  <h3>채무불이행자명부의 내용</h3>
+  <p>채무불이행자명부에는 채무자의 성명, 주소, 채무 내용, 등재 사유 등이 기재됩니다. 이 명부는 법원에 비치되며, 일반인도 열람을 신청할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007200" target="_blank" rel="noopener" title="민사집행법 제72조 — 대법원 종합법률정보">민사집행법 제72조</a></p>
+
+  <h3>등재의 효과</h3>
+  <p>명부에 등재되면 금융기관은 이를 신용정보로 활용할 수 있어, 채무자는 대출·신용카드 발급 등 금융거래에서 불이익을 받을 수 있습니다. 또한 공공입찰 참여 제한, 영업 허가 심사 등에도 영향을 미칩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=260423&joNo=002500" target="_blank" rel="noopener" title="신용정보의 이용 및 보호에 관한 법률 제25조 — 대법원 종합법률정보">신용정보의 이용 및 보호에 관한 법률 제25조</a></p>
+
+  <div class="case-box">
+    <p><strong>사례)</strong> A가 B에게 3,000만 원의 판결을 받았으나 B가 계속 미루는 경우, 재산명시신청과 함께 채무불이행자명부 등재 신청을 병행하면, B가 금융거래 불이익을 우려하여 자발적으로 변제에 나서는 경우가 많습니다.</p>
+  </div>
+
+  <h3>말소 방법</h3>
+  <p>다음의 경우 채무불이행자명부에서 이름을 말소할 수 있습니다.</p>
+  <table>
+    <thead>
+      <tr><th>말소 사유</th><th>근거 법령</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>채무를 전부 변제한 경우</td><td><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007300" target="_blank" rel="noopener" title="민사집행법 제73조 제1항 — 대법원 종합법률정보">민사집행법 제73조 제1항</a></td></tr>
+      <tr><td>채권자가 말소 신청을 한 경우</td><td><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007300" target="_blank" rel="noopener" title="민사집행법 제73조 제1항 — 대법원 종합법률정보">민사집행법 제73조 제1항</a></td></tr>
+      <tr><td>등재 후 10년이 경과한 경우</td><td><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007300" target="_blank" rel="noopener" title="민사집행법 제73조 제2항 — 대법원 종합법률정보">민사집행법 제73조 제2항</a></td></tr>
+      <tr><td>법원이 직권으로 말소를 결정한 경우</td><td><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007300" target="_blank" rel="noopener" title="민사집행법 제73조 제3항 — 대법원 종합법률정보">민사집행법 제73조 제3항</a></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2>자주하는 질문 (Q&amp;A)</h2>
+
+  <div class="qna-item">
+    <div class="qna-q">채무불이행자명부와 재산명시는 같이 신청해야 하나요?</div>
+    <div class="qna-a">반드시 그런 것은 아닙니다. 재산명시신청을 먼저 하고 그 결과에 따라 채무불이행자명부 등재를 신청할 수도 있고, 별도로 신청할 수도 있습니다. 다만 재산명시기일에서 채무자가 불출석·거부하는 경우가 등재 사유 중 하나이므로, 재산명시 후 등재 신청을 하는 경우가 많습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007000" target="_blank" rel="noopener" title="민사집행법 제70조 — 대법원 종합법률정보">민사집행법 제70조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">등재되면 채무자는 어떤 불이익을 받나요?</div>
+    <div class="qna-a">채무불이행자명부에 등재되면 신용정보기관에 제공되어 대출·신용카드 등 금융거래에서 불이익이 생깁니다. 공공입찰 참가 자격에도 영향이 있을 수 있으며, 인터넷 등기소 등을 통해 일반인도 열람할 수 있어 사회적 신용에 상당한 타격을 줍니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007200" target="_blank" rel="noopener" title="민사집행법 제72조 — 대법원 종합법률정보">민사집행법 제72조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">채무를 다 갚으면 명부에서 바로 삭제되나요?</div>
+    <div class="qna-a">채무를 전부 변제하면 채권자가 말소 신청을 할 수 있으며, 채무자도 변제 사실을 소명하여 법원에 말소를 신청할 수 있습니다. 법원이 말소 결정을 내리면 명부에서 삭제됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007300" target="_blank" rel="noopener" title="민사집행법 제73조 제1항 — 대법원 종합법률정보">민사집행법 제73조 제1항</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">채무자가 등재 결정에 불복할 수 있나요?</div>
+    <div class="qna-a">등재 결정을 내린 법원에 즉시항고를 제기할 수 있습니다. 또한 채무자는 채무의 부존재, 이미 변제했다는 사실 등을 주장하여 등재 취소를 구할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007100" target="_blank" rel="noopener" title="민사집행법 제71조 제3항 — 대법원 종합법률정보">민사집행법 제71조 제3항</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">채무불이행자명부 등재 신청 비용은 어떻게 되나요?</div>
+    <div class="qna-a">신청 시 인지대와 송달료를 납부해야 합니다. 집행이 성공하면 이 비용을 채무자에게 청구할 수 있습니다. 정확한 비용은 법무사와 상담하시기 바랍니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005300" target="_blank" rel="noopener" title="민사집행법 제53조 — 대법원 종합법률정보">민사집행법 제53조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">채무자가 재산명시기일에 출석했지만 재산이 없다고 하면 어떻게 하나요?</div>
+    <div class="qna-a">채무자가 출석하여 재산이 없다고 신고하더라도, 명시된 재산으로 채권의 만족을 얻기 부족한 경우 채무불이행자명부 등재 신청이 가능합니다. 또한 재산조회를 통해 숨겨진 재산을 파악하는 방법도 병행할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007000" target="_blank" rel="noopener" title="민사집행법 제70조 제1항 제4호 — 대법원 종합법률정보">민사집행법 제70조 제1항 제4호</a></div>
+  </div>
+</section>
+
+<section>
+  <h2>관련 판례</h2>
+  <div class="ruling-box">
+    <div class="ruling-header">채무불이행자명부 등재의 목적</div>
+    <p>대법원은 채무불이행자명부 등재 제도는 금전채무를 이행하지 않는 채무자에게 신용상의 불이익을 줌으로써 채무 이행을 간접적으로 강제하고 거래 상대방에게 신용 정보를 제공하는 데에 그 목적이 있다고 해석하고 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007000" target="_blank" rel="noopener" title="민사집행법 제70조 — 대법원 종합법률정보">민사집행법 제70조</a></p>
+  </div>
+</section>
+
+<section>
+  <h2>주의사항</h2>
+  <div class="warn-box">
+    <div class="warn-title">⚡ 재산명시 기일 후 신속하게 신청</div>
+    <p>재산명시기일에서 채무자가 불출석하거나 거부한 경우, 사유가 발생한 후 빠르게 채무불이행자명부 등재 신청을 해야 합니다. 시간이 지나면 채무자가 재산을 처분할 수 있습니다.</p>
+  </div>
+  <div class="warn-box">
+    <div class="warn-title">⚠️ 강제집행과 병행 추진</div>
+    <p>채무불이행자명부 등재는 채무자에 대한 간접 강제 수단입니다. 실질적인 재산 회수를 위해서는 부동산·예금 압류 등 강제집행과 함께 추진하는 것이 효과적입니다.</p>
+  </div>
+  <div class="warn-box">
+    <div class="warn-title">ℹ️ 10년 후 자동 말소</div>
+    <p>채무불이행자명부에 등재된 후 10년이 지나면 자동으로 말소됩니다. 따라서 장기 미수 채권의 경우 강제집행과 병행하여 실질적 회수 방법을 찾는 것이 중요합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007300" target="_blank" rel="noopener" title="민사집행법 제73조 제2항 — 대법원 종합법률정보">민사집행법 제73조 제2항</a></p>
+  </div>
+</section>
+
+<section>
+  <h2>다음에 확인할 사항</h2>
+  <div class="next-links">
+    <a href="민집_05_재산명시.html" class="next-link">
+      <span class="arrow">→</span>
+      재산명시신청<br><small>채무자가 스스로 재산을 공개하게 하는 절차</small>
+    </a>
+    <a href="민집_06_재산조회.html" class="next-link">
+      <span class="arrow">→</span>
+      재산조회<br><small>금융기관을 통해 채무자 재산 찾기</small>
+    </a>
+    <a href="민집_15_재산은닉.html" class="next-link">
+      <span class="arrow">→</span>
+      재산명시 위반 대응<br><small>채무자가 재산을 숨길 때 법적 대응</small>
+    </a>
+  </div>
+</section>
+
+<div class="cta-box">
+  <h3 style="color:var(--navy);margin-bottom:8px">이 내용이 해당되시나요?</h3>
+  <p style="margin:8px 0 20px;color:#555">채무자에 대한 효과적인 압박 수단을 찾고 계신다면 법무사가 도와드립니다.<br>첫 상담은 무료입니다.</p>
+  <a href="tel:[전화번호]" class="cta-btn">📞 전화 상담</a>
+  <a href="#" class="cta-btn kakao">💬 카카오톡 상담</a>
+</div>
+
+<div class="disclaimer-section">
+  <p>본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 개별 사안에 따라 결과가 달라질 수 있습니다. 구체적인 사안은 법무사와 상담하시기 바랍니다.</p>
+  <p style="margin-top:8px">이 페이지는 2025년 현행 법령 기준으로 작성되었습니다.</p>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[내부용] 소가 산정 방법 — 법무사 실무</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1a2e4a;--gold:#c8a96e;--ivory:#faf8f5;--ink:#2b2b2b;--muted:#5b5b5b;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:'Noto Sans KR',sans-serif;line-height:1.75;font-size:16px;}
+.topbar{position:sticky;top:0;z-index:999;background:#2d2d2d;color:#fff;text-align:center;padding:8px 16px;font-size:.85rem;letter-spacing:.05em;}
+.topbar span{color:#f4c97a;font-weight:700;}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px 80px;}
+h1,h2,h3{font-family:'Noto Serif KR',serif;color:var(--navy);line-height:1.4;}
+.admin-header{background:linear-gradient(135deg,#1a2e4a 0%,#27406a 100%);color:#fff;padding:44px 28px 36px;border-bottom:4px solid var(--gold);}
+.admin-header h1{color:#fff;font-size:1.85rem;margin:0 0 10px;}
+.admin-header p{color:#c8d8f0;margin:0;font-size:.97rem;}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;}
+.badge{background:rgba(200,169,110,.18);border:1px solid var(--gold);color:var(--gold);border-radius:20px;padding:4px 13px;font-size:.8rem;font-weight:700;}
+section{margin-top:42px;}
+h2.sec{font-size:1.35rem;margin:0 0 16px;padding-bottom:9px;border-bottom:2px solid var(--gold);display:flex;align-items:center;gap:10px;}
+h2.sec .num{background:var(--navy);color:#fff;font-family:'Noto Sans KR';font-size:.88rem;width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;}
+h3{font-size:1.08rem;margin:20px 0 7px;}
+p{margin:9px 0;}
+.box{border-radius:8px;padding:16px 20px;margin:14px 0;}
+.box-warn{background:#fff3e8;border:1px solid #c05000;border-left:5px solid #c05000;}
+.box-issue{background:#f4f7fb;border:1px solid #2d4a7a;border-left:5px solid #2d4a7a;}
+.box-tip{background:#f0f8f0;border:1px solid #1a5c2e;border-left:5px solid #1a5c2e;}
+.box-memo{background:#fffdf5;border:1px dashed var(--gold);border-radius:8px;padding:16px 20px;margin:14px 0;}
+.box h3,.box-memo h3{margin-top:0;font-size:1rem;}
+.warn-title{color:#c05000;font-weight:700;font-size:1.05rem;}
+.checklist{list-style:none;padding:0;margin:10px 0;}
+.checklist li{padding:5px 0 5px 26px;position:relative;border-bottom:1px solid #f0e8d8;}
+.checklist li:last-child{border-bottom:none;}
+.checklist li::before{content:"☐";position:absolute;left:0;color:#c05000;font-size:1rem;}
+.tip-mark{display:inline-block;background:#e8f4e8;border:1px solid #1a5c2e;color:#1a5c2e;font-size:.82rem;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:4px;}
+table{border-collapse:collapse;width:100%;background:#fff;font-size:.92rem;margin:14px 0;}
+th,td{border:1px solid #d9d3c7;padding:10px 12px;text-align:left;vertical-align:top;}
+th{background:var(--navy);color:#fff;font-weight:500;}
+tbody tr:nth-child(even){background:#f6f3ee;}
+td.val{font-weight:600;color:#c05000;}
+td a{color:#2d4a7a;text-decoration:none;font-weight:500;}
+td a:hover{text-decoration:underline;}
+.badge-ok{background:#e8f4e8;color:#1a5c2e;border:1px solid #1a5c2e;border-radius:4px;padding:1px 7px;font-size:.78rem;font-weight:700;}
+.badge-warn2{background:#fff3e8;color:#c05000;border:1px solid #c05000;border-radius:4px;padding:1px 7px;font-size:.78rem;font-weight:700;}
+.foot-memo{background:#f1ede6;border-radius:8px;padding:18px 22px;margin-top:50px;font-size:.85rem;color:#555;line-height:1.8;}
+.calc-box{background:#fff;border:2px solid var(--gold);border-radius:10px;padding:20px 24px;margin:16px 0;}
+.calc-box h3{color:var(--navy);margin-top:0;}
+.formula{font-family:monospace;background:#f3f0ea;padding:10px 14px;border-radius:6px;font-size:.95rem;color:#2b2b2b;margin:8px 0;}
+</style>
+</head>
+<body>
+<div class="topbar">🔒 <span>내부용 · 대외 배포 금지</span> — 법무사 사무소 전용 실무 참고자료</div>
+<div class="admin-header">
+  <h1>소가 산정 방법 — 법무사 실무</h1>
+  <p>인지액·관할 기준이 되는 소가(소송목적의 값) 산정 기준과 병합·합산·흡수·불산입 원칙 총정리</p>
+  <div class="badges">
+    <span class="badge">사건유형: 민사 제1심 일반</span>
+    <span class="badge">관할: 소가 기준 단독/합의</span>
+    <span class="badge">근거법령: 민소 26·27조, 인지법 2조, 민소규칙 18조</span>
+    <span class="badge">당사자: 원고·피고</span>
+    <span class="badge">처리기간: 소 제기 전 확정</span>
+  </div>
+</div>
+<div class="wrap">
+
+<section>
+  <div class="box box-warn">
+    <div class="warn-title">⚠️ 법무사 업무범위 · 수임 판단</div>
+    <p><strong>소가 산정은 인지액 납부와 관할 결정의 기초입니다.</strong> 과소 산정 시 보정 명령, 과다 산정 시 의뢰인 불이익. 법무사는 소가 산정 실무를 수행하되, 비재산권 사건(이혼·친생자 확인 등) 소가 산정의 법리 판단은 변호사 협의 필요.</p>
+    <ul class="checklist">
+      <li>청구 유형(재산권상/비재산권상) 먼저 구분</li>
+      <li>병합 청구 시 합산·흡수·불산입 원칙 적용 여부 검토</li>
+      <li>이자·지연손해금 부대청구 여부 확인 (소가 불산입)</li>
+      <li>부동산 관련 소가: 공시지가·시가표준액 자료 확보</li>
+      <li>인지액 계산 후 이중 검산 (대법원 인지계산기 활용)</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec"><span class="num">1</span>핵심 쟁점</h2>
+  <div class="box box-issue">
+    <h3>소가의 의미와 기능</h3>
+    <ul>
+      <li><strong>소가(소송목적의 값)</strong> = 원고가 전부 승소할 때 직접 받게 될 경제적 이익의 금전 환산액</li>
+      <li>인지액 산정 기준, 사물관할(단독/합의부) 결정, 소가 합산시 법원 결정에 영향</li>
+      <li>소가가 부당하면 법원이 보정 명령 또는 직권 정정(민소규 18조)</li>
+    </ul>
+    <h3>병합 청구 소가 원칙 (결정적 체크포인트)</h3>
+    <ul>
+      <li><strong>합산 원칙</strong>: 경제적 이익이 별개인 청구 → 각 소가를 합산</li>
+      <li><strong>흡수 원칙</strong>: 이익이 겹치는 청구(선택적·예비적 병합, 주채무자+보증인 동시 청구 등) → 큰 것 하나</li>
+      <li><strong>불산입</strong>: 부대청구(이자·지연손해금·비용·과실 등) → 소가에 산입 안 함</li>
+    </ul>
+    <h3>비재산권 사건 특례</h3>
+    <ul>
+      <li>재산권 외 청구(신분·명예·비재산권): 소가 산정 불능 → 청구가액에 따른 고정값 적용(비재산권 소가: 5,000만 원 또는 관련 규정 기준)</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec"><span class="num">2</span>업무 절차 흐름</h2>
+  <div class="box box-issue">
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div style="background:#fff;border:1px solid #d0d8e8;border-radius:8px;padding:12px 16px;">
+        <strong>STEP 1.</strong> 청구 유형 파악 → 재산권상/비재산권상 구분
+      </div>
+      <div style="text-align:center;color:var(--gold);">▼</div>
+      <div style="background:#fff;border:1px solid #d0d8e8;border-radius:8px;padding:12px 16px;">
+        <strong>STEP 2.</strong> 각 청구별 소가 산정 (아래 종류별 기준표 참조)
+      </div>
+      <div style="text-align:center;color:var(--gold);">▼</div>
+      <div style="background:#fff;border:1px solid #d0d8e8;border-radius:8px;padding:12px 16px;">
+        <strong>STEP 3.</strong> 병합 청구 시 합산/흡수/불산입 원칙 적용 → 최종 소가 확정
+      </div>
+      <div style="text-align:center;color:var(--gold);">▼</div>
+      <div style="background:#fff;border:1px solid #d0d8e8;border-radius:8px;padding:12px 16px;">
+        <strong>STEP 4.</strong> 인지액 계산식 적용 → 전자납부
+      </div>
+      <div style="text-align:center;color:var(--gold);">▼</div>
+      <div style="background:#fff;border:1px solid #d0d8e8;border-radius:8px;padding:12px 16px;">
+        <strong>STEP 5.</strong> 소가 기준 단독/합의부 판단 → 제출 법원 확정
+      </div>
+    </div>
+    <p style="margin-top:12px;"><span class="tip-mark">💡 TIP</span> 소가 확정 후 반드시 대법원 인지계산기로 이중 확인. 인지 부족 시 보정 명령 → 절차 지연.</p>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec"><span class="num">3</span>소의 종류별 소가 기준표</h2>
+  <div style="overflow-x:auto;">
+    <table>
+      <thead><tr><th style="width:45%">소의 종류</th><th>소가</th><th>비고</th></tr></thead>
+      <tbody>
+        <tr><td>금전 지급 청구</td><td class="val">청구금액 전액</td><td>원금만. 이자·지연손해금 불산입</td></tr>
+        <tr><td>동산 인도 청구</td><td class="val">목적물 시가</td><td>시가 불명 시 감정가</td></tr>
+        <tr><td>부동산 소유권이전등기</td><td class="val">시가의 1/2</td><td>공시지가·시가표준액 기준</td></tr>
+        <tr><td>부동산 소유권확인</td><td class="val">시가의 1/2</td><td>동상</td></tr>
+        <tr><td>부동산 인도·명도</td><td class="val">시가의 1/3</td><td>대지·건물 합산</td></tr>
+        <tr><td>근저당권말소등기</td><td class="val">채권최고액</td><td>근저당권설정액 기준</td></tr>
+        <tr><td>임차권 확인</td><td class="val">차임 1년분의 합계</td><td>—</td></tr>
+        <tr><td>기간 미확정 정기금 청구</td><td class="val">기발생분 + 1년분 합산</td><td>—</td></tr>
+        <tr><td>이행강제금 청구</td><td class="val">청구금액</td><td>—</td></tr>
+        <tr><td>재산권 외 청구(위자료 독립청구 시)</td><td class="val">청구액 전액</td><td>재산권상 청구로 취급</td></tr>
+        <tr><td>비재산권상 청구(신분·명예 등)</td><td class="val">소가 산정 불능 → 고정값 적용</td><td>관련 예규 확인 필요</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec"><span class="num">4</span>인지액 계산식 · 비용 산정</h2>
+  <div class="calc-box">
+    <h3>인지액 계산식 (민사소송 등 인지법 2조)</h3>
+    <div class="formula">소가 1,000만 원 미만: 소가 × 50 / 10,000</div>
+    <div class="formula">소가 1,000만 ~ 1억 원: 소가 × 45 / 10,000 + 5,000원</div>
+    <div class="formula">소가 1억 ~ 10억 원: 소가 × 40 / 10,000 + 55,000원</div>
+    <div class="formula">소가 10억 원 이상: 소가 × 35 / 10,000 + 555,000원</div>
+    <p style="margin-top:14px;color:#888;font-size:.88rem;">※ 전자소송 제출 시 10% 감면. 계산 결과가 1,000원 미만이면 1,000원으로 처리.</p>
+    <h3>관할 분기 기준 (소가)</h3>
+    <table>
+      <thead><tr><th>소가</th><th>제1심 재판부</th><th>항소심</th></tr></thead>
+      <tbody>
+        <tr><td>3,000만 원 이하</td><td>단독(소액사건심판법 적용 가능)</td><td>지방법원 합의부</td></tr>
+        <tr><td>3,000만~2억 원</td><td>지방법원 단독</td><td>지방법원 합의부</td></tr>
+        <tr><td>2억~5억 원</td><td>고액단독(부장판사)</td><td>고등법원</td></tr>
+        <tr><td>5억 원 초과</td><td>지방법원 합의부</td><td>고등법원</td></tr>
+      </tbody>
+    </table>
+    <p style="color:#888;font-size:.88rem;">※ 계산 보조: 대법원 전자소송 인지계산기(ecfs.scourt.go.kr) 활용</p>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec"><span class="num">5</span>법령 검증</h2>
+  <div style="overflow-x:auto;">
+    <table>
+      <thead><tr><th>법령</th><th>요지</th><th>링크</th><th>상태</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>민사소송법 26조 (소가)</td>
+          <td>소가 산정 원칙</td>
+          <td><a href="https://www.law.go.kr/lsSc.do?query=민사소송법" target="_blank">law.go.kr</a></td>
+          <td><span class="badge-ok">✅ 현행</span></td>
+        </tr>
+        <tr>
+          <td>민사소송법 27조 (소가 보정)</td>
+          <td>법원의 소가 직권 정정</td>
+          <td><a href="https://www.law.go.kr/lsSc.do?query=민사소송법" target="_blank">law.go.kr</a></td>
+          <td><span class="badge-ok">✅ 현행</span></td>
+        </tr>
+        <tr>
+          <td>민사소송규칙 18조</td>
+          <td>소가 산정 세부 기준</td>
+          <td><a href="https://www.law.go.kr/lsSc.do?query=민사소송규칙" target="_blank">law.go.kr</a></td>
+          <td><span class="badge-ok">✅ 현행</span></td>
+        </tr>
+        <tr>
+          <td>민사소송 등 인지법 2조</td>
+          <td>인지액 산정 기준</td>
+          <td><a href="https://www.law.go.kr/lsSc.do?query=민사소송등인지법" target="_blank">law.go.kr</a></td>
+          <td><span class="badge-ok">✅ 현행</span></td>
+        </tr>
+        <tr>
+          <td>법원조직법 32조</td>
+          <td>합의부 사건 기준</td>
+          <td><a href="https://www.law.go.kr/lsSc.do?query=법원조직법" target="_blank">law.go.kr</a></td>
+          <td><span class="badge-ok">✅ 현행</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec"><span class="num">6</span>법무사 실무 노하우</h2>
+  <div class="box box-tip">
+    <h3>💡 TIP 1 — 이자·지연손해금은 소가에 넣지 않는다</h3>
+    <p>원금 5,000만 원 + 이자 200만 원을 함께 청구해도 소가는 5,000만 원. 이자·지연손해금·위약금은 부대청구로 불산입. 다만 이자만 독립 청구하면 그 금액이 소가.</p>
+  </div>
+  <div class="box box-tip">
+    <h3>💡 TIP 2 — 부동산 소가는 공시지가로 계산</h3>
+    <p>토지: 개별공시지가 × 면적. 건물: 시가표준액. 소장에 토지대장·건축물대장·공시지가확인서 첨부 필수. 법원이 공시지가 기준으로 인지액 보정 명령 가능.</p>
+  </div>
+  <div class="box box-tip">
+    <h3>💡 TIP 3 — 병합청구 흡수 원칙 주의</h3>
+    <p>소유권이전등기 + 근저당말소를 함께 청구하면 흡수 원칙 적용 → 큰 것 하나가 소가. 별개의 독립한 청구가 아닌지 면밀히 검토.</p>
+  </div>
+  <div class="box-memo">
+    <h3>📝 현장 메모 [직접 추가]</h3>
+    <p style="color:#888;">이 사건 소가 산정 내역, 계산 근거, 공시지가 확인일 등을 기재하세요.</p>
+    <p>&nbsp;</p><p>&nbsp;</p>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec"><span class="num">7</span>주의사항 &amp; 사고·실수 사례</h2>
+  <div class="box box-warn">
+    <h3>⚡ 자주 발생하는 보정 사유</h3>
+    <ul>
+      <li>이자·지연손해금을 소가에 산입 → 인지 과다 또는 보정 명령</li>
+      <li>부동산 소가를 시가로 산정 → 공시지가 기준으로 정정 명령</li>
+      <li>병합청구 합산 오류 → 단독/합의부 관할 착오로 이송</li>
+    </ul>
+    <h3>🔴 흔한 실수</h3>
+    <ul>
+      <li>근저당권 말소 소가를 부동산 시가 기준으로 산정 → 채권최고액이 기준</li>
+      <li>선택적 병합을 합산으로 계산 → 흡수 원칙 적용해야 함</li>
+      <li>위자료와 재산분할을 함께 청구 시 합산 여부 오판</li>
+    </ul>
+    <h3>🚫 변호사법 경계</h3>
+    <ul>
+      <li>비재산권 소가 산정의 법리 판단 → 변호사 자문 권장</li>
+      <li>의뢰인에게 소가 다툼 전략 조언 → 절대 금지</li>
+    </ul>
+  </div>
+</section>
+
+<div class="foot-memo">
+  <strong>작성일:</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+  <strong>근거기준일:</strong> 민사소송법·인지법 (2024. 2. 시행 기준) |
+  <strong>최종검토자:</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+  <strong>비고:</strong> 법령 개정 시 반드시 재검토
+</div>
+</div>
+</body>
+</html>

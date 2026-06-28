@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>강제집행 정지·취소 — 집행을 일시적으로 멈출 수 있나요?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#1a2e4a;--gold:#c8a96e;--bg:#faf8f5;--text:#2c2c2c;--summary-bg:#eef2f8;--summary-bd:#2d4a7a;--cta-bg:#fdf6e9;--cta-bd:#c8a96e;--case-bg:#f0f8f0;--case-bd:#1a5c2e;--ruling-bg:#f7f4f0;--ruling-bd:#6b7280;--warn-bg:#fff3e8;--warn-bd:#c05000}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;font-size:16px}
+.container{max-width:820px;margin:0 auto;padding:0 20px}
+header{background:var(--navy);color:#fff;padding:48px 24px 40px;text-align:center}
+.breadcrumb{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:12px}
+header h1{font-family:'Noto Serif KR',serif;font-size:clamp(1.5rem,4vw,2.2rem);font-weight:700;line-height:1.4;margin-bottom:10px}
+.subtitle{font-size:15px;color:var(--gold);font-weight:500}
+section{padding:48px 0;border-bottom:1px solid #e4ddd4}
+h2{font-family:'Noto Serif KR',serif;font-size:1.35rem;font-weight:700;color:var(--navy);border-bottom:2px solid var(--gold);padding-bottom:10px;margin-bottom:20px}
+h3{font-size:1.05rem;font-weight:700;color:var(--navy);margin:28px 0 12px}
+p{margin-bottom:14px}
+.summary-box{background:var(--summary-bg);border-left:4px solid var(--summary-bd);border-radius:0 8px 8px 0;padding:20px 24px;margin:20px 0}
+.summary-box .label{font-size:11px;font-weight:700;color:var(--summary-bd);letter-spacing:0.08em;margin-bottom:10px}
+.case-box{background:var(--case-bg);border-left:4px solid var(--case-bd);border-radius:0 8px 8px 0;padding:20px 24px;margin:16px 0;font-size:14.5px}
+.ruling-box{background:var(--ruling-bg);border-left:4px solid var(--ruling-bd);border-radius:0 8px 8px 0;padding:20px 24px;margin:16px 0;font-size:14.5px}
+.ruling-box .ruling-header{font-size:13px;font-weight:700;color:#444;margin-bottom:8px}
+.ruling-box .ruling-header::before{content:"判";background:var(--ruling-bd);color:#fff;padding:1px 6px;border-radius:3px;margin-right:6px}
+.warn-box{background:var(--warn-bg);border-left:4px solid var(--warn-bd);border-radius:0 8px 8px 0;padding:20px 24px;margin:16px 0}
+.warn-box .warn-title{font-size:13px;font-weight:700;color:var(--warn-bd);margin-bottom:8px}
+.checklist{background:#fff;border:1px solid #ddd6ce;border-radius:8px;padding:24px 28px;margin:20px 0}
+.checklist ul{list-style:none;padding:0;margin-top:12px}
+.checklist li{padding:6px 0;padding-left:24px;position:relative}
+.checklist li::before{content:"✓";color:var(--gold);font-weight:700;position:absolute;left:0}
+.qna-item{border:1px solid #e0d9d0;border-radius:8px;overflow:hidden;margin:12px 0}
+.qna-q{background:#fff;padding:16px 20px;font-weight:700;font-size:15px;color:var(--navy)}
+.qna-a{background:#faf8f5;padding:16px 20px;font-size:14.5px;border-top:1px solid #e0d9d0}
+.cta-box{background:var(--cta-bg);border:1px solid var(--cta-bd);border-radius:10px;padding:32px 28px;text-align:center;margin:40px 0 0}
+.cta-btn{display:inline-block;background:var(--navy);color:#fff;padding:14px 36px;border-radius:6px;font-size:15px;font-weight:700;text-decoration:none;margin:8px}
+.cta-btn.kakao{background:#FEE500;color:#3c1e1e}
+.case-tag{display:inline-block;background:#f4ede0;color:#7a4a1a;font-size:11px;font-weight:700;padding:2px 8px;border-radius:3px;margin-left:6px;vertical-align:middle;letter-spacing:0.3px}
+.law-tag{display:inline-block;background:#e8edf5;color:#2d4a7a;font-size:11px;font-weight:700;padding:2px 8px;border-radius:3px;margin-left:4px;vertical-align:middle}
+.disclaimer-section{background:#f2f0ec;padding:28px;border-radius:8px;margin:40px 0 0;font-size:12px;color:#666;line-height:1.8}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+thead th{background:var(--navy);color:#fff;padding:11px 14px;font-size:13px;text-align:left}
+tbody td{padding:10px 14px;border-bottom:1px solid #e4ddd4;line-height:1.6}
+tbody tr:nth-child(even){background:#f5f2ee}
+.next-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:20px 0}
+.next-link{background:#fff;border:1px solid #ddd6ce;border-radius:8px;padding:16px 18px;text-decoration:none;color:var(--navy);display:block}
+.next-link:hover{border-color:var(--gold)}
+.next-link .arrow{color:var(--gold);font-size:18px;display:block;margin-bottom:4px}
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="breadcrumb">민사집행 총론 › 집행 불복</div>
+    <h1>강제집행 정지·취소</h1>
+    <div class="subtitle">부당한 집행을 일시적으로 멈추거나 완전히 취소하는 방법</div>
+  </div>
+</header>
+
+<div class="container">
+
+<section>
+  <h2>이런 분께 필요합니다</h2>
+  <div class="checklist">
+    <ul>
+      <li>청구이의의 소를 제기하면서 집행도 일시 중단시키고 싶은 경우</li>
+      <li>항소·상고를 제기하면서 가집행 판결에 기한 집행을 멈추고 싶은 경우</li>
+      <li>채권자와 화해가 성립되어 집행을 취소하고 싶은 경우</li>
+      <li>채무를 변제했다는 영수증 등 서류를 가지고 집행정지를 구하려는 경우</li>
+      <li>집행정지와 집행취소의 차이를 이해하고 싶은 경우</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>핵심 정리</h2>
+  <div class="summary-box">
+    <div class="label">▶ 집행정지란</div>
+    <p>집행정지는 강제집행 절차를 일시적으로 멈추는 것을 말합니다. 청구이의의 소 제기, 항소·상고 제기, 변제 사실 증명 등 법이 정한 일정 서류를 법원에 제출하면 집행이 임시로 정지됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004600" target="_blank" rel="noopener" title="민사집행법 제46조 — 대법원 종합법률정보">민사집행법 제46조</a></p>
+  </div>
+  <div class="summary-box">
+    <div class="label">▶ 집행취소와의 차이</div>
+    <p>집행정지는 집행을 임시로 멈추는 것이고, 집행취소는 이미 실시된 집행처분을 제거하는 것입니다. 예를 들어 채무 변제 서류를 제출하면 집행이 취소(압류 해제 등)될 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004700" target="_blank" rel="noopener" title="민사집행법 제47조 — 대법원 종합법률정보">민사집행법 제47조</a></p>
+  </div>
+</section>
+
+<section>
+  <h2>집행정지·취소 상세 안내</h2>
+
+  <h3>집행정지 서류의 종류</h3>
+  <p>다음과 같은 서류가 집행법원에 제출되면 집행이 정지됩니다.</p>
+  <table>
+    <thead>
+      <tr><th>서류 종류</th><th>상황</th><th>효과</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>집행정지 재판서 (법원 결정)</td><td>청구이의의 소 등 제기 후 법원 결정</td><td>집행 정지</td></tr>
+      <tr><td>상소장·항고장 접수 증명</td><td>항소·상고 중 가집행 집행의 경우</td><td>집행 정지</td></tr>
+      <tr><td>변제 영수증 또는 채무 면제 증서</td><td>판결 확정 후 변제된 경우</td><td>집행 취소</td></tr>
+      <tr><td>집행유예 서류 (채권자 동의서)</td><td>채권자가 집행 유예에 동의한 경우</td><td>집행 정지</td></tr>
+    </tbody>
+  </table>
+  <p>위 서류들은 민사집행법 제49조에서 열거하고 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004900" target="_blank" rel="noopener" title="민사집행법 제49조 — 대법원 종합법률정보">민사집행법 제49조</a></p>
+
+  <h3>청구이의의 소와 집행정지</h3>
+  <p>청구이의의 소를 제기하는 것만으로는 집행이 자동 정지되지 않습니다. 법원에 집행정지 신청을 별도로 해야 하고, 법원이 집행정지 결정(담보 조건부인 경우 많음)을 내려야 집행이 멈춥니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004600" target="_blank" rel="noopener" title="민사집행법 제46조 제1항 — 대법원 종합법률정보">민사집행법 제46조 제1항</a></p>
+
+  <h3>담보 제공 의무</h3>
+  <p>법원이 집행정지 결정을 내릴 때 담보 제공을 조건으로 할 수 있습니다. 채무자는 법원이 정한 담보를 제공해야 집행이 실제로 정지됩니다. 담보는 현금 공탁이나 지급보증보험 등의 방법으로 제공할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004600" target="_blank" rel="noopener" title="민사집행법 제46조 제2항 — 대법원 종합법률정보">민사집행법 제46조 제2항</a></p>
+
+  <h3>집행취소</h3>
+  <p>집행취소는 이미 이루어진 집행처분(압류 등)을 제거하는 것입니다. 채무자가 채무를 변제하거나, 채권자가 집행 취소에 동의하거나, 법원이 집행취소 결정을 내리는 경우에 집행처분이 취소됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004700" target="_blank" rel="noopener" title="민사집행법 제47조 — 대법원 종합법률정보">민사집행법 제47조</a></p>
+
+  <div class="case-box">
+    <p><strong>사례)</strong> B는 A(채권자)에 대한 500만 원 판결 이후 실제로 A의 계좌로 500만 원을 이체했습니다. 그런데 A가 또 강제집행을 신청했다면, B는 이체 영수증을 근거로 집행법원에 집행취소를 신청할 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004900" target="_blank" rel="noopener" title="민사집행법 제49조 제2호 — 대법원 종합법률정보">민사집행법 제49조 제2호</a></p>
+  </div>
+</section>
+
+<section>
+  <h2>자주하는 질문 (Q&amp;A)</h2>
+
+  <div class="qna-item">
+    <div class="qna-q">집행정지 신청을 하면 바로 집행이 멈추나요?</div>
+    <div class="qna-a">집행정지 신청만으로 집행이 자동으로 멈추지는 않습니다. 법원이 집행정지 결정을 내리면 멈춥니다. 법원이 담보 제공을 조건으로 정지를 허가하는 경우, 담보를 제공한 후에야 실질적으로 정지됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004600" target="_blank" rel="noopener" title="민사집행법 제46조 — 대법원 종합법률정보">민사집행법 제46조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">항소를 제기하면 가집행 집행이 자동으로 멈추나요?</div>
+    <div class="qna-a">항소를 제기해도 가집행 집행이 자동으로 정지되지는 않습니다. 집행정지를 원한다면 별도로 집행정지 신청을 해야 하며, 항소법원이 담보 조건부로 집행정지 결정을 내립니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004600" target="_blank" rel="noopener" title="민사집행법 제46조, 민사소송법 제500조 — 대법원 종합법률정보">민사집행법 제46조, 민사소송법 제500조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">변제 영수증이 있으면 집행이 취소되나요?</div>
+    <div class="qna-a">판결 확정 후 변제를 증명하는 영수증이나 면제 서류를 집행법원에 제출하면 집행취소를 신청할 수 있습니다. 법원이 이를 심사하여 취소 여부를 결정합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004900" target="_blank" rel="noopener" title="민사집행법 제49조 제2호 — 대법원 종합법률정보">민사집행법 제49조 제2호</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">집행정지 담보는 어떻게 마련하나요?</div>
+    <div class="qna-a">법원이 정한 담보 금액을 현금으로 공탁하거나, 지급보증보험 증권을 제출하는 방법으로 담보를 제공할 수 있습니다. 담보 금액은 집행 채권액의 일정 비율로 정해지는 경우가 많습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=001900" target="_blank" rel="noopener" title="민사집행법 제19조, 제20조 — 대법원 종합법률정보">민사집행법 제19조, 제20조</a></div>
+  </div>
+
+  <div class="qna-item">
+    <div class="qna-q">집행이 완료된 후에도 집행정지·취소를 신청할 수 있나요?</div>
+    <div class="qna-a">집행이 완료된 후에는 집행정지·취소의 실익이 없습니다. 이미 이루어진 집행을 되돌리려면 청구이의의 소나 부당이득반환소송 등의 방법을 통해야 하는데, 이 경우 매우 어렵습니다. 따라서 집행이 진행 중일 때 신속하게 대응하는 것이 중요합니다.</div>
+  </div>
+</section>
+
+<section>
+  <h2>관련 판례</h2>
+  <div class="ruling-box">
+    <div class="ruling-header">집행정지의 요건</div>
+    <p>대법원은 집행정지는 집행권원의 집행력이 잠정적으로 저지되는 것으로, 집행정지를 위해서는 법이 정한 서류(집행정지 재판, 화해 증서 등)의 제출이 있어야 한다고 해석하고 있습니다. 집행정지 사유가 없다면 집행기관은 집행을 계속해야 합니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004600" target="_blank" rel="noopener" title="민사집행법 제46조, 제49조 — 대법원 종합법률정보">민사집행법 제46조, 제49조</a> <span class="case-tag">2014그553</span></p>
+  </div>
+</section>
+
+<section>
+  <h2>주의사항</h2>
+  <div class="warn-box">
+    <div class="warn-title">⚡ 집행 완료 전 신속한 대응 필수</div>
+    <p>집행이 완료된 후에는 집행정지·취소의 실익이 거의 없습니다. 집행이 진행 중이라면 즉시 집행정지 신청을 해야 합니다. 특히 부동산 경매의 경우 매각이 실시되면 되돌리기 매우 어렵습니다.</p>
+  </div>
+  <div class="warn-box">
+    <div class="warn-title">⚠️ 단순히 소를 제기한다고 집행이 멈추지 않음</div>
+    <p>청구이의의 소, 제3자이의의 소 등을 제기해도 집행은 자동으로 정지되지 않습니다. 반드시 별도의 집행정지 신청을 해야 하며, 법원의 결정이 나야 집행이 실질적으로 정지됩니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004600" target="_blank" rel="noopener" title="민사집행법 제46조 — 대법원 종합법률정보">민사집행법 제46조</a></p>
+  </div>
+  <div class="warn-box">
+    <div class="warn-title">ℹ️ 담보 제공 준비</div>
+    <p>집행정지를 위해 담보 제공이 필요한 경우가 많습니다. 담보 금액을 준비해두어야 집행정지가 신속하게 이루어질 수 있습니다. <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004600" target="_blank" rel="noopener" title="민사집행법 제46조 제2항 — 대법원 종합법률정보">민사집행법 제46조 제2항</a></p>
+  </div>
+</section>
+
+<section>
+  <h2>다음에 확인할 사항</h2>
+  <div class="next-links">
+    <a href="민집_09_청구이의.html" class="next-link">
+      <span class="arrow">→</span>
+      청구이의의 소<br><small>집행정지와 함께 제기하는 본안 소송</small>
+    </a>
+    <a href="민집_10_제3자이의.html" class="next-link">
+      <span class="arrow">→</span>
+      제3자이의의 소<br><small>제3자가 집행을 막는 방법</small>
+    </a>
+    <a href="민집_14_집행담보공탁.html" class="next-link">
+      <span class="arrow">→</span>
+      집행 담보·공탁<br><small>담보 제공 방법 상세 안내</small>
+    </a>
+  </div>
+</section>
+
+<div class="cta-box">
+  <h3 style="color:var(--navy);margin-bottom:8px">이 내용이 해당되시나요?</h3>
+  <p style="margin:8px 0 20px;color:#555">집행을 일시적으로 멈춰야 한다면 즉시 법무사와 상담하세요.<br>첫 상담은 무료입니다.</p>
+  <a href="tel:[전화번호]" class="cta-btn">📞 전화 상담</a>
+  <a href="#" class="cta-btn kakao">💬 카카오톡 상담</a>
+</div>
+
+<div class="disclaimer-section">
+  <p>본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 개별 사안에 따라 결과가 달라질 수 있습니다. 구체적인 사안은 법무사와 상담하시기 바랍니다.</p>
+  <p style="margin-top:8px">이 페이지는 2025년 현행 법령 기준으로 작성되었습니다.</p>
+</div>
+
+</div>
+</body>
+</html>

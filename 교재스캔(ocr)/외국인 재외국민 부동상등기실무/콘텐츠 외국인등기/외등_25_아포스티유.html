@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아포스티유(Apostille) 완벽 가이드 — 부동산 등기에 필요한 서류 공증 절차</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #333;
+            background-color: #faf8f5;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 2em;
+            color: #1a2e4a;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        h2 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 1.5em;
+            color: #1a2e4a;
+            margin: 40px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #c8a96e;
+        }
+
+        h3 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 1.1em;
+            color: #1a2e4a;
+            margin: 25px 0 15px 0;
+        }
+
+        .checklist {
+            background-color: #faf8f5;
+            padding: 30px;
+            margin-bottom: 40px;
+            border-left: 5px solid #c8a96e;
+        }
+
+        .checklist h3 {
+            color: #1a2e4a;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .checklist ul {
+            list-style: none;
+        }
+
+        .checklist li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .checklist li:before {
+            content: "☑";
+            position: absolute;
+            left: 0;
+            color: #c8a96e;
+            font-size: 1.2em;
+        }
+
+        .summary-box {
+            background-color: #eef2f8;
+            border-left: 5px solid #2d4a7a;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+
+        .summary-box h3 {
+            margin-top: 0;
+            color: #2d4a7a;
+        }
+
+        .content-section {
+            margin: 30px 0;
+            line-height: 1.8;
+        }
+
+        .content-section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .legal-box {
+            background-color: #f7f4f0;
+            border-left: 5px solid #6b7280;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .legal-box h4 {
+            color: #6b7280;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .case-box {
+            background-color: #f0f8f0;
+            border-left: 5px solid #1a5c2e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .case-box h4 {
+            color: #1a5c2e;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .warning-box {
+            background-color: #fff3e8;
+            border-left: 5px solid #c05000;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .warning-box h4 {
+            color: #c05000;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .country-box {
+            background-color: #f0f4ff;
+            border-left: 5px solid #3b5bdb;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .country-box h4 {
+            color: #3b5bdb;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table thead {
+            background-color: #1a2e4a;
+            color: white;
+        }
+
+        table th {
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        table td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tbody tr:nth-child(even) {
+            background-color: #f9f7f5;
+        }
+
+        .qa-section {
+            margin: 40px 0;
+        }
+
+        .qa-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .qa-item:last-child {
+            border-bottom: none;
+        }
+
+        .qa-question {
+            font-weight: 700;
+            color: #1a2e4a;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+
+        .qa-answer {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .qa-caveat {
+            font-size: 0.9em;
+            color: #888;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f7f5;
+            border-radius: 4px;
+        }
+
+        .next-topics {
+            background-color: #f9f7f5;
+            padding: 25px;
+            margin: 40px 0;
+            border-radius: 4px;
+        }
+
+        .next-topics h3 {
+            margin-top: 0;
+        }
+
+        .next-topics ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .next-topics li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .next-topics li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #c8a96e;
+            font-weight: bold;
+        }
+
+        .next-topics a {
+            color: #2d4a7a;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .next-topics a:hover {
+            text-decoration: underline;
+            color: #c8a96e;
+        }
+
+        .cta-section {
+            background-color: #fdf6e9;
+            border: 2px solid #c8a96e;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .cta-section h3 {
+            color: #1a2e4a;
+            margin-top: 0;
+        }
+
+        .cta-section p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #c8a96e;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #a88d57;
+        }
+
+        .disclaimer {
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin-top: 40px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .icon {
+            display: inline-block;
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+
+        ul.regular-list {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+
+        ul.regular-list li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: #1a2e4a;
+        }
+
+        .comparison-table {
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .highlight {
+            background-color: #fffaf0;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .cta-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>아포스티유(Apostille) 완벽 가이드</h1>
+            <p style="font-size: 1.1em; color: #666; margin-top: 10px;">부동산 등기에 필요한 서류 공증 절차</p>
+        </header>
+
+        <!-- 섹션 0: 이런 분께 필요합니다 -->
+        <section class="checklist">
+            <h3>이런 분께 필요합니다</h3>
+            <ul>
+                <li><strong>외국 국적을 가진 분이 한국 부동산을 등기 신청할 때</strong> 본국 서류의 공인장이 필요한 경우</li>
+                <li><strong>미국, 영국, 일본, 독일 등 아포스티유 협약 가입국</strong>에서 발급한 공문서를 제출해야 하는 경우</li>
+                <li><strong>외국 법원 판결문이나 외국 공증인의 공증서류</strong>를 등기에 첨부할 때</li>
+                <li><strong>해외 거주자가 부동산을 처분하거나 상속받을 때</strong> 위임장 등의 공증 문제</li>
+                <li><strong>재외국민인데 본국 거주 외국인과 협의분할</strong>을 진행하는 경우</li>
+            </ul>
+        </section>
+
+        <!-- 섹션 1: 핵심 요약 -->
+        <section class="summary-box">
+            <h3>핵심 요약</h3>
+            <p>아포스티유는 헤이그 협약에 의한 국제적 공문서 확인 제도로, 외국 공문서가 한국의 법원·등기소에서 정당한 문서로 인정받도록 합니다. 한국은 2007년부터 협약에 가입하였으며, 부동산등기에서 아포스티유 협약 가입국의 공문서를 제출할 때는 반드시 해당 국가의 아포스티유를 받아 첨부해야 합니다(부동산등기규칙 제46조 제9항).</p>
+        </section>
+
+        <!-- 섹션 2: 아포스티유란? -->
+        <section class="content-section">
+            <h2>1. 아포스티유란?</h2>
+
+            <h3>개념과 목적</h3>
+            <p><strong>아포스티유(Apostille)</strong>는 "외국 공문서에 대한 인증의 요구를 폐지하는 협약"이라는 국제협약에 따른 공문서 진정성 확인 제도입니다. 복잡한 영사 확인 절차를 생략하고, 공문서 발행국에서 발급한 증명서 하나로 협약 가입국 간에 문서의 효력을 인정받을 수 있게 합니다.</p>
+
+            <div class="legal-box">
+                <h4>법적 근거</h4>
+                <ul class="regular-list">
+                    <li><strong>부동산등기규칙 제46조 제9항</strong> (2017. 10. 1. 시행): 외국 공문서나 외국 공증인 공증 서류 제출 시 아포스티유 또는 영사 확인 요구</li>
+                    <li><strong>등기예규 제1778호 제3조</strong>: 외국 공문서에 대한 확인 기준</li>
+                    <li><strong>외교부 아포스티유 사이트</strong>: apostille.go.kr에서 협약 가입국 확인 및 발급 신청 가능</li>
+                </ul>
+            </div>
+
+            <h3>국제협약의 성격</h3>
+            <p>아포스티유 협약은 현재 <strong>세계 106개국 이상</strong>이 가입한 광범위한 국제협약입니다. 한국은 2007년 7월 14일에 가입하였습니다. 미국, 영국, 독일, 프랑스, 일본, 호주, 캐나다 등 주요 국가들이 모두 협약국이므로, 이들 국가의 공문서를 한국에 제출할 때는 아포스티유가 필수입니다.</p>
+        </section>
+
+        <!-- 섹션 3: 아포스티유 발급 방법 -->
+        <section class="content-section">
+            <h2>2. 아포스티유 발급 방법 (한국에서 발급)</h2>
+
+            <h3>한국 발급 기관</h3>
+            <p>한국에서 발급된 문서를 해외에서 사용할 때 아포스티유를 받아야 합니다. 발급 기관은 다음과 같습니다:</p>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>발급 기관</th>
+                        <th>담당 서류</th>
+                        <th>연락처</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>외교부 영사민원실</strong></td>
+                        <td>공증인 공증 서류, 공증 위임장, 행정기관 발급 문서(외교부 소관이 아닌 것)</td>
+                        <td>(02) 2100-7600 / (02) 739-8219</td>
+                    </tr>
+                    <tr>
+                        <td><strong>법무부</strong></td>
+                        <td>법원 판결문, 법인등기부, 법무부 발급 서류, 검찰청 서류</td>
+                        <td>(02) 720-8027</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>발급 수수료 및 기간</h3>
+            <ul class="regular-list">
+                <li><strong>수수료</strong>: 건당 1,000원 (전자수입인지)</li>
+                <li><strong>발급 기간</strong>: 신청일로부터 근무일 기준 3일 이내 (단, 직인·서명이 미등록된 경우 3일 초과 가능)</li>
+                <li><strong>우편 접수 시</strong>: 통상 7~10일 소요</li>
+            </ul>
+
+            <h3>신청 방법</h3>
+            <p><strong>본인 또는 대리인이 직접 신청할 수 있습니다:</strong></p>
+            <ul class="regular-list">
+                <li>아포스티유 신청서 작성</li>
+                <li>아포스티유를 받고자 하는 대상 문서</li>
+                <li>신분증 지참 (본인 방문 시) 또는 대리인 신분증 (대리 신청 시)</li>
+                <li>전자수입인지 1,000원</li>
+                <li>우편 신청 가능 (반송봉투 필수)</li>
+            </ul>
+
+            <div class="warning-box">
+                <h4><span class="icon">⚠️</span>주의: 국내 문서 발급 시 아포스티유</h4>
+                <p>한국에서 발급된 공증서나 공문서를 해외에서 사용할 때 아포스티유를 받아야 합니다. 예를 들어, 한국 공증인이 공증한 위임장을 미국 법원에 제출하려면 한국 외교부에서 아포스티유를 받아야 미국에서 정당한 문서로 인정받습니다.</p>
+            </div>
+        </section>
+
+        <!-- 섹션 4: 아포스티유 협약 가입국 여부 확인 -->
+        <section class="content-section">
+            <h2>3. 아포스티유 협약 가입국 여부 확인</h2>
+
+            <h3>가입국 확인의 중요성</h3>
+            <p>외국 공문서를 한국의 등기소에 제출할 때, 그 문서 발행국이 아포스티유 협약 가입국인지 여부가 매우 중요합니다. 이에 따라 필요한 확인 방법이 완전히 달라집니다.</p>
+
+            <div class="country-box">
+                <h4><span class="icon">🌏</span>주요 가입국 (부동산 등기 관련)</h4>
+                <ul class="regular-list">
+                    <li><strong>아시아:</strong> 일본, 싱가포르, 홍콩, 인도네시아, 필리핀, 필리핀, 오만, 사우디아라비아</li>
+                    <li><strong>북미:</strong> 미국 (괌, 마우리제도, 사이판 포함), 캐나다</li>
+                    <li><strong>유럽:</strong> 영국, 독일, 프랑스, 스페인, 이탈리아, 스위스, 오스트리아, 벨기에, 네덜란드, 스웨덴, 러시아 등</li>
+                    <li><strong>오세아니아:</strong> 호주, 뉴질랜드</li>
+                    <li><strong>중남미:</strong> 브라질, 멕시코, 아르헨티나, 칠레, 콜롬비아</li>
+                </ul>
+            </div>
+
+            <h3>미가입국의 처리 방법</h3>
+            <p>아포스티유 협약을 가입하지 않은 국가(예: 중국, 태국)의 공문서는 아포스티유를 받을 수 없습니다. 이 경우 다음과 같이 처리합니다:</p>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>상황</th>
+                        <th>처리 방법</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>아포스티유 가입국</strong></td>
+                        <td>해당 국가의 아포스티유 발급 권한기관에서 아포스티유 발급 받음</td>
+                    </tr>
+                    <tr>
+                        <td><strong>아포스티유 미가입국</strong></td>
+                        <td>해당 국가의 공문서 + 한국 대사관 영사과의 영사 확인</td>
+                    </tr>
+                    <tr>
+                        <td><strong>수교하지 않은 국가</strong></td>
+                        <td>예외 처리 가능 (등기예규 제1534호 참조)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 섹션 5: 부동산 등기에서 필요한 경우 / 불필요한 경우 -->
+        <section class="content-section">
+            <h2>4. 부동산 등기에서 아포스티유가 필요한 경우 / 불필요한 경우</h2>
+
+            <h3>아포스티유가 필요한 경우</h3>
+            <p>다음의 경우 외국 공문서에 아포스티유(협약 가입국) 또는 영사 확인(미가입국)이 필수입니다:</p>
+
+            <ul class="regular-list">
+                <li><strong>외국 공문서</strong>: 외국 정부 기관이 발행한 공문서 (예: 해외 법원 판결문, 해외 행정기관 발급 증명서)</li>
+                <li><strong>외국 공증인 공증 서류</strong>: 외국 공증인이 공증한 위임장, 계약서, 선언서 등</li>
+                <li><strong>외국 국적 취득자의 신분 증명 관련 서류</strong> (성명 변경 증명 등)</li>
+                <li><strong>해외 거주 외국인의 처분 위임장</strong>: 미국인이 미국에서 한국 공증인이 아닌 미국 공증인으로부터 공증받은 위임장</li>
+            </ul>
+
+            <h3>아포스티유가 불필요한 경우</h3>
+            <p>다음의 경우는 아포스티유나 영사 확인이 불필요합니다:</p>
+
+            <ul class="regular-list">
+                <li><strong>재외국민의 위임장</strong>: 재외국민(한국 국적자)이 한국 재외공관(대사관/영사관)에서 공증받은 위임장</li>
+                <li><strong>재외공관 공증 서류</strong>: 한국 대사관/영사관에서 공증 또는 확인한 서류</li>
+                <li><strong>외교·영사기관 작성 문서</strong>: 주한 미국대사관 등 한국 주재 외국공관이 작성하거나 공증한 문서</li>
+                <li><strong>신분증 원본</strong>: 여권, 운전면허증 등은 원본을 제출하면 되고 아포스티유 불필요</li>
+                <li><strong>한국 공증인 공증 서류 (역방향)</strong>: 한국인이 한국 공증인으로부터 공증받은 서류를 해외 제출 시는 한국 외교부 아포스티유 발급</li>
+            </ul>
+
+            <div class="case-box">
+                <h4><span class="icon">사례</span>시나리오별 아포스티유 필요 여부</h4>
+                <p><strong>사례 1: 미국 시민권자 김철수씨가 한국 아파트를 매수</strong><br>
+                미국에서 발급받은 신분증 사본과 미국 법원 판결문(이혼 판결)을 첨부할 때: <span class="highlight">아포스티유 필요</span> (미국은 협약 가입국이므로 미국 발급 아포스티유 필요)</p>
+
+                <p><strong>사례 2: 캐나다 영주권자인 재외국민이 한국 토지를 상속받음</strong><br>
+                캐나다에서 발급받은 재산증명과 위임장을 제출할 때: <span class="highlight">아포스티유 불필요</span> (한국 대사관(캐나다)에서 공증 또는 재외공관 공증으로 처리)</p>
+
+                <p><strong>사례 3: 중국 국적 외국인이 한국 주택을 매수</strong><br>
+                중국에서 발급받은 신분증 사본과 주소 증명서를 첨부할 때: <span class="highlight">영사 확인 필요</span> (중국은 협약 미가입국이므로 한국 대사관(중국) 영사과 확인 필요)</p>
+            </div>
+        </section>
+
+        <!-- 섹션 6: 판례·예규 -->
+        <section class="content-section">
+            <h2>5. 부동산등기 관련 판례·예규</h2>
+
+            <div class="legal-box">
+                <h4>부동산등기규칙 제46조 제9항 (아포스티유 규정)</h4>
+                <p>"첨부정보가 외국 공문서이거나 외국 공증인이 공증한 문서인 경우에는 재외공관 공증법 제30조제1항에 따라 공증담당영사로부터 문서의 확인을 받거나 외국공문서에 대한 인증의 요구를 폐지하는 협약에서 정하는 바에 따른 아포스티유(Apostille)를 붙여야 한다. 다만, 외국 공문서 등의 발행국이 대한민국과 수교하지 아니한 국가이면서 위 협약의 가입국이 아닌 경우와 같이 부득이한 사유로 문서의 확인을 받거나 아포스티유를 붙이는 것이 곤란한 경우에는 그러하지 아니하다."</p>
+            </div>
+
+            <div class="legal-box">
+                <h4>등기예규 제1778호 제3조 (외국 공문서에 대한 확인)</h4>
+                <p>첨부정보가 외국에서 발행된 공문서(외국 공증인이 공증한 문서 포함)인 경우 다음과 같이 구분하여 처리합니다:</p>
+                <ul class="regular-list">
+                    <li><strong>아포스티유 협약 가입국</strong>: 해당 국가의 아포스티유 발급 권한기관에서 발행한 아포스티유 확인</li>
+                    <li><strong>협약 미가입국</strong>: 해당 국가에 주재하는 대한민국 공증담당영사의 확인</li>
+                    <li><strong>예외</strong>: 한국과 수교하지 않은 국가이면서 협약 미가입국인 경우 (등기예규 제1534호)</li>
+                </ul>
+            </div>
+
+            <div class="legal-box">
+                <h4>등기예규 제1534호 (특별한 사정이 있는 경우)</h4>
+                <p>영사 확인이나 아포스티유를 제출할 수 없는 특별한 사정이 있고, 그 외국공문서가 적법하게 발급되었다고 인정할 만한 충분한 자료가 있는 경우에는 예외 처리가 가능합니다. 이 경우 등기관이 보정을 명할 수 있습니다.</p>
+            </div>
+        </section>
+
+        <!-- 섹션 7: 주의사항 -->
+        <section class="content-section">
+            <h2>6. 주의사항</h2>
+
+            <div class="warning-box">
+                <h4><span class="icon">⚠️</span>법적 위험: 아포스티유 없이 등기 신청</h4>
+                <p>아포스티유 협약 가입국의 공문서를 아포스티유 없이 제출하면 등기관은 보정을 명합니다. 보정 기간 내에 아포스티유를 받아 제출하지 않으면 등기 신청이 반려됩니다. 특히 기간이 급할 때는 회복 불가능한 손실이 발생할 수 있습니다.</p>
+            </div>
+
+            <div class="warning-box">
+                <h4><span class="icon">ℹ️</span>예외: 번역문도 아포스티유 필요</h4>
+                <p>외국어로 작성된 공문서의 번역문을 첨부할 때, 번역문도 아포스티유가 필요할 수 있습니다. 이 경우 원문과 번역문에 대해 각각 별도로 아포스티유를 신청해야 합니다. 번역문은 먼저 공증사무소에서 공증을 받은 후 법무부에 아포스티유 신청을 해야 합니다.</p>
+            </div>
+
+            <div class="warning-box">
+                <h4><span class="icon">🌏</span>국가별 차이: 아포스티유 발급 기관이 국가마다 다름</h4>
+                <p>미국의 경우 각 주(State)마다 아포스티유 발급 기관이 다릅니다 (국무부, 법원, 교육청 등). 일본은 법원과 검찰청이, 영국은 외교부가 담당합니다. 따라서 어느 국가의 어느 기관에서 발급받을 문서인지 정확히 파악하고, 각 국가의 정확한 아포스티유 발급 절차를 확인해야 합니다.</p>
+            </div>
+        </section>
+
+        <!-- 섹션 8: Q&A -->
+        <section class="qa-section">
+            <h2>자주 묻는 질문 (Q&A)</h2>
+
+            <div class="qa-item">
+                <div class="qa-question">Q1. 아포스티유는 어디서 받아야 하나요? 본국에서 받아야 하나요, 아니면 한국에서?</div>
+                <div class="qa-answer">
+                    <p>외국 공문서에 아포스티유를 받을 때는 <strong>문서 발행국</strong>에서 받아야 합니다. 예를 들어, 미국에서 발급받은 판결문에 아포스티유를 붙이려면 미국의 해당 주(State)에서 받아야 합니다. 한국에서는 한국이 발급한 공문서(가족관계증명서, 공증서 등)에 대해서만 외교부나 법무부에서 아포스티유를 발급합니다.</p>
+                    <div class="qa-caveat">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="qa-question">Q2. 재외국민과 외국인이 아포스티유 처리에서 다른 점이 있나요?</div>
+                <div class="qa-answer">
+                    <p>중요한 차이가 있습니다. <strong>재외국민(한국 국적자)</strong>이 본국에서 서류를 받을 때는 한국 대사관/영사관에서 공증받으면 되고, 아포스티유가 불필요합니다. 반면 <strong>외국인(외국 국적자)</strong>이 본국 서류를 제출할 때는 본국이 협약 가입국이면 아포스티유, 미가입국이면 영사 확인을 받아야 합니다. 재외국민은 한국 국적자이므로 한국 공관의 공증으로 충분한 것입니다.</p>
+                    <div class="qa-caveat">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="qa-question">Q3. 아포스티유 협약 가입국인지 어떻게 확인하나요?</div>
+                <div class="qa-answer">
+                    <p>대한민국 아포스티유 사이트(apostille.go.kr)에서 협약 가입국 목록을 확인할 수 있습니다. 또한 외교부 홈페이지, 주한 외국공관, 그리고 법무사 사무소에서도 확인 가능합니다. 부동산 등기 신청 전에 반드시 해당 국가가 협약 가입국인지 확인하고, 필요한 서류를 준비해야 합니다. 협약 가입국 목록은 수시로 업데이트되므로 최신 정보를 확인하는 것이 중요합니다.</p>
+                    <div class="qa-caveat">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="qa-question">Q4. 중국에서 발급받은 서류에는 아포스티유가 필요한가요?</div>
+                <div class="qa-answer">
+                    <p>중국은 아포스티유 협약을 가입하지 않았으므로 아포스티유는 받을 수 없습니다. 대신 <strong>한국 대사관(중국)의 영사과에서 영사 확인</strong>을 받아야 합니다. 중국에서 발급받은 신분증, 주소 증명, 재산 증명 등을 한국 부동산등기에 첨부할 때는 반드시 한국 영사관의 영사 확인을 받은 후 제출해야 합니다. 아포스티유로 대체할 수 없습니다.</p>
+                    <div class="qa-caveat">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="qa-question">Q5. 아포스티유를 받는 데 얼마나 걸리나요?</div>
+                <div class="qa-answer">
+                    <p>본국에서 아포스티유를 받는 시간은 국가마다 다릅니다. 미국은 각 주마다 다르지만 보통 1~2주, 일본은 1주일, 영국은 2주일 정도 소요됩니다. 한국 외교부나 법무부에서는 <strong>신청일로부터 근무일 기준 3일 이내</strong>에 발급합니다. 따라서 해외에서 아포스티유를 받는 과정이 시간이 많이 걸리므로, 부동산 등기 신청이 필요하면 미리 준비해야 합니다.</p>
+                    <div class="qa-caveat">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="qa-question">Q6. 아포스티유를 받았는데 보정 명령을 받았습니다. 뭔가 문제가 있었나요?</div>
+                <div class="qa-answer">
+                    <p>보정 명령을 받았다면 보정 고지서의 내용을 확인해야 합니다. 아포스티유 자체에 문제가 있거나, 아포스티유 대신 영사 확인이 필요한 국가의 서류인 경우, 또는 아포스티유가 첨부되지 않았거나 손상된 경우 등이 보정 사유가 될 수 있습니다. 등기관의 지시에 따라 서류를 보완하거나 다시 제출해야 합니다. 보정 기간을 초과하면 등기 신청이 반려되므로 신속히 처리해야 합니다.</p>
+                    <div class="qa-caveat">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="qa-question">Q7. 한국 공증인 공증 서류를 해외에 제출할 때도 아포스티유가 필요한가요?</div>
+                <div class="qa-answer">
+                    <p>네, 필요합니다. 한국 공증인이 공증한 서류(위임장, 선언서 등)를 해외 법원이나 행정기관에 제출할 때는 한국 외교부에서 <strong>아포스티유</strong>를 받아야 합니다. 이는 역방향 아포스티유로, 한국이 발급 국가이므로 한국 외교부가 문서의 진정성을 확인하고 발급하는 것입니다. 한국 대사관의 영사 확인으로는 부족하고, 반드시 외교부 아포스티유가 필요합니다.</p>
+                    <div class="qa-caveat">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 섹션 9: 다음으로 확인할 내용 -->
+        <section class="next-topics">
+            <h3>다음으로 확인할 내용</h3>
+            <ul>
+                <li><a href="외등_26_번역공증.html">외국어 서류 번역문 첨부 기준과 공증 방법 — 등기 실무 완벽 정리</a></li>
+                <li><a href="외등_07_외국인처분.html">외국인이 입국하지 않고 한국 부동산을 파는 방법 — 처분 위임장 공증 완벽 가이드</a></li>
+                <li><a href="외등_14_재외국민개념.html">재외국민이란? 외국인·외국국적동포와 다른 점 — 부동산 등기 관점 완벽 정리</a></li>
+            </ul>
+        </section>
+
+        <!-- 섹션 10: 상담 신청 CTA -->
+        <section class="cta-section">
+            <h3>이 내용이 해당되시나요? 첫 상담은 무료입니다.</h3>
+            <p>외국인·재외국민 등기는 국적·체류 자격·입국 여부에 따라 준비 서류가 달라집니다. 법무사가 정확히 안내해 드립니다.</p>
+            <div class="cta-buttons">
+                <a href="tel:02-0000-0000" class="cta-button">📞 전화 상담</a>
+                <a href="https://pf.kakao.com/_" class="cta-button">💬 카카오톡 상담</a>
+            </div>
+        </section>
+
+        <!-- 섹션 11: 면책 문구 -->
+        <section class="disclaimer">
+            <p><strong>면책 문구:</strong> 본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 국적·체류 자격·개별 사안에 따라 결과가 달라질 수 있습니다. 구체적인 사안은 법무사와 상담하시기 바랍니다. 이 페이지는 2025년 현행 법령 기준으로 작성되었습니다.</p>
+        </section>
+    </div>
+</body>
+</html>

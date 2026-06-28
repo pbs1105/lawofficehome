@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>부동산 처분금지 가처분 - 법무사 홈페이지</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1a2e4a;
+            --gold: #c8a96e;
+            --bg: #faf8f5;
+            --text: #2c2c2c;
+            --summary-bg: #eef2f8;
+            --summary-bd: #2d4a7a;
+            --cta-bg: #fdf6e9;
+            --cta-bd: #c8a96e;
+            --case-bg: #f0f8f0;
+            --case-bd: #1a5c2e;
+            --ruling-bg: #f7f4f0;
+            --ruling-bd: #6b7280;
+            --warn-bg: #fff3e8;
+            --warn-bd: #c05000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--navy) 0%, #2d4a7a 100%);
+            color: white;
+            padding: 60px 20px;
+            margin: -40px -20px 40px -20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            font-family: 'Noto Serif KR', serif;
+            color: var(--navy);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        h3 {
+            color: var(--navy);
+            font-size: 1.3rem;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        h4 {
+            color: #555;
+            font-size: 1.1rem;
+            margin-top: 15px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        /* 체크리스트 */
+        .checklist {
+            background: white;
+            border-left: 5px solid var(--navy);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(26, 46, 74, 0.08);
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .checklist-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .checklist-item::before {
+            content: "✓";
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: var(--gold);
+            color: white;
+            border-radius: 50%;
+            margin-right: 15px;
+            flex-shrink: 0;
+            font-weight: 700;
+        }
+
+        .checklist-item span {
+            padding-top: 2px;
+        }
+
+        /* 핵심정리 */
+        .summary-box {
+            background: var(--summary-bg);
+            border-left: 5px solid var(--summary-bd);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .summary-box h3 {
+            margin-top: 0;
+            color: var(--summary-bd);
+        }
+
+        .summary-box ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .summary-box li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .summary-box li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--summary-bd);
+            font-weight: bold;
+        }
+
+        /* 상세설명 */
+        .detail-section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .detail-section p {
+            margin-bottom: 15px;
+            line-height: 1.9;
+        }
+
+        .detail-section ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .detail-section li {
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        .detail-section ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .detail-section ol li {
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+
+        .law-reference {
+            background: #f0f0f0;
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 10px 0;
+            font-size: 0.95rem;
+            color: var(--navy);
+            font-weight: 500;
+        }
+
+        .requirement-box {
+            background: #f9f9f9;
+            border-left: 5px solid var(--gold);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+
+        .requirement-box h4 {
+            margin-top: 0;
+            color: var(--navy);
+        }
+
+        .step-box {
+            background: white;
+            border-left: 5px solid var(--gold);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: var(--gold);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        /* Q&A */
+        .qa-item {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .qa-item.question {
+            border-left: 5px solid var(--navy);
+        }
+
+        .qa-question {
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .qa-question::before {
+            content: "Q";
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--navy);
+            color: white;
+            border-radius: 50%;
+            margin-right: 12px;
+            flex-shrink: 0;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .qa-answer {
+            color: var(--text);
+            line-height: 1.8;
+            padding-left: 40px;
+        }
+
+        .qa-answer::before {
+            content: "A";
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--gold);
+            color: white;
+            border-radius: 50%;
+            margin-left: -40px;
+            margin-right: 12px;
+            flex-shrink: 0;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        /* 판례 */
+        .ruling-box {
+            background: var(--ruling-bg);
+            border-left: 5px solid var(--ruling-bd);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-style: italic;
+            line-height: 1.9;
+            color: #444;
+        }
+
+        .ruling-label {
+            font-weight: 700;
+            color: var(--ruling-bd);
+            font-style: normal;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* 주의사항 */
+        .caution-item {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 5px solid var(--navy);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .caution-item.warning {
+            border-left-color: var(--warn-bd);
+        }
+
+        .caution-label {
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .caution-item.warning .caution-label {
+            color: var(--warn-bd);
+        }
+
+        .caution-icon {
+            font-size: 1.3rem;
+            margin-right: 10px;
+        }
+
+        .caution-item p {
+            margin: 0;
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* CTA */
+        .cta-box {
+            background: var(--cta-bg);
+            border: 2px solid var(--cta-bd);
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .cta-box h3 {
+            margin-top: 0;
+            color: var(--navy);
+        }
+
+        .cta-box p {
+            margin: 15px 0;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--gold);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.05rem;
+        }
+
+        .cta-button:hover {
+            background: #b89456;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(200, 169, 110, 0.3);
+        }
+
+        /* 면책 문구 */
+        .disclaimer {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.7;
+            margin-top: 50px;
+            border-top: 2px solid #ddd;
+        }
+
+        /* 테이블 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        table th {
+            background: var(--navy);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        table td {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tr:hover {
+            background: #f9f9f9;
+        }
+
+        /* 반응형 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            header {
+                margin: -20px -15px 30px -15px;
+                padding: 40px 15px;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            h3 {
+                font-size: 1.1rem;
+            }
+
+            .checklist, .detail-section, .qa-item {
+                padding: 20px;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            table th, table td {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+
+            .checklist-item {
+                font-size: 0.95rem;
+            }
+
+            .cta-button {
+                display: block;
+                width: 100%;
+            }
+        }
+    .law-tag {
+      display: inline-block; background: #e8edf5; color: #2d4a7a;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #b0c4de; cursor: pointer; transition: background 0.15s;
+    }
+    .law-tag:hover { background: #c8daf7; color: #1a2e4a; }
+    .case-tag {
+      display: inline-block; background: #f0ece4; color: #5a4a30;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #c8a96e; cursor: pointer; transition: background 0.15s;
+    }
+    .case-tag:hover { background: #f5dfa8; color: #3a2a10; }
+  </style>
+</head>
+<body>
+    <header>
+        <h1>부동산 처분금지 가처분</h1>
+        <p>부동산을 지키는 법적 방법</p>
+    </header>
+
+    <div class="container">
+        <!-- 섹션 1: 이런 분께 필요합니다 -->
+        <section>
+            <h2>이런 분께 필요합니다</h2>
+            <div class="checklist">
+                <div class="checklist-item">
+                    <span>부동산에 대한 소유권이전 청구권이 있는데 상대방이 팔려고 한다</span>
+                </div>
+                <div class="checklist-item">
+                    <span>매매계약을 체결했는데 상대방이 다른 사람에게 팔 것 같다</span>
+                </div>
+                <div class="checklist-item">
+                    <span>증여를 약속받았는데 상대방이 처분할 것 같다</span>
+                </div>
+                <div class="checklist-item">
+                    <span>명의신탁 부동산을 돌려받으려는데 상대방이 팔려고 한다</span>
+                </div>
+                <div class="checklist-item">
+                    <span>부동산 등기부에 처분금지 가처분을 설정하는 방법을 알고 싶다</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 섹션 2: 핵심정리 -->
+        <section>
+            <h2>핵심정리</h2>
+            <div class="summary-box">
+                <h3>부동산 처분금지 가처분의 핵심</h3>
+                <ul>
+                    <li><strong>목적:</strong> 상대방이 부동산을 처분하는 것을 금지하기 위한 가처분</li>
+                    <li><strong>피보전권리:</strong> 부동산에 관한 소유권이전청구권이나 말소등기청구권</li>
+                    <li><strong>신청 요건:</strong> 청구권이 존재하고 상대방의 처분 위험이 있어야 함</li>
+                    <li><strong>집행 방법:</strong> 부동산등기부에 '처분금지 가처분' 등기</li>
+                    <li><strong>효과:</strong> 등기부 표시 이후 처분된 부동산은 가처분 채권자에게 대항 불가</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 섹션 3: 상세설명 - 판단 부분 -->
+        <section>
+            <h2>상세설명</h2>
+
+            <div class="detail-section">
+                <h3>부동산 처분금지 가처분이란</h3>
+                <p>부동산 처분금지 가처분은 <strong>채무자(상대방)가 특정 부동산을 처분(판매, 담보 설정 등)하는 것을 금지하는 가처분</strong>입니다. 부동산에 관한 특정 권리가 있는데 상대방이 부동산을 처분하면 그 권리를 행사할 수 없게 될 염려가 있을 때 신청합니다.</p>
+                <div class="law-reference"><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=030000" target="_blank" rel="noopener">민사집행법 제300조 제1항</a></div>
+            </div>
+
+            <div class="detail-section">
+                <h3>부동산 처분금지 가처분의 요건</h3>
+
+                <div class="requirement-box">
+                    <h4>1) 피보전권리</h4>
+                    <p>부동산에 관한 <strong>특정 이행청구권</strong>이 있어야 합니다:</p>
+                    <ul>
+                        <li><strong>소유권이전청구권:</strong> 부동산의 소유권을 이전해달라는 권리 (매매계약, 증여계약 후)</li>
+                        <li><strong>말소등기청구권:</strong> 잘못 붙은 등기를 지워달라는 권리 (명의신탁 관계에서)</li>
+                        <li><strong>기타 특정물 청구권:</strong> 법률이 인정하는 다른 특정물 청구권</li>
+                    </ul>
+                </div>
+
+                <div class="requirement-box">
+                    <h4>2) 청구권이 현존할 것</h4>
+                    <p>청구권의 존재가 어느 정도 법리상 인정되어야 합니다:</p>
+                    <ul>
+                        <li>매매계약이나 증여계약 체결되었을 것</li>
+                        <li>명의신탁 관계가 성립했을 것</li>
+                        <li>법원이 어느 정도 타당성이 있다고 판단할 수 있을 것</li>
+                    </ul>
+                </div>
+
+                <div class="requirement-box">
+                    <h4>3) 보전의 필요성</h4>
+                    <p>상대방이 <strong>부동산을 처분하면 권리 실행이 불가능</strong>하거나 <strong>현저히 곤란</strong>해질 염려가 있어야 합니다:</p>
+                    <ul>
+                        <li>상대방이 부동산을 팔려고 한다는 정황이 있을 것</li>
+                        <li>상대방이 타인의 담보로 잡힐 것 같은 위험이 있을 것</li>
+                        <li>상대방의 행동이나 말에서 처분 의사가 드러날 것</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="detail-section">
+                <h3>처분금지 가처분 vs 가압류의 차이</h3>
+                <h4 style="margin-top: 0;">처분금지 가처분</h4>
+                <ul>
+                    <li><strong>목적:</strong> 특정 부동산 자체의 소유권이전을 보전</li>
+                    <li><strong>효과:</strong> 등기 이후 처분된 부동산은 가처분 채권자에게 대항 불가</li>
+                    <li><strong>본안:</strong> 본안 승소 시 직접 소유권 이전 가능</li>
+                </ul>
+
+                <h4 style="margin-top: 20px;">가압류</h4>
+                <ul>
+                    <li><strong>목적:</strong> 금전채권 보전</li>
+                    <li><strong>효과:</strong> 경매를 통한 금전 회수</li>
+                    <li><strong>본안:</strong> 금전판결 후 경매 진행</li>
+                </ul>
+
+                <p style="margin-top: 20px;"><strong>결론:</strong> 부동산 자체를 받고 싶다면 처분금지 가처분, 금전을 받고 싶다면 가압류를 신청하면 됩니다.</p>
+            </div>
+
+            <div class="detail-section">
+                <h3>처분금지 가처분의 효력</h3>
+                <h4 style="margin-top: 0;">1) 등기부 표시</h4>
+                <ul>
+                    <li>가처분 결정 후 등기촉탁을 통해 부동산등기부에 '처분금지 가처분' 등기</li>
+                    <li>등기부를 열람하는 누구나 이 가처분의 존재를 알 수 있음</li>
+                </ul>
+
+                <h4 style="margin-top: 15px;">2) 처분 제한</h4>
+                <ul>
+                    <li>가처분 등기 이후 소유권 이전이나 담보 설정은 일반적으로 불가능</li>
+                    <li>일부 가능한 경우도 있으나 가처분 채권자에게 대항 불가</li>
+                </ul>
+
+                <h4 style="margin-top: 15px;">3) 본안 승소 후 말소</h4>
+                <ul>
+                    <li>본안 소송에서 승소하면 가처분 이후의 등기를 말소할 수 있음</li>
+                    <li>예: 가처분 후 상대방이 제3자에게 판 경우, 그 등기를 말소하고 자신 명의로 변경 가능</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 섹션 3-2: 절차 부분 -->
+        <section>
+            <div class="detail-section">
+                <h3>부동산 처분금지 가처분 신청 절차</h3>
+
+                <div class="step-box">
+                    <span class="step-number">1단계</span>
+                    <h4>관할법원 확인</h4>
+                    <p><strong>부동산 소재지를 관할하는 지방법원</strong> 또는 <strong>본안 관할법원</strong>에 신청</p>
+                </div>
+
+                <div class="step-box">
+                    <span class="step-number">2단계</span>
+                    <h4>신청서 작성</h4>
+                    <p>가처분 신청서 작성:</p>
+                    <ul>
+                        <li>채권자·채무자 신원</li>
+                        <li>부동산 특정 (주소, 면적, 등기사항 등)</li>
+                        <li>피보전권리 명시 (소유권이전청구권 등)</li>
+                        <li>보전의 필요성 소명 (상대방의 처분 위험 입증)</li>
+                    </ul>
+                </div>
+
+                <div class="step-box">
+                    <span class="step-number">3단계</span>
+                    <h4>첨부서류 준비</h4>
+                    <p>필요한 서류:</p>
+                    <ul>
+                        <li>부동산등기사항전부증명서</li>
+                        <li>매매계약서, 증여계약서 등 계약서</li>
+                        <li>채권자 신원 증명 서류</li>
+                        <li>상대방의 처분 의사를 보여주는 증거 (문자, 이메일, 증인 진술 등)</li>
+                    </ul>
+                </div>
+
+                <div class="step-box">
+                    <span class="step-number">4단계</span>
+                    <h4>법원 접수</h4>
+                    <p>신청서와 첨부서류를 법원에 제출:</p>
+                    <ul>
+                        <li>인지 (수수료) 납부</li>
+                        <li>송달료 납부</li>
+                    </ul>
+                </div>
+
+                <div class="step-box">
+                    <span class="step-number">5단계</span>
+                    <h4>법원 심리</h4>
+                    <p>필요시 심문 기일에 출석:</p>
+                    <ul>
+                        <li>법원이 피보전권리, 보전의 필요성 판단</li>
+                        <li>상대방도 의견 제출 가능</li>
+                    </ul>
+                </div>
+
+                <div class="step-box">
+                    <span class="step-number">6단계</span>
+                    <h4>담보 제공 (필요시)</h4>
+                    <p>법원이 담보를 명령한 경우:</p>
+                    <ul>
+                        <li>일반적으로 인용 청구액의 10~20% 정도</li>
+                        <li>금전 공탁 또는 보증보험</li>
+                    </ul>
+                </div>
+
+                <div class="step-box">
+                    <span class="step-number">7단계</span>
+                    <h4>가처분 결정</h4>
+                    <p>법원의 결정:</p>
+                    <ul>
+                        <li>인용 → 처분금지 가처분 결정</li>
+                        <li>기각 → 거부</li>
+                    </ul>
+                </div>
+
+                <div class="step-box">
+                    <span class="step-number">8단계</span>
+                    <h4>등기촉탁</h4>
+                    <p><strong>가장 중요한 단계!</strong></p>
+                    <ul>
+                        <li>가처분 결정 후 즉시 부동산등기소에 등기촉탁</li>
+                        <li>지체하면 상대방이 처분할 수 있음</li>
+                        <li>등기부에 '처분금지 가처분' 표시</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="detail-section">
+                <h3>필요한 서류 상세</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>서류명</th>
+                            <th>발급기관</th>
+                            <th>주의사항</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>부동산등기사항전부증명서</td>
+                            <td>등기소 또는 인터넷등기소</td>
+                            <td>최신 발급본 (3개월 이내)</td>
+                        </tr>
+                        <tr>
+                            <td>매매계약서, 증여계약서 등</td>
+                            <td>-</td>
+                            <td>계약 관련 모든 서류 (원본 또는 사본)</td>
+                        </tr>
+                        <tr>
+                            <td>채권자 주민등록초본</td>
+                            <td>주민센터</td>
+                            <td>최근 3개월 이내</td>
+                        </tr>
+                        <tr>
+                            <td>채무자 주민등록초본</td>
+                            <td>주민센터</td>
+                            <td>최근 3개월 이내</td>
+                        </tr>
+                        <tr>
+                            <td>처분 의사 증거</td>
+                            <td>-</td>
+                            <td>문자메시지, 이메일, 부동산중개소 자료 등</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 섹션 4: Q&A -->
+        <section>
+            <h2>자주 하는 질문</h2>
+
+            <div class="qa-item question">
+                <div class="qa-question">처분금지 가처분 등기 후 상대방이 부동산을 팔면 그 등기는 어떻게 되나요?</div>
+                <div class="qa-answer">
+                    <p>처분금지 가처분이 등기된 후 이루어진 소유권이전등기는 가처분 채권자에 대하여 효력이 없습니다. 즉, 가처분 채권자는 그 등기를 무시하고 본안 승소 후 말소를 요구할 수 있습니다. 따라서 상대방이 팔아도 그 구매자가 자신의 것이 될 수 없습니다.</p>
+                </div>
+            </div>
+
+            <div class="qa-item question">
+                <div class="qa-question">처분금지 가처분이 있어도 상대방이 계속 거주할 수 있나요?</div>
+                <div class="qa-answer">
+                    <p>네, 가능합니다. 처분금지 가처분은 판매나 담보 설정을 금지하는 것이므로, 상대방은 계속 거주하고 사용할 수 있습니다. 거주를 멈추게 하려면 별도의 명도청구 가처분이나 본안 명도 소송이 필요합니다.</p>
+                </div>
+            </div>
+
+            <div class="qa-item question">
+                <div class="qa-question">처분금지 가처분 후 반드시 본안소송을 해야 하나요?</div>
+                <div class="qa-answer">
+                    <p>네, 반드시 해야 합니다. 가처분은 임시 처분이므로 최종적인 권리는 본안 소송을 통해서만 확정됩니다. 가처분 결정 후 일정 기간 내에 본안 소송을 제기하지 않으면, 상대방의 신청에 따라 가처분이 취소될 수 있습니다.</p>
+                </div>
+            </div>
+
+            <div class="qa-item question">
+                <div class="qa-question">가처분 신청 비용은 어떻게 되나요?</div>
+                <div class="qa-answer">
+                    <p>가처분 신청 시 법원 인지 (수수료)를 납부해야 합니다. 비용은 청구 금액(부동산 시가)에 따라 달라지며, 일반적으로 수십만 원에서 수백만 원대입니다. 본안에서 승소하면 법원 비용과 변호사 비용을 상대방에게 청구할 수 있습니다.</p>
+                </div>
+            </div>
+
+            <div class="qa-item question">
+                <div class="qa-question">여러 부동산에 처분금지 가처분을 동시에 신청할 수 있나요?</div>
+                <div class="qa-answer">
+                    <p>네, 가능합니다. 상대방이 여러 부동산에 대한 소유권이전청구권이 있다면, 같은 신청서에 여러 부동산을 기재하거나 별도의 신청서를 작성하여 동시에 신청할 수 있습니다. 법원이 피보전권리와 보전의 필요성을 인정하면 모두 인용될 것입니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 섹션 5: 판례 -->
+        <section>
+            <h2>관련 판례</h2>
+            <div class="ruling-box">
+                <span class="ruling-label">대법원 판시 내용</span>
+                대법원은 처분금지 가처분 이후에 이루어진 소유권이전등기는 가처분권자에 대하여 효력이 없으나, 그 등기 자체가 무효가 되는 것은 아니라고 판시하고 있습니다. 따라서 본안에서 승소한 가처분권자는 그 이후 등기를 말소하고 자신 명의로 변경할 수 있습니다.
+            </div>
+        </section>
+
+        <!-- 섹션 6: 주의사항 -->
+        <section>
+            <h2>주의사항</h2>
+
+            <div class="caution-item">
+                <div class="caution-label">
+                    <span class="caution-icon">⚡</span>
+                    기간 제한: 신속한 등기촉탁이 필수
+                </div>
+                <p>가처분 결정 후 등기촉탁을 즉시 해야 합니다. 지체하면 상대방이 미리 처분할 수 있으므로, 판사에게 결정 받은 당일 또는 다음날 등기소에 촉탁하는 것이 중요합니다. 또한 본안 소송을 신속히 진행해야 최종적 권리를 확보할 수 있습니다.</p>
+            </div>
+
+            <div class="caution-item warning">
+                <div class="caution-label">
+                    <span class="caution-icon">⚠️</span>
+                    잘못된 처리 결과
+                </div>
+                <p>부당한 처분금지 가처분 신청은 <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=030300" target="_blank" rel="noopener">민사집행법 제303조</a>에 따라 손해배상책임을 초래할 수 있습니다. 피보전권리가 없거나 보전의 필요성이 없는데 신청한 경우, 나중에 상대방으로부터 손해배상을 청구받을 수 있으므로 신중한 검토가 필요합니다.</p>
+            </div>
+
+            <div class="caution-item">
+                <div class="caution-label">
+                    <span class="caution-icon">ℹ️</span>
+                    예외 사항
+                </div>
+                <p>처분금지 가처분 등기 비용 (등기사항 기재 수수료)는 채권자가 부담합니다. 다만 본안에서 승소하면 등기 비용을 상대방에게 청구할 수 있으므로, 비용이 문제가 되지 않습니다.</p>
+            </div>
+        </section>
+
+        <!-- 섹션 7: 다음 확인사항 -->
+        <section>
+            <h2>다음에 확인할 사항</h2>
+            <div class="detail-section">
+                <ul>
+                    <li><strong>부동산 확인:</strong> 등기부를 통해 현재 소유자, 담보 현황 확인</li>
+                    <li><strong>피보전권리 입증:</strong> 계약서, 이메일, 문자 등으로 소유권이전청구권 입증</li>
+                    <li><strong>보전의 필요성 증거:</strong> 상대방의 처분 의사를 보여주는 증거 수집 (중개소 중개, 구매자 물색 정황 등)</li>
+                    <li><strong>본안 소송 대비:</strong> 가처분과 동시에 또는 가처분 직후 본안 소송 제기 준비</li>
+                    <li><strong>법률전문가 상담:</strong> 가처분 신청의 성공 가능성과 비용을 법무사/변호사와 검토</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 섹션 8: CTA -->
+        <section>
+            <div class="cta-box">
+                <h3>부동산이 팔려가기 전에</h3>
+                <p>처분금지 가처분은 신속한 대응이 중요합니다.</p>
+                <p>상대방의 처분을 막고 권리를 보전하세요.</p>
+                <p style="font-weight: 600; color: var(--navy);">법무사와 함께 지금 바로 신청하세요.</p>
+                <a href="#contact" class="cta-button">상담 신청하기</a>
+            </div>
+        </section>
+
+        <!-- 섹션 9: 면책 문구 -->
+        <div class="disclaimer">
+            <strong>면책 사항:</strong> 본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 특정 사건에 대한 법률 조언이 아닙니다. 실제 상황에 따라 법적 해석이 다를 수 있으므로, 정확한 법률 자문을 위해서는 반드시 법무사나 변호사와 개별 상담하시기 바랍니다.
+        </div>
+    </div>
+</body>
+</html>

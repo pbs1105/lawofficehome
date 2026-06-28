@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>국적별 외국인 부동산 취득 등기 첨부서류 가이드</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #1a2e4a;
+            --gold: #c8a96e;
+            --ivory-bg: #faf8f5;
+            --blue-box-bg: #eef2f8;
+            --blue-box-text: #2d4a7a;
+            --green-box-bg: #f0f8f0;
+            --green-box-text: #1a5c2e;
+            --orange-box-bg: #fff3e8;
+            --orange-box-text: #c05000;
+            --law-box-bg: #f7f4f0;
+            --law-box-text: #6b7280;
+            --country-box-bg: #f0f4ff;
+            --country-box-text: #3b5bdb;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: var(--navy);
+            background-color: var(--ivory-bg);
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .page-number {
+            font-size: 14px;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 32px;
+            color: var(--navy);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: var(--blue-box-text);
+            font-weight: 500;
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 22px;
+            color: var(--navy);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--gold);
+            font-weight: 700;
+        }
+
+        h3 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 18px;
+            color: var(--navy);
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        h4 {
+            font-size: 15px;
+            color: var(--navy);
+            margin-top: 18px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid var(--gold);
+            border-radius: 4px;
+        }
+
+        .info-box.blue {
+            background-color: var(--blue-box-bg);
+            color: var(--blue-box-text);
+            border-left-color: #2d4a7a;
+        }
+
+        .info-box.green {
+            background-color: var(--green-box-bg);
+            color: var(--green-box-text);
+            border-left-color: #1a5c2e;
+        }
+
+        .info-box.orange {
+            background-color: var(--orange-box-bg);
+            color: var(--orange-box-text);
+            border-left-color: #c05000;
+        }
+
+        .info-box.law {
+            background-color: var(--law-box-bg);
+            color: var(--law-box-text);
+            border-left-color: #6b7280;
+            font-size: 14px;
+        }
+
+        .info-box.country {
+            background-color: var(--country-box-bg);
+            color: var(--country-box-text);
+            border-left-color: #3b5bdb;
+        }
+
+        .info-box strong {
+            font-weight: 600;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Comparison Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        table th {
+            background-color: var(--navy);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        table td {
+            padding: 15px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        table tr:last-child td {
+            border-bottom: none;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        table tr:hover {
+            background-color: var(--blue-box-bg);
+        }
+
+        /* Q&A Styles */
+        .qa-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: white;
+            border-left: 4px solid var(--gold);
+            border-radius: 4px;
+        }
+
+        .qa-question {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .qa-answer {
+            color: var(--blue-box-text);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .disclaimer {
+            font-size: 12px;
+            color: #999;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* CTA Box */
+        .cta-box {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--blue-box-text) 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .cta-box h3 {
+            color: white;
+            border: none;
+            margin-top: 0;
+            font-size: 20px;
+        }
+
+        .cta-box p {
+            color: #f0f0f0;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--navy);
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 15px;
+        }
+
+        .cta-button:hover {
+            background-color: #d4b896;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--law-box-bg);
+            padding: 30px;
+            margin-top: 60px;
+            border-top: 2px solid var(--gold);
+        }
+
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 13px;
+            color: var(--law-box-text);
+            line-height: 1.6;
+        }
+
+        .footer-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--navy);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+
+            table {
+                font-size: 13px;
+            }
+
+            table th, table td {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+        }
+
+        /* Highlight */
+        .highlight {
+            background-color: #fff9e6;
+            padding: 2px 4px;
+            border-radius: 2px;
+        }
+
+        /* Key Term */
+        .key-term {
+            font-weight: 600;
+            color: var(--blue-box-text);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="page-number">06번 페이지</div>
+            <h1>국적별 외국인 부동산 취득 등기 첨부서류 가이드</h1>
+            <p class="subtitle">미국인·일본인 사례 포함</p>
+        </header>
+
+        <!-- 개요 -->
+        <section>
+            <p>이 페이지는 외국인이 한국 부동산 취득 시 국적(체류 상태)에 따라 달라지는 <span class="key-term">첨부서류</span>를 안내합니다. 특히 <span class="key-term">입국 여부</span>와 <span class="key-term">국가의 인감증명제도 유무</span>가 준비할 서류를 크게 좌우합니다.</p>
+        </section>
+
+        <!-- 핵심 기준 -->
+        <section>
+            <h2>첨부서류 차이의 핵심 기준 2가지</h2>
+
+            <h3>1. 국내 입국(체류) 여부에 따른 차이</h3>
+
+            <div class="info-box blue">
+                <h4>입국한 경우 (국내 거주 외국인)</h4>
+                <ul>
+                    <li>외국인등록증 또는 국내거소신고증 제출 가능</li>
+                    <li>인감증명법에 따른 인감증명서 또는 본인서명사실확인서 제출 가능</li>
+                </ul>
+            </div>
+
+            <div class="info-box orange">
+                <h4>미입국인 경우 (해외 거주 외국인)</h4>
+                <ul>
+                    <li>재외공관 공증 또는 아포스티유가 붙은 여권 관련 서류 필수</li>
+                    <li>처분위임장에 서명공증 필요</li>
+                </ul>
+            </div>
+
+            <h3>2. 인감증명제도 유무에 따른 차이</h3>
+
+            <div class="info-box country">
+                <h4>인감증명 제도 있는 국가 (예: 일본, 대만)</h4>
+                <p><strong>본국 관공서 발행 인감증명서 제출 가능</strong></p>
+                <p><em>(등기예규 제1778호 제12조 제1항)</em></p>
+                <p><strong>참고:</strong> 매수인 인적사항이 기재된 부동상등기용 인감증명은 요구되지 않음 (등기선례 제200610-12호, 2006.10.31.)</p>
+            </div>
+
+            <div class="info-box green">
+                <h4>인감증명 제도 없는 국가 (예: 미국, 영국, 캐나다)</h4>
+                <p><strong>서명공증으로 인감증명 대체</strong></p>
+                <ul style="margin-top: 10px;">
+                    <li>본인이 작성하였음이 틀림없다는 뜻의 서명 필수</li>
+                    <li>본국 관공서의 증명 또는 본국/대한민국 공증인의 인증 필요</li>
+                    <li>재외공관 인증도 가능 (등기예규 제1778호 제12조 제2항)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 주소증명 -->
+        <section>
+            <h2>주소를 증명하는 서면</h2>
+            <p><em>(등기예규 제1778호 제13조 규정)</em></p>
+
+            <h3>국내 체류 외국인</h3>
+            <div class="info-box blue">
+                <p><strong>외국인등록사실증명</strong> (출입국관리사무소 발급)</p>
+                <p>등록번호 및 주소 증명으로 제출 가능 (등기선례 7-182)</p>
+            </div>
+
+            <h3>해외 거주 외국인 (미국인 사례)</h3>
+            <div class="info-box country">
+                <p><strong>거주사실증명서</strong> (Proof of Residency for U.S. Citizens)</p>
+                <p>본국 공증서면 형태로 제출. 영문 원본 + 한글 번역문 필수</p>
+            </div>
+
+            <h3>해외 거주 외국인 (일본인 사례)</h3>
+            <div class="info-box country">
+                <p><strong>주민표</strong> (일본 주민등록과 동일한 역할)</p>
+                <p>일본 관공서 발행 증명서. 아포스티유 필수, 한글 번역문 필수</p>
+            </div>
+        </section>
+
+        <!-- 번역문 처리 -->
+        <section>
+            <h2>번역문 처리</h2>
+
+            <div class="info-box law">
+                <h4>번역문 작성 방법</h4>
+                <ul>
+                    <li>외국어로 작성된 서류에는 <strong>번역문 필수</strong></li>
+                    <li>번역문에 기재사항:
+                        <ul style="margin-top: 8px;">
+                            <li>원문과 다름이 없다는 뜻</li>
+                            <li>번역인의 성명·주소</li>
+                            <li>번역인의 날인 또는 서명</li>
+                            <li>번역인의 신분증 사본</li>
+                        </ul>
+                    </li>
+                    <li><em>(등기예규 제1778호 제4조 제2항)</em></li>
+                </ul>
+            </div>
+
+            <div class="info-box blue">
+                <h4>번역인의 자격</h4>
+                <p>번역인의 자격에는 <strong>제한이 없음</strong> (등기선례 1-22, 1997.11.5.)</p>
+                <p>즉, 공인번역가가 아니어도 가능하며, 가족이나 지인이 번역해도 됩니다.</p>
+            </div>
+
+            <div class="info-box green">
+                <h4>인증을 받은 경우</h4>
+                <p>번역문을 공증인으로부터 인증받아 제출하는 경우, 번역인 서명은 불필요합니다.</p>
+            </div>
+        </section>
+
+        <!-- 아포스티유 -->
+        <section>
+            <h2>아포스티유(Apostille)</h2>
+
+            <div class="info-box law">
+                <p><strong>아포스티유란:</strong> 외국에서 공증받은 사문서나 외국 발행 공문서의 진정성을 증명하는 국제 인증서</p>
+                <h4 style="margin-top: 15px;">적용 범위</h4>
+                <ul>
+                    <li><strong>아포스티유 가입국:</strong> 발행 공문서나 공증 사문서에 아포스티유를 붙여야 함</li>
+                    <li><strong>아포스티유 미가입국:</strong> 재외공관(대사관·영사관) 공증으로 대체 가능</li>
+                </ul>
+                <p><em>(등기예규 제1778호 제4조 제1항)</em></p>
+            </div>
+        </section>
+
+        <!-- 미국인 첨부서류 비교표 -->
+        <section>
+            <h2>첨부서류 비교표 (미국인 매수인)</h2>
+            <p>외국인이 매수인으로 부동산을 취득할 때 준비해야 할 서류 목록입니다.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>서류</th>
+                        <th>입국한 경우</th>
+                        <th>미입국인 경우</th>
+                        <th>비고</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>등기신청서</td>
+                        <td>필수</td>
+                        <td>필수</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>매매계약서 (검인)</td>
+                        <td>필수</td>
+                        <td>필수</td>
+                        <td>원본, 인지세 납부</td>
+                    </tr>
+                    <tr>
+                        <td>부동산등기용등록번호증명서</td>
+                        <td>필수</td>
+                        <td>필수</td>
+                        <td>외국인등록증 또는 별도 신청</td>
+                    </tr>
+                    <tr>
+                        <td>외국인등록사실증명</td>
+                        <td>필수</td>
+                        <td>—</td>
+                        <td>주소·등록번호 증명</td>
+                    </tr>
+                    <tr>
+                        <td>여권사본 (공증)</td>
+                        <td>—</td>
+                        <td>필수/아포스티유</td>
+                        <td>재외공관 확인 또는 아포스티유</td>
+                    </tr>
+                    <tr>
+                        <td>주소증명서 (거주사실증명서)</td>
+                        <td>외국인등록증으로 대체</td>
+                        <td>필수/번역</td>
+                        <td>영문, 한글 번역문 필수</td>
+                    </tr>
+                    <tr>
+                        <td>취득세 영수증</td>
+                        <td>필수</td>
+                        <td>필수</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>인지세 (해당 시)</td>
+                        <td>필수</td>
+                        <td>필수</td>
+                        <td>거래금액 1,000만원 초과 시</td>
+                    </tr>
+                    <tr>
+                        <td>토지취득허가증 (해당 시)</td>
+                        <td>해당 시</td>
+                        <td>해당 시</td>
+                        <td>허가 대상 지역의 토지 취득 시</td>
+                    </tr>
+                    <tr>
+                        <td>토지이용계획확인서 (비허가 지역)</td>
+                        <td>해당 시</td>
+                        <td>해당 시</td>
+                        <td>허가 대상 아님을 소명 시</td>
+                    </tr>
+                    <tr>
+                        <td>번역문</td>
+                        <td>해당 시</td>
+                        <td>해당 시</td>
+                        <td>외국어 서류 있는 경우</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 일본인 첨부서류 비교표 -->
+        <section>
+            <h2>첨부서류 비교표 (일본인 매수인)</h2>
+            <p>일본은 인감증명제도가 있어 미국과 달리 준비 절차가 다릅니다.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>서류</th>
+                        <th>입국한 경우</th>
+                        <th>미입국인 경우</th>
+                        <th>비고</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>부동산등기용등록번호증명서</td>
+                        <td>필수</td>
+                        <td>필수</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>주소증명서</td>
+                        <td>외국인등록증 또는 일본 주민표</td>
+                        <td>일본 주민표/아포스티유/번역</td>
+                        <td>일본 관공서 발행 주민표</td>
+                    </tr>
+                    <tr>
+                        <td>인감증명서</td>
+                        <td>인감증명법 또는 일본 인감증명</td>
+                        <td>일본 인감증명/아포스티유</td>
+                        <td>인감증명제도 있음. 부동산매도용 불필요</td>
+                    </tr>
+                    <tr>
+                        <td>번역문</td>
+                        <td>해당 시</td>
+                        <td>해당 시</td>
+                        <td>외국어 서류 있는 경우</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 관련 예규·선례 -->
+        <section>
+            <h2>관련 등기예규·등기선례</h2>
+
+            <div class="info-box law">
+                <h4>등기예규 제1778호</h4>
+                <ul>
+                    <li>제4조: 아포스티유·번역문</li>
+                    <li>제12조: 인감증명 대용 (서명공증)</li>
+                    <li>제13조: 주소 증명</li>
+                    <li>제14조: 등록번호</li>
+                </ul>
+
+                <h4 style="margin-top: 15px;">등기선례</h4>
+                <ul>
+                    <li><strong>7-182:</strong> 외국인등록사실증명 = 등록번호 + 주소 증명</li>
+                    <li><strong>1-22 (1997.11.5.):</strong> 번역인 자격에 제한 없음</li>
+                    <li><strong>제200610-12호 (2006.10.31.):</strong> 일본인 인감증명 — 부동산매도용 불필요</li>
+                    <li><strong>7-31:</strong> 계약서 사본 불가, 원본만 제출</li>
+                </ul>
+
+                <h4 style="margin-top: 15px;">기타 예규</h4>
+                <ul>
+                    <li>등기예규 제1419호: 인지세</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Q&A -->
+        <section>
+            <h2>자주 묻는 질문 (Q&A)</h2>
+
+            <div class="qa-item">
+                <div class="qa-question">Q1. 미국인은 인감증명서가 없는데 어떻게 하나요?</div>
+                <div class="qa-answer">
+                    <p><strong>A:</strong> 미국은 인감증명제도가 없으므로, <strong>서명공증으로 인감증명을 대체</strong>합니다. 부동산 매매 계약서나 처분위임장에 서명한 후, 본국 공증인(Notary Public) 또는 재외공관(대사관·영사관)에서 서명 및 인지 진정을 받으면 됩니다. 서명공증은 아포스티유가 붙으면 더욱 강력한 증명력을 갖습니다.</p>
+                    <p class="disclaimer">본 답변은 일반 정보 제공 목적이며, 구체적인 법률 자문은 법무사 또는 변호사의 상담을 권장합니다.</p>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="qa-question">Q2. 일본인의 일본 인감증명서는 매도용으로 발급받아야 하나요?</div>
+                <div class="qa-answer">
+                    <p><strong>A:</strong> <strong>아니요, 일반 인감증명서로 충분합니다.</strong> 부동산 매도용(부동산상등기용) 인감증명서를 별도로 발급받을 필요가 없습니다. 이는 등기선례 제200610-12호(2006.10.31.)에서 명시한 바입니다.</p>
+                    <p class="disclaimer">본 답변은 일반 정보 제공 목적이며, 구체적인 법률 자문은 법무사 또는 변호사의 상담을 권장합니다.</p>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="qa-question">Q3. 외국어 서류 번역은 반드시 공인번역가가 해야 하나요?</div>
+                <div class="qa-answer">
+                    <p><strong>A:</strong> <strong>아니요, 자격 제한이 없습니다.</strong> 등기선례 1-22(1997.11.5.)에 따르면, 번역인의 자격에는 제한이 없습니다. 즉, 가족이나 지인이 번역해도 되며, 공인번역가일 필요는 없습니다. 다만 번역문에 번역인의 성명·주소와 날인 또는 서명이 필수입니다.</p>
+                    <p class="disclaimer">본 답변은 일반 정보 제공 목적이며, 구체적인 법률 자문은 법무사 또는 변호사의 상담을 권장합니다.</p>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="qa-question">Q4. 외국인등록사실증명이 있으면 주소증명서를 별도로 제출하지 않아도 되나요?</div>
+                <div class="qa-answer">
+                    <p><strong>A:</strong> <strong>예, 외국인등록사실증명으로 주소를 증명할 수 있습니다.</strong> 등기선례 7-182에 따르면, 외국인등록사실증명은 등록번호와 주소를 함께 증명하므로, 별도의 주소증명서를 제출할 필요가 없습니다.</p>
+                    <p class="disclaimer">본 답변은 일반 정보 제공 목적이며, 구체적인 법률 자문은 법무사 또는 변호사의 상담을 권장합니다.</p>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="qa-question">Q5. 아포스티유가 없는 나라의 서류는 어떻게 처리하나요?</div>
+                <div class="qa-answer">
+                    <p><strong>A:</strong> <strong>재외공관 공증으로 대체 가능합니다.</strong> 아포스티유 미가입국의 공문서는 한국의 재외공관(대사관, 영사관)에서 공증을 받으면 한국 등기부상 효력이 있습니다. 예를 들어, 미국의 경우 한국 대사관이나 영사관에서 미국 서류의 진정성을 공증받으면 됩니다.</p>
+                    <p class="disclaimer">본 답변은 일반 정보 제공 목적이며, 구체적인 법률 자문은 법무사 또는 변호사의 상담을 권장합니다.</p>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="qa-question">Q6. 국내 거주 외국인과 해외 거주 외국인의 서류 차이는 무엇인가요?</div>
+                <div class="qa-answer">
+                    <p><strong>A:</strong> 가장 큰 차이는 <strong>본인 확인 및 주소 증명</strong>입니다:</p>
+                    <ul>
+                        <li><strong>국내 거주 외국인:</strong> 외국인등록증으로 신원과 주소를 한 번에 증명 가능. 인감증명서나 본인서명사실확인서 제출 가능.</li>
+                        <li><strong>해외 거주 외국인:</strong> 여권 + 공증(또는 아포스티유), 거주사실증명서, 서명공증 등 복수의 문서 필요. 국내에 신원 기록이 없으므로 공증/아포스티유를 통해 진정성 증명.</li>
+                    </ul>
+                    <p class="disclaimer">본 답변은 일반 정보 제공 목적이며, 구체적인 법률 자문은 법무사 또는 변호사의 상담을 권장합니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Box -->
+        <div class="cta-box">
+            <h3>전문가 상담이 필요하신가요?</h3>
+            <p>외국인 부동산 등기는 국적과 체류 상태에 따라 복잡할 수 있습니다. 정확한 서류 준비와 등기 절차를 위해 법무사 상담을 받으세요.</p>
+            <button class="cta-button" onclick="alert('법무사 상담 예약 페이지로 이동합니다.')">법무사 상담 예약</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-title">면책 조항</div>
+            <p>
+                본 페이지의 정보는 <strong>2025년 기준</strong>으로 작성된 일반 정보 제공 목적의 가이드입니다.
+                법령 변경, 예규 및 선례의 업데이트에 따라 내용이 달라질 수 있습니다.
+                구체적인 개별 사건의 서류 준비나 법적 조언이 필요한 경우,
+                <strong>반드시 법무사 또는 변호사와 상담</strong>하여 정확한 지도를 받으시기 바랍니다.
+                본 페이지의 내용으로 인한 법적 책임은 지지 않습니다.
+            </p>
+            <p style="margin-top: 15px; border-top: 1px solid #ccc; padding-top: 15px;">
+                <strong>발행일:</strong> 2025년 | <strong>유형:</strong> 절차형(유형2) | <strong>페이지:</strong> 06번
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

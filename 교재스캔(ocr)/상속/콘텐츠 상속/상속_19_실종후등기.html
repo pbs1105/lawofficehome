@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>실종선고 후 소유권이전등기 | 상속등기 실무안내</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>/* ===== UNIFIED BASE CSS ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #1a2e4a;
+  --gold: #c8a96e;
+  --bg: #faf8f5;
+  --text: #2c2c2c;
+  --summary-bg: #eef2f8;
+  --summary-bd: #2d4a7a;
+  --cta-bg: #fdf6e9;
+  --cta-bd: #c8a96e;
+  --case-bg: #f0f8f0;
+  --case-bd: #1a5c2e;
+  --ruling-bg: #f7f4f0;
+  --ruling-bd: #6b7280;
+  --warn-bg: #fff3e8;
+  --warn-bd: #c05000;
+  --rank-bg: #f4f7fb;
+  --rank-bd: #2d4a7a;
+  /* 하위 호환 */
+  --proc-bg: #e8f0fb;
+  --step-bg: #f0f4fb;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  font-size: 16px;
+}
+a { color: var(--navy); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ─── 헤더 ─── */
+header {
+  background: var(--navy);
+  color: #fff;
+  padding: 48px 24px 40px;
+  text-align: center;
+}
+header .breadcrumb {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 12px;
+  letter-spacing: 0.03em;
+}
+header h1 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+header .subtitle {
+  font-size: 15px;
+  color: var(--gold);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* ─── 레이아웃 ─── */
+.container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+/* 하위 호환: 기존 .page-wrap, .sec-inner 등 */
+.page-wrap, .sec-inner, .hd-inner { max-width: 820px; margin: 0 auto; padding: 0 20px; }
+
+section {
+  padding: 48px 0;
+  border-bottom: 1px solid #e4ddd4;
+}
+section:last-of-type { border-bottom: none; }
+/* 하위 호환: 기존 section 안에 있는 .sec-inner가 패딩 담당하는 구조 */
+section.sec-padded { padding: 48px 24px; }
+
+/* ─── 섹션 제목 ─── */
+h2 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--navy);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+h2 .tag {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: var(--navy);
+  color: var(--gold);
+  margin-right: 8px;
+  vertical-align: middle;
+}
+/* 하위 호환: 기존 .section-title 스타일을 h2 스펙에 맞게 재정의 */
+.section-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--navy);
+  border-bottom: 2px solid var(--gold);
+  border-left: none;
+  padding-bottom: 10px;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+.section-title .num {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: var(--navy);
+  color: var(--gold);
+  margin-right: 8px;
+  vertical-align: middle;
+  display: inline;
+}
+h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 28px 0 12px;
+}
+
+/* ─── 태그 & 배지 ─── */
+.law-tag {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: #e8edf5;
+  color: #2d4a7a;
+  display: inline-block;
+}
+.badge-red {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: #fde8e8;
+  color: #b00;
+  display: inline-block;
+}
+.badge-green {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: #e8f5e9;
+  color: #1a5c2e;
+  display: inline-block;
+}
+.q-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: var(--navy);
+  color: var(--gold);
+  display: inline-block;
+}
+
+/* ─── 컬러 박스 공통 (좌측 보더 패턴) ─── */
+.summary-box, .case-box, .ruling-box, .warn-box {
+  border-left: 4px solid;
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+
+/* 핵심요약 */
+.summary-box {
+  background: var(--summary-bg);
+  border-left-color: var(--summary-bd);
+}
+.summary-box .label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--summary-bd);
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+  display: block;
+}
+.summary-box ul { padding-left: 18px; }
+.summary-box li { margin-bottom: 8px; font-size: 14.5px; }
+
+/* 사례 */
+.case-box {
+  background: var(--case-bg);
+  border-left-color: var(--case-bd);
+}
+.case-box .case-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--case-bd);
+  margin-bottom: 8px;
+  display: block;
+}
+.case-box p { font-size: 14.5px; }
+
+/* 판례 */
+.ruling-box {
+  background: var(--ruling-bg);
+  border-left-color: var(--ruling-bd);
+}
+.ruling-box .ruling-header {
+  font-size: 13px;
+  font-weight: 700;
+  color: #444;
+  margin-bottom: 8px;
+  display: block;
+}
+.ruling-box .ruling-header::before {
+  content: "判";
+  background: var(--ruling-bd);
+  color: #fff;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-right: 8px;
+  font-size: 11px;
+}
+.ruling-box p { font-size: 14.5px; }
+/* 하위 호환: 기존 .ruling-card 클래스도 동일 스타일로 */
+.ruling-card {
+  background: var(--ruling-bg);
+  border-left: 4px solid var(--ruling-bd);
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+.ruling-card .r-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #5a6475;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+.ruling-card .r-label::before {
+  content: "判";
+  background: var(--ruling-bd);
+  color: #fff;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-right: 8px;
+  font-size: 11px;
+}
+.ruling-card .r-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.ruling-card .r-body { font-size: 14.5px; line-height: 1.65; }
+
+/* 주의사항 */
+.warn-box {
+  background: var(--warn-bg);
+  border-left-color: var(--warn-bd);
+}
+.warn-box .warn-title, .warn-box .w-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--warn-bd);
+  margin-bottom: 8px;
+  display: block;
+}
+.warn-box p, .warn-box li { font-size: 14.5px; }
+.warn-box ul { padding-left: 18px; }
+.warn-box li { margin-bottom: 6px; }
+
+/* ─── 테이블 ─── */
+.table-wrap { overflow-x: auto; margin: 20px 0; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 480px;
+}
+.tbl-wrap { overflow-x: auto; margin: 20px 0; }
+thead th {
+  background: var(--navy);
+  color: #fff;
+  padding: 11px 14px;
+  font-size: 13px;
+  text-align: left;
+  font-weight: 700;
+}
+tbody td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #e4ddd4;
+  line-height: 1.6;
+  vertical-align: top;
+}
+tbody tr:nth-child(even) td { background: #f5f2ee; }
+tbody tr:hover td { background: #eee8e0; }
+td.highlight { font-weight: 700; color: var(--navy); }
+td.gold { font-weight: 700; color: #8a5e00; background: #fffbf0; }
+
+/* ─── 체크리스트 ─── */
+.checklist {
+  background: #fff;
+  border: 1px solid #ddd6ce;
+  border-radius: 8px;
+  padding: 24px 28px;
+  list-style: none;
+}
+.checklist li {
+  padding: 6px 0;
+  font-size: 14.5px;
+  border-bottom: 1px dashed #e8e0d8;
+}
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before {
+  content: "✓";
+  color: var(--gold);
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+/* ─── Q&A (통합: .qna- 및 하위 호환 .qa-) ─── */
+.qna-item, .qa-item {
+  border: 1px solid #e0d9d0;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+.qna-q, .qa-q {
+  background: #fff;
+  padding: 16px 20px;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--navy);
+  cursor: pointer;
+}
+.qna-a, .qa-a {
+  background: #faf8f5;
+  padding: 16px 20px 16px 48px;
+  font-size: 14.5px;
+  border-top: 1px solid #e0d9d0;
+  line-height: 1.75;
+}
+.qna-a .disclaimer {
+  font-size: 12px;
+  color: #888;
+  margin-top: 10px;
+  border-top: 1px dashed #ccc;
+  padding-top: 8px;
+}
+
+/* ─── 기간 경고 배너 ─── */
+.deadline-banner {
+  background: #fff8f6;
+  border: 2px solid #c0392b;
+  border-radius: 8px;
+  margin: 24px 0;
+  padding: 18px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.deadline-banner .dl-icon, .deadline-banner .icon {
+  font-size: 26px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.deadline-banner .dl-text, .deadline-banner .text { flex: 1; }
+.deadline-banner h4, .deadline-banner strong { color: #7a0000; font-weight: 700; }
+.deadline-banner p { font-size: 13.5px; color: #555; line-height: 1.6; margin-top: 4px; }
+
+/* ─── 다음 페이지 링크 ─── */
+.next-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+.next-link {
+  background: #fff;
+  border: 1px solid #ddd6ce;
+  border-radius: 8px;
+  padding: 16px 18px;
+  font-size: 14px;
+  color: var(--navy);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.next-link:hover {
+  border-color: var(--gold);
+  box-shadow: 0 2px 8px rgba(200,169,110,0.15);
+  text-decoration: none;
+}
+.next-link .arrow { color: var(--gold); font-size: 18px; flex-shrink: 0; }
+
+/* ─── CTA 박스 ─── */
+.cta-box {
+  background: var(--cta-bg);
+  border: 1px solid var(--cta-bd);
+  border-radius: 10px;
+  padding: 32px 28px;
+  text-align: center;
+  margin: 40px 0 0;
+}
+.cta-box h3 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+  border: none;
+  padding: 0;
+}
+.cta-box p {
+  font-size: 14.5px;
+  color: #4a4a5a;
+  margin-bottom: 20px;
+}
+.cta-btn {
+  display: inline-block;
+  background: var(--navy);
+  color: #fff;
+  padding: 14px 36px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.cta-btn:hover { background: #26426a; text-decoration: none; }
+
+/* ─── 면책 섹션 ─── */
+.disclaimer-section {
+  background: #f2f0ec;
+  padding: 28px;
+  border-radius: 8px;
+  margin: 40px 0 0;
+}
+.disclaimer-section p, .disclaimer {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.8;
+}
+
+/* ─── 반응형 ─── */
+@media (max-width: 600px) {
+  header { padding: 36px 16px 28px; }
+  section { padding: 36px 0; }
+  .summary-box, .case-box, .ruling-box, .warn-box,
+  .ruling-card { padding: 16px 18px; }
+  .qna-a, .qa-a { padding-left: 20px; }
+  .cta-box { padding: 24px 20px; }
+  .cta-btn { padding: 12px 28px; }
+  .next-links { grid-template-columns: 1fr; }
+}
+
+
+/* ===== PAGE-SPECIFIC STYLES ===== */
+*{box-sizing:border-box;margin:0;padding:0;}
+
+.target-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.target-card{background:var(--summary-bg);border-left:4px solid var(--summary-bd);border-radius:6px;padding:14px 16px;font-size:14px;line-height:1.6;}
+.target-card strong{display:block;color:var(--navy);font-size:13px;margin-bottom:4px;}
+@media(max-width:600px){.target-grid{grid-template-columns:1fr;}}
+
+.summary-row:last-child{margin-bottom:0;}
+.s-key{min-width:110px;font-weight:700;color:var(--navy);}
+.s-val{flex:1;color:#333;}
+
+.miss-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:8px 0 24px;}
+.miss-card{border-radius:10px;padding:20px 18px;}
+.miss-card.ordinary{background:#e8f0fb;border:2px solid #2d4a7a;}
+.miss-card.special{background:#fef3e0;border:2px solid #c8a96e;}
+.miss-type{font-size:11px;font-weight:700;letter-spacing:.08em;margin-bottom:8px;}
+.miss-type.ordinary{color:#2d4a7a;}
+.miss-type.special{color:#7a4000;}
+.miss-name{font-family:'Noto Serif KR',serif;font-size:18px;font-weight:700;color:var(--navy);margin-bottom:12px;}
+.miss-row{font-size:13px;color:#444;margin-bottom:6px;display:flex;gap:8px;}
+.miss-label{font-weight:700;color:var(--navy);min-width:52px;}
+@media(max-width:600px){.miss-grid{grid-template-columns:1fr;}}
+
+.flow-wrap{margin:8px 0 28px;}
+.flow-step{display:flex;gap:16px;align-items:flex-start;}
+.flow-node{display:flex;flex-direction:column;align-items:center;min-width:54px;}
+.flow-circle{width:42px;height:42px;border-radius:50%;background:var(--navy);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.flow-arrow{width:2px;height:28px;background:var(--gold);margin:3px auto;}
+.flow-
+.flow-title{font-weight:700;color:var(--navy);font-size:15px;margin-bottom:4px;}
+.flow-desc{font-size:13px;color:#444;line-height:1.6;}
+.flow-step:last-child .flow-
+
+.step-block{background:var(--step-bg);border:1px solid #c8d4ea;border-radius:10px;padding:22px 24px;margin-bottom:20px;}
+.step-block-head{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.step-num{background:var(--navy);color:#fff;width:30px;height:30px;border-radius:50%;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.step-block-head 
+
+.record-box{background:#fffdf5;border:2px solid var(--gold);border-radius:8px;padding:18px 20px;margin:12px 0;}
+.record-box h4{font-weight:700;color:var(--navy);margin-bottom:12px;font-size:14px;}
+.record-example{font-family:monospace;background:#fff;border:1px solid #e0d9d0;border-radius:6px;padding:14px 16px;font-size:14px;color:#333;line-height:1.8;}
+.record-note{font-size:12px;color:#777;margin-top:8px;line-height:1.6;}
+
+.attach-split{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0;}
+.attach-card{border-radius:8px;padding:16px;font-size:14px;}
+.attach-card.need{background:var(--case-bg);border-left:4px solid var(--case-bd);}
+.attach-card.noneed{background:#f5f0ff;border-left:4px solid #7c3aed;}
+.attach-card strong{display:block;margin-bottom:6px;font-size:13px;color:var(--navy);}
+@media(max-width:600px){.attach-split{grid-template-columns:1fr;}}
+
+.cancel-flow{background:#fff3e8;border:1.5px solid var(--warn-bd);border-radius:8px;padding:18px 20px;margin:12px 0;}
+.cancel-flow h4{font-weight:700;color:#7a3000;margin-bottom:10px;font-size:14px;}
+.cancel-step{display:flex;gap:10px;margin-bottom:8px;font-size:14px;align-items:flex-start;}
+.cancel-step:last-child{margin-bottom:0;}
+.cs-num{background:#c05000;color:#fff;width:22px;height:22px;border-radius:50%;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+
+.doc-category{margin-bottom:24px;}
+.doc-cat-title{font-weight:700;color:var(--navy);font-size:15px;margin-bottom:12px;padding-left:10px;border-left:4px solid var(--gold);}
+.doc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.doc-card{background:#fff;border:1px solid #dde3ec;border-radius:8px;padding:14px 16px;}
+.doc-name{font-weight:700;font-size:14px;color:var(--navy);margin-bottom:4px;}
+.doc-note{font-size:12px;color:#666;line-height:1.5;}
+.doc-req{font-size:11px;font-weight:700;padding:2px 6px;border-radius:3px;margin-left:6px;}
+.req-필수{background:#e8f0fb;color:#1a3a6a;}
+.req-조건{background:#fef3e0;color:#7a4000;}
+@media(max-width:600px){.doc-grid{grid-template-columns:1fr;}}
+
+.fee-
+.fee-table th{background:var(--navy);color:#fff;padding:10px 14px;text-align:left;font-weight:600;}
+.fee-table td{padding:10px 14px;border-bottom:1px solid #dde3ec;vertical-align:top;}
+.fee-table tr:last-child td{border-bottom:none;}
+.fee-note{font-size:12px;color:#666;margin-top:14px;line-height:1.6;}
+
+.ruling-cite{font-size:12px;font-weight:700;color:#555;margin-bottom:6px;}
+.ruling-summary{font-size:14px;color:#333;line-height:1.65;}
+.ruling-point{display:inline-block;background:#ede9e5;color:var(--navy);font-size:12px;font-weight:700;padding:2px 8px;border-radius:3px;margin-top:8px;}
+
+.warn-list{display:flex;flex-direction:column;gap:12px;}
+.warn-item{display:flex;gap:14px;background:var(--warn-bg);border:1px solid var(--warn-bd);border-radius:8px;padding:16px 18px;align-items:flex-start;}
+.warn-icon{font-size:20px;flex-shrink:0;margin-top:1px;}
+.warn-text strong{display:block;color:#7a3000;font-size:14px;margin-bottom:4px;}
+.warn-text p{font-size:13px;color:#555;line-height:1.6;}
+
+.qa-q::after{content:'＋';font-size:18px;flex-shrink:0;}
+.qa-
+
+.next-card{background:#fff;border:1px solid #dde3ec;border-radius:8px;padding:18px;text-decoration:none;transition:border-color .2s,box-shadow .2s;}
+.next-card:hover{border-color:var(--navy);box-shadow:0 2px 12px rgba(26,46,74,.08);}
+.next-dir{font-size:11px;font-weight:700;color:var(--gold);margin-bottom:4px;letter-spacing:.05em;}
+.next-title{font-size:14px;font-weight:700;color:var(--navy);}
+.next-desc{font-size:12px;color:#666;margin-top:4px;}
+@media(max-width:600px){}
+
+.cta-btn.outline{background:#fff;color:var(--navy);border:2px solid var(--navy);}
+@media(max-width:600px){}
+/* ─── 법령·판례 클릭 태그 ─── */
+.ref-tags {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.tag-law {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: #eef2f8;
+  color: #2d4a7a;
+  border: 1px solid #2d4a7a;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.tag-law:hover { background-color: #dce6f5; }
+.tag-case {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: #f7f4f0;
+  color: #5a3e28;
+  border: 1px solid #6b7280;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.tag-case:hover { background-color: #ede8e2; }
+/* law-ref 인라인 스타일을 tag-law 와 통일 */
+span.law-ref a, .tag-law { cursor: pointer; }
+
+</style></head>
+<body>
+<!-- ────────────────────── HEADER ────────────────────── -->
+<header>
+<div class="breadcrumb">유형2 · 절차형</div>
+<h1>실종선고 후<br/>소유권이전등기</h1>
+<div class="subtitle">오랫동안 연락이 끊긴 가족의 재산 — 실종선고와 상속등기의 모든 것</div>
+</header>
+<!-- ────────────────────── 1. 이런분께 ────────────────────── -->
+<section>
+<div class="container">
+<p class="sec-label">Section 01</p>
+<h2 class="sec-title">이런 분께 필요한 안내입니다</h2>
+<div class="target-grid">
+<div class="target-card"><strong>수십 년째 연락이 끊긴 가족의 부동산이 있는 경우</strong>부재자가 실종선고를 받아 사망으로 간주되었고, 그 명의의 부동산에 대해 상속등기를 해야 하는 분</div>
+<div class="target-card"><strong>실종선고심판을 받았거나 진행 중인 경우</strong>가정법원에서 실종선고심판을 받은 뒤 등기 절차를 어떻게 진행해야 하는지 모르는 분</div>
+<div class="target-card"><strong>이미 상속등기가 완료된 후 실종선고가 난 경우</strong>공동상속인 중 1인이 나중에 실종선고심판을 받아 등기를 경정해야 하는 상황의 상속인</div>
+<div class="target-card"><strong>실종선고 취소 후 등기 문제가 생긴 경우</strong>실종선고를 받은 사람이 살아 있는 것으로 밝혀져 실종선고가 취소된 경우 등기 처리가 궁금한 분</div>
+</div>
+</div>
+</section>
+<!-- ────────────────────── 2. 핵심요약 ────────────────────── -->
+<section>
+<div class="container">
+<p class="sec-label">Section 02</p>
+<h2 class="sec-title">핵심 요약 — 한눈에 보기</h2>
+<div class="summary-box">
+<h3>실종선고 등기의 핵심 원칙</h3>
+<div class="summary-row"><span class="s-key">등기원인</span><span class="s-val">"상속" — 등기원인은 실종선고가 아닌 <strong>상속</strong>으로 기재</span></div>
+<div class="summary-row"><span class="s-key">원인일자</span><span class="s-val"><strong>실종기간 만료일</strong> (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=002800" target="_blank" class="tag-law">📋 민법 제28조 — 실종기간 만료 시 사망으로 간주</a>)</span></div>
+<div class="summary-row"><span class="s-key">등기기록 표시</span><span class="s-val">"○년 ○월 ○일 재산상속(○년 ○월 ○일 실종선고)" 형식으로 병기 (예규 제57호)</span></div>
+<div class="summary-row"><span class="s-key">신청인</span><span class="s-val">상속인이 단독신청 (일반 상속등기와 동일)</span></div>
+<div class="summary-row"><span class="s-key">추가 첨부서류</span><span class="s-val">실종선고심판정본 — 단, 가족관계등록부가 이미 정리된 경우 불필요 (선례 5-302)</span></div>
+<div class="summary-row"><span class="s-key">기간 제한</span><span class="s-val">없음</span></div>
+</div>
+<!-- 보통실종 vs 특별실종 -->
+<div class="miss-grid">
+<div class="miss-card ordinary">
+<div class="miss-type ordinary">보통실종 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=002700" target="_blank" class="tag-law">📋 민법 제27조 제1항</a>)</div>
+<div class="miss-name">일반 부재 — 5년</div>
+<div class="miss-row"><span class="miss-label">기간</span><span>생사불명 <strong>5년</strong></span></div>
+<div class="miss-row"><span class="miss-label">사유</span><span>원인 없이 오랫동안 연락·소재 불명</span></div>
+<div class="miss-row"><span class="miss-label">사망간주</span><span>실종기간(5년) 만료 시점</span></div>
+<div class="miss-row"><span class="miss-label">신청권자</span><span>이해관계인 또는 검사</span></div>
+</div>
+<div class="miss-card special">
+<div class="miss-type special">특별실종 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=002700" target="_blank" class="tag-law">📋 민법 제27조 제2항</a>)</div>
+<div class="miss-name">위난 상황 — 1년</div>
+<div class="miss-row"><span class="miss-label">기간</span><span>위난 종료 후 <strong>1년</strong></span></div>
+<div class="miss-row"><span class="miss-label">사유</span><span>전쟁, 선박 침몰, 항공기 추락, 기타 사망 원인이 될 위난</span></div>
+<div class="miss-row"><span class="miss-label">사망간주</span><span>위난이 종료한 후 1년의 만료 시점</span></div>
+<div class="miss-row"><span class="miss-label">신청권자</span><span>이해관계인 또는 검사</span></div>
+</div>
+</div>
+</div>
+</section>
+<!-- ────────────────────── 3. 절차흐름도 ────────────────────── -->
+<section>
+<div class="container">
+<p class="sec-label">Section 03</p>
+<h2 class="sec-title">절차 흐름도</h2>
+<div class="flow-wrap">
+<div class="flow-step">
+<div class="flow-node">
+<div class="flow-circle">1</div>
+<div class="flow-arrow"></div>
+</div>
+<div class="flow-body">
+<div class="flow-title">실종선고 심판 확정 (가정법원)</div>
+<div class="flow-desc">이해관계인(상속인 등) 또는 검사가 가정법원에 실종선고를 청구 → 공시최고 → 심판 → 확정. 심판정본과 확정증명서를 수령합니다.</div>
+</div>
+</div>
+<div class="flow-step">
+<div class="flow-node">
+<div class="flow-circle">2</div>
+<div class="flow-arrow"></div>
+</div>
+<div class="flow-body">
+<div class="flow-title">가족관계등록부(구 호적) 정리 여부 확인</div>
+<div class="flow-desc">실종선고에 따라 가족관계등록부가 정리되었는지 확인합니다. 정리된 경우 심판정본 첨부 불필요(선례 5-302). 미정리 시에는 심판정본 첨부 필요.</div>
+</div>
+</div>
+<div class="flow-step">
+<div class="flow-node">
+<div class="flow-circle">3</div>
+<div class="flow-arrow"></div>
+</div>
+<div class="flow-body">
+<div class="flow-title">상속인 범위 및 상속분 확정</div>
+<div class="flow-desc">실종기간 만료일(사망간주일)을 기준으로 상속인 범위 확정. 실종선고가 신민법 시행 후라면 신민법 상속규정 적용(민법 부칙 제25조).</div>
+</div>
+</div>
+<div class="flow-step">
+<div class="flow-node">
+<div class="flow-circle">4</div>
+<div class="flow-arrow"></div>
+</div>
+<div class="flow-body">
+<div class="flow-title">서류 준비 — 상속인 단독 신청 서류 일체</div>
+<div class="flow-desc">일반 상속등기 서류 + 실종선고심판정본(가족관계등록부 미정리 시). 등기원인일자(실종기간만료일)를 정확히 기재.</div>
+</div>
+</div>
+<div class="flow-step">
+<div class="flow-node">
+<div class="flow-circle">5</div>
+<div class="flow-arrow"></div>
+</div>
+<div class="flow-body">
+<div class="flow-title">취득세 납부 (시·군·구청)</div>
+<div class="flow-desc">상속으로 인한 취득이므로 상속 취득세율 적용 (무주택 1주택: 0.8~2.8%, 무주택 2주택 이상·공시가 수억 초과 등에 따라 달라짐). 납부확인서 수령.</div>
+</div>
+</div>
+<div class="flow-step">
+<div class="flow-node">
+<div class="flow-circle">6</div>
+<div class="flow-arrow"></div>
+</div>
+<div class="flow-body">
+<div class="flow-title">등기 신청 — 관할 등기소 접수</div>
+<div class="flow-desc">부동산 소재지 관할 등기소에 접수. 방문 또는 전자신청. 등기원인: "상속" / 등기원인일자: 실종기간 만료일.</div>
+</div>
+</div>
+<div class="flow-step">
+<div class="flow-node">
+<div class="flow-circle">7</div>
+</div>
+<div class="flow-body">
+<div class="flow-title">등기 완료 — 등기사항증명서 확인</div>
+<div class="flow-desc">등기기록에 "○년 ○월 ○일 재산상속(○년 ○월 ○일 실종선고)" 형식으로 기재됨을 확인합니다.</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ────────────────────── 4. 단계별 상세 ────────────────────── -->
+<section>
+<div class="container">
+<p class="sec-label">Section 04</p>
+<h2 class="sec-title">단계별 상세 안내</h2>
+<!-- STEP 1: 실종선고 절차 -->
+<div class="step-block">
+<div class="step-block-head">
+<div class="step-num">1</div>
+<h3>실종선고 심판 — 가정법원 절차</h3>
+</div>
+<p style="font-size:14px;color:#444;margin-bottom:16px;">실종선고는 가정법원의 심판으로 확정됩니다. 등기를 하기 위해서는 심판정본과 확정증명서가 필요합니다.</p>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px;">
+<div style="background:var(--proc-bg);border-radius:8px;padding:14px 12px;text-align:center;font-size:13px;">
+<div style="font-weight:700;color:var(--navy);margin-bottom:6px;">① 청구</div>
+<div style="color:#444;">이해관계인<br/>또는 검사가<br/>가정법원에<br/>청구</div>
+</div>
+<div style="background:var(--proc-bg);border-radius:8px;padding:14px 12px;text-align:center;font-size:13px;">
+<div style="font-weight:700;color:var(--navy);margin-bottom:6px;">② 공시최고</div>
+<div style="color:#444;">6개월 이상<br/>공시최고 기간<br/>부재자에게<br/>출현 기회 부여</div>
+</div>
+<div style="background:var(--proc-bg);border-radius:8px;padding:14px 12px;text-align:center;font-size:13px;">
+<div style="font-weight:700;color:var(--navy);margin-bottom:6px;">③ 심판</div>
+<div style="color:#444;">공시최고 기간<br/>만료 후 부재자<br/>미출현 시<br/>실종선고 심판</div>
+</div>
+<div style="background:var(--proc-bg);border-radius:8px;padding:14px 12px;text-align:center;font-size:13px;">
+<div style="font-weight:700;color:var(--navy);margin-bottom:6px;">④ 확정</div>
+<div style="color:#444;">심판 확정 후<br/>심판정본 +<br/>확정증명서<br/>수령</div>
+</div>
+</div>
+<div style="background:#e8f5e9;border-left:4px solid var(--case-bd);border-radius:6px;padding:14px 16px;font-size:13px;color:#333;">
+<strong style="display:block;color:var(--navy);margin-bottom:6px;">📌 실종선고 효과 소급 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=002800" target="_blank" class="tag-law">📋 민법 제28조</a>)</strong>
+        실종선고를 받은 자는 <strong>실종기간이 만료한 때</strong>에 사망한 것으로 봅니다. 법원의 심판이 난 날이 아니라, 실종기간 만료일에 사망한 것으로 소급 적용됩니다.
+      </div>
+</div>
+<!-- STEP 2: 등기원인 기재례 -->
+<div class="step-block">
+<div class="step-block-head">
+<div class="step-num">2</div>
+<h3>등기원인과 등기기록 기재례 (예규 제57호)</h3>
+</div>
+<p style="font-size:14px;color:#444;margin-bottom:14px;">실종선고로 인한 상속등기는 등기원인을 "상속"으로, 원인일자를 실종기간만료일로 기재하되, 실종선고일을 괄호 안에 병기합니다.</p>
+<div class="record-box">
+<h4>등기기록 기재례 (예규 제57호)</h4>
+<div class="record-example">
+          등기원인: 1959년 1월 5일 재산상속<br/>
+          (괄호 병기: 1964년 1월 5일 실종선고)
+        </div>
+<div class="record-note">
+          → 1959. 1. 5.이 실종기간 만료일(사망간주일), 1964. 1. 5.이 법원의 실종선고일<br/>
+          → 등기원인일자는 항상 실종기간 만료일, 실종선고일은 괄호 안 부기
+        </div>
+</div>
+<div style="background:var(--summary-bg);border-radius:8px;padding:16px;margin-top:12px;font-size:14px;">
+<strong style="display:block;color:var(--navy);margin-bottom:8px;">구법·신법 적용 원칙 (민법 부칙 제25조, 선례 8-185)</strong>
+        실종기간이 <strong>구법(개정 전 민법) 시행 기간에 만료</strong>된 경우라도, <strong>실종선고가 신법 시행 이후</strong>에 이루어졌다면 → 상속순위·상속분 등은 <strong>신법(현행 민법)</strong>을 적용합니다.<br/><br/>
+        예: 1955. 7. 15. 실종기간 만료 → 1979. 9. 16. 실종선고<br/>
+        → 등기원인일자: 1955. 7. 15. (구법 시행기간 중 만료일)<br/>
+        → 상속인·상속분 결정: 현행 민법(1979년 당시 시행 민법) 적용
+      </div>
+</div>
+<!-- STEP 3: 첨부정보 -->
+<div class="step-block">
+<div class="step-block-head">
+<div class="step-num">3</div>
+<h3>실종선고심판정본 — 첨부 여부 판단</h3>
+</div>
+<p style="font-size:14px;color:#444;margin-bottom:14px;">일반 상속등기의 첨부서류 외에 <strong>실종선고심판정본</strong>이 추가로 필요합니다. 다만 가족관계등록부가 이미 정리된 경우에는 예외입니다.</p>
+<div class="attach-split">
+<div class="attach-card need">
+<strong>📄 심판정본 필요 — 원칙</strong>
+          가족관계등록부(구 호적)에 실종선고 사실이 아직 정리되지 않은 경우.<br/><br/>
+          실종선고심판정본 + 확정증명서를 첨부정보로 제공.
+        </div>
+<div class="attach-card noneed">
+<strong>✔️ 심판정본 불필요 — 예외 (선례 5-302)</strong>
+          실종선고에 따라 가족관계등록부(구 호적부)가 이미 정리된 경우.<br/><br/>
+          가족관계증명서 등에서 실종 사실이 확인되므로 심판정본 별도 제출 불필요.
+        </div>
+</div>
+</div>
+<!-- STEP 4: 실종선고 취소 시 처리 -->
+<div class="step-block">
+<div class="step-block-head">
+<div class="step-num">4</div>
+<h3>실종선고 취소 — 생존 사실이 밝혀진 경우</h3>
+</div>
+<p style="font-size:14px;color:#444;margin-bottom:14px;">실종선고를 받은 사람이 살아 있거나 실종선고와 다른 시점에 사망한 것이 밝혀지면 가정법원에 실종선고 취소 심판을 청구할 수 있습니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=002900" target="_blank" class="tag-law">📋 민법 제29조</a>).</p>
+<div class="cancel-flow">
+<h4>⚠️ 실종선고 취소 시 등기 처리</h4>
+<div class="cancel-step"><div class="cs-num">1</div><span>가정법원에 실종선고 취소 심판 청구 → 확정</span></div>
+<div class="cancel-step"><div class="cs-num">2</div><span>실종선고를 직접원인으로 상속받은 자(또는 그 상속인)에게 재산 반환 청구 가능 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=002900" target="_blank" class="tag-law">📋 민법 제29조</a>)</span></div>
+<div class="cancel-step"><div class="cs-num">3</div><span>반환 청구 범위: 현재 이익이 있는 한도 내에서 반환 (선의 취득자는 이익 현존 한도)</span></div>
+<div class="cancel-step"><div class="cs-num">4</div><span>제3자 보호: 실종선고를 믿고 <strong>선의로 재산을 취득한 제3자</strong>에게는 취소 효력 대항 불가</span></div>
+</div>
+<div style="font-size:13px;color:#555;margin-top:10px;line-height:1.6;">
+        ※ 실종선고 취소 후 말소등기 또는 재이전등기가 필요한 경우, 구체적 상황에 따라 처리 방법이 달라지므로 법무사 상담을 받는 것이 권장됩니다.
+      </div>
+</div>
+<!-- STEP 5: 상속등기 후 실종선고 확정 -->
+<div class="step-block">
+<div class="step-block-head">
+<div class="step-num">5</div>
+<h3>이미 상속등기 완료 후 공동상속인 일부에게 실종선고 확정된 경우</h3>
+</div>
+<p style="font-size:14px;color:#444;margin-bottom:14px;">공동상속인 전원 명의로 상속등기가 완료된 이후에 그 중 1인에 대해 실종선고심판이 확정된 경우에는 <strong>소유권경정등기</strong>를 신청합니다(선례 6-213).</p>
+<div style="background:var(--case-bg);border-left:4px solid var(--case-bd);border-radius:6px;padding:14px 16px;font-size:14px;color:#333;">
+<strong style="display:block;color:var(--navy);margin-bottom:6px;">처리 방법 — 선례 6-213</strong>
+        실종선고심판 확정 후 → 해당 실종자의 상속지분이 재조정됨 → 등기상 지분 변경을 위한 <strong>소유권경정등기</strong> 신청.<br/>
+        첨부서류: 실종선고심판정본 + 확정증명서, 변경된 상속분 증명 서류
+      </div>
+</div>
+</div>
+</section>
+<!-- ────────────────────── 5. 준비서류 ────────────────────── -->
+<section>
+<div class="container">
+<p class="sec-label">Section 05</p>
+<h2 class="sec-title">준비 서류</h2>
+<div class="doc-category">
+<div class="doc-cat-title">일반 상속등기 공통 서류</div>
+<div class="doc-grid">
+<div class="doc-card">
+<div class="doc-name">등기신청서 <span class="doc-req req-필수">필수</span></div>
+<div class="doc-note">등기소 양식 또는 대법원 인터넷등기소 작성. 등기원인: "상속", 원인일자: 실종기간 만료일</div>
+</div>
+<div class="doc-card">
+<div class="doc-name">기본증명서(상세) <span class="doc-req req-필수">필수</span></div>
+<div class="doc-note">실종자(피상속인)의 상세 기본증명서 — 실종선고 및 사망 의제 기재 확인</div>
+</div>
+<div class="doc-card">
+<div class="doc-name">가족관계증명서 <span class="doc-req req-필수">필수</span></div>
+<div class="doc-note">실종자(피상속인)의 가족관계증명서 — 상속인 확인</div>
+</div>
+<div class="doc-card">
+<div class="doc-name">상속인 전원 주민등록등본 <span class="doc-req req-필수">필수</span></div>
+<div class="doc-note">상속인 현재 주소 및 주민등록번호 확인</div>
+</div>
+<div class="doc-card">
+<div class="doc-name">취득세 납부 영수증 <span class="doc-req req-필수">필수</span></div>
+<div class="doc-note">시·군·구청 납부 후 납부확인서 첨부</div>
+</div>
+<div class="doc-card">
+<div class="doc-name">상속인 전원 인감증명서 <span class="doc-req req-필수">필수</span></div>
+<div class="doc-note">협의분할 시 필요; 법정분할 단독신청 시 법정상속분에 따름</div>
+</div>
+</div>
+</div>
+<div class="doc-category">
+<div class="doc-cat-title">실종선고 관련 추가 서류</div>
+<div class="doc-grid">
+<div class="doc-card">
+<div class="doc-name">실종선고심판정본 + 확정증명서 <span class="doc-req req-조건">미정리 시</span></div>
+<div class="doc-note">가족관계등록부가 아직 정리되지 않은 경우 제출. 가정법원에서 발급. 정리된 경우 불필요 (선례 5-302)</div>
+</div>
+<div class="doc-card">
+<div class="doc-name">상속포기심판정본 <span class="doc-req req-조건">포기자 있는 경우</span></div>
+<div class="doc-note">상속인 중 포기자가 있는 경우 첨부</div>
+</div>
+<div class="doc-card">
+<div class="doc-name">협의분할서 <span class="doc-req req-조건">협의분할 시</span></div>
+<div class="doc-note">상속인 전원 인감 날인; 법정분할 외 분할 시 필요</div>
+</div>
+<div class="doc-card">
+<div class="doc-name">부동산등기사항증명서 <span class="doc-req req-필수">필수</span></div>
+<div class="doc-note">대상 부동산 현황 및 권리관계 확인용</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ────────────────────── 6. 비용 안내 ────────────────────── -->
+<section>
+<div class="container">
+<p class="sec-label">Section 06</p>
+<h2 class="sec-title">비용 안내</h2>
+<table class="fee-table">
+<thead><tr><th>항목</th><th>기준</th><th>비고</th></tr></thead>
+<tbody>
+<tr><td>취득세</td><td>공시가격 기준 0.8~2.8%</td><td>상속 취득세율 적용 — 유증과 달리 상속세율 적용. 1주택 이하·무주택 등에 따라 감면 가능</td></tr>
+<tr><td>지방교육세</td><td>취득세의 20%</td><td>취득세 병과</td></tr>
+<tr><td>농어촌특별세</td><td>취득세의 10%</td><td>해당 시</td></tr>
+<tr><td>국민주택채권 매입</td><td>시가표준액 × 요율</td><td>주택 규모·지역별 요율 상이</td></tr>
+<tr><td>등기신청수수료</td><td>15,000원</td><td>대법원 규칙 기준</td></tr>
+<tr><td>가정법원 실종선고 신청비용</td><td>인지대 + 관보 공고료 + 송달료</td><td>관보 공고료는 수만 원 수준; 법원마다 상이</td></tr>
+<tr><td>법무사 보수</td><td>대한법무사협회 보수규정</td><td>법원 신청 + 등기 일괄 의뢰 가능</td></tr>
+</tbody>
+</table>
+<p class="fee-note">※ 실종선고 신청은 가정법원 가사비송 사건으로 처리되며, 공시최고 기간(6개월 이상)이 필요하므로 전체 절차에 상당한 시간이 소요됩니다.<br/>
+    ※ 취득세 감면 요건(1세대 1주택 등) 충족 여부에 따라 실제 세액이 크게 달라질 수 있으므로, 신고 전 세무사 확인을 권장합니다.</p>
+</div>
+</section>
+<!-- ────────────────────── 7. 판례 ────────────────────── -->
+<section>
+<div class="container">
+<p class="sec-label">Section 07</p>
+<h2 class="sec-title">관련 판례 및 선례</h2>
+<div class="ruling-card">
+<div class="ruling-cite">등기선례 제5-302호</div>
+<div class="ruling-summary">실종선고에 따라 가족관계등록부(구 호적부)가 정리되어 있는 경우에는 그 실종선고에 따른 상속등기 신청 시 실종선고심판정본을 첨부정보로 제공할 필요가 없다.</div>
+<span class="ruling-point">심판정본 불필요 요건</span>
+</div>
+<div class="ruling-card">
+<div class="ruling-cite">등기선례 제8-185호</div>
+<div class="ruling-summary">1955. 7. 15. 실종기간이 만료된 자에 대하여 1979. 9. 16. 실종선고가 있었다면, 실종선고로 인한 재산상속의 순위·상속분 기타 상속에 관하여는 민법 부칙(1977. 12. 31. 법률 제3051호) 제5항 및 민법 부칙(1958. 2. 22. 법률 제471호) 제25조 제2항에 의하여, 1960. 1. 1.부터 시행된 민법의 규정이 적용된다.</div>
+<span class="ruling-point">구법·신법 적용 기준</span>
+</div>
+<div class="ruling-card">
+<div class="ruling-cite">등기선례 제6-213호</div>
+<div class="ruling-summary">공동상속인 전원 앞으로 상속등기가 경료된 후 그 공동상속인 중 1인에 대하여 실종선고심판이 확정된 경우에는, 이를 원인으로 하는 소유권경정등기를 신청할 수 있다.</div>
+<span class="ruling-point">사후 실종선고와 경정등기</span>
+</div>
+<div class="ruling-card">
+<div class="ruling-cite">등기선례 제7-191호</div>
+<div class="ruling-summary">피상속인의 상속인 전원이 군사분계선 이북지역에 등재(또는 등록)된 경우라도 부재선고 등에 관한 특별조치법에 의한 부재선고심판이 확정된 때에는 다른 상속인에 의한 상속등기를 허용한다.</div>
+<span class="ruling-point">이북 상속인 전원 부재선고 특례</span>
+</div>
+</div>
+</section>
+<!-- ────────────────────── 8. 주의사항 ────────────────────── -->
+<section>
+<div class="container">
+<p class="sec-label">Section 08</p>
+<h2 class="sec-title">반드시 확인할 주의사항</h2>
+<div class="warn-list">
+<div class="warn-item">
+<div class="warn-icon">⚠️</div>
+<div class="warn-text">
+<strong>등기원인은 "실종선고"가 아닌 반드시 "상속"</strong>
+<p>실종선고로 인한 등기이지만, 등기원인 란에는 "상속"을 기재합니다. "실종선고"는 등기기록 기재례에서 괄호 안에 부기할 뿐입니다. 등기원인일자는 법원의 심판일이 아닌 실종기간 만료일을 기재해야 합니다.</p>
+</div>
+</div>
+<div class="warn-item">
+<div class="warn-icon">⚠️</div>
+<div class="warn-text">
+<strong>실종기간 만료일을 정확히 특정해야 합니다</strong>
+<p>실종기간 만료일이 등기원인일자이자 사망간주일이 됩니다. 보통실종은 생사불명이 된 날로부터 5년째 되는 날, 특별실종은 위난 종료 후 1년이 되는 날이 만료일입니다. 법원 심판문에 이 날짜가 기재되어 있으니 반드시 확인하십시오.</p>
+</div>
+</div>
+<div class="warn-item">
+<div class="warn-icon">⚠️</div>
+<div class="warn-text">
+<strong>구법·신법 상속 규정 혼용에 주의</strong>
+<p>실종기간이 구법 시행 중에 만료되었더라도 실종선고가 신민법 시행 이후에 이루어졌다면 상속순위·상속분 등은 신민법을 적용합니다(민법 부칙 제25조). 오래된 실종 사건에서 구법 규정을 잘못 적용하는 오류에 주의하십시오.</p>
+</div>
+</div>
+<div class="warn-item">
+<div class="warn-icon">⚠️</div>
+<div class="warn-text">
+<strong>실종선고 취소 가능성을 고려한 재산 처분</strong>
+<p>실종선고 후 상속을 받았더라도 나중에 실종선고가 취소될 수 있습니다. 취소 시 실종자에게 재산을 반환해야 할 의무가 생길 수 있으므로, 상속받은 부동산을 처분하기 전에 취소 가능성이 없는지 신중히 검토하시기 바랍니다.</p>
+</div>
+</div>
+<div class="warn-item">
+<div class="warn-icon">⚠️</div>
+<div class="warn-text">
+<strong>실종선고 신청에는 상당한 시간 소요</strong>
+<p>가정법원의 실종선고 절차는 공시최고 기간(최소 6개월)을 포함하여 통상 1년 이상 소요될 수 있습니다. 부동산을 긴급히 처리해야 하는 경우 시간 계획을 미리 세우십시오. 법무사에게 법원 신청 단계부터 의뢰하면 절차를 효율적으로 진행할 수 있습니다.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ────────────────────── 9. Q&A ────────────────────── -->
+<section>
+<div class="container">
+<p class="sec-label">Section 09</p>
+<h2 class="sec-title">자주 묻는 질문</h2>
+<div class="qna-item">
+<div class="qna-q">실종선고를 받은 사람 명의의 부동산이 있습니다. 상속인이 여럿인데 어떻게 등기하나요?</div>
+<div class="qna-a">일반 상속등기와 동일하게 처리합니다. 법정상속분대로 등기하거나, 상속인 전원이 협의분할 후 협의분할서를 첨부하여 특정 상속인 명의로 등기할 수 있습니다. 추가로 실종선고심판정본(가족관계등록부 미정리 시)을 첨부하면 됩니다.</div>
+</div>
+<div class="qna-item">
+<div class="qna-q">실종선고를 받은 사람이 살아서 돌아왔습니다. 등기는 어떻게 되나요?</div>
+<div class="qna-a">가정법원에 실종선고 취소 심판을 청구하여 확정받아야 합니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=002900" target="_blank" class="tag-law">📋 민법 제29조</a>). 취소 확정 후 실종선고를 직접원인으로 재산을 취득한 자(상속인 등)에게 반환 청구를 할 수 있습니다. 다만 선의로 재산을 취득한 제3자에게는 취소 효력을 주장하지 못하는 경우가 있으므로 법무사 또는 변호사와 상담하십시오.</div>
+</div>
+<div class="qna-item">
+<div class="qna-q">실종선고 없이 수십 년째 연락이 끊긴 상태인데 등기할 수 있나요?</div>
+<div class="qna-a">실종선고 없이는 그 사람이 법적으로 생존한 것으로 처리되므로 상속등기를 할 수 없습니다. 반드시 가정법원에 실종선고 심판을 먼저 받아야 합니다. 실종선고 신청은 이해관계인(상속인 등)이 가정법원에 직접 신청하거나 법무사·변호사에게 의뢰할 수 있습니다.</div>
+</div>
+<div class="qna-item">
+<div class="qna-q">실종기간이 만료된 지 오래되었는데, 이제 와서 실종선고 신청이 가능한가요?</div>
+<div class="qna-a">네, 가능합니다. 실종선고 신청에는 별도의 제척기간이 없으므로 실종기간 만료 후 언제든지 신청할 수 있습니다. 오래된 사건일수록 생사불명 사실을 입증하는 서류(마지막 주소지 확인, 각종 공적 기록 등)를 충분히 준비하는 것이 중요합니다.</div>
+</div>
+<div class="qna-item">
+<div class="qna-q">상속등기 후 공동상속인 중 1인이 실종선고를 받았습니다. 어떻게 해야 하나요?</div>
+<div class="qna-a">이미 공동상속인 전원 명의로 상속등기가 완료된 경우, 그 중 1인에 대해 실종선고심판이 확정되면 해당 상속인의 지분 처리를 위해 소유권경정등기를 신청할 수 있습니다(선례 6-213). 실종된 상속인의 지분은 그 상속인의 상속인(재상속인)에게 귀속되므로 재상속인들의 참여가 필요합니다.</div>
+</div>
+<div class="qna-item">
+<div class="qna-q">북한 지역에 있는 상속인의 경우 실종선고가 가능한가요?</div>
+<div class="qna-a">군사분계선 이북지역에 주소를 둔 경우 일반 실종선고 대신 「부재선고 등에 관한 특별조치법」에 따른 부재선고를 받을 수 있습니다. 상속인 전원이 이북 지역에 있어 부재선고 심판이 확정된 경우에는 이를 기반으로 다른 방법에 의한 상속등기가 허용됩니다(선례 7-191).</div>
+</div>
+</div>
+</section>
+<!-- ────────────────────── 10. 다음으로 ────────────────────── -->
+<section>
+<div class="container">
+<p class="sec-label">Section 10</p>
+<h2 class="sec-title">다음으로 확인할 내용</h2>
+<div class="next-links">
+<a class="next-card" href="상속_18_유증등기.html">
+<div class="next-dir">← 이전 페이지</div>
+<div class="next-title">유증으로 인한 소유권이전등기</div>
+<div class="next-desc">유언장에 의해 부동산을 받은 경우의 등기 절차</div>
+</a>
+<a class="next-card" href="#">
+<div class="next-dir">다음 페이지 →</div>
+<div class="next-title">유류분반환으로 인한 소유권이전등기</div>
+<div class="next-desc">침해된 유류분 반환 청구와 이전등기 절차</div>
+</a>
+</div>
+</div>
+</section>
+<!-- ────────────────────── 11. CTA ────────────────────── -->
+<section>
+<div class="container">
+<div class="cta-box">
+<h2>실종선고부터 등기까지 한 번에 해결하세요</h2>
+<p>가정법원 실종선고 신청 대리부터<br/>상속등기 완료까지 전 과정을 법무사가 처리해 드립니다.</p>
+<a class="cta-btn" href="tel:00000000000">📞 전화 상담 예약</a>
+<a class="cta-btn outline" href="#">온라인 문의하기</a>
+</div>
+</div>
+</section>
+<!-- ────────────────────── 면책 ────────────────────── -->
+<div class="disclaimer">
+  본 페이지는 일반적인 법률 정보 제공을 목적으로 작성되었으며, 개별 사안에 대한 법률 조언이 아닙니다.<br/>
+  구체적인 사안은 반드시 법무사 또는 변호사와 상담하시기 바랍니다.<br/>
+  법령 및 예규는 개정될 수 있으므로 최신 정보를 확인하십시오.<br/>
+  © 2025 법무사 사무소. All rights reserved.
+</div>
+</body>
+</html>

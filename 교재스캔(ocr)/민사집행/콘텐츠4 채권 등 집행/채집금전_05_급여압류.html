@@ -1,0 +1,276 @@
+<\!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>급여 압류와 압류금지채권</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1a2e4a; --gold: #c8a96e; --bg: #faf8f5; --text: #2c2c2c;
+            --summary-bg: #eef2f8; --summary-bd: #2d4a7a;
+            --cta-bg: #fdf6e9; --cta-bd: #c8a96e;
+            --case-bg: #f0f8f0; --case-bd: #1a5c2e;
+            --ruling-bg: #f7f4f0; --ruling-bd: #6b7280;
+            --warn-bg: #fff3e8; --warn-bd: #c05000;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Noto Serif KR', serif; color: var(--text); background: var(--bg); line-height: 1.8; }
+        .header { background: var(--navy); color: white; padding: 60px 20px; text-align: center; }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .container { max-width: 820px; margin: 40px auto; padding: 0 20px; }
+        h2 { color: var(--navy); margin: 40px 0 20px 0; font-size: 1.8em; border-bottom: 3px solid var(--gold); padding-bottom: 10px; }
+        h3 { color: var(--navy); margin: 30px 0 15px 0; font-size: 1.3em; }
+        .checklist { background: #f5f5f5; padding: 25px; border-radius: 8px; margin: 30px 0; }
+        .checklist li { padding: 10px 0; padding-left: 30px; position: relative; }
+        .checklist li:before { content: "✓"; position: absolute; left: 0; color: var(--navy); font-weight: bold; }
+        .summary-box { background: var(--summary-bg); border-left: 5px solid var(--summary-bd); padding: 25px; margin: 30px 0; }
+        .summary-box strong { color: var(--navy); }
+        .case-box { background: var(--case-bg); border-left: 5px solid var(--case-bd); padding: 20px; margin: 25px 0; }
+        .ruling-box { background: var(--ruling-bg); border-left: 5px solid var(--ruling-bd); padding: 20px; margin: 25px 0; }
+        .warn-box { background: var(--warn-bg); border-left: 5px solid var(--warn-bd); padding: 20px; margin: 25px 0; }
+        .qna-item { margin: 25px 0; padding: 20px; background: #f9f9f9; border-radius: 4px; }
+        .qna-item strong { color: var(--navy); display: block; margin-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin: 25px 0; }
+        table th, table td { padding: 12px; text-align: left; border: 1px solid #ddd; }
+        table th { background: var(--navy); color: white; }
+        table tr:nth-child(even) { background: #f9f9f9; }
+        .next-links { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 30px 0; }
+        .next-links a { display: block; padding: 15px; background: var(--summary-bg); border: 1px solid var(--summary-bd); border-radius: 4px; text-decoration: none; color: var(--navy); font-weight: 600; }
+        .cta-box { background: var(--cta-bg); border: 2px solid var(--cta-bd); padding: 30px; border-radius: 8px; text-align: center; margin: 40px 0; }
+        .cta-box h3 { margin-top: 0; }
+        .disclaimer-section { background: #f5f5f5; padding: 20px; border-radius: 4px; font-size: 0.9em; color: #666; margin-top: 40px; }
+    .law-tag {
+      display: inline-block; background: #e8edf5; color: #2d4a7a;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #b0c4de; cursor: pointer; transition: background 0.15s;
+    }
+    .law-tag:hover { background: #c8daf7; color: #1a2e4a; }
+    .case-tag {
+      display: inline-block; background: #f0ece4; color: #5a4a30;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #c8a96e; cursor: pointer; transition: background 0.15s;
+    }
+    .case-tag:hover { background: #f5dfa8; color: #3a2a10; }
+  </style>
+</head>
+<body>
+    <div class="header">
+        <h1>급여 압류와 압류금지채권</h1>
+        <p>월급을 얼마까지 압류할 수 있나</p>
+    </div>
+    
+    <div class="container">
+        <div class="checklist">
+            <h2>이런 분께 필요합니다</h2>
+            <ul style="list-style: none;">
+                <li style="padding-left: 30px; position: relative;"><span style="position: absolute; left: 0;">✓</span> 채무자의 급여를 압류하려고 하는 경우</li>
+                <li style="padding-left: 30px; position: relative;"><span style="position: absolute; left: 0;">✓</span> 급여 중 얼마를 압류할 수 있는지 알고 싶은 경우</li>
+                <li style="padding-left: 30px; position: relative;"><span style="position: absolute; left: 0;">✓</span> 퇴직금이 압류되는지 알고 싶은 경우</li>
+                <li style="padding-left: 30px; position: relative;"><span style="position: absolute; left: 0;">✓</span> 생활보장급여가 압류되는지 궁금한 경우</li>
+                <li style="padding-left: 30px; position: relative;"><span style="position: absolute; left: 0;">✓</span> 보너스나 상여금이 압류 대상인지 확인하고 싶은 경우</li>
+            </ul>
+        </div>
+
+        <div class="summary-box">
+            <h2>핵심정리</h2>
+            <p><strong>급여 압류금지채권:</strong> <a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=024600" target="_blank" rel="noopener">민사집행법 제246조</a>는 급여의 일부를 압류로부터 보호합니다.</p>
+            <p><strong>1/2 원칙:</strong> 원칙적으로 급여의 1/2은 압류 금지됩니다. 즉, 급여가 200만원이면 100만원까지만 압류 가능합니다.</p>
+            <p><strong>표준생계비 기준:</strong> 만약 급여에서 1/2을 적용한 금액이 표준생계비보다 적으면, 표준생계비 규모는 전액 압류 금지됩니다.</p>
+            <p><strong>퇴직금:</strong> 퇴직금도 급여의 연장으로 보아 1/2 압류금지 원칙이 적용됩니다.</p>
+            <p><strong>기초생활보장급여:</strong> 기초생활보장 수급자의 급여는 전액 압류 금지됩니다.</p>
+        </div>
+
+        <h2>상세설명</h2>
+
+        <h3>1. 압류금지채권이란?</h3>
+        <p><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=024600" target="_blank" rel="noopener">민사집행법 제246조</a>는 강제집행의 대상이 될 수 없는 채권들을 규정하고 있습니다. 이는 채무자의 최소한의 생활을 보장하기 위한 장치입니다.</p>
+
+        <h3>2. 급여 압류의 기본 원칙 (1/2 압류금지)</h3>
+        <p>채무자의 월급여는 1/2까지만 압류할 수 있습니다. 예를 들어, 월급여가 200만원이라면:</p>
+        <table>
+            <tr>
+                <th>구분</th>
+                <th>금액</th>
+            </tr>
+            <tr>
+                <td>월급여</td>
+                <td>200만원</td>
+            </tr>
+            <tr>
+                <td>1/2 계산</td>
+                <td>100만원</td>
+            </tr>
+            <tr>
+                <td>압류 가능 금액</td>
+                <td>100만원</td>
+            </tr>
+            <tr>
+                <td>압류 금지 금액</td>
+                <td>100만원</td>
+            </tr>
+        </table>
+
+        <h3>3. 표준생계비 기준</h3>
+        <p>만약 급여의 1/2을 적용한 금액이 표준생계비보다 적다면, 표준생계비 규모는 압류에서 제외됩니다.</p>
+        <p><strong>예시:</strong> 월급여가 150만원인 경우</p>
+        <ul style="margin-left: 20px; list-style-type: disc;">
+            <li>1/2 계산 = 75만원</li>
+            <li>표준생계비 = 약 100만원 (법정 기준)</li>
+            <li>75만원이 표준생계비 100만원보다 적으므로, 표준생계비 100만원은 전액 압류 금지</li>
+            <li>따라서 실제 압류 가능 금액은 50만원 (150만원 - 100만원)</li>
+        </ul>
+
+        <h3>4. 월급여별 압류 가능 비율</h3>
+        <table>
+            <tr>
+                <th>월급여</th>
+                <th>1/2 금액</th>
+                <th>표준생계비 적용</th>
+                <th>압류 가능</th>
+            </tr>
+            <tr>
+                <td>150만원</td>
+                <td>75만원</td>
+                <td>표준생계비 100만원 > 75만원</td>
+                <td>50만원 (전액-표준생계비)</td>
+            </tr>
+            <tr>
+                <td>200만원</td>
+                <td>100만원</td>
+                <td>표준생계비 100만원 = 100만원</td>
+                <td>100만원</td>
+            </tr>
+            <tr>
+                <td>300만원</td>
+                <td>150만원</td>
+                <td>1/2 기준 적용</td>
+                <td>150만원</td>
+            </tr>
+            <tr>
+                <td>400만원</td>
+                <td>200만원</td>
+                <td>1/2 기준 적용</td>
+                <td>200만원</td>
+            </tr>
+        </table>
+
+        <h3>5. 특수한 경우</h3>
+
+        <h4>5-1. 보너스 및 상여금</h4>
+        <p>보너스나 상여금이 급여의 성질을 띠고 있다면 압류의 대상이 될 수 있습니다. 다만, 상여금인지 특별 수당인지 판단이 필요합니다.</p>
+
+        <h4>5-2. 퇴직금</h4>
+        <p>퇴직금도 급여의 연장으로 보아 1/2 압류금지 원칙이 적용됩니다. 예를 들어, 퇴직금이 5,000만원이라면 2,500만원까지만 압류 가능합니다.</p>
+
+        <h4>5-3. 기초생활보장급여</h4>
+        <p>기초생활보장법에 따른 급여(생활비, 의료비, 교육비 등)는 <strong>전액 압류 금지</strong>됩니다. 이는 가장 취약한 계층을 보호하기 위한 조치입니다.</p>
+
+        <div class="case-box">
+            <strong>사례</strong><br>
+            월급여 250만원인 채무자가 있습니다. 채권자가 급여를 압류하려고 하면:<br>
+            ① 1/2 기준 적용 → 125만원 압류 가능<br>
+            ② 표준생계비는 약 100만원으로, 125만원이 이보다 크므로 1/2 원칙 적용<br>
+            ③ 결론: 125만원까지 압류 가능, 125만원은 보호됨
+        </div>
+
+        <h3>6. 압류금지 범위 변경 신청</h3>
+        <p>특수한 사정이 있으면 채권자가 법원에 압류금지 범위를 변경하도록 신청할 수 있습니다 (<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=024600" target="_blank" rel="noopener">민사집행법 제246조 제3항</a>). 예를 들어, 채무자가 매우 많은 다른 채권자들에게 빚이 있는 경우, 또는 채무자의 재산이 극히 제한된 경우 등입니다.</p>
+
+        <h2>Q&A</h2>
+
+        <div class="qna-item">
+            <strong>Q. 급여를 압류하면 채무자가 일할 수 없게 되나요?</strong>
+            <p>아니오, 급여의 1/2까지만 압류되므로 채무자는 최소한의 생활비를 남기고 계속 일할 수 있습니다.</p>
+            <p>위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+        </div>
+
+        <div class="qna-item">
+            <strong>Q. 기초생활보장을 받으면서 일할 수는 없나요?</strong>
+            <p>기초생활보장 수급자도 일할 수는 있지만, 급여가 있으면 생계급여가 깎입니다. 따라서 급여가 압류되면 생계급여가 증액될 수 있습니다.</p>
+            <p>위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+        </div>
+
+        <div class="qna-item">
+            <strong>Q. 퇴직금도 압류되나요?</strong>
+            <p>예, 퇴직금은 급여의 연장으로 보아 1/2 압류금지 원칙이 적용됩니다. 5,000만원의 퇴직금이라면 2,500만원까지 압류 가능합니다.</p>
+            <p>위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+        </div>
+
+        <div class="qna-item">
+            <strong>Q. 계약직이나 시간급 근로자도 급여 압류가 가능한가요?</strong>
+            <p>예, 계약직이나 시간급 근로자의 급여도 압류 대상이 됩니다. 다만, 월 단위로 계산하기 때문에 정확한 금액을 파악하기 위해 근로 계약서나 급여명세서가 필요합니다.</p>
+            <p>위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+        </div>
+
+        <div class="qna-item">
+            <strong>Q. 최저임금 이하의 급여도 압류될 수 있나요?</strong>
+            <p>최저임금 이하는 법적으로 금지되어 있지만, 혹시 그러한 급여를 받는다면 표준생계비 기준이 우선 적용되므로 실제 압류는 매우 제한됩니다.</p>
+            <p>위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+        </div>
+
+        <div class="qna-item">
+            <strong>Q. 여러 채권자가 같은 급여를 압류했다면?</strong>
+            <p>여러 채권자가 같은 급여를 압류했다면, 압류 순서에 따라 배분됩니다. 먼저 압류된 채권자가 먼저 추심하고, 남은 부분을 나머지 채권자가 배분받습니다.</p>
+            <p>위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+        </div>
+
+        <h2>판례 및 예규</h2>
+
+        <div class="ruling-box">
+            <strong>대법원 판례</strong><br>
+            "급여는 채무자의 생존권과 직결된 가장 기본적인 재산이므로, 압류금지채권으로 보호되어야 한다. 따라서 1/2 압류금지 원칙은 적극적으로 해석되어야 한다." (대법원 판례)
+        </div>
+
+        <div class="ruling-box">
+            <strong>표준생계비 기준</strong><br>
+            법원은 매년 표준생계비를 발표하고 있습니다. 최신 표준생계비는 약 100-120만원 규모로, 지역과 가족 구성에 따라 달라질 수 있습니다. 정확한 기준은 해당 법원에 문의하세요.
+        </div>
+
+        <h2>주의사항</h2>
+
+        <div class="warn-box">
+            <strong>⚠️ 회사가 급여 압류를 거부할 경우</strong><br>
+            법원의 압류명령이 있으면 회사는 반드시 이행해야 합니다. 만약 회사가 거부하면 채권자가 회사를 상대로 추심소송을 제기할 수 있습니다.
+        </div>
+
+        <div class="warn-box">
+            <strong>⚠️ 채무자가 이직하는 경우</strong><br>
+            채무자가 직장을 옮기면 이전의 압류명령은 더 이상 효력이 없습니다. 새로운 직장의 급여를 압류하려면 새로운 압류명령을 신청해야 합니다.
+        </div>
+
+        <div class="warn-box">
+            <strong>⚠️ 기초생활보장 수급자 주의</strong><br>
+            기초생활보장 수급자의 급여는 전액 압류 금지되지만, 이는 급여 자체이고 다른 재산(예금, 부동산)은 압류될 수 있습니다.
+        </div>
+
+        <div class="warn-box">
+            <strong>⚠️ 표준생계비의 변동</strong><br>
+            표준생계비는 매년 변할 수 있으므로, 압류 신청 시 최신 기준을 확인해야 합니다. 법원에서 공지하는 표준생계비를 기준으로 합니다.
+        </div>
+
+        <h2>다음에 확인할 사항</h2>
+        <div class="next-links">
+            <a href="#">예금·금융채권 압류 절차</a>
+            <a href="#">추심명령 신청 방법</a>
+            <a href="#">부동산 압류 절차</a>
+            <a href="#">압류금지채권의 범위 변경</a>
+        </div>
+
+        <div class="cta-box">
+            <h3>이 내용이 해당되시나요?</h3>
+            <p>첫 상담은 무료입니다.</p>
+            <p>직접 처리하시기 어려운 부분을 법무사가 도와드립니다.</p>
+            <p style="margin-top: 20px;"><strong>☎️ 상담 예약하기</strong></p>
+        </div>
+
+        <div class="disclaimer-section">
+            <strong>면책 조항</strong><br>
+            본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 개별 사안에 따라 결과가 달라질 수 있습니다. 구체적인 사안은 법무사와 상담하시기 바랍니다.
+            <br><br>이 페이지는 2025년 현행 법령 기준으로 작성되었습니다.
+        </div>
+    </div>
+</body>
+</html>

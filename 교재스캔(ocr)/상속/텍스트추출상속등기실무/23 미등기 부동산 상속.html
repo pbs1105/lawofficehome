@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미등기 부동산 상속 | 상속등기 실무</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{--navy:#1a2e4a;--navy-light:#2d4a73;--gold:#c9a84c;--gold-light:#e8d5a3;--ivory:#fdf8f0;--ivory-dark:#f5ede0;--text:#2c2c2c;--text-light:#5a5a5a;--blue-box:#e8f0f8;--blue-border:#2d6aa0;--warn-bg:#fff8e1;--warn-border:#f0a500;}
+        *{box-sizing:border-box;margin:0;padding:0;}
+        body{font-family:'Noto Sans KR',sans-serif;background:var(--ivory);color:var(--text);font-size:15px;line-height:1.8;}
+        .page-header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);color:white;padding:40px 24px 32px;text-align:center;}
+        .page-header h1{font-size:2rem;font-weight:700;margin-bottom:8px;}
+        .page-header .subtitle{color:var(--gold-light);font-size:1rem;}
+        .breadcrumb{font-size:0.82rem;color:rgba(255,255,255,0.6);margin-bottom:12px;}
+        .layout{display:grid;grid-template-columns:240px 1fr 300px;gap:0;max-width:1280px;margin:0 auto;}
+        .toc-sidebar{background:var(--navy);color:white;padding:24px 0;position:sticky;top:0;height:100vh;overflow-y:auto;}
+        .toc-sidebar h3{font-size:0.78rem;letter-spacing:2px;color:var(--gold);text-transform:uppercase;padding:0 20px 12px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:8px;}
+        .toc-sidebar ul{list-style:none;}
+        .toc-sidebar ul li a{display:block;padding:9px 20px;font-size:0.85rem;color:rgba(255,255,255,0.75);text-decoration:none;border-left:3px solid transparent;transition:all 0.2s;}
+        .toc-sidebar ul li a:hover,.toc-sidebar ul li a.active{color:white;background:rgba(255,255,255,0.08);border-left-color:var(--gold);}
+        .main-content{padding:40px 48px;min-height:100vh;}
+        .section{margin-bottom:56px;scroll-margin-top:24px;}
+        .section h2{font-size:1.35rem;color:var(--navy);border-bottom:2px solid var(--gold);padding-bottom:10px;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+        .section h2 .sec-num{background:var(--navy);color:var(--gold);font-size:0.78rem;padding:2px 8px;border-radius:12px;}
+        .section h3{font-size:1.05rem;color:var(--navy-light);margin:24px 0 10px;font-weight:600;}
+        .summary-box{background:var(--blue-box);border-left:4px solid var(--blue-border);border-radius:0 8px 8px 0;padding:18px 22px;margin-bottom:20px;}
+        .summary-box strong{color:var(--blue-border);display:block;margin-bottom:6px;font-size:0.9rem;}
+        .detail-content{color:var(--text-light);}
+        .detail-content p{margin-bottom:14px;}
+        .law-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.88rem;}
+        .law-table th{background:var(--navy);color:white;padding:10px 14px;text-align:left;}
+        .law-table td{padding:10px 14px;border-bottom:1px solid #e0d8cc;vertical-align:top;}
+        .law-table tr:nth-child(even) td{background:var(--ivory-dark);}
+        .law-ref{color:var(--blue-border);font-weight:600;cursor:pointer;border-bottom:1px dashed var(--blue-border);font-size:0.9em;}
+        .warn-box{background:var(--warn-bg);border-left:4px solid var(--warn-border);border-radius:0 8px 8px 0;padding:16px 20px;margin:16px 0;}
+        .warn-box strong{color:#c07000;display:block;margin-bottom:6px;}
+        .case-box{background:#f5f5f5;border:1px solid #ddd;border-radius:8px;padding:16px 20px;margin:16px 0;font-size:0.87rem;}
+        .case-box .case-title{font-weight:700;color:var(--navy);margin-bottom:8px;font-size:0.85rem;}
+        .process-steps{margin:16px 0;}
+        .step{display:flex;gap:16px;margin-bottom:16px;align-items:flex-start;}
+        .step-num{background:var(--navy);color:var(--gold);font-weight:700;min-width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;}
+        .step-content .step-title{font-weight:600;color:var(--navy);margin-bottom:4px;}
+        .step-content .step-desc{font-size:0.88rem;color:var(--text-light);}
+        .checklist-box{background:var(--ivory-dark);border:1px solid var(--gold-light);border-radius:10px;padding:20px 24px;margin:24px 0;}
+        .checklist-box h4{color:var(--navy);margin-bottom:14px;font-size:0.95rem;}
+        .checklist-box ul{list-style:none;}
+        .checklist-box ul li{padding:5px 0;font-size:0.88rem;display:flex;gap:10px;}
+        .checklist-box ul li::before{content:"☑";color:var(--gold);}
+        .cta-box{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);color:white;border-radius:12px;padding:28px 32px;margin:32px 0;text-align:center;}
+        .cta-box h3{font-size:1.2rem;margin-bottom:10px;color:var(--gold-light);}
+        .cta-box p{font-size:0.9rem;color:rgba(255,255,255,0.85);margin-bottom:18px;}
+        .cta-btn{background:var(--gold);color:var(--navy);font-weight:700;padding:12px 32px;border-radius:24px;border:none;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;}
+        .next-links{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}
+        .next-link{background:white;border:1px solid #d0c8ba;border-radius:8px;padding:16px;text-decoration:none;color:var(--navy);transition:all 0.2s;display:flex;align-items:center;justify-content:space-between;}
+        .next-link:hover{border-color:var(--gold);box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+        .next-link .label{font-size:0.78rem;color:var(--text-light);}
+        .next-link .title{font-size:0.92rem;font-weight:600;}
+        .next-link .arrow{color:var(--gold);font-size:1.2rem;}
+        .disclaimer{background:#f0f0f0;border-radius:8px;padding:16px 20px;margin-top:40px;font-size:0.8rem;color:#777;line-height:1.6;}
+        .right-sidebar{background:white;border-left:1px solid #e0d8cc;padding:0;position:sticky;top:0;height:100vh;overflow-y:auto;}
+        .sidebar-tabs{display:flex;border-bottom:2px solid var(--navy);}
+        .sidebar-tab{flex:1;padding:12px 8px;text-align:center;font-size:0.82rem;font-weight:600;cursor:pointer;color:var(--text-light);background:var(--ivory);border:none;transition:all 0.2s;}
+        .sidebar-tab.active{background:var(--navy);color:white;}
+        .sidebar-panel{padding:16px;display:none;}
+        .sidebar-panel.active{display:block;}
+        .law-item{border:1px solid #e0d8cc;border-radius:6px;margin-bottom:8px;overflow:hidden;}
+        .law-item-header{background:var(--ivory-dark);padding:10px 14px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:0.83rem;font-weight:600;color:var(--navy);}
+        .law-item-header:hover{background:var(--gold-light);}
+        .law-item-body{display:none;padding:12px 14px;font-size:0.82rem;line-height:1.7;color:var(--text-light);border-top:1px solid #e0d8cc;}
+        .law-item-body.open{display:block;}
+        .practice-section{margin-bottom:16px;}
+        .practice-section h5{font-size:0.82rem;font-weight:700;color:var(--navy);background:var(--ivory-dark);padding:7px 12px;border-radius:4px;margin-bottom:8px;}
+        .practice-section ul{list-style:none;padding:0;}
+        .practice-section ul li{font-size:0.81rem;padding:4px 8px;color:var(--text-light);border-bottom:1px solid #f0ece6;display:flex;gap:6px;}
+        .practice-section ul li::before{content:"•";color:var(--gold);}
+        @media(max-width:900px){.layout{grid-template-columns:1fr;}.toc-sidebar,.right-sidebar{display:none;}.main-content{padding:24px 20px;}.next-links{grid-template-columns:1fr;}}
+    </style>
+</head>
+<body>
+    <div class="page-header">
+        <div class="breadcrumb">상속 · 등기 · 실무</div>
+        <h1>미등기 부동산 상속</h1>
+        <p class="subtitle">등기부 없는 부동산의 소유 입증과 보존등기</p>
+    </div>
+
+    <div class="layout">
+        <div class="toc-sidebar">
+            <h3>목차</h3>
+            <ul>
+                <li><a class="toc-link active" href="#sec1">미등기 부동산이란</a></li>
+                <li><a class="toc-link" href="#sec2">미등기 부동산 상속의 특수성</a></li>
+                <li><a class="toc-link" href="#sec3">보존등기 신청 요건</a></li>
+                <li><a class="toc-link" href="#sec4">미등기 상속 절차</a></li>
+                <li><a class="toc-link" href="#sec5">소유 입증 서류</a></li>
+                <li><a class="toc-link" href="#sec6">미등기 건물 특례</a></li>
+                <li><a class="toc-link" href="#sec7">주의사항</a></li>
+                <li><a class="toc-link" href="#sec8">FAQ</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <div class="section" id="sec1">
+                <h2><span class="sec-num">1</span>미등기 부동산이란</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    미등기 부동산은 등기부가 없는 부동산입니다. 구 지적법 시행 전에 취득한 부동산, 구 건축법상 등기 대상 외 건물 등이 해당됩니다.
+                </div>
+                <div class="detail-content">
+                    <h3>미등기 부동산의 발생 원인</h3>
+                    <ul style="margin-left:20px;margin-bottom:14px;">
+                        <li><strong>구 지적법:</strong> 1912년 지적법 시행 이전 취득 부동산</li>
+                        <li><strong>구 건축법:</strong> 1963년 건축법 시행 이전의 허가 외 건물</li>
+                        <li><strong>등기 면제:</strong> 정부 소유지에서 분리된 부동산 중 일부</li>
+                        <li><strong>대출금 기한:</strong> 일시적으로 등기되지 않은 부동산</li>
+                    </ul>
+                    <h3>미등기 부동산의 특징</h3>
+                    <p><strong>등기부가 없다는 것은</strong> 법원의 등기부에 소유권이 기록되지 않았다는 의미입니다. 따라서 부동산 거래 시에 다른 증명 방법(판결, 확인서, 인우보증 등)을 사용해야 합니다.</p>
+                    <div class="warn-box">
+                        <strong>주의</strong>
+                        미등기 부동산을 상속받으면 반드시 보존등기를 신청해야 합니다. 그렇지 않으면 나중에 거래할 때 문제가 될 수 있습니다.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="sec2">
+                <h2><span class="sec-num">2</span>미등기 부동산 상속의 특수성</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    미등기 부동산 상속은 직접 상속인 앞으로 보존등기를 할 수 있다는 점이 특징입니다. 피상속인 앞으로 먼저 보존등기할 필요가 없습니다.
+                </div>
+                <div class="detail-content">
+                    <h3>일반 부동산 등기 vs 미등기 부동산</h3>
+                    <table class="law-table">
+                        <thead>
+                            <tr>
+                                <th>항목</th>
+                                <th>일반 부동산</th>
+                                <th>미등기 부동산</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>등기부</td>
+                                <td>존재함 (소유권 기재)</td>
+                                <td>존재하지 않음</td>
+                            </tr>
+                            <tr>
+                                <td>상속등기</td>
+                                <td>상속인 → 상속인으로 이전</td>
+                                <td>직접 상속인 앞으로 보존등기</td>
+                            </tr>
+                            <tr>
+                                <td>소유 입증</td>
+                                <td>등기부로 증명</td>
+                                <td>판결, 확인서 등으로 입증</td>
+                            </tr>
+                            <tr>
+                                <td>등기 신청인</td>
+                                <td>상속인</td>
+                                <td>직접 상속인 또는 상속인들</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3>보존등기의 의의</h3>
+                    <p>미등기 부동산의 보존등기는 <span class="law-ref" onclick="openLaw('부동산등기법65')">부동산등기법 제65조</span>에 따라, <strong>소유 입증 자료를 바탕으로 직접 상속인 명의로 등기</strong>하는 절차입니다.</p>
+                </div>
+            </div>
+
+            <div class="section" id="sec3">
+                <h2><span class="sec-num">3</span>보존등기 신청 요건</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    보존등기 신청 시 판결, 수용보상서류, 확인서, 인우보증서 등으로 소유를 입증해야 합니다 (<span class="law-ref" onclick="openLaw('부동산등기법65')">부동산등기법 제65조</span>).
+                </div>
+                <div class="detail-content">
+                    <h3>소유 입증 방법</h3>
+                    <table class="law-table">
+                        <thead>
+                            <tr>
+                                <th>입증 방법</th>
+                                <th>설명</th>
+                                <th>신뢰도</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>법원 판결</td>
+                                <td>소유권 확인 소송에서 승소한 판결서</td>
+                                <td>최고</td>
+                            </tr>
+                            <tr>
+                                <td>수용보상서</td>
+                                <td>토지 수용 시 보상금 결정 통지서</td>
+                                <td>높음</td>
+                            </tr>
+                            <tr>
+                                <td>관공서 확인서</td>
+                                <td>지자체, 세무서 등의 소유 확인 증명서</td>
+                                <td>높음</td>
+                            </tr>
+                            <tr>
+                                <td>인우보증서</td>
+                                <td>인우인(제3자)이 소유를 보증하는 서류</td>
+                                <td>중간</td>
+                            </tr>
+                            <tr>
+                                <td>구 토지대장, 지세명기장</td>
+                                <td>구 지적 기록 (토지 소유 기재)</td>
+                                <td>중간</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3>보존등기 신청 절차</h3>
+                    <p>보존등기를 신청할 때는 위의 입증 방법 중 적어도 하나를 첨부하여 등기소에 신청합니다. 판결이나 공적 확인서가 있으면 가장 빠르고 확실합니다.</p>
+                </div>
+            </div>
+
+            <div class="section" id="sec4">
+                <h2><span class="sec-num">4</span>미등기 상속 절차 6단계</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    소유 확인 → 판결/확인서 취득 → 상속인 확정 → 보존등기 신청 → 상속등기의 6단계로 진행됩니다.
+                </div>
+                <div class="detail-content">
+                    <div class="process-steps">
+                        <div class="step">
+                            <div class="step-num">1</div>
+                            <div class="step-content">
+                                <div class="step-title">부동산 소유 확인</div>
+                                <div class="step-desc">
+                                    미등기 부동산 존재 확인 → 지목, 면적 등 파악 → 현장 방문 확인
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">2</div>
+                            <div class="step-content">
+                                <div class="step-title">판결 또는 확인서 취득</div>
+                                <div class="step-desc">
+                                    소유권 확인 소송 제기 (불필요한 경우도 있음) → 또는 지자체 확인서 신청 → 또는 인우보증서 준비
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">3</div>
+                            <div class="step-content">
+                                <div class="step-title">상속인 확정</div>
+                                <div class="step-desc">
+                                    피상속인 사망 증명 → 상속인 관계도 작성 → 상속인 인감증명서 준비
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">4</div>
+                            <div class="step-content">
+                                <div class="step-title">보존등기 신청</div>
+                                <div class="step-desc">
+                                    부동산 소재지 등기소에 직접 상속인 앞으로 보존등기 신청 → 소유 입증 서류 첨부 → 등기 수수료 납부
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">5</div>
+                            <div class="step-content">
+                                <div class="step-title">등기 완료</div>
+                                <div class="step-desc">
+                                    등기소 심사 후 등기부 신규 작성 → 상속인 명의로 등기 개설 → 등기부등본 발급
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">6</div>
+                            <div class="step-content">
+                                <div class="step-title">추가 조치</div>
+                                <div class="step-desc">
+                                    상속세 신고 → 취득세 납부 → 필요시 추가 상속등기 진행
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="sec5">
+                <h2><span class="sec-num">5</span>소유 입증 서류</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    구 토지대장, 지세명기장, 가옥대장, 인우보증서 등을 통해 소유를 입증합니다.
+                </div>
+                <div class="detail-content">
+                    <h3>주요 소유 입증 서류</h3>
+                    <table class="law-table">
+                        <thead>
+                            <tr>
+                                <th>서류명</th>
+                                <th>취득처</th>
+                                <th>용도</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>구 토지대장 (지적법 시행 전)</td>
+                                <td>지자체 문화관광과 또는 시청</td>
+                                <td>토지 소유 입증</td>
+                            </tr>
+                            <tr>
+                                <td>지세명기장 (구 지방세)</td>
+                                <td>지자체 세무과</td>
+                                <td>토지 과세 이력 입증</td>
+                            </tr>
+                            <tr>
+                                <td>가옥대장 (구 건축법)</td>
+                                <td>지자체 건축과</td>
+                                <td>건물 소유 입증</td>
+                            </tr>
+                            <tr>
+                                <td>인우보증서</td>
+                                <td>제3자 작성 (공증인 공증)</td>
+                                <td>소유권 입증의 보충 자료</td>
+                            </tr>
+                            <tr>
+                                <td>법원 판결서</td>
+                                <td>법원 (소유권확인소송)</td>
+                                <td>최고의 입증 방법</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3>인우보증서 준비</h3>
+                    <p>인우보증서는 <strong>제3자(이웃, 친구, 변호사 등)가 피상속인이 그 부동산의 소유자임을 보증</strong>하는 서류입니다. 공증인 공증을 받으면 신뢰도가 높아집니다.</p>
+                </div>
+            </div>
+
+            <div class="section" id="sec6">
+                <h2><span class="sec-num">6</span>미등기 건물 특례</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    미등기 건물은 사용승인서 또는 건축물대장 기준으로 보존등기할 수 있습니다.
+                </div>
+                <div class="detail-content">
+                    <h3>미등기 건물의 특별 규정</h3>
+                    <p>미등기 건물(1963년 건축법 시행 이전 건축)의 경우, 다음과 같이 보존등기가 가능합니다:</p>
+                    <ul style="margin-left:20px;margin-bottom:14px;">
+                        <li>사용승인서 (구청 건축과에서 발급)</li>
+                        <li>건축물대장 (현재 국토교통부 시스템)</li>
+                        <li>가옥대장 (구 기록)</li>
+                    </ul>
+                    <h3>건축물대장 발급 방법</h3>
+                    <p>건축물대장은 인터넷(부동산등기소 홈페이지)이나 지자체 방문으로 발급받을 수 있습니다. 건물이 적법하게 존재함을 입증하는 중요한 서류입니다.</p>
+                    <div class="case-box">
+                        <div class="case-title">판례 참고</div>
+                        대법원은 미등기 건물의 보존등기에서 사용승인서나 건축물대장이 있으면 소유권 입증이 충분하다고 판단합니다.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="sec7">
+                <h2><span class="sec-num">7</span>주의사항</h2>
+                <div class="summary-box">
+                    <strong>핵심 요약</strong>
+                    미등기 부동산은 시효취득 위험, 무허가 건물 문제, 기한 경과 위험이 있습니다.
+                </div>
+                <div class="detail-content">
+                    <h3>시효취득의 위험</h3>
+                    <p><span class="law-ref" onclick="openLaw('민법245')">민법 제245조</span>에 따르면, <strong>타인이 20년 이상 계속 점유한 부동산은 소유권을 취득</strong>할 수 있습니다. 미등기 부동산은 등기부가 없으므로 타인의 시효취득 위험이 높습니다.</p>
+                    <h3>무허가 건물 문제</h3>
+                    <p>오래된 미등기 건물 중 일부는 건축 당시 무허가로 지어진 경우가 있습니다. 이 경우:</p>
+                    <ul style="margin-left:20px;margin-bottom:14px;">
+                        <li>적절한 입증 서류가 없을 수 있음</li>
+                        <li>지자체에서 철거 명령을 받을 수 있음</li>
+                        <li>판결을 통해 소유권을 입증해야 할 수 있음</li>
+                    </ul>
+                    <h3>기한 경과 주의</h3>
+                    <div class="warn-box">
+                        <strong>중요</strong>
+                        미등기 부동산을 상속받으면 가능한 한 빨리 보존등기를 신청하세요. 시간이 지날수록 소유 입증이 어려워질 수 있습니다.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="sec8">
+                <h2><span class="sec-num">8</span>자주 묻는 질문</h2>
+                <div class="detail-content">
+                    <h3>Q. 미등기 부동산이 왜 생겼나요?</h3>
+                    <p><strong>A.</strong> 지적법(1912년), 건축법(1963년) 시행 이전에 취득한 부동산, 또는 등기 대상 외 부동산이 미등기로 남아있습니다. 구 법령 하에서는 등기가 강제되지 않았기 때문입니다.</p>
+
+                    <h3>Q. 미등기 부동산도 상속세가 나오나요?</h3>
+                    <p><strong>A.</strong> 네, 나옵니다. 미등기 부동산도 부동산의 가치가 있으면 상속세 대상입니다. 다만 평가가 어려울 수 있으므로 세무사와 상담하세요.</p>
+
+                    <h3>Q. 판결 없이 보존등기를 할 수 있나요?</h3>
+                    <p><strong>A.</strong> 네, 가능합니다. 구 토지대장, 지세명기장, 인우보증서, 지자체 확인서 등으로도 소유를 입증할 수 있습니다. 판결은 최고의 방법이지만 필수는 아닙니다.</p>
+
+                    <h3>Q. 미등기 부동산을 팔 수 있나요?</h3>
+                    <p><strong>A.</strong> 보존등기가 되지 않으면 매우 어렵습니다. 구매자가 소유권을 의심하기 때문입니다. 반드시 보존등기를 한 후 판매하세요.</p>
+
+                    <h3>Q. 구 토지대장은 어디서 구하나요?</h3>
+                    <p><strong>A.</strong> 지자체 문화관광과(또는 전산과) 또는 부동산등기소에 신청하면 발급받을 수 있습니다. 역사적 기록이므로 일시에 발급이 안 될 수도 있습니다.</p>
+
+                    <h3>Q. 미등기 부동산 보존등기에 취득세가 나오나요?</h3>
+                    <p><strong>A.</strong> 보존등기에는 취득세가 나오지 않습니다. 다만 나중에 상속인이 다른 사람에게 팔 때는 양도소득세가 발생할 수 있습니다.</p>
+                </div>
+            </div>
+
+            <div class="checklist-box">
+                <h4>미등기 부동산 상속 준비 체크리스트</h4>
+                <ul>
+                    <li>미등기 부동산 위치 및 면적 확인</li>
+                    <li>구 토지대장 또는 가옥대장 발급 신청</li>
+                    <li>지세명기장 또는 건축물대장 확인</li>
+                    <li>필요시 인우보증서 준비</li>
+                    <li>현장 사진 촬영 (소유 입증 자료)</li>
+                    <li>피상속인 사망 증명서 취득</li>
+                    <li>상속인 확정 및 관계도 작성</li>
+                    <li>상속인 인감증명서 준비</li>
+                    <li>부동산등기소 방문 상담</li>
+                    <li>보존등기 신청</li>
+                </ul>
+            </div>
+
+            <div class="cta-box">
+                <h3>미등기 부동산의 보존등기, 전문가와 함께하세요</h3>
+                <p>복잡한 소유 입증 과정을 법무사가 도와드립니다.</p>
+                <button class="cta-btn">상담 예약하기</button>
+            </div>
+
+            <div class="next-links">
+                <a href="22 협의분할에 의한 상속등기.html" class="next-link">
+                    <div>
+                        <div class="label">이전 주제</div>
+                        <div class="title">협의분할에 의한 상속등기</div>
+                    </div>
+                    <div class="arrow">←</div>
+                </a>
+                <a href="24 외국인의 상속등기.html" class="next-link">
+                    <div>
+                        <div class="label">다음 주제</div>
+                        <div class="title">외국인의 상속등기</div>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+            </div>
+
+            <div class="disclaimer">
+                <strong>면책 공지</strong><br>
+                본 콘텐츠는 일반적인 상속등기 실무 정보를 제공하기 위한 것으로, 특정 사건의 법적 조언이 아닙니다. 미등기 부동산 상속은 복잡한 소유 입증이 필요하므로 반드시 법무사와 상담하세요. 본 정보에 의존한 행동으로 인한 손실에 대해서는 책임지지 않습니다.
+            </div>
+        </div>
+
+        <div class="right-sidebar">
+            <div class="sidebar-tabs">
+                <button class="sidebar-tab active" onclick="switchTab('law')">법령</button>
+                <button class="sidebar-tab" onclick="switchTab('practice')">실무정보</button>
+            </div>
+
+            <div id="panel-law" class="sidebar-panel active">
+                <div class="law-item" id="law-부동산등기법65">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>부동산등기법 제65조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>보존등기</strong><br>
+                        등기되지 아니한 부동산의 소유권을 입증할 때 판결, 지자체 확인서 등으로 보존등기 신청 가능.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-민법245">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>민법 제245조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>점유취득시효</strong><br>
+                        타인의 물건을 20년 이상 계속 점유한 자는 그 소유권을 취득한다.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-지적법">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>지적법 부칙</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>미등기 부동산의 규정</strong><br>
+                        구 지적법 시행 이전 취득한 부동산은 미등기로 남아있음.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-건축법시행령">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>건축법 부칙</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>미등기 건물 특례</strong><br>
+                        1963년 건축법 시행 이전 건축한 건물은 사용승인서로 보존등기 가능.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-부동산등기법66">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>부동산등기법 제66조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>보존등기의 효력</strong><br>
+                        보존등기 완료 후 그 부동산의 상속등기 신청 가능.
+                    </div>
+                </div>
+
+                <div class="law-item" id="law-지방세법21">
+                    <div class="law-item-header" onclick="toggleLaw(this)">
+                        <span>지방세법 제21조</span><span>＋</span>
+                    </div>
+                    <div class="law-item-body">
+                        <strong>취득세 비과세</strong><br>
+                        보존등기에는 취득세가 과세되지 않음.
+                    </div>
+                </div>
+            </div>
+
+            <div id="panel-practice" class="sidebar-panel">
+                <div class="practice-section">
+                    <h5>보존등기 신청 기관</h5>
+                    <ul>
+                        <li>부동산 소재지 관할 등기소</li>
+                        <li>온라인 신청 가능 (부동산등기 홈페이지)</li>
+                        <li>방문 신청도 가능</li>
+                    </ul>
+                </div>
+
+                <div class="practice-section">
+                    <h5>필요한 서류</h5>
+                    <ul>
+                        <li>보존등기 신청서</li>
+                        <li>소유 입증 서류 (판결, 확인서 등)</li>
+                        <li>상속인 인감증명서</li>
+                        <li>사망 증명서</li>
+                        <li>가족관계증명서</li>
+                    </ul>
+                </div>
+
+                <div class="practice-section">
+                    <h5>등기수수료 (목안)</h5>
+                    <ul>
+                        <li>기본료: 8,000원</li>
+                        <li>토지: 1억원 기준 약 10만원</li>
+                        <li>부동산 개수별 추가료</li>
+                    </ul>
+                </div>
+
+                <div class="practice-section">
+                    <h5>주의사항</h5>
+                    <ul>
+                        <li>빨리 보존등기 신청</li>
+                        <li>시효취득 위험 주의</li>
+                        <li>소유 입증 자료 충분히 준비</li>
+                        <li>법무사 상담 권장</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tab){
+            document.querySelectorAll('.sidebar-tab').forEach(t=>t.classList.remove('active'));
+            document.querySelectorAll('.sidebar-panel').forEach(p=>p.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById('panel-'+tab).classList.add('active');
+        }
+        function toggleLaw(header){
+            const body=header.nextElementSibling;
+            const isOpen=body.classList.contains('open');
+            body.classList.toggle('open');
+            header.querySelector('span:last-child').textContent=isOpen?'＋':'－';
+        }
+        function openLaw(id){
+            const lawTab=document.querySelector('.sidebar-tab:first-child');
+            const lawPanel=document.getElementById('panel-law');
+            document.querySelectorAll('.sidebar-tab').forEach(t=>t.classList.remove('active'));
+            document.querySelectorAll('.sidebar-panel').forEach(p=>p.classList.remove('active'));
+            lawTab.classList.add('active');
+            lawPanel.classList.add('active');
+            const item=document.getElementById('law-'+id);
+            if(item){
+                const body=item.querySelector('.law-item-body');
+                const header=item.querySelector('.law-item-header');
+                body.classList.add('open');
+                header.querySelector('span:last-child').textContent='－';
+                item.scrollIntoView({behavior:'smooth',block:'center'});
+            }
+        }
+        const sections=document.querySelectorAll('.section');
+        const tocLinks=document.querySelectorAll('.toc-link');
+        const observer=new IntersectionObserver((entries)=>{
+            entries.forEach(e=>{
+                if(e.isIntersecting){
+                    tocLinks.forEach(l=>l.classList.remove('active'));
+                    const active=document.querySelector('.toc-link[href="#'+e.target.id+'"]');
+                    if(active)active.classList.add('active');
+                }
+            });
+        },{rootMargin:'-20% 0px -70% 0px'});
+        sections.forEach(s=>observer.observe(s));
+    </script>
+</body>
+</html>

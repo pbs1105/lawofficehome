@@ -1,0 +1,225 @@
+<\!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>감정평가와 최저매각가격 — 부동산 경매</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap');
+:root{--navy:#1a2e4a;--gold:#c8a96e;--bg:#faf8f5;--sum-bg:#eef2f8;--sum-bd:#2d4a7a;--cta-bg:#fdf6e9;--cta-bd:#c8a96e;--case-bg:#f0f8f0;--case-bd:#1a5c2e;--rule-bg:#f7f4f0;--rule-bd:#6b7280;--warn-bg:#fff3e8;--warn-bd:#c05000;--info-bg:#f4f7fb;--info-bd:#2d4a7a;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:#333;line-height:1.8;}
+header{background:var(--navy);color:#fff;padding:40px 20px;text-align:center;}
+header h1{font-family:'Noto Serif KR',serif;font-size:2rem;margin-bottom:8px;}
+header .sub{color:var(--gold);font-size:1rem;}
+.container{max-width:860px;margin:0 auto;padding:40px 20px;}
+.section{margin-bottom:48px;}
+.section h2{font-family:'Noto Serif KR',serif;font-size:1.4rem;color:var(--navy);border-left:4px solid var(--gold);padding-left:14px;margin-bottom:20px;}
+.section h3{font-size:1.1rem;color:var(--navy);margin:20px 0 10px;}
+.summary-box{background:var(--sum-bg);border:1.5px solid var(--sum-bd);border-radius:10px;padding:24px;margin-bottom:24px;}
+.summary-box p{margin-bottom:8px;}
+.case-box{background:var(--case-bg);border-left:4px solid var(--case-bd);border-radius:6px;padding:20px;margin:16px 0;}
+.ruling-box{background:var(--rule-bg);border-left:4px solid var(--rule-bd);border-radius:6px;padding:20px;margin:16px 0;}
+.warn-box{background:var(--warn-bg);border-left:4px solid var(--warn-bd);border-radius:6px;padding:20px;margin:16px 0;}
+.info-box{background:var(--info-bg);border-left:4px solid var(--info-bd);border-radius:6px;padding:20px;margin:16px 0;}
+.checklist{list-style:none;padding:0;}
+.checklist li{padding:10px 0 10px 36px;border-bottom:1px solid #e0dbd4;position:relative;}
+.checklist li::before{content:"☑";color:var(--gold);position:absolute;left:8px;font-size:1.1rem;}
+.checklist li:last-child{border-bottom:none;}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.95rem;}
+th{background:var(--navy);color:#fff;padding:10px;text-align:left;}
+td{padding:10px;border-bottom:1px solid #ddd;vertical-align:top;}
+tr:nth-child(even) td{background:#f5f2ee;}
+.qna-item{margin-bottom:24px;border:1px solid #ddd;border-radius:8px;overflow:hidden;}
+.qna-q{background:var(--navy);color:#fff;padding:16px 20px;font-weight:700;}
+.qna-a{padding:16px 20px;background:#fff;}
+.qna-a .note{color:#777;font-size:0.88rem;margin-top:10px;padding-top:10px;border-top:1px solid #eee;}
+.next-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;}
+.next-links a{display:block;background:#fff;border:1.5px solid var(--navy);border-radius:8px;padding:16px;text-align:center;text-decoration:none;color:var(--navy);font-weight:700;transition:all .2s;}
+.next-links a:hover{background:var(--navy);color:#fff;}
+.cta-box{background:var(--cta-bg);border:2px solid var(--cta-bd);border-radius:12px;padding:36px;text-align:center;margin-top:60px;}
+.cta-box h2{font-family:'Noto Serif KR',serif;color:var(--navy);margin-bottom:12px;}
+.cta-box p{color:#555;margin-bottom:20px;}
+.btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-tel{background:var(--navy);color:#fff;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:700;}
+.btn-kako{background:#FEE500;color:#333;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:700;}
+footer{text-align:center;padding:30px 20px;color:#999;font-size:0.82rem;border-top:1px solid #ddd;background:#f0ede8;}
+.badge-warn{display:inline-block;background:#fff3e8;border:1px solid #c05000;color:#c05000;border-radius:4px;padding:2px 8px;font-size:0.82rem;font-weight:700;margin-left:6px;}
+.steps{counter-reset:step;}
+.step{counter-increment:step;padding:18px 20px 18px 60px;border:1px solid #ddd;border-radius:8px;margin-bottom:12px;position:relative;background:#fff;}
+.step::before{content:counter(step);position:absolute;left:16px;top:50%;transform:translateY(-50%);background:var(--navy);color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;}
+    .law-tag {
+      display: inline-block; background: #e8edf5; color: #2d4a7a;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #b0c4de; cursor: pointer; transition: background 0.15s;
+    }
+    .law-tag:hover { background: #c8daf7; color: #1a2e4a; }
+    .case-tag {
+      display: inline-block; background: #f0ece4; color: #5a4a30;
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle; text-decoration: none;
+      border: 1px solid #c8a96e; cursor: pointer; transition: background 0.15s;
+    }
+    .case-tag:hover { background: #f5dfa8; color: #3a2a10; }
+  </style>
+</head>
+<body>
+<header>
+  <div class="sub">부동산 경매 실무 정보</div>
+  <h1>감정평가와 최저매각가격</h1>
+  <div class="sub">입찰 전 반드시 이해해야 할 가격 구조</div>
+</header>
+<div class="container">
+
+  <div class="section">
+    <h2>이런 분께 필요합니다</h2>
+    <ul class="checklist">
+      <li>경매 물건의 감정가가 시세와 다른 것 같아 의문이 생기셨다면</li>
+      <li>최저매각가격이 무엇을 의미하는지 모르겠다면</li>
+      <li>유찰 후 가격이 낮아진 물건에 입찰하려는 분</li>
+      <li>감정평가 기준일과 현재 시세 차이를 파악하고 싶은 분</li>
+      <li>입찰보증금 계산 방법을 확인하고 싶은 분</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>핵심정리</h2>
+    <div class="summary-box">
+      <p><strong>감정평가액</strong>은 법원이 선정한 감정인이 경매 개시 결정 이후 특정 시점에 평가한 부동산 가치입니다. 이것이 곧 <strong>최초 최저매각가격</strong>이 됩니다.</p>
+      <p>유찰될 때마다 법원이 정한 비율(보통 전회 최저가의 20% 감액)로 <strong>최저매각가격이 낮아집니다</strong>. 즉 3회 유찰된 물건은 감정가의 약 51.2% 수준에서 입찰이 가능합니다.</p>
+      <p>입찰보증금은 최저매각가격의 10%이며, 최고가 매수신고 이외의 입찰자는 즉시 반환받습니다.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>상세설명</h2>
+    <h3>3-1. 감정평가의 법적 근거</h3>
+    <p><a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=009700" target="_blank" rel="noopener">민사집행법 제97조</a>는 "법원은 감정인에게 부동산을 평가하게 하고 그 평가액을 참작하여 최저매각가격을 정한다"고 규정합니다. 감정인은 법원이 선임하며, 감정 비용은 집행비용으로 처리됩니다.</p>
+    <p>감정평가는 경매 개시 결정 이후 이루어지므로, 평가 기준일과 실제 입찰일 사이에 시간적 차이가 발생할 수 있습니다. 이 기간 동안 부동산 시장 상황이 변동되면 감정가와 실제 시세 간의 괴리가 생길 수 있습니다.</p>
+
+    <h3>3-2. 최저매각가격과 유찰 감액 구조</h3>
+    <table>
+      <tr><th>회차</th><th>최저매각가격</th><th>입찰보증금(10%)</th></tr>
+      <tr><td>1회차(최초)</td><td>감정가 100%</td><td>감정가의 10%</td></tr>
+      <tr><td>2회차(1회 유찰)</td><td>감정가의 80%</td><td>감정가의 8%</td></tr>
+      <tr><td>3회차(2회 유찰)</td><td>감정가의 64%</td><td>감정가의 6.4%</td></tr>
+      <tr><td>4회차(3회 유찰)</td><td>감정가의 51.2%</td><td>감정가의 5.12%</td></tr>
+    </table>
+    <div class="info-box">
+      <strong>ℹ️ 법원별 감액 비율 차이</strong><br>
+      법원에 따라 감액 비율이 다를 수 있습니다. 일부 법원은 30% 감액을 적용하기도 합니다. 매각물건명세서에서 해당 법원의 감액 비율을 반드시 확인하세요.
+    </div>
+
+    <h3>3-3. 실제 사례</h3>
+    <div class="case-box">
+      <strong>사례: 감정가 5억 원 아파트, 2회 유찰 후 입찰</strong><br>
+      감정가 5억 원 → 1회 유찰 후 최저가 4억 원 → 2회 유찰 후 최저가 3억 2천만 원.<br>
+      입찰 시 보증금은 3,200만 원(최저가의 10%)을 지참해야 합니다.<br>
+      단, 감정 기준일이 1년 전이라면 현재 시세는 별도로 확인이 필요합니다.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>자주하는 질문 Q&A</h2>
+
+    <div class="qna-item">
+      <div class="qna-q">Q. 감정가가 시세보다 낮게 평가된 것 같은데, 문제가 없나요?</div>
+      <div class="qna-a">
+        <p>감정평가는 평가 기준일의 시장가치를 기준으로 하므로, 경매 절차가 진행되는 동안 부동산 시세가 상승했다면 감정가가 현 시세보다 낮을 수 있습니다. 이는 법적으로 문제가 없으며, 입찰자 입장에서는 오히려 유리한 상황일 수 있습니다.</p>
+        <p>반대로 시세가 하락한 경우 감정가가 시세보다 높게 형성될 수 있어, 유찰이 반복되다가 가격이 조정될 때까지 기다리는 전략이 필요할 수 있습니다. 입찰 전에는 반드시 현재 시세를 별도로 조사해야 합니다.</p>
+        <p class='note'>위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+      </div>
+    </div>
+
+    <div class="qna-item">
+      <div class="qna-q">Q. 입찰보증금을 현금으로만 납부해야 하나요?</div>
+      <div class="qna-a">
+        <p>입찰보증금은 현금, 법원보관금 납입 영수증, 또는 금융기관이 발행한 보증서(보증보험증권)로 납부할 수 있습니다. 보증서를 이용하면 실제 현금을 대규모로 준비할 필요가 없어 편리합니다.</p>
+        <p>최고가 매수신고인으로 결정되지 않은 경우 입찰보증금은 즉시 반환됩니다. 최고가 매수신고인이 대금을 기한 내 납부하지 않으면 입찰보증금은 몰수될 수 있습니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=013800" target="_blank" rel="noopener">민사집행법 제138조</a>).</p>
+        <p class='note'>위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+      </div>
+    </div>
+
+    <div class="qna-item">
+      <div class="qna-q">Q. 최저매각가격보다 낮은 금액으로 입찰하면 어떻게 되나요?</div>
+      <div class="qna-a">
+        <p>최저매각가격 미만의 입찰은 무효입니다(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=012100" target="_blank" rel="noopener">민사집행법 제121조 제5호</a>). 입찰은 반드시 최저매각가격 이상의 금액으로 하여야 하며, 복수의 입찰자 중 최고가를 제시한 사람이 최고가 매수신고인이 됩니다.</p>
+        <p>동일 금액을 제시한 입찰자가 복수인 경우 추가로 최고가 입찰을 진행하며, 이때 응하지 않으면 모두 무효 처리됩니다.</p>
+        <p class='note'>위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+      </div>
+    </div>
+
+    <div class="qna-item">
+      <div class="qna-q">Q. 유찰이 반복되다 보면 가격이 계속 낮아지나요?</div>
+      <div class="qna-a">
+        <p>유찰이 반복될수록 최저매각가격은 낮아지지만, 무한정 낮아지지는 않습니다. 잉여주의 원칙(<a class="law-tag" href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=010200" target="_blank" rel="noopener">민사집행법 제102조</a>)에 따라 선순위 권리자들을 만족시키기 어려운 수준이 되면 법원이 경매 절차를 취소할 수 있습니다.</p>
+        <p>또한 물건에 따라서는 일정 회차 이후 법원이 새로운 감정평가를 명할 수도 있습니다. 특히 장기간 경매가 진행된 물건은 새로운 감정평가 결과로 최저가가 조정될 수 있으므로 유의해야 합니다.</p>
+        <p class='note'>위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+      </div>
+    </div>
+
+    <div class="qna-item">
+      <div class="qna-q">Q. 감정평가서를 미리 열람할 수 있나요?</div>
+      <div class="qna-a">
+        <p>네, 감정평가서는 법원 경매 기록의 일부로, 법원 경매계에서 열람·복사가 가능합니다. 또한 대법원 법원경매정보 사이트(www.courtauction.go.kr)에서 일정 정보를 온라인으로 확인할 수 있습니다.</p>
+        <p>감정평가서에는 평가 기준일, 평가 방법, 해당 부동산의 가격 결정 요인이 상세히 기재되어 있어 입찰 결정에 중요한 자료가 됩니다. 매각물건명세서와 함께 반드시 확인하세요.</p>
+        <p class='note'>위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+      </div>
+    </div>
+
+    <div class="qna-item">
+      <div class="qna-q">Q. 토지와 건물이 함께 경매되는 경우 감정평가는 어떻게 되나요?</div>
+      <div class="qna-a">
+        <p>토지와 건물이 함께 경매 신청된 경우 일체로 감정평가하여 최저매각가격을 산정합니다. 각각 별도의 등기부등본이 있더라도 하나의 가격으로 평가되어 입찰이 이루어집니다.</p>
+        <p>단, 토지와 건물의 소유자가 다른 경우(예: 토지는 A 소유, 건물은 B 소유)에는 각각 별도로 평가될 수 있습니다. 이 경우 법정지상권 문제가 발생할 수 있으므로 매각물건명세서에 표시된 권리관계를 면밀히 검토해야 합니다.</p>
+        <p class='note'>위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>판례</h2>
+    <div class="ruling-box">
+      <p>법원은 감정인이 제출한 평가액을 참작하여 최저매각가격을 정하는데, 감정평가가 현저히 부당한 경우 법원이 새로운 감정을 명하거나 직권으로 가격을 조정할 수 있습니다. 감정가격이 시세와 현저히 달라 매각허가에 영향을 미칠 경우 이해관계인은 매각허가결정에 대한 즉시항고를 통해 불복할 수 있습니다.</p>
+      <p>최저매각가격은 경매 절차의 공정성과 경제성을 위한 기준이며, 입찰자들이 적정한 가격에 낙찰받을 수 있도록 보장하는 기능을 합니다.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>주의사항</h2>
+    <div class="warn-box">
+      <p>⚠️ <strong>감정가 ≠ 시세</strong>: 감정 기준일 이후 시세 변동을 반드시 별도로 확인하세요. 특히 장기간 진행 중인 경매의 경우 감정가와 실제 시세 간 차이가 클 수 있습니다.</p>
+    </div>
+    <div class="warn-box">
+      <p>⚠️ <strong>인수되는 권리 있을 수 있음</strong>: 최저매각가격이 낮더라도 매수인이 인수해야 하는 선순위 권리(선순위 임차인의 보증금, 유치권 등)가 있다면 실질 비용은 훨씬 높아집니다. 권리분석 없이 낮은 가격만 보고 입찰하면 위험합니다.</p>
+    </div>
+    <div class="info-box">
+      <p>ℹ️ <strong>현황조사보고서·매각물건명세서 확인 필수</strong>: 입찰 전 이 세 가지 서류를 반드시 확인하고 전문가와 권리분석을 받으세요.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>다음에 확인할 사항</h2>
+    <div class="next-links">
+      <a href="경매_16_권리분석.html">📋 권리분석과 말소기준권리</a>
+      <a href="경매_14_입찰절차.html">🏷️ 입찰 절차와 방법</a>
+      <a href="경매_24_현황조사매각명세서.html">📄 현황조사·매각물건명세서 보는 법</a>
+    </div>
+  </div>
+
+
+    <div class="cta-box">
+      <h2>이 내용이 해당되시나요?</h2>
+      <p>첫 상담은 무료입니다. 직접 처리하시기 어려운 부분을 법무사가 도와드립니다.</p>
+      <div class="btn-row">
+        <a href="tel:0000000000" class="btn-tel">📞 전화 상담</a>
+        <a href="https://open.kakao.com/" class="btn-kako">💬 카카오톡 상담</a>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 자문이 아닙니다.</p>
+    <p>이 페이지는 2025년 현행 법령 기준으로 작성되었습니다. 법령 개정 시 내용이 달라질 수 있습니다.</p>
+  </footer>
+</body>
+</html>
+
