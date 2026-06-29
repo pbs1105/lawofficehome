@@ -5452,15 +5452,15 @@ const FOREIGN_TOPICS = [
         <section class="next-section">
             <h3>다음으로 확인할 내용</h3>
             <div class="next-links">
-                <a href="외등_01_법적지위구분.html" class="next-link">
+                <a href="?cat=etc&sub=foreign-realestate&topic=fi-01" class="next-link">
                     <strong>외국인·재외국민·외국국적동포 법적 지위 완벽 구분</strong>
                     <span>세 집단의 법적 지위와 부동산 등기 상의 차이를 더 자세히 학습합니다.</span>
                 </a>
-                <a href="외등_15_재외국민등록.html" class="next-link">
+                <a href="?cat=etc&sub=foreign-realestate&topic=fi-15" class="next-link">
                     <strong>재외국민등록 제도와 부동산 등기의 관계</strong>
                     <span>재외국민등록의 절차, 효과, 부동산 거래 시 필요한 서류를 자세히 안내합니다.</span>
                 </a>
-                <a href="외등_16_재외국민취득.html" class="next-link">
+                <a href="?cat=etc&sub=foreign-realestate&topic=fi-16" class="next-link">
                     <strong>재외국민의 한국 부동산 매수 등기 가이드</strong>
                     <span>실제 매매 계약부터 등기 신청까지 단계별 절차와 준비서류를 상세히 설명합니다.</span>
                 </a>

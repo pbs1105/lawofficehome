@@ -224,17 +224,17 @@ const INHERITANCE_TOPICS = [
     다음으로 확인할 내용
   </div>
 <div class="next-links">
-<a class="next-link" href="상속_02_상속인순위.html">
+<a class="next-link" href="?cat=inheritance&topic=in-02">
 <p class="nl-tag">STEP 2 · 상속인</p>
 <p class="nl-title">상속인 순위 — 누가 얼마나 받는가</p>
 <p class="nl-desc">법정상속분과 상속인 순위를 구체적으로 확인합니다.</p>
 </a>
-<a class="next-link" href="상속_05_포기vs한정승인.html">
+<a class="next-link" href="?cat=inheritance&topic=in-05">
 <p class="nl-tag">STEP 4 · 승인·포기</p>
 <p class="nl-title">포기 vs 한정승인 — 내 상황에 맞는 선택은</p>
 <p class="nl-desc">빚이 걱정된다면 여기서 두 선택지를 비교하세요.</p>
 </a>
-<a class="next-link" href="상속_12_부동산등기개관.html">
+<a class="next-link" href="?cat=inheritance&topic=in-12">
 <p class="nl-tag">STEP 6 · 등기</p>
 <p class="nl-title">상속 부동산 등기 — 무엇을 언제까지</p>
 <p class="nl-desc">등기를 해야 하는 시기와 이유를 안내합니다.</p>
@@ -608,28 +608,28 @@ const INHERITANCE_TOPICS = [
 </div>` },
       { heading: 'STEP 6 다음으로 확인할 내용', content: `<p>상속인 순위와 상속분을 파악했다면, 아래 주제들을 순서대로 확인하시면 좋습니다.</p>
 <div class="next-links">
-<a class="next-link" href="상속_03_실종선고.html">
+<a class="next-link" href="?cat=inheritance&topic=in-03">
 <span class="arrow">→</span>
 <span class="link-text">
 <span class="num">03번째 페이지</span>
 <span class="title">실종된 가족과 상속</span>
 </span>
 </a>
-<a class="next-link" href="상속_04_상속재산범위.html">
+<a class="next-link" href="?cat=inheritance&topic=in-04">
 <span class="arrow">→</span>
 <span class="link-text">
 <span class="num">04번째 페이지</span>
 <span class="title">빚도 상속되나요</span>
 </span>
 </a>
-<a class="next-link" href="상속_05_포기vs한정승인.html">
+<a class="next-link" href="?cat=inheritance&topic=in-05">
 <span class="arrow">→</span>
 <span class="link-text">
 <span class="num">05번째 페이지</span>
 <span class="title">포기 vs 한정승인 비교</span>
 </span>
 </a>
-<a class="next-link" href="상속_10_유류분.html">
+<a class="next-link" href="?cat=inheritance&topic=in-20">
 <span class="arrow">→</span>
 <span class="link-text">
 <span class="num">10번째 페이지</span>
@@ -958,28 +958,28 @@ const INHERITANCE_TOPICS = [
 </div>` },
       { heading: 'STEP 6 다음으로 확인할 내용', content: `<p>실종선고로 상속이 개시되면, 아래 내용을 순서대로 확인하시면 됩니다.</p>
 <div class="next-links">
-<a class="next-link" href="상속_04_상속재산범위.html">
+<a class="next-link" href="?cat=inheritance&topic=in-04">
 <span class="arrow">→</span>
 <span class="link-text">
 <span class="num">04번째 페이지</span>
 <span class="title">빚도 상속되나요</span>
 </span>
 </a>
-<a class="next-link" href="상속_05_포기vs한정승인.html">
+<a class="next-link" href="?cat=inheritance&topic=in-05">
 <span class="arrow">→</span>
 <span class="link-text">
 <span class="num">05번째 페이지</span>
 <span class="title">포기 vs 한정승인 비교</span>
 </span>
 </a>
-<a class="next-link" href="상속_12_부동산등기개관.html">
+<a class="next-link" href="?cat=inheritance&topic=in-12">
 <span class="arrow">→</span>
 <span class="link-text">
 <span class="num">12번째 페이지</span>
 <span class="title">상속 부동산 등기 개관</span>
 </span>
 </a>
-<a class="next-link" href="상속_02_상속인순위.html">
+<a class="next-link" href="?cat=inheritance&topic=in-02">
 <span class="arrow">←</span>
 <span class="link-text">
 <span class="num">02번째 페이지</span>
@@ -1316,28 +1316,28 @@ const INHERITANCE_TOPICS = [
 </div>` },
       { heading: 'STEP 6 다음으로 확인할 내용', content: `<p>상속재산 범위를 파악했다면, 채무 대처 방법을 바로 확인하세요.</p>
 <div class="next-links">
-<a class="next-link" href="상속_05_포기vs한정승인.html">
+<a class="next-link" href="?cat=inheritance&topic=in-05">
 <span class="arrow">→</span>
 <span class="link-text">
 <span class="num">05번째 페이지</span>
 <span class="title">포기 vs 한정승인 비교</span>
 </span>
 </a>
-<a class="next-link" href="상속_06_상속포기절차.html">
+<a class="next-link" href="?cat=inheritance&topic=in-06">
 <span class="arrow">→</span>
 <span class="link-text">
 <span class="num">06번째 페이지</span>
 <span class="title">상속포기 절차와 서류</span>
 </span>
 </a>
-<a class="next-link" href="상속_07_한정승인절차.html">
+<a class="next-link" href="?cat=inheritance&topic=in-07">
 <span class="arrow">→</span>
 <span class="link-text">
 <span class="num">07번째 페이지</span>
 <span class="title">한정승인 절차와 청산</span>
 </span>
 </a>
-<a class="next-link" href="상속_02_상속인순위.html">
+<a class="next-link" href="?cat=inheritance&topic=in-02">
 <span class="arrow">←</span>
 <span class="link-text">
 <span class="num">02번째 페이지</span>
@@ -1702,28 +1702,28 @@ const INHERITANCE_TOPICS = [
 </div>` },
       { heading: 'STEP 6 다음으로 확인할 내용', content: `<p>선택을 결정했다면, 각 절차 페이지에서 구체적인 신청 방법을 확인하세요.</p>
 <div class="next-links">
-<a class="next-link" href="상속_06_상속포기절차.html">
+<a class="next-link" href="?cat=inheritance&topic=in-06">
 <span class="arrow">→</span>
 <span class="link-text">
 <span class="num">06번째 페이지</span>
 <span class="title">상속포기 절차와 서류</span>
 </span>
 </a>
-<a class="next-link" href="상속_07_한정승인절차.html">
+<a class="next-link" href="?cat=inheritance&topic=in-07">
 <span class="arrow">→</span>
 <span class="link-text">
 <span class="num">07번째 페이지</span>
 <span class="title">한정승인 절차와 청산</span>
 </span>
 </a>
-<a class="next-link" href="상속_04_상속재산범위.html">
+<a class="next-link" href="?cat=inheritance&topic=in-04">
 <span class="arrow">←</span>
 <span class="link-text">
 <span class="num">04번째 페이지</span>
 <span class="title">상속재산 범위 다시 보기</span>
 </span>
 </a>
-<a class="next-link" href="상속_02_상속인순위.html">
+<a class="next-link" href="?cat=inheritance&topic=in-02">
 <span class="arrow">←</span>
 <span class="link-text">
 <span class="num">02번째 페이지</span>
@@ -8920,19 +8920,19 @@ const INHERITANCE_TOPICS = [
       { heading: 'SECTION 07다음으로 확인할 내용', content: `<div class="next-box">
 <h3>관련 페이지</h3>
 <div class="next-links">
-<a class="next-link" href="상속_01_개요.html">
+<a class="next-link" href="?cat=inheritance&topic=in-01">
 <span class="arrow">▶</span>
         상속등기 전체 개요 — 처음이라면 여기서 시작하세요
       </a>
-<a class="next-link" href="상속_03_협의분할.html">
+<a class="next-link" href="?cat=inheritance&topic=in-11">
 <span class="arrow">▶</span>
         협의분할에 의한 상속등기 — 상속인 간 합의로 나누는 방법
       </a>
-<a class="next-link" href="상속_18_유증등기.html">
+<a class="next-link" href="?cat=inheritance&topic=in-18">
 <span class="arrow">▶</span>
         유증으로 인한 소유권이전등기 — 유언에 의한 재산 이전
       </a>
-<a class="next-link" href="상속_21_상속회복.html">
+<a class="next-link" href="?cat=inheritance&topic=in-21">
 <span class="arrow">▶</span>
         상속회복청구 — 빼앗긴 상속재산 되찾기
       </a>
@@ -9398,19 +9398,19 @@ const INHERITANCE_TOPICS = [
       { heading: 'SECTION 07다음으로 확인할 내용', content: `<div class="next-box">
 <h3>관련 페이지</h3>
 <div class="next-links">
-<a class="next-link" href="상속_02_상속인순위.html">
+<a class="next-link" href="?cat=inheritance&topic=in-02">
 <span class="arrow">▶</span>
         법정 상속인 순위 — 누가 상속인인지 먼저 확인하세요
       </a>
-<a class="next-link" href="상속_06_상속포기.html">
+<a class="next-link" href="?cat=inheritance&topic=in-06">
 <span class="arrow">▶</span>
         상속포기 — 상속인 전원 포기 시 상속인 부존재가 됩니다
       </a>
-<a class="next-link" href="상속_20_유류분.html">
+<a class="next-link" href="?cat=inheritance&topic=in-20">
 <span class="arrow">▶</span>
         유류분 — 상속인이 있을 때 최소한의 상속 몫 보장
       </a>
-<a class="next-link" href="상속_24_상속재산파산.html">
+<a class="next-link" href="?cat=inheritance&topic=in-24">
 <span class="arrow">▶</span>
         상속재산파산 — 상속재산이 채무 초과인 경우
       </a>

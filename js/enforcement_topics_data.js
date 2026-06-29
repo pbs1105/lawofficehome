@@ -96,12 +96,12 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음에 확인할 사항',
         content: `<div class="next-links">
-                <a href="#" class="next-link">집행권원이란</a>
-                <a href="#" class="next-link">집행문 부여 신청</a>
-                <a href="#" class="next-link">재산명시신청</a>
-                <a href="#" class="next-link">부동산 강제집행</a>
-                <a href="#" class="next-link">채권 강제집행</a>
-                <a href="#" class="next-link">당사자 변동 시 대응</a>
+                <a href="?cat=enforcement&topic=ef-2" class="next-link">집행권원이란</a>
+                <a href="?cat=enforcement&topic=ef-3" class="next-link">집행문 부여 신청</a>
+                <a href="?cat=enforcement&topic=ef-5" class="next-link">재산명시신청</a>
+                <a href="?cat=enforcement&topic=ef-16" class="next-link">부동산 강제집행</a>
+                <a href="?cat=enforcement&topic=ef-53" class="next-link">채권 강제집행</a>
+                <a href="?cat=enforcement&topic=ef-4" class="next-link">당사자 변동 시 대응</a>
             </div>`
       },
     ],
@@ -255,12 +255,12 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음에 확인할 사항',
         content: `<div class="next-links">
-                <a href="#" class="next-link">집행문 부여 신청</a>
-                <a href="#" class="next-link">강제집행개관</a>
-                <a href="#" class="next-link">당사자 변동 시 대응</a>
-                <a href="#" class="next-link">지급명령 신청</a>
-                <a href="#" class="next-link">법원 조정</a>
-                <a href="#" class="next-link">공정증서 작성</a>
+                <a href="?cat=enforcement&topic=ef-3" class="next-link">집행문 부여 신청</a>
+                <a href="?cat=enforcement&topic=ef-1" class="next-link">강제집행개관</a>
+                <a href="?cat=enforcement&topic=ef-4" class="next-link">당사자 변동 시 대응</a>
+                <a href="?cat=lawsuit&topic=ms-10" class="next-link">지급명령 신청</a>
+                <a href="?cat=lawsuit&topic=ms-12" class="next-link">법원 조정</a>
+                <a href="?cat=enforcement&topic=ef-2" class="next-link">공정증서 작성</a>
             </div>`
       },
     ],
@@ -421,12 +421,12 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음에 확인할 사항',
         content: `<div class="next-links">
-                <a href="#" class="next-link">강제집행개관</a>
-                <a href="#" class="next-link">집행권원이란</a>
-                <a href="#" class="next-link">당사자 변동 시 대응</a>
-                <a href="#" class="next-link">부동산 강제집행</a>
-                <a href="#" class="next-link">재산명시신청</a>
-                <a href="#" class="next-link">집행문 부여 거절 시 대응</a>
+                <a href="?cat=enforcement&topic=ef-1" class="next-link">강제집행개관</a>
+                <a href="?cat=enforcement&topic=ef-2" class="next-link">집행권원이란</a>
+                <a href="?cat=enforcement&topic=ef-4" class="next-link">당사자 변동 시 대응</a>
+                <a href="?cat=enforcement&topic=ef-16" class="next-link">부동산 강제집행</a>
+                <a href="?cat=enforcement&topic=ef-5" class="next-link">재산명시신청</a>
+                <a href="?cat=enforcement&topic=ef-11" class="next-link">집행문 부여 거절 시 대응</a>
             </div>`
       },
     ],
@@ -558,12 +558,12 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음에 확인할 사항',
         content: `<div class="next-links">
-                <a href="#" class="next-link">집행문 부여 신청</a>
-                <a href="#" class="next-link">강제집행개관</a>
-                <a href="#" class="next-link">상속 개요</a>
-                <a href="#" class="next-link">재산명시신청</a>
-                <a href="#" class="next-link">상속포기</a>
-                <a href="#" class="next-link">법인 등기 변경</a>
+                <a href="?cat=enforcement&topic=ef-3" class="next-link">집행문 부여 신청</a>
+                <a href="?cat=enforcement&topic=ef-1" class="next-link">강제집행개관</a>
+                <a href="?cat=inheritance&topic=in-01" class="next-link">상속 개요</a>
+                <a href="?cat=enforcement&topic=ef-5" class="next-link">재산명시신청</a>
+                <a href="?cat=inheritance&topic=in-06" class="next-link">상속포기</a>
+                <a href="?cat=corporation&topic=co-2" class="next-link">법인 등기 변경</a>
             </div>`
       },
     ],
@@ -724,12 +724,12 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음에 확인할 사항',
         content: `<div class="next-links">
-                <a href="#" class="next-link">강제집행개관</a>
-                <a href="#" class="next-link">부동산 강제집행</a>
-                <a href="#" class="next-link">채권 강제집행</a>
-                <a href="#" class="next-link">집행문 부여 신청</a>
-                <a href="#" class="next-link">집행권원이란</a>
-                <a href="#" class="next-link">당사자 변동 시 대응</a>
+                <a href="?cat=enforcement&topic=ef-1" class="next-link">강제집행개관</a>
+                <a href="?cat=enforcement&topic=ef-16" class="next-link">부동산 강제집행</a>
+                <a href="?cat=enforcement&topic=ef-53" class="next-link">채권 강제집행</a>
+                <a href="?cat=enforcement&topic=ef-3" class="next-link">집행문 부여 신청</a>
+                <a href="?cat=enforcement&topic=ef-2" class="next-link">집행권원이란</a>
+                <a href="?cat=enforcement&topic=ef-4" class="next-link">당사자 변동 시 대응</a>
             </div>`
       },
     ],
@@ -870,15 +870,15 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음에 확인할 사항',
         content: `<div class="next-links">
-    <a href="민집_05_재산명시.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-5" class="next-link">
       <span class="arrow">→</span>
       재산명시신청<br><small>채무자가 스스로 재산을 공개하게 하는 절차</small>
     </a>
-    <a href="민집_07_채무불이행자명부.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-7" class="next-link">
       <span class="arrow">→</span>
       채무불이행자명부<br><small>채무자를 신용불량으로 등재시키는 방법</small>
     </a>
-    <a href="민집_01_강제집행개관.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-1" class="next-link">
       <span class="arrow">→</span>
       강제집행 개관<br><small>강제집행의 전체 흐름 이해</small>
     </a>
@@ -1012,15 +1012,15 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음에 확인할 사항',
         content: `<div class="next-links">
-    <a href="민집_05_재산명시.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-5" class="next-link">
       <span class="arrow">→</span>
       재산명시신청<br><small>채무자가 스스로 재산을 공개하게 하는 절차</small>
     </a>
-    <a href="민집_06_재산조회.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-6" class="next-link">
       <span class="arrow">→</span>
       재산조회<br><small>금융기관을 통해 채무자 재산 찾기</small>
     </a>
-    <a href="민집_15_재산은닉.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-15" class="next-link">
       <span class="arrow">→</span>
       재산명시 위반 대응<br><small>채무자가 재산을 숨길 때 법적 대응</small>
     </a>
@@ -1140,15 +1140,15 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음에 확인할 사항',
         content: `<div class="next-links">
-    <a href="민집_09_청구이의.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-9" class="next-link">
       <span class="arrow">→</span>
       청구이의의 소<br><small>실체적 권리를 다투는 방법</small>
     </a>
-    <a href="민집_12_집행정지.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-12" class="next-link">
       <span class="arrow">→</span>
       강제집행 정지<br><small>집행을 일시적으로 멈추는 방법</small>
     </a>
-    <a href="민집_11_집행문이의.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-11" class="next-link">
       <span class="arrow">→</span>
       집행문 이의<br><small>집행문 자체가 잘못 발급됐을 때</small>
     </a>
@@ -1275,15 +1275,15 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음에 확인할 사항',
         content: `<div class="next-links">
-    <a href="민집_12_집행정지.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-12" class="next-link">
       <span class="arrow">→</span>
       강제집행 정지<br><small>청구이의 소 제기 후 집행을 멈추는 방법</small>
     </a>
-    <a href="민집_08_집행이의.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-8" class="next-link">
       <span class="arrow">→</span>
       집행에 관한 이의신청<br><small>절차 위법에 대한 대응</small>
     </a>
-    <a href="민집_11_집행문이의.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-11" class="next-link">
       <span class="arrow">→</span>
       집행문 이의<br><small>집행문 자체의 문제를 다투는 방법</small>
     </a>
@@ -1398,15 +1398,15 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음에 확인할 사항',
         content: `<div class="next-links">
-    <a href="민집_12_집행정지.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-12" class="next-link">
       <span class="arrow">→</span>
       강제집행 정지<br><small>소 제기와 함께 집행을 멈추는 방법</small>
     </a>
-    <a href="민집_08_집행이의.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-8" class="next-link">
       <span class="arrow">→</span>
       집행에 관한 이의신청<br><small>급박한 상황에서의 임시 대응</small>
     </a>
-    <a href="민집_09_청구이의.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-9" class="next-link">
       <span class="arrow">→</span>
       청구이의의 소<br><small>채무자 본인이 집행을 막는 방법</small>
     </a>
@@ -1518,15 +1518,15 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음에 확인할 사항',
         content: `<div class="next-links">
-    <a href="민집_03_집행문부여.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-3" class="next-link">
       <span class="arrow">→</span>
       집행문 부여 신청<br><small>집행문을 받는 정상적인 절차</small>
     </a>
-    <a href="민집_09_청구이의.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-9" class="next-link">
       <span class="arrow">→</span>
       청구이의의 소<br><small>실체적 권리를 다투는 방법</small>
     </a>
-    <a href="민집_12_집행정지.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-12" class="next-link">
       <span class="arrow">→</span>
       강제집행 정지<br><small>집행을 일시적으로 멈추는 방법</small>
     </a>
@@ -1646,15 +1646,15 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음에 확인할 사항',
         content: `<div class="next-links">
-    <a href="민집_09_청구이의.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-9" class="next-link">
       <span class="arrow">→</span>
       청구이의의 소<br><small>집행정지와 함께 제기하는 본안 소송</small>
     </a>
-    <a href="민집_10_제3자이의.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-10" class="next-link">
       <span class="arrow">→</span>
       제3자이의의 소<br><small>제3자가 집행을 막는 방법</small>
     </a>
-    <a href="민집_14_집행담보공탁.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-14" class="next-link">
       <span class="arrow">→</span>
       집행 담보·공탁<br><small>담보 제공 방법 상세 안내</small>
     </a>
@@ -1767,15 +1767,15 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음에 확인할 사항',
         content: `<div class="next-links">
-    <a href="민집_01_강제집행개관.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-1" class="next-link">
       <span class="arrow">→</span>
       강제집행 개관<br><small>집행 전체 흐름 이해</small>
     </a>
-    <a href="민집_14_집행담보공탁.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-14" class="next-link">
       <span class="arrow">→</span>
       집행 담보·공탁<br><small>집행 전 담보 제공 방법</small>
     </a>
-    <a href="민집_05_재산명시.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-5" class="next-link">
       <span class="arrow">→</span>
       재산명시신청<br><small>채무자 재산 파악 방법</small>
     </a>
@@ -1896,15 +1896,15 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음에 확인할 사항',
         content: `<div class="next-links">
-    <a href="민집_12_집행정지.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-12" class="next-link">
       <span class="arrow">→</span>
       강제집행 정지<br><small>담보와 함께 집행을 멈추는 방법</small>
     </a>
-    <a href="민집_13_집행비용.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-13" class="next-link">
       <span class="arrow">→</span>
       집행비용<br><small>강제집행 비용의 종류와 부담</small>
     </a>
-    <a href="민집_01_강제집행개관.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-1" class="next-link">
       <span class="arrow">→</span>
       강제집행 개관<br><small>집행 전체 흐름 이해</small>
     </a>
@@ -2106,13 +2106,13 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음에 확인할 사항',
         content: `<div class="next-links">
-            <a href="민집_05_재산명시.html" class="next-link">
+            <a href="?cat=enforcement&topic=ef-5" class="next-link">
                 <span class="arrow">→</span>재산명시 신청 절차와 방법
             </a>
-            <a href="민집_06_재산조회.html" class="next-link">
+            <a href="?cat=enforcement&topic=ef-6" class="next-link">
                 <span class="arrow">→</span>법원을 통한 재산조회 신청
             </a>
-            <a href="민집_07_채무불이행자명부.html" class="next-link">
+            <a href="?cat=enforcement&topic=ef-7" class="next-link">
                 <span class="arrow">→</span>채무불이행자명부 등재 신청
             </a>
         </div>
@@ -2240,17 +2240,17 @@ const ENFORCEMENT_TOPICS = [
     {
       heading: '다음에 확인할 사항',
       content: `<div class="next-links">
-    <a href="경매_02_강제경매vs임의경매.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-17" class="next-link">
       <span class="arrow">→</span>
       <span class="title">강제경매 vs 임의경매</span>
       <span class="desc">어떤 경우에 어느 경매가 해당되는지 확인</span>
     </a>
-    <a href="경매_04_집행정지신청.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-19" class="next-link">
       <span class="arrow">→</span>
       <span class="title">경매 집행정지 신청</span>
       <span class="desc">경매를 법적으로 멈출 수 있는 방법</span>
     </a>
-    <a href="경매_10_배당순위.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-25" class="next-link">
       <span class="arrow">→</span>
       <span class="title">배당 순위</span>
       <span class="desc">경매 대금이 어떤 순서로 분배되는지</span>
@@ -2372,17 +2372,17 @@ const ENFORCEMENT_TOPICS = [
     {
       heading: '다음에 확인할 사항',
       content: `<div class="next-links">
-    <a href="경매_06_강제경매신청절차.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-21" class="next-link">
       <span class="arrow">→</span>
       <span class="title">강제경매 신청 절차</span>
       <span class="desc">판결 후 강제경매를 신청하는 방법</span>
     </a>
-    <a href="경매_07_임의경매신청절차.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-22" class="next-link">
       <span class="arrow">→</span>
       <span class="title">임의경매 신청 절차</span>
       <span class="desc">저당권·근저당권 실행 방법</span>
     </a>
-    <a href="경매_16_권리분석.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-31" class="next-link">
       <span class="arrow">→</span>
       <span class="title">권리분석</span>
       <span class="desc">낙찰 시 인수·소멸되는 권리</span>
@@ -2484,17 +2484,17 @@ const ENFORCEMENT_TOPICS = [
     {
       heading: '다음에 확인할 사항',
       content: `<div class="next-links">
-    <a href="경매_04_집행정지신청.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-19" class="next-link">
       <span class="arrow">→</span>
       <span class="title">경매 집행정지 신청</span>
       <span class="desc">경매를 법적으로 멈추는 방법</span>
     </a>
-    <a href="경매_05_경매취하취소.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-20" class="next-link">
       <span class="arrow">→</span>
       <span class="title">경매 취하와 취소</span>
       <span class="desc">경매가 중단되는 두 가지 방법</span>
     </a>
-    <a href="경매_18_인도명령신청.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-33" class="next-link">
       <span class="arrow">→</span>
       <span class="title">인도명령 신청</span>
       <span class="desc">낙찰 후 점유자를 내보내는 절차</span>
@@ -2600,17 +2600,17 @@ const ENFORCEMENT_TOPICS = [
     {
       heading: '다음에 확인할 사항',
       content: `<div class="next-links">
-    <a href="경매_05_경매취하취소.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-20" class="next-link">
       <span class="arrow">→</span>
       <span class="title">경매 취하와 취소</span>
       <span class="desc">경매가 완전히 종결되는 두 가지 방법</span>
     </a>
-    <a href="경매_03_채무자권리.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-18" class="next-link">
       <span class="arrow">→</span>
       <span class="title">채무자의 법적 권리</span>
       <span class="desc">경매 중 채무자가 할 수 있는 것들</span>
     </a>
-    <a href="경매_06_강제경매신청절차.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-21" class="next-link">
       <span class="arrow">→</span>
       <span class="title">강제경매 신청 절차</span>
       <span class="desc">채권자 입장에서의 경매 신청 방법</span>
@@ -2727,17 +2727,17 @@ const ENFORCEMENT_TOPICS = [
     {
       heading: '다음에 확인할 사항',
       content: `<div class="next-links">
-    <a href="경매_07_임의경매신청절차.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-22" class="next-link">
       <span class="arrow">→</span>
       <span class="title">임의경매 신청 절차</span>
       <span class="desc">저당권·근저당권 실행 경매 신청 방법</span>
     </a>
-    <a href="경매_09_잉여주의.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-24" class="next-link">
       <span class="arrow">→</span>
       <span class="title">잉여주의</span>
       <span class="desc">경매해도 남는 게 없는 경우 어떻게 되나</span>
     </a>
-    <a href="경매_10_배당순위.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-25" class="next-link">
       <span class="arrow">→</span>
       <span class="title">배당 순위</span>
       <span class="desc">경매 대금 배당 순서 확인</span>
@@ -3168,9 +3168,9 @@ const ENFORCEMENT_TOPICS = [
     {
       heading: '다음에 확인할 사항',
       content: `<div class="next-links">
-    <a href="경매_10_배당순위.html" class="next-link"><span class="arrow">→</span><span class="title">배당 순위</span><span class="desc">선순위·후순위 채권자의 배당 순서</span></a>
-    <a href="경매_26_선후순위저당배당.html" class="next-link"><span class="arrow">→</span><span class="title">선후순위 저당권과 배당</span><span class="desc">저당권 순위에 따른 배당 구조</span></a>
-    <a href="경매_06_강제경매신청절차.html" class="next-link"><span class="arrow">→</span><span class="title">강제경매 신청 절차</span><span class="desc">경매 신청 방법 확인</span></a>
+    <a href="?cat=enforcement&topic=ef-25" class="next-link"><span class="arrow">→</span><span class="title">배당 순위</span><span class="desc">선순위·후순위 채권자의 배당 순서</span></a>
+    <a href="?cat=enforcement&topic=ef-41" class="next-link"><span class="arrow">→</span><span class="title">선후순위 저당권과 배당</span><span class="desc">저당권 순위에 따른 배당 구조</span></a>
+    <a href="?cat=enforcement&topic=ef-21" class="next-link"><span class="arrow">→</span><span class="title">강제경매 신청 절차</span><span class="desc">경매 신청 방법 확인</span></a>
   </div>`
     }
     ],
@@ -3277,9 +3277,9 @@ const ENFORCEMENT_TOPICS = [
     {
       heading: '다음에 확인할 사항',
       content: `<div class="next-links">
-    <a href="경매_11_배당요구신청.html" class="next-link"><span class="arrow">→</span><span class="title">배당요구 신청 절차</span><span class="desc">배당에 참여하는 방법</span></a>
-    <a href="경매_13_소액임차인최우선변제.html" class="next-link"><span class="arrow">→</span><span class="title">소액임차인 최우선변제</span><span class="desc">보증금을 최우선으로 받는 조건</span></a>
-    <a href="경매_12_배당이의.html" class="next-link"><span class="arrow">→</span><span class="title">배당이의 신청</span><span class="desc">배당표에 이의가 있을 때</span></a>
+    <a href="?cat=enforcement&topic=ef-26" class="next-link"><span class="arrow">→</span><span class="title">배당요구 신청 절차</span><span class="desc">배당에 참여하는 방법</span></a>
+    <a href="?cat=enforcement&topic=ef-28" class="next-link"><span class="arrow">→</span><span class="title">소액임차인 최우선변제</span><span class="desc">보증금을 최우선으로 받는 조건</span></a>
+    <a href="?cat=enforcement&topic=ef-27" class="next-link"><span class="arrow">→</span><span class="title">배당이의 신청</span><span class="desc">배당표에 이의가 있을 때</span></a>
   </div>`
     }
     ],
@@ -3712,9 +3712,9 @@ const ENFORCEMENT_TOPICS = [
     {
       heading: '다음에 확인할 사항',
       content: `<div class="next-links">
-    <a href="경매_20_임차인대항력.html" class="next-link"><span class="arrow">→</span><span class="title">임차인의 대항력</span><span class="desc">경매 후 보증금을 지키는 방법</span></a>
-    <a href="경매_22_임차인배당요구.html" class="next-link"><span class="arrow">→</span><span class="title">임차인 배당요구 신청</span><span class="desc">임차인의 배당요구 절차</span></a>
-    <a href="경매_10_배당순위.html" class="next-link"><span class="arrow">→</span><span class="title">배당 순위</span><span class="desc">전체 배당 순서 확인</span></a>
+    <a href="?cat=enforcement&topic=ef-35" class="next-link"><span class="arrow">→</span><span class="title">임차인의 대항력</span><span class="desc">경매 후 보증금을 지키는 방법</span></a>
+    <a href="?cat=enforcement&topic=ef-37" class="next-link"><span class="arrow">→</span><span class="title">임차인 배당요구 신청</span><span class="desc">임차인의 배당요구 절차</span></a>
+    <a href="?cat=enforcement&topic=ef-25" class="next-link"><span class="arrow">→</span><span class="title">배당 순위</span><span class="desc">전체 배당 순서 확인</span></a>
   </div>`
     }
     ],
@@ -3818,9 +3818,9 @@ const ENFORCEMENT_TOPICS = [
     {
       heading: '다음에 확인할 사항',
       content: `<div class="next-links">
-    <a href="경매_16_권리분석.html" class="next-link"><span class="arrow">→</span><span class="title">권리분석</span><span class="desc">낙찰 시 인수·소멸되는 권리 확인</span></a>
-    <a href="경매_15_대금납부소유권이전.html" class="next-link"><span class="arrow">→</span><span class="title">대금납부와 소유권이전</span><span class="desc">낙찰 후 대금 납부 절차</span></a>
-    <a href="경매_24_현황조사매각명세서.html" class="next-link"><span class="arrow">→</span><span class="title">현황조사보고서 읽는 법</span><span class="desc">입찰 전 필수 서류 이해하기</span></a>
+    <a href="?cat=enforcement&topic=ef-31" class="next-link"><span class="arrow">→</span><span class="title">권리분석</span><span class="desc">낙찰 시 인수·소멸되는 권리 확인</span></a>
+    <a href="?cat=enforcement&topic=ef-30" class="next-link"><span class="arrow">→</span><span class="title">대금납부와 소유권이전</span><span class="desc">낙찰 후 대금 납부 절차</span></a>
+    <a href="?cat=enforcement&topic=ef-39" class="next-link"><span class="arrow">→</span><span class="title">현황조사보고서 읽는 법</span><span class="desc">입찰 전 필수 서류 이해하기</span></a>
   </div>`
     }
     ],
@@ -3918,9 +3918,9 @@ const ENFORCEMENT_TOPICS = [
     {
       heading: '다음에 확인할 사항',
       content: `<div class="next-links">
-    <a href="경매_17_낙찰후명도.html" class="next-link"><span class="arrow">→</span><span class="title">낙찰 후 명도</span><span class="desc">점유자를 내보내는 방법</span></a>
-    <a href="경매_18_인도명령신청.html" class="next-link"><span class="arrow">→</span><span class="title">인도명령 신청</span><span class="desc">점유자가 나가지 않을 때의 법적 수단</span></a>
-    <a href="경매_29_소유권이전등기촉탁.html" class="next-link"><span class="arrow">→</span><span class="title">소유권이전등기 촉탁</span><span class="desc">등기 절차 상세 안내</span></a>
+    <a href="?cat=enforcement&topic=ef-32" class="next-link"><span class="arrow">→</span><span class="title">낙찰 후 명도</span><span class="desc">점유자를 내보내는 방법</span></a>
+    <a href="?cat=enforcement&topic=ef-33" class="next-link"><span class="arrow">→</span><span class="title">인도명령 신청</span><span class="desc">점유자가 나가지 않을 때의 법적 수단</span></a>
+    <a href="?cat=enforcement&topic=ef-44" class="next-link"><span class="arrow">→</span><span class="title">소유권이전등기 촉탁</span><span class="desc">등기 절차 상세 안내</span></a>
   </div>`
     }
     ],
@@ -4022,17 +4022,17 @@ const ENFORCEMENT_TOPICS = [
     {
       heading: '다음에 확인할 사항',
       content: `<div class="next-links">
-    <a href="경매_04_집행정지신청.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-19" class="next-link">
       <span class="arrow">→</span>
       <span class="title">경매 집행정지 신청</span>
       <span class="desc">경매를 일시적으로 멈추는 법적 방법</span>
     </a>
-    <a href="경매_10_배당순위.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-25" class="next-link">
       <span class="arrow">→</span>
       <span class="title">배당 순위</span>
       <span class="desc">경매 대금이 어떤 순서로 분배되는지</span>
     </a>
-    <a href="경매_06_강제경매신청절차.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-21" class="next-link">
       <span class="arrow">→</span>
       <span class="title">강제경매 신청 절차</span>
       <span class="desc">채권자 입장에서 경매를 신청하는 방법</span>
@@ -4129,9 +4129,9 @@ const ENFORCEMENT_TOPICS = [
     {
       heading: '다음에 확인할 사항',
       content: `<div class="next-links">
-    <a href="경매_19_유치권대응.html" class="next-link"><span class="arrow">→</span><span class="title">유치권 신고 대응</span><span class="desc">유치권 신고 물건 낙찰 시 대처법</span></a>
-    <a href="경매_24_현황조사매각명세서.html" class="next-link"><span class="arrow">→</span><span class="title">현황조사보고서 읽는 법</span><span class="desc">입찰 전 필수 서류 이해</span></a>
-    <a href="경매_20_임차인대항력.html" class="next-link"><span class="arrow">→</span><span class="title">임차인의 대항력</span><span class="desc">임차인 권리와 낙찰자의 관계</span></a>
+    <a href="?cat=enforcement&topic=ef-34" class="next-link"><span class="arrow">→</span><span class="title">유치권 신고 대응</span><span class="desc">유치권 신고 물건 낙찰 시 대처법</span></a>
+    <a href="?cat=enforcement&topic=ef-39" class="next-link"><span class="arrow">→</span><span class="title">현황조사보고서 읽는 법</span><span class="desc">입찰 전 필수 서류 이해</span></a>
+    <a href="?cat=enforcement&topic=ef-35" class="next-link"><span class="arrow">→</span><span class="title">임차인의 대항력</span><span class="desc">임차인 권리와 낙찰자의 관계</span></a>
   </div>`
     }
     ],
@@ -4219,9 +4219,9 @@ const ENFORCEMENT_TOPICS = [
     {
       heading: '다음에 확인할 사항',
       content: `<div class="next-links">
-    <a href="경매_18_인도명령신청.html" class="next-link"><span class="arrow">→</span><span class="title">인도명령 신청 절차</span><span class="desc">인도명령 신청 방법과 서류</span></a>
-    <a href="경매_20_임차인대항력.html" class="next-link"><span class="arrow">→</span><span class="title">임차인의 대항력</span><span class="desc">어떤 임차인이 낙찰자에게 대항할 수 있는가</span></a>
-    <a href="경매_16_권리분석.html" class="next-link"><span class="arrow">→</span><span class="title">권리분석</span><span class="desc">인수되는 권리 사전 확인</span></a>
+    <a href="?cat=enforcement&topic=ef-33" class="next-link"><span class="arrow">→</span><span class="title">인도명령 신청 절차</span><span class="desc">인도명령 신청 방법과 서류</span></a>
+    <a href="?cat=enforcement&topic=ef-35" class="next-link"><span class="arrow">→</span><span class="title">임차인의 대항력</span><span class="desc">어떤 임차인이 낙찰자에게 대항할 수 있는가</span></a>
+    <a href="?cat=enforcement&topic=ef-31" class="next-link"><span class="arrow">→</span><span class="title">권리분석</span><span class="desc">인수되는 권리 사전 확인</span></a>
   </div>`
     }
     ],
@@ -4318,9 +4318,9 @@ const ENFORCEMENT_TOPICS = [
     {
       heading: '다음에 확인할 사항',
       content: `<div class="next-links">
-    <a href="경매_17_낙찰후명도.html" class="next-link"><span class="arrow">→</span><span class="title">낙찰 후 명도 절차</span><span class="desc">협의 명도부터 강제집행까지</span></a>
-    <a href="경매_20_임차인대항력.html" class="next-link"><span class="arrow">→</span><span class="title">임차인의 대항력</span><span class="desc">인도명령 신청 가능 여부 판단</span></a>
-    <a href="경매_15_대금납부소유권이전.html" class="next-link"><span class="arrow">→</span><span class="title">대금납부와 소유권이전</span><span class="desc">대금납부 절차 확인</span></a>
+    <a href="?cat=enforcement&topic=ef-32" class="next-link"><span class="arrow">→</span><span class="title">낙찰 후 명도 절차</span><span class="desc">협의 명도부터 강제집행까지</span></a>
+    <a href="?cat=enforcement&topic=ef-35" class="next-link"><span class="arrow">→</span><span class="title">임차인의 대항력</span><span class="desc">인도명령 신청 가능 여부 판단</span></a>
+    <a href="?cat=enforcement&topic=ef-30" class="next-link"><span class="arrow">→</span><span class="title">대금납부와 소유권이전</span><span class="desc">대금납부 절차 확인</span></a>
   </div>`
     }
     ],
@@ -4417,9 +4417,9 @@ const ENFORCEMENT_TOPICS = [
     {
       heading: '다음에 확인할 사항',
       content: `<div class="next-links">
-    <a href="경매_16_권리분석.html" class="next-link"><span class="arrow">→</span><span class="title">권리분석</span><span class="desc">인수·소멸되는 권리 전체 파악</span></a>
-    <a href="경매_17_낙찰후명도.html" class="next-link"><span class="arrow">→</span><span class="title">낙찰 후 명도 절차</span><span class="desc">점유자 퇴거 방법</span></a>
-    <a href="경매_24_현황조사매각명세서.html" class="next-link"><span class="arrow">→</span><span class="title">현황조사보고서 읽는 법</span><span class="desc">입찰 전 필수 서류 이해</span></a>
+    <a href="?cat=enforcement&topic=ef-31" class="next-link"><span class="arrow">→</span><span class="title">권리분석</span><span class="desc">인수·소멸되는 권리 전체 파악</span></a>
+    <a href="?cat=enforcement&topic=ef-32" class="next-link"><span class="arrow">→</span><span class="title">낙찰 후 명도 절차</span><span class="desc">점유자 퇴거 방법</span></a>
+    <a href="?cat=enforcement&topic=ef-39" class="next-link"><span class="arrow">→</span><span class="title">현황조사보고서 읽는 법</span><span class="desc">입찰 전 필수 서류 이해</span></a>
   </div>`
     }
     ],
@@ -4508,9 +4508,9 @@ const ENFORCEMENT_TOPICS = [
     {
       heading: '다음에 확인할 사항',
       content: `<div class="next-links">
-    <a href="경매_22_임차인배당요구.html" class="next-link"><span class="arrow">→</span><span class="title">임차인 배당요구 신청</span><span class="desc">배당받는 방법과 절차</span></a>
-    <a href="경매_13_소액임차인최우선변제.html" class="next-link"><span class="arrow">→</span><span class="title">소액임차인 최우선변제</span><span class="desc">보증금 최우선 배당 조건</span></a>
-    <a href="경매_23_임대차종료이사.html" class="next-link"><span class="arrow">→</span><span class="title">임대차계약 종료와 이사</span><span class="desc">경매 후 이사 기한과 절차</span></a>
+    <a href="?cat=enforcement&topic=ef-37" class="next-link"><span class="arrow">→</span><span class="title">임차인 배당요구 신청</span><span class="desc">배당받는 방법과 절차</span></a>
+    <a href="?cat=enforcement&topic=ef-28" class="next-link"><span class="arrow">→</span><span class="title">소액임차인 최우선변제</span><span class="desc">보증금 최우선 배당 조건</span></a>
+    <a href="?cat=enforcement&topic=ef-38" class="next-link"><span class="arrow">→</span><span class="title">임대차계약 종료와 이사</span><span class="desc">경매 후 이사 기한과 절차</span></a>
   </div>`
     }
     ],
@@ -4587,9 +4587,9 @@ const ENFORCEMENT_TOPICS = [
     {
       heading: '다음에 확인할 사항',
       content: `<div class="next-links">
-    <a href="경매_07_임의경매신청절차.html" class="next-link"><span class="arrow">→</span><span class="title">임의경매 신청 절차</span><span class="desc">전세권으로 경매 신청하는 방법</span></a>
-    <a href="경매_22_임차인배당요구.html" class="next-link"><span class="arrow">→</span><span class="title">임차인 배당요구 신청</span><span class="desc">경매에서 배당받는 방법</span></a>
-    <a href="경매_20_임차인대항력.html" class="next-link"><span class="arrow">→</span><span class="title">임차인의 대항력</span><span class="desc">전세권 없는 임차인의 권리</span></a>
+    <a href="?cat=enforcement&topic=ef-22" class="next-link"><span class="arrow">→</span><span class="title">임의경매 신청 절차</span><span class="desc">전세권으로 경매 신청하는 방법</span></a>
+    <a href="?cat=enforcement&topic=ef-37" class="next-link"><span class="arrow">→</span><span class="title">임차인 배당요구 신청</span><span class="desc">경매에서 배당받는 방법</span></a>
+    <a href="?cat=enforcement&topic=ef-35" class="next-link"><span class="arrow">→</span><span class="title">임차인의 대항력</span><span class="desc">전세권 없는 임차인의 권리</span></a>
   </div>`
     }
     ],
@@ -4685,9 +4685,9 @@ const ENFORCEMENT_TOPICS = [
     {
       heading: '다음에 확인할 사항',
       content: `<div class="next-links">
-    <a href="경매_20_임차인대항력.html" class="next-link"><span class="arrow">→</span><span class="title">임차인의 대항력</span><span class="desc">내 전입신고가 선순위인지 확인</span></a>
-    <a href="경매_13_소액임차인최우선변제.html" class="next-link"><span class="arrow">→</span><span class="title">소액임차인 최우선변제</span><span class="desc">소액 보증금 우선 배당 조건</span></a>
-    <a href="경매_23_임대차종료이사.html" class="next-link"><span class="arrow">→</span><span class="title">임대차계약 종료와 이사</span><span class="desc">경매 후 이사 기한과 절차</span></a>
+    <a href="?cat=enforcement&topic=ef-35" class="next-link"><span class="arrow">→</span><span class="title">임차인의 대항력</span><span class="desc">내 전입신고가 선순위인지 확인</span></a>
+    <a href="?cat=enforcement&topic=ef-28" class="next-link"><span class="arrow">→</span><span class="title">소액임차인 최우선변제</span><span class="desc">소액 보증금 우선 배당 조건</span></a>
+    <a href="?cat=enforcement&topic=ef-38" class="next-link"><span class="arrow">→</span><span class="title">임대차계약 종료와 이사</span><span class="desc">경매 후 이사 기한과 절차</span></a>
   </div>`
     }
     ],
@@ -4776,9 +4776,9 @@ const ENFORCEMENT_TOPICS = [
     {
       heading: '다음에 확인할 사항',
       content: `<div class="next-links">
-    <a href="경매_20_임차인대항력.html" class="next-link"><span class="arrow">→</span><span class="title">임차인의 대항력</span><span class="desc">대항력 유무와 권리관계</span></a>
-    <a href="경매_18_인도명령신청.html" class="next-link"><span class="arrow">→</span><span class="title">인도명령 신청</span><span class="desc">낙찰자가 인도명령을 신청하는 방법</span></a>
-    <a href="경매_22_임차인배당요구.html" class="next-link"><span class="arrow">→</span><span class="title">임차인 배당요구 신청</span><span class="desc">보증금을 배당받는 방법</span></a>
+    <a href="?cat=enforcement&topic=ef-35" class="next-link"><span class="arrow">→</span><span class="title">임차인의 대항력</span><span class="desc">대항력 유무와 권리관계</span></a>
+    <a href="?cat=enforcement&topic=ef-33" class="next-link"><span class="arrow">→</span><span class="title">인도명령 신청</span><span class="desc">낙찰자가 인도명령을 신청하는 방법</span></a>
+    <a href="?cat=enforcement&topic=ef-37" class="next-link"><span class="arrow">→</span><span class="title">임차인 배당요구 신청</span><span class="desc">보증금을 배당받는 방법</span></a>
   </div>`
     }
     ],
@@ -4850,9 +4850,9 @@ const ENFORCEMENT_TOPICS = [
     {
       heading: '다음에 확인할 사항',
       content: `<div class="next-links">
-    <a href="경매_16_권리분석.html" class="next-link"><span class="arrow">→</span><span class="title">권리분석</span><span class="desc">인수·소멸되는 권리 전체 파악</span></a>
-    <a href="경매_25_감정평가최저매각가격.html" class="next-link"><span class="arrow">→</span><span class="title">감정평가와 최저매각가격</span><span class="desc">가격 결정 구조 이해</span></a>
-    <a href="경매_14_입찰절차.html" class="next-link"><span class="arrow">→</span><span class="title">경매 입찰 절차</span><span class="desc">입찰에 참여하는 방법</span></a>
+    <a href="?cat=enforcement&topic=ef-31" class="next-link"><span class="arrow">→</span><span class="title">권리분석</span><span class="desc">인수·소멸되는 권리 전체 파악</span></a>
+    <a href="?cat=enforcement&topic=ef-40" class="next-link"><span class="arrow">→</span><span class="title">감정평가와 최저매각가격</span><span class="desc">가격 결정 구조 이해</span></a>
+    <a href="?cat=enforcement&topic=ef-29" class="next-link"><span class="arrow">→</span><span class="title">경매 입찰 절차</span><span class="desc">입찰에 참여하는 방법</span></a>
   </div>`
     }
     ],
@@ -6281,15 +6281,15 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음에 확인할 사항',
         content: `<div class="next-links">
-          <a href="#" class="next-link" data-target="ef-49">
+          <a href="?cat=enforcement&topic=ef-49" class="next-link">
             <span class="nl-title">압류할 수 있는 물건 vs 압류금지 물건</span>
             <span class="nl-desc">어떤 물건을 압류할 수 있나요?</span>
           </a>
-          <a href="#" class="next-link" data-target="ef-50">
+          <a href="?cat=enforcement&topic=ef-50" class="next-link">
             <span class="nl-title">집행관 신청 절차 및 준비서류</span>
             <span class="nl-desc">어떻게 신청하고, 무슨 서류가 필요한가요?</span>
           </a>
-          <a href="#" class="next-link" data-target="ef-52">
+          <a href="?cat=enforcement&topic=ef-52" class="next-link">
             <span class="nl-title">매각·배당 — 돈은 어떻게 받나요?</span>
             <span class="nl-desc">경매 후 매각대금 수령 방법</span>
           </a>
@@ -9233,9 +9233,9 @@ const ENFORCEMENT_TOPICS = [
             <div class="next-section">
                 <h4>다음에 확인할 사항</h4>
                 <div class="next-links">
-                    <a href="#" class="next-link">추심명령의 절차와 비용</a>
-                    <a href="#" class="next-link">채권 압류 신청 방법</a>
-                    <a href="#" class="next-link">강제집행 개시 요건</a>
+                    <a href="?cat=enforcement&topic=ef-59" class="next-link">추심명령의 절차와 비용</a>
+                    <a href="?cat=enforcement&topic=ef-58" class="next-link">채권 압류 신청 방법</a>
+                    <a href="?cat=enforcement&topic=ef-1" class="next-link">강제집행 개시 요건</a>
                 </div>
             </div>
         </section>
@@ -9249,9 +9249,9 @@ const ENFORCEMENT_TOPICS = [
         content: `<div class="next-section">
                 <h4>다음에 확인할 사항</h4>
                 <div class="next-links">
-                    <a href="#" class="next-link">추심명령의 절차와 비용</a>
-                    <a href="#" class="next-link">채권 압류 신청 방법</a>
-                    <a href="#" class="next-link">강제집행 개시 요건</a>
+                    <a href="?cat=enforcement&topic=ef-59" class="next-link">추심명령의 절차와 비용</a>
+                    <a href="?cat=enforcement&topic=ef-58" class="next-link">채권 압류 신청 방법</a>
+                    <a href="?cat=enforcement&topic=ef-1" class="next-link">강제집행 개시 요건</a>
                 </div>
             </div>`
       }
@@ -10283,15 +10283,15 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음에 확인할 사항',
         content: `<div class="next-links">
-                <a href="#회원권" class="next-link">
+                <a href="?cat=enforcement&topic=ef-66" class="next-link">
                     <div>골프·콘도 회원권 압류</div>
                     <div class="arrow">→</div>
                 </a>
-                <a href="#지재권" class="next-link">
+                <a href="?cat=enforcement&topic=ef-69" class="next-link">
                     <div>특허권·저작권 등 지식재산권 압류</div>
                     <div class="arrow">→</div>
                 </a>
-                <a href="#신탁수익권" class="next-link">
+                <a href="?cat=enforcement&topic=ef-71" class="next-link">
                     <div>신탁수익권에 대한 집행</div>
                     <div class="arrow">→</div>
                 </a>
@@ -10416,15 +10416,15 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음에 확인할 사항',
         content: `<div class="next-links">
-                <a href="#그밖재산권" class="next-link">
+                <a href="?cat=enforcement&topic=ef-65" class="next-link">
                     <div>그 밖의 재산권 집행 개관</div>
                     <div class="arrow">→</div>
                 </a>
-                <a href="#지재권" class="next-link">
+                <a href="?cat=enforcement&topic=ef-69" class="next-link">
                     <div>지식재산권 압류</div>
                     <div class="arrow">→</div>
                 </a>
-                <a href="#신탁수익권" class="next-link">
+                <a href="?cat=enforcement&topic=ef-71" class="next-link">
                     <div>신탁수익권에 대한 집행</div>
                     <div class="arrow">→</div>
                 </a>
@@ -11003,15 +11003,15 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음에 확인할 사항',
         content: `<div class="next-links">
-                <a href="#그밖재산권" class="next-link">
+                <a href="?cat=enforcement&topic=ef-65" class="next-link">
                     <div>그 밖의 재산권 집행 개관</div>
                     <div class="arrow">→</div>
                 </a>
-                <a href="#저당채권" class="next-link">
+                <a href="?cat=enforcement&topic=ef-70" class="next-link">
                     <div>저당권이 있는 채권의 압류</div>
                     <div class="arrow">→</div>
                 </a>
-                <a href="#회원권" class="next-link">
+                <a href="?cat=enforcement&topic=ef-66" class="next-link">
                     <div>회원권 압류</div>
                     <div class="arrow">→</div>
                 </a>
@@ -11135,15 +11135,15 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음에 확인할 사항',
         content: `<div class="next-links">
-                <a href="#그밖재산권" class="next-link">
+                <a href="?cat=enforcement&topic=ef-65" class="next-link">
                     <div>그 밖의 재산권 집행 개관</div>
                     <div class="arrow">→</div>
                 </a>
-                <a href="#신탁수익권" class="next-link">
+                <a href="?cat=enforcement&topic=ef-71" class="next-link">
                     <div>신탁수익권에 대한 집행</div>
                     <div class="arrow">→</div>
                 </a>
-                <a href="#금전채권" class="next-link">
+                <a href="?cat=enforcement&topic=ef-58" class="next-link">
                     <div>금전채권 압류 기초</div>
                     <div class="arrow">→</div>
                 </a>
@@ -11397,17 +11397,17 @@ const ENFORCEMENT_TOPICS = [
         heading: '다음에 확인할 사항',
         content: `<p>신탁수익권 압류와 함께 검토해야 할 관련 주제들입니다.</p>
   <div class="next-links">
-    <a href="채집재산권_01_개관.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-65" class="next-link">
       <span class="arrow">→</span>
       <span class="link-title">그 밖의 재산권 집행 개관</span>
       <span class="link-desc">압류 가능한 재산권의 종류와 집행방법 전체 흐름</span>
     </a>
-    <a href="채집재산권_06_저당채권.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-70" class="next-link">
       <span class="arrow">→</span>
       <span class="link-title">저당권이 있는 채권의 압류</span>
       <span class="link-desc">부동산담보와 채권집행이 결합된 경우 처리방법</span>
     </a>
-    <a href="채집금전_06_압류신청.html" class="next-link">
+    <a href="?cat=enforcement&topic=ef-58" class="next-link">
       <span class="arrow">→</span>
       <span class="link-title">채권압류명령 신청 절차</span>
       <span class="link-desc">압류명령 신청 서류와 실무적 유의사항</span>
@@ -11590,15 +11590,15 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음에 확인할 사항',
         content: `<div class="next-links">
-                <a href="#그밖재산권" class="next-link">
+                <a href="?cat=enforcement&topic=ef-65" class="next-link">
                     <div>그 밖의 재산권 집행 개관</div>
                     <div class="arrow">→</div>
                 </a>
-                <a href="#회원권" class="next-link">
+                <a href="?cat=enforcement&topic=ef-66" class="next-link">
                     <div>회원권 압류</div>
                     <div class="arrow">→</div>
                 </a>
-                <a href="#지재권" class="next-link">
+                <a href="?cat=enforcement&topic=ef-69" class="next-link">
                     <div>지식재산권 압류</div>
                     <div class="arrow">→</div>
                 </a>
@@ -11690,9 +11690,9 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음에 확인할 사항',
         content: `<p>부동산 명도집행과 함께 알아두면 좋은 관련 주제들입니다.</p>
-<a href="#" class="next-link">금외집행_01_부동산인도_판단형</a>
-<a href="#" class="next-link">금외집행_02_동산인도_절차형</a>
-<a href="#" class="next-link">금외집행_03_대체집행_절차형</a>`
+<a href="?cat=enforcement&topic=ef-88" class="next-link">부동산 명도집행 절차</a>
+<a href="?cat=enforcement&topic=ef-76" class="next-link">동산 인도집행 절차</a>
+<a href="?cat=enforcement&topic=ef-80" class="next-link">대체집행 절차</a>`
       }
     ],
     laws: [
@@ -11768,9 +11768,9 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음에 확인할 사항',
         content: `<p>부동산 명도집행과 함께 알아두면 좋은 관련 주제들입니다.</p>
-<a href="#" class="next-link">금외집행_02_동산인도_판단형</a>
-<a href="#" class="next-link">금외집행_03_대체집행_판단형</a>
-<a href="#" class="next-link">금외집행_04_간접강제_판단형</a>`
+<a href="?cat=enforcement&topic=ef-89" class="next-link">동산 인도집행 절차</a>
+<a href="?cat=enforcement&topic=ef-91" class="next-link">대체집행 절차</a>
+<a href="?cat=enforcement&topic=ef-90" class="next-link">간접강제 신청</a>`
       }
     ],
     laws: [
@@ -11864,9 +11864,9 @@ const ENFORCEMENT_TOPICS = [
       },
       {
         heading: '다음에 확인할 사항',
-        content: `<a href="#" class="next-link">금외집행_01_부동산인도_판단형</a>
-<a href="#" class="next-link">금외집행_01_부동산인도_절차형</a>
-<a href="#" class="next-link">금외집행_02_동산인도_판단형</a>`
+        content: `<a href="?cat=enforcement&topic=ef-88" class="next-link">부동산 명도집행 절차</a>
+<a href="?cat=enforcement&topic=ef-73" class="next-link">부동산 명도집행 절차</a>
+<a href="?cat=enforcement&topic=ef-89" class="next-link">동산 인도집행 절차</a>`
       }
     ],
     laws: [
@@ -11948,9 +11948,9 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음에 확인할 사항',
         content: `<p>동산 인도 절차에 대해 더 알고 싶으시거나, 다른 집행 방법이 필요한 경우 아래를 확인하세요.</p>
-<a href="#" class="next-link">금외집행_02_동산인도_판단형</a>
-<a href="#" class="next-link">금외집행_03_대체집행_절차형</a>
-<a href="#" class="next-link">금외집행_01_부동산인도_절차형</a>`
+<a href="?cat=enforcement&topic=ef-89" class="next-link">동산 인도집행 절차</a>
+<a href="?cat=enforcement&topic=ef-80" class="next-link">대체집행 절차</a>
+<a href="?cat=enforcement&topic=ef-73" class="next-link">부동산 명도집행 절차</a>`
       }
     ],
     laws: [
@@ -12022,9 +12022,9 @@ const ENFORCEMENT_TOPICS = [
       },
       {
         heading: '다음에 확인할 사항',
-        content: `<a href="#" class="next-link">금외집행_01_부동산인도_판단형</a>
-<a href="#" class="next-link">금외집행_03_대체집행_판단형</a>
-<a href="#" class="next-link">금외집행_04_간접강제_판단형</a>`
+        content: `<a href="?cat=enforcement&topic=ef-88" class="next-link">부동산 명도집행 절차</a>
+<a href="?cat=enforcement&topic=ef-91" class="next-link">대체집행 절차</a>
+<a href="?cat=enforcement&topic=ef-90" class="next-link">간접강제 신청</a>`
       }
     ],
     laws: [
@@ -12103,9 +12103,9 @@ const ENFORCEMENT_TOPICS = [
       },
       {
         heading: '다음에 확인할 사항',
-        content: `<a href="#" class="next-link">금외집행_01_부동산인도_판단형</a>
-<a href="#" class="next-link">금외집행_03_대체집행_판단형</a>
-<a href="#" class="next-link">금외집행_04_간접강제_판단형</a>`
+        content: `<a href="?cat=enforcement&topic=ef-88" class="next-link">부동산 명도집행 절차</a>
+<a href="?cat=enforcement&topic=ef-91" class="next-link">대체집행 절차</a>
+<a href="?cat=enforcement&topic=ef-90" class="next-link">간접강제 신청</a>`
       }
     ],
     laws: [
@@ -12251,15 +12251,15 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음에 확인할 사항',
         content: `<div class="next-links">
-          <a href="#" class="next-link" data-target="ef-80">
+          <a href="?cat=enforcement&topic=ef-80" class="next-link">
             <span class="nl-title">대체집행 절차 상세</span>
             <span class="nl-desc">수권결정 신청부터 철거 완료까지 단계별 안내</span>
           </a>
-          <a href="#" class="next-link" data-target="ef-73">
+          <a href="?cat=enforcement&topic=ef-73" class="next-link">
             <span class="nl-title">부동산 명도집행 절차</span>
             <span class="nl-desc">명도집행 신청 방법과 필요 서류</span>
           </a>
-          <a href="#" class="next-link" data-target="ef-72">
+          <a href="?cat=enforcement&topic=ef-72" class="next-link">
             <span class="nl-title">유체동산 인도청구권 집행</span>
             <span class="nl-desc">물건을 받을 권리도 집행 대상</span>
           </a>
@@ -12348,9 +12348,9 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음에 확인할 사항',
         content: `<p>대체집행과 함께 알아두면 좋은 다른 집행 방법들:</p>
-<a href="#" class="next-link">금외집행_01_부동산인도_판단형</a>
-<a href="#" class="next-link">금외집행_04_간접강제_판단형</a>
-<a href="#" class="next-link">금외집행_05_의사표시집행_판단형</a>`
+<a href="?cat=enforcement&topic=ef-88" class="next-link">부동산 명도집행 절차</a>
+<a href="?cat=enforcement&topic=ef-90" class="next-link">간접강제 신청</a>
+<a href="?cat=enforcement&topic=ef-92" class="next-link">의사표시 집행 절차</a>`
       }
     ],
     laws: [
@@ -12452,9 +12452,9 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음에 확인할 사항',
         content: `<p>대체집행과 함께 알아두어야 할 관련 주제들:</p>
-<a href="#" class="next-link">금외집행_01_부동산인도_판단형</a>
-<a href="#" class="next-link">금외집행_04_간접강제_판단형</a>
-<a href="#" class="next-link">금외집행_05_의사표시집행_판단형</a>`
+<a href="?cat=enforcement&topic=ef-88" class="next-link">부동산 명도집행 절차</a>
+<a href="?cat=enforcement&topic=ef-90" class="next-link">간접강제 신청</a>
+<a href="?cat=enforcement&topic=ef-92" class="next-link">의사표시 집행 절차</a>`
       }
     ],
     laws: [
@@ -12579,9 +12579,9 @@ const ENFORCEMENT_TOPICS = [
       },
       {
         heading: '다음에 확인할 사항',
-        content: `<a href="#" class="next-link">금외집행_03_대체집행_절차형</a>
-<a href="#" class="next-link">금외집행_01_부동산인도_절차형</a>
-<a href="#" class="next-link">금외집행_05_의사표시집행_절차형</a>`
+        content: `<a href="?cat=enforcement&topic=ef-80" class="next-link">대체집행 절차</a>
+<a href="?cat=enforcement&topic=ef-73" class="next-link">부동산 명도집행 절차</a>
+<a href="?cat=enforcement&topic=ef-85" class="next-link">의사표시 집행 절차</a>`
       }
     ],
     laws: [
@@ -12693,9 +12693,9 @@ const ENFORCEMENT_TOPICS = [
       },
       {
         heading: '다음에 확인할 사항',
-        content: `<a href="#" class="next-link">금외집행_03_대체집행_판단형</a>
-<a href="#" class="next-link">금외집행_05_의사표시집행_판단형</a>
-<a href="#" class="next-link">금외집행_01_부동산인도_판단형</a>`
+        content: `<a href="?cat=enforcement&topic=ef-91" class="next-link">대체집행 절차</a>
+<a href="?cat=enforcement&topic=ef-92" class="next-link">의사표시 집행 절차</a>
+<a href="?cat=enforcement&topic=ef-88" class="next-link">부동산 명도집행 절차</a>`
       }
     ],
     laws: [
@@ -12892,9 +12892,9 @@ const ENFORCEMENT_TOPICS = [
       },
       {
         heading: '다음에 확인할 사항',
-        content: `<a href="#" class="next-link">금외집행_03_대체집행_판단형</a>
-<a href="#" class="next-link">금외집행_05_의사표시집행_판단형</a>
-<a href="#" class="next-link">금외집행_01_부동산인도_판단형</a>`
+        content: `<a href="?cat=enforcement&topic=ef-91" class="next-link">대체집행 절차</a>
+<a href="?cat=enforcement&topic=ef-92" class="next-link">의사표시 집행 절차</a>
+<a href="?cat=enforcement&topic=ef-88" class="next-link">부동산 명도집행 절차</a>`
       }
     ],
     laws: [
@@ -13470,9 +13470,9 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음으로 확인할 내용',
         content: `<div class="next-links">
-<a href="#" class="next-link" data-topic="ef-89"><span>동산 인도집행 절차</span><span class="arrow">→</span></a>
-<a href="#" class="next-link" data-topic="ef-90"><span>법원 명령을 어기는 상대방 — 간접강제</span><span class="arrow">→</span></a>
-<a href="#" class="next-link" data-topic="ef-91"><span>건물 철거 판결 집행 — 대체집행</span><span class="arrow">→</span></a>
+<a href="?cat=enforcement&topic=ef-76" class="next-link" data-topic="ef-89"><span>동산 인도집행 절차</span><span class="arrow">→</span></a>
+<a href="?cat=enforcement&topic=ef-90" class="next-link" data-topic="ef-90"><span>법원 명령을 어기는 상대방 — 간접강제</span><span class="arrow">→</span></a>
+<a href="?cat=enforcement&topic=ef-91" class="next-link" data-topic="ef-91"><span>건물 철거 판결 집행 — 대체집행</span><span class="arrow">→</span></a>
 </div>`
       }
     ],
@@ -13599,9 +13599,9 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음으로 확인할 내용',
         content: `<div class="next-links">
-<a href="#" class="next-link" data-topic="ef-88"><span>부동산 명도집행 절차</span><span class="arrow">→</span></a>
-<a href="#" class="next-link" data-topic="ef-90"><span>법원 명령을 어기는 상대방 — 간접강제</span><span class="arrow">→</span></a>
-<a href="#" class="next-link" data-topic="ef-92"><span>계약 서명·등기 의무 강제집행</span><span class="arrow">→</span></a>
+<a href="?cat=enforcement&topic=ef-73" class="next-link" data-topic="ef-88"><span>부동산 명도집행 절차</span><span class="arrow">→</span></a>
+<a href="?cat=enforcement&topic=ef-90" class="next-link" data-topic="ef-90"><span>법원 명령을 어기는 상대방 — 간접강제</span><span class="arrow">→</span></a>
+<a href="?cat=enforcement&topic=ef-92" class="next-link" data-topic="ef-92"><span>계약 서명·등기 의무 강제집행</span><span class="arrow">→</span></a>
 </div>`
       }
     ],
@@ -13731,9 +13731,9 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음으로 확인할 내용',
         content: `<div class="next-links">
-<a href="#" class="next-link" data-topic="ef-88"><span>부동산 명도집행 절차</span><span class="arrow">→</span></a>
-<a href="#" class="next-link" data-topic="ef-91"><span>건물 철거 판결 — 대체집행</span><span class="arrow">→</span></a>
-<a href="#" class="next-link" data-topic="ef-92"><span>계약 서명·등기 의무 강제집행</span><span class="arrow">→</span></a>
+<a href="?cat=enforcement&topic=ef-73" class="next-link" data-topic="ef-88"><span>부동산 명도집행 절차</span><span class="arrow">→</span></a>
+<a href="?cat=enforcement&topic=ef-91" class="next-link" data-topic="ef-91"><span>건물 철거 판결 — 대체집행</span><span class="arrow">→</span></a>
+<a href="?cat=enforcement&topic=ef-92" class="next-link" data-topic="ef-92"><span>계약 서명·등기 의무 강제집행</span><span class="arrow">→</span></a>
 </div>`
       }
     ],
@@ -13860,9 +13860,9 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음으로 확인할 내용',
         content: `<div class="next-links">
-<a href="#" class="next-link" data-topic="ef-88"><span>부동산 명도집행 절차</span><span class="arrow">→</span></a>
-<a href="#" class="next-link" data-topic="ef-90"><span>법원 명령 위반 — 간접강제 신청</span><span class="arrow">→</span></a>
-<a href="#" class="next-link" data-topic="ef-92"><span>계약 서명·등기 의무 강제집행</span><span class="arrow">→</span></a>
+<a href="?cat=enforcement&topic=ef-73" class="next-link" data-topic="ef-88"><span>부동산 명도집행 절차</span><span class="arrow">→</span></a>
+<a href="?cat=enforcement&topic=ef-90" class="next-link" data-topic="ef-90"><span>법원 명령 위반 — 간접강제 신청</span><span class="arrow">→</span></a>
+<a href="?cat=enforcement&topic=ef-92" class="next-link" data-topic="ef-92"><span>계약 서명·등기 의무 강제집행</span><span class="arrow">→</span></a>
 </div>`
       }
     ],
@@ -13999,9 +13999,9 @@ const ENFORCEMENT_TOPICS = [
       {
         heading: '다음으로 확인할 내용',
         content: `<div class="next-links">
-<a href="#" class="next-link" data-topic="ef-88"><span>부동산 명도집행 절차</span><span class="arrow">→</span></a>
-<a href="#" class="next-link" data-topic="ef-90"><span>법원 명령 위반 — 간접강제 신청</span><span class="arrow">→</span></a>
-<a href="#" class="next-link" data-topic="ef-91"><span>건물 철거 판결 — 대체집행</span><span class="arrow">→</span></a>
+<a href="?cat=enforcement&topic=ef-73" class="next-link" data-topic="ef-88"><span>부동산 명도집행 절차</span><span class="arrow">→</span></a>
+<a href="?cat=enforcement&topic=ef-90" class="next-link" data-topic="ef-90"><span>법원 명령 위반 — 간접강제 신청</span><span class="arrow">→</span></a>
+<a href="?cat=enforcement&topic=ef-91" class="next-link" data-topic="ef-91"><span>건물 철거 판결 — 대체집행</span><span class="arrow">→</span></a>
 </div>`
       }
     ],
