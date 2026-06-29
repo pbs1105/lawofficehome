@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>부동산거래계약 신고서 자동작성 — LOAS</title>
+<style>
+  :root{
+    --line:#c9cdd6; --line2:#e4e7ee; --ink:#1d2330; --muted:#6a7280;
+    --accent:#1f4e8c; --accent-soft:#eaf1fb; --warn:#b4232a; --warn-soft:#fdecec;
+    --ok:#1c7a44; --ok-soft:#e7f5ec; --bg:#f4f6fa; --card:#fff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Malgun Gothic","맑은 고딕",system-ui,sans-serif;font-size:14px;line-height:1.5}
+  .wrap{max-width:1180px;margin:0 auto;padding:24px 20px 80px}
+  header.app{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+    border-bottom:2px solid var(--accent);padding-bottom:12px;margin-bottom:6px}
+  header.app h1{font-size:20px;margin:0;color:var(--accent)}
+  header.app .sub{color:var(--muted);font-size:12.5px}
+  .legal{font-size:12px;color:var(--muted);margin:8px 0 20px;
+    background:var(--accent-soft);border-radius:8px;padding:10px 14px}
+  .legal b{color:var(--accent)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+  @media(max-width:900px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line2);border-radius:10px;
+    padding:16px 18px;margin-bottom:16px;box-shadow:0 1px 2px rgba(20,30,60,.04)}
+  .card h2{font-size:15px;margin:0 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line2);
+    display:flex;align-items:center;gap:8px}
+  .card h2 .tag{font-size:10.5px;font-weight:600;color:#fff;background:var(--accent);
+    border-radius:4px;padding:2px 7px}
+  .card h2 .db{font-size:10.5px;font-weight:600;color:var(--accent);background:var(--accent-soft);
+    border-radius:4px;padding:2px 7px;margin-left:auto}
+  .row{display:flex;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+  .row > div{flex:1;min-width:120px}
+  label{display:block;font-size:12px;color:var(--muted);margin-bottom:3px;font-weight:600}
+  label .req{color:var(--warn)}
+  input,select,textarea{width:100%;padding:7px 9px;border:1px solid var(--line);border-radius:6px;
+    font-size:13.5px;font-family:inherit;background:#fff}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);
+    box-shadow:0 0 0 2px var(--accent-soft)}
+  input[readonly]{background:#f6f7fa;color:var(--muted)}
+  textarea{resize:vertical;min-height:54px}
+  .hint{font-size:11px;color:var(--muted);margin-top:3px}
+  .partylist .pcard{border:1px dashed var(--line);border-radius:8px;padding:12px;margin-bottom:10px;
+    position:relative;background:#fafbfd}
+  .pcard .del{position:absolute;top:8px;right:8px;border:none;background:var(--warn-soft);
+    color:var(--warn);border-radius:5px;padding:3px 9px;cursor:pointer;font-size:11.5px;font-weight:600}
+  .addbtn{border:1px dashed var(--accent);color:var(--accent);background:var(--accent-soft);
+    border-radius:7px;padding:8px;width:100%;cursor:pointer;font-weight:600;font-size:13px}
+  .addbtn:hover{background:#dfeafa}
+  .money-ko{font-size:11.5px;color:var(--accent);margin-top:2px;min-height:14px;font-weight:600}
+  .toolbar{position:sticky;top:0;z-index:20;background:rgba(244,246,250,.92);backdrop-filter:blur(4px);
+    display:flex;gap:8px;flex-wrap:wrap;padding:12px 0;margin:-4px 0 14px;border-bottom:1px solid var(--line2)}
+  .btn{border:1px solid var(--line);background:#fff;border-radius:7px;padding:9px 15px;cursor:pointer;
+    font-size:13px;font-weight:600;color:var(--ink)}
+  .btn:hover{background:#f0f2f7}
+  .btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .btn.primary:hover{filter:brightness(1.08)}
+  .btn.ghost{background:transparent}
+  /* 상태 패널 */
+  #status .item{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;padding:5px 0;
+    border-bottom:1px dotted var(--line2)}
+  #status .item:last-child{border:none}
+  .dot{width:8px;height:8px;border-radius:50%;margin-top:5px;flex:none}
+  .dot.ok{background:var(--ok)} .dot.warn{background:var(--warn)} .dot.info{background:var(--accent)}
+  .deadline{border-radius:8px;padding:12px 14px;margin-bottom:12px;font-weight:600}
+  .deadline.safe{background:var(--ok-soft);color:var(--ok)}
+  .deadline.soon{background:#fff6e5;color:#9a6b00}
+  .deadline.over{background:var(--warn-soft);color:var(--warn)}
+  .deadline small{display:block;font-weight:400;font-size:11.5px;margin-top:3px;opacity:.85}
+  .fund{border-radius:8px;padding:10px 14px;font-size:12.5px;margin-bottom:12px}
+  .fund.need{background:var(--warn-soft);color:var(--warn);font-weight:600}
+  .fund.maybe{background:#fff6e5;color:#9a6b00}
+  .fund.no{background:var(--ok-soft);color:var(--ok)}
+  .chk{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink);font-weight:600}
+  .chk input{width:auto}
+  /* ===== 인쇄 서식 ===== */
+  #print{display:none}
+  @media print{
+    body{background:#fff}
+    .wrap{display:none}
+    #print{display:block;font-family:"Batang","바탕",serif;color:#000;font-size:10.5px}
+    @page{size:A4;margin:12mm}
+  }
+  #print table{width:100%;border-collapse:collapse;table-layout:fixed}
+  #print td,#print th{border:1px solid #000;padding:3px 4px;vertical-align:middle;word-break:break-all}
+  #print .ttl{text-align:center;font-size:17px;font-weight:bold;letter-spacing:8px;margin:4px 0 2px}
+  #print .formno{font-size:9px;text-align:left;margin-bottom:2px}
+  #print .sec{background:#eee;font-weight:bold;text-align:center}
+  #print .lbl{background:#f4f4f4;font-weight:bold;text-align:center;font-size:9.5px}
+  #print .foot{font-size:9px;margin-top:8px;line-height:1.45}
+  #print .sign{margin-top:14px;text-align:right;font-size:11px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="app">
+    <h1>부동산거래계약 신고서 자동작성</h1>
+    <span class="sub">별지 제1호서식 · LOAS 작업자료(02) 산출 도구</span>
+  </header>
+  <div class="legal">
+    근거: <b>「부동산 거래신고 등에 관한 법률」 제3조</b>, 같은 법 <b>시행규칙 제2조·별지 제1호서식</b> ·
+    신고기한 <b>계약체결일부터 30일 이내</b> · 신고관청 <b>부동산 소재지 관할 시·군·구청장</b>(또는 rtms.molit.go.kr) ·
+    미신고/거짓신고 시 <b>법 제28조 과태료</b>. 본 도구의 산출물은 초안이며 <b>법무사 최종 검토 후</b> 제출합니다.
+  </div>
+
+  <div class="toolbar">
+    <button class="btn primary" onclick="doPrint()">🖨 신고서 인쇄(A4)</button>
+    <button class="btn" onclick="saveJSON()">💾 작업자료 저장(.json)</button>
+    <button class="btn ghost" onclick="document.getElementById('loadfile').click()">📂 불러오기</button>
+    <input type="file" id="loadfile" accept=".json" style="display:none" onchange="loadJSON(event)">
+    <button class="btn ghost" onclick="loadSample()">예시 채우기</button>
+    <button class="btn ghost" onclick="if(confirm('모두 지울까요?'))location.reload()">초기화</button>
+  </div>
+
+  <div class="grid">
+    <!-- ============ 좌측: 입력 ============ -->
+    <div>
+      <!-- 사건/관청 -->
+      <div class="card">
+        <h2><span class="tag">사건</span> 사건정보 · 신고관청 <span class="db">→ 사건DB</span></h2>
+        <div class="row">
+          <div><label>내부 사건번호</label><input id="caseNo" placeholder="260622-01" oninput="recalc()"></div>
+          <div><label>고객명</label><input id="clientName" placeholder="김갑동" oninput="recalc()"></div>
+        </div>
+        <div class="row">
+          <div><label>거래유형 <span class="req">*</span></label>
+            <select id="dealType" onchange="recalc()">
+              <option value="매매">매매</option>
+              <option value="공급계약(분양권)">공급계약(분양권)</option>
+              <option value="입주권">입주권(관리처분·사업시행계획인가)</option>
+            </select></div>
+          <div><label>신고관청(시·군·구)</label><input id="office" placeholder="부산광역시 ○○구청장" oninput="recalc()"></div>
+        </div>
+      </div>
+
+      <!-- 매도인 -->
+      <div class="card">
+        <h2><span class="tag">신고인</span> 매도인 <span class="db">→ 당사자DB</span></h2>
+        <div id="sellers" class="partylist"></div>
+        <button class="addbtn" onclick="addParty('sellers','매도인')">+ 매도인 추가</button>
+      </div>
+
+      <!-- 매수인 -->
+      <div class="card">
+        <h2><span class="tag">신고인</span> 매수인 <span class="db">→ 당사자DB</span></h2>
+        <div id="buyers" class="partylist"></div>
+        <button class="addbtn" onclick="addParty('buyers','매수인')">+ 매수인 추가</button>
+      </div>
+
+      <!-- 개업공인중개사 -->
+      <div class="card">
+        <h2><span class="tag">신고인</span> 개업공인중개사 <span style="font-size:11px;font-weight:400;color:var(--muted)">(직거래 시 비움)</span></h2>
+        <div class="row">
+          <div><label>상호</label><input id="agentName"></div>
+          <div><label>대표자</label><input id="agentCeo"></div>
+        </div>
+        <div class="row">
+          <div><label>등록번호</label><input id="agentReg"></div>
+          <div><label>전화번호</label><input id="agentTel"></div>
+        </div>
+        <div class="row"><div><label>사무소 소재지</label><input id="agentAddr"></div></div>
+      </div>
+    </div>
+
+    <!-- ============ 우측: 거래대상 + 상태 ============ -->
+    <div>
+      <!-- 실시간 상태 -->
+      <div class="card">
+        <h2><span class="tag">검증</span> 신고 진단 · 추적성</h2>
+        <div id="deadline" class="deadline safe">계약일을 입력하세요</div>
+        <div id="fund" class="fund no">자금조달·입주계획서: 계약 정보 입력 후 판정</div>
+        <div class="chk" style="margin-bottom:10px">
+          <input type="checkbox" id="regZone" onchange="recalc()">
+          <label for="regZone" style="margin:0;color:var(--warn)">투기과열지구·조정대상지역(규제지역) 소재</label>
+        </div>
+        <div id="status"></div>
+      </div>
+
+      <!-- 거래대상 -->
+      <div class="card">
+        <h2><span class="tag">물건</span> 거래대상 <span class="db">→ 부동산DB</span></h2>
+        <div class="row">
+          <div><label>종류 <span class="req">*</span></label>
+            <select id="propType" onchange="recalc()">
+              <option value="토지">토지</option>
+              <option value="건축물">건축물</option>
+              <option value="토지및건축물" selected>토지 및 건축물</option>
+            </select></div>
+          <div><label>세부용도</label><input id="propUse" placeholder="단독주택 / 아파트 / 상가 등" oninput="recalc()"></div>
+        </div>
+        <div class="row"><div><label>소재지 <span class="req">*</span></label>
+          <input id="addr" placeholder="부산광역시 ○○구 ○○동 100-1" oninput="recalc()"></div></div>
+        <div class="row">
+          <div><label>지목</label><input id="jimok" placeholder="대"></div>
+          <div><label>토지면적(㎡)</label><input id="landArea" inputmode="decimal" oninput="recalc()"></div>
+          <div><label>토지 거래지분</label><input id="landShare" placeholder="1/1"></div>
+        </div>
+        <div class="row">
+          <div><label>건축물면적(㎡)</label><input id="bldgArea" inputmode="decimal" oninput="recalc()"></div>
+          <div><label>건축물 거래지분</label><input id="bldgShare" placeholder="1/1"></div>
+          <div><label>대지권비율</label><input id="landRight" placeholder="집합건물 시"></div>
+        </div>
+      </div>
+
+      <!-- 거래가격 -->
+      <div class="card">
+        <h2><span class="tag">금액</span> 실제 거래가격 <span class="db">→ 사건DB</span></h2>
+        <div class="row"><div>
+          <label>총 실제 거래가격(원) <span class="req">*</span></label>
+          <input id="total" inputmode="numeric" oninput="recalc()" placeholder="500000000">
+          <div class="money-ko" id="totalKo"></div>
+        </div></div>
+        <div class="row">
+          <div><label>계약금(원)</label><input id="down" inputmode="numeric" oninput="recalc()">
+            <div class="money-ko" id="downKo"></div></div>
+          <div><label>중도금(원)</label><input id="mid" inputmode="numeric" oninput="recalc()">
+            <div class="money-ko" id="midKo"></div></div>
+          <div><label>잔금(원)</label><input id="bal" inputmode="numeric" oninput="recalc()">
+            <div class="money-ko" id="balKo"></div></div>
+        </div>
+        <div class="row">
+          <div><label>계약일 <span class="req">*</span></label><input type="date" id="cDate" onchange="recalc()"></div>
+          <div><label>중도금 지급일</label><input type="date" id="mDate"></div>
+          <div><label>잔금 지급일</label><input type="date" id="bDate"></div>
+        </div>
+        <div class="row"><div><label>계약의 조건 및 참고사항</label>
+          <textarea id="cond" placeholder="해제조건·특약 등"></textarea></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 인쇄용 서식 (별지 제1호서식 형태) ============ -->
+<div id="print"></div>
+
+<script>
+/* ---------- 유틸 ---------- */
+const $=id=>document.getElementById(id);
+const won=v=>{const n=String(v||'').replace(/[^0-9]/g,'');return n?Number(n).toLocaleString('ko-KR'):''};
+const num=v=>Number(String(v||'').replace(/[^0-9]/g,''))||0;
+
+/* 금액 한글 (억/만 단위) */
+function toKorean(n){
+  n=num(n); if(!n) return '';
+  const u=['','만','억','조'];let s='',i=0,r=n;
+  const small=v=>{const d=['','일','이','삼','사','오','육','칠','팔','구'],p=['','십','백','천'];
+    let t='',j=0;while(v>0){const x=v%10;if(x)t=d[x]+p[j]+t;v=Math.floor(v/10);j++}return t};
+  while(r>0){const part=r%10000;if(part)s=small(part)+u[i]+s;r=Math.floor(r/10000);i++}
+  return '金'+s+'원정';
+}
+
+/* ---------- 당사자 행 ---------- */
+let pid=0;
+function addParty(box,role,data={}){
+  pid++; const id='p'+pid;
+  const isCorp=data.type==='법인';
+  const el=document.createElement('div');
+  el.className='pcard'; el.dataset.role=role; el.id=id;
+  el.innerHTML=`
+    <button class="del" onclick="this.parentNode.remove();recalc()">삭제</button>
+    <div class="row">
+      <div style="max-width:120px"><label>구분</label>
+        <select onchange="recalc()" data-f="type">
+          <option value="개인"${!isCorp?' selected':''}>개인</option>
+          <option value="법인"${isCorp?' selected':''}>법인</option>
+        </select></div>
+      <div><label>성명 / 법인명 <span class="req">*</span></label>
+        <input data-f="name" value="${data.name||''}" oninput="recalc()"></div>
+      <div style="max-width:90px"><label>거래지분</label>
+        <input data-f="share" value="${data.share||'1/1'}"></div>
+    </div>
+    <div class="row">
+      <div><label>주민(법인·외국인)등록번호 <span class="req">*</span></label>
+        <input data-f="rrn" value="${data.rrn||''}" oninput="recalc()" placeholder="000000-0000000"></div>
+      <div><label>전화 / 휴대전화</label><input data-f="tel" value="${data.tel||''}"></div>
+    </div>
+    <div class="row"><div><label>주소(법인 소재지) <span class="req">*</span></label>
+      <input data-f="addr" value="${data.addr||''}" oninput="recalc()"></div></div>`;
+  $(box).appendChild(el);
+  if(!data.name) recalc();
+}
+function readParties(box){
+  return [...$(box).children].map(c=>{
+    const g=f=>{const e=c.querySelector(`[data-f="${f}"]`);return e?e.value.trim():''};
+    return {role:c.dataset.role,type:g('type'),name:g('name'),rrn:g('rrn'),
+      tel:g('tel'),addr:g('addr'),share:g('share')};
+  });
+}
+
+/* ---------- 핵심 재계산 ---------- */
+function recalc(){
+  // 금액 한글
+  $('totalKo').textContent=toKorean($('total').value);
+  $('downKo').textContent=toKorean($('down').value);
+  $('midKo').textContent=toKorean($('mid').value);
+  $('balKo').textContent=toKorean($('bal').value);
+  ['total','down','mid','bal'].forEach(k=>{const e=$(k);const p=e.selectionStart;e.value=won(e.value);});
+
+  const sellers=readParties('sellers'), buyers=readParties('buyers');
+  const total=num($('total').value), down=num($('down').value),
+        mid=num($('mid').value), bal=num($('bal').value);
+
+  /* 신고기한 D-day */
+  const dl=$('deadline'); const cd=$('cDate').value;
+  if(cd){
+    const c=new Date(cd); const due=new Date(c); due.setDate(due.getDate()+30);
+    const today=new Date(); today.setHours(0,0,0,0);
+    const left=Math.ceil((due-today)/86400000);
+    const ds=due.toLocaleDateString('ko-KR');
+    if(left<0){dl.className='deadline over';
+      dl.innerHTML=`⛔ 신고기한 ${Math.abs(left)}일 경과 (기한 ${ds})<small>법 제28조 과태료 대상 — 즉시 확인 필요</small>`;}
+    else if(left<=7){dl.className='deadline soon';
+      dl.innerHTML=`⚠ 신고기한 D-${left} (${ds}까지)<small>마감 임박 — 우선 처리 권장</small>`;}
+    else{dl.className='deadline safe';
+      dl.innerHTML=`✅ 신고기한 D-${left} (${ds}까지)<small>계약일+30일 · 「부동산거래신고법」 제3조</small>`;}
+  } else {dl.className='deadline safe';dl.textContent='계약일을 입력하세요';}
+
+  /* 자금조달·입주계획서 판정 (주택 매수 가정) */
+  const fund=$('fund'); const isHouse=/주택|아파트|연립|다세대|단독|빌라|오피스텔/.test($('propUse').value);
+  const corpBuyer=buyers.some(b=>b.type==='법인');
+  const reg=$('regZone').checked;
+  let fneed='no',fmsg='자금조달·입주계획서: 해당 가능성 낮음(개별 확인)';
+  if($('dealType').value!=='매매' && /분양|입주/.test($('dealType').value)){
+    // 분양권/입주권도 주택 관련 시 제출대상 가능
+  }
+  if(corpBuyer){fneed='need';fmsg='🔴 법인 주택 매수 → 자금조달계획서 제출대상(지역·금액 무관). 매수인 행 확인.';}
+  else if(reg && isHouse){fneed='need';fmsg='🔴 규제지역 주택 → 자금조달계획서 제출대상(금액 무관).';}
+  else if(isHouse && total>=600000000){fneed='need';fmsg='🔴 비규제지역 주택 6억원 이상 → 자금조달계획서 제출대상.';}
+  else if(isHouse){fneed='maybe';fmsg='🟡 주택 거래 — 지역/금액/주체에 따라 자금조달계획서 필요할 수 있음. 별지 제1호의3서식 확인.';}
+  fund.className='fund '+(fneed==='need'?'need':fneed==='maybe'?'maybe':'no');
+  fund.textContent=fmsg;
+
+  /* 검증 항목 */
+  const items=[];
+  const add=(t,k)=>items.push({t,k});
+  if(sellers.length===0) add('매도인 1명 이상 입력','warn'); else add(`매도인 ${sellers.length}명`,'ok');
+  if(buyers.length===0) add('매수인 1명 이상 입력','warn'); else add(`매수인 ${buyers.length}명`,'ok');
+  // 등록번호 13자리(개인/법인 모두 13자리)
+  [...sellers,...buyers].forEach(p=>{
+    if(p.name){
+      const d=p.rrn.replace(/[^0-9]/g,'');
+      if(d.length!==13) add(`${p.role} ${p.name}: 등록번호 13자리 아님(🔴 원본 대조)`,'warn');
+    }
+  });
+  if(!$('addr').value) add('부동산 소재지 입력','warn');
+  if(!total) add('총 거래가격 입력','warn');
+  else add(`총액 ${won(total)}원`,'info');
+  // 금액 합계 일치
+  if(total && (down||mid||bal)){
+    const sum=down+mid+bal;
+    if(sum!==total) add(`계약금+중도금+잔금(${won(sum)}) ≠ 총액(${won(total)}) — 🔴 금액 재확인`,'warn');
+    else add('대금 분할 합계 일치 ✓','ok');
+  }
+  if(!$('cDate').value) add('계약일 입력(신고기한 기산점)','warn');
+  if(!$('office').value) add('신고관청 입력','warn');
+  add('제출 전 법무사 최종 검토 필수','info');
+
+  $('status').innerHTML=items.map(i=>
+    `<div class="item"><span class="dot ${i.k}"></span><span>${i.t}</span></div>`).join('');
+}
+
+/* ---------- 인쇄 서식 빌드 ---------- */
+function pcell(p){
+  return `${p.name||'&nbsp;'} (${p.type})<br>등록번호: ${p.rrn||'&nbsp;'} / 지분: ${p.share||''}<br>
+    주소: ${p.addr||'&nbsp;'}${p.tel?'<br>연락처: '+p.tel:''}`;
+}
+function buildPrint(){
+  const sellers=readParties('sellers'), buyers=readParties('buyers');
+  const total=num($('total').value);
+  const g=id=>$(id).value||'';
+  const sRows=sellers.map(p=>`<tr><td class="lbl">매도인</td><td colspan="3">${pcell(p)}</td></tr>`).join('')
+    ||`<tr><td class="lbl">매도인</td><td colspan="3">&nbsp;</td></tr>`;
+  const bRows=buyers.map(p=>`<tr><td class="lbl">매수인</td><td colspan="3">${pcell(p)}</td></tr>`).join('')
+    ||`<tr><td class="lbl">매수인</td><td colspan="3">&nbsp;</td></tr>`;
+  $('print').innerHTML=`
+    <div class="formno">■ 부동산 거래신고 등에 관한 법률 시행규칙 [별지 제1호서식]</div>
+    <div class="ttl">부동산거래계약 신고서</div>
+    <div style="font-size:9px;text-align:right;margin-bottom:3px">
+      처리기간: 지체 없이 &nbsp;|&nbsp; ※[ ]에는 해당하는 곳에 √표</div>
+    <table>
+      <tr><td class="sec" colspan="4">① 신고인 (거래당사자)</td></tr>
+      ${sRows}${bRows}
+      <tr><td class="lbl">개업<br>공인중개사</td><td colspan="3">
+        상호: ${g('agentName')||'&nbsp;'} / 대표자: ${g('agentCeo')} / 등록번호: ${g('agentReg')}<br>
+        소재지: ${g('agentAddr')} / 전화: ${g('agentTel')}</td></tr>
+    </table>
+    <table style="margin-top:4px">
+      <tr><td class="sec" colspan="4">② 거래대상</td></tr>
+      <tr><td class="lbl" style="width:18%">종류</td>
+        <td colspan="3">[${g('dealType')}] / ${g('propType')} ${g('propUse')?'('+g('propUse')+')':''}</td></tr>
+      <tr><td class="lbl">소재지·지번</td><td colspan="3">${g('addr')||'&nbsp;'}</td></tr>
+      <tr>
+        <td class="lbl">지목</td><td>${g('jimok')||'&nbsp;'}</td>
+        <td class="lbl" style="width:18%">토지면적</td><td>${g('landArea')?g('landArea')+' ㎡ (지분 '+(g('landShare')||'1/1')+')':'&nbsp;'}</td></tr>
+      <tr>
+        <td class="lbl">건축물면적</td><td>${g('bldgArea')?g('bldgArea')+' ㎡ (지분 '+(g('bldgShare')||'1/1')+')':'&nbsp;'}</td>
+        <td class="lbl">대지권비율</td><td>${g('landRight')||'&nbsp;'}</td></tr>
+    </table>
+    <table style="margin-top:4px">
+      <tr><td class="sec" colspan="4">③ 실제 거래가격</td></tr>
+      <tr><td class="lbl" style="width:18%">총 거래가격</td>
+        <td colspan="3"><b>${won(total)} 원</b> &nbsp; (${toKorean(total)})</td></tr>
+      <tr>
+        <td class="lbl">계약금</td><td>${won(g('down'))} 원</td>
+        <td class="lbl">계약일</td><td>${g('cDate')||'&nbsp;'}</td></tr>
+      <tr>
+        <td class="lbl">중도금</td><td>${won(g('mid'))} 원</td>
+        <td class="lbl">중도금일</td><td>${g('mDate')||'&nbsp;'}</td></tr>
+      <tr>
+        <td class="lbl">잔금</td><td>${won(g('bal'))} 원</td>
+        <td class="lbl">잔금일</td><td>${g('bDate')||'&nbsp;'}</td></tr>
+      <tr><td class="lbl">계약조건·참고</td><td colspan="3">${g('cond')||'&nbsp;'}</td></tr>
+    </table>
+    <div class="foot">
+      「부동산 거래신고 등에 관한 법률」 제3조제1항부터 제4항까지 및 같은 법 시행규칙 제2조제1항부터 제4항까지의
+      규정에 따라 위와 같이 부동산거래계약 내용을 신고합니다.
+    </div>
+    <div class="sign">
+      신고일: &nbsp;&nbsp;&nbsp; 년 &nbsp; 월 &nbsp; 일<br><br>
+      신고인(매도인) ___________________ (서명 또는 인)<br><br>
+      신고인(매수인) ___________________ (서명 또는 인)<br><br>
+      ${g('office')||'시장·군수·구청장'} &nbsp;귀하
+    </div>
+    <div class="foot" style="margin-top:10px;border-top:1px solid #000;padding-top:5px">
+      ※ 신고기한: 계약체결일부터 30일 이내. 미신고·거짓신고 시 법 제28조에 따라 과태료가 부과됩니다.<br>
+      ※ 규제지역 주택, 법인 주택 매수, 비규제지역 6억원 이상 주택 등은 「주택취득자금 조달 및 입주계획서」(별지 제1호의3서식) 동시 제출.
+    </div>`;
+}
+function doPrint(){recalc();buildPrint();window.print();}
+
+/* ---------- 저장/불러오기 (작업자료 연동) ---------- */
+function collect(){
+  const g=id=>$(id).value;
+  return{__type:'LOAS_부동산거래신고서',version:1,savedAt:new Date().toISOString(),
+    caseNo:g('caseNo'),clientName:g('clientName'),dealType:g('dealType'),office:g('office'),
+    sellers:readParties('sellers'),buyers:readParties('buyers'),
+    agent:{name:g('agentName'),ceo:g('agentCeo'),reg:g('agentReg'),tel:g('agentTel'),addr:g('agentAddr')},
+    propType:g('propType'),propUse:g('propUse'),addr:g('addr'),jimok:g('jimok'),
+    landArea:g('landArea'),landShare:g('landShare'),bldgArea:g('bldgArea'),bldgShare:g('bldgShare'),landRight:g('landRight'),
+    total:g('total'),down:g('down'),mid:g('mid'),bal:g('bal'),
+    cDate:g('cDate'),mDate:g('mDate'),bDate:g('bDate'),cond:g('cond'),regZone:$('regZone').checked};
+}
+function saveJSON(){
+  const d=collect();
+  const fn=`${d.caseNo||'사건번호'}_부동산거래신고서.json`;
+  const blob=new Blob([JSON.stringify(d,null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fn;a.click();
+  alert(`저장 완료: ${fn}\n→ 사건폴더 [02_작업자료]에 보관하세요.`);
+}
+function loadJSON(ev){
+  const f=ev.target.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=e=>{try{apply(JSON.parse(e.target.result));}catch(x){alert('파일을 읽을 수 없습니다.');}};
+  r.readAsText(f);
+}
+function apply(d){
+  const set=(id,v)=>{if($(id))$(id).value=v||''};
+  set('caseNo',d.caseNo);set('clientName',d.clientName);set('dealType',d.dealType);set('office',d.office);
+  $('sellers').innerHTML='';$('buyers').innerHTML='';
+  (d.sellers||[]).forEach(p=>addParty('sellers','매도인',p));
+  (d.buyers||[]).forEach(p=>addParty('buyers','매수인',p));
+  if(d.agent){set('agentName',d.agent.name);set('agentCeo',d.agent.ceo);set('agentReg',d.agent.reg);
+    set('agentTel',d.agent.tel);set('agentAddr',d.agent.addr);}
+  ['propType','propUse','addr','jimok','landArea','landShare','bldgArea','bldgShare','landRight',
+   'total','down','mid','bal','cDate','mDate','bDate','cond'].forEach(k=>set(k,d[k]));
+  $('regZone').checked=!!d.regZone;
+  recalc();
+}
+
+/* ---------- 예시 ---------- */
+function loadSample(){
+  apply({caseNo:'260622-01',clientName:'김갑동',dealType:'매매',office:'부산광역시 해운대구청장',
+    sellers:[{type:'개인',name:'박을동',rrn:'600101-1234567',tel:'010-1111-2222',addr:'부산 해운대구 우동 50',share:'1/1'}],
+    buyers:[{type:'개인',name:'김갑동',rrn:'800202-1234567',tel:'010-3333-4444',addr:'부산 동래구 명륜동 10',share:'1/1'}],
+    agent:{name:'행복공인중개사',ceo:'이중개',reg:'12345-2024-00010',tel:'051-700-0000',addr:'부산 해운대구 우동'},
+    propType:'토지및건축물',propUse:'아파트',addr:'부산광역시 해운대구 우동 100 ○○아파트 101동 1001호',
+    jimok:'대',landArea:'45.5',landShare:'1/1',bldgArea:'84.97',bldgShare:'1/1',landRight:'45.5/12000',
+    total:'500000000',down:'50000000',mid:'150000000',bal:'300000000',
+    cDate:'2026-06-15',mDate:'2026-07-15',bDate:'2026-08-30',cond:'',regZone:false});
+}
+
+/* ---------- 초기화 ---------- */
+addParty('sellers','매도인');
+addParty('buyers','매수인');
+recalc();
+</script>
+</body>
+</html>

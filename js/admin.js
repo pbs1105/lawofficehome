@@ -139,6 +139,7 @@ const ADMIN_MENU = [
     label: '계산기',
     items: [
       { id: 'calc-comprehensive', label: '공과금·보수 종합 계산기' },
+      { id: 'calc-realestate-report', label: '부동산거래계약 신고서 자동작성' },
       { id: 'calc-acq', label: '취득세 계산기' },
       { id: 'calc-reg', label: '등록면허세 계산기' },
       { id: 'calc-fee', label: '법무사 보수 계산기' },
@@ -631,6 +632,9 @@ function renderCalculator(calcId) {
   switch (calcId) {
     case 'calc-comprehensive':
       area.innerHTML = `<iframe src="../tools/fee_calculator.html" style="width:100%;height:calc(100vh - 120px);border:none;display:block;" title="공과금·보수 종합 계산기"></iframe>`;
+      break;
+    case 'calc-realestate-report':
+      area.innerHTML = `<iframe src="../tools/부동산거래신고서.html" style="width:100%;height:calc(100vh - 120px);border:none;display:block;" title="부동산거래계약 신고서 자동작성"></iframe>`;
       break;
     case 'calc-acq':  area.innerHTML = buildAcquisitionTaxCalc(); break;
     case 'calc-reg':  area.innerHTML = buildRegistrationTaxCalc(); break;
