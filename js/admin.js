@@ -140,10 +140,12 @@ const ADMIN_MENU = [
     items: [
       { id: 'calc-comprehensive', label: '공과금·보수 종합 계산기' },
       { id: 'calc-realestate-report', label: '부동산거래계약 신고서 자동작성' },
+      { id: 'calc-acq-report', label: '취득세 신고서 자동작성' },
       { id: 'calc-acq', label: '취득세 계산기' },
       { id: 'calc-reg', label: '등록면허세 계산기' },
       { id: 'calc-fee', label: '법무사 보수 계산기' },
       { id: 'calc-inhtax', label: '상속세 간이 계산기' },
+      { id: 'calc-bond', label: '국민주택채권 매입액 계산기' },
     ]
   },
   {
@@ -636,10 +638,16 @@ function renderCalculator(calcId) {
     case 'calc-realestate-report':
       area.innerHTML = `<iframe src="../tools/부동산거래신고서.html" style="width:100%;height:calc(100vh - 120px);border:none;display:block;" title="부동산거래계약 신고서 자동작성"></iframe>`;
       break;
+    case 'calc-acq-report':
+      area.innerHTML = `<iframe src="../tools/취득세신고서_생성기.html" style="width:100%;height:calc(100vh - 120px);border:none;display:block;" title="취득세 신고서 자동작성"></iframe>`;
+      break;
     case 'calc-acq':  area.innerHTML = buildAcquisitionTaxCalc(); break;
     case 'calc-reg':  area.innerHTML = buildRegistrationTaxCalc(); break;
     case 'calc-fee':  area.innerHTML = buildLawyerFeeCalc(); break;
     case 'calc-inhtax': area.innerHTML = buildInheritanceTaxCalc(); break;
+    case 'calc-bond':
+      area.innerHTML = `<iframe src="..\tools\국민주택채권_매입액_계산기.html" style="width:100%;height:calc(100vh - 120px);border:none;display:block;" title="국민주택채권 매입액 계산기"></iframe>`;
+      break;
     default:
       area.innerHTML = '<div class="placeholder-content"><div class="ph-icon">🧮</div><h3>계산기 준비 중</h3></div>';
   }

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>국민주택채권 매입액 계산기 — 직원용</title>
+<style>
+  :root{
+    --ink:#1f3653;        /* 표제·헤더 잉크색 */
+    --ink-2:#33506f;
+    --paper:#ffffff;
+    --field:#f6f4ef;      /* 입력칸 종이질감 */
+    --line:#d9d4ca;       /* 괘선 */
+    --line-2:#ebe7df;
+    --amount:#8a5a12;     /* 확정 금액 강조(앰버) */
+    --warn:#b3261e;       /* 면제·경고 */
+    --muted:#6b6257;
+    --ok:#1f6b3a;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","맑은 고딕",sans-serif;
+    color:#1c1c1c;background:#efece5;line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .sheet{
+    max-width:880px;margin:24px auto;background:var(--paper);
+    border:1px solid var(--line);border-radius:6px;overflow:hidden;
+    box-shadow:0 2px 12px rgba(31,54,83,.08);
+  }
+  /* ── 표제부 ── */
+  header.head{
+    background:var(--ink);color:#fff;padding:22px 28px 18px;
+  }
+  header.head .eyebrow{
+    font-size:12px;letter-spacing:.18em;color:#9db4cf;margin:0 0 6px;
+    text-transform:none;font-weight:600;
+  }
+  header.head h1{margin:0;font-size:23px;font-weight:700;letter-spacing:-.01em}
+  header.head .basis{
+    margin:10px 0 0;font-size:12.5px;color:#c4d2e3;line-height:1.6;
+  }
+  /* ── 본문 영역 ── */
+  .body{padding:8px 28px 28px}
+  .section-label{
+    display:flex;align-items:baseline;gap:10px;
+    margin:24px 0 12px;
+  }
+  .section-label .num{
+    font-size:12px;font-weight:700;color:#fff;background:var(--ink-2);
+    width:22px;height:22px;border-radius:50%;display:inline-flex;
+    align-items:center;justify-content:center;flex:0 0 auto;
+  }
+  .section-label h2{margin:0;font-size:15.5px;font-weight:700;color:var(--ink)}
+  .section-label .hint{font-size:12px;color:var(--muted);font-weight:400}
+
+  /* 부동산 입력 카드 */
+  .prop{
+    border:1px solid var(--line);border-radius:6px;background:var(--field);
+    padding:14px 14px 10px;margin-bottom:10px;position:relative;
+  }
+  .prop .row{display:grid;grid-template-columns:1.1fr 1.3fr .9fr 1.3fr;gap:10px}
+  .prop label{display:block;font-size:11.5px;color:var(--muted);margin:0 0 4px;font-weight:600}
+  .prop select,.prop input[type=text]{
+    width:100%;padding:8px 9px;border:1px solid var(--line);border-radius:4px;
+    background:#fff;font:inherit;font-size:13.5px;color:#1c1c1c;
+  }
+  .prop input[type=text]{text-align:right;font-variant-numeric:tabular-nums}
+  .prop select:focus,.prop input:focus{outline:2px solid #b9cbe0;outline-offset:0;border-color:var(--ink-2)}
+  .prop .del{
+    position:absolute;top:10px;right:10px;border:none;background:none;
+    color:var(--muted);font-size:18px;line-height:1;cursor:pointer;padding:2px 6px;border-radius:4px;
+  }
+  .prop .del:hover{background:#e6e0d6;color:var(--warn)}
+  .prop .line-out{
+    margin-top:9px;padding-top:9px;border-top:1px dashed var(--line);
+    display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;font-size:12.5px;color:var(--ink-2);
+  }
+  .prop .line-out .rate{font-weight:600}
+  .prop .line-out .amt{margin-left:auto;font-weight:700;color:var(--amount);font-size:15px;font-variant-numeric:tabular-nums}
+  .prop .line-out.exempt .amt{color:var(--warn)}
+
+  .addbtn{
+    border:1px dashed var(--ink-2);background:#fff;color:var(--ink-2);
+    padding:9px 14px;border-radius:5px;font:inherit;font-size:13px;font-weight:600;cursor:pointer;
+  }
+  .addbtn:hover{background:#f1f5fa}
+
+  /* 합계 박스 */
+  .total{
+    margin-top:18px;border:1.5px solid var(--ink);border-radius:6px;overflow:hidden;
+  }
+  .total .trow{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;font-size:14px}
+  .total .trow.head{background:var(--ink);color:#fff;font-weight:700;font-size:15px}
+  .total .trow .v{font-variant-numeric:tabular-nums;font-weight:700}
+  .total .trow.sub{border-top:1px solid var(--line-2);color:#333}
+  .total .trow.sub .v{color:var(--amount);font-size:18px}
+
+  /* 본인부담금 */
+  .burden{
+    margin-top:14px;border:1px solid var(--line);border-radius:6px;background:var(--field);padding:14px 16px;
+  }
+  .burden .topline{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .burden label{font-size:12.5px;color:var(--muted);font-weight:600}
+  .burden input{
+    width:90px;padding:7px 8px;border:1px solid var(--line);border-radius:4px;
+    font:inherit;text-align:right;font-variant-numeric:tabular-nums
+  }
+  .burden .res{margin-left:auto;font-size:13px;color:#333}
+  .burden .res b{font-size:18px;color:var(--ok);font-variant-numeric:tabular-nums}
+  .burden .note{margin:8px 0 0;font-size:11.5px;color:var(--muted);line-height:1.6}
+
+  /* 참고 요율표 */
+  details.ref{margin-top:24px;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  details.ref>summary{
+    cursor:pointer;padding:12px 16px;background:var(--field);font-weight:700;font-size:13.5px;color:var(--ink);
+    list-style:none
+  }
+  details.ref>summary::-webkit-details-marker{display:none}
+  details.ref>summary::before{content:"▸ ";color:var(--ink-2)}
+  details.ref[open]>summary::before{content:"▾ "}
+  .ref .tbl-wrap{padding:0 16px 16px}
+  table.rt{width:100%;border-collapse:collapse;font-size:11.8px;margin-top:12px}
+  table.rt caption{text-align:left;font-weight:700;color:var(--ink-2);padding:10px 0 4px;font-size:12.5px}
+  table.rt th,table.rt td{border:1px solid var(--line);padding:5px 8px;text-align:center}
+  table.rt th{background:#f1ede5;color:var(--ink);font-weight:600}
+  table.rt td.l{text-align:left}
+  table.rt td.r{text-align:right;font-variant-numeric:tabular-nums}
+
+  /* 주의/푸터 */
+  .caveat{
+    margin-top:22px;padding:14px 16px;border-left:3px solid var(--warn);
+    background:#fbf3f2;border-radius:0 5px 5px 0;font-size:12px;color:#5a2520;line-height:1.7
+  }
+  .caveat b{color:var(--warn)}
+  footer.foot{
+    padding:16px 28px 22px;border-top:1px solid var(--line-2);
+    font-size:11px;color:var(--muted);line-height:1.7
+  }
+  .toolbar{display:flex;gap:10px;justify-content:flex-end;padding:14px 28px;background:var(--field);border-top:1px solid var(--line)}
+  .toolbar button{
+    border:1px solid var(--ink);background:var(--ink);color:#fff;
+    padding:9px 18px;border-radius:5px;font:inherit;font-weight:600;font-size:13px;cursor:pointer
+  }
+  .toolbar button.ghost{background:#fff;color:var(--ink)}
+  .toolbar button:hover{opacity:.92}
+
+  @media(max-width:620px){
+    .prop .row{grid-template-columns:1fr 1fr}
+    .sheet{margin:0;border-radius:0;border-left:none;border-right:none}
+  }
+  /* 인쇄 */
+  @media print{
+    body{background:#fff}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:none}
+    .toolbar,.addbtn,.prop .del{display:none!important}
+    details.ref{border:none}
+    details.ref>summary{display:none}
+    details.ref[open] .tbl-wrap,details.ref .tbl-wrap{padding:0}
+    header.head{background:#fff;color:var(--ink);border-bottom:2px solid var(--ink)}
+    header.head .eyebrow{color:var(--muted)}
+    header.head .basis{color:#444}
+    .total .trow.head{background:#eee;color:var(--ink)}
+  }
+</style>
+</head>
+<body>
+<div class="sheet" id="sheet">
+
+  <header class="head">
+    <p class="eyebrow">법무사 사무실 · 직원용 산정도구</p>
+    <h1>국민주택채권 매입액 계산기</h1>
+    <p class="basis">
+      근거: 「주택도시기금법」 제8조 · 같은 법 시행령 제8조제2항 [별표]
+      「제1종국민주택채권 매입대상자 및 매입기준」<br>
+      매입금액은 시가표준액(저당권은 채권금액) × 지역·물건별 매입률.
+      <b>5천원 미만 절사 / 5천원 이상 올림</b>하여 1만원 단위로 산정(최저 1만원).
+    </p>
+  </header>
+
+  <div class="body">
+
+    <div class="section-label">
+      <span class="num">1</span>
+      <h2>부동산(등기) 입력</h2>
+      <span class="hint">물건마다 한 줄 — 단독주택·아파트는 ‘주택’, 상가건물은 토지분과 건물분을 따로</span>
+    </div>
+
+    <div id="props"></div>
+    <button class="addbtn" id="addBtn" type="button">＋ 부동산 추가</button>
+
+    <div class="section-label" style="margin-top:26px">
+      <span class="num">2</span>
+      <h2>채권매입금액 합계</h2>
+    </div>
+
+    <div class="total" id="total">
+      <div class="trow head"><span>구분</span><span>채권매입금액</span></div>
+      <div id="totalLines"></div>
+      <div class="trow sub"><span>국민주택채권 매입총액</span><span class="v" id="grandTotal">0 원</span></div>
+    </div>
+
+    <div class="section-label" style="margin-top:26px">
+      <span class="num">3</span>
+      <h2>즉시매도 시 본인부담금 <span class="hint">(추정)</span></h2>
+    </div>
+
+    <div class="burden">
+      <div class="topline">
+        <label for="discRate">당일 고객부담률(할인율)</label>
+        <input type="text" id="discRate" inputmode="decimal" placeholder="예: 8.5"> <span style="font-size:13px;color:var(--muted)">%</span>
+        <span class="res">예상 본인부담금 &nbsp;<b id="burdenOut">— 원</b></span>
+      </div>
+      <p class="note">
+        고객부담률은 <b>매일 변동</b>합니다. 주택도시기금(nhuf.molit.go.kr) ‘제1종국민주택채권 → 매입대상금액조회’ 또는
+        매입은행(국민·신한·우리·하나·기업)에서 <b>당일 고객부담금</b>을 확인해 입력하세요.
+        본 값은 (매입총액 × 할인율)로 계산한 <b>참고용 추정치</b>이며, 최종 부담금은 은행 고시값을 따릅니다.
+      </p>
+    </div>
+
+    <details class="ref">
+      <summary>매입률 요율표 보기 (지역·물건별)</summary>
+      <div class="tbl-wrap">
+
+        <table class="rt">
+          <caption>가. 소유권 보존·이전 — 주택 (단독·공동주택, 토지 포함 시가표준액)</caption>
+          <tr><th>시가표준액 구간</th><th>특별시·광역시</th><th>그 밖의 지역</th></tr>
+          <tr><td class="l">2,000만 ~ 5,000만 미만</td><td>13/1,000</td><td>13/1,000</td></tr>
+          <tr><td class="l">5,000만 ~ 1억 미만</td><td>19/1,000</td><td>14/1,000</td></tr>
+          <tr><td class="l">1억 ~ 1.6억 미만</td><td>21/1,000</td><td>16/1,000</td></tr>
+          <tr><td class="l">1.6억 ~ 2.6억 미만</td><td>23/1,000</td><td>18/1,000</td></tr>
+          <tr><td class="l">2.6억 ~ 6억 미만</td><td>26/1,000</td><td>21/1,000</td></tr>
+          <tr><td class="l">6억 이상</td><td>31/1,000</td><td>26/1,000</td></tr>
+          <tr><td class="l" colspan="3">2,000만 미만 — 매입의무 면제</td></tr>
+        </table>
+
+        <table class="rt">
+          <caption>가. 소유권 보존·이전 — 토지</caption>
+          <tr><th>시가표준액 구간</th><th>특별시·광역시</th><th>그 밖의 지역</th></tr>
+          <tr><td class="l">500만 ~ 5,000만 미만</td><td>25/1,000</td><td>20/1,000</td></tr>
+          <tr><td class="l">5,000만 ~ 1억 미만</td><td>40/1,000</td><td>35/1,000</td></tr>
+          <tr><td class="l">1억 이상</td><td>50/1,000</td><td>45/1,000</td></tr>
+          <tr><td class="l" colspan="3">500만 미만 — 매입의무 면제</td></tr>
+        </table>
+
+        <table class="rt">
+          <caption>가. 소유권 보존·이전 — 주택·토지 외 부동산 (상가·오피스텔·공장 등 건물)</caption>
+          <tr><th>시가표준액 구간</th><th>특별시·광역시</th><th>그 밖의 지역</th></tr>
+          <tr><td class="l">1,000만 ~ 1.3억 미만</td><td>10/1,000</td><td>8/1,000</td></tr>
+          <tr><td class="l">1.3억 ~ 2.5억 미만</td><td>16/1,000</td><td>14/1,000</td></tr>
+          <tr><td class="l">2.5억 이상</td><td>20/1,000</td><td>18/1,000</td></tr>
+          <tr><td class="l" colspan="3">1,000만 미만 — 매입의무 면제</td></tr>
+        </table>
+
+        <table class="rt">
+          <caption>나. 상속·증여 등 무상취득 (물건 종류 불문)</caption>
+          <tr><th>시가표준액 구간</th><th>특별시·광역시</th><th>그 밖의 지역</th></tr>
+          <tr><td class="l">1,000만 ~ 5,000만 미만</td><td>18/1,000</td><td>14/1,000</td></tr>
+          <tr><td class="l">5,000만 ~ 1.5억 미만</td><td>28/1,000</td><td>25/1,000</td></tr>
+          <tr><td class="l">1.5억 이상</td><td>42/1,000</td><td>39/1,000</td></tr>
+          <tr><td class="l" colspan="3">1,000만 미만 — 매입의무 면제</td></tr>
+        </table>
+
+        <table class="rt">
+          <caption>다. 저당권(근저당권) 설정·이전 — 채권금액 기준</caption>
+          <tr><th>채권금액 구간</th><th>매입률(지역 공통)</th><th>상한</th></tr>
+          <tr><td class="l">2,000만 이상</td><td>10/1,000</td><td>매입금액 10억원 한도</td></tr>
+          <tr><td class="l" colspan="3">2,000만 미만 — 매입의무 면제</td></tr>
+        </table>
+
+      </div>
+    </details>
+
+    <div class="caveat">
+      <b>반드시 확인하세요.</b>
+      ① 시가표준액은 <b>등기신청일 기준 최신값</b>으로, 등록면허세(취득세) 영수필확인서·과세시가표준액 자료로 대조합니다.
+      복합용도 건물은 주거부분·비주거부분을 면적으로 나눠 각각 적용합니다.
+      ② <b>부산 소재 부동산은 ‘특별시·광역시’</b>를 선택합니다(물건 소재지 기준).
+      ③ 부동산 소유권·저당권 등기에는 국민주택채권이 적용됩니다. 차량등록·각종 인허가 등은 도시철도채권/지역개발채권이 별도 적용될 수 있습니다.
+      ④ 본 도구는 <b>1차 산정·검토용</b>이며, 실제 매입액은 주택도시기금 ‘매입대상금액조회’ 결과를 최종 기준으로 합니다.
+    </div>
+
+  </div>
+
+  <div class="toolbar">
+    <button type="button" class="ghost" id="resetBtn">초기화</button>
+    <button type="button" id="printBtn">인쇄 / PDF 저장</button>
+  </div>
+
+  <footer class="foot">
+    국민주택채권 매입액 계산기 · 법무사 업무 자동화 시스템(LOAS) 직원용 도구 ·
+    외부 연결 없이 단독 동작(오프라인 사용 가능) · 매입률은 「주택도시기금법 시행령」 개정 시 변경될 수 있으므로 정기 점검 요망.
+  </footer>
+
+</div>
+
+<script>
+"use strict";
+
+/* ─── 매입률 데이터 (만원 단위 임계값, 1000분율) ───
+   metro = 특별시·광역시, other = 그 밖의 지역
+   임계값은 '원' 단위로 환산해 저장 */
+const 만 = 10000;
+const RATES = {
+  housing: { // 주택 (소유권 보존·이전 유상)
+    label:"주택(소유권 이전)", min: 2000*만,
+    tiers:[
+      {lt: 5000*만,  metro:13, other:13},
+      {lt: 10000*만, metro:19, other:14},
+      {lt: 16000*만, metro:21, other:16},
+      {lt: 26000*만, metro:23, other:18},
+      {lt: 60000*만, metro:26, other:21},
+      {lt: Infinity, metro:31, other:26},
+    ]
+  },
+  land: { // 토지
+    label:"토지(소유권 이전)", min: 500*만,
+    tiers:[
+      {lt: 5000*만,  metro:25, other:20},
+      {lt: 10000*만, metro:40, other:35},
+      {lt: Infinity, metro:50, other:45},
+    ]
+  },
+  building: { // 주택·토지 외 부동산
+    label:"건물 등 주택·토지 외", min: 1000*만,
+    tiers:[
+      {lt: 13000*만, metro:10, other:8},
+      {lt: 25000*만, metro:16, other:14},
+      {lt: Infinity, metro:20, other:18},
+    ]
+  },
+  inherit: { // 상속·증여 등 무상취득
+    label:"상속·증여(무상취득)", min: 1000*만,
+    tiers:[
+      {lt: 5000*만,  metro:18, other:14},
+      {lt: 15000*만, metro:28, other:25},
+      {lt: Infinity, metro:42, other:39},
+    ]
+  },
+  mortgage: { // 저당권 설정·이전 (채권금액 기준)
+    label:"저당권 설정(채권금액)", min: 2000*만, flat:10, cap: 100000*만 // 매입액 10억 한도
+  }
+};
+
+const PROP_TYPES = [
+  {v:"housing",  t:"주택 — 소유권 이전"},
+  {v:"land",     t:"토지 — 소유권 이전"},
+  {v:"building", t:"건물 등(상가·오피스텔) — 소유권 이전"},
+  {v:"inherit",  t:"상속·증여 등 무상취득"},
+  {v:"mortgage", t:"저당권(근저당권) 설정·이전"},
+];
+
+/* 숫자 입력 → 정수 원 */
+function parseWon(str){
+  if(!str) return 0;
+  const n = parseInt(String(str).replace(/[^0-9]/g,""),10);
+  return isNaN(n) ? 0 : n;
+}
+function fmt(n){ return n.toLocaleString("ko-KR"); }
+
+/* 만원 단위 반올림: 5천원 미만 절사, 5천원 이상 올림 */
+function roundToMan(amount){
+  const units = Math.floor(amount / 만);
+  const rem = amount - units*만;
+  return (units + (rem >= 5000 ? 1 : 0)) * 만;
+}
+
+/* 한 물건의 매입금액 산정 */
+function calcLine(type, region, base){
+  const r = RATES[type];
+  if(!r || base<=0) return {exempt:true, reason:"입력대기", amount:0, rateText:"—"};
+  if(base < r.min){
+    return {exempt:true, reason:"매입의무 면제(기준금액 미만)", amount:0,
+            rateText:"면제 (기준 "+fmt(r.min)+"원 미만)"};
+  }
+  let permille;
+  if(type==="mortgage"){
+    permille = r.flat;
+  }else{
+    const tier = r.tiers.find(t => base < t.lt);
+    permille = region==="metro" ? tier.metro : tier.other;
+  }
+  let raw = base * permille / 1000;
+  let amount = roundToMan(raw);
+  if(amount < 만) amount = 만;            // 최저매입금액 1만원
+  let capped = false;
+  if(type==="mortgage" && amount > r.cap){ amount = r.cap; capped = true; } // 10억 한도
+  return {
+    exempt:false, amount,
+    rateText: permille+"/1,000" + (region==="metro"?" · 특·광역시":" · 그 밖의 지역") + (capped?" · 10억 한도 적용":"")
+  };
+}
+
+/* ─── DOM ─── */
+const propsEl = document.getElementById("props");
+let seq = 0;
+
+function propRowHTML(id){
+  const opts = PROP_TYPES.map(p=>`<option value="${p.v}">${p.t}</option>`).join("");
+  return `
+  <div class="prop" data-id="${id}">
+    <button class="del" type="button" title="삭제" aria-label="이 부동산 삭제">×</button>
+    <div class="row">
+      <div>
+        <label>표시명(선택)</label>
+        <input type="text" class="p-name" placeholder="예: 102동 1503호" style="text-align:left">
+      </div>
+      <div>
+        <label>물건·등기 구분</label>
+        <select class="p-type">${opts}</select>
+      </div>
+      <div>
+        <label>지역</label>
+        <select class="p-region">
+          <option value="metro">특별시·광역시</option>
+          <option value="other">그 밖의 지역</option>
+        </select>
+      </div>
+      <div>
+        <label class="p-baselabel">시가표준액 (원)</label>
+        <input type="text" class="p-base" inputmode="numeric" placeholder="0">
+      </div>
+    </div>
+    <div class="line-out">
+      <span class="rate">적용요율: <span class="o-rate">—</span></span>
+      <span class="amt o-amt">0 원</span>
+    </div>
+  </div>`;
+}
+
+function addProp(){
+  const id = ++seq;
+  propsEl.insertAdjacentHTML("beforeend", propRowHTML(id));
+  recalc();
+}
+
+/* 저당권 선택 시 라벨을 '채권금액'으로 전환 */
+function syncBaseLabel(prop){
+  const type = prop.querySelector(".p-type").value;
+  const lbl = prop.querySelector(".p-baselabel");
+  const regionSel = prop.querySelector(".p-region");
+  if(type==="mortgage"){
+    lbl.textContent = "채권금액 (원)";
+    regionSel.disabled = true; regionSel.style.opacity=".5";
+  }else{
+    lbl.textContent = "시가표준액 (원)";
+    regionSel.disabled = false; regionSel.style.opacity="1";
+  }
+}
+
+function recalc(){
+  const props = [...propsEl.querySelectorAll(".prop")];
+  let grand = 0;
+  const totalLines = document.getElementById("totalLines");
+  totalLines.innerHTML = "";
+
+  props.forEach((prop,i)=>{
+    syncBaseLabel(prop);
+    const type = prop.querySelector(".p-type").value;
+    const region = prop.querySelector(".p-region").value;
+    const base = parseWon(prop.querySelector(".p-base").value);
+    const name = prop.querySelector(".p-name").value.trim();
+
+    const res = calcLine(type, region, base);
+    const outRate = prop.querySelector(".o-rate");
+    const outAmt = prop.querySelector(".o-amt");
+    const lineOut = prop.querySelector(".line-out");
+
+    outRate.textContent = res.exempt ? (res.reason || res.rateText) : res.rateText;
+    outAmt.textContent = fmt(res.amount) + " 원";
+    lineOut.classList.toggle("exempt", res.exempt && base>0);
+
+    grand += res.amount;
+
+    // 합계표 라인
+    const labelBase = name ? name : (PROP_TYPES.find(p=>p.v===type).t);
+    const tr = document.createElement("div");
+    tr.className = "trow";
+    tr.innerHTML = `<span>${i+1}. ${labelBase}</span><span class="v">${fmt(res.amount)} 원</span>`;
+    totalLines.appendChild(tr);
+  });
+
+  document.getElementById("grandTotal").textContent = fmt(grand) + " 원";
+  calcBurden(grand);
+}
+
+function calcBurden(grand){
+  const rate = parseFloat(String(document.getElementById("discRate").value).replace(/[^0-9.]/g,""));
+  const out = document.getElementById("burdenOut");
+  if(isNaN(rate) || rate<=0 || grand<=0){ out.textContent = "— 원"; return; }
+  const burden = Math.round(grand * rate / 100);
+  out.textContent = fmt(burden) + " 원";
+}
+
+/* 이벤트 위임 */
+propsEl.addEventListener("input", recalc);
+propsEl.addEventListener("change", recalc);
+propsEl.addEventListener("click", e=>{
+  if(e.target.classList.contains("del")){
+    e.target.closest(".prop").remove();
+    if(!propsEl.querySelector(".prop")) addProp();
+    recalc();
+  }
+});
+document.getElementById("addBtn").addEventListener("click", addProp);
+document.getElementById("discRate").addEventListener("input", ()=>{
+  const grand = parseWon(document.getElementById("grandTotal").textContent);
+  calcBurden(grand);
+});
+document.getElementById("printBtn").addEventListener("click", ()=>window.print());
+document.getElementById("resetBtn").addEventListener("click", ()=>{
+  propsEl.innerHTML=""; seq=0; document.getElementById("discRate").value="";
+  addProp();
+});
+
+/* 초기 한 줄 */
+addProp();
+</script>
+</body>
+</html>

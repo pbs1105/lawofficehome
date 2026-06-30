@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>취득세 신고서 생성기 — 법무사 admin</title>
+<style>
+  :root{
+    --ink:#1d2733; --ink-soft:#47566a; --line:#c9d2dd; --line-soft:#e4e9ef;
+    --bg:#f4f6f9; --panel:#ffffff; --accent:#1f5fa8; --accent-soft:#eaf1fa;
+    --warn:#9a3a12; --warn-bg:#fbeee6; --ok:#1d6b3f; --ok-bg:#e8f4ec;
+    --form-line:#000; --shadow:0 1px 3px rgba(29,39,51,.08),0 6px 24px rgba(29,39,51,.06);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","맑은 고딕",
+      -apple-system,BlinkMacSystemFont,sans-serif;
+    color:var(--ink); background:var(--bg); line-height:1.5; font-size:14px;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:24px 20px 80px}
+
+  header.app{margin-bottom:18px}
+  header.app h1{font-size:20px;margin:0 0 4px;letter-spacing:-.01em}
+  header.app .sub{color:var(--ink-soft);font-size:13px}
+  .legalbar{
+    margin-top:10px;font-size:12px;color:var(--ink-soft);
+    background:var(--accent-soft);border:1px solid #d4e3f4;border-radius:8px;padding:8px 12px;
+  }
+  .legalbar b{color:var(--accent)}
+
+  .grid{display:grid;grid-template-columns:1fr;gap:18px}
+  @media(min-width:900px){.grid{grid-template-columns:1.05fr .95fr}}
+
+  .panel{background:var(--panel);border:1px solid var(--line-soft);border-radius:12px;
+    box-shadow:var(--shadow);overflow:hidden}
+  .panel > h2{font-size:13px;font-weight:700;margin:0;padding:13px 16px;border-bottom:1px solid var(--line-soft);
+    background:#fbfcfe;letter-spacing:.01em}
+  .panel .body{padding:16px}
+
+  .field{margin-bottom:13px}
+  .field:last-child{margin-bottom:0}
+  .field > label{display:block;font-size:12px;font-weight:600;color:var(--ink-soft);margin-bottom:5px}
+  .field .hint{font-size:11px;color:#7a8696;margin-top:4px;line-height:1.45}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  input[type=text],input[type=number],input[type=date],select{
+    width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:8px;font:inherit;
+    color:var(--ink);background:#fff}
+  input:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+  .seg{display:flex;flex-wrap:wrap;gap:6px}
+  .seg label{display:inline-flex;align-items:center;gap:5px;padding:7px 11px;border:1px solid var(--line);
+    border-radius:8px;font-size:12.5px;cursor:pointer;background:#fff;user-select:none}
+  .seg input{accent-color:var(--accent);margin:0}
+  .seg label:has(input:checked){border-color:var(--accent);background:var(--accent-soft);color:var(--accent);font-weight:600}
+  .hide{display:none!important}
+
+  .diag{border:1px solid var(--line);border-radius:10px;padding:11px 12px;margin-bottom:9px;background:#fff}
+  .diag .diaghead{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--ink);cursor:pointer;margin:0}
+  .diag .diaghead input{accent-color:var(--accent);width:16px;height:16px}
+  .diag .tag{margin-left:auto;font-size:10.5px;font-weight:700;color:var(--accent);background:var(--accent-soft);
+    border-radius:999px;padding:2px 8px}
+  .diag .diagbody{margin-top:9px;padding-top:9px;border-top:1px dashed var(--line-soft)}
+  .diag .chk{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--ink-soft);margin-bottom:6px;cursor:pointer}
+  .diag .chk input{accent-color:var(--accent)}
+  .diag:has(.diaghead input:checked){border-color:var(--accent);background:var(--accent-soft)}
+
+  .btns{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+  button{font:inherit;border-radius:9px;padding:11px 18px;cursor:pointer;border:1px solid transparent;font-weight:600}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{background:#1a528f}
+  .btn-ghost{background:#fff;border-color:var(--line);color:var(--ink)}
+  .btn-ghost:hover{background:#f3f6fa}
+
+  .sumcard{border:1px solid var(--line-soft);border-radius:10px;margin-bottom:12px}
+  .sumcard .top{padding:12px 14px;border-bottom:1px solid var(--line-soft);background:#fbfcfe}
+  .sumcard .top .k{font-size:12px;color:var(--ink-soft)}
+  .sumcard .top .v{font-size:22px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+  .breakdown{width:100%;border-collapse:collapse;font-size:13px}
+  .breakdown td{padding:9px 14px;border-bottom:1px solid var(--line-soft)}
+  .breakdown tr:last-child td{border-bottom:0}
+  .breakdown .lbl{color:var(--ink-soft)}
+  .breakdown .num{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+  .breakdown .rate{text-align:right;color:#7a8696;font-size:12px;font-variant-numeric:tabular-nums}
+  .breakdown tr.total td{background:var(--accent-soft);font-weight:800;color:var(--accent)}
+  .notebox{font-size:12px;color:var(--ink-soft);background:#fbfcfe;border:1px dashed var(--line);
+    border-radius:9px;padding:11px 13px;margin-top:12px;line-height:1.55}
+  .notebox b{color:var(--ink)}
+  .pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;margin-left:6px}
+  .pill.due{background:var(--ok-bg);color:var(--ok)}
+  .pill.over{background:var(--warn-bg);color:var(--warn)}
+  .warn{background:var(--warn-bg);border:1px solid #f0d3c2;color:var(--warn);border-radius:9px;
+    padding:11px 13px;font-size:12px;margin-top:12px;line-height:1.55}
+  .placeholder{color:#9aa6b4;font-size:13px;text-align:center;padding:30px 10px}
+
+  .diagres{border:1px solid var(--line-soft);border-radius:10px;margin-top:12px;overflow:hidden}
+  .diagres .dh{padding:9px 13px;font-size:12px;font-weight:700;background:#fbfcfe;border-bottom:1px solid var(--line-soft)}
+  .diagrow{padding:10px 13px;border-bottom:1px solid var(--line-soft);font-size:12.5px;line-height:1.5}
+  .diagrow:last-child{border-bottom:0}
+  .diagrow .st{display:inline-block;font-size:10.5px;font-weight:800;padding:2px 8px;border-radius:999px;margin-right:7px;vertical-align:middle}
+  .st.ok{background:var(--ok-bg);color:var(--ok)}
+  .st.no{background:#eef0f3;color:#6b7685}
+  .st.wn{background:var(--warn-bg);color:var(--warn)}
+  .diagrow .dt{color:var(--ink-soft);margin-top:3px;font-size:11.5px}
+  .diagrow b{color:var(--ink)}
+
+  #formArea{margin-top:22px}
+  .formdoc{background:#fff;border:1px solid var(--line-soft);border-radius:12px;box-shadow:var(--shadow);
+    padding:26px 30px;color:#000;margin-bottom:18px}
+  .formdoc .formtitle{text-align:center;font-size:18px;font-weight:800;letter-spacing:.04em;margin:2px 0 4px}
+  .formdoc .formmeta{font-size:11px;color:#333;margin-bottom:10px}
+  .ftab{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:12px}
+  .ftab th,.ftab td{border:1px solid var(--form-line);padding:5px 7px;vertical-align:middle}
+  .ftab th{background:#f1f1f1;font-weight:700;text-align:center}
+  .ftab .lh{background:#f6f6f6;font-weight:700;width:96px;text-align:center}
+  .ftab .num{text-align:right;font-variant-numeric:tabular-nums}
+  .ftab .c{text-align:center}
+  .sign{margin:14px 0 6px;text-align:right;font-size:12px;line-height:2}
+  .signto{font-weight:700;font-size:13px;text-align:left;margin-top:8px}
+  .attach{font-size:11px;color:#222;border-top:1px dashed #999;padding-top:9px;margin-top:10px;line-height:1.6}
+  .formdoc h3.sec{font-size:12.5px;font-weight:800;margin:16px 0 7px;border-left:3px solid #000;padding-left:8px}
+
+  @media print{
+    @page{size:A4;margin:12mm}
+    body{background:#fff;font-size:11px}
+    .wrap{max-width:none;padding:0}
+    .noprint{display:none!important}
+    .formdoc{border:0;box-shadow:none;border-radius:0;padding:0;margin-bottom:0}
+    .formdoc + .formdoc{page-break-before:always;margin-top:0}
+    #formArea{margin:0}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="app noprint">
+    <h1>취득세 신고서 생성기</h1>
+    <div class="sub">입력 → 자동 세액계산 → 공식 신고서(지방세법 시행규칙 별지 제3호서식) 출력</div>
+    <div class="legalbar">
+      근거: <b>지방세법 제10·11·13조의2·151조</b>, <b>농어촌특별세법 제5조</b>, <b>지방세법 시행규칙 별지 제3호서식(개정 2024. 1. 22.)</b>
+      · 세율 기준 <b>2026년</b> · 본 도구는 작성 보조용이며 <b>법무사 최종 검토·확인</b> 후 사용합니다.
+    </div>
+  </header>
+
+  <div class="grid">
+    <!-- 입력부 -->
+    <div class="panel noprint">
+      <h2>① 입력</h2>
+      <div class="body">
+
+        <div class="field">
+          <label>사건번호 (사무실 내부관리 · 신고서 ‘관리번호’란은 과세관청 기재사항이라 비워둠)</label>
+          <input type="text" id="caseNo" placeholder="예: 260622-01">
+        </div>
+
+        <div class="field">
+          <label>신고 구분</label>
+          <div class="seg" id="filing">
+            <label><input type="radio" name="filing" value="in" checked> 기한 내 신고</label>
+            <label><input type="radio" name="filing" value="after"> 기한 후 신고</label>
+          </div>
+        </div>
+
+        <h3 style="font-size:12px;color:var(--accent);margin:6px 0 10px;border-top:1px solid var(--line-soft);padding-top:14px">취득자(신고인)</h3>
+        <div class="field"><label>성명 / 법인명</label><input type="text" id="buyerName" placeholder="김갑동"></div>
+        <div class="row2">
+          <div class="field"><label>주민(법인)등록번호</label><input type="text" id="buyerId" placeholder="000000-0000000"></div>
+          <div class="field"><label>전화번호</label><input type="text" id="buyerTel" placeholder="010-0000-0000"></div>
+        </div>
+        <div class="field"><label>주소</label><input type="text" id="buyerAddr" placeholder="부산광역시 ..."></div>
+
+        <h3 style="font-size:12px;color:var(--accent);margin:6px 0 10px;border-top:1px solid var(--line-soft);padding-top:14px">전 소유자(매도자·증여자·피상속인)</h3>
+        <div class="field"><label>성명 / 법인명</label><input type="text" id="sellerName" placeholder="김을동"></div>
+        <div class="row2">
+          <div class="field"><label>주민(법인)등록번호</label><input type="text" id="sellerId"></div>
+          <div class="field"><label>전화번호</label><input type="text" id="sellerTel"></div>
+        </div>
+        <div class="field"><label>주소</label><input type="text" id="sellerAddr"></div>
+        <div class="field">
+          <label>매도자와의 관계 (특수관계 여부 — 신고서 필수기재)</label>
+          <select id="relation">
+            <option value="none">특수관계 아님</option>
+            <option value="spouse">친족 — 배우자</option>
+            <option value="lineal">친족 — 직계존비속</option>
+            <option value="kin">친족 — 그 밖의 친족</option>
+            <option value="econ">경제적 연관관계(임원·사용인 등)</option>
+            <option value="ctrl">경영지배관계(주주·출자자 등)</option>
+          </select>
+        </div>
+
+        <h3 style="font-size:12px;color:var(--accent);margin:6px 0 10px;border-top:1px solid var(--line-soft);padding-top:14px">취득물건 내역</h3>
+        <div class="field"><label>소재지</label><input type="text" id="estAddr" placeholder="부산광역시 ... 번지"></div>
+        <div class="row2">
+          <div class="field"><label>취득일 (잔금지급일 등)</label><input type="date" id="acqDate"></div>
+          <div class="field"><label>면적</label><input type="text" id="estArea" placeholder="예: 84.95㎡"></div>
+        </div>
+
+        <div class="field">
+          <label>취득 원인</label>
+          <select id="cause">
+            <option value="sale_house">유상거래(매매) — 주택</option>
+            <option value="sale_other">유상거래(매매) — 주택 외(토지·건물·상가)</option>
+            <option value="gift">무상취득 — 증여</option>
+            <option value="inherit">상속</option>
+            <option value="original">원시취득(신축 등)</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label id="baseLabel">과세표준액 (취득가액)</label>
+          <input type="number" id="base" placeholder="원 단위로 입력 (예: 850000000)">
+          <div class="hint" id="baseHint">유상거래: 사실상 취득가액(신고가액). 시가표준액보다 낮으면 시가표준액으로 합니다.</div>
+        </div>
+
+        <!-- 주택(매매) 옵션 -->
+        <div id="optHouseSale">
+          <div class="field">
+            <label>전용면적 구분</label>
+            <div class="seg">
+              <label><input type="radio" name="size" value="under" checked> 85㎡ 이하(국민주택)</label>
+              <label><input type="radio" name="size" value="over"> 85㎡ 초과</label>
+            </div>
+          </div>
+          <div class="field">
+            <label>중과 판정 (다주택·법인) — 주택 수 판정은 직원 확인 후 선택</label>
+            <select id="surcharge">
+              <option value="std">중과 없음 (1세대 1주택 또는 일반)</option>
+              <option value="s8">8% 중과 (조정 2주택 / 비조정 3주택)</option>
+              <option value="s12">12% 중과 (조정 3주택↑·법인 / 비조정 4주택↑)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- 증여 옵션 -->
+        <div id="optGift" class="hide">
+          <div class="row2">
+            <div class="field">
+              <label>물건 종류</label>
+              <div class="seg" style="flex-direction:column;align-items:stretch">
+                <label><input type="radio" name="giftKind" value="house_u" checked> 주택 85㎡ 이하</label>
+                <label><input type="radio" name="giftKind" value="house_o"> 주택 85㎡ 초과</label>
+                <label><input type="radio" name="giftKind" value="other"> 주택 외</label>
+              </div>
+            </div>
+            <div class="field">
+              <label>증여 중과 (조정지역·공시 3억↑ 주택)</label>
+              <select id="giftSurcharge">
+                <option value="std">일반 (3.5%)</option>
+                <option value="s12">중과 12% (조정·3억↑ 다주택자 증여)</option>
+              </select>
+              <div class="hint">1세대 1주택자가 배우자·직계존비속에게 증여 시 조정·시가표준 불문 일반세율.</div>
+            </div>
+          </div>
+          <div class="field">
+            <label><input type="checkbox" id="giftNonprofit"> 비영리사업자 무상취득 (취득세 2.8% 적용)</label>
+          </div>
+        </div>
+
+        <!-- 상속 옵션 -->
+        <div id="optInherit" class="hide">
+          <div class="field">
+            <label>물건 종류</label>
+            <div class="seg">
+              <label><input type="radio" name="inhKind" value="house_u" checked> 주택 85㎡↓</label>
+              <label><input type="radio" name="inhKind" value="house_o"> 주택 85㎡↑</label>
+              <label><input type="radio" name="inhKind" value="other"> 일반(농지 외)</label>
+              <label><input type="radio" name="inhKind" value="farm"> 농지</label>
+            </div>
+            <div class="hint">상속은 조정대상지역 중과가 적용되지 않습니다. 무주택자가 상속 1주택 취득 시 특례(취득세 0.8%)는 직원이 별도 확인하세요.</div>
+          </div>
+        </div>
+
+        <!-- 원시취득 옵션 -->
+        <div id="optOriginal" class="hide">
+          <div class="field">
+            <label>국민주택(전용 85㎡ 이하) 여부 — 농어촌특별세 비과세 판단</label>
+            <div class="seg">
+              <label><input type="radio" name="origSize" value="under"> 85㎡ 이하</label>
+              <label><input type="radio" name="origSize" value="over" checked> 85㎡ 초과 / 비주택</label>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="font-size:12px;color:var(--accent);margin:6px 0 10px;border-top:1px solid var(--line-soft);padding-top:14px">③ 감면 · 특례 진단</h3>
+        <div class="hint" style="margin:-4px 0 10px">계산 전 감면·특례 가능성을 먼저 진단합니다. 해당 항목을 켜면 자동 반영되며, 각 항목의 요건·추징·일몰 위험을 결과에 표시합니다.</div>
+
+        <div class="diag" id="diagFirst">
+          <label class="diaghead"><input type="checkbox" id="firstHome"> 생애최초 주택구입 감면 검토 <span class="tag">유상 주택</span></label>
+          <div class="diagbody hide" id="firstHomeBody">
+            <label class="chk"><input type="checkbox" id="fhNoHouse"> 취득자 본인·배우자 모두 무주택(생애 최초)</label>
+            <label class="chk"><input type="checkbox" id="fhReside"> 취득 후 3개월 내 전입·상시거주 예정</label>
+            <div class="hint">지특법 §36조의3 · 취득가액 12억원 이하 · 산출세액 200만원 한도 면제/공제(자동 판정).</div>
+          </div>
+        </div>
+
+        <div class="diag" id="diagTemp">
+          <label class="diaghead"><input type="checkbox" id="tempTwo"> 일시적 2주택 (중과 배제) <span class="tag">유상 주택</span></label>
+          <div class="hint" style="margin-top:4px">시행령 §28의5 · 종전주택을 기한(조정↔조정 1년, 그 외 3년) 내 처분 전제. 처분 미이행 시 중과 추징.</div>
+        </div>
+
+        <div class="diag" id="diagInh">
+          <label class="diaghead"><input type="checkbox" id="inhNoHouse"> 무주택 1세대 상속 1주택 특례 <span class="tag">상속 주택</span></label>
+          <div class="hint" style="margin-top:4px">지방세법 §15①2 · 무주택 1세대가 상속으로 1주택 취득 시 취득세 0.8% 특례세율.</div>
+        </div>
+
+        <div class="diag" id="diagLux">
+          <label class="diaghead"><input type="checkbox" id="luxury"> 고급주택 중과 (§13⑤) <span class="tag">주택</span></label>
+          <div class="hint" style="margin-top:4px">연면적·대지·시가표준 9억↑ 등 요건 충족 시 표준세율 + 8%p. 직원이 요건 확인 후 체크.</div>
+        </div>
+
+        <div class="row2" style="margin-top:12px">
+          <div class="field">
+            <label>그 밖의 취득세 감면율 (%)</label>
+            <input type="number" id="reduceRate" value="0" min="0" max="100" step="0.1">
+            <div class="hint">창업중소기업·임대주택 등 정률 감면율 입력(생애최초와 중복 시 큰 감면 자동 적용).</div>
+          </div>
+          <div class="field">
+            <label>기납부세액 (원)</label>
+            <input type="number" id="prepaid" value="0">
+          </div>
+        </div>
+
+        <div class="btns">
+          <button class="btn-primary" id="calcBtn">계산하기</button>
+          <button class="btn-ghost" id="printBtn">신고서 인쇄 / PDF</button>
+          <button class="btn-ghost" id="resetBtn">초기화</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 결과 -->
+    <div class="panel noprint">
+      <h2>② 세액 계산 결과</h2>
+      <div class="body" id="result">
+        <div class="placeholder">좌측 정보를 입력하고 <b>계산하기</b>를 누르세요.</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="formArea"></div>
+
+</div>
+
+<script>
+"use strict";
+const $ = id => document.getElementById(id);
+const won = n => (isFinite(n)? Math.floor(n):0).toLocaleString('ko-KR') + '원';
+const pct = r => (r*100).toLocaleString('ko-KR',{maximumFractionDigits:4}) + '%';
+const esc = s => (s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+function parseDate(s){ if(!s) return null; const d=new Date(s+'T00:00:00'); return isNaN(d)?null:d; }
+const fdate = d => d? `${d.getFullYear()}. ${d.getMonth()+1}. ${d.getDate()}.` : '';
+
+function syncCauseUI(){
+  const c = $('cause').value;
+  $('optHouseSale').classList.toggle('hide', c!=='sale_house');
+  $('optGift').classList.toggle('hide', c!=='gift');
+  $('optInherit').classList.toggle('hide', c!=='inherit');
+  $('optOriginal').classList.toggle('hide', c!=='original');
+  const hints = {
+    sale_house:"유상거래: 사실상 취득가액(신고가액). 시가표준액보다 낮으면 시가표준액으로 합니다.",
+    sale_other:"유상거래: 사실상 취득가액(신고가액). 시가표준액보다 낮으면 시가표준액으로 합니다.",
+    gift:"증여(무상): 시가인정액 원칙. 시가인정액이 없거나 시가표준액 1억원 이하 등은 시가표준액.",
+    inherit:"상속: 시가표준액을 과세표준으로 합니다.",
+    original:"원시취득(신축): 사실상 취득가액(공사비 등)."
+  };
+  $('baseHint').textContent = hints[c];
+}
+
+/* 주택 유상 6~9억 누진세율: 세율(%) = 취득가액 × 2 ÷ 3억 − 3 (소수점 넷째자리) */
+function houseSaleStdRate(baseWon){
+  const eok = baseWon/1e8;
+  if(eok<=6) return 0.01;
+  if(eok>9)  return 0.03;
+  let p = (baseWon*2/3e8) - 3;
+  p = Math.round(p*1e4)/1e4;
+  return p/100;
+}
+
+function calc(){
+  const c = $('cause').value;
+  const base = Math.max(0, Number($('base').value)||0);
+  if(base<=0){ alert('과세표준액(취득가액)을 입력하세요.'); return null; }
+
+  let acqRate=0, eduRate=0, ruralRate=0;
+  let isHouse=false, under85=false, surTag='std', rateNote='';
+
+  if(c==='sale_house'){
+    isHouse=true;
+    under85 = (document.querySelector('input[name=size]:checked').value==='under');
+    surTag = $('surcharge').value;
+    if(surTag==='s8'){ acqRate=0.08; eduRate=0.004; ruralRate=under85?0:0.006;
+      rateNote='다주택 중과 8% (지방세법 §13의2)'; }
+    else if(surTag==='s12'){ acqRate=0.12; eduRate=0.004; ruralRate=under85?0:0.010;
+      rateNote='다주택·법인 중과 12% (지방세법 §13의2)'; }
+    else { acqRate=houseSaleStdRate(base); eduRate=acqRate*0.1; ruralRate=under85?0:0.002;
+      rateNote='주택 유상거래 표준세율 1~3% (지방세법 §11①8)'; }
+  }
+  else if(c==='sale_other'){
+    acqRate=0.04; eduRate=0.004; ruralRate=0.002;
+    rateNote='주택 외 유상취득 4% (지방세법 §11①7나)';
+  }
+  else if(c==='gift'){
+    const k=document.querySelector('input[name=giftKind]:checked').value;
+    isHouse = (k!=='other'); under85 = (k==='house_u');
+    const np = $('giftNonprofit').checked;
+    if($('giftSurcharge').value==='s12' && isHouse){
+      acqRate=0.12; eduRate=0.004; ruralRate=under85?0:0.010; surTag='s12';
+      rateNote='증여 중과 12% (조정·시가표준 3억↑ 주택, 지방세법 §13의2②)';
+    } else {
+      acqRate = np?0.028:0.035;
+      eduRate = (acqRate-0.02)*0.2;
+      ruralRate = (isHouse&&under85)?0:0.002;
+      rateNote = np?'무상취득 비영리사업자 2.8% (지방세법 §11①2)':'무상취득(증여) 3.5% (지방세법 §11①2)';
+    }
+  }
+  else if(c==='inherit'){
+    const k=document.querySelector('input[name=inhKind]:checked').value;
+    isHouse=(k==='house_u'||k==='house_o'); under85=(k==='house_u');
+    if(k==='farm'){ acqRate=0.023; rateNote='상속 — 농지 2.3% (지방세법 §11①1가)'; }
+    else { acqRate=0.028; rateNote='상속 — 농지 외 2.8% (지방세법 §11①1나)'; }
+    eduRate=(acqRate-0.02)*0.2;
+    ruralRate=(isHouse&&under85)?0:0.002;
+  }
+  else if(c==='original'){
+    acqRate=0.028; eduRate=(acqRate-0.02)*0.2;
+    under85 = (document.querySelector('input[name=origSize]:checked').value==='under');
+    ruralRate = under85?0:0.002;
+    rateNote='원시취득 2.8% (지방세법 §11①3)';
+  }
+
+  // ===== 감면·특례 진단 =====
+  const diag = [];
+  const FIRST_LIMIT = 2000000;   // 생애최초 취득세 면제·공제 한도 200만원 (지특법 §36의3)
+
+  // 고급주택 중과 (지방세법 §13⑤): 표준세율 + 8%p
+  if(isHouse && $('luxury').checked){
+    acqRate += 0.08;
+    rateNote += ' + 고급주택 중과 8%p(§13⑤)';
+    diag.push({st:'wn', title:'고급주택 중과 (지방세법 §13⑤)',
+      detail:'표준세율에 8%p 가산. 연면적·대지면적·시가표준 9억원↑ 등 요건은 직원이 반드시 확인하세요.'});
+  }
+
+  // 일시적 2주택: 중과 배제 → 일반세율
+  if(c==='sale_house' && $('tempTwo').checked){
+    if(surTag!=='std'){
+      acqRate = houseSaleStdRate(base) + (($('luxury').checked)?0.08:0);
+      eduRate = houseSaleStdRate(base)*0.1; ruralRate = under85?0:0.002; surTag='std';
+      rateNote = '일시적 2주택 — 중과 배제, 일반세율 적용 (시행령 §28의5)';
+    }
+    diag.push({st:'wn', title:'일시적 2주택 (시행령 §28의5)',
+      detail:'중과 배제·일반세율 적용. 종전주택을 처분기한(조정↔조정 1년, 그 외 3년) 내 처분하지 않으면 중과세가 추징됩니다.'});
+  }
+
+  // 무주택 1세대 상속 1주택 특례 (지방세법 §15①2)
+  if(c==='inherit' && isHouse && $('inhNoHouse').checked){
+    acqRate = 0.008; eduRate = 0.0016; ruralRate = under85?0:0.002;
+    rateNote = '무주택 1세대 상속 1주택 특례세율 0.8% (지방세법 §15①2)';
+    diag.push({st:'ok', title:'무주택 상속 1주택 특례 (지방세법 §15①2)',
+      detail:'취득세 0.8% 적용. 상속개시일 현재 1세대 무주택 요건은 가족관계·세대 자료로 확인하세요.'});
+  }
+
+  const acqTaxGross = base*acqRate;
+
+  // ===== 취득세 감면액 산정 =====
+  const pctRate = Math.max(0,Math.min(100,Number($('reduceRate').value)||0))/100;
+  const reduceByPct = acqTaxGross*pctRate;
+  let reduceByFirst = 0;
+
+  // 생애최초 주택구입 감면 (지특법 §36의3)
+  if($('firstHome').checked){
+    const elig = (c==='sale_house') && $('fhNoHouse').checked && (base<=1.2e9);
+    if(elig){
+      reduceByFirst = Math.min(acqTaxGross, FIRST_LIMIT);
+      diag.push({st:'ok', title:'생애최초 주택구입 감면 (지특법 §36의3)',
+        detail:`취득세 ${won(reduceByFirst)} 감면(산출세액 200만원 한도). `
+          + (!$('fhReside').checked?'⚠ 3개월 내 전입·상시거주 요건 미체크. ':'')
+          + '추징요건(3개월 내 전입·추가취득 금지, 3년 이상 거주)과 2026년 개정(소형·저가·지역 차등)은 위택스 최신 고시로 확인하세요.'});
+    } else {
+      const why = (c!=='sale_house') ? '유상 주택 취득이 아님'
+        : (!$('fhNoHouse').checked ? '무주택 요건 미체크' : '취득가액 12억원 초과');
+      diag.push({st:'no', title:'생애최초 주택구입 감면 (지특법 §36의3)',
+        detail:`적용 불가 — ${why}.`});
+    }
+  }
+
+  if(pctRate>0){
+    diag.push({st:'ok', title:`정률 감면 ${$('reduceRate').value}% 적용`,
+      detail:'창업중소기업·임대주택 등. 지방세 감면 신청서(별지 제1호) 첨부 및 농특세 감면분(감면액×20%)을 별도 산정하세요.'});
+  }
+
+  const acqReduce = Math.min(acqTaxGross, Math.max(reduceByPct, reduceByFirst));
+  const reduceSource = (reduceByFirst>=reduceByPct && reduceByFirst>0) ? '생애최초'
+    : (reduceByPct>0?'정률':'');
+
+  const eduTax = base*eduRate;
+  const ruralTax = base*ruralRate;
+  const prepaid = Math.max(0,Number($('prepaid').value)||0);
+  const total = Math.floor(acqTaxGross - acqReduce + eduTax + ruralTax) - prepaid;
+  const dl = deadline($('acqDate').value, c);
+
+  return {
+    c, base, acqRate, eduRate, ruralRate, rateNote, isHouse, under85, surTag,
+    acqTaxGross:Math.floor(acqTaxGross), acqReduce:Math.floor(acqReduce), reduceSource,
+    eduTax:Math.floor(eduTax), ruralTax:Math.floor(ruralTax),
+    prepaid, total: Math.max(total,0), deadline: dl, diag
+  };
+}
+
+function deadline(dateStr, c){
+  if(!dateStr) return null;
+  const d=new Date(dateStr+'T00:00:00'); if(isNaN(d)) return null;
+  let due, label;
+  if(c==='inherit'){ const e=new Date(d.getFullYear(),d.getMonth()+1,0);
+    due=new Date(e.getFullYear(),e.getMonth()+6,e.getDate());
+    label='상속개시일이 속하는 달의 말일부터 6개월'; }
+  else if(c==='gift'){ const e=new Date(d.getFullYear(),d.getMonth()+1,0);
+    due=new Date(e.getFullYear(),e.getMonth()+3,e.getDate());
+    label='취득일이 속하는 달의 말일부터 3개월'; }
+  else { due=new Date(d); due.setDate(due.getDate()+60); label='취득일부터 60일'; }
+  const today=new Date(); today.setHours(0,0,0,0);
+  const days=Math.round((due-today)/86400000);
+  return {due, label, days};
+}
+
+function renderResult(r){
+  const causeKo={sale_house:'유상거래(주택)',sale_other:'유상거래(주택 외)',gift:'증여(무상)',inherit:'상속',original:'원시취득'}[r.c];
+  let dueHtml='';
+  if(r.deadline){
+    const cls = r.deadline.days>=0?'due':'over';
+    const txt = r.deadline.days>=0?`D-${r.deadline.days}`:`기한경과 ${-r.deadline.days}일`;
+    dueHtml=`<div class="notebox"><b>신고·납부기한</b> : ${fdate(r.deadline.due)}
+      <span class="pill ${cls}">${txt}</span><br>${r.deadline.label} 이내 (지방세법 §20)</div>`;
+  }
+  let warn='';
+  if($('filing').querySelector('input:checked').value==='after' || (r.deadline&&r.deadline.days<0)){
+    warn=`<div class="warn"><b>기한 후 신고 — 가산세 발생</b><br>
+      무신고 20%(부정 40%) · 과소신고 10% · 납부지연 1일 10만분의 22 (지방세기본법 §53~55).
+      가산세는 실제 납부일 기준으로 별도 산정하세요.</div>`;
+  }
+  let extra='';
+  if(r.acqReduce>0){
+    extra+=`<div class="notebox"><b>감면 적용</b> — 취득세 감면세액 ${won(r.acqReduce)}.
+      농어촌특별세 <b>감면분</b>(감면세액 × 20%, 농특세법 §5①1)은 별도 산정하여 신고서에 추가하고,
+      지방세 감면 신청서(별지 제1호서식)를 첨부하세요.</div>`;
+  }
+  const eduFormula = (r.c==='sale_house'&&r.surTag==='std') ? '(취득세율×50%)×20%' : '(표준세율−2%)×20% 또는 중과 0.4%';
+
+  let diagHtml='';
+  if(r.diag && r.diag.length){
+    const stTxt={ok:'적용',no:'불가',wn:'확인'};
+    diagHtml = `<div class="diagres"><div class="dh">감면·특례 진단 결과</div>`
+      + r.diag.map(d=>`<div class="diagrow"><span class="st ${d.st}">${stTxt[d.st]}</span><b>${esc(d.title)}</b>
+          <div class="dt">${esc(d.detail)}</div></div>`).join('')
+      + `</div>`;
+  }
+
+  $('result').innerHTML = `
+    <div class="sumcard">
+      <div class="top"><div class="k">신고세액 합계 (취득세+지방교육세+농어촌특별세 − 기납부)</div>
+        <div class="v">${won(r.total)}</div></div>
+      <table class="breakdown">
+        <tr><td class="lbl">과세표준액 · ${causeKo}</td><td class="rate"></td><td class="num">${won(r.base)}</td></tr>
+        <tr><td class="lbl">취득세 (산출)</td><td class="rate">${pct(r.acqRate)}</td><td class="num">${won(r.acqTaxGross)}</td></tr>
+        ${r.acqReduce>0?`<tr><td class="lbl">　− 취득세 감면</td><td class="rate"></td><td class="num">−${won(r.acqReduce)}</td></tr>`:''}
+        <tr><td class="lbl">지방교육세</td><td class="rate">${pct(r.eduRate)}</td><td class="num">${won(r.eduTax)}</td></tr>
+        <tr><td class="lbl">농어촌특별세${r.ruralRate===0?' (비과세)':''}</td><td class="rate">${r.ruralRate===0?'국민주택':pct(r.ruralRate)}</td><td class="num">${won(r.ruralTax)}</td></tr>
+        ${r.prepaid>0?`<tr><td class="lbl">　− 기납부세액</td><td class="rate"></td><td class="num">−${won(r.prepaid)}</td></tr>`:''}
+        <tr class="total"><td>신고세액 합계</td><td></td><td class="num">${won(r.total)}</td></tr>
+      </table>
+    </div>
+    ${diagHtml}
+    <div class="notebox"><b>적용 세율</b> : ${esc(r.rateNote)}<br>
+      <b>지방교육세</b> ${eduFormula} (지방세법 §151) ·
+      <b>농어촌특별세</b> 과세표준×2%×10% 기준, 국민주택(85㎡↓) 비과세 (농어촌특별세법 §5①6, §4⑪)</div>
+    ${dueHtml}${extra}${warn}
+    <div class="warn" style="background:#f6f7fa;border-color:var(--line);color:var(--ink-soft)">
+      ※ 단수처리(원 미만 절사) 기준이며, 실제 고지·납부액은 지자체 단수처리 규정에 따라 미세하게 다를 수 있습니다.
+      고급주택(§13⑤)·사치성재산 중과, 일시적 2주택, 생애최초 감면 등 특수사례는 반드시 법무사 확인이 필요합니다.</div>
+  `;
+  buildForm(r);
+}
+
+function buildForm(r){
+  const filing = $('filing').querySelector('input:checked').value;
+  const ck = on => on?'■':'□';
+  const causeKo={sale_house:'매매',sale_other:'매매',gift:'증여',inherit:'상속',original:'원시취득'}[r.c];
+  const kindKo={sale_house:'주거용',sale_other:'-',gift:'-',inherit:'-',original:'-'}[r.c];
+
+  const rel=$('relation').value;
+  const relLine = `친족관계(배우자 ${ck(rel==='spouse')} 직계존비속 ${ck(rel==='lineal')} 그 밖의 친족 ${ck(rel==='kin')})
+    · 경제적 연관관계 ${ck(rel==='econ')} · 경영지배관계 ${ck(rel==='ctrl')} · 특수관계 아님 ${ck(rel==='none')}`;
+
+  const taxRow = (name,baseW,rateTxt,gross,reduce,pre,total)=>`
+    <tr><td class="lh">${name}</td><td class="num">${baseW}</td><td class="c">${rateTxt}</td>
+    <td class="num">${gross}</td><td class="num">${reduce}</td><td class="num">${pre}</td>
+    <td class="num">0</td><td class="num">${total}</td></tr>`;
+
+  const acqTotal = r.acqTaxGross - r.acqReduce;
+  const grand = (r.acqTaxGross - r.acqReduce) + r.eduTax + r.ruralTax;
+
+  let buyo='';
+  if(r.isHouse){
+    const sizeTxt = r.under85?'85㎡ 이하':'85㎡ 초과';
+    buyo = `
+    <div class="formmeta">■ 지방세법 시행규칙 [별지 제3호서식 부표] &lt;개정 2023. 12. 29.&gt;</div>
+    <div class="formtitle" style="font-size:15px">주택 ( ${ck(r.c==='gift'||r.c==='inherit')}무상 / ${ck(r.c==='sale_house')}유상거래 ) 취득 상세 명세서</div>
+    <h3 class="sec">② 신규 취득 주택 현황</h3>
+    <table class="ftab">
+      <tr><td class="lh">소재지</td><td colspan="3">${esc($('estAddr').value)}</td></tr>
+      <tr><td class="lh">조정대상지역</td><td class="c">□ 여 　□ 부 <span style="color:#888">(직원 확인)</span></td>
+          <td class="lh">고급주택</td><td class="c">□ 여 　□ 부</td></tr>
+      <tr><td class="lh">취득 원인</td><td class="c">${ck(r.c==='gift'||r.c==='inherit')}무상 / ${ck(r.c==='sale_house')}유상거래</td>
+          <td class="lh">계약일/취득일</td><td class="c">${fdate(parseDate($('acqDate').value))}</td></tr>
+      <tr><td class="lh">취득 가격</td><td class="num">${won(r.base)}</td>
+          <td class="lh">취득주택 면적</td><td class="c">${esc($('estArea').value)} (${sizeTxt})</td></tr>
+    </table>
+    <h3 class="sec">④ 신규 주택 적용 취득세율</h3>
+    <table class="ftab">
+      <tr><th>취득구분</th><th>적용 세율</th><th>중과 구분</th></tr>
+      <tr><td class="c">${causeKo}${r.c==='inherit'?'(상속)':''}</td><td class="c">${pct(r.acqRate)}</td>
+          <td class="c">${r.surTag==='s8'?'8% 중과':r.surTag==='s12'?'12% 중과':'중과 없음'}</td></tr>
+    </table>
+    <div style="font-size:10px;color:#444">※ 1세대 소유주택 현황(①·③란) 및 일시적 2주택 여부는 세대별 주택 수 확인 후 직원이 직접 기재합니다.</div>
+    <div class="sign">신고인 ：　　　　　　　　 (서명 또는 인)</div>`;
+  }
+
+  const attach = (r.acqReduce>0)
+    ? '1. 매매·증여계약서, 부동산거래계약 신고필증 등 취득가액·취득일 증명서류 사본 1부　2. 지방세 감면 신청서(별지 제1호서식) 1부'
+    : '1. 매매·증여계약서, 부동산거래계약 신고필증, 법인 장부 등 취득가액·취득일을 증명할 수 있는 서류 사본 1부';
+
+  $('formArea').innerHTML = `
+  <div class="formdoc">
+    <div class="formmeta">■ 지방세법 시행규칙 [별지 제3호서식] &lt;개정 2024. 1. 22.&gt;　${$('caseNo').value?('내부관리 '+esc($('caseNo').value)):''}</div>
+    <div class="formtitle">취득세 ( ${ck(filing==='in')}기한 내 / ${ck(filing==='after')}기한 후 ) 신고서</div>
+
+    <table class="ftab">
+      <tr><td class="lh" rowspan="2">취득자<br>(신고인)</td><td class="c" style="width:40px">성명</td>
+          <td>${esc($('buyerName').value)}</td><td class="lh" style="width:120px">주민(법인)등록번호</td><td>${esc($('buyerId').value)}</td></tr>
+      <tr><td class="c">주소</td><td colspan="3">${esc($('buyerAddr').value)}　(전화 ${esc($('buyerTel').value)})</td></tr>
+      <tr><td class="lh" rowspan="2">전 소유자</td><td class="c">성명</td>
+          <td>${esc($('sellerName').value)}</td><td class="lh">주민(법인)등록번호</td><td>${esc($('sellerId').value)}</td></tr>
+      <tr><td class="c">주소</td><td colspan="3">${esc($('sellerAddr').value)}　(전화 ${esc($('sellerTel').value)})</td></tr>
+      <tr><td class="lh">매도자와의<br>관계</td><td colspan="4" style="font-size:11px">${relLine}</td></tr>
+    </table>
+
+    <table class="ftab">
+      <tr><th colspan="7">취득물건 내역</th></tr>
+      <tr><td class="lh">소재지</td><td colspan="6">${esc($('estAddr').value)}</td></tr>
+      <tr><th>취득물건</th><th>취득일</th><th>면적</th><th>종류(지목)</th><th>용도</th><th>취득원인</th><th>취득가액</th></tr>
+      <tr><td class="c">${r.isHouse?'주택':'부동산'}</td><td class="c">${fdate(parseDate($('acqDate').value))}</td>
+          <td class="c">${esc($('estArea').value)}</td><td class="c">${kindKo}</td>
+          <td class="c">${r.isHouse?'주거용':'-'}</td><td class="c">${causeKo}</td><td class="num">${won(r.base)}</td></tr>
+    </table>
+
+    <table class="ftab">
+      <tr><th class="lh">세목</th><th>과세표준액</th><th>세율</th><th>①산출세액</th><th>②감면세액</th>
+          <th>③기납부</th><th>④가산세</th><th>신고세액합계<br>(①-②-③+④)</th></tr>
+      ${taxRow('합계', won(r.base), '', won(r.acqTaxGross+r.eduTax+r.ruralTax), won(r.acqReduce), won(r.prepaid), won(grand-r.prepaid))}
+      ${taxRow('취득세', won(r.base), pct(r.acqRate), won(r.acqTaxGross), won(r.acqReduce), won(r.prepaid), won(acqTotal-r.prepaid))}
+      ${taxRow('지방교육세', won(r.base), pct(r.eduRate), won(r.eduTax), '0', '0', won(r.eduTax))}
+      ${taxRow('농어촌특별세 부과분', won(r.base), r.ruralRate===0?'비과세':pct(r.ruralRate), won(r.ruralTax), '0', '0', won(r.ruralTax))}
+      ${taxRow('농어촌특별세 감면분', '', '', '0', '0', '0', '0')}
+    </table>
+
+    <div style="font-size:11px;margin-top:6px">「지방세법」 제20조제1항·제152조제1항, 같은 법 시행령 제33조제1항, 「농어촌특별세법」 제7조에 따라 위와 같이 신고합니다.</div>
+    <div class="sign">${fdate(new Date())}<br>
+      신고인 ：　${esc($('buyerName').value)}　 (서명 또는 인)<br>
+      대리인 ：　법무사　　　　　　　 (서명 또는 인)</div>
+    <div class="signto">특별자치시장·특별자치도지사·시장·군수·구청장　귀하</div>
+    <div class="attach"><b>첨부서류</b>　${attach}<br><b>수수료</b> 없음</div>
+  </div>
+  ${buyo? '<div class="formdoc">'+buyo+'</div>':''}`;
+}
+
+$('cause').addEventListener('change', syncCauseUI);
+$('firstHome').addEventListener('change', ()=>{
+  $('firstHomeBody').classList.toggle('hide', !$('firstHome').checked);
+});
+$('calcBtn').addEventListener('click', ()=>{ const r=calc(); if(r) renderResult(r); });
+$('printBtn').addEventListener('click', ()=>{
+  if(!$('formArea').innerHTML.trim()){ const r=calc(); if(!r) return; renderResult(r); }
+  window.print();
+});
+$('resetBtn').addEventListener('click', ()=>{
+  document.querySelectorAll('input[type=text],input[type=number],input[type=date]').forEach(el=>{
+    if(el.id==='reduceRate'||el.id==='prepaid') el.value='0'; else el.value='';
+  });
+  document.querySelectorAll('#firstHome,#fhNoHouse,#fhReside,#tempTwo,#inhNoHouse,#luxury,#giftNonprofit')
+    .forEach(el=>el.checked=false);
+  $('firstHomeBody').classList.add('hide');
+  $('cause').value='sale_house'; syncCauseUI();
+  $('result').innerHTML='<div class="placeholder">좌측 정보를 입력하고 <b>계산하기</b>를 누르세요.</div>';
+  $('formArea').innerHTML='';
+});
+syncCauseUI();
+</script>
+</body>
+</html>
