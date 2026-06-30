@@ -646,7 +646,7 @@ function renderCalculator(calcId) {
     case 'calc-fee':  area.innerHTML = buildLawyerFeeCalc(); break;
     case 'calc-inhtax': area.innerHTML = buildInheritanceTaxCalc(); break;
     case 'calc-bond':
-      area.innerHTML = `<iframe src="..\tools\국민주택채권_매입액_계산기.html" style="width:100%;height:calc(100vh - 120px);border:none;display:block;" title="국민주택채권 매입액 계산기"></iframe>`;
+      area.innerHTML = `<iframe src="../tools/bond_calculator.html" style="width:100%;height:calc(100vh - 120px);border:none;display:block;" title="국민주택채권 매입액 계산기"></iframe>`;
       break;
     default:
       area.innerHTML = '<div class="placeholder-content"><div class="ph-icon">🧮</div><h3>계산기 준비 중</h3></div>';
