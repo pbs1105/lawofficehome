@@ -561,6 +561,7 @@ document.getElementById("discRate").addEventListener("input", ()=>{
 document.getElementById("printBtn").addEventListener("click", ()=>window.print());
 document.getElementById("resetBtn").addEventListener("click", ()=>{
   propsEl.innerHTML=""; seq=0; document.getElementById("discRate").value="";
+  currentCasePageId = null;
   addProp();
 });
 
@@ -583,6 +584,8 @@ function toastMsg(msg){
   clearTimeout(el._t);
   el._t = setTimeout(()=>el.classList.remove("show"), 3200);
 }
+
+let currentCasePageId = null;   // 사건부DB page_id — 본인부담금 합계 저장에 사용
 
 /* 조회 결과를 행에 채운다 — 비어있고 사건 미연결인 첫 행부터 재사용, 모자라면 새 행 추가 */
 function fillPropsFromCase(list){
@@ -621,6 +624,7 @@ async function loadFromNotion(){
     });
     const data = await res.json();
     if(!data.ok){ status.textContent = "불러오기 실패: " + (data.reason || ""); return; }
+    currentCasePageId = data.사건_page_id || null;
     const list = data.부동산 || [];
     if(list.length === 0){ status.textContent = "연결된 부동산이 없습니다."; return; }
     fillPropsFromCase(list);
@@ -674,8 +678,32 @@ async function saveAllToNotion(){
       saveLine.textContent = "네트워크 오류: " + e.message;
     }
   }
+
+  /* 본인부담금 합계(사건 단위) — 계산기 화면에 표시된 값 그대로 사건부DB에 저장 */
+  let burdenMsg = "";
+  const burden = parseWon(document.getElementById("burdenOut").textContent);
+  if(currentCasePageId && burden > 0){
+    try{
+      const res = await fetch(LOAS_CFG.saveUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          secret: LOAS_CFG.secret,
+          case_page_id: currentCasePageId,
+          본인부담금: burden
+        })
+      });
+      const data = await res.json();
+      burdenMsg = data.ok ? ` · 본인부담금 ${fmt(burden)}원 사건부 저장됨` : " · 본인부담금 저장 실패";
+    }catch(e){
+      burdenMsg = " · 본인부담금 저장 실패(네트워크)";
+    }
+  }else if(currentCasePageId && burden <= 0){
+    burdenMsg = " · 할인율 미입력 — 본인부담금은 저장 안 됨";
+  }
+
   btn.disabled = false;
-  toastMsg(`저장 완료 ${okCount}건` + (failCount ? `, 실패 ${failCount}건` : ""));
+  toastMsg(`저장 완료 ${okCount}건` + (failCount ? `, 실패 ${failCount}건` : "") + burdenMsg);
 }
 
 document.getElementById("loadBtn").addEventListener("click", loadFromNotion);
