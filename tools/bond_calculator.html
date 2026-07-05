@@ -146,9 +146,42 @@
   .toolbar button.ghost{background:#fff;color:var(--ink)}
   .toolbar button:hover{opacity:.92}
 
+  /* 사건번호 조회 */
+  .lookup{
+    border:1px solid var(--line);border-radius:6px;background:var(--field);
+    padding:14px 14px;margin-bottom:6px;display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;
+  }
+  .lookup .fld{flex:0 0 auto}
+  .lookup label{display:block;font-size:11.5px;color:var(--muted);margin:0 0 4px;font-weight:600}
+  .lookup input[type=text]{
+    width:170px;padding:8px 9px;border:1px solid var(--line);border-radius:4px;
+    background:#fff;font:inherit;font-size:13.5px;color:#1c1c1c;
+  }
+  .lookup button{
+    border:1px solid var(--ink-2);background:var(--ink-2);color:#fff;
+    padding:9px 16px;border-radius:5px;font:inherit;font-weight:600;font-size:13px;cursor:pointer;
+  }
+  .lookup button:disabled{opacity:.6;cursor:default}
+  .lookup .status{flex:1 1 200px;font-size:12px;color:var(--muted);align-self:center}
+
+  .save-line{
+    margin-top:7px;padding-top:7px;border-top:1px dashed var(--line);
+    font-size:11.5px;color:var(--warn);line-height:1.6;
+  }
+
+  #loasToast{
+    position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);
+    background:#1f3653;color:#fff;padding:10px 18px;border-radius:6px;font-size:13px;
+    box-shadow:0 4px 16px rgba(0,0,0,.2);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:999;
+  }
+  #loasToast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  @media print{ .lookup{display:none!important} }
+
   @media(max-width:620px){
     .prop .row{grid-template-columns:1fr 1fr}
     .sheet{margin:0;border-radius:0;border-left:none;border-right:none}
+    .lookup input[type=text]{width:130px}
   }
   /* 인쇄 */
   @media print{
@@ -180,6 +213,20 @@
   </header>
 
   <div class="body">
+
+    <div class="section-label">
+      <span class="num">0</span>
+      <h2>사건번호로 불러오기</h2>
+      <span class="hint">부동산DB에 연결된 물건을 자동으로 불러옵니다 (선택 — 직접 입력해도 됩니다)</span>
+    </div>
+    <div class="lookup">
+      <div class="fld">
+        <label for="caseNo">사건번호</label>
+        <input type="text" id="caseNo" placeholder="예: 260625_01">
+      </div>
+      <button type="button" id="loadBtn">불러오기</button>
+      <span class="status" id="lookupStatus"></span>
+    </div>
 
     <div class="section-label">
       <span class="num">1</span>
@@ -286,14 +333,16 @@
   <div class="toolbar">
     <button type="button" class="ghost" id="resetBtn">초기화</button>
     <button type="button" id="printBtn">인쇄 / PDF 저장</button>
+    <button type="button" id="saveAllBtn">노션에 저장</button>
   </div>
 
   <footer class="foot">
     국민주택채권 매입액 계산기 · 법무사 업무 자동화 시스템(LOAS) 직원용 도구 ·
-    외부 연결 없이 단독 동작(오프라인 사용 가능) · 매입률은 「주택도시기금법 시행령」 개정 시 변경될 수 있으므로 정기 점검 요망.
+    사건번호 불러오기·저장은 n8n 웹훅 경유(노션 부동산DB) · 매입률은 「주택도시기금법 시행령」 개정 시 변경될 수 있으므로 정기 점검 요망.
   </footer>
 
 </div>
+<div id="loasToast"></div>
 
 <script>
 "use strict";
@@ -399,7 +448,7 @@ let seq = 0;
 function propRowHTML(id){
   const opts = PROP_TYPES.map(p=>`<option value="${p.v}">${p.t}</option>`).join("");
   return `
-  <div class="prop" data-id="${id}">
+  <div class="prop" data-id="${id}" data-page-id="">
     <button class="del" type="button" title="삭제" aria-label="이 부동산 삭제">×</button>
     <div class="row">
       <div>
@@ -426,6 +475,7 @@ function propRowHTML(id){
       <span class="rate">적용요율: <span class="o-rate">—</span></span>
       <span class="amt o-amt">0 원</span>
     </div>
+    <div class="save-line" style="display:none"></div>
   </div>`;
 }
 
@@ -512,6 +562,126 @@ document.getElementById("printBtn").addEventListener("click", ()=>window.print()
 document.getElementById("resetBtn").addEventListener("click", ()=>{
   propsEl.innerHTML=""; seq=0; document.getElementById("discRate").value="";
   addProp();
+});
+
+/* ─── 노션(부동산DB) 연동 — 사건번호 불러오기 / 저장 ───
+   n8n 웹훅 2개(조회/저장)를 경유. 시크릿은 admin 전용 도구 전제 + n8n 측
+   Access-Control-Allow-Origin 도메인 고정으로 노출 위험을 완화한다. */
+const LOAS_CFG = {
+  lookupUrl: "https://n8npark.app.n8n.cloud/webhook/loas-bond-lookup-7f2ka9d3",
+  saveUrl:   "https://n8npark.app.n8n.cloud/webhook/loas-bond-save-q4m8t1x7",
+  secret:    "LOAS_9f2b7a4d1c6e8f3a5b0d2c4e6f8a1b3c" // n8n 환경변수 LOAS_SECRET과 반드시 동일해야 함
+};
+
+/* 부동산DB '종류' → 계산기 물건 유형 매핑(추정값 — 불러온 뒤 직접 확인/수정) */
+const KIND_TO_PROPTYPE = { "토지":"land", "단독주택":"housing", "공동주택":"housing", "건물(주택아닌)":"building" };
+
+function toastMsg(msg){
+  const el = document.getElementById("loasToast");
+  el.textContent = msg;
+  el.classList.add("show");
+  clearTimeout(el._t);
+  el._t = setTimeout(()=>el.classList.remove("show"), 3200);
+}
+
+/* 조회 결과를 행에 채운다 — 비어있고 사건 미연결인 첫 행부터 재사용, 모자라면 새 행 추가 */
+function fillPropsFromCase(list){
+  const existing = [...propsEl.querySelectorAll(".prop")];
+  list.forEach((p, i)=>{
+    let row = existing[i];
+    const reusable = row && !row.dataset.pageId && parseWon(row.querySelector(".p-base").value) === 0;
+    if(!reusable){
+      const id = ++seq;
+      propsEl.insertAdjacentHTML("beforeend", propRowHTML(id));
+      row = propsEl.lastElementChild;
+    }
+    row.dataset.pageId = p.page_id || "";
+    row.querySelector(".p-name").value = p.소재지 || "";
+    const mapped = KIND_TO_PROPTYPE[p.종류];
+    if(mapped) row.querySelector(".p-type").value = mapped;
+    row.querySelector(".p-base").value = (p.시가표준액 != null) ? fmt(p.시가표준액) : "";
+    const saveLine = row.querySelector(".save-line");
+    saveLine.style.display = "none";
+    saveLine.textContent = "";
+  });
+  recalc();
+}
+
+async function loadFromNotion(){
+  const caseNo = document.getElementById("caseNo").value.trim();
+  const status = document.getElementById("lookupStatus");
+  const btn = document.getElementById("loadBtn");
+  if(!caseNo){ status.textContent = "사건번호를 입력하세요."; return; }
+  btn.disabled = true; status.textContent = "조회 중…";
+  try{
+    const res = await fetch(LOAS_CFG.lookupUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ secret: LOAS_CFG.secret, 사건번호: caseNo })
+    });
+    const data = await res.json();
+    if(!data.ok){ status.textContent = "불러오기 실패: " + (data.reason || ""); return; }
+    const list = data.부동산 || [];
+    if(list.length === 0){ status.textContent = "연결된 부동산이 없습니다."; return; }
+    fillPropsFromCase(list);
+    status.textContent = `${list.length}건 불러옴 — 물건 유형·지역·시가표준액 확인 후 계산하세요.`;
+  }catch(e){
+    status.textContent = "네트워크 오류: " + e.message;
+  }finally{
+    btn.disabled = false;
+  }
+}
+
+async function saveAllToNotion(){
+  const rows = [...propsEl.querySelectorAll(".prop")].filter(r => r.dataset.pageId);
+  if(rows.length === 0){ toastMsg("먼저 사건번호로 불러오기를 해야 저장할 수 있습니다."); return; }
+
+  const btn = document.getElementById("saveAllBtn");
+  btn.disabled = true;
+  const discRate = parseFloat(String(document.getElementById("discRate").value).replace(/[^0-9.]/g,"")) || 0;
+  const nowIso = new Date().toISOString();
+  let okCount = 0, failCount = 0;
+
+  for(const row of rows){
+    const base = parseWon(row.querySelector(".p-base").value);
+    const amount = parseWon(row.querySelector(".o-amt").textContent);
+    const saveLine = row.querySelector(".save-line");
+    saveLine.style.display = "block";
+    try{
+      const res = await fetch(LOAS_CFG.saveUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          secret: LOAS_CFG.secret,
+          page_id: row.dataset.pageId,
+          채권매입액: amount,
+          시가표준액: base,
+          적용할인율: discRate / 100,
+          산정일시: nowIso
+        })
+      });
+      const data = await res.json();
+      if(data.ok){
+        okCount++;
+        saveLine.style.color = "var(--warn)";
+        saveLine.textContent = "⚠️ 미검증 상태로 저장됨 — 과표 근거 대조 후 노션에서 ✅ 검증완료로 승격";
+      }else{
+        failCount++;
+        saveLine.textContent = "저장 실패";
+      }
+    }catch(e){
+      failCount++;
+      saveLine.textContent = "네트워크 오류: " + e.message;
+    }
+  }
+  btn.disabled = false;
+  toastMsg(`저장 완료 ${okCount}건` + (failCount ? `, 실패 ${failCount}건` : ""));
+}
+
+document.getElementById("loadBtn").addEventListener("click", loadFromNotion);
+document.getElementById("saveAllBtn").addEventListener("click", saveAllToNotion);
+document.getElementById("caseNo").addEventListener("keydown", e=>{
+  if(e.key === "Enter"){ e.preventDefault(); loadFromNotion(); }
 });
 
 /* 초기 한 줄 */
