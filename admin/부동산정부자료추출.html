@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LOAS 부동산 정부자료 추출 · Admin</title>
+<style>
+  :root{
+    --bg:#0f172a; --card:#1e293b; --line:#334155; --muted:#94a3b8;
+    --text:#e2e8f0; --accent:#38bdf8; --accent2:#22c55e; --warn:#fbbf24; --danger:#f87171;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI",system-ui,"Malgun Gothic",sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+  .wrap{max-width:920px;margin:0 auto;padding:28px 18px 80px}
+  h1{font-size:20px;margin:0 0 4px}
+  .sub{color:var(--muted);font-size:13px;margin-bottom:22px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:18px}
+  label{display:block;font-size:13px;color:var(--muted);margin:0 0 6px}
+  input,select{width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--line);background:#0b1220;color:var(--text);font-size:14px}
+  input:focus,select:focus{outline:none;border-color:var(--accent)}
+  .row{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap}
+  .row > div{flex:1;min-width:180px}
+  button{cursor:pointer;border:none;border-radius:8px;padding:11px 18px;font-size:14px;font-weight:600;transition:.15s}
+  button:disabled{opacity:.5;cursor:not-allowed}
+  .btn-primary{background:var(--accent);color:#04263a}
+  .btn-primary:hover:not(:disabled){background:#7dd3fc}
+  .btn-go{background:var(--accent2);color:#052e16}
+  .btn-go:hover:not(:disabled){background:#4ade80}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line);padding:7px 12px;font-weight:500}
+  table{width:100%;border-collapse:collapse;margin-top:8px;font-size:13px}
+  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:middle}
+  th{color:var(--muted);font-weight:600;font-size:12px}
+  td select{padding:6px 8px;font-size:13px}
+  .fname{word-break:break-all}
+  .badge{display:inline-block;font-size:11px;padding:2px 8px;border-radius:999px;background:#0b1220;border:1px solid var(--line);color:var(--muted)}
+  .status{font-size:13px;margin-top:12px;min-height:20px}
+  .status.err{color:var(--danger)}
+  .status.ok{color:var(--accent2)}
+  .muted{color:var(--muted)}
+  details{margin-bottom:18px}
+  summary{cursor:pointer;color:var(--muted);font-size:13px}
+  pre{background:#0b1220;border:1px solid var(--line);border-radius:8px;padding:12px;overflow:auto;font-size:12px;white-space:pre-wrap;word-break:break-all}
+  .spin{display:inline-block;width:14px;height:14px;border:2px solid var(--line);border-top-color:var(--accent);border-radius:50%;animation:s .7s linear infinite;vertical-align:-2px;margin-right:6px}
+  @keyframes s{to{transform:rotate(360deg)}}
+  .hint{font-size:12px;color:var(--muted);margin-top:6px}
+  .result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:10px}
+  .stat{background:#0b1220;border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+  .stat b{display:block;font-size:20px;margin-top:2px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🏠 부동산 정부자료 추출 · Admin</h1>
+  <div class="sub">사건번호를 입력하면 해당 사건의 정부자료(부등서·토대장·건대장·토계서)를 불러와 노션 부동산DB에 <b>⚠️ 미검증</b>으로 저장합니다.</div>
+
+  <details>
+    <summary>⚙️ 연결 설정 (웹훅 주소 · 시크릿)</summary>
+    <div class="card" style="margin-top:10px">
+      <div class="row">
+        <div style="flex:2">
+          <label>웹훅 Base URL</label>
+          <input id="baseUrl" value="https://n8npark.app.n8n.cloud/webhook" />
+        </div>
+        <div>
+          <label>시크릿</label>
+          <input id="secret" value="loas-260707" />
+        </div>
+      </div>
+      <div class="hint">테스트용 웹훅으로 바꾸려면 <code>/webhook</code> → <code>/webhook-test</code> 로 변경.</div>
+    </div>
+  </details>
+
+  <div class="card">
+    <div class="row">
+      <div>
+        <label>사건번호 (YYMM_NN)</label>
+        <input id="caseNo" placeholder="예: 260705_01" />
+      </div>
+      <div style="flex:0 0 auto">
+        <button id="loadBtn" class="btn-primary">① 파일 목록 불러오기</button>
+      </div>
+    </div>
+    <div id="listStatus" class="status"></div>
+    <div class="hint" style="margin-top:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+      <span>조회가 안 되면 사건부DB에 사건번호가 비어있을 수 있습니다 →</span>
+      <button id="syncBtn" class="btn-ghost">🔄 사건번호 동기화(제목→속성)</button>
+      <span id="syncStatus"></span>
+    </div>
+  </div>
+
+  <div class="card" id="filesCard" style="display:none">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+      <div>
+        <b id="caseTitle"></b>
+        <div class="hint" id="folderHint"></div>
+      </div>
+      <div>
+        <button class="btn-ghost" id="selAll">전체선택</button>
+        <button class="btn-ghost" id="selGov">정부문서만</button>
+        <button class="btn-ghost" id="selNone">해제</button>
+      </div>
+    </div>
+    <table>
+      <thead>
+        <tr><th style="width:34px"></th><th>파일명</th><th style="width:190px">문서유형</th></tr>
+      </thead>
+      <tbody id="fileRows"></tbody>
+    </table>
+    <div style="margin-top:16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+      <button id="extractBtn" class="btn-go">② 선택 파일 추출 실행 →</button>
+      <span class="muted" id="selCount"></span>
+    </div>
+    <div id="extractStatus" class="status"></div>
+    <div id="resultBox"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var TYPES = [
+    {v:"real_estate_register", t:"부등서 (부동산등기부)"},
+    {v:"land_ledger", t:"토대장 (토지대장)"},
+    {v:"building_ledger", t:"건대장 (건축물대장)"},
+    {v:"land_use_plan", t:"토계서 (토지이용계획)"},
+    {v:"unknown", t:"기타/제외 (unknown)"}
+  ];
+  var $ = function(id){return document.getElementById(id)};
+  function baseUrl(){ return $("baseUrl").value.replace(/\/+$/,""); }
+  function secret(){ return $("secret").value.trim(); }
+
+  // text/plain 전송 → CORS 프리플라이트(OPTIONS) 회피. n8n 웹훅이 본문을 파싱.
+  function post(path, payload){
+    return fetch(baseUrl()+path, {
+      method:"POST",
+      headers:{ "Content-Type":"text/plain;charset=UTF-8" },
+      body: JSON.stringify(payload)
+    }).then(function(r){
+      return r.text().then(function(txt){
+        var data; try{ data=JSON.parse(txt); }catch(e){ data={raw:txt}; }
+        return { status:r.status, ok:r.ok, data:data };
+      });
+    });
+  }
+
+  function typeSelect(sel){
+    var s = document.createElement("select");
+    TYPES.forEach(function(o){
+      var op=document.createElement("option");
+      op.value=o.v; op.textContent=o.t; if(o.v===sel) op.selected=true;
+      s.appendChild(op);
+    });
+    return s;
+  }
+
+  function renderFiles(files){
+    var tb=$("fileRows"); tb.innerHTML="";
+    files.forEach(function(f, i){
+      var tr=document.createElement("tr");
+      var isGov = f.추정유형 && f.추정유형!=="unknown";
+      // checkbox
+      var td1=document.createElement("td");
+      var cb=document.createElement("input"); cb.type="checkbox"; cb.checked=isGov; cb.dataset.i=i; cb.className="rowchk";
+      cb.style.width="18px"; cb.style.height="18px";
+      cb.addEventListener("change", updateCount);
+      td1.appendChild(cb);
+      // name
+      var td2=document.createElement("td"); td2.className="fname";
+      td2.innerHTML='<div>'+escapeHtml(f.파일명||"(이름없음)")+'</div><div class="badge">'+escapeHtml(f.driveFileId||"")+'</div>';
+      // type
+      var td3=document.createElement("td");
+      var sel=typeSelect(f.추정유형||"unknown"); sel.className="rowtype"; sel.dataset.i=i;
+      td3.appendChild(sel);
+      tr.appendChild(td1); tr.appendChild(td2); tr.appendChild(td3);
+      tr.dataset.fileid=f.driveFileId||"";
+      tb.appendChild(tr);
+    });
+    updateCount();
+  }
+
+  function updateCount(){
+    var n=document.querySelectorAll(".rowchk:checked").length;
+    $("selCount").textContent = n+"개 선택됨";
+    $("extractBtn").disabled = n===0;
+  }
+  function setAll(pred){
+    document.querySelectorAll("#fileRows tr").forEach(function(tr, i){
+      var cb=tr.querySelector(".rowchk");
+      var type=tr.querySelector(".rowtype").value;
+      cb.checked = pred(type);
+    });
+    updateCount();
+  }
+  function escapeHtml(s){ return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];}); }
+
+  // ① 목록 불러오기
+  $("loadBtn").addEventListener("click", function(){
+    var cn=$("caseNo").value.trim();
+    var st=$("listStatus");
+    if(!cn){ st.className="status err"; st.textContent="사건번호를 입력하세요."; return; }
+    st.className="status"; st.innerHTML='<span class="spin"></span>불러오는 중…';
+    $("loadBtn").disabled=true;
+    post("/loas-doc-list", { secret:secret(), "사건번호":cn }).then(function(res){
+      $("loadBtn").disabled=false;
+      if(!res.ok || !res.data || res.data.ok!==true){
+        st.className="status err";
+        st.textContent="실패("+res.status+"): "+((res.data&&res.data.message)||JSON.stringify(res.data));
+        $("filesCard").style.display="none";
+        return;
+      }
+      var files=res.data["파일"]||[];
+      st.className="status ok"; st.textContent=files.length+"개 파일을 찾았습니다.";
+      $("caseTitle").textContent=res.data["사건명"]||cn;
+      $("folderHint").textContent="사건번호 "+(res.data["사건번호"]||cn)+" · 정부문서는 기본 선택됨(기타는 해제).";
+      $("resultBox").innerHTML=""; $("extractStatus").textContent="";
+      renderFiles(files);
+      $("filesCard").style.display="block";
+    }).catch(function(e){
+      $("loadBtn").disabled=false;
+      st.className="status err"; st.textContent="네트워크 오류: "+e.message+" (웹훅 주소/CORS 확인)";
+    });
+  });
+
+  // 사건번호 동기화 (제목 → 사건번호 속성)
+  $("syncBtn").addEventListener("click", function(){
+    var st=$("syncStatus");
+    st.className=""; st.innerHTML='<span class="spin"></span>동기화 중…';
+    $("syncBtn").disabled=true;
+    post("/loas-case-sync", { secret:secret() }).then(function(res){
+      $("syncBtn").disabled=false;
+      if(!res.ok || !res.data || res.data.ok!==true){
+        st.textContent="실패("+res.status+"): "+((res.data&&res.data.message)||"");
+        return;
+      }
+      var d=res.data;
+      st.innerHTML='<span style="color:var(--accent2)">완료 — 갱신 '+(d.갱신||0)+' · 건너뜀 '+(d.건너뜀||0)+'</span>';
+    }).catch(function(e){ $("syncBtn").disabled=false; st.textContent="네트워크 오류: "+e.message; });
+  });
+
+  $("selAll").addEventListener("click", function(){ setAll(function(){return true;}); });
+  $("selGov").addEventListener("click", function(){ setAll(function(t){return t!=="unknown";}); });
+  $("selNone").addEventListener("click", function(){ setAll(function(){return false;}); });
+
+  // ② 추출 실행
+  $("extractBtn").addEventListener("click", function(){
+    var cn=$("caseNo").value.trim();
+    var rows=[].slice.call(document.querySelectorAll("#fileRows tr"));
+    var files=[];
+    rows.forEach(function(tr){
+      var cb=tr.querySelector(".rowchk");
+      if(cb.checked){
+        files.push({ driveFileId: tr.dataset.fileid, "문서유형": tr.querySelector(".rowtype").value });
+      }
+    });
+    var st=$("extractStatus");
+    if(!files.length){ st.className="status err"; st.textContent="추출할 파일을 선택하세요."; return; }
+    st.className="status"; st.innerHTML='<span class="spin"></span>추출·저장 중… (파일당 20~30초 소요)';
+    $("extractBtn").disabled=true; $("resultBox").innerHTML="";
+    post("/loas-doc-extract", { secret:secret(), "사건번호":cn, "파일":files }).then(function(res){
+      $("extractBtn").disabled=false; updateCount();
+      if(!res.ok || !res.data || res.data.ok!==true){
+        st.className="status err";
+        st.textContent="실패("+res.status+"): "+((res.data&&res.data.message)||JSON.stringify(res.data));
+        return;
+      }
+      var y=res.data["요약"]||{};
+      st.className="status ok"; st.textContent="완료 — 노션 부동산DB에 ⚠️ 미검증으로 저장되었습니다.";
+      $("resultBox").innerHTML =
+        '<div class="result-grid">'+
+        '<div class="stat">총 레코드<b>'+(y["총레코드"]||0)+'</b></div>'+
+        '<div class="stat">신규저장<b>'+(y["신규저장"]||0)+'</b></div>'+
+        '<div class="stat">갱신<b>'+(y["갱신"]||0)+'</b></div>'+
+        '<div class="stat">쓰기실패<b>'+(y["쓰기실패"]||0)+'</b></div>'+
+        '<div class="stat">불일치<b>'+((y["불일치"]||[]).length)+'</b></div>'+
+        '<div class="stat">저신뢰<b>'+((y["저신뢰"]||[]).length)+'</b></div>'+
+        '<div class="stat">추출실패<b>'+((y["실패"]||[]).length)+'</b></div>'+
+        '</div>'+
+        '<details style="margin-top:12px"><summary>원본 응답 JSON 보기</summary><pre>'+escapeHtml(JSON.stringify(res.data,null,2))+'</pre></details>';
+    }).catch(function(e){
+      $("extractBtn").disabled=false; updateCount();
+      st.className="status err"; st.textContent="네트워크 오류: "+e.message;
+    });
+  });
+})();
+</script>
+</body>
+</html>

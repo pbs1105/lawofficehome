@@ -149,6 +149,14 @@ const ADMIN_MENU = [
     ]
   },
   {
+    id: 'dbtools',
+    icon: '🗂️',
+    label: '데이터 관리',
+    items: [
+      { id: 'tool-realestate-extract', label: '부동산 정부자료 추출' },
+    ]
+  },
+  {
     id: 'taxrelief',
     icon: '💰',
     label: '지방세 감면',
@@ -424,6 +432,8 @@ function navigateTo(pageId) {
     renderDashboard();
   } else if (pageId.startsWith('calc-')) {
     renderCalculator(pageId);
+  } else if (pageId.startsWith('tool-')) {
+    renderTool(pageId);
   } else {
     renderContentPage(pageId);
   }
@@ -650,6 +660,19 @@ function renderCalculator(calcId) {
       break;
     default:
       area.innerHTML = '<div class="placeholder-content"><div class="ph-icon">🧮</div><h3>계산기 준비 중</h3></div>';
+  }
+}
+
+/** 외부 도구(iframe) 렌더링 */
+function renderTool(toolId) {
+  const area = document.getElementById('contentArea');
+
+  switch (toolId) {
+    case 'tool-realestate-extract':
+      area.innerHTML = `<iframe src="부동산정부자료추출.html" style="width:100%;height:calc(100vh - 120px);border:none;display:block;" title="부동산 정부자료 추출"></iframe>`;
+      break;
+    default:
+      area.innerHTML = '<div class="placeholder-content"><div class="ph-icon">🗂️</div><h3>준비 중</h3></div>';
   }
 }
 
