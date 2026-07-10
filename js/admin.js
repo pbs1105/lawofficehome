@@ -63,6 +63,14 @@ function initLoginPage() {
    ============================================================ */
 const ADMIN_MENU = [
   {
+    id: 'intake',
+    icon: '📥',
+    label: '접수',
+    items: [
+      { id: 'intake-offline', label: '오프라인 상담 접수 (전화·방문)', external: true, url: 'https://n8npark.app.n8n.cloud/form/2a8c595e-215b-439e-b35d-7a62aeacba4c' },
+    ]
+  },
+  {
     id: 'foreign',
     icon: '🌏',
     label: '외국인·재외국민 등기',
@@ -373,6 +381,9 @@ function renderSidebar() {
           html += `<div class="sb-item" data-id="${sub.id}" onclick="navigateTo('${sub.id}')">${sub.label}</div>`;
         });
         html += `</div></div>`;
+      } else if (item.external) {
+        // 외부 링크(예: n8n 접수 폼) — 새 탭으로 열기, SPA 라우팅과 무관
+        html += `<a class="sb-item sb-item-external" data-id="${item.id}" href="${item.url}" target="_blank" rel="noopener noreferrer">${item.label} ↗</a>`;
       } else {
         html += `<div class="sb-item" data-id="${item.id}" onclick="navigateTo('${item.id}')">${item.label}</div>`;
       }
