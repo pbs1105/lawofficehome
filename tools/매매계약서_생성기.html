@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>매매계약서 자동생성기 — 법무사 업무 자동화</title>
+<style>
+  :root{
+    --ink:#1a2b4a;          /* 표제·헤더 잉크 */
+    --ink-soft:#445268;
+    --paper:#fbfaf7;        /* 계약서 용지 */
+    --panel:#f4f5f7;        /* 입력 패널 배경 */
+    --line:#d8dce3;         /* 헤어라인 */
+    --line-strong:#9aa3b2;
+    --seal:#b03a2e;         /* 관인풍 적색 — 오직 표제 밑줄·印 표시에만 */
+    --field:#ffffff;
+    --ok:#1e7a4d;
+    --warn:#a8771a;
+    --shadow:0 1px 3px rgba(26,43,74,.08),0 8px 24px rgba(26,43,74,.06);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    background:var(--panel);
+    color:var(--ink);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ===== 상단 바 ===== */
+  .topbar{
+    background:var(--ink);
+    color:#fff;
+    padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:16px;flex-wrap:wrap;
+    position:sticky;top:0;z-index:50;
+  }
+  .topbar h1{
+    font-size:16px;font-weight:700;margin:0;letter-spacing:-.01em;
+    display:flex;align-items:baseline;gap:10px;
+  }
+  .topbar h1 .tag{
+    font-size:11px;font-weight:500;color:#aeb9cc;
+    border:1px solid #38486a;border-radius:4px;padding:2px 7px;letter-spacing:0;
+  }
+  .topbar .actions{display:flex;gap:8px;}
+  .btn{
+    font-family:inherit;font-size:13px;font-weight:600;
+    border:1px solid transparent;border-radius:6px;
+    padding:8px 14px;cursor:pointer;transition:.12s;
+  }
+  .btn-primary{background:#fff;color:var(--ink);}
+  .btn-primary:hover{background:#e9edf4;}
+  .btn-ghost{background:transparent;color:#cdd5e2;border-color:#38486a;}
+  .btn-ghost:hover{background:#243352;color:#fff;}
+
+  /* ===== 레이아웃 ===== */
+  .wrap{display:grid;grid-template-columns:minmax(380px,440px) 1fr;gap:0;align-items:start;}
+  @media(max-width:980px){.wrap{grid-template-columns:1fr;}}
+
+  /* ===== 입력 패널 ===== */
+  .form{
+    padding:20px 22px 80px;
+    border-right:1px solid var(--line);
+    background:var(--panel);
+    height:calc(100vh - 49px);
+    overflow-y:auto;position:sticky;top:49px;
+  }
+  @media(max-width:980px){.form{height:auto;position:static;border-right:none;border-bottom:1px solid var(--line);}}
+
+  fieldset{
+    border:1px solid var(--line);border-radius:10px;
+    margin:0 0 16px;padding:14px 16px 16px;background:#fcfcfd;
+  }
+  legend{
+    font-size:12px;font-weight:700;color:var(--ink);
+    padding:0 8px;letter-spacing:.02em;
+    display:flex;align-items:center;gap:6px;
+  }
+  legend .num{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:18px;height:18px;border-radius:50%;
+    background:var(--ink);color:#fff;font-size:10px;font-weight:700;
+  }
+  .field{margin-bottom:10px;}
+  .field:last-child{margin-bottom:0;}
+  label{display:block;font-size:12px;font-weight:600;color:var(--ink-soft);margin-bottom:4px;}
+  .hint{font-weight:400;color:#8b96a8;font-size:11px;}
+  input[type=text],input[type=number],input[type=date],select,textarea{
+    width:100%;font-family:inherit;font-size:13px;color:var(--ink);
+    background:var(--field);border:1px solid var(--line);border-radius:6px;
+    padding:8px 10px;transition:.12s;
+  }
+  input:focus,select:focus,textarea:focus{
+    outline:none;border-color:var(--ink);box-shadow:0 0 0 3px rgba(26,43,74,.08);
+  }
+  textarea{resize:vertical;min-height:72px;line-height:1.5;}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
+  .amt-ko{
+    font-size:11px;color:var(--ink);margin-top:3px;min-height:15px;
+    font-weight:600;
+  }
+  .amt-ko em{color:var(--ink-soft);font-weight:400;font-style:normal;}
+
+  /* 당사자 카드 */
+  .party{
+    border:1px dashed var(--line-strong);border-radius:8px;
+    padding:12px;margin-bottom:10px;background:#fff;position:relative;
+  }
+  .party .phead{
+    font-size:11px;font-weight:700;color:var(--ink-soft);
+    margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;
+  }
+  .del{
+    background:none;border:none;color:var(--seal);font-size:11px;font-weight:600;
+    cursor:pointer;padding:2px 4px;
+  }
+  .del:hover{text-decoration:underline;}
+  .addbtn{
+    width:100%;font-family:inherit;font-size:12px;font-weight:600;
+    color:var(--ink);background:#eef1f6;border:1px dashed var(--line-strong);
+    border-radius:6px;padding:8px;cursor:pointer;
+  }
+  .addbtn:hover{background:#e3e8f0;}
+
+  .toggle-row{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink-soft);font-weight:600;}
+  .toggle-row input{width:auto;}
+
+  /* ===== 계약서 미리보기 (A4) ===== */
+  .preview-area{padding:28px;display:flex;flex-direction:column;align-items:center;gap:24px;background:var(--panel);}
+  .sheet{
+    width:210mm;max-width:100%;min-height:297mm;
+    background:var(--paper);box-shadow:var(--shadow);
+    padding:22mm 20mm;
+    font-family:"Batang","Gulim","Malgun Gothic",serif;
+    color:#111;line-height:1.7;font-size:11pt;
+  }
+  .doc-title{
+    text-align:center;font-size:22pt;font-weight:700;letter-spacing:.5em;
+    margin:0 0 4px;padding-left:.5em;color:#111;
+  }
+  .doc-title-under{
+    width:120px;height:3px;background:var(--seal);margin:0 auto 22px;border-radius:2px;
+  }
+  .lead{font-size:10.5pt;margin:0 0 14px;color:#222;}
+  .sec-label{
+    font-weight:700;font-size:12pt;margin:18px 0 6px;
+    border-bottom:1.5px solid #111;padding-bottom:3px;
+  }
+  table.prop{width:100%;border-collapse:collapse;font-size:10pt;margin-bottom:6px;}
+  table.prop th,table.prop td{border:1px solid #555;padding:5px 8px;vertical-align:top;}
+  table.prop th{background:#f0ede6;width:90px;font-weight:700;text-align:center;white-space:nowrap;}
+  .clause{margin:6px 0;font-size:10.5pt;}
+  .clause b{font-weight:700;}
+  .pay-table{width:100%;border-collapse:collapse;font-size:10pt;margin:6px 0 4px;}
+  .pay-table th,.pay-table td{border:1px solid #555;padding:5px 8px;}
+  .pay-table th{background:#f0ede6;width:80px;font-weight:700;white-space:nowrap;}
+  .pay-table td .ko{color:#222;}
+  .special{white-space:pre-wrap;font-size:10.5pt;margin:4px 0;min-height:1.5em;}
+  .date-line{text-align:center;font-size:11pt;font-weight:700;margin:24px 0 18px;}
+  table.sign{width:100%;border-collapse:collapse;font-size:10pt;margin-bottom:10px;}
+  table.sign th,table.sign td{border:1px solid #555;padding:6px 8px;vertical-align:middle;}
+  table.sign th{background:#f0ede6;width:70px;font-weight:700;text-align:center;white-space:nowrap;}
+  .roletag{
+    display:inline-block;background:#111;color:#fff;font-size:9pt;font-weight:700;
+    padding:2px 8px;border-radius:3px;margin-bottom:4px;
+  }
+  .seal-mark{color:var(--seal);font-weight:700;}
+  .empty-note{color:#999;font-style:italic;}
+
+  /* 별지 */
+  .annex-title{text-align:center;font-size:16pt;font-weight:700;letter-spacing:.3em;margin:0 0 6px;padding-left:.3em;}
+  .annex-sub{text-align:center;font-size:10pt;color:#555;margin:0 0 18px;}
+  .annex-prop-h{font-weight:700;font-size:11pt;margin:16px 0 5px;border-left:4px solid var(--seal);padding-left:8px;}
+  .annex-foot{text-align:center;margin-top:20px;font-size:10.5pt;letter-spacing:.3em;}
+  .byeoji-ref{font-weight:700;}
+
+  /* 검증 배너 */
+  .verify-banner{
+    background:#fff8ec;border:1px solid #e8d9b0;color:var(--warn);
+    border-radius:8px;padding:10px 12px;font-size:11.5px;line-height:1.55;
+    margin-bottom:16px;
+  }
+  .verify-banner b{color:#8a6212;}
+
+  /* 인쇄 */
+  @media print{
+    @page{size:A4;margin:0;}
+    body{background:#fff;}
+    .topbar,.form,.verify-banner,.no-print{display:none !important;}
+    .wrap{display:block;}
+    .preview-area{padding:0;display:block;}
+    .sheet{box-shadow:none;width:auto;min-height:auto;margin:0;padding:18mm 16mm;}
+    .byeoji{page-break-before:always;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <h1>매매계약서 자동생성기 <span class="tag">법무사업무 · admin</span></h1>
+  <div class="actions">
+    <button class="btn btn-ghost" onclick="fillSample()">예시 채우기</button>
+    <button class="btn btn-ghost" onclick="resetAll()">초기화</button>
+    <button class="btn btn-ghost" onclick="recordToNotion()">노션 사건DB 기록</button>
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF 저장</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- ================= 입력 패널 ================= -->
+  <div class="form">
+
+    <!-- 사건 식별 (노션 연결 키) -->
+    <fieldset>
+      <legend><span class="num">0</span> 사건 식별 <span class="hint">→ 사건부DB 연결 키</span></legend>
+      <div class="field">
+        <label>사건번호 <span class="hint">노션에서 먼저 채번한 YYMMDD-NN</span></label>
+        <input type="text" id="caseNo" placeholder="260622-01" oninput="render()">
+      </div>
+      <div class="row">
+        <div class="field">
+          <label>상태</label>
+          <select id="status">
+            <option>상담</option><option selected>수임</option><option>진행중</option>
+            <option>제출완료</option><option>종결</option><option>미수임종료</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>상담유형</label>
+          <select id="caseType">
+            <option selected>부동산등기</option><option>법인등기</option><option>민사소송</option>
+            <option>민사집행</option><option>상속</option><option>기타</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label>관련자료폴더 링크 <span class="hint">선택 · PC/구글드라이브 폴더 URL</span></label>
+        <input type="text" id="folderLink" placeholder="https://drive.google.com/..." oninput="render()">
+      </div>
+    </fieldset>
+
+    <!-- 부동산 -->
+    <fieldset>
+      <legend><span class="num">1</span> 부동산의 표시 <span class="hint">→ 부동산DB · 다수 가능</span></legend>
+      <div id="props"></div>
+      <button class="addbtn" onclick="addProp()">+ 부동산 추가</button>
+      <div class="field toggle-row" style="margin-top:10px;">
+        <input type="checkbox" id="propByeoji" onchange="render()">
+        <label for="propByeoji" style="margin:0;">부동산을 별지 목록으로 작성</label>
+      </div>
+      <div class="hint" style="margin-top:2px;">부동산이 2개 이상이면 자동으로 별지 「부동산의 표시」로 분리됩니다.</div>
+    </fieldset>
+
+    <!-- 매매대금 -->
+    <fieldset>
+      <legend><span class="num">2</span> 매매대금 · 지급일정 <span class="hint">→ 사건DB</span></legend>
+      <div class="field">
+        <label>매매대금(총액) <span class="hint">취득세·채권 산정 기초 🔴</span></label>
+        <input type="number" id="total" placeholder="150000000" oninput="onAmt()">
+        <div class="amt-ko" id="totalKo"></div>
+        <div class="amt-ko" id="priceSumNote"></div>
+      </div>
+      <div class="field">
+        <label>계약금</label>
+        <input type="number" id="down" placeholder="15000000" oninput="onAmt()">
+        <div class="amt-ko" id="downKo"></div>
+      </div>
+      <div class="field">
+        <label>중도금 <span class="hint">없으면 비워두세요</span></label>
+        <div class="row">
+          <input type="number" id="mid" placeholder="50000000" oninput="onAmt()">
+          <input type="date" id="midDate" oninput="render()">
+        </div>
+        <div class="amt-ko" id="midKo"></div>
+      </div>
+      <div class="field">
+        <label>잔금 <span class="hint">자동 계산(직접수정 가능)</span></label>
+        <div class="row">
+          <input type="number" id="bal" placeholder="자동" oninput="onAmt(true)">
+          <input type="date" id="balDate" oninput="render()">
+        </div>
+        <div class="amt-ko" id="balKo"></div>
+      </div>
+    </fieldset>
+
+    <!-- 일정 -->
+    <fieldset>
+      <legend><span class="num">3</span> 계약일 · 인도일</legend>
+      <div class="row">
+        <div class="field"><label>계약일 🔴 <span class="hint">신고기한 기산점</span></label><input type="date" id="contractDate" oninput="render()"></div>
+        <div class="field"><label>인도일</label><input type="date" id="deliverDate" oninput="render()"></div>
+      </div>
+    </fieldset>
+
+    <!-- 매도인 -->
+    <fieldset>
+      <legend><span class="num">4</span> 매도인 <span class="hint">→ 당사자DB · 다수 가능</span></legend>
+      <div id="sellers"></div>
+      <button class="addbtn" onclick="addParty('seller')">+ 매도인 추가</button>
+      <div class="field toggle-row" style="margin-top:10px;">
+        <input type="checkbox" id="sellerByeoji" onchange="render()">
+        <label for="sellerByeoji" style="margin:0;">매도인을 별지 목록으로 작성 <span class="hint">3인 이상 자동</span></label>
+      </div>
+    </fieldset>
+
+    <!-- 매수인 -->
+    <fieldset>
+      <legend><span class="num">5</span> 매수인 <span class="hint">→ 당사자DB · 다수 가능</span></legend>
+      <div id="buyers"></div>
+      <button class="addbtn" onclick="addParty('buyer')">+ 매수인 추가</button>
+      <div class="field toggle-row" style="margin-top:10px;">
+        <input type="checkbox" id="buyerByeoji" onchange="render()">
+        <label for="buyerByeoji" style="margin:0;">매수인을 별지 목록으로 작성 <span class="hint">3인 이상 자동</span></label>
+      </div>
+    </fieldset>
+
+    <!-- 중개사 -->
+    <fieldset>
+      <legend><span class="num">6</span> 개업공인중개사 <span class="hint">(선택)</span></legend>
+      <div class="field toggle-row">
+        <input type="checkbox" id="useBroker" onchange="render()"> <label for="useBroker" style="margin:0;">중개사 정보·중개보수 조항 포함</label>
+      </div>
+      <div id="brokerBox" style="display:none;">
+        <div class="field"><label>사무소 명칭</label><input type="text" id="brName" oninput="render()"></div>
+        <div class="field"><label>사무소 소재지</label><input type="text" id="brAddr" oninput="render()"></div>
+        <div class="row">
+          <div class="field"><label>대표·등록번호</label><input type="text" id="brReg" oninput="render()"></div>
+          <div class="field"><label>전화</label><input type="text" id="brTel" oninput="render()"></div>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- 특약 -->
+    <fieldset>
+      <legend><span class="num">7</span> 특약사항 <span class="hint">→ 사건DB·원문보존</span></legend>
+      <textarea id="special" placeholder="예) 본 부동산의 등기부상 근저당권(채권최고액 ○○원, 근저당권자 ○○은행)은 잔금 지급과 동시에 매도인 부담으로 말소한다." oninput="render()"></textarea>
+    </fieldset>
+
+    <!-- 노션 연동 -->
+    <fieldset id="notionPanel">
+      <legend><span class="num">↗</span> 노션 사건DB 기록</legend>
+      <div class="field">
+        <label>기록 방식</label>
+        <select id="notionMode" onchange="onModeChange()">
+          <option value="claude">claude.ai 내 실행 (Anthropic API + 노션 MCP)</option>
+          <option value="webhook">사무실 포털 (n8n 웹훅)</option>
+          <option value="copy">JSON만 복사 (수동/다른 자동화)</option>
+        </select>
+      </div>
+      <div class="field" id="webhookField" style="display:none;">
+        <label>n8n Webhook URL</label>
+        <input type="text" id="webhookUrl" placeholder="https://n8n.example.com/webhook/매매계약-기록">
+      </div>
+      <button class="addbtn" style="background:var(--ink);color:#fff;border-style:solid;border-color:var(--ink);" onclick="recordToNotion()">사건부DB에 기록</button>
+      <div id="notionStatus" style="font-size:11.5px;margin-top:8px;line-height:1.5;"></div>
+      <div class="hint" style="margin-top:6px;line-height:1.45;">사건번호·상담유형·상태·접수일·폴더링크는 속성에, 매매대금·당사자·일자 등 상세는 페이지 본문 「매매계약 요약」에 기록됩니다.</div>
+    </fieldset>
+
+  </div>
+
+  <!-- ================= 계약서 미리보기 ================= -->
+  <div class="preview-area">
+    <div class="sheet">
+      <div class="verify-banner no-print">
+        <b>⚠ 미검증 초안입니다.</b> 본 계약서는 입력값으로 생성된 <b>작업자료(02_작업문서)</b>이며, 매매대금·식별번호·일자 등 🔴 고위험 항목은
+        법무사가 원본 서류와 대조·검증한 후 제출확정자료로 승격해야 합니다. 자동입력은 입력노동을 줄일 뿐, 확인 책임을 대체하지 않습니다.
+      </div>
+      <h2 class="doc-title">부동산매매계약서</h2>
+      <div class="doc-title-under"></div>
+      <div id="contractBody"></div>
+    </div>
+    <div id="byeojiSheets"></div>
+  </div>
+
+</div>
+
+<script>
+/* ===================== 금액 → 한글 ===================== */
+function numToKorean(num){
+  num=Math.floor(Math.abs(num));
+  if(num===0) return '영';
+  const d=['','일','이','삼','사','오','육','칠','팔','구'];
+  const su=['','십','백','천'];
+  const bu=['','만','억','조','경'];
+  let res='',bi=0;
+  while(num>0){
+    let chunk=num%10000, cs='', ui=0, c=chunk;
+    while(c>0){
+      const dig=c%10;
+      if(dig>0) cs=d[dig]+su[ui]+cs;
+      c=Math.floor(c/10); ui++;
+    }
+    if(chunk>0) res=cs+bu[bi]+res;
+    num=Math.floor(num/10000); bi++;
+  }
+  return res;
+}
+function comma(n){ if(n===''||n==null||isNaN(n)) return ''; return Number(n).toLocaleString('ko-KR'); }
+function won(n){
+  if(n===''||n==null||isNaN(n)||Number(n)===0) return null;
+  return {ko:numToKorean(n)+'원정', num:comma(n)};
+}
+
+/* ===================== 당사자 관리 ===================== */
+let counter=0;
+function addParty(kind, data){
+  counter++;
+  const id=kind+'_'+counter;
+  const box=document.getElementById(kind==='seller'?'sellers':'buyers');
+  const title=kind==='seller'?'매도인':'매수인';
+  const div=document.createElement('div');
+  div.className='party'; div.id=id;
+  div.innerHTML=`
+    <div class="phead"><span>${title}</span><button class="del" onclick="delParty('${id}')">삭제</button></div>
+    <div class="field"><label>성명 / 법인명</label><input type="text" class="p-name" oninput="render()"></div>
+    <div class="field"><label>주민등록번호 / 법인등록번호 🔴</label><input type="text" class="p-rrn" oninput="render()"></div>
+    <div class="field"><label>주소</label><input type="text" class="p-addr" oninput="render()"></div>
+    <div class="row">
+      <div class="field"><label>지분 <span class="hint">등기 이전지분 🔴</span></label><input type="text" class="p-share" placeholder="단독 또는 1/2" oninput="render()"></div>
+      <div class="field"><label>전화 <span class="hint">선택</span></label><input type="text" class="p-tel" oninput="render()"></div>
+    </div>
+  `;
+  box.appendChild(div);
+  if(data){
+    div.querySelector('.p-name').value=data.name||'';
+    div.querySelector('.p-rrn').value=data.rrn||'';
+    div.querySelector('.p-addr').value=data.addr||'';
+    div.querySelector('.p-share').value=data.share||'';
+    div.querySelector('.p-tel').value=data.tel||'';
+  }
+  render();
+}
+function delParty(id){ document.getElementById(id).remove(); render(); }
+function collectParties(kind){
+  const box=document.getElementById(kind==='seller'?'sellers':'buyers');
+  return [...box.querySelectorAll('.party')].map(p=>({
+    name:p.querySelector('.p-name').value.trim(),
+    rrn:p.querySelector('.p-rrn').value.trim(),
+    addr:p.querySelector('.p-addr').value.trim(),
+    share:p.querySelector('.p-share').value.trim(),
+    tel:p.querySelector('.p-tel').value.trim()
+  }));
+}
+
+/* ===================== 금액 입력 핸들러 ===================== */
+function onAmt(manualBal){
+  const t=+document.getElementById('total').value||0;
+  const dn=+document.getElementById('down').value||0;
+  const md=+document.getElementById('mid').value||0;
+  const balEl=document.getElementById('bal');
+  if(!manualBal){
+    const auto=t-dn-md;
+    balEl.value = (t>0 && auto>=0) ? auto : '';
+  }
+  setKo('totalKo', t);
+  setKo('downKo', dn);
+  setKo('midKo', md);
+  setKo('balKo', +balEl.value||0);
+  render();
+}
+function setKo(elId,n){
+  const el=document.getElementById(elId);
+  const w=won(n);
+  el.innerHTML = w ? `金 <strong>${w.ko}</strong> <em>(₩${w.num})</em>` : '';
+}
+
+/* ===================== 날짜 포맷 ===================== */
+function fmtDate(v){
+  if(!v) return null;
+  const [y,m,d]=v.split('-');
+  return `${y}년 ${+m}월 ${+d}일`;
+}
+
+/* ===================== 부동산 관리 (다수) ===================== */
+let propCounter=0;
+function addProp(data){
+  propCounter++;
+  const id='prop_'+propCounter;
+  const div=document.createElement('div');
+  div.className='party prop-card'; div.id=id;
+  div.innerHTML=`
+    <div class="phead"><span class="pp-no">부동산</span><button class="del" onclick="delProp('${id}')">삭제</button></div>
+    <div class="field"><label>유형</label>
+      <select class="pp-type" onchange="render()">
+        <option value="land">토지</option>
+        <option value="building">토지 + 건물</option>
+        <option value="apart">집합건물(아파트·상가 등)</option>
+      </select>
+    </div>
+    <div class="field"><label>소재지 <span class="hint">등기부 표제부 그대로</span></label>
+      <input type="text" class="pp-addr" placeholder="부산광역시 ○○구 ○○동 100-1" oninput="render()"></div>
+    <div class="field pp-land"><div class="row">
+      <div><label>토지 지목</label><input type="text" class="pp-landuse" placeholder="대" oninput="render()"></div>
+      <div><label>토지 면적(㎡)</label><input type="text" class="pp-landarea" placeholder="200" oninput="render()"></div>
+    </div></div>
+    <div class="field pp-bldg"><div class="row">
+      <div><label>건물 구조·용도</label><input type="text" class="pp-bldguse" placeholder="철근콘크리트조 주택" oninput="render()"></div>
+      <div><label>건물 면적(㎡)</label><input type="text" class="pp-bldgarea" placeholder="120" oninput="render()"></div>
+    </div></div>
+    <div class="field pp-apt"><div class="row">
+      <div><label>동·호수</label><input type="text" class="pp-aptdong" placeholder="101동 1502호" oninput="render()"></div>
+      <div><label>대지권</label><input type="text" class="pp-aptland" placeholder="○○㎡ 중 45.32㎡" oninput="render()"></div>
+    </div></div>
+    <div class="field"><label>거래가액(개별) <span class="hint">실거래신고·등기 거래가액 🔴 · 다수일 때 입력</span></label>
+      <input type="number" class="pp-price" placeholder="없으면 비움" oninput="render()"></div>`;
+  document.getElementById('props').appendChild(div);
+  if(data){
+    div.querySelector('.pp-type').value=data.type||'land';
+    div.querySelector('.pp-addr').value=data.addr||'';
+    div.querySelector('.pp-landuse').value=data.landUse||'';
+    div.querySelector('.pp-landarea').value=data.landArea||'';
+    div.querySelector('.pp-bldguse').value=data.bldgUse||'';
+    div.querySelector('.pp-bldgarea').value=data.bldgArea||'';
+    div.querySelector('.pp-aptdong').value=data.aptDong||'';
+    div.querySelector('.pp-aptland').value=data.aptLand||'';
+    div.querySelector('.pp-price').value=data.price||'';
+  }
+  render();
+}
+function delProp(id){
+  if(document.querySelectorAll('#props .prop-card').length<=1){ alert('부동산은 최소 1개가 필요합니다.'); return; }
+  document.getElementById(id).remove(); render();
+}
+function collectProps(){
+  return [...document.querySelectorAll('#props .prop-card')].map(c=>({
+    type:c.querySelector('.pp-type').value,
+    addr:c.querySelector('.pp-addr').value.trim(),
+    landUse:c.querySelector('.pp-landuse').value.trim(),
+    landArea:c.querySelector('.pp-landarea').value.trim(),
+    bldgUse:c.querySelector('.pp-bldguse').value.trim(),
+    bldgArea:c.querySelector('.pp-bldgarea').value.trim(),
+    aptDong:c.querySelector('.pp-aptdong').value.trim(),
+    aptLand:c.querySelector('.pp-aptland').value.trim(),
+    price:c.querySelector('.pp-price').value.trim()
+  }));
+}
+function applyPropToggle(){
+  document.querySelectorAll('#props .prop-card').forEach((c,i)=>{
+    const t=c.querySelector('.pp-type').value;
+    c.querySelector('.pp-land').style.display=(t==='land'||t==='building')?'':'none';
+    c.querySelector('.pp-bldg').style.display=(t==='building'||t==='apart')?'':'none';
+    c.querySelector('.pp-apt').style.display=(t==='apart')?'':'none';
+    c.querySelector('.pp-no').textContent='부동산 '+(i+1);
+  });
+}
+const PT_LABEL={land:'토지',building:'토지+건물',apart:'집합건물'};
+function propRowsFor(p){
+  const blank='<span class="empty-note">(미입력)</span>';
+  let r=`<tr><th>소 재 지</th><td>${p.addr||blank}</td></tr>`;
+  if(p.type==='land'||p.type==='building')
+    r+=`<tr><th>토 지</th><td>지목 ${p.landUse||'─'} / 면적 ${p.landArea?p.landArea+'㎡':'─'}</td></tr>`;
+  if(p.type==='building'||p.type==='apart')
+    r+=`<tr><th>건 물</th><td>구조·용도 ${p.bldgUse||'─'} / 면적 ${p.bldgArea?p.bldgArea+'㎡':'─'}</td></tr>`;
+  if(p.type==='apart'){
+    r+=`<tr><th>전유부분</th><td>${p.aptDong||'─'}</td></tr>`;
+    r+=`<tr><th>대 지 권</th><td>${p.aptLand||'─'}</td></tr>`;
+  }
+  if(p.price) r+=`<tr><th>거래가액</th><td>金 ${numToKorean(+p.price)}원정 (₩${comma(p.price)})</td></tr>`;
+  return r;
+}
+function propLine(p,n){
+  let s=`${n}. [${PT_LABEL[p.type]||''}] ${p.addr||'-'}`;
+  if(p.landArea) s+=` / 토지 ${p.landUse||''} ${p.landArea}㎡`;
+  if(p.bldgArea) s+=` / 건물 ${p.bldgUse||''} ${p.bldgArea}㎡`;
+  if(p.aptDong) s+=` / 전유 ${p.aptDong}, 대지권 ${p.aptLand||'-'}`;
+  if(p.price) s+=` / 거래가액 ₩${comma(p.price)}`;
+  return s;
+}
+
+/* ===================== 계약서 렌더 ===================== */
+function render(){
+  applyPropToggle();
+  const v=id=>{const e=document.getElementById(id);return e?e.value.trim():'';};
+  const blank='<span class="empty-note">(미입력)</span>';
+
+  /* --- 부동산 표시 (다수 → 별지 분기) --- */
+  const props=collectProps();
+  const propByeoji = document.getElementById('propByeoji').checked || props.length>=2;
+  let propSection;
+  if(propByeoji){
+    propSection=`<table class="prop"><tr><th>표 시</th><td>본 계약 부동산의 표시는 <span class="byeoji-ref">별지 「부동산의 표시」</span> 목록 기재와 같다. (총 ${props.length}개 부동산)</td></tr></table>`;
+  } else {
+    propSection=`<table class="prop">${propRowsFor(props[0]||{type:'land'})}</table>`;
+  }
+
+  /* --- 금액 --- */
+  const total=+v('total')||0, down=+v('down')||0, mid=+v('mid')||0, bal=+v('bal')||0;
+  const wTotal=won(total), wDown=won(down), wMid=won(mid), wBal=won(bal);
+  const cell=w=> w?`金 ${w.ko} <span class="ko">(₩${w.num})</span>`:'─';
+
+  /* --- 거래가액 합계 검증 --- */
+  const priceSum=props.reduce((s,p)=>s+(+p.price||0),0);
+  const psNote=document.getElementById('priceSumNote');
+  if(priceSum>0){
+    if(total>0 && priceSum===total){
+      psNote.innerHTML=`<span style="color:var(--ok)">✓ 부동산별 거래가액 합계 ₩${comma(priceSum)} = 총액 일치</span>`;
+    } else if(total>0){
+      psNote.innerHTML=`<span style="color:var(--seal)">⚠ 거래가액 합계 ₩${comma(priceSum)} ≠ 총액 ₩${comma(total)} (차액 ₩${comma(Math.abs(total-priceSum))})</span>`;
+    } else {
+      psNote.innerHTML=`<span style="color:var(--ink-soft)">부동산별 거래가액 합계 ₩${comma(priceSum)}</span>`;
+    }
+  } else { psNote.innerHTML=''; }
+
+  let payRows=`
+    <tr><th>매매대금</th><td>${cell(wTotal)}</td></tr>
+    <tr><th>계약금</th><td>${cell(wDown)}${down>0?'은 계약 시에 지불하고 영수함.':''}</td></tr>`;
+  if(mid>0){
+    payRows+=`<tr><th>중도금</th><td>${cell(wMid)}은 ${fmtDate(v('midDate'))||'(   년   월   일)'}에 지불한다.</td></tr>`;
+  }
+  payRows+=`<tr><th>잔 금</th><td>${cell(wBal)}은 ${fmtDate(v('balDate'))||'(   년   월   일)'}에 지불한다.</td></tr>`;
+
+  /* --- 인도일·해제 기준 --- */
+  const deliver=fmtDate(v('deliverDate'))||'(   년   월   일)';
+  const stopWord = mid>0 ? '중도금' : '잔금';
+
+  /* --- 중개 조항 --- */
+  const useBroker=document.getElementById('useBroker').checked;
+  document.getElementById('brokerBox').style.display=useBroker?'':'none';
+  let brokerClause='';
+  if(useBroker){
+    brokerClause=`<p class="clause"><b>제7조 (중개보수)</b> 개업공인중개사는 매도인 또는 매수인의 본 계약 불이행에 대하여 책임을 지지 아니한다. 중개보수는 본 계약체결과 동시에 계약 당사자 쌍방이 각각 약정에 따라 지불하며, 개업공인중개사의 고의나 과실 없이 본 계약이 무효·취소·해제되어도 중개보수는 지급한다.</p>`;
+  }
+
+  /* --- 당사자 서명 (다수 → 별지 분기) --- */
+  const hasC=p=>p.name||p.addr||p.rrn;
+  const sellers=collectParties('seller').filter(hasC);
+  const buyers=collectParties('buyer').filter(hasC);
+  const sellerByeoji = document.getElementById('sellerByeoji').checked || sellers.length>=3;
+  const buyerByeoji  = document.getElementById('buyerByeoji').checked  || buyers.length>=3;
+  const shareClause = (buyers.length>1 && buyers.some(b=>b.share))
+    ? ` 매수인이 2인 이상인 경우 각 매수인은 기재된 지분 비율로 소유권을 공유취득한다.` : '';
+
+  function inlineSign(parties,role){
+    if(parties.length===0){
+      return `<div class="roletag">${role}</div><table class="sign"><tr><th>주 소</th><td colspan="3">${blank}</td></tr><tr><th>주민등록<br>번호</th><td>${blank}</td><th>전 화</th><td>${blank}</td></tr><tr><th>성 명</th><td colspan="3">${blank} <span class="seal-mark">(인)</span></td></tr></table>`;
+    }
+    return parties.map(p=>`
+      <div class="roletag">${role}</div>
+      <table class="sign">
+        <tr><th>주 소</th><td colspan="3">${p.addr||'─'}</td></tr>
+        <tr><th>주민등록<br>번호</th><td>${p.rrn||'─'}</td><th>전 화</th><td>${p.tel||'─'}</td></tr>
+        ${p.share?`<tr><th>지 분</th><td colspan="3">${p.share}</td></tr>`:''}
+        <tr><th>성 명</th><td colspan="3">${p.name||'─'} <span class="seal-mark">(인)</span></td></tr>
+      </table>`).join('');
+  }
+  function signBlock(parties,role,roleName,byeoji){
+    if(byeoji){
+      return `<div class="roletag">${role}</div><table class="sign"><tr><th>표 시</th><td>${roleName}은 <span class="byeoji-ref">별지 「${roleName} 목록」</span> 기재와 같다. (총 ${parties.length}인 · 각자 서명·날인)</td></tr></table>`;
+    }
+    return inlineSign(parties,role);
+  }
+
+  let brokerSign='';
+  if(useBroker){
+    brokerSign=`
+      <div class="roletag">개업공인중개사</div>
+      <table class="sign">
+        <tr><th>사무소<br>명칭</th><td>${v('brName')||'─'}</td><th>등록<br>번호</th><td>${v('brReg')||'─'}</td></tr>
+        <tr><th>소재지</th><td>${v('brAddr')||'─'}</td><th>전 화</th><td>${v('brTel')||'─'}</td></tr>
+        <tr><th>대 표</th><td colspan="3">${v('brName')?'':'─'} <span class="seal-mark">(인)</span></td></tr>
+      </table>`;
+  }
+
+  /* --- 특약 --- */
+  const special=v('special');
+
+  /* --- 조립 --- */
+  const cDate=fmtDate(v('contractDate'));
+  const html=`
+    <p class="lead">매도인과 매수인 쌍방은 아래 표시 부동산에 관하여 다음 계약 내용과 같이 매매계약을 체결한다.</p>
+
+    <div class="sec-label">1. 부동산의 표시</div>
+    ${propSection}
+
+    <div class="sec-label">2. 계약내용</div>
+    <p class="clause"><b>제1조 (목적)</b> 위 부동산의 매매에 대하여 매도인과 매수인은 합의에 의하여 매매대금을 아래와 같이 지불하기로 한다.</p>
+    <table class="pay-table">${payRows}</table>
+
+    <p class="clause"><b>제2조 (소유권 이전 등)</b> 매도인은 매매대금의 잔금을 수령함과 동시에 매수인에게 소유권이전등기에 필요한 모든 서류를 교부하고 등기절차에 협력하며, 위 부동산의 인도일은 ${deliver}로 한다.${shareClause}</p>
+
+    <p class="clause"><b>제3조 (제한물권 등의 소멸)</b> 매도인은 위 부동산에 설정된 저당권·지상권·임차권 등 소유권의 행사를 제한하는 권리 또는 제세공과금 기타 부담금의 미납이 있을 때에는 잔금 수수일까지 그 권리의 하자 및 부담을 제거하여 완전한 소유권을 매수인에게 이전한다. 다만, 승계하기로 합의한 권리 및 금액은 그러하지 아니하다.</p>
+
+    <p class="clause"><b>제4조 (지방세 등)</b> 위 부동산에 관하여 발생한 수익의 귀속과 제세공과금 등의 부담은 위 부동산의 인도일을 기준으로 하되, 지방세의 납부의무 및 납부책임은 지방세법의 규정에 의한다.</p>
+
+    <p class="clause"><b>제5조 (계약의 해제)</b> 매수인이 매도인에게 ${stopWord}을 지불하기 전까지, 매도인은 계약금의 배액을 상환하고 매수인은 계약금을 포기하며 본 계약을 해제할 수 있다.</p>
+
+    <p class="clause"><b>제6조 (채무불이행과 손해배상)</b> 매도인 또는 매수인이 본 계약상의 내용을 불이행한 경우 그 상대방은 불이행한 자에 대하여 서면으로 이행을 최고하고 계약을 해제할 수 있다. 계약 당사자는 계약해제에 따른 손해배상을 각각 상대방에게 청구할 수 있으며, 별도의 약정이 없는 한 계약금을 손해배상의 기준으로 본다.</p>
+
+    ${brokerClause}
+
+    <div class="sec-label">특약사항</div>
+    <div class="special">${special?special.replace(/</g,'&lt;'):'<span class="empty-note">(없음)</span>'}</div>
+
+    <p class="lead" style="margin-top:14px;">본 계약을 증명하기 위하여 계약 당사자가 이의 없음을 확인하고 각자 서명·날인 후 매도인, 매수인, 개업공인중개사가 각 1통씩 보관한다.</p>
+
+    <div class="date-line">${cDate||'(       년       월       일)'}</div>
+
+    ${signBlock(sellers,'매 도 인','매도인',sellerByeoji)}
+    ${signBlock(buyers,'매 수 인','매수인',buyerByeoji)}
+    ${brokerSign}
+  `;
+  document.getElementById('contractBody').innerHTML=html;
+
+  /* --- 별지 시트 생성 --- */
+  let annex='';
+  if(propByeoji){
+    annex+=`<div class="sheet byeoji"><h2 class="annex-title">[ 별 지 ]</h2><div class="annex-sub">부동산의 표시</div>`;
+    annex+=props.map((p,i)=>`<div class="annex-prop-h">부동산 ${i+1}</div><table class="prop">${propRowsFor(p)}</table>`).join('');
+    const psum=props.reduce((s,p)=>s+(+p.price||0),0);
+    if(psum>0){
+      const mismatch = total>0 && psum!==total;
+      annex+=`<div class="annex-prop-h">거래가액 합계</div><table class="prop"><tr><th>합 계</th><td>金 ${numToKorean(psum)}원정 (₩${comma(psum)})${mismatch?` &nbsp;<span class="seal-mark">⚠ 매매대금 총액 ₩${comma(total)}과 불일치</span>`:''}</td></tr></table>`;
+    }
+    annex+=`<p class="annex-foot">이 상</p></div>`;
+  }
+  function annexParties(parties,roleName){
+    const list=parties.length?parties:[{}];
+    let h=`<div class="sheet byeoji"><h2 class="annex-title">[ 별 지 ]</h2><div class="annex-sub">${roleName} 목록</div>`;
+    h+=list.map((p,i)=>`<div class="annex-prop-h">${roleName} ${i+1}</div><table class="sign"><tr><th>주 소</th><td colspan="3">${p.addr||'─'}</td></tr><tr><th>주민등록<br>번호</th><td>${p.rrn||'─'}</td><th>전 화</th><td>${p.tel||'─'}</td></tr>${p.share?`<tr><th>지 분</th><td colspan="3">${p.share}</td></tr>`:''}<tr><th>성 명</th><td colspan="3">${p.name||'─'} <span class="seal-mark">(인)</span></td></tr></table>`).join('');
+    h+=`<p class="annex-foot">이 상</p></div>`;
+    return h;
+  }
+  if(sellerByeoji) annex+=annexParties(sellers,'매도인');
+  if(buyerByeoji)  annex+=annexParties(buyers,'매수인');
+  document.getElementById('byeojiSheets').innerHTML=annex;
+}
+
+/* ===================== 예시 / 초기화 ===================== */
+function fillSample(){
+  resetAll(true);
+  document.getElementById('caseNo').value='260622-01';
+  addProp({type:'building',addr:'부산광역시 해운대구 좌동 1234-5',landUse:'대',landArea:'250',
+           bldgUse:'철근콘크리트조 슬래브지붕 2층 단독주택',bldgArea:'180',price:'500000000'});
+  addProp({type:'land',addr:'부산광역시 해운대구 좌동 1234-6',landUse:'대',landArea:'120',price:'300000000'});
+  document.getElementById('total').value='800000000';
+  document.getElementById('down').value='80000000';
+  document.getElementById('mid').value='320000000';
+  document.getElementById('midDate').value='2026-07-15';
+  document.getElementById('balDate').value='2026-08-30';
+  document.getElementById('contractDate').value='2026-06-22';
+  document.getElementById('deliverDate').value='2026-08-30';
+  addParty('seller',{name:'김갑동',rrn:'600101-1******',addr:'부산광역시 해운대구 좌동 1234-5',share:'1/2',tel:'010-1111-2222'});
+  addParty('seller',{name:'김갑순',rrn:'620202-2******',addr:'부산광역시 해운대구 좌동 1234-5',share:'1/2',tel:'010-1111-3333'});
+  addParty('buyer',{name:'이을순',rrn:'750505-2******',addr:'부산광역시 수영구 광안동 77',share:'단독',tel:'010-3333-4444'});
+  document.getElementById('special').value='1. 본 부동산의 등기부상 근저당권(채권최고액 1억2천만원, 근저당권자 ○○은행)은 잔금 지급과 동시에 매도인 부담으로 말소하기로 한다.\n2. 매도인이 2인 이상인 경우 각 지분 비율에 따라 매매대금을 정산한다.\n3. 현 상태의 등기부등본·토지대장·건축물대장을 확인하고 계약을 체결한다.';
+  onAmt();
+}
+function resetAll(silent){
+  if(!silent && !confirm('입력 내용을 모두 지울까요?')) return;
+  document.querySelectorAll('input,textarea').forEach(el=>{
+    if(el.type==='checkbox') el.checked=false; else el.value='';
+  });
+  document.getElementById('sellers').innerHTML='';
+  document.getElementById('buyers').innerHTML='';
+  document.getElementById('props').innerHTML='';
+  if(!silent){ addProp(); addParty('seller'); addParty('buyer'); }
+  ['totalKo','downKo','midKo','balKo'].forEach(i=>document.getElementById(i).innerHTML='');
+  render();
+}
+
+/* ===================== 노션 사건DB 기록 ===================== */
+const NOTION_DS = "collection://2f70ce34-50b8-8084-9699-000b35ac2af4"; // 사건부DB data source
+
+function onModeChange(){
+  document.getElementById('webhookField').style.display =
+    document.getElementById('notionMode').value==='webhook' ? '' : 'none';
+}
+
+function buildPayload(){
+  const v=id=>{const e=document.getElementById(id);return e?e.value.trim():'';};
+  const sellers=collectParties('seller').filter(p=>p.name||p.rrn||p.addr);
+  const buyers=collectParties('buyer').filter(p=>p.name||p.rrn||p.addr);
+  const total=+v('total')||0, down=+v('down')||0, mid=+v('mid')||0, bal=+v('bal')||0;
+  const ko=n=> n?`${numToKorean(n)}원정 (₩${comma(n)})`:'-';
+  const repName = (buyers[0]&&buyers[0].name) || (sellers[0]&&sellers[0].name) || '미입력';
+  const caseNo=v('caseNo');
+  const title=[caseNo,repName,'소유권이전등기(매매)'].filter(Boolean).join('-');
+
+  const props=collectProps();
+  const propLines=props.map((p,i)=>propLine(p,i+1));
+  const priceSum=props.reduce((s,p)=>s+(+p.price||0),0);
+  const priceNote = priceSum>0 ? `\n- 거래가액 합계: ${ko(priceSum)}${total&&priceSum!==total?` ⚠ 총액 불일치`:''}` : '';
+
+  const party=(arr,label)=> arr.length
+    ? arr.map((p,i)=>`  - ${label}${arr.length>1?(i+1):''}: ${p.name||'-'} / ${p.rrn||'-'} / ${p.addr||'-'}${p.share?(' / 지분 '+p.share):''}${p.tel?(' / '+p.tel):''}`).join('\n')
+    : `  - ${label}: (미입력)`;
+
+  const body =
+`## 매매계약 요약 (작업자료 · 미검증 초안)
+
+**부동산** (${props.length}개)
+${propLines.map(x=>'- '+x).join('\n')}${priceNote}
+
+**매매대금**
+- 매매대금: ${ko(total)}
+- 계약금: ${ko(down)}
+- 중도금: ${ko(mid)}${mid&&v('midDate')?(' (지급일 '+v('midDate')+')'):''}
+- 잔금: ${ko(bal)}${bal&&v('balDate')?(' (지급일 '+v('balDate')+')'):''}
+
+**일자**
+- 계약일: ${v('contractDate')||'-'}
+- 중도금일: ${v('midDate')||'-'}
+- 잔금일: ${v('balDate')||'-'}
+- 인도일: ${v('deliverDate')||'-'}
+
+**당사자**
+${party(sellers,'매도인')}
+${party(buyers,'매수인')}
+
+**특약사항**
+${v('special')||'(없음)'}
+
+> ⚠ 매매대금·식별번호·일자 등 🔴 고위험 항목은 법무사가 원본과 대조·검증 후 제출확정자료로 승격하십시오.`;
+
+  return {
+    dataSource: NOTION_DS,
+    properties: {
+      "사건번호-고객명-사건명": title,
+      "사건번호": caseNo,
+      "상담유형": v('caseType')||'부동산등기',
+      "상태": v('status')||'수임',
+      "date:접수일:start": v('contractDate')|| new Date().toISOString().slice(0,10),
+      "관련자료폴더(link)": v('folderLink')||''
+    },
+    body,
+    raw: { 부동산:props, 매매대금:total, 계약금:down, 중도금:mid, 잔금:bal,
+           계약일:v('contractDate'), 중도금일:v('midDate'), 잔금일:v('balDate'),
+           매도인:sellers, 매수인:buyers }
+  };
+}
+
+function status(msg,kind){
+  const el=document.getElementById('notionStatus');
+  const c = kind==='ok'?'var(--ok)':kind==='err'?'var(--seal)':'var(--ink-soft)';
+  el.style.color=c; el.innerHTML=msg;
+}
+
+async function recordToNotion(){
+  const caseNo=document.getElementById('caseNo').value.trim();
+  if(!caseNo){ status('⚠ 먼저 <b>사건번호</b>를 입력하세요 (노션에서 채번한 YYMMDD-NN).','err'); return; }
+  const payload=buildPayload();
+  const mode=document.getElementById('notionMode').value;
+
+  if(mode==='copy'){
+    try{ await navigator.clipboard.writeText(JSON.stringify(payload,null,2));
+      status('✅ JSON을 클립보드에 복사했습니다. n8n·스크립트에 붙여넣어 기록하세요.','ok');
+    }catch(e){ status('JSON 복사 실패. 콘솔(F12)에서 확인하세요.','err'); console.log(JSON.stringify(payload,null,2)); }
+    return;
+  }
+
+  if(mode==='webhook'){
+    const url=document.getElementById('webhookUrl').value.trim();
+    if(!url){ status('⚠ n8n Webhook URL을 입력하세요.','err'); return; }
+    status('⏳ n8n 웹훅으로 전송 중…');
+    try{
+      const r=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+      status(r.ok?'✅ n8n으로 전송 완료. 노션 기록은 n8n 실행 로그에서 확인하세요.':'⚠ 전송됐으나 응답 코드 '+r.status,'ok');
+    }catch(e){ status('전송 실패: '+e.message+' (URL·CORS 설정 확인)','err'); }
+    return;
+  }
+
+  // mode === 'claude' : Anthropic API + Notion MCP (claude.ai 내에서만 동작)
+  status('⏳ 노션 MCP로 사건부DB에 기록 중…');
+  const prompt =
+`다음 정보를 Notion 데이터소스 ${NOTION_DS} (사건부DB)에 새 페이지로 생성해줘.
+notion-create-pages 도구를 사용하고, parent는 {"data_source_id":"2f70ce34-50b8-8084-9699-000b35ac2af4"}.
+
+properties (정확히 이 속성명 사용):
+${JSON.stringify(payload.properties,null,2)}
+
+page content (Notion Markdown):
+${payload.body}
+
+기존 동일 사건번호 페이지가 있으면 새로 만들지 말고 그 사실만 알려줘. 완료하면 생성된 페이지 제목과 URL을 한 줄로 보고해줘.`;
+
+  try{
+    const res=await fetch("https://api.anthropic.com/v1/messages",{
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({
+        model:"claude-sonnet-4-6", max_tokens:1000,
+        messages:[{role:"user",content:prompt}],
+        mcp_servers:[{type:"url",url:"https://mcp.notion.com/mcp",name:"notion"}]
+      })
+    });
+    const data=await res.json();
+    const txt=(data.content||[]).filter(b=>b.type==='text').map(b=>b.text).join(' ').trim();
+    if(txt) status('✅ '+txt,'ok');
+    else status('요청은 보냈으나 응답 텍스트가 비어 있습니다. 노션에서 확인하세요.','ok');
+  }catch(e){
+    status('기록 실패: '+e.message+'<br><span class="hint">사무실 포털에서는 이 방식이 인증되지 않습니다. n8n 웹훅 방식을 사용하세요.</span>','err');
+  }
+}
+
+/* ===================== 초기화 ===================== */
+addProp();
+addParty('seller');
+addParty('buyer');
+render();
+</script>
+</body>
+</html>
