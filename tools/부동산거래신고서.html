@@ -1,490 +1,1153 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>부동산거래계약 신고서 자동작성 — LOAS</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>부동산 실거래 신고서 작성기</title>
+<script src="jszip.min.js"></script>
+<script>if(typeof JSZip==='undefined'){document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"><\/script>');}</script>
 <style>
   :root{
-    --line:#c9cdd6; --line2:#e4e7ee; --ink:#1d2330; --muted:#6a7280;
-    --accent:#1f4e8c; --accent-soft:#eaf1fb; --warn:#b4232a; --warn-soft:#fdecec;
-    --ok:#1c7a44; --ok-soft:#e7f5ec; --bg:#f4f6fa; --card:#fff;
+    --bg:#0a1120; --bg2:#0d1a33; --card:#111c33; --card-2:#0d1830;
+    --border:#26344f; --border-soft:#1d2942; --text:#e7eefb; --sub:#93a6c8;
+    --accent:#3b82f6; --accent-2:#2563eb; --accent-soft:#7db0ff;
+    --accent-bg:rgba(59,130,246,.12); --accent-border:rgba(96,165,250,.42);
+    --red-bg:rgba(245,190,50,.14); --red-border:rgba(245,190,50,.55); --red-text:#ffd873;
+    --chk-bg:rgba(96,165,250,.14); --chk-border:rgba(96,165,250,.5); --chk-text:#9ec5ff;
+    --ver-bg:rgba(52,197,120,.16); --ver-border:rgba(52,197,120,.55); --ver-text:#8ef0b0;
+    --auto-bg:rgba(45,212,191,.14); --auto-border:rgba(45,212,191,.55); --auto-text:#6fe9d6;
+    --danger:#ff8f8f;
   }
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);
-    font-family:"Malgun Gothic","맑은 고딕",system-ui,sans-serif;font-size:14px;line-height:1.5}
-  .wrap{max-width:1180px;margin:0 auto;padding:24px 20px 80px}
-  header.app{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
-    border-bottom:2px solid var(--accent);padding-bottom:12px;margin-bottom:6px}
-  header.app h1{font-size:20px;margin:0;color:var(--accent)}
-  header.app .sub{color:var(--muted);font-size:12.5px}
-  .legal{font-size:12px;color:var(--muted);margin:8px 0 20px;
-    background:var(--accent-soft);border-radius:8px;padding:10px 14px}
-  .legal b{color:var(--accent)}
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
-  @media(max-width:900px){.grid{grid-template-columns:1fr}}
-  .card{background:var(--card);border:1px solid var(--line2);border-radius:10px;
-    padding:16px 18px;margin-bottom:16px;box-shadow:0 1px 2px rgba(20,30,60,.04)}
-  .card h2{font-size:15px;margin:0 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line2);
-    display:flex;align-items:center;gap:8px}
-  .card h2 .tag{font-size:10.5px;font-weight:600;color:#fff;background:var(--accent);
-    border-radius:4px;padding:2px 7px}
-  .card h2 .db{font-size:10.5px;font-weight:600;color:var(--accent);background:var(--accent-soft);
-    border-radius:4px;padding:2px 7px;margin-left:auto}
-  .row{display:flex;gap:10px;margin-bottom:10px;flex-wrap:wrap}
-  .row > div{flex:1;min-width:120px}
-  label{display:block;font-size:12px;color:var(--muted);margin-bottom:3px;font-weight:600}
-  label .req{color:var(--warn)}
-  input,select,textarea{width:100%;padding:7px 9px;border:1px solid var(--line);border-radius:6px;
-    font-size:13.5px;font-family:inherit;background:#fff}
-  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);
-    box-shadow:0 0 0 2px var(--accent-soft)}
-  input[readonly]{background:#f6f7fa;color:var(--muted)}
-  textarea{resize:vertical;min-height:54px}
-  .hint{font-size:11px;color:var(--muted);margin-top:3px}
-  .partylist .pcard{border:1px dashed var(--line);border-radius:8px;padding:12px;margin-bottom:10px;
-    position:relative;background:#fafbfd}
-  .pcard .del{position:absolute;top:8px;right:8px;border:none;background:var(--warn-soft);
-    color:var(--warn);border-radius:5px;padding:3px 9px;cursor:pointer;font-size:11.5px;font-weight:600}
-  .addbtn{border:1px dashed var(--accent);color:var(--accent);background:var(--accent-soft);
-    border-radius:7px;padding:8px;width:100%;cursor:pointer;font-weight:600;font-size:13px}
-  .addbtn:hover{background:#dfeafa}
-  .money-ko{font-size:11.5px;color:var(--accent);margin-top:2px;min-height:14px;font-weight:600}
-  .toolbar{position:sticky;top:0;z-index:20;background:rgba(244,246,250,.92);backdrop-filter:blur(4px);
-    display:flex;gap:8px;flex-wrap:wrap;padding:12px 0;margin:-4px 0 14px;border-bottom:1px solid var(--line2)}
-  .btn{border:1px solid var(--line);background:#fff;border-radius:7px;padding:9px 15px;cursor:pointer;
-    font-size:13px;font-weight:600;color:var(--ink)}
-  .btn:hover{background:#f0f2f7}
-  .btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
-  .btn.primary:hover{filter:brightness(1.08)}
-  .btn.ghost{background:transparent}
-  /* 상태 패널 */
-  #status .item{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;padding:5px 0;
-    border-bottom:1px dotted var(--line2)}
-  #status .item:last-child{border:none}
-  .dot{width:8px;height:8px;border-radius:50%;margin-top:5px;flex:none}
-  .dot.ok{background:var(--ok)} .dot.warn{background:var(--warn)} .dot.info{background:var(--accent)}
-  .deadline{border-radius:8px;padding:12px 14px;margin-bottom:12px;font-weight:600}
-  .deadline.safe{background:var(--ok-soft);color:var(--ok)}
-  .deadline.soon{background:#fff6e5;color:#9a6b00}
-  .deadline.over{background:var(--warn-soft);color:var(--warn)}
-  .deadline small{display:block;font-weight:400;font-size:11.5px;margin-top:3px;opacity:.85}
-  .fund{border-radius:8px;padding:10px 14px;font-size:12.5px;margin-bottom:12px}
-  .fund.need{background:var(--warn-soft);color:var(--warn);font-weight:600}
-  .fund.maybe{background:#fff6e5;color:#9a6b00}
-  .fund.no{background:var(--ok-soft);color:var(--ok)}
-  .chk{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink);font-weight:600}
-  .chk input{width:auto}
-  /* ===== 인쇄 서식 ===== */
-  #print{display:none}
-  @media print{
-    body{background:#fff}
-    .wrap{display:none}
-    #print{display:block;font-family:"Batang","바탕",serif;color:#000;font-size:10.5px}
-    @page{size:A4;margin:12mm}
+  *{box-sizing:border-box;}
+  body{
+    margin:0; padding:30px 20px 64px; color:var(--text);
+    background:radial-gradient(1200px 700px at 50% -140px,rgba(37,99,235,.16) 0,transparent 60%),linear-gradient(180deg,#0a1120 0%,#0b1730 100%);
+    background-color:var(--bg); background-attachment:fixed;
+    font-family:"Malgun Gothic","맑은 고딕",-apple-system,"Apple SD Gothic Neo",sans-serif;
+    font-size:14px; line-height:1.55;
   }
-  #print table{width:100%;border-collapse:collapse;table-layout:fixed}
-  #print td,#print th{border:1px solid #000;padding:3px 4px;vertical-align:middle;word-break:break-all}
-  #print .ttl{text-align:center;font-size:17px;font-weight:bold;letter-spacing:8px;margin:4px 0 2px}
-  #print .formno{font-size:9px;text-align:left;margin-bottom:2px}
-  #print .sec{background:#eee;font-weight:bold;text-align:center}
-  #print .lbl{background:#f4f4f4;font-weight:bold;text-align:center;font-size:9.5px}
-  #print .foot{font-size:9px;margin-top:8px;line-height:1.45}
-  #print .sign{margin-top:14px;text-align:right;font-size:11px}
+  .wrap{max-width:980px; margin:0 auto;}
+  h1{font-size:23px; margin:0 0 4px; display:flex; align-items:center; gap:9px; letter-spacing:-.2px;}
+  h1 .home{font-size:22px; filter:drop-shadow(0 2px 6px rgba(59,130,246,.5));}
+  h1 .n8n-pill{
+    font-size:11px; font-weight:700; color:#cfe2ff; background:var(--accent-bg);
+    border:1px solid var(--accent-border); border-radius:999px; padding:3px 9px; margin-left:2px;
+  }
+  .lead{color:var(--sub); font-size:13px; margin:0 0 18px;}
+  .scope{
+    background:var(--accent-bg); border:1px solid var(--accent-border); color:#cfe1ff;
+    border-radius:12px; padding:12px 16px; font-size:13px; margin-bottom:16px;
+  }
+  .scope b{color:var(--accent-soft);}
+  details.conn{
+    background:linear-gradient(180deg,var(--card) 0,var(--card-2) 100%);
+    border:1px solid var(--border); border-radius:12px; margin-bottom:22px; overflow:hidden;
+  }
+  details.conn > summary{
+    cursor:pointer; list-style:none; padding:12px 16px; font-size:13px; font-weight:700;
+    color:var(--accent-soft); display:flex; align-items:center; gap:8px; user-select:none;
+  }
+  details.conn > summary::-webkit-details-marker{display:none;}
+  details.conn > summary::before{content:"▸"; color:var(--sub); transition:transform .15s;}
+  details.conn[open] > summary::before{transform:rotate(90deg);}
+  .conn-body{padding:4px 16px 16px; border-top:1px solid var(--border-soft);}
+  .conn-body label{display:block; font-size:12px; color:var(--sub); margin:10px 0 4px;}
+  .conn-input{
+    width:100%; font:inherit; font-size:13px; padding:8px 10px; border-radius:8px;
+    border:1px solid var(--border); background:var(--card-2); color:var(--text);
+  }
+  .card{
+    background:linear-gradient(180deg,var(--card) 0,var(--card-2) 100%);
+    border:1px solid var(--border); border-radius:14px;
+    padding:20px 22px; margin-bottom:18px; box-shadow:0 8px 24px rgba(0,0,0,.28);
+  }
+  .card h2{font-size:15px; margin:0 0 4px; display:flex; align-items:center; gap:8px; color:var(--text);}
+  .card h2 .num{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:23px; height:23px; border-radius:50%;
+    background:linear-gradient(135deg,var(--accent) 0,var(--accent-2) 100%); color:#fff;
+    font-size:12px; font-weight:700; box-shadow:0 2px 8px rgba(37,99,235,.5);
+  }
+  .card .desc{color:var(--sub); font-size:12.5px; margin:0 0 14px;}
+  .row{display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
+  button{
+    font:inherit; cursor:pointer; border-radius:8px; border:1px solid var(--border);
+    background:#16223c; color:var(--text); padding:8px 14px; font-size:13px; transition:all .12s;
+  }
+  button.primary{
+    background:linear-gradient(135deg,var(--accent) 0,var(--accent-2) 100%);
+    border-color:transparent; color:#fff; font-weight:600; box-shadow:0 3px 10px rgba(37,99,235,.4);
+  }
+  button:hover{background:#1e2d4d; border-color:#33456b;}
+  button.primary:hover{filter:brightness(1.08); box-shadow:0 4px 14px rgba(37,99,235,.55);}
+  button:disabled{opacity:.4; cursor:not-allowed;}
+  input[type=file]{font-size:13px; color:var(--sub);}
+  input[type=text]{
+    font:inherit; font-size:13px; padding:8px 10px; border-radius:8px;
+    border:1px solid var(--border); background:var(--card-2); color:var(--text);
+  }
+  input::placeholder, textarea::placeholder{color:#5f7191;}
+  .status{font-size:12.5px; color:var(--sub); margin-top:10px; min-height:16px;}
+  .status.err{color:var(--danger);}
+  .summary-grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:10px; margin-top:14px;
+  }
+  .summary-grid > div{
+    background:var(--card-2); border:1px solid var(--border-soft); border-radius:10px; padding:10px 12px;
+  }
+  .summary-grid .k{display:block; font-size:11.5px; color:var(--sub); margin-bottom:3px;}
+  .summary-grid .v{display:block; font-size:13.5px; font-weight:600; color:var(--text);}
+  details.adv > summary{cursor:pointer; font-size:12.5px; color:var(--accent-soft); user-select:none;}
+  textarea.jsonbox{
+    width:100%; min-height:140px; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:12.5px; border:1px solid var(--border); border-radius:8px; padding:10px; resize:vertical;
+    background:var(--card-2); color:#d7e2f6;
+  }
+  .banner-red{
+    display:none; background:var(--red-bg); border:1px solid var(--red-border); color:var(--red-text);
+    border-radius:10px; padding:10px 14px; font-size:13px; margin-bottom:12px; font-weight:600;
+  }
+  table.checklist{width:100%; border-collapse:collapse; font-size:12.5px;}
+  table.checklist th, table.checklist td{border:1px solid var(--border-soft); padding:6px 8px; vertical-align:middle;}
+  table.checklist th{background:#16223e; text-align:left; font-size:12px; color:var(--sub); font-weight:700;}
+  table.checklist td.path{font-size:12.5px; color:#cdd8ee; white-space:normal;}
+  table.checklist td.src{color:var(--sub); font-size:11.5px; white-space:nowrap;}
+  table.checklist td.center{text-align:center;}
+  table.checklist tbody tr:nth-child(even){background:rgba(255,255,255,.015);}
+  .cell-input{width:100%; font:inherit; font-size:12.5px; padding:5px 7px; border:1px solid var(--border); border-radius:6px; background:var(--card-2); color:var(--text);}
+  select.cell-input{color:var(--text);}
+  .checklist-scroll{max-height:480px; overflow:auto; border:1px solid var(--border); border-radius:10px;}
+  .checklist-scroll table{border:none;}
+  .checklist-scroll th{position:sticky; top:0; z-index:1;}
+  .badge{display:inline-block; padding:2px 8px; border-radius:999px; font-size:11px; font-weight:700; white-space:nowrap;}
+  .badge-red{background:var(--red-bg); color:var(--red-text); border:1px solid var(--red-border);}
+  .badge-check{background:var(--chk-bg); color:var(--chk-text); border:1px solid var(--chk-border);}
+  .badge-verified{background:var(--ver-bg); color:var(--ver-text); border:1px solid var(--ver-border);}
+  .badge-auto{background:var(--auto-bg); color:var(--auto-text); border:1px solid var(--auto-border);}
+  iframe#reportFrame{
+    width:100%; height:900px; border:1px solid var(--border); border-radius:10px; background:#fff;
+  }
+  .hidden{display:none !important;}
+  .footnote{font-size:12px; color:var(--sub); margin-top:26px; border-top:1px solid var(--border); padding-top:14px;}
+  code{background:var(--card-2); color:#bcd2ff; padding:1px 5px; border-radius:4px; font-size:12px; border:1px solid var(--border-soft);}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header class="app">
-    <h1>부동산거래계약 신고서 자동작성</h1>
-    <span class="sub">별지 제1호서식 · LOAS 작업자료(02) 산출 도구</span>
-  </header>
-  <div class="legal">
-    근거: <b>「부동산 거래신고 등에 관한 법률」 제3조</b>, 같은 법 <b>시행규칙 제2조·별지 제1호서식</b> ·
-    신고기한 <b>계약체결일부터 30일 이내</b> · 신고관청 <b>부동산 소재지 관할 시·군·구청장</b>(또는 rtms.molit.go.kr) ·
-    미신고/거짓신고 시 <b>법 제28조 과태료</b>. 본 도구의 산출물은 초안이며 <b>법무사 최종 검토 후</b> 제출합니다.
+
+  <h1><span class="home">🏠</span> 부동산 실거래 신고서 작성기 <span class="n8n-pill">n8n · 노션 연동</span></h1>
+  <p class="lead">매매계약서(.docx) → n8n 웹훅으로 노션 자료 보강 → 검증 → 신고서(별지 제1호서식) 문서 생성까지, 브라우저에서 바로 실행합니다.</p>
+
+  <div class="scope">
+    <b>이 도구가 하는 일:</b> 신고서 <b>문서 작성</b>까지입니다.
+    RTMS(rtms.molit.go.kr) 접속·전자신고·전자서명·제출은 하지 않습니다.
+    작성된 신고서는 법무사가 검토한 뒤 <b>직접</b> RTMS 전자신고 또는 관할 시·군·구에 제출합니다.
   </div>
 
-  <div class="toolbar">
-    <button class="btn primary" onclick="doPrint()">🖨 신고서 인쇄(A4)</button>
-    <button class="btn" onclick="saveJSON()">💾 작업자료 저장(.json)</button>
-    <button class="btn ghost" onclick="document.getElementById('loadfile').click()">📂 불러오기</button>
-    <input type="file" id="loadfile" accept=".json" style="display:none" onchange="loadJSON(event)">
-    <button class="btn ghost" onclick="loadSample()">예시 채우기</button>
-    <button class="btn ghost" onclick="if(confirm('모두 지울까요?'))location.reload()">초기화</button>
-  </div>
-
-  <div class="grid">
-    <!-- ============ 좌측: 입력 ============ -->
-    <div>
-      <!-- 사건/관청 -->
-      <div class="card">
-        <h2><span class="tag">사건</span> 사건정보 · 신고관청 <span class="db">→ 사건DB</span></h2>
-        <div class="row">
-          <div><label>내부 사건번호</label><input id="caseNo" placeholder="260622-01" oninput="recalc()"></div>
-          <div><label>고객명</label><input id="clientName" placeholder="김갑동" oninput="recalc()"></div>
-        </div>
-        <div class="row">
-          <div><label>거래유형 <span class="req">*</span></label>
-            <select id="dealType" onchange="recalc()">
-              <option value="매매">매매</option>
-              <option value="공급계약(분양권)">공급계약(분양권)</option>
-              <option value="입주권">입주권(관리처분·사업시행계획인가)</option>
-            </select></div>
-          <div><label>신고관청(시·군·구)</label><input id="office" placeholder="부산광역시 ○○구청장" oninput="recalc()"></div>
-        </div>
+  <!-- 연결 설정 -->
+  <details class="conn" id="connPanel">
+    <summary>⚙️ 연결 설정 (웹훅 주소 · 시크릿)</summary>
+    <div class="conn-body">
+      <p class="desc" style="margin:8px 0 2px;">STEP 2의 "노션에서 불러오기"가 사용하는 n8n 웹훅입니다. 기본값이 채워져 있으며, 필요 시 수정 후 <b>설정 저장</b>을 누르면 이 브라우저에 기억됩니다.</p>
+      <label for="webhookUrl">n8n 웹훅 주소(URL)</label>
+      <input type="text" id="webhookUrl" class="conn-input" placeholder="https://.../webhook/rtms-notion-lookup-8x3k" spellcheck="false">
+      <label for="webhookSecret">시크릿(secret)</label>
+      <input type="password" id="webhookSecret" class="conn-input" placeholder="웹훅 시크릿" spellcheck="false">
+      <div class="row" style="margin-top:12px;">
+        <button id="btnSaveConn">설정 저장</button>
+        <button id="btnTestConn">연결 테스트</button>
       </div>
-
-      <!-- 매도인 -->
-      <div class="card">
-        <h2><span class="tag">신고인</span> 매도인 <span class="db">→ 당사자DB</span></h2>
-        <div id="sellers" class="partylist"></div>
-        <button class="addbtn" onclick="addParty('sellers','매도인')">+ 매도인 추가</button>
-      </div>
-
-      <!-- 매수인 -->
-      <div class="card">
-        <h2><span class="tag">신고인</span> 매수인 <span class="db">→ 당사자DB</span></h2>
-        <div id="buyers" class="partylist"></div>
-        <button class="addbtn" onclick="addParty('buyers','매수인')">+ 매수인 추가</button>
-      </div>
-
-      <!-- 개업공인중개사 -->
-      <div class="card">
-        <h2><span class="tag">신고인</span> 개업공인중개사 <span style="font-size:11px;font-weight:400;color:var(--muted)">(직거래 시 비움)</span></h2>
-        <div class="row">
-          <div><label>상호</label><input id="agentName"></div>
-          <div><label>대표자</label><input id="agentCeo"></div>
-        </div>
-        <div class="row">
-          <div><label>등록번호</label><input id="agentReg"></div>
-          <div><label>전화번호</label><input id="agentTel"></div>
-        </div>
-        <div class="row"><div><label>사무소 소재지</label><input id="agentAddr"></div></div>
-      </div>
+      <div class="status" id="statusConn"></div>
     </div>
+  </details>
 
-    <!-- ============ 우측: 거래대상 + 상태 ============ -->
-    <div>
-      <!-- 실시간 상태 -->
-      <div class="card">
-        <h2><span class="tag">검증</span> 신고 진단 · 추적성</h2>
-        <div id="deadline" class="deadline safe">계약일을 입력하세요</div>
-        <div id="fund" class="fund no">자금조달·입주계획서: 계약 정보 입력 후 판정</div>
-        <div class="chk" style="margin-bottom:10px">
-          <input type="checkbox" id="regZone" onchange="recalc()">
-          <label for="regZone" style="margin:0;color:var(--warn)">투기과열지구·조정대상지역(규제지역) 소재</label>
-        </div>
-        <div id="status"></div>
-      </div>
+  <!-- STEP 1 -->
+  <div class="card">
+    <h2><span class="num">1</span> 매매계약서 불러오기</h2>
+    <p class="desc">매매계약서 자동생성기가 만든 .docx 파일을 업로드하세요. 파일이 없으면 샘플이나 빈 양식으로 시작할 수 있습니다.</p>
+    <div class="row">
+      <input type="file" id="docxFile" accept=".docx">
+      <button id="btnSample">샘플 계약서로 시연</button>
+      <button id="btnEmpty">빈 양식으로 직접 입력</button>
+    </div>
+    <div class="status" id="status1"></div>
+    <div id="summaryBox"></div>
+  </div>
 
-      <!-- 거래대상 -->
-      <div class="card">
-        <h2><span class="tag">물건</span> 거래대상 <span class="db">→ 부동산DB</span></h2>
-        <div class="row">
-          <div><label>종류 <span class="req">*</span></label>
-            <select id="propType" onchange="recalc()">
-              <option value="토지">토지</option>
-              <option value="건축물">건축물</option>
-              <option value="토지및건축물" selected>토지 및 건축물</option>
-            </select></div>
-          <div><label>세부용도</label><input id="propUse" placeholder="단독주택 / 아파트 / 상가 등" oninput="recalc()"></div>
-        </div>
-        <div class="row"><div><label>소재지 <span class="req">*</span></label>
-          <input id="addr" placeholder="부산광역시 ○○구 ○○동 100-1" oninput="recalc()"></div></div>
-        <div class="row">
-          <div><label>지목</label><input id="jimok" placeholder="대"></div>
-          <div><label>토지면적(㎡)</label><input id="landArea" inputmode="decimal" oninput="recalc()"></div>
-          <div><label>토지 거래지분</label><input id="landShare" placeholder="1/1"></div>
-        </div>
-        <div class="row">
-          <div><label>건축물면적(㎡)</label><input id="bldgArea" inputmode="decimal" oninput="recalc()"></div>
-          <div><label>건축물 거래지분</label><input id="bldgShare" placeholder="1/1"></div>
-          <div><label>대지권비율</label><input id="landRight" placeholder="집합건물 시"></div>
+  <!-- STEP 2 -->
+  <div class="card hidden" id="step2card">
+    <h2><span class="num">2</span> 노션 DB에서 값 불러오기 (n8n 웹훅)</h2>
+    <p class="desc">
+      계약서만으로 채워지지 않는 값(부동산 고유번호·면적·지목·지분, 당사자 등록번호·주소 등)을
+      <b>n8n 웹훅을 통해 노션에서 직접 조회</b>해 채웁니다. 사건번호를 입력하고 "노션에서 불러오기"를 누르세요.
+      조회된 값은 원본대조 전이므로 <code>미검증</code>으로 표시되며, STEP 3에서 대조 후 확정합니다.
+    </p>
+    <div class="row">
+      <input type="text" id="caseNo" placeholder="사건번호 예: 260705_01" style="max-width:220px;">
+      <button id="btnFetchNotion" class="primary">① 노션에서 불러오기</button>
+    </div>
+    <div class="status" id="status2"></div>
+    <details class="adv" id="advBox" style="margin-top:14px;">
+      <summary>고급 · 불러온 JSON 보기 / 직접 편집</summary>
+      <div style="margin-top:8px;">
+        <p class="desc" style="margin:4px 0;">웹훅이 반환해 반영한 값입니다. 직접 수정한 뒤 "보강 적용"으로 다시 반영할 수 있습니다. <code>검증:"검증완료"</code>이면 자동 확정되고, <code>"미검증"</code>이면 원본대조 표시가 유지됩니다.</p>
+        <textarea id="notionJson" class="jsonbox" placeholder='{
+  "property": {"고유번호":"", "면적":null, "지목":"", "건축물종류":"", "주택여부":null, "지분":"", "검증":"미검증"},
+  "seller":   {"등록번호":"", "주소":"", "검증":"미검증"},
+  "buyer":    {"등록번호":"", "주소":"", "검증":"미검증"}
+}'></textarea>
+        <div class="row" style="margin-top:10px;">
+          <button id="btnApplyEnrich">보강 적용</button>
         </div>
       </div>
+    </details>
+  </div>
 
-      <!-- 거래가격 -->
-      <div class="card">
-        <h2><span class="tag">금액</span> 실제 거래가격 <span class="db">→ 사건DB</span></h2>
-        <div class="row"><div>
-          <label>총 실제 거래가격(원) <span class="req">*</span></label>
-          <input id="total" inputmode="numeric" oninput="recalc()" placeholder="500000000">
-          <div class="money-ko" id="totalKo"></div>
-        </div></div>
-        <div class="row">
-          <div><label>계약금(원)</label><input id="down" inputmode="numeric" oninput="recalc()">
-            <div class="money-ko" id="downKo"></div></div>
-          <div><label>중도금(원)</label><input id="mid" inputmode="numeric" oninput="recalc()">
-            <div class="money-ko" id="midKo"></div></div>
-          <div><label>잔금(원)</label><input id="bal" inputmode="numeric" oninput="recalc()">
-            <div class="money-ko" id="balKo"></div></div>
-        </div>
-        <div class="row">
-          <div><label>계약일 <span class="req">*</span></label><input type="date" id="cDate" onchange="recalc()"></div>
-          <div><label>중도금 지급일</label><input type="date" id="mDate"></div>
-          <div><label>잔금 지급일</label><input type="date" id="bDate"></div>
-        </div>
-        <div class="row"><div><label>계약의 조건 및 참고사항</label>
-          <textarea id="cond" placeholder="해제조건·특약 등"></textarea></div></div>
-      </div>
+  <!-- STEP 3 -->
+  <div class="card hidden" id="step3card">
+    <h2><span class="num">3</span> 검증 체크리스트 — 원본대조</h2>
+    <p class="desc">
+      값을 직접 수정할 수 있고, 등기부·대장·신분증 등 원본과 대조를 마친 항목은
+      "대조완료" 체크박스를 눌러 확정하세요. 체크되지 않은 <b>원본대조 필요</b> 항목은
+      신고서에 노란색으로 표시됩니다.
+    </p>
+    <div class="banner-red" id="redBanner">⚠️ 원본대조가 필요한 항목이 <span id="redCount">0</span>건 남아 있습니다.</div>
+    <div class="checklist-scroll">
+      <table class="checklist" id="checklistTable">
+        <thead>
+          <tr><th style="width:30%">필드(신고서 표기명)</th><th style="width:26%">값</th><th style="width:14%">소스</th><th style="width:14%">상태</th><th style="width:8%">대조완료</th></tr>
+        </thead>
+        <tbody id="checklistBody"></tbody>
+      </table>
     </div>
   </div>
+
+  <!-- STEP 4 -->
+  <div class="card hidden" id="step4card">
+    <h2><span class="num">4</span> 신고서 문서 생성</h2>
+    <p class="desc">부동산거래계약 신고서(별지 제1호서식) 형태로 문서를 만듭니다. 검토·인쇄·저장 후 법무사가 직접 신고에 사용하세요.</p>
+    <div class="row">
+      <button id="btnGenerateReport" class="primary">신고서 생성</button>
+      <button id="btnPrint" disabled>새 창에서 인쇄</button>
+      <button id="btnDownloadHtml" disabled>HTML로 저장</button>
+      <button id="btnDownloadJson" disabled>데이터(JSON) 저장</button>
+    </div>
+    <div style="margin-top:14px;">
+      <iframe id="reportFrame" class="hidden"></iframe>
+    </div>
+  </div>
+
+  <div class="footnote">
+    신고기한: 계약체결일부터 30일 이내 · 근거: 「부동산 거래신고 등에 관한 법률」 제3조 / 시행령 제3조·별표1 / 시행규칙 제2조·별지 제1호서식.<br>
+    서식·자금조달 기준·규제지역은 개정이 잦으니, 신고 전 국토교통부 부동산거래관리시스템(rtms.molit.go.kr)에서 최신 기준을 확인하세요.<br>
+    STEP 2의 "노션에서 불러오기"는 n8n 웹훅(인터넷)을 사용하며, .docx 파싱에는 JSZip 라이브러리(cdnjs) 로딩을 위해 인터넷 연결이 필요합니다. 웹훅 조회 시 사건번호와 시크릿만 전송되고 노션 값을 응답으로 받습니다.
+  </div>
+
 </div>
 
-<!-- ============ 인쇄용 서식 (별지 제1호서식 형태) ============ -->
-<div id="print"></div>
-
 <script>
-/* ---------- 유틸 ---------- */
-const $=id=>document.getElementById(id);
-const won=v=>{const n=String(v||'').replace(/[^0-9]/g,'');return n?Number(n).toLocaleString('ko-KR'):''};
-const num=v=>Number(String(v||'').replace(/[^0-9]/g,''))||0;
+(function(){
+  "use strict";
 
-/* 금액 한글 (억/만 단위) */
-function toKorean(n){
-  n=num(n); if(!n) return '';
-  const u=['','만','억','조'];let s='',i=0,r=n;
-  const small=v=>{const d=['','일','이','삼','사','오','육','칠','팔','구'],p=['','십','백','천'];
-    let t='',j=0;while(v>0){const x=v%10;if(x)t=d[x]+p[j]+t;v=Math.floor(v/10);j++}return t};
-  while(r>0){const part=r%10000;if(part)s=small(part)+u[i]+s;r=Math.floor(r/10000);i++}
-  return '金'+s+'원정';
-}
+  const AUTO='auto', CHK='check', RED='red', VERIFIED='verified';
 
-/* ---------- 당사자 행 ---------- */
-let pid=0;
-function addParty(box,role,data={}){
-  pid++; const id='p'+pid;
-  const isCorp=data.type==='법인';
-  const el=document.createElement('div');
-  el.className='pcard'; el.dataset.role=role; el.id=id;
-  el.innerHTML=`
-    <button class="del" onclick="this.parentNode.remove();recalc()">삭제</button>
-    <div class="row">
-      <div style="max-width:120px"><label>구분</label>
-        <select onchange="recalc()" data-f="type">
-          <option value="개인"${!isCorp?' selected':''}>개인</option>
-          <option value="법인"${isCorp?' selected':''}>법인</option>
-        </select></div>
-      <div><label>성명 / 법인명 <span class="req">*</span></label>
-        <input data-f="name" value="${data.name||''}" oninput="recalc()"></div>
-      <div style="max-width:90px"><label>거래지분</label>
-        <input data-f="share" value="${data.share||'1/1'}"></div>
-    </div>
-    <div class="row">
-      <div><label>주민(법인·외국인)등록번호 <span class="req">*</span></label>
-        <input data-f="rrn" value="${data.rrn||''}" oninput="recalc()" placeholder="000000-0000000"></div>
-      <div><label>전화 / 휴대전화</label><input data-f="tel" value="${data.tel||''}"></div>
-    </div>
-    <div class="row"><div><label>주소(법인 소재지) <span class="req">*</span></label>
-      <input data-f="addr" value="${data.addr||''}" oninput="recalc()"></div></div>`;
-  $(box).appendChild(el);
-  if(!data.name) recalc();
-}
-function readParties(box){
-  return [...$(box).children].map(c=>{
-    const g=f=>{const e=c.querySelector(`[data-f="${f}"]`);return e?e.value.trim():''};
-    return {role:c.dataset.role,type:g('type'),name:g('name'),rrn:g('rrn'),
-      tel:g('tel'),addr:g('addr'),share:g('share')};
-  });
-}
+  function F(value, source, verify){ return {value, source, verify}; }
 
-/* ---------- 핵심 재계산 ---------- */
-function recalc(){
-  // 금액 한글
-  $('totalKo').textContent=toKorean($('total').value);
-  $('downKo').textContent=toKorean($('down').value);
-  $('midKo').textContent=toKorean($('mid').value);
-  $('balKo').textContent=toKorean($('bal').value);
-  ['total','down','mid','bal'].forEach(k=>{const e=$(k);const p=e.selectionStart;e.value=won(e.value);});
-
-  const sellers=readParties('sellers'), buyers=readParties('buyers');
-  const total=num($('total').value), down=num($('down').value),
-        mid=num($('mid').value), bal=num($('bal').value);
-
-  /* 신고기한 D-day */
-  const dl=$('deadline'); const cd=$('cDate').value;
-  if(cd){
-    const c=new Date(cd); const due=new Date(c); due.setDate(due.getDate()+30);
-    const today=new Date(); today.setHours(0,0,0,0);
-    const left=Math.ceil((due-today)/86400000);
-    const ds=due.toLocaleDateString('ko-KR');
-    if(left<0){dl.className='deadline over';
-      dl.innerHTML=`⛔ 신고기한 ${Math.abs(left)}일 경과 (기한 ${ds})<small>법 제28조 과태료 대상 — 즉시 확인 필요</small>`;}
-    else if(left<=7){dl.className='deadline soon';
-      dl.innerHTML=`⚠ 신고기한 D-${left} (${ds}까지)<small>마감 임박 — 우선 처리 권장</small>`;}
-    else{dl.className='deadline safe';
-      dl.innerHTML=`✅ 신고기한 D-${left} (${ds}까지)<small>계약일+30일 · 「부동산거래신고법」 제3조</small>`;}
-  } else {dl.className='deadline safe';dl.textContent='계약일을 입력하세요';}
-
-  /* 자금조달·입주계획서 판정 (주택 매수 가정) */
-  const fund=$('fund'); const isHouse=/주택|아파트|연립|다세대|단독|빌라|오피스텔/.test($('propUse').value);
-  const corpBuyer=buyers.some(b=>b.type==='법인');
-  const reg=$('regZone').checked;
-  let fneed='no',fmsg='자금조달·입주계획서: 해당 가능성 낮음(개별 확인)';
-  if($('dealType').value!=='매매' && /분양|입주/.test($('dealType').value)){
-    // 분양권/입주권도 주택 관련 시 제출대상 가능
+  function wonToInt(text){
+    if(!text) return null;
+    let m = text.match(/[₩￦]\s*([\d,]+)/);
+    if(m && m[1].replace(/,/g,'')!==''){ return parseInt(m[1].replace(/,/g,''),10); }
+    let nums = text.match(/[\d,]{2,}/g);
+    if(nums && nums.length){ return parseInt(nums[nums.length-1].replace(/,/g,''),10); }
+    return text.includes('원') ? 0 : null;
   }
-  if(corpBuyer){fneed='need';fmsg='🔴 법인 주택 매수 → 자금조달계획서 제출대상(지역·금액 무관). 매수인 행 확인.';}
-  else if(reg && isHouse){fneed='need';fmsg='🔴 규제지역 주택 → 자금조달계획서 제출대상(금액 무관).';}
-  else if(isHouse && total>=600000000){fneed='need';fmsg='🔴 비규제지역 주택 6억원 이상 → 자금조달계획서 제출대상.';}
-  else if(isHouse){fneed='maybe';fmsg='🟡 주택 거래 — 지역/금액/주체에 따라 자금조달계획서 필요할 수 있음. 별지 제1호의3서식 확인.';}
-  fund.className='fund '+(fneed==='need'?'need':fneed==='maybe'?'maybe':'no');
-  fund.textContent=fmsg;
 
-  /* 검증 항목 */
-  const items=[];
-  const add=(t,k)=>items.push({t,k});
-  if(sellers.length===0) add('매도인 1명 이상 입력','warn'); else add(`매도인 ${sellers.length}명`,'ok');
-  if(buyers.length===0) add('매수인 1명 이상 입력','warn'); else add(`매수인 ${buyers.length}명`,'ok');
-  // 등록번호 13자리(개인/법인 모두 13자리)
-  [...sellers,...buyers].forEach(p=>{
-    if(p.name){
-      const d=p.rrn.replace(/[^0-9]/g,'');
-      if(d.length!==13) add(`${p.role} ${p.name}: 등록번호 13자리 아님(🔴 원본 대조)`,'warn');
+  function kdateToIso(text){
+    if(!text) return null;
+    const m = text.match(/(\d{4})\s*년\s*(\d{1,2})\s*월\s*(\d{1,2})\s*일/);
+    if(!m) return null;
+    const y=+m[1], mo=+m[2], d=+m[3];
+    return String(y).padStart(4,'0')+'-'+String(mo).padStart(2,'0')+'-'+String(d).padStart(2,'0');
+  }
+
+  function cleanName(name){
+    if(!name) return name;
+    let n = name.replace(/\(\s*인\s*\)/g,'');
+    n = n.replace(/[（(]\s*[印인]\s*[）)]/g,'');
+    return n.trim();
+  }
+
+  function partyType(name){
+    if(!name) return 'individual';
+    const n = name.replace(/\s/g,'');
+    if(/(종중|종친회|문중|종회|교회|사찰|향우회|단체)/.test(n)) return 'unincorporated';
+    if(/(주식회사|유한회사|유한책임회사|합자회사|합명회사|사단법인|재단법인|법인|㈜)/.test(n)) return 'corporate';
+    return 'individual';
+  }
+  function idKind(pt){ return {individual:'주민등록번호', corporate:'법인등록번호', unincorporated:'부동산등기용등록번호'}[pt] || '주민등록번호'; }
+  function ptypeKo(pt){ return {individual:'개인', corporate:'법인', unincorporated:'비법인사단'}[pt] || '개인'; }
+
+  function parseRealestate(blob){
+    const r={};
+    const dgw = blob.match(/대지권의?\s*비율\s*[:：]?\s*([\d.]+)\s*분의\s*([\d.]+)/);
+    const isJibhap = !!dgw || blob.includes('전유부분') || blob.includes('대지권');
+    r.kind = F(isJibhap ? '토지 및 건축물(집합)' : null, 'docx/부동산DB', isJibhap?AUTO:CHK);
+    const sojae = blob.match(/(경상[남북]도|서울|부산|대구|인천|광주|대전|울산|세종|경기도|강원|충청[남북]도|전라[남북]도|제주)[^\n]*?\d+-?\d*/);
+    r.address = F(sojae ? sojae[0].trim() : null, 'docx/부동산DB', RED);
+    const dongho = blob.match(/(제\s*\d+\s*층\s*제\s*\d+\s*호|\d+동\s*\d+호)/);
+    r.unit = F(dongho ? dongho[0].replace(/\s/g,'') : null, 'docx', RED);
+    const area = blob.match(/([\d.]+)\s*㎡/);
+    r.bldg_area = F(area ? parseFloat(area[1]) : null, 'docx/원본대장', RED);
+    const st = blob.match(/(철근콘크리트조|철골조|벙돌조|목조|석조|블록조)/);
+    r.structure = F(st ? st[1] : null, 'docx', CHK);
+    if(dgw){
+      const share=parseFloat(dgw[2]);
+      r.land_share_ratio = F(dgw[1]+'분의 '+dgw[2], 'docx', RED);
+      r.land_area = F(parseFloat(dgw[1]), 'docx/원본대장', RED);
+      r.contract_land_area = F(Math.round(share*10000)/10000, '계산(대지권지분)', RED);
+    } else {
+      r.land_share_ratio = F(null,'docx',CHK);
+      r.land_area = F(null,'docx/원본대장',RED);
+      r.contract_land_area = F(null,'계산',RED);
     }
-  });
-  if(!$('addr').value) add('부동산 소재지 입력','warn');
-  if(!total) add('총 거래가격 입력','warn');
-  else add(`총액 ${won(total)}원`,'info');
-  // 금액 합계 일치
-  if(total && (down||mid||bal)){
-    const sum=down+mid+bal;
-    if(sum!==total) add(`계약금+중도금+잔금(${won(sum)}) ≠ 총액(${won(total)}) — 🔴 금액 재확인`,'warn');
-    else add('대금 분할 합계 일치 ✓','ok');
+    r.jimok = F(blob.includes('대지권') ? '대' : null, 'docx/원본대장', RED);
+    r.property_uid = F(null, '부동산DB.고유번호', RED);
+    return r;
   }
-  if(!$('cDate').value) add('계약일 입력(신고기한 기산점)','warn');
-  if(!$('office').value) add('신고관청 입력','warn');
-  add('제출 전 법무사 최종 검토 필수','info');
 
-  $('status').innerHTML=items.map(i=>
-    `<div class="item"><span class="dot ${i.k}"></span><span>${i.t}</span></div>`).join('');
-}
+  function parseMoney(blob, paras){
+    const lines = blob.split('\n');
+    function line(re){
+      const cand = lines.filter(ln=>re.test(ln));
+      const moneyLines = cand.filter(ln=> ln.includes('₩')||ln.includes('￦')||/금\s*[\d,]/.test(ln)||ln.includes('원'));
+      const pool = moneyLines.length?moneyLines:cand;
+      return pool.length?pool[0]:'';
+    }
+    const total = wonToInt(line(/매매대금/));
+    const down = wonToInt(line(/계\s*약\s*금/));
+    const midLine = line(/중\s*도\s*금/);
+    const mid = wonToInt(midLine);
+    const balLine = line(/잔\s*금/);
+    const bal = wonToInt(balLine);
+    const balDate = kdateToIso(balLine);
+    const midDate = kdateToIso(midLine);
+    let contractDate=null;
+    for(const p of (paras||[])){
+      if(/^\s*\d{4}\s*년\s*\d{1,2}\s*월\s*\d{1,2}\s*일\s*$/.test(p)){ contractDate=kdateToIso(p); break; }
+    }
+    if(!contractDate){
+      const ad = blob.match(/\d{4}\s*년\s*\d{1,2}\s*월\s*\d{1,2}\s*일/g);
+      contractDate = (ad && ad.length) ? kdateToIso(ad[ad.length-1]) : null;
+    }
+    return {
+      total_price: F(total,'docx',RED),
+      down_payment: F(down,'docx',RED),
+      mid_payment: F(mid!==null?mid:0,'docx',RED),
+      balance: F(bal,'docx',RED),
+      contract_date: F(contractDate,'docx',RED),
+      mid_date: F(midDate,'docx',RED),
+      balance_date: F(balDate,'docx',RED),
+    };
+  }
 
-/* ---------- 인쇄 서식 빌드 ---------- */
-function pcell(p){
-  return `${p.name||'&nbsp;'} (${p.type})<br>등록번호: ${p.rrn||'&nbsp;'} / 지분: ${p.share||''}<br>
-    주소: ${p.addr||'&nbsp;'}${p.tel?'<br>연락처: '+p.tel:''}`;
-}
-function buildPrint(){
-  const sellers=readParties('sellers'), buyers=readParties('buyers');
-  const total=num($('total').value);
-  const g=id=>$(id).value||'';
-  const sRows=sellers.map(p=>`<tr><td class="lbl">매도인</td><td colspan="3">${pcell(p)}</td></tr>`).join('')
-    ||`<tr><td class="lbl">매도인</td><td colspan="3">&nbsp;</td></tr>`;
-  const bRows=buyers.map(p=>`<tr><td class="lbl">매수인</td><td colspan="3">${pcell(p)}</td></tr>`).join('')
-    ||`<tr><td class="lbl">매수인</td><td colspan="3">&nbsp;</td></tr>`;
-  $('print').innerHTML=`
-    <div class="formno">■ 부동산 거래신고 등에 관한 법률 시행규칙 [별지 제1호서식]</div>
-    <div class="ttl">부동산거래계약 신고서</div>
-    <div style="font-size:9px;text-align:right;margin-bottom:3px">
-      처리기간: 지체 없이 &nbsp;|&nbsp; ※[ ]에는 해당하는 곳에 √표</div>
-    <table>
-      <tr><td class="sec" colspan="4">① 신고인 (거래당사자)</td></tr>
-      ${sRows}${bRows}
-      <tr><td class="lbl">개업<br>공인중개사</td><td colspan="3">
-        상호: ${g('agentName')||'&nbsp;'} / 대표자: ${g('agentCeo')} / 등록번호: ${g('agentReg')}<br>
-        소재지: ${g('agentAddr')} / 전화: ${g('agentTel')}</td></tr>
-    </table>
-    <table style="margin-top:4px">
-      <tr><td class="sec" colspan="4">② 거래대상</td></tr>
-      <tr><td class="lbl" style="width:18%">종류</td>
-        <td colspan="3">[${g('dealType')}] / ${g('propType')} ${g('propUse')?'('+g('propUse')+')':''}</td></tr>
-      <tr><td class="lbl">소재지·지번</td><td colspan="3">${g('addr')||'&nbsp;'}</td></tr>
-      <tr>
-        <td class="lbl">지목</td><td>${g('jimok')||'&nbsp;'}</td>
-        <td class="lbl" style="width:18%">토지면적</td><td>${g('landArea')?g('landArea')+' ㎡ (지분 '+(g('landShare')||'1/1')+')':'&nbsp;'}</td></tr>
-      <tr>
-        <td class="lbl">건축물면적</td><td>${g('bldgArea')?g('bldgArea')+' ㎡ (지분 '+(g('bldgShare')||'1/1')+')':'&nbsp;'}</td>
-        <td class="lbl">대지권비율</td><td>${g('landRight')||'&nbsp;'}</td></tr>
-    </table>
-    <table style="margin-top:4px">
-      <tr><td class="sec" colspan="4">③ 실제 거래가격</td></tr>
-      <tr><td class="lbl" style="width:18%">총 거래가격</td>
-        <td colspan="3"><b>${won(total)} 원</b> &nbsp; (${toKorean(total)})</td></tr>
-      <tr>
-        <td class="lbl">계약금</td><td>${won(g('down'))} 원</td>
-        <td class="lbl">계약일</td><td>${g('cDate')||'&nbsp;'}</td></tr>
-      <tr>
-        <td class="lbl">중도금</td><td>${won(g('mid'))} 원</td>
-        <td class="lbl">중도금일</td><td>${g('mDate')||'&nbsp;'}</td></tr>
-      <tr>
-        <td class="lbl">잔금</td><td>${won(g('bal'))} 원</td>
-        <td class="lbl">잔금일</td><td>${g('bDate')||'&nbsp;'}</td></tr>
-      <tr><td class="lbl">계약조건·참고</td><td colspan="3">${g('cond')||'&nbsp;'}</td></tr>
-    </table>
-    <div class="foot">
-      「부동산 거래신고 등에 관한 법률」 제3조제1항부터 제4항까지 및 같은 법 시행규칙 제2조제1항부터 제4항까지의
-      규정에 따라 위와 같이 부동산거래계약 내용을 신고합니다.
-    </div>
-    <div class="sign">
-      신고일: &nbsp;&nbsp;&nbsp; 년 &nbsp; 월 &nbsp; 일<br><br>
-      신고인(매도인) ___________________ (서명 또는 인)<br><br>
-      신고인(매수인) ___________________ (서명 또는 인)<br><br>
-      ${g('office')||'시장·군수·구청장'} &nbsp;귀하
-    </div>
-    <div class="foot" style="margin-top:10px;border-top:1px solid #000;padding-top:5px">
-      ※ 신고기한: 계약체결일부터 30일 이내. 미신고·거짓신고 시 법 제28조에 따라 과태료가 부과됩니다.<br>
-      ※ 규제지역 주택, 법인 주택 매수, 비규제지역 6억원 이상 주택 등은 「주택취득자금 조달 및 입주계획서」(별지 제1호의3서식) 동시 제출.
-    </div>`;
-}
-function doPrint(){recalc();buildPrint();window.print();}
+  function partyBlock(rows, kw){
+    let name=null,num=null,tel=null,addr=null;
+    for(let i=0;i<rows.length;i++){
+      const row=rows[i];
+      const joined = row.join(' ');
+      if(joined.includes(kw) && joined.includes('성명')){
+        const after=(k)=>{
+          for(let j=0;j<row.length;j++){ if(row[j].includes(k) && j+1<row.length) return row[j+1].trim(); }
+          return null;
+        };
+        name = after('성명');
+        num = after('주민등록번호') || after('등록번호') || after('법인등록번호');
+        tel = after('전화');
+        if(i+1<rows.length){
+          const nxt = rows[i+1];
+          if(nxt.join(' ').includes('주소')){
+            for(let j=0;j<nxt.length;j++){ if(nxt[j].includes('주소') && j+1<nxt.length){ addr = nxt[j+1].trim(); break; } }
+          }
+        }
+        break;
+      }
+    }
+    if(!name) return null;
+    name = cleanName(name);
+    let rep=null, nameClean;
+    const rm = name.match(/대표자\s*([가-힣]{2,4})/);
+    if(rm){ rep=rm[1]; nameClean = name.replace(/\s*대표자.*$/,'').trim(); } else { nameClean = name.trim(); }
+    const pt = partyType(nameClean);
+    const block = {
+      party_type: F(ptypeKo(pt),'docx',RED),
+      name: F(nameClean,'docx/노션',RED),
+      id_kind: F(idKind(pt),'docx',RED),
+      id_number: F(num,'docx/노션',RED),
+      address: F(addr,'docx/노션',RED),
+      tel: F(tel,'docx',CHK),
+      nationality: F('대한민국','사람입력',CHK),
+      share: F('1/1','docx/부동산DB.지분',CHK),
+    };
+    if(rep) block.representative = F(rep,'docx',RED);
+    return block;
+  }
 
-/* ---------- 저장/불러오기 (작업자료 연동) ---------- */
-function collect(){
-  const g=id=>$(id).value;
-  return{__type:'LOAS_부동산거래신고서',version:1,savedAt:new Date().toISOString(),
-    caseNo:g('caseNo'),clientName:g('clientName'),dealType:g('dealType'),office:g('office'),
-    sellers:readParties('sellers'),buyers:readParties('buyers'),
-    agent:{name:g('agentName'),ceo:g('agentCeo'),reg:g('agentReg'),tel:g('agentTel'),addr:g('agentAddr')},
-    propType:g('propType'),propUse:g('propUse'),addr:g('addr'),jimok:g('jimok'),
-    landArea:g('landArea'),landShare:g('landShare'),bldgArea:g('bldgArea'),bldgShare:g('bldgShare'),landRight:g('landRight'),
-    total:g('total'),down:g('down'),mid:g('mid'),bal:g('bal'),
-    cDate:g('cDate'),mDate:g('mDate'),bDate:g('bDate'),cond:g('cond'),regZone:$('regZone').checked};
-}
-function saveJSON(){
-  const d=collect();
-  const fn=`${d.caseNo||'사건번호'}_부동산거래신고서.json`;
-  const blob=new Blob([JSON.stringify(d,null,2)],{type:'application/json'});
-  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fn;a.click();
-  alert(`저장 완료: ${fn}\n→ 사건폴더 [02_작업자료]에 보관하세요.`);
-}
-function loadJSON(ev){
-  const f=ev.target.files[0];if(!f)return;
-  const r=new FileReader();
-  r.onload=e=>{try{apply(JSON.parse(e.target.result));}catch(x){alert('파일을 읽을 수 없습니다.');}};
-  r.readAsText(f);
-}
-function apply(d){
-  const set=(id,v)=>{if($(id))$(id).value=v||''};
-  set('caseNo',d.caseNo);set('clientName',d.clientName);set('dealType',d.dealType);set('office',d.office);
-  $('sellers').innerHTML='';$('buyers').innerHTML='';
-  (d.sellers||[]).forEach(p=>addParty('sellers','매도인',p));
-  (d.buyers||[]).forEach(p=>addParty('buyers','매수인',p));
-  if(d.agent){set('agentName',d.agent.name);set('agentCeo',d.agent.ceo);set('agentReg',d.agent.reg);
-    set('agentTel',d.agent.tel);set('agentAddr',d.agent.addr);}
-  ['propType','propUse','addr','jimok','landArea','landShare','bldgArea','bldgShare','landRight',
-   'total','down','mid','bal','cDate','mDate','bDate','cond'].forEach(k=>set(k,d[k]));
-  $('regZone').checked=!!d.regZone;
-  recalc();
-}
+  function partyRegexFallback(blob){
+    const out={seller:[],buyer:[]};
+    const roleKw={seller:'매도인', buyer:'매수인'};
+    for(const role in roleKw){
+      const kw=roleKw[role];
+      const re = new RegExp(kw+"[\\s\\S]{0,120}?성명\\s*([가-힣()A-Za-z0-9 ]+)");
+      const m = blob.match(re);
+      if(m){
+        const nm = cleanName(m[1].trim());
+        const pt = partyType(nm);
+        out[role].push({
+          party_type: F(ptypeKo(pt),'docx',RED),
+          name: F(nm,'docx',RED),
+          id_kind: F(idKind(pt),'docx',RED),
+          id_number: F(null,'docx/노션',RED),
+          address: F(null,'docx/노션',RED),
+          tel: F(null,'docx',CHK),
+          nationality: F('대한민국','사람입력',CHK),
+          share: F('1/1','docx',CHK),
+        });
+      }
+    }
+    return out;
+  }
 
-/* ---------- 예시 ---------- */
-function loadSample(){
-  apply({caseNo:'260622-01',clientName:'김갑동',dealType:'매매',office:'부산광역시 해운대구청장',
-    sellers:[{type:'개인',name:'박을동',rrn:'600101-1234567',tel:'010-1111-2222',addr:'부산 해운대구 우동 50',share:'1/1'}],
-    buyers:[{type:'개인',name:'김갑동',rrn:'800202-1234567',tel:'010-3333-4444',addr:'부산 동래구 명륜동 10',share:'1/1'}],
-    agent:{name:'행복공인중개사',ceo:'이중개',reg:'12345-2024-00010',tel:'051-700-0000',addr:'부산 해운대구 우동'},
-    propType:'토지및건축물',propUse:'아파트',addr:'부산광역시 해운대구 우동 100 ○○아파트 101동 1001호',
-    jimok:'대',landArea:'45.5',landShare:'1/1',bldgArea:'84.97',bldgShare:'1/1',landRight:'45.5/12000',
-    total:'500000000',down:'50000000',mid:'150000000',bal:'300000000',
-    cDate:'2026-06-15',mDate:'2026-07-15',bDate:'2026-08-30',cond:'',regZone:false});
-}
+  function parseParties(tables, blob){
+    const result={seller:[],buyer:[]};
+    const roleKw={seller:'매도인',buyer:'매수인'};
+    for(const rows of tables){
+      const flat = rows.map(r=>r.join(' | ')).join('\n');
+      if(!flat.includes('매도인') && !flat.includes('매수인')) continue;
+      for(const role in roleKw){
+        const blk = partyBlock(rows, roleKw[role]);
+        if(blk && blk.name.value) result[role].push(blk);
+      }
+    }
+    if(result.seller.length===0 && result.buyer.length===0) return partyRegexFallback(blob);
+    return result;
+  }
 
-/* ---------- 초기화 ---------- */
-addParty('sellers','매도인');
-addParty('buyers','매수인');
-recalc();
+  function buildRegulation(realestate){
+    const addr = (realestate.address && realestate.address.value) || '';
+    const m = addr.match(/([가-힣]+시|[가-힣]+군|[가-힣]+구)/);
+    const sgg = m ? m[0].trim() : null;
+    return {
+      jurisdiction: F(sgg,'파생(소재지)',CHK),
+      is_housing: F(null,'부동산DB.종류',CHK),
+      adjusted_area: F(null,'고시조회',RED),
+      speculation_zone: F(null,'고시조회',RED),
+      funding_plan_required: F(null,'판정',CHK),
+      land_use_plan_required: F(null,'판정',CHK),
+    };
+  }
+
+  function emptyParty(){
+    return {
+      party_type: F(null,'사람입력',RED), name: F(null,'사람입력',RED),
+      id_kind: F(null,'사람입력',RED), id_number: F(null,'사람입력',RED),
+      address: F(null,'사람입력',RED), tel: F(null,'사람입력',CHK),
+      nationality: F('대한민국','사람입력',CHK), share: F('1/1','사람입력',CHK),
+    };
+  }
+  function emptyRealestate(){
+    return {
+      kind: F(null,'사람입력',CHK), address: F(null,'사람입력',RED), unit: F(null,'사람입력',RED),
+      bldg_area: F(null,'사람입력',RED), structure: F(null,'사람입력',CHK),
+      land_share_ratio: F(null,'사람입력',CHK), land_area: F(null,'사람입력',RED),
+      contract_land_area: F(null,'사람입력',RED), jimok: F(null,'사람입력',RED),
+      property_uid: F(null,'사람입력',RED),
+    };
+  }
+  function emptyMoney(){
+    return {
+      total_price: F(null,'사람입력',RED), down_payment: F(null,'사람입력',RED),
+      mid_payment: F(0,'사람입력',RED), balance: F(null,'사람입력',RED),
+      contract_date: F(null,'사람입력',RED), mid_date: F(null,'사람입력',RED),
+      balance_date: F(null,'사람입력',RED),
+    };
+  }
+
+  function buildData(filename, realestate, money, parties){
+    const propItem = Object.assign({}, realestate);
+    propItem.item_price = money.total_price;
+    propItem.contract_bldg_area = realestate.bldg_area;
+    return {
+      meta: {contract_file:F(filename,'docx',AUTO), report_type:F('매매(부동산거래계약)','사람입력',CHK), brokered:F(null,'사람입력',CHK)},
+      reporter: {role:F(null,'사람입력',CHK)},
+      parties: parties,
+      broker: {none:F(null,'사람입력',CHK)},
+      properties: [propItem],
+      money: money,
+      conditions: F('','docx',CHK),
+      regulation: buildRegulation(realestate),
+    };
+  }
+
+  async function readDocx(file){
+    const zip = await JSZip.loadAsync(file);
+    const entry = zip.file('word/document.xml');
+    if(!entry) throw new Error('word/document.xml을 찾을 수 없습니다 (올바른 .docx 파일인지 확인하세요).');
+    const xmlText = await entry.async('string');
+    const doc = new DOMParser().parseFromString(xmlText, 'application/xml');
+    const ns = 'http://schemas.openxmlformats.org/wordprocessingml/2006/main';
+    const body = doc.getElementsByTagNameNS(ns,'body')[0];
+    if(!body) throw new Error('문서 본문을 읽을 수 없습니다.');
+    function paraText(p){
+      const ts = p.getElementsByTagNameNS(ns,'t');
+      let s=''; for(const t of ts) s+=t.textContent;
+      return s;
+    }
+    const paras=[], tables=[];
+    for(const child of Array.from(body.children)){
+      if(child.namespaceURI===ns && child.localName==='p'){
+        const txt = paraText(child).trim();
+        if(txt) paras.push(txt);
+      } else if(child.namespaceURI===ns && child.localName==='tbl'){
+        const rows=[];
+        const trs = child.getElementsByTagNameNS(ns,'tr');
+        for(const tr of Array.from(trs)){
+          const cells=[];
+          for(const tc of Array.from(tr.children).filter(c=>c.namespaceURI===ns && c.localName==='tc')){
+            const ps = tc.getElementsByTagNameNS(ns,'p');
+            const parts=[]; for(const p of Array.from(ps)) parts.push(paraText(p));
+            cells.push(parts.join('\n').trim());
+          }
+          rows.push(cells);
+        }
+        tables.push(rows);
+      }
+    }
+    return {paras, tables};
+  }
+
+  function flatten(paras, tables){
+    const chunks = paras.slice();
+    for(const t of tables) for(const row of t) chunks.push(...row);
+    return chunks.join('\n');
+  }
+
+  function verifyFor(rec){ return (rec && rec['검증'] && String(rec['검증']).includes('검증완료')) ? VERIFIED : RED; }
+  function setf(field, value, verify){
+    if(!field || value===null || value===undefined || value==='') return false;
+    field.value = value; field.verify = verify; field.source = (field.source||'')+'+노션';
+    return true;
+  }
+  function enrich(data, notion){
+    const log=[];
+    const prop = notion.property || {};
+    if(data.properties && data.properties.length){
+      const p = data.properties[0];
+      const vv = verifyFor(prop);
+      const pairs = [['property_uid',prop['고유번호']],['land_area',prop['면적']],['jimok',prop['지목']],['land_share_ratio',prop['지분']]];
+      for(const [key,val] of pairs){ if(p[key] && setf(p[key], val, vv)) log.push('property.'+key+' <- '+val+' ('+vv+')'); }
+      if(prop['건축물종류']){ p.bldg_kind = F(prop['건축물종류'],'노션',vv); log.push('property.bldg_kind <- '+prop['건축물종류']); }
+      if('주택여부' in prop){ data.regulation.is_housing = F(prop['주택여부'],'노션',CHK); log.push('regulation.is_housing <- '+prop['주택여부']); }
+    }
+    for(const role of ['seller','buyer']){
+      const rec = notion[role] || {};
+      const arr = (data.parties && data.parties[role]) || [];
+      if(!arr.length) continue;
+      const party = arr[0];
+      const vv = verifyFor(rec);
+      if(setf(party.id_number, rec['등록번호'], vv)) log.push(role+'.id_number <- *** ('+vv+')');
+      if(setf(party.address, rec['주소'], vv)) log.push(role+'.address <- '+rec['주소']+' ('+vv+')');
+    }
+    return log;
+  }
+
+  function escapeHtml(s){
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+  function cellHtml(field){
+    if(!field) return '<span>&nbsp;</span>';
+    const v = field.value;
+    const isBlank = (v===null||v===undefined||v==='');
+    const inner = isBlank ? '&nbsp;' : escapeHtml(String(v));
+    const cls = field.verify===RED ? 'red' : '';
+    return '<span class="'+cls+'">'+inner+'</span>';
+  }
+  function wonFmt(v){
+    if(v===null||v===undefined||v==='') return '&nbsp;';
+    const num = Number(v);
+    if(Number.isNaN(num)) return escapeHtml(String(v));
+    return num.toLocaleString('ko-KR')+' 원';
+  }
+  function partyRowsHtml(data, role, roleKo){
+    const arr = (data.parties && data.parties[role]) || [];
+    return arr.map(p=>{
+      const rep = (p.representative && p.representative.value) ? ' (대표자 '+escapeHtml(p.representative.value)+')' : '';
+      return '<tr>'
+        +'<th>'+roleKo+'</th>'
+        +'<td>성명/명칭<br>'+cellHtml(p.name)+rep+'</td>'
+        +'<td>'+escapeHtml((p.id_kind&&p.id_kind.value)||'')+'<br>'+cellHtml(p.id_number)+'</td>'
+        +'<td>주소<br>'+cellHtml(p.address)+'</td>'
+        +'<td>국적/지분<br>'+escapeHtml((p.nationality&&p.nationality.value)||'')+' / '+escapeHtml((p.share&&p.share.value)||'')+'</td>'
+        +'</tr>';
+    }).join('');
+  }
+  function renderReport(data){
+    const m=data.money, reg=data.regulation, p0=(data.properties&&data.properties[0])||{};
+    const fundingNote = (reg.funding_plan_required && reg.funding_plan_required.value===true)
+      ? '<div class="note">※ 자금조달·입주계획서 제출 대상입니다. 항목은 매수인/직원이 직접 작성하십시오.</div>' : '';
+    const brokeredVal = data.meta.brokered && data.meta.brokered.value;
+    const brokered = brokeredVal===true ? '개업공인중개사 중개거래' : (brokeredVal===false ? '직거래(당사자 신고)' : '미정');
+    const midDateTxt = (m.mid_date && m.mid_date.value) ? escapeHtml(m.mid_date.value) : '없음';
+    const bldgKind = (p0.bldg_kind && p0.bldg_kind.value) ? (' / '+escapeHtml(p0.bldg_kind.value)) : '';
+    const conditionsTxt = (data.conditions && data.conditions.value) ? escapeHtml(data.conditions.value) : '&nbsp;';
+
+    return '<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>부동산거래계약 신고서</title>'
+    +'<style>'
+    +'body{font-family:"Malgun Gothic","맑은 고딕",sans-serif;font-size:13px;color:#111;margin:24px;}'
+    +'h1{text-align:center;font-size:20px;margin:4px 0 2px;}'
+    +'.sub{text-align:center;color:#555;margin-bottom:14px;}'
+    +'table{border-collapse:collapse;width:100%;margin-bottom:14px;}'
+    +'th,td{border:1px solid #666;padding:6px 8px;vertical-align:top;}'
+    +'th{background:#f0f2f5;white-space:nowrap;text-align:center;}'
+    +'.sec{background:#e8eef7;font-weight:700;}'
+    +'.red{background:#fff3bf;padding:0 3px;border-radius:3px;}'
+    +'.legend{font-size:12px;color:#666;margin-bottom:10px;}'
+    +'.note{background:#fff8e1;border:1px solid #f0d000;padding:8px;margin:10px 0;}'
+    +'.foot{font-size:12px;color:#555;margin-top:16px;border-top:1px solid #ccc;padding-top:8px;}'
+    +'@media print{ body{margin:8mm;} }'
+    +'</style></head><body>'
+    +'<h1>부동산거래계약 신고서</h1>'
+    +'<div class="sub">「부동산 거래신고 등에 관한 법률」 시행규칙 별지 제1호서식 · 계약체결일부터 30일 이내 신고</div>'
+    +'<div class="legend">노란색 표시 = 미검증(원본대조 필요) 값 · 신고 제출 전 반드시 확인</div>'
+    +'<table>'
+    +'<tr><th class="sec" colspan="4">① 신고 개요</th></tr>'
+    +'<tr><th>신고유형</th><td>'+escapeHtml((data.meta.report_type&&data.meta.report_type.value)||'')+'</td><th>신고관할</th><td>'+cellHtml(reg.jurisdiction)+'</td></tr>'
+    +'<tr><th>거래형태</th><td colspan="3">'+brokered+'</td></tr>'
+    +'</table>'
+    +'<table>'
+    +'<tr><th class="sec" colspan="5">② 거래당사자</th></tr>'
+    +'<tr><th>구분</th><th>성명/명칭</th><th>등록번호</th><th>주소</th><th>국적/지분</th></tr>'
+    +partyRowsHtml(data,'seller','매도인')
+    +partyRowsHtml(data,'buyer','매수인')
+    +'</table>'
+    +'<table>'
+    +'<tr><th class="sec" colspan="4">③ 거래대상 부동산</th></tr>'
+    +'<tr><th>종류</th><td>'+cellHtml(p0.kind)+bldgKind+'</td><th>부동산 고유번호</th><td>'+cellHtml(p0.property_uid)+'</td></tr>'
+    +'<tr><th>소재지</th><td>'+cellHtml(p0.address)+'</td><th>동·호수</th><td>'+cellHtml(p0.unit)+'</td></tr>'
+    +'<tr><th>지목/토지면적</th><td>'+cellHtml(p0.jimok)+' / '+cellHtml(p0.land_area)+' ㎡</td><th>대지권 비율</th><td>'+cellHtml(p0.land_share_ratio)+'</td></tr>'
+    +'<tr><th>건축물면적</th><td>'+cellHtml(p0.bldg_area)+' ㎡ ('+escapeHtml((p0.structure&&p0.structure.value)||'')+')</td><th>계약대상 토지면적</th><td>'+cellHtml(p0.contract_land_area)+' ㎡</td></tr>'
+    +'<tr><th>물건별 거래금액</th><td colspan="3">'+wonFmt(p0.item_price&&p0.item_price.value)+'</td></tr>'
+    +'</table>'
+    +'<table>'
+    +'<tr><th class="sec" colspan="4">④ 거래금액 및 일자</th></tr>'
+    +'<tr><th>총 실제 거래금액</th><td colspan="3"><b>'+wonFmt(m.total_price.value)+'</b></td></tr>'
+    +'<tr><th>계약금</th><td>'+wonFmt(m.down_payment.value)+'</td><th>계약체결일</th><td>'+cellHtml(m.contract_date)+'</td></tr>'
+    +'<tr><th>중도금</th><td>'+wonFmt(m.mid_payment.value)+'</td><th>중도금지급일</th><td>'+midDateTxt+'</td></tr>'
+    +'<tr><th>잔금</th><td>'+wonFmt(m.balance.value)+'</td><th>잔금지급일</th><td>'+cellHtml(m.balance_date)+'</td></tr>'
+    +'</table>'
+    +'<table>'
+    +'<tr><th class="sec" colspan="2">⑤ 계약의 조건·참고사항</th></tr>'
+    +'<tr><td colspan="2" style="height:40px">'+conditionsTxt+'</td></tr>'
+    +'</table>'
+    +fundingNote
+    +'<div class="foot">※ 이 문서는 RTMS 전자신고 전 검토·보관용 서식입니다. 실제 신고는 rtms.molit.go.kr 전자신고 또는 관할 시·군·구 제출로 완성되며, 거래당사자 공동 서명/전자인증 및 최종 제출은 사람이 수행합니다.</div>'
+    +'</body></html>';
+  }
+
+  const BOOL_PATHS = new Set(['meta.brokered','regulation.is_housing','regulation.funding_plan_required','regulation.land_use_plan_required','broker.none']);
+  const NUMERIC_KEYS = new Set(['total_price','down_payment','mid_payment','balance','land_area','bldg_area','contract_land_area']);
+  const SKIP_KEYS = new Set(['item_price','contract_bldg_area']);
+
+  function isLeafField(o){ return o && typeof o==='object' && !Array.isArray(o) && ('value' in o) && ('source' in o) && ('verify' in o); }
+
+  function collectAllFields(obj, path){
+    path = path || '';
+    let items = [];
+    if(isLeafField(obj)){ items.push([path,obj]); return items; }
+    if(Array.isArray(obj)){
+      obj.forEach((v,i)=>{ items = items.concat(collectAllFields(v, path+'['+i+']')); });
+    } else if(obj && typeof obj==='object'){
+      for(const k of Object.keys(obj)){
+        if(SKIP_KEYS.has(k)) continue;
+        items = items.concat(collectAllFields(obj[k], path?path+'.'+k:k));
+      }
+    }
+    return items;
+  }
+
+  function lastSeg(path){ const segs = path.match(/[^.\[\]]+/g); return segs[segs.length-1]; }
+
+  function getField(data, path){
+    const segs = path.match(/[^.\[\]]+/g);
+    let cur = data;
+    for(const s of segs){
+      if(cur==null) return null;
+      cur = /^\d+$/.test(s) ? cur[parseInt(s,10)] : cur[s];
+    }
+    return cur;
+  }
+
+  function badgeHtml(verify){
+    const map = {
+      red: ['원본대조 필요','badge-red'],
+      check: ['확인 필요','badge-check'],
+      verified: ['검증완료','badge-verified'],
+      auto: ['자동추출','badge-auto'],
+    };
+    const pair = map[verify] || ['—','badge-check'];
+    return '<span class="badge '+pair[1]+'">'+pair[0]+'</span>';
+  }
+
+  function selectHtml(path, val, opts){
+    return '<select data-path="'+escapeHtml(path)+'" class="cell-input">'
+      + '<option value="" '+(!val?'selected':'')+'>선택</option>'
+      + opts.map(o=>'<option value="'+escapeHtml(o)+'" '+(val===o?'selected':'')+'>'+escapeHtml(o)+'</option>').join('')
+      + '</select>';
+  }
+
+  function fieldInputHtml(path, field){
+    if(path==='conditions'){
+      return '<textarea data-path="'+escapeHtml(path)+'" rows="2" class="cell-input">'+escapeHtml(field.value||'')+'</textarea>';
+    }
+    if(BOOL_PATHS.has(path)){
+      const v = field.value;
+      return '<select data-path="'+escapeHtml(path)+'" class="cell-input">'
+        + '<option value="null" '+((v===null||v===undefined)?'selected':'')+'>미정</option>'
+        + '<option value="true" '+(v===true?'selected':'')+'>예</option>'
+        + '<option value="false" '+(v===false?'selected':'')+'>아니오</option>'
+        + '</select>';
+    }
+    const ls = lastSeg(path);
+    if(ls==='party_type') return selectHtml(path, field.value, ['개인','법인','비법인사단']);
+    if(ls==='id_kind') return selectHtml(path, field.value, ['주민등록번호','법인등록번호','외국인등록번호','부동산등기용등록번호']);
+    const v = (field.value===null||field.value===undefined)?'':field.value;
+    if(NUMERIC_KEYS.has(ls)){
+      return '<input type="number" data-path="'+escapeHtml(path)+'" class="cell-input" value="'+escapeHtml(v)+'">';
+    }
+    return '<input type="text" data-path="'+escapeHtml(path)+'" class="cell-input" value="'+escapeHtml(v)+'">';
+  }
+
+  const SEVERITY = {red:0, check:1, verified:2, auto:3};
+  let ALL_FIELDS = [];
+  let RTMS_DATA = null;
+
+  // 부동산거래계약 신고서(별지 제1호서식) 상의 실제 표기명 매핑
+  const FIELD_LABELS = {
+    'meta.contract_file': '원본 계약서 파일',
+    'meta.report_type': '신고서 종류',
+    'meta.brokered': '중개거래 여부',
+    'reporter.role': '신고인 구분',
+    'parties.seller.party_type': '구분(개인·법인·비법인사단)',
+    'parties.seller.name': '성명(법인명·단체명)',
+    'parties.seller.id_kind': '등록번호 종류',
+    'parties.seller.id_number': '주민등록번호(법인·부동산등기용등록번호)',
+    'parties.seller.address': '주소',
+    'parties.seller.tel': '연락처',
+    'parties.seller.nationality': '국적',
+    'parties.seller.share': '지분',
+    'parties.seller.representative': '대표자',
+    'parties.buyer.party_type': '구분(개인·법인·비법인사단)',
+    'parties.buyer.name': '성명(법인명·단체명)',
+    'parties.buyer.id_kind': '등록번호 종류',
+    'parties.buyer.id_number': '주민등록번호(법인·부동산등기용등록번호)',
+    'parties.buyer.address': '주소',
+    'parties.buyer.tel': '연락처',
+    'parties.buyer.nationality': '국적',
+    'parties.buyer.share': '지분',
+    'parties.buyer.representative': '대표자',
+    'broker.none': '개업공인중개사 미개입(직거래) 여부',
+    'properties.kind': '부동산 종류(토지/건축물/토지 및 건축물)',
+    'properties.address': '소재지',
+    'properties.unit': '동·호수',
+    'properties.bldg_area': '건축물 면적(전유부분, ㎡)',
+    'properties.structure': '건축물 구조·용도',
+    'properties.land_share_ratio': '대지권 비율',
+    'properties.land_area': '대지면적(㎡)',
+    'properties.contract_land_area': '계약면적 - 토지(㎡)',
+    'properties.jimok': '지목',
+    'properties.property_uid': '부동산 고유번호',
+    'properties.item_price': '물건별 거래가격',
+    'properties.contract_bldg_area': '계약면적 - 건축물(㎡)',
+    'properties.bldg_kind': '건축물 종류(공동주택·연립·단독 등)',
+    'money.total_price': '총 실제 거래가격(전체)',
+    'money.down_payment': '계약금',
+    'money.mid_payment': '중도금',
+    'money.balance': '잔금',
+    'money.contract_date': '계약체결일',
+    'money.mid_date': '중도금 지급일',
+    'money.balance_date': '잔금 지급일',
+    'conditions': '계약의 조건 및 참고사항',
+    'regulation.jurisdiction': '신고관청(제출법원 아님, 관할 시·군·구)',
+    'regulation.is_housing': '주택 여부',
+    'regulation.adjusted_area': '조정대상지역 여부',
+    'regulation.speculation_zone': '투기과열지구·투기지역 여부',
+    'regulation.funding_plan_required': '자금조달·입주계획서 제출대상 여부',
+    'regulation.land_use_plan_required': '토지이용계획서 제출대상 여부',
+  };
+  const PARTY_LABEL = {seller:'매도인', buyer:'매수인'};
+
+  function fieldLabel(path){
+    let m = path.match(/^parties\.(seller|buyer)\[(\d+)\]\.(.+)$/);
+    if(m){
+      const role = m[1], idx = parseInt(m[2],10), rest = m[3];
+      const label = FIELD_LABELS['parties.'+role+'.'+rest] || rest;
+      return PARTY_LABEL[role]+(idx+1)+' — '+label;
+    }
+    m = path.match(/^properties\[(\d+)\]\.(.+)$/);
+    if(m){
+      const idx = parseInt(m[1],10), rest = m[2];
+      const label = FIELD_LABELS['properties.'+rest] || rest;
+      return '거래대상부동산'+(idx+1)+' — '+label;
+    }
+    return FIELD_LABELS[path] || path;
+  }
+
+  function checklistRowHtml(path, field){
+    if(field._origVerify===undefined) field._origVerify = field.verify;
+    const idSafe = 'f_'+path.replace(/[^a-zA-Z0-9_]/g,'_');
+    return '<tr>'
+      +'<td class="path" title="'+escapeHtml(path)+'">'+escapeHtml(fieldLabel(path))+'</td>'
+      +'<td>'+fieldInputHtml(path, field)+'</td>'
+      +'<td class="src">'+escapeHtml(field.source||'')+'</td>'
+      +'<td id="badge_'+idSafe+'">'+badgeHtml(field.verify)+'</td>'
+      +'<td class="center"><input type="checkbox" class="verify-check" data-path="'+escapeHtml(path)+'" '+(field.verify===VERIFIED?'checked':'')+'></td>'
+      +'</tr>';
+  }
+
+  function renderChecklist(){
+    ALL_FIELDS = collectAllFields(RTMS_DATA);
+    ALL_FIELDS.forEach(([,f])=>{ if(f._origVerify===undefined) f._origVerify=f.verify; });
+    ALL_FIELDS.sort((a,b)=> (SEVERITY[a[1].verify]??9)-(SEVERITY[b[1].verify]??9) || a[0].localeCompare(b[0]));
+    document.getElementById('checklistBody').innerHTML = ALL_FIELDS.map(([p,f])=>checklistRowHtml(p,f)).join('');
+    updateRedCount();
+  }
+
+  function updateRedCount(){
+    const redN = ALL_FIELDS.filter(([,f])=>f.verify===RED).length;
+    document.getElementById('redCount').textContent = redN;
+    document.getElementById('redBanner').style.display = redN>0 ? '' : 'none';
+  }
+
+  function onFieldInput(e){
+    const path = e.target.getAttribute('data-path');
+    if(!path) return;
+    const field = getField(RTMS_DATA, path);
+    if(!field) return;
+    if(e.target.tagName==='SELECT'){
+      if(BOOL_PATHS.has(path)){
+        const v = e.target.value; field.value = v==='true'?true:(v==='false'?false:null);
+      } else {
+        field.value = e.target.value===''?null:e.target.value;
+      }
+    } else if(e.target.tagName==='TEXTAREA'){
+      field.value = e.target.value;
+    } else if(e.target.type==='number'){
+      field.value = e.target.value===''?null:Number(e.target.value);
+    } else {
+      field.value = e.target.value===''?null:e.target.value;
+    }
+  }
+
+  function onVerifyToggle(e){
+    const path = e.target.getAttribute('data-path');
+    const field = getField(RTMS_DATA, path);
+    if(!field) return;
+    field.verify = e.target.checked ? VERIFIED : (field._origVerify || CHK);
+    const idSafe = 'f_'+path.replace(/[^a-zA-Z0-9_]/g,'_');
+    const el = document.getElementById('badge_'+idSafe);
+    if(el) el.innerHTML = badgeHtml(field.verify);
+    updateRedCount();
+  }
+
+  function setStatus(id, msg, isErr){
+    const el = document.getElementById(id);
+    el.textContent = msg;
+    el.className = 'status'+(isErr?' err':'');
+  }
+
+  function summaryHtml(){
+    const m=RTMS_DATA.money, p0=RTMS_DATA.properties[0];
+    const sellerName = (RTMS_DATA.parties.seller[0] && RTMS_DATA.parties.seller[0].name.value) || '—';
+    const buyerName = (RTMS_DATA.parties.buyer[0] && RTMS_DATA.parties.buyer[0].name.value) || '—';
+    const priceTxt = m.total_price.value ? Number(m.total_price.value).toLocaleString('ko-KR')+'원' : '—';
+    return '<div class="summary-grid">'
+      +'<div><span class="k">매매대금</span><span class="v">'+escapeHtml(priceTxt)+'</span></div>'
+      +'<div><span class="k">계약일</span><span class="v">'+escapeHtml(m.contract_date.value||'—')+'</span></div>'
+      +'<div><span class="k">소재지</span><span class="v">'+escapeHtml(p0.address.value||'—')+'</span></div>'
+      +'<div><span class="k">매도인</span><span class="v">'+escapeHtml(sellerName)+'</span></div>'
+      +'<div><span class="k">매수인</span><span class="v">'+escapeHtml(buyerName)+'</span></div>'
+      +'</div>';
+  }
+
+  function afterDataReady(){
+    document.getElementById('summaryBox').innerHTML = summaryHtml();
+    document.getElementById('step2card').classList.remove('hidden');
+    document.getElementById('step3card').classList.remove('hidden');
+    document.getElementById('step4card').classList.remove('hidden');
+    renderChecklist();
+    document.getElementById('reportFrame').classList.add('hidden');
+    document.getElementById('btnPrint').disabled = true;
+    document.getElementById('btnDownloadHtml').disabled = true;
+    document.getElementById('btnDownloadJson').disabled = true;
+  }
+
+  async function parseDocxFile(file){
+    setStatus('status1','파싱 중…', false);
+    try{
+      const {paras, tables} = await readDocx(file);
+      const blob = flatten(paras, tables);
+      const realestate = parseRealestate(blob);
+      const money = parseMoney(blob, paras);
+      const parties = parseParties(tables, blob);
+      RTMS_DATA = buildData(file.name, realestate, money, parties);
+      afterDataReady();
+      setStatus('status1','파싱 완료 — '+file.name, false);
+    }catch(err){
+      console.error(err);
+      setStatus('status1','오류: '+err.message+' — 인터넷 연결(JSZip 로딩)을 확인하거나 "빈 양식으로 직접 입력"을 이용하세요.', true);
+    }
+  }
+
+  function loadSample(){
+    const paras = [
+      '제 2 조 매매대금과 지급조건',
+      '제3조(소유권 이전 등) 매도인은 잔금을 수령함과 동시에 소유권이전등기에 필요한 모든 서류를 교부하고 등기절차에 협력하며, 위 부동산에 인도일은 2026년 9월 23일로 한다.',
+      '2026년 5월 11일'
+    ];
+    const tables = [
+      [["부동산의표시","1동의 건물의 표시 경상남도 김해시 삼문동 79-5 소마빌딩 [도로명주소] 경상남도 김해시 능동로 31전유부분의 건물의 표시 건물의 번호 : 제3층 제301호 구조 및 면적 : 철근콘크리트조 70.29㎡전유부분의 대지권의 표시 토지의 표시 : 경상남도 김해시 삼문동 79-5 대 584.1㎡ 대지권의 종류 : 소유권대지권 대지권의 비율 : 584.1분의 31.3419- 이상 -"]],
+      [
+        ["매매대금 : 금 이억원(₩200,000,000)"],
+        ["계 약 금 : 금 이천만원(₩20,000,000)을 계약당시 지불하고 영수함 ( 인 )"],
+        ["중 도 금 : 금 원(₩)을 년 월 일까지 지불하며,"],
+        ["잔 금 : 금 일억팔천만원(₩180,000,000)을 2026년 9월 23일까지 지불한다."]
+      ],
+      [
+        ["매도인","성명","사천목씨재김종친회 대표자 목정민( 인 )","주민등록번호","196111-3838010","전화","010-9208-8213"],
+        ["주소","경상남도 김해시 장유로452번길 21(신문동)","","","","",""],
+        ["매수인","성명","박배선 ( 인 )","주민등록번호","651105-1930613","전화","010-8536-0678"],
+        ["주소","김해시 계동로76-56,605동 303호","","","","",""]
+      ]
+    ];
+    const blob = flatten(paras, tables);
+    const realestate = parseRealestate(blob);
+    const money = parseMoney(blob, paras);
+    const parties = parseParties(tables, blob);
+    RTMS_DATA = buildData('260705_01-박배선3-소유권이전(매매) 매매계약서.docx (샘플)', realestate, money, parties);
+    afterDataReady();
+    const sampleNotion = {
+      property:{'고유번호':'1955-2004-016642','면적':584.1,'지목':'대','건축물종류':'근린생활시설(주택아님)','주택여부':false,'지분':'584.1분의 31.3419','검증':'미검증'},
+      seller:{'등록번호':'196111-3838010','주소':'경상남도 김해시 장유로452번길 21(신문동)','검증':'검증완료'},
+      buyer:{'등록번호':'651105-1930613','주소':'김해시 계동로76-56,605동 303호','검증':'검증완료'}
+    };
+    document.getElementById('notionJson').value = JSON.stringify(sampleNotion, null, 2);
+    document.getElementById('caseNo').value = '260705_01';
+    enrich(RTMS_DATA, sampleNotion);
+    renderChecklist();
+    document.getElementById('summaryBox').innerHTML = summaryHtml();
+    setStatus('status1','샘플 계약서(박배선3, 삼문동 소마빌딩) + 노션 보강 예시를 자동 적용했습니다. 실제 사건은 STEP 2에서 "노션에서 불러오기"로 조회하세요.', false);
+  }
+
+  function loadEmpty(){
+    RTMS_DATA = buildData('(직접입력)', emptyRealestate(), emptyMoney(), {seller:[emptyParty()], buyer:[emptyParty()]});
+    afterDataReady();
+    setStatus('status1','빈 양식을 시작했습니다. STEP 3 체크리스트에서 값을 직접 입력하세요.', false);
+  }
+
+  // ── n8n 웹훅 연결 설정 ────────────────────────────────
+  const DEFAULT_WEBHOOK_URL = 'https://n8npark.app.n8n.cloud/webhook/rtms-notion-lookup-8x3k';
+  const DEFAULT_WEBHOOK_SECRET = 'RTMS_3e9c1a7f5b2d8e4a6c0f9d1b3a5e7c9f';
+  const CONN_KEY = 'rtms_conn_v1';
+
+  function loadConn(){
+    let saved = {};
+    try{ saved = JSON.parse(localStorage.getItem(CONN_KEY) || '{}'); }catch(e){}
+    document.getElementById('webhookUrl').value = saved.url || DEFAULT_WEBHOOK_URL;
+    document.getElementById('webhookSecret').value = saved.secret || DEFAULT_WEBHOOK_SECRET;
+  }
+  function getConn(){
+    return {
+      url: document.getElementById('webhookUrl').value.trim(),
+      secret: document.getElementById('webhookSecret').value.trim()
+    };
+  }
+  function saveConn(){
+    const c = getConn();
+    try{ localStorage.setItem(CONN_KEY, JSON.stringify(c)); }catch(e){}
+    setStatus('statusConn','설정을 이 브라우저에 저장했습니다.', false);
+  }
+
+  async function postWebhook(payload){
+    const {url} = getConn();
+    if(!url) throw new Error('웹훅 주소를 입력하세요 (연결 설정).');
+    // application/x-www-form-urlencoded = CORS "단순 요청" → preflight(OPTIONS) 없음.
+    // file:// (Origin: null)에서도 CORS 사전요청 차단 없이 호출됨. n8n은 form 필드를 body로 파싱.
+    const resp = await fetch(url, {
+      method:'POST',
+      headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},
+      body: new URLSearchParams(payload).toString()
+    });
+    const text = await resp.text();
+    let data;
+    try{ data = JSON.parse(text); }
+    catch(e){ throw new Error('응답 파싱 실패 (HTTP '+resp.status+'): '+text.slice(0,200)); }
+    return {resp, data};
+  }
+
+  async function testConn(){
+    setStatus('statusConn','연결 테스트 중…', false);
+    try{
+      const {secret} = getConn();
+      const {resp, data} = await postWebhook({사건번호:'__conn_test__', secret});
+      if(resp.status===403 || (data && data.error==='unauthorized')){
+        setStatus('statusConn','웹훅에는 연결되지만 시크릿이 올바르지 않습니다.', true); return;
+      }
+      setStatus('statusConn','연결 성공 (HTTP '+resp.status+') — 웹훅이 정상 응답합니다.', false);
+    }catch(err){
+      setStatus('statusConn','연결 실패: '+err.message+' (주소 확인 / n8n 워크플로 활성화 여부 확인)', true);
+    }
+  }
+
+  // ── 웹훅 응답 → enrich용 노션 객체 매핑 ────────────────
+  function normName(s){
+    return (s||'').replace(/\s/g,'')
+      .replace(/[（(]\s*[印인]\s*[）)]/g,'')
+      .replace(/\(인\)/g,'')
+      .replace(/대표자.*$/,'');
+  }
+  function buildNotionFromWebhook(res){
+    const notion = { property: res.property || {} };
+    const pool = Array.isArray(res.parties) ? res.parties.map((p,i)=>({p,i,used:false})) : [];
+    function matchRole(role){
+      const arr = (RTMS_DATA.parties && RTMS_DATA.parties[role]) || [];
+      const target = arr[0];
+      const tname = target ? normName(target.name.value) : '';
+      if(!tname) return null;
+      const hit = pool.find(x=>{
+        if(x.used) return false;
+        const pn = normName(x.p.상대방명);
+        return pn && (pn.indexOf(tname)>=0 || tname.indexOf(pn)>=0);
+      });
+      if(hit){ hit.used=true; return hit.p; }
+      return null;
+    }
+    const s = matchRole('seller'), b = matchRole('buyer');
+    if(s) notion.seller = {등록번호:s.등록번호, 주소:s.주소, 검증:s.검증};
+    if(b) notion.buyer  = {등록번호:b.등록번호, 주소:b.주소, 검증:b.검증};
+    return {notion, matchedSeller:s, matchedBuyer:b, unmatched: pool.filter(x=>!x.used).map(x=>x.p)};
+  }
+  function applyPartyMeta(role, party){
+    if(!party) return;
+    const arr = (RTMS_DATA.parties && RTMS_DATA.parties[role]) || [];
+    const t = arr[0];
+    if(!t) return;
+    if(party.구분){
+      const pt = party.구분==='법인' ? '법인' : '개인';
+      if(t.party_type){ t.party_type.value = pt; t.party_type.verify = CHK; }
+      if(t.id_kind){ t.id_kind.value = (pt==='법인') ? '법인등록번호' : '주민등록번호'; t.id_kind.verify = CHK; }
+    }
+    if(party.연락처 && t.tel && !t.tel.value){ t.tel.value = party.연락처; }
+  }
+
+  async function fetchNotion(){
+    const caseNo = document.getElementById('caseNo').value.trim();
+    if(!caseNo){ setStatus('status2','사건번호를 입력하세요.', true); return; }
+    if(!RTMS_DATA){ setStatus('status2','먼저 STEP 1에서 계약서(또는 샘플·빈 양식)를 불러오세요.', true); return; }
+    const {secret} = getConn();
+    setStatus('status2','노션에서 불러오는 중… (n8n 웹훅 조회)', false);
+    try{
+      const {resp, data} = await postWebhook({사건번호:caseNo, secret});
+      if(resp.status===403 || (data && data.error==='unauthorized')){
+        setStatus('status2','시크릿이 올바르지 않습니다. 연결 설정을 확인하세요.', true); return;
+      }
+      if(!resp.ok || !data || data.ok===false){
+        const reason = (data && (data.reason||data.message||data.error)) || ('HTTP '+resp.status);
+        setStatus('status2','조회 결과 없음/오류: '+reason, true); return;
+      }
+      const {notion, matchedSeller, matchedBuyer, unmatched} = buildNotionFromWebhook(data);
+      document.getElementById('notionJson').value = JSON.stringify(notion, null, 2);
+      const log = enrich(RTMS_DATA, notion);
+      applyPartyMeta('seller', matchedSeller);
+      applyPartyMeta('buyer', matchedBuyer);
+      renderChecklist();
+      document.getElementById('summaryBox').innerHTML = summaryHtml();
+      let msg = '노션 조회 완료 — '+log.length+'건 반영 · 매도인 '+(matchedSeller?'✓':'—')+' / 매수인 '+(matchedBuyer?'✓':'—');
+      if(unmatched && unmatched.length){
+        msg += ' · 이름 매칭 안 된 당사자 '+unmatched.length+'명('+unmatched.map(u=>u.상대방명).join(', ')+')은 STEP 3에서 직접 확인';
+      }
+      setStatus('status2', msg, false);
+    }catch(err){
+      setStatus('status2','불러오기 실패: '+err.message+' — 연결 설정의 웹훅 주소/네트워크(CORS)를 확인하세요.', true);
+    }
+  }
+
+  function applyEnrichFromTextarea(){
+    const raw = document.getElementById('notionJson').value.trim();
+    if(!raw){ setStatus('status2','JSON을 입력하세요.', true); return; }
+    let notion;
+    try{ notion = JSON.parse(raw); }
+    catch(err){ setStatus('status2','JSON 형식 오류: '+err.message, true); return; }
+    const log = enrich(RTMS_DATA, notion);
+    renderChecklist();
+    document.getElementById('summaryBox').innerHTML = summaryHtml();
+    setStatus('status2', log.length ? ('보강 적용 완료 — '+log.length+'건 반영') : '반영할 값이 없습니다 (필드명을 확인하세요).', false);
+  }
+
+  function downloadBlob(content, filename, mime){
+    const blob = new Blob([content], {type:mime});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = filename;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(()=>URL.revokeObjectURL(url), 2000);
+  }
+
+  function generateReport(){
+    const html = renderReport(RTMS_DATA);
+    const frame = document.getElementById('reportFrame');
+    frame.srcdoc = html;
+    frame.classList.remove('hidden');
+    document.getElementById('btnPrint').disabled = false;
+    document.getElementById('btnDownloadHtml').disabled = false;
+    document.getElementById('btnDownloadJson').disabled = false;
+    frame.dataset.html = html;
+  }
+
+  document.getElementById('docxFile').addEventListener('change', (e)=>{
+    const f = e.target.files[0];
+    if(f) parseDocxFile(f);
+  });
+  document.getElementById('btnSample').addEventListener('click', loadSample);
+  document.getElementById('btnEmpty').addEventListener('click', loadEmpty);
+  document.getElementById('btnFetchNotion').addEventListener('click', fetchNotion);
+  document.getElementById('btnSaveConn').addEventListener('click', saveConn);
+  document.getElementById('btnTestConn').addEventListener('click', testConn);
+  document.getElementById('btnApplyEnrich').addEventListener('click', applyEnrichFromTextarea);
+  loadConn();
+  document.getElementById('checklistTable').addEventListener('input', onFieldInput);
+  document.getElementById('checklistTable').addEventListener('change', (e)=>{
+    if(e.target.classList.contains('verify-check')) onVerifyToggle(e);
+    else if(e.target.tagName==='SELECT') onFieldInput(e);
+  });
+  document.getElementById('btnGenerateReport').addEventListener('click', generateReport);
+  document.getElementById('btnPrint').addEventListener('click', ()=>{
+    const frame = document.getElementById('reportFrame');
+    const w = window.open('', '_blank');
+    if(!w){ alert('팝업이 차단되었습니다. 팝업을 허용하거나 "HTML로 저장" 후 열어서 인쇄하세요.'); return; }
+    w.document.write(frame.dataset.html || renderReport(RTMS_DATA));
+    w.document.close();
+    setTimeout(()=>{ w.focus(); w.print(); }, 300);
+  });
+  document.getElementById('btnDownloadHtml').addEventListener('click', ()=>{
+    const html = document.getElementById('reportFrame').dataset.html || renderReport(RTMS_DATA);
+    const fname = (RTMS_DATA.meta.contract_file.value||'신고서').replace(/\.docx.*$/,'') + '_신고서.html';
+    downloadBlob(html, fname, 'text/html;charset=utf-8');
+  });
+  document.getElementById('btnDownloadJson').addEventListener('click', ()=>{
+    const clean = JSON.parse(JSON.stringify(RTMS_DATA, (k,v)=> k==='_origVerify' ? undefined : v));
+    downloadBlob(JSON.stringify(clean, null, 2), 'rtms_input.json', 'application/json');
+  });
+
+})();
 </script>
 </body>
 </html>
