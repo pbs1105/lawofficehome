@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>임차인 배당요구 지원 — 직원용 업무자료</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1a2e4a; --navy2:#2d4a7a; --gold:#c8a96e; --ivory:#faf8f5;
+    --sumbg:#eef2f8; --warnbg:#fff3e8; --warn:#c05000;
+    --casebg:#f7f4f0; --caseborder:#6b7280; --ok:#1a5c2e;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--ivory);color:#1f2733;
+       font-family:'Noto Sans KR',sans-serif;line-height:1.7;}
+  .wrap{max-width:920px;margin:0 auto;padding:24px 20px 60px;}
+  h1,h2{font-family:'Noto Serif KR',serif;color:var(--navy);}
+  h1{font-size:1.6rem;margin:.2em 0;}
+  h2{font-size:1.2rem;border-left:5px solid var(--gold);padding-left:12px;margin:2em 0 .8em;}
+
+  .staff-bar{display:flex;justify-content:space-between;align-items:center;
+    background:var(--navy);color:#fff;border-radius:8px;padding:8px 14px;font-size:.85rem;}
+  .staff-bar .tag{background:var(--gold);color:var(--navy);font-weight:700;
+    padding:2px 10px;border-radius:12px;}
+  .cat-badge{display:inline-block;background:var(--navy2);color:#fff;
+    font-size:.78rem;font-weight:600;padding:2px 10px;border-radius:12px;}
+
+  .flow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;}
+  .flow .step{flex:1 1 150px;background:#fff;border:1px solid #d8dde6;
+    border-radius:8px;padding:10px 12px;position:relative;}
+  .flow .step b{color:var(--navy2);display:block;font-size:.9rem;}
+  .flow .step span{font-size:.82rem;color:#5a6472;}
+
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9rem;background:#fff;}
+  th,td{border:1px solid #d8dde6;padding:8px 10px;text-align:left;vertical-align:top;}
+  th{background:var(--sumbg);color:var(--navy);}
+
+  .risk{font-weight:700;} .r-high{color:#c0392b;} .r-mid{color:#b8860b;} .r-low{color:#5a6472;}
+
+  .fee-box{background:#f4f7fb;border:1px solid var(--navy2);border-radius:8px;padding:4px 14px;margin:10px 0;}
+  .fee-note{font-size:.82rem;color:#5a6472;margin:6px 0;}
+
+  .warn{background:var(--warnbg);border:1px solid var(--warn);border-radius:8px;padding:10px 14px;margin:10px 0;}
+  .deadline{color:var(--warn);font-weight:700;}
+
+  .checklist{list-style:none;padding:0;}
+  .checklist li{background:#f0f8f0;border:1px solid var(--ok);border-radius:6px;
+    padding:8px 12px;margin:6px 0;font-size:.9rem;}
+  .checklist li::before{content:"☐ ";color:var(--ok);font-weight:700;}
+
+  .ref-tags{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;}
+  .tag-law{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;
+    text-decoration:none;background:#eef2f8;color:#2d4a7a;border:1px solid #2d4a7a;}
+  .tag-case{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;
+    text-decoration:none;background:#f7f4f0;color:#5a3e28;border:1px solid #6b7280;}
+
+  .tools a{display:inline-block;margin:4px 6px 4px 0;padding:6px 12px;border-radius:8px;
+    background:var(--navy);color:#fff;text-decoration:none;font-size:.85rem;}
+
+  .meta{margin-top:30px;border-top:1px dashed #c4ccd6;padding-top:10px;font-size:.8rem;color:#5a6472;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="staff-bar">
+    <span><span class="tag">직원용</span> 내부 업무자료 · 외부 게시 금지</span>
+    <span>최신 개정 확인일: 2026-07-17</span>
+  </div>
+
+  <h1>임차인 배당요구 지원</h1>
+  <p><span class="cat-badge">민사집행 · 부동산집행</span></p>
+  <p>경매 목적물에 거주하는 임차인을 대리하여 배당요구 종기 내에 권리신고 및 배당요구 신청서와 첨부서류를 법원에 제출하는 업무다. 종기 도과 시 배당 자체가 불가능해지므로 기한 관리가 핵심이다.</p>
+
+  <h2>1. 절차 개관</h2>
+  <div class="flow">
+    <div class="step"><b>① 배당요구 종기 확인</b><span>담당: 직원 · 접수 즉시 · 대법원 경매정보·법원 문의로 종기일 확정, 사건관리대장 등록</span></div>
+    <div class="step"><b>② 전입신고·확정일자 확인</b><span>담당: 직원 · 당일 · 주민등록등본·계약서 확정일자로 우선변제 순위 판단</span></div>
+    <div class="step"><b>③ 신청서 작성·첨부서류 수집</b><span>담당: 법무사·직원 · 1~2일 · 권리신고 및 배당요구 신청서, 계약서 사본 등</span></div>
+    <div class="step"><b>④ 법원 경매계 접수</b><span>담당: 직원 · 종기 당일까지 · 접수증 확보, 사건기록 편철 확인</span></div>
+  </div>
+
+  <h2>2. 준비서류</h2>
+  <table>
+    <tr><th>서류명</th><th>발급처</th><th>유효기간</th><th>위험도</th><th>비고</th></tr>
+    <tr><td>주민등록등본(또는 초본)</td><td>주민센터·정부24</td><td>발급 후 최신본 권장</td><td class="risk r-high">🔴</td><td>전입신고일이 대항력·우선변제 순위 기준</td></tr>
+    <tr><td>권리신고 및 배당요구 신청서</td><td>법원 비치 양식(전산양식 A3440·A3441)</td><td>당해 경매사건용</td><td class="risk r-high">🔴</td><td>사건번호·채권원인·보증금액 정확 기재</td></tr>
+    <tr><td>임대차계약서 사본(확정일자 날인분)</td><td>임차인 보관</td><td>제한 없음</td><td class="risk r-mid">🟡</td><td>확정일자 취득일이 전입신고일보다 늦으면 늦은 날 기준</td></tr>
+    <tr><td>임차권등기명령 결정문(있는 경우)</td><td>발령 법원</td><td>제한 없음</td><td class="risk r-low">⚪</td><td>경매개시결정 등기 전 등재 시 배당요구 생략 가능(개별 확인)</td></tr>
+  </table>
+
+  <h2>3. 공과금·보수료</h2>
+  <div class="fee-box">
+    <table>
+      <tr><th>항목</th><th>산정 기준(과세표준·요율)</th><th>근거 법령</th><th>납부처</th><th>납부 시점</th></tr>
+      <tr><td>배당요구 신청서 접수</td><td>경매기록 첨부서류로 통상 별도 인지액 없음</td><td>민사소송 등 인지법</td><td>해당 없음</td><td>-</td></tr>
+      <tr><td>확정일자 부여 수수료</td><td>건당 정액(주민센터·공증)</td><td>주택임대차보호법</td><td>읍·면·동 주민센터</td><td>계약 체결 시</td></tr>
+      <tr><td>등기사항증명서 등 발급수수료</td><td>건당 정액</td><td>등기사항증명서 등 수수료규칙</td><td>등기소·인터넷등기소</td><td>발급 시</td></tr>
+    </table>
+    <p class="fee-note">※ 세율·요율·정액 수수료는 사무소 단일 출처(보수표·인지규칙) 기준이며, 최신 개정일은 상단 배지 참조. 구체 금액은 fee_calculator.html로 산정.</p>
+    <p class="fee-note">※ 법무사 보수료: 사무소 보수표 유형·가액 구간 참조(임의 확정 금지) + 실비.</p>
+  </div>
+
+  <h2>4. 주의사항</h2>
+  <div class="warn">
+    <p><span class="deadline">⚡ 기한</span> — 배당요구 종기는 통상 경매개시결정 등기일로부터 2~3개월 후 법원이 개별 지정한다(민사집행법 제84조). 종기를 1일이라도 도과하면 배당요구 자체가 반려되며 배당받을 수 없다. 경매 개시 사실을 인지하는 즉시 종기를 확인해 사건관리대장에 등록한다.</p>
+    <p>실무 함정: ① 확정일자 취득일이 전입신고일보다 늦은 경우 우선변제 순위는 늦은 날 기준으로 산정되므로 사전에 정확히 안내한다. ② 배당요구 전 임차인이 이사하면 대항력이 소멸한다 — 이사가 불가피하면 임차권등기명령 신청을 선행하도록 안내한다. ③ 배당받지 못한 잔액이 있어도 대항력 없는 임차인은 낙찰자에게 반환을 요구할 수 없다는 점을 사전에 고지한다.</p>
+  </div>
+
+  <h2>5. 법령·판례 검토</h2>
+  <p>배당요구 종기의 결정·공고는 민사집행법 제84조, 임차인의 우선변제권은 주택임대차보호법 제3조의2가 근거다. 임차권등기명령이 경매개시결정 등기 전에 이루어진 경우 별도 배당요구 없이 배당받을 채권자에 해당한다는 판례가 있다.</p>
+  <div class="ref-tags">
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=008400" target="_blank" class="tag-law">📋 민사집행법 제84조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=276291&joNo=000300" target="_blank" class="tag-law">📋 주택임대차보호법 제3조의2</a>
+    <a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2005%EB%8B%A433039" target="_blank" class="tag-case">⚖️ 대법원 2005다33039</a>
+  </div>
+
+  <h2>6. 실무 체크리스트</h2>
+  <ul class="checklist">
+    <li>착수 전: 사건번호 확인, 배당요구 종기 확정 및 사건관리대장 등록, 전입신고일·확정일자 취득일 확인</li>
+    <li>제출 전: 신청서 기재사항(채권원인·보증금액·전입일·확정일자) 정확성 확인, 첨부서류 완비 여부 확인</li>
+    <li>완료 후: 접수증 보관, 배당요구 종기 내 접수 여부 재확인, 배당기일 통지 수령 여부 확인</li>
+  </ul>
+
+  <h2>7. 연계 도구·스킬</h2>
+  <div class="tools">
+    <a href="#">fee_calculator.html (인지·등록면허세 등 계산)</a>
+    <a href="#">ecfs-orchestrator (전자소송포털 경매신청 자동화)</a>
+    <a href="#">부동산집행_20_임대차종료이사안내.html (연계 업무)</a>
+  </div>
+
+  <div class="meta">
+    최종 확인: 담당 법무사(성명 검토 후 기재) · 최신 개정 확인일 2026-07-17 · 내부 업무자료(외부 게시 금지)
+  </div>
+
+</div>
+</body>
+</html>

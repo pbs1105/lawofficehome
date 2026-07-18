@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>집행권원 종류별 확인 — 직원용 업무자료</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1a2e4a; --navy2:#2d4a7a; --gold:#c8a96e; --ivory:#faf8f5;
+    --sumbg:#eef2f8; --warnbg:#fff3e8; --warn:#c05000;
+    --casebg:#f7f4f0; --caseborder:#6b7280; --ok:#1a5c2e;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--ivory);color:#1f2733;
+       font-family:'Noto Sans KR',sans-serif;line-height:1.7;}
+  .wrap{max-width:920px;margin:0 auto;padding:24px 20px 60px;}
+  h1,h2{font-family:'Noto Serif KR',serif;color:var(--navy);}
+  h1{font-size:1.6rem;margin:.2em 0;}
+  h2{font-size:1.2rem;border-left:5px solid var(--gold);padding-left:12px;margin:2em 0 .8em;}
+
+  .staff-bar{display:flex;justify-content:space-between;align-items:center;
+    background:var(--navy);color:#fff;border-radius:8px;padding:8px 14px;font-size:.85rem;}
+  .staff-bar .tag{background:var(--gold);color:var(--navy);font-weight:700;
+    padding:2px 10px;border-radius:12px;}
+  .cat-badge{display:inline-block;background:var(--navy2);color:#fff;
+    font-size:.78rem;font-weight:600;padding:2px 10px;border-radius:12px;}
+
+  .flow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;}
+  .flow .step{flex:1 1 150px;background:#fff;border:1px solid #d8dde6;
+    border-radius:8px;padding:10px 12px;position:relative;}
+  .flow .step b{color:var(--navy2);display:block;font-size:.9rem;}
+  .flow .step span{font-size:.82rem;color:#5a6472;}
+
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9rem;background:#fff;}
+  th,td{border:1px solid #d8dde6;padding:8px 10px;text-align:left;vertical-align:top;}
+  th{background:var(--sumbg);color:var(--navy);}
+
+  .risk{font-weight:700;} .r-high{color:#c0392b;} .r-mid{color:#b8860b;} .r-low{color:#5a6472;}
+
+  .fee-box{background:#f4f7fb;border:1px solid var(--navy2);border-radius:8px;padding:4px 14px;margin:10px 0;}
+  .fee-note{font-size:.82rem;color:#5a6472;margin:6px 0;}
+
+  .warn{background:var(--warnbg);border:1px solid var(--warn);border-radius:8px;padding:10px 14px;margin:10px 0;}
+  .deadline{color:var(--warn);font-weight:700;}
+
+  .checklist{list-style:none;padding:0;}
+  .checklist li{background:#f0f8f0;border:1px solid var(--ok);border-radius:6px;
+    padding:8px 12px;margin:6px 0;font-size:.9rem;}
+  .checklist li::before{content:"☐ ";color:var(--ok);font-weight:700;}
+
+  .ref-tags{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;}
+  .tag-law{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;
+    text-decoration:none;background:#eef2f8;color:#2d4a7a;border:1px solid #2d4a7a;}
+  .tag-case{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;
+    text-decoration:none;background:#f7f4f0;color:#5a3e28;border:1px solid #6b7280;}
+
+  .tools a{display:inline-block;margin:4px 6px 4px 0;padding:6px 12px;border-radius:8px;
+    background:var(--navy);color:#fff;text-decoration:none;font-size:.85rem;}
+
+  .meta{margin-top:30px;border-top:1px dashed #c4ccd6;padding-top:10px;font-size:.8rem;color:#5a6472;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="staff-bar">
+    <span><span class="tag">직원용</span> 내부 업무자료 · 외부 게시 금지</span>
+    <span>최신 개정 확인일: 2026-07-17</span>
+  </div>
+
+  <h1>집행권원 종류별 확인</h1>
+  <p><span class="cat-badge">민사집행</span></p>
+  <p>고객이 지참한 문서(판결정본·화해조서·지급명령·공정증서·조정조서·이행권고결정 등)가 민사집행법상 집행권원에 해당하는지, 그리고 확정 요건을 충족했는지 판별하는 업무다. 이 판별 결과에 따라 다음 단계(집행문 부여 신청 또는 즉시 집행 가능 여부)가 갈린다.</p>
+
+  <h2>1. 절차 개관</h2>
+  <div class="flow">
+    <div class="step"><b>① 문서 종류 식별</b><span>담당: 접수 직원 · 즉시 · 집행권원 유형 분류(하단 표)</span></div>
+    <div class="step"><b>② 확정요건 충족 확인</b><span>담당: 법무사·직원 · 당일 · 확정일/이의 유무 확인</span></div>
+    <div class="step"><b>③ (미확정 시) 대기·보정 안내</b><span>담당: 법무사 · 사안별 상이 · 확정 예상 시점 고지</span></div>
+    <div class="step"><b>④ 집행권원 확정 처리</b><span>담당: 직원 · 당일 · 다음 단계(집행문 부여) 이관</span></div>
+  </div>
+
+  <h2>2. 준비서류</h2>
+  <table>
+    <tr><th>서류명</th><th>발급처</th><th>유효기간</th><th>위험도</th><th>비고</th></tr>
+    <tr><td>판결정본/화해조서/조정조서/지급명령정본/공정증서 정본</td><td>판결(조정)법원 또는 공증인</td><td>제한 없음(원본 보관)</td><td class="risk r-high">🔴</td><td>정본·인증본만 인정, 사본으로는 확인 불가</td></tr>
+    <tr><td>송달·확정증명원</td><td>판결법원</td><td>발급일 기준 제한 없음</td><td class="risk r-high">🔴</td><td>확정판결·이행권고결정 등 확정 여부 판별의 핵심 서류</td></tr>
+    <tr><td>지급명령 이의 유무 확인서(사건기록 조회)</td><td>판결법원 종합법률정보/사건조회</td><td>조회 시점 기준</td><td class="risk r-mid">🟡</td><td>이의 제기 시 소송으로 이행되어 집행권원 미확정</td></tr>
+    <tr><td>공정증서 정본(강제집행 인낙 문구 확인용)</td><td>공증인가 사무소</td><td>제한 없음</td><td class="risk r-mid">🟡</td><td>인낙 문구 누락 시 집행권원 불성립</td></tr>
+  </table>
+
+  <h2>3. 공과금·보수료</h2>
+  <div class="fee-box">
+    <table>
+      <tr><th>항목</th><th>산정 기준(과세표준·요율)</th><th>근거 법령</th><th>납부처</th><th>납부 시점</th></tr>
+      <tr><td>확정증명원 발급수수료</td><td>건당 정액</td><td>등기사항증명서 등 수수료규칙(유사 적용)·재판예규</td><td>판결법원</td><td>확정증명원 신청 시</td></tr>
+      <tr><td>송달증명원 발급수수료</td><td>건당 정액</td><td>재판예규</td><td>판결법원</td><td>송달증명원 신청 시</td></tr>
+      <tr><td>인지액(해당 절차 진행 시)</td><td>신청 유형별 정액·정률</td><td>민사소송 등 인지법</td><td>전자소송포털/수입인지</td><td>신청서 접수 시</td></tr>
+    </table>
+    <p class="fee-note">※ 세율·요율·정액 수수료는 사무소 단일 출처(보수표·인지규칙) 기준이며, 최신 개정일은 상단 배지 참조.</p>
+    <p class="fee-note">※ 법무사 보수료: 사무소 보수표 유형·가액 구간 참조(임의 확정 금지).</p>
+  </div>
+
+  <h2>4. 주의사항</h2>
+  <div class="warn">
+    <p><span class="deadline">⚡ 기한</span> — 확정판결·이행권고결정은 항소(이의) 기간 14일 경과 여부를 반드시 확인한다. 지급명령은 송달 후 2주 이내 채무자 이의가 없어야 확정된다. 기간 미경과 상태에서 집행권원으로 처리하면 다음 단계에서 전부 반려된다.</p>
+    <p>실무 함정: ① 공정증서는 '강제집행 인낙' 문구가 없으면 집행권원이 되지 않는다 — 문구 유무를 반드시 원문 확인. ② 지급명령은 이의 제기 여부를 사건조회로 재확인하지 않고 진행하면 반려. ③ 화해조서·조정조서는 별도 확정 절차 없이 성립 즉시 집행권원이 되므로 확정증명원을 요구하지 않는다(요구 시 절차 지연).</p>
+  </div>
+
+  <h2>5. 법령·판례 검토</h2>
+  <p>집행권원의 종류는 민사집행법 제56조에서 규정한다. 화해조서는 민사소송법 제220조, 조정조서는 민사조정법 제29조, 지급명령의 집행력은 민사집행법 제58조를 근거로 확인한다.</p>
+  <div class="ref-tags">
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005600" target="_blank" class="tag-law">📋 민사집행법 제56조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=252393&joNo=022000" target="_blank" class="tag-law">📋 민사소송법 제220조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=213779&joNo=002900" target="_blank" class="tag-law">📋 민사조정법 제29조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005800" target="_blank" class="tag-law">📋 민사집행법 제58조</a>
+  </div>
+  <p style="font-size:.85rem;color:#5a6472;margin-top:6px;">※ 확인된 판례 사건번호 없음 — 법리 방향(집행권원 확정력 요건)만 서술.</p>
+
+  <h2>6. 실무 체크리스트</h2>
+  <ul class="checklist">
+    <li>착수 전: 문서가 표(2번)의 집행권원 유형 중 어디에 해당하는지 1차 분류</li>
+    <li>제출 전: 확정일 계산(항소기간 14일/이의기간 2주 경과 여부), 공정증서는 인낙 문구 원문 확인</li>
+    <li>완료 후: 집행권원 확정 결과를 사건관리대장에 기록하고 03 집행문 부여 신청 담당자에게 인계</li>
+  </ul>
+
+  <h2>7. 연계 도구·스킬</h2>
+  <div class="tools">
+    <a href="#">fee_calculator.html (인지·송달료 계산)</a>
+    <a href="#">ecfs-orchestrator (전자소송포털 민사집행 신청 자동화)</a>
+    <a href="#">민사집행총론_03_집행문부여신청.html (다음 단계)</a>
+  </div>
+
+  <div class="meta">
+    최종 확인: 담당 법무사(성명 검토 후 기재) · 최신 개정 확인일 2026-07-17 · 내부 업무자료(외부 게시 금지)
+  </div>
+
+</div>
+</body>
+</html>

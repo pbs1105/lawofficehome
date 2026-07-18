@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>형식적경매(공유물분할 등) 신청절차 — 직원용 업무자료</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1a2e4a; --navy2:#2d4a7a; --gold:#c8a96e; --ivory:#faf8f5;
+    --sumbg:#eef2f8; --warnbg:#fff3e8; --warn:#c05000;
+    --casebg:#f7f4f0; --caseborder:#6b7280; --ok:#1a5c2e;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--ivory);color:#1f2733;
+       font-family:'Noto Sans KR',sans-serif;line-height:1.7;}
+  .wrap{max-width:920px;margin:0 auto;padding:24px 20px 60px;}
+  h1,h2{font-family:'Noto Serif KR',serif;color:var(--navy);}
+  h1{font-size:1.6rem;margin:.2em 0;}
+  h2{font-size:1.2rem;border-left:5px solid var(--gold);padding-left:12px;margin:2em 0 .8em;}
+
+  .staff-bar{display:flex;justify-content:space-between;align-items:center;
+    background:var(--navy);color:#fff;border-radius:8px;padding:8px 14px;font-size:.85rem;}
+  .staff-bar .tag{background:var(--gold);color:var(--navy);font-weight:700;
+    padding:2px 10px;border-radius:12px;}
+  .cat-badge{display:inline-block;background:var(--navy2);color:#fff;
+    font-size:.78rem;font-weight:600;padding:2px 10px;border-radius:12px;}
+
+  .flow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;}
+  .flow .step{flex:1 1 150px;background:#fff;border:1px solid #d8dde6;
+    border-radius:8px;padding:10px 12px;position:relative;}
+  .flow .step b{color:var(--navy2);display:block;font-size:.9rem;}
+  .flow .step span{font-size:.82rem;color:#5a6472;}
+
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9rem;background:#fff;}
+  th,td{border:1px solid #d8dde6;padding:8px 10px;text-align:left;vertical-align:top;}
+  th{background:var(--sumbg);color:var(--navy);}
+
+  .risk{font-weight:700;} .r-high{color:#c0392b;} .r-mid{color:#b8860b;} .r-low{color:#5a6472;}
+
+  .fee-box{background:#f4f7fb;border:1px solid var(--navy2);border-radius:8px;padding:4px 14px;margin:10px 0;}
+  .fee-note{font-size:.82rem;color:#5a6472;margin:6px 0;}
+
+  .warn{background:var(--warnbg);border:1px solid var(--warn);border-radius:8px;padding:10px 14px;margin:10px 0;}
+  .deadline{color:var(--warn);font-weight:700;}
+
+  .checklist{list-style:none;padding:0;}
+  .checklist li{background:#f0f8f0;border:1px solid var(--ok);border-radius:6px;
+    padding:8px 12px;margin:6px 0;font-size:.9rem;}
+  .checklist li::before{content:"☐ ";color:var(--ok);font-weight:700;}
+
+  .ref-tags{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;}
+  .tag-law{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;
+    text-decoration:none;background:#eef2f8;color:#2d4a7a;border:1px solid #2d4a7a;}
+  .tag-case{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;
+    text-decoration:none;background:#f7f4f0;color:#5a3e28;border:1px solid #6b7280;}
+
+  .tools a{display:inline-block;margin:4px 6px 4px 0;padding:6px 12px;border-radius:8px;
+    background:var(--navy);color:#fff;text-decoration:none;font-size:.85rem;}
+
+  .meta{margin-top:30px;border-top:1px dashed #c4ccd6;padding-top:10px;font-size:.8rem;color:#5a6472;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="staff-bar">
+    <span><span class="tag">직원용</span> 내부 업무자료 · 외부 게시 금지</span>
+    <span>최신 개정 확인일: 2026-07-17</span>
+  </div>
+
+  <h1>형식적경매(공유물분할 등) 신청절차</h1>
+  <p><span class="cat-badge">민사집행 · 부동산집행</span></p>
+  <p>집행권원이나 담보권 없이 법률 규정·법원 명령에 따라 재산을 환가·분배하기 위해 진행하는 경매다. 공유물분할 경매가 가장 빈번하며, 유치권 경매·청산/파산절차 경매·기타 법령상 경매도 포함된다. 절차 자체는 강제경매 규정을 준용하므로 담당 직원은 신청 근거서류(판결·명령 등)의 확보와 신청서 작성에 집중한다.</p>
+
+  <h2>1. 절차 개관 (공유물분할 경매 기준)</h2>
+  <div class="flow">
+    <div class="step"><b>① 공유물분할 청구소송 확인</b><span>담당: 법무사 · 소 제기~판결까지 통상 수개월 · 분할판결 정본</span></div>
+    <div class="step"><b>② 경매분할판결 확정 확인</b><span>담당: 직원 · 판결 후 즉시항고기간 경과 · 판결정본·확정증명원</span></div>
+    <div class="step"><b>③ 형식적경매 신청서 작성·제출</b><span>담당: 직원 · 확정 후 1~3일 · 집행법원 접수증·사건번호</span></div>
+    <div class="step"><b>④ 경매 진행(강제경매 준용)</b><span>담당: 법원·집행관 · 수개월 · 감정평가·매각기일·낙찰</span></div>
+    <div class="step"><b>⑤ 매각대금 분배</b><span>담당: 법원 · 낙찰 후 · 집행비용 공제 후 지분별 분배(배당표)</span></div>
+  </div>
+
+  <h2>2. 준비서류</h2>
+  <table>
+    <tr><th>서류명</th><th>발급처</th><th>유효기간</th><th>위험도</th><th>비고</th></tr>
+    <tr><td>공유물분할(경매분할) 판결정본</td><td>판결법원</td><td>집행력 존속 기간 내</td><td class="risk r-high">🔴</td><td>신청의 근거서류, 원본 또는 인증본 필수</td></tr>
+    <tr><td>판결 확정증명원</td><td>판결법원</td><td>제한 없음(사건 특정용)</td><td class="risk r-high">🔴</td><td>확정일 미기재 시 접수 반려</td></tr>
+    <tr><td>부동산등기사항증명서</td><td>인터넷등기소</td><td>발급일로부터 통상 1개월</td><td class="risk r-mid">🟡</td><td>공유지분 현황·설정 권리 확인용</td></tr>
+    <tr><td>유치권 소명자료(유치권 경매인 경우)</td><td>본인 보관 자료</td><td>해당 없음</td><td class="risk r-mid">🟡</td><td>피담보채권 존재·점유 사실 소명</td></tr>
+    <tr><td>공유자 전원 인적사항</td><td>주민센터 등</td><td>발급일로부터 통상 3개월</td><td class="risk r-low">⚪</td><td>이해관계인 특정용</td></tr>
+  </table>
+
+  <h2>3. 공과금·보수료</h2>
+  <div class="fee-box">
+    <table>
+      <tr><th>항목</th><th>산정 기준(과세표준·요율)</th><th>근거 법령</th><th>납부처</th><th>납부 시점</th></tr>
+      <tr><td>인지액</td><td>경매신청 정액(강제경매 준용)</td><td>민사소송 등 인지법</td><td>전자소송포털/수입인지</td><td>신청서 접수 시</td></tr>
+      <tr><td>송달료</td><td>이해관계인 수 × 회차 기준 예납</td><td>송달료규칙</td><td>예납계좌(은행)</td><td>신청 시 예납</td></tr>
+      <tr><td>등록면허세(경매개시결정등기)</td><td>건당 정액</td><td>지방세법</td><td>시·군·구</td><td>등기 촉탁 시</td></tr>
+      <tr><td>감정료·현황조사수수료</td><td>목적물 가액·유형 기준</td><td>민사집행규칙, 대법원 예규</td><td>집행법원 예납계좌</td><td>경매개시결정 후</td></tr>
+    </table>
+    <p class="fee-note">※ 세율·요율·정액 항목은 사무소 단일 출처(보수표·인지규칙) 기준이며, 최신 개정일은 상단 배지 참조. 구체 금액은 fee_calculator.html로 산정.</p>
+    <p class="fee-note">※ 법무사 보수료: 사무소 보수표 유형·가액 구간 참조(임의 확정 금지) + 공유물분할소송 별도 수임 시 소송보수 별도.</p>
+  </div>
+
+  <h2>4. 주의사항</h2>
+  <div class="warn">
+    <p><span class="deadline">⚡ 기한</span> — 형식적경매 신청은 반드시 경매분할판결(또는 공유자 전원 협의 분할합의)이 <strong>확정된 후</strong>에만 가능하다. 판결 확정 전 신청은 각하 사유. 공유자 전원 합의에 의한 신청이라면 전원의 동의서류를 사전에 갖춘다.</p>
+    <p>실무 함정: ① 공유물분할 청구소송부터 형식적경매 신청까지 수년이 소요될 수 있으므로 사건 접수 시 예상 소요기간을 의뢰인에게 사전 안내. ② 공유물분할 경매는 강제경매와 달리 <strong>공유자 우선매수권이 적용되지 않으므로</strong> 이를 의뢰인에게 명확히 고지. ③ 유치권 경매는 유치권자가 배당에서 <strong>우선변제권이 없어</strong> 일반채권자로만 안분배당받는 점을 사전 설명 — 협상 대안 검토 권고.</p>
+  </div>
+
+  <h2>5. 법령·판례 검토</h2>
+  <p>형식적경매는 민사집행법 제274조에 근거하며, 절차는 강제경매(제79조 이하) 규정을 준용한다. 공유물분할을 위한 경매는 민법 제269조 제2항(현물분할 불가·가액 현저 감소 우려 시 경매 분할)이 근거이며, 유치권에 의한 경매는 민법 제322조, 부재자 재산관리인의 처분을 위한 경매는 민법 제25조가 근거다.</p>
+  <div class="ref-tags">
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=027400" target="_blank" class="tag-law">📋 민사집행법 제274조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007900" target="_blank" class="tag-law">📋 민사집행법 제79조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=026900" target="_blank" class="tag-law">📋 민법 제269조 제2항</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=032200" target="_blank" class="tag-law">📋 민법 제322조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=002500" target="_blank" class="tag-law">📋 민법 제25조</a>
+  </div>
+  <p style="font-size:.85rem;color:#5a6472;margin-top:6px;">※ 확인된 판례 사건번호 없음 — "현물분할 불가·가액 현저 감소 우려 시에 한해 경매분할을 명한다"는 법리 방향만 서술.</p>
+
+  <h2>6. 실무 체크리스트</h2>
+  <ul class="checklist">
+    <li>착수 전: 신청 근거(경매분할판결 확정 / 유치권 소명 / 파산관재인 선임 등) 유형 확정</li>
+    <li>제출 전: 판결정본·확정증명원 원본 확보, 공유자 전원 인적사항·지분 비율 최종 대조</li>
+    <li>완료 후: 사건번호 등록, 배당(분배) 시 지분별 저당권 설정 여부 재확인 후 배당순위 계산 착수</li>
+  </ul>
+
+  <h2>7. 연계 도구·스킬</h2>
+  <div class="tools">
+    <a href="#">fee_calculator.html (인지·등록면허세 등 계산)</a>
+    <a href="#">ecfs-orchestrator (전자소송포털 경매신청 자동화)</a>
+    <a href="#">부동산집행_23_공유부동산경매처리.html (관련 업무)</a>
+  </div>
+
+  <div class="meta">
+    최종 확인: 담당 법무사(성명 검토 후 기재) · 최신 개정 확인일 2026-07-17 · 내부 업무자료(외부 게시 금지)
+  </div>
+
+</div>
+</body>
+</html>

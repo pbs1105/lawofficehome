@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>자동차·선박·항공기 강제집행 — 직원용 업무자료</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1a2e4a; --navy2:#2d4a7a; --gold:#c8a96e; --ivory:#faf8f5;
+    --sumbg:#eef2f8; --warnbg:#fff3e8; --warn:#c05000;
+    --casebg:#f7f4f0; --caseborder:#6b7280; --ok:#1a5c2e;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--ivory);color:#1f2733;
+       font-family:'Noto Sans KR',sans-serif;line-height:1.7;}
+  .wrap{max-width:920px;margin:0 auto;padding:24px 20px 60px;}
+  h1,h2{font-family:'Noto Serif KR',serif;color:var(--navy);}
+  h1{font-size:1.6rem;margin:.2em 0;}
+  h2{font-size:1.2rem;border-left:5px solid var(--gold);padding-left:12px;margin:2em 0 .8em;}
+
+  .staff-bar{display:flex;justify-content:space-between;align-items:center;
+    background:var(--navy);color:#fff;border-radius:8px;padding:8px 14px;font-size:.85rem;}
+  .staff-bar .tag{background:var(--gold);color:var(--navy);font-weight:700;
+    padding:2px 10px;border-radius:12px;}
+  .cat-badge{display:inline-block;background:var(--navy2);color:#fff;
+    font-size:.78rem;font-weight:600;padding:2px 10px;border-radius:12px;}
+
+  .flow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;}
+  .flow .step{flex:1 1 150px;background:#fff;border:1px solid #d8dde6;
+    border-radius:8px;padding:10px 12px;position:relative;}
+  .flow .step b{color:var(--navy2);display:block;font-size:.9rem;}
+  .flow .step span{font-size:.82rem;color:#5a6472;}
+
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9rem;background:#fff;}
+  th,td{border:1px solid #d8dde6;padding:8px 10px;text-align:left;vertical-align:top;}
+  th{background:var(--sumbg);color:var(--navy);}
+
+  .risk{font-weight:700;} .r-high{color:#c0392b;} .r-mid{color:#b8860b;} .r-low{color:#5a6472;}
+
+  .fee-box{background:#f4f7fb;border:1px solid var(--navy2);border-radius:8px;padding:4px 14px;margin:10px 0;}
+  .fee-note{font-size:.82rem;color:#5a6472;margin:6px 0;}
+
+  .warn{background:var(--warnbg);border:1px solid var(--warn);border-radius:8px;padding:10px 14px;margin:10px 0;}
+  .deadline{color:var(--warn);font-weight:700;}
+
+  .checklist{list-style:none;padding:0;}
+  .checklist li{background:#f0f8f0;border:1px solid var(--ok);border-radius:6px;
+    padding:8px 12px;margin:6px 0;font-size:.9rem;}
+  .checklist li::before{content:"☐ ";color:var(--ok);font-weight:700;}
+
+  .ref-tags{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;}
+  .tag-law{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;
+    text-decoration:none;background:#eef2f8;color:#2d4a7a;border:1px solid #2d4a7a;}
+  .tag-case{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;
+    text-decoration:none;background:#f7f4f0;color:#5a3e28;border:1px solid #6b7280;}
+
+  .tools a{display:inline-block;margin:4px 6px 4px 0;padding:6px 12px;border-radius:8px;
+    background:var(--navy);color:#fff;text-decoration:none;font-size:.85rem;}
+
+  .meta{margin-top:30px;border-top:1px dashed #c4ccd6;padding-top:10px;font-size:.8rem;color:#5a6472;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="staff-bar">
+    <span><span class="tag">직원용</span> 내부 업무자료 · 외부 게시 금지</span>
+    <span>최신 개정 확인일: 2026-07-17</span>
+  </div>
+
+  <h1>자동차·선박·항공기 강제집행</h1>
+  <p><span class="cat-badge">민사집행 · 부동산집행</span></p>
+  <p>등록·등기제도가 있는 자동차·건설기계·소형선박·항공기(민사집행법 제187조 준용) 및 등기할 수 있는 선박(제172조 이하)에 대한 강제집행이다. 동산이지만 부동산 강제경매 규정을 준용하며, 집행관이 목적물을 인도받아 보관한다는 점이 일반 부동산 경매와의 핵심 차이다. 담당 직원은 목적물 소재 파악과 압류등록 촉탁, 집행관 인도 협조에 집중한다.</p>
+
+  <h2>1. 절차 개관 (자동차 기준)</h2>
+  <div class="flow">
+    <div class="step"><b>① 강제집행 신청</b><span>담당: 직원 · 접수 시 · 자동차등록원부등본·집행력 있는 정본 첨부, 접수증</span></div>
+    <div class="step"><b>② 경매개시결정·압류등록 촉탁</b><span>담당: 법원 · 신청 후 수일 · 자동차등록관청 압류등록(소유권이전 제한)</span></div>
+    <div class="step"><b>③ 집행관 인도·보관</b><span>담당: 집행관 · 소재 파악 후 · 목적물 인도(거부 시 강제 인도집행)</span></div>
+    <div class="step"><b>④ 현황조사·감정평가</b><span>담당: 집행관·감정인 · 인도 후 · 최저매각가격 결정</span></div>
+    <div class="step"><b>⑤ 매각기일·낙찰·대금납부</b><span>담당: 법원 · 감정 후 · 소유권이전(부동산 경매 절차 준용)</span></div>
+    <div class="step"><b>⑥ 배당</b><span>담당: 법원 · 대금납부 후 · 배당표·배당 실시</span></div>
+  </div>
+
+  <h2>2. 준비서류</h2>
+  <table>
+    <tr><th>서류명</th><th>발급처</th><th>유효기간</th><th>위험도</th><th>비고</th></tr>
+    <tr><td>자동차등록원부등본(또는 선박등기부·항공기등록원부)</td><td>자동차등록사업소·관할 등기소 등</td><td>발급일로부터 통상 1개월</td><td class="risk r-high">🔴</td><td>목적물 특정·소유자 확인의 필수 서류</td></tr>
+    <tr><td>집행력 있는 정본·집행문·송달증명서</td><td>판결법원</td><td>집행력 존속 기간 내</td><td class="risk r-high">🔴</td><td>담보권 실행(임의경매)인 경우 저당권등록원부·피담보채권 서류로 대체</td></tr>
+    <tr><td>목적물 소재 조사자료</td><td>본인 조사(등록주소지·상시 주차지 등)</td><td>신청 전 최신 자료</td><td class="risk r-high">🔴</td><td>소재 미파악 시 집행관 인도 자체가 불가 — 사전 조사 필수</td></tr>
+    <tr><td>선박국적증서 등 운항서류(선박 집행 시)</td><td>선장 소지</td><td>해당 없음</td><td class="risk r-mid">🟡</td><td>경매개시결정과 동시에 집행관이 수취하여 무단 출항 방지</td></tr>
+  </table>
+
+  <h2>3. 공과금·보수료</h2>
+  <div class="fee-box">
+    <table>
+      <tr><th>항목</th><th>산정 기준(과세표준·요율)</th><th>근거 법령</th><th>납부처</th><th>납부 시점</th></tr>
+      <tr><td>인지액</td><td>강제경매 준용 정액</td><td>민사소송 등 인지법</td><td>전자소송포털/수입인지</td><td>신청서 접수 시</td></tr>
+      <tr><td>송달료</td><td>당사자 수 × 회차 기준 예납</td><td>송달료규칙</td><td>예납계좌(은행)</td><td>신청 시 예납</td></tr>
+      <tr><td>압류등록 관련 수수료</td><td>등록관청 규정에 따른 정액</td><td>자동차관리법 등 관계 법령</td><td>자동차등록사업소 등</td><td>압류등록 촉탁 시</td></tr>
+      <tr><td>집행관 수수료·감정료</td><td>목적물 가액·유형 기준</td><td>민사집행규칙, 대법원 예규</td><td>집행법원 예납계좌</td><td>개시결정 후</td></tr>
+    </table>
+    <p class="fee-note">※ 인지·송달료·압류등록 수수료 등 구체 금액은 사무소 단일 출처(보수표·인지규칙) 기준이며, 최신 개정일은 상단 배지 참조. fee_calculator.html로 산정한다.</p>
+    <p class="fee-note">※ 법무사 보수료: 사무소 보수표 유형·가액 구간 참조(임의 확정 금지) + 소재 조사 등 부대 실비 별도.</p>
+  </div>
+
+  <h2>4. 주의사항</h2>
+  <div class="warn">
+    <p><span class="deadline">⚡ 실무 핵심</span> — 자동차 강제집행은 <strong>집행관이 실제로 목적물을 인도받아야</strong> 절차가 진행된다. 채무자가 목적물을 숨기거나 이동·처분하면 집행이 지연·무산될 수 있으므로, 신청과 동시에 압류등록을 신속히 촉탁해 소유권 이전을 차단하고 소재를 지속 추적한다.</p>
+    <p>실무 함정: ① 등록된 자동차(자동차등록원부에 등재)는 반드시 자동차 강제집행(민사집행법 제187조) 절차로 진행해야 하며, 일반 유체동산 집행(현장 점유취득)으로 처리하면 집행이 무효화될 위험이 있다. ② 자동차·건설기계에 설정된 저당권(자동차 등 특정동산 저당법)은 담보권 실행(임의경매)이 가능하나, 판결 없이 저당권등록원부와 피담보채권 서류만으로 절차가 진행되므로 서류 요건을 별도로 확인. ③ 외국 선박은 국내 등기부가 없어 압류등기 촉탁이 불가능하므로 절차가 국내 선박과 다르다 — 개별 검토 필요. ④ 자동차·선박·항공기·건설기계는 성질상 강제관리(수익집행) 대상이 아니며 강제경매(매각)만 가능하다.</p>
+  </div>
+
+  <h2>5. 법령·판례 검토</h2>
+  <p>등록된 자동차·건설기계·소형선박·항공기의 강제집행은 민사집행법 제187조에 따라 부동산 강제경매 규정을 준용하되 집행관이 목적물을 인도받아 보관한다. 등기할 수 있는 선박(20톤 이상)은 제172조 이하가 적용되며, 선박국적증서 등의 수취는 제174조, 정박명령은 제176조, 보증 제공에 의한 취소는 제181조, 외국선박에 대한 집행은 제186조에 근거한다.</p>
+  <div class="ref-tags">
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=018700" target="_blank" class="tag-law">📋 민사집행법 제187조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=017200" target="_blank" class="tag-law">📋 민사집행법 제172조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=017400" target="_blank" class="tag-law">📋 민사집행법 제174조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=017600" target="_blank" class="tag-law">📋 민사집행법 제176조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=018100" target="_blank" class="tag-law">📋 민사집행법 제181조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=018600" target="_blank" class="tag-law">📋 민사집행법 제186조</a>
+  </div>
+  <p style="font-size:.85rem;color:#5a6472;margin-top:6px;">※ 확인된 판례 사건번호 없음 — 등록 동산은 반드시 등록동산 전용 집행절차를 거쳐야 한다는 법리 방향만 서술.</p>
+
+  <h2>6. 실무 체크리스트</h2>
+  <ul class="checklist">
+    <li>착수 전: 목적물이 등록된 자동차·건설기계·소형선박·항공기인지, 등기선박(20톤 이상)인지 유형 확정</li>
+    <li>제출 전: 자동차등록원부등본(또는 등기부) 발급, 목적물 소재지 사전 조사 완료 여부 확인</li>
+    <li>완료 후: 압류등록 촉탁 완료 확인, 집행관 인도 여부 추적, 선박인 경우 선박국적증서 수취 여부 확인</li>
+  </ul>
+
+  <h2>7. 연계 도구·스킬</h2>
+  <div class="tools">
+    <a href="#">fee_calculator.html (인지·압류등록 수수료 등 계산)</a>
+    <a href="#">ecfs-orchestrator (전자소송포털 강제집행 신청 자동화)</a>
+    <a href="#">부동산집행_01_강제경매신청절차.html (준용 절차 비교자료)</a>
+  </div>
+
+  <div class="meta">
+    최종 확인: 담당 법무사(성명 검토 후 기재) · 최신 개정 확인일 2026-07-17 · 내부 업무자료(외부 게시 금지)
+  </div>
+
+</div>
+</body>
+</html>

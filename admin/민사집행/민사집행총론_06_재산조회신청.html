@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>재산조회신청 — 직원용 업무자료</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1a2e4a; --navy2:#2d4a7a; --gold:#c8a96e; --ivory:#faf8f5;
+    --sumbg:#eef2f8; --warnbg:#fff3e8; --warn:#c05000;
+    --casebg:#f7f4f0; --caseborder:#6b7280; --ok:#1a5c2e;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--ivory);color:#1f2733;
+       font-family:'Noto Sans KR',sans-serif;line-height:1.7;}
+  .wrap{max-width:920px;margin:0 auto;padding:24px 20px 60px;}
+  h1,h2{font-family:'Noto Serif KR',serif;color:var(--navy);}
+  h1{font-size:1.6rem;margin:.2em 0;}
+  h2{font-size:1.2rem;border-left:5px solid var(--gold);padding-left:12px;margin:2em 0 .8em;}
+
+  .staff-bar{display:flex;justify-content:space-between;align-items:center;
+    background:var(--navy);color:#fff;border-radius:8px;padding:8px 14px;font-size:.85rem;}
+  .staff-bar .tag{background:var(--gold);color:var(--navy);font-weight:700;
+    padding:2px 10px;border-radius:12px;}
+  .cat-badge{display:inline-block;background:var(--navy2);color:#fff;
+    font-size:.78rem;font-weight:600;padding:2px 10px;border-radius:12px;}
+
+  .flow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;}
+  .flow .step{flex:1 1 150px;background:#fff;border:1px solid #d8dde6;
+    border-radius:8px;padding:10px 12px;position:relative;}
+  .flow .step b{color:var(--navy2);display:block;font-size:.9rem;}
+  .flow .step span{font-size:.82rem;color:#5a6472;}
+
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9rem;background:#fff;}
+  th,td{border:1px solid #d8dde6;padding:8px 10px;text-align:left;vertical-align:top;}
+  th{background:var(--sumbg);color:var(--navy);}
+
+  .risk{font-weight:700;} .r-high{color:#c0392b;} .r-mid{color:#b8860b;} .r-low{color:#5a6472;}
+
+  .fee-box{background:#f4f7fb;border:1px solid var(--navy2);border-radius:8px;padding:4px 14px;margin:10px 0;}
+  .fee-note{font-size:.82rem;color:#5a6472;margin:6px 0;}
+
+  .warn{background:var(--warnbg);border:1px solid var(--warn);border-radius:8px;padding:10px 14px;margin:10px 0;}
+  .deadline{color:var(--warn);font-weight:700;}
+
+  .checklist{list-style:none;padding:0;}
+  .checklist li{background:#f0f8f0;border:1px solid var(--ok);border-radius:6px;
+    padding:8px 12px;margin:6px 0;font-size:.9rem;}
+  .checklist li::before{content:"☐ ";color:var(--ok);font-weight:700;}
+
+  .ref-tags{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;}
+  .tag-law{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;
+    text-decoration:none;background:#eef2f8;color:#2d4a7a;border:1px solid #2d4a7a;}
+  .tag-case{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;
+    text-decoration:none;background:#f7f4f0;color:#5a3e28;border:1px solid #6b7280;}
+
+  .tools a{display:inline-block;margin:4px 6px 4px 0;padding:6px 12px;border-radius:8px;
+    background:var(--navy);color:#fff;text-decoration:none;font-size:.85rem;}
+
+  .meta{margin-top:30px;border-top:1px dashed #c4ccd6;padding-top:10px;font-size:.8rem;color:#5a6472;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="staff-bar">
+    <span><span class="tag">직원용</span> 내부 업무자료 · 외부 게시 금지</span>
+    <span>최신 개정 확인일: 2026-07-17</span>
+  </div>
+
+  <h1>재산조회신청</h1>
+  <p><span class="cat-badge">민사집행</span></p>
+  <p>법원이 금융기관·국가기관에 채무자의 재산 현황을 직접 조회하도록 촉탁하는 절차. 재산명시가 불충분하거나 채무자가 불출석·거부한 경우 활용하며, 산출물은 기관별 재산 조회 회신 결과다.</p>
+
+  <h2>1. 절차 개관</h2>
+  <div class="flow">
+    <div class="step"><b>① 신청서 작성·제출</b><span>담당: 사무직원 · 소요: 즉시 · 산출물: 접수증</span></div>
+    <div class="step"><b>② 법원 조회 결정</b><span>담당: 법원 · 소요: 결정 후 기관별 촉탁 · 산출물: 조회결정문</span></div>
+    <div class="step"><b>③ 기관 회신 수집</b><span>담당: 법원(기관별 회신) · 소요: 수 주~수개월 · 산출물: 재산 조회 회신서</span></div>
+    <div class="step"><b>④ 결과 통보·강제집행 착수</b><span>담당: 담당 법무사 · 소요: 즉시 · 산출물: 압류명령 신청서</span></div>
+  </div>
+
+  <h2>2. 준비서류</h2>
+  <table>
+    <tr><th>서류명</th><th>발급처</th><th>유효기간</th><th>위험도</th><th>비고</th></tr>
+    <tr><td>재산조회신청서</td><td>법원 양식</td><td>-</td><td class="risk r-low">⚪</td><td>조회 대상기관을 특정하여 기재</td></tr>
+    <tr><td>집행권원 사본(확정증명 포함)</td><td>수소법원</td><td>없음</td><td class="risk r-high">🔴</td><td>확정증명 누락 여부 확인</td></tr>
+    <tr><td>집행문</td><td>수소법원 사무관등</td><td>없음</td><td class="risk r-high">🔴</td><td>집행문 부여 여부 확인</td></tr>
+    <tr><td>송달증명원</td><td>수소법원</td><td>없음</td><td class="risk r-mid">🟡</td><td>채무자 송달 완료 확인용</td></tr>
+    <tr><td>재산명시 불출석·부실 소명자료(해당 시)</td><td>사무소 작성/법원기록</td><td>-</td><td class="risk r-mid">🟡</td><td>요건 해당 사유를 구체적으로 특정</td></tr>
+  </table>
+
+  <h2>3. 공과금·보수료</h2>
+  <div class="fee-box">
+    <table>
+      <tr><th>항목</th><th>산정 기준(과세표준·요율)</th><th>근거 법령</th><th>납부처</th><th>납부 시점</th></tr>
+      <tr><td>인지액</td><td>신청서 1건당 정액(인지규칙 기준)</td><td>민사소송 등 인지법·인지규칙</td><td>전자소송포털 전자납부 / 수입인지</td><td>신청서 제출 시</td></tr>
+      <tr><td>송달료</td><td>당사자 수 × 납부기준(회차)</td><td>송달료규칙</td><td>세입세출외현금출납공무원 계좌</td><td>신청서 제출 시</td></tr>
+      <tr><td>재산조회 수수료</td><td>조회기관 수 × 정액(대법원규칙 기준)</td><td>민사집행법 제74조·관련 대법원규칙</td><td>법원 예납</td><td>신청 시 예납</td></tr>
+    </table>
+    <p class="fee-note">※ 인지액·조회수수료 등 세율·요율은 사무소 단일 출처(보수표·인지규칙) 기준이며, 최신 개정일은 상단 배지 참조. 구체 금액은 fee_calculator.html로 산출한다.</p>
+    <p class="fee-note">※ 법무사 보수료: 보수표 유형·가액 구간 참조, 임의 확정 금지. 사무소 보수표(단일 출처)와 대조 후 안내.</p>
+  </div>
+
+  <h2>4. 주의사항</h2>
+  <div class="warn">
+    <p><span class="deadline">⚡ 기한</span> — 재산조회는 재산명시 불출석·거부·재산목록 부실 등 요건 해당 사유가 발생한 직후 신속히 신청해야 한다(별도의 법정 제척기간은 없으나 지연 시 채무자의 재산 처분 위험이 커진다). 기관 회신을 받은 즉시 압류명령 신청에 착수해야 실질적 회수가 가능하다.</p>
+    <p>실무 함정 — 조회 대상기관을 특정하지 않으면 반려될 수 있다. 재산명시를 반드시 선행할 필요는 없다는 점(요건표 참조)을 착오하지 않는다. 조회 결과는 해당 집행 목적 외 사용이 금지되므로(민사집행법 제77조) 정보 관리에 유의한다.</p>
+  </div>
+
+  <h2>5. 법령·판례 검토</h2>
+  <p>재산조회의 신청 요건·절차는 민사집행법 제74조~제76조에, 조회 결과의 이용 제한은 제77조에 규정되어 있다. 인지·비용 관련은 제53조 참조.</p>
+  <div class="ref-tags">
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006100" target="_blank" class="tag-law">📋 민사집행법 제61조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007400" target="_blank" class="tag-law">📋 민사집행법 제74조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007500" target="_blank" class="tag-law">📋 민사집행법 제75조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007600" target="_blank" class="tag-law">📋 민사집행법 제76조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007700" target="_blank" class="tag-law">📋 민사집행법 제77조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=005300" target="_blank" class="tag-law">📋 민사집행법 제53조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=040600" target="_blank" class="tag-law">📋 민법 제406조</a>
+  </div>
+  <p style="font-size:.85rem;color:#5a6472;margin-top:6px;">확인된 판례 없음 — 재산조회 제도의 취지(재산 소재 파악 곤란 시 국가기관을 통한 정보 수집)는 위 조문의 법리 방향으로 안내.</p>
+
+  <h2>6. 실무 체크리스트</h2>
+  <ul class="checklist">
+    <li>집행권원·집행문·송달증명을 확인했다</li>
+    <li>재산명시 결과(불출석·거부·부실 여부)를 확인하고 해당 요건을 특정했다</li>
+    <li>조회 대상기관 목록을 신청서에 정확히 기재했다</li>
+    <li>인지·송달료·조회수수료를 산정·예납했다</li>
+    <li>기관별 회신 도달 여부를 확인했다</li>
+    <li>회신 즉시 압류명령 신청에 착수했다</li>
+    <li>조회 결과 정보를 목적 외로 사용하지 않도록 관리했다</li>
+  </ul>
+
+  <h2>7. 연계 도구·스킬</h2>
+  <div class="tools">
+    <a href="#">fee_calculator.html (인지·송달료·조회수수료 계산)</a>
+    <a href="#">ecfs-orchestrator (전자소송포털 민사집행 신청 자동화)</a>
+    <a href="#">재산조회전산시스템(TS) 연계 확인</a>
+    <a href="#">민사집행총론_05_재산명시신청.html (선행 업무 연계)</a>
+  </div>
+
+  <div class="meta">
+    최종 확인: 담당 법무사(성명 검토 후 기재) · 최신 개정 확인일 2026-07-17 · 내부 업무자료(외부 게시 금지)
+  </div>
+
+</div>
+</body>
+</html>

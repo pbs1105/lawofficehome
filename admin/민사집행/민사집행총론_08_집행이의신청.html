@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>집행에 관한 이의신청 — 직원용 업무자료</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1a2e4a; --navy2:#2d4a7a; --gold:#c8a96e; --ivory:#faf8f5;
+    --sumbg:#eef2f8; --warnbg:#fff3e8; --warn:#c05000;
+    --casebg:#f7f4f0; --caseborder:#6b7280; --ok:#1a5c2e;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--ivory);color:#1f2733;
+       font-family:'Noto Sans KR',sans-serif;line-height:1.7;}
+  .wrap{max-width:920px;margin:0 auto;padding:24px 20px 60px;}
+  h1,h2{font-family:'Noto Serif KR',serif;color:var(--navy);}
+  h1{font-size:1.6rem;margin:.2em 0;}
+  h2{font-size:1.2rem;border-left:5px solid var(--gold);padding-left:12px;margin:2em 0 .8em;}
+
+  .staff-bar{display:flex;justify-content:space-between;align-items:center;
+    background:var(--navy);color:#fff;border-radius:8px;padding:8px 14px;font-size:.85rem;}
+  .staff-bar .tag{background:var(--gold);color:var(--navy);font-weight:700;
+    padding:2px 10px;border-radius:12px;}
+  .cat-badge{display:inline-block;background:var(--navy2);color:#fff;
+    font-size:.78rem;font-weight:600;padding:2px 10px;border-radius:12px;}
+
+  .flow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;}
+  .flow .step{flex:1 1 150px;background:#fff;border:1px solid #d8dde6;
+    border-radius:8px;padding:10px 12px;position:relative;}
+  .flow .step b{color:var(--navy2);display:block;font-size:.9rem;}
+  .flow .step span{font-size:.82rem;color:#5a6472;}
+
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9rem;background:#fff;}
+  th,td{border:1px solid #d8dde6;padding:8px 10px;text-align:left;vertical-align:top;}
+  th{background:var(--sumbg);color:var(--navy);}
+
+  .risk{font-weight:700;} .r-high{color:#c0392b;} .r-mid{color:#b8860b;} .r-low{color:#5a6472;}
+
+  .fee-box{background:#f4f7fb;border:1px solid var(--navy2);border-radius:8px;padding:4px 14px;margin:10px 0;}
+  .fee-note{font-size:.82rem;color:#5a6472;margin:6px 0;}
+
+  .warn{background:var(--warnbg);border:1px solid var(--warn);border-radius:8px;padding:10px 14px;margin:10px 0;}
+  .deadline{color:var(--warn);font-weight:700;}
+
+  .checklist{list-style:none;padding:0;}
+  .checklist li{background:#f0f8f0;border:1px solid var(--ok);border-radius:6px;
+    padding:8px 12px;margin:6px 0;font-size:.9rem;}
+  .checklist li::before{content:"☐ ";color:var(--ok);font-weight:700;}
+
+  .ref-tags{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;}
+  .tag-law{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;
+    text-decoration:none;background:#eef2f8;color:#2d4a7a;border:1px solid #2d4a7a;}
+  .tag-case{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;
+    text-decoration:none;background:#f7f4f0;color:#5a3e28;border:1px solid #6b7280;}
+
+  .tools a{display:inline-block;margin:4px 6px 4px 0;padding:6px 12px;border-radius:8px;
+    background:var(--navy);color:#fff;text-decoration:none;font-size:.85rem;}
+
+  .meta{margin-top:30px;border-top:1px dashed #c4ccd6;padding-top:10px;font-size:.8rem;color:#5a6472;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="staff-bar">
+    <span><span class="tag">직원용</span> 내부 업무자료 · 외부 게시 금지</span>
+    <span>최신 개정 확인일: 2026-07-17</span>
+  </div>
+
+  <h1>집행에 관한 이의신청</h1>
+  <p><span class="cat-badge">민사집행</span></p>
+  <p>집행법원 또는 집행관의 집행처분이 위법·부당한 경우, 이해관계인이 집행법원에 그 시정을 구하는 절차. 집행권원에 표시된 실체적 권리를 다투는 것이 아니라 집행 절차상의 위법만을 대상으로 하며, 산출물은 인용 또는 기각 결정문이다.</p>
+
+  <h2>1. 절차 개관</h2>
+  <div class="flow">
+    <div class="step"><b>① 이의사유 검토</b><span>담당: 담당 법무사 · 소요: 접수 즉시 · 산출물: 검토메모(절차위법 vs 실체다툼 vs 즉시항고대상 구별)</span></div>
+    <div class="step"><b>② 이의신청서 제출</b><span>담당: 사무직원 · 소요: 즉시 · 산출물: 접수증(서면 또는 구술)</span></div>
+    <div class="step"><b>③ 집행정지 신청 병행(필요 시)</b><span>담당: 담당 법무사 · 소요: 신청 즉시 · 산출물: 집행정지 신청서</span></div>
+    <div class="step"><b>④ 법원 심리·결정</b><span>담당: 집행법원 · 소요: 사안별 상이 · 산출물: 인용/기각 결정문</span></div>
+  </div>
+
+  <h2>2. 준비서류</h2>
+  <table>
+    <tr><th>서류명</th><th>발급처</th><th>유효기간</th><th>위험도</th><th>비고</th></tr>
+    <tr><td>집행이의신청서</td><td>사무소 작성</td><td>-</td><td class="risk r-low">⚪</td><td>이의사유(절차적 위법)를 구체적으로 특정</td></tr>
+    <tr><td>집행처분 증명자료(압류조서 등)</td><td>집행관·법원</td><td>-</td><td class="risk r-high">🔴</td><td>위법성 입증자료 확보 필수</td></tr>
+    <tr><td>집행정지신청서(병행 시)</td><td>사무소 작성</td><td>-</td><td class="risk r-high">🔴</td><td>담보제공 필요 여부 확인</td></tr>
+    <tr><td>위임장</td><td>당사자 작성</td><td>-</td><td class="risk r-low">⚪</td><td>대리권 확인</td></tr>
+  </table>
+
+  <h2>3. 공과금·보수료</h2>
+  <div class="fee-box">
+    <table>
+      <tr><th>항목</th><th>산정 기준(과세표준·요율)</th><th>근거 법령</th><th>납부처</th><th>납부 시점</th></tr>
+      <tr><td>인지액</td><td>신청서 1건당 정액(인지규칙 기준)</td><td>민사소송 등 인지법·인지규칙</td><td>전자소송포털 전자납부 / 수입인지</td><td>신청서 제출 시</td></tr>
+      <tr><td>송달료</td><td>당사자 수 × 납부기준(회차)</td><td>송달료규칙</td><td>세입세출외현금출납공무원 계좌</td><td>신청서 제출 시</td></tr>
+      <tr><td>집행정지 담보공탁금(해당 시)</td><td>법원 지정액</td><td>민사집행법 제46조</td><td>공탁소</td><td>정지결정 전 공탁</td></tr>
+    </table>
+    <p class="fee-note">※ 인지액·송달료·담보액 등 세율·요율은 사무소 단일 출처(보수표·인지규칙) 기준이며, 최신 개정일은 상단 배지 참조. 구체 금액은 fee_calculator.html로 산출한다.</p>
+    <p class="fee-note">※ 법무사 보수료: 보수표 유형·가액 구간 참조, 임의 확정 금지. 사무소 보수표(단일 출처)와 대조 후 안내.</p>
+  </div>
+
+  <h2>4. 주의사항</h2>
+  <div class="warn">
+    <p><span class="deadline">⚡ 기한</span> — 집행이의는 즉시항고(고지일로부터 1주일)와 달리 기간 제한이 없다. 다만 집행이 완료되면 이의 실익이 소멸하므로 사실상 즉시 대응이 필요하다. 집행정지는 이의신청만으로 자동 발생하지 않으므로(민사집행법 제46조), 긴급한 경우 반드시 별도의 집행정지 신청을 병행해야 한다.</p>
+    <p>실무 함정 — 실체적 권리(변제·상계 등)를 다투는 것은 집행이의 사유가 아니며 청구이의의 소로 별도 제기해야 한다(제44조). 즉시항고가 허용되는 재판을 집행이의로 잘못 신청하면 각하될 수 있으므로, 접수 전 대상 처분의 불복방법을 반드시 구별한다.</p>
+  </div>
+
+  <h2>5. 법령·판례 검토</h2>
+  <p>집행이의의 대상·절차는 민사집행법 제16조, 재판 절차는 제17조에 규정되어 있다. 즉시항고와의 구별은 제15조, 실체적 권리를 다투는 청구이의의 소와의 구별은 제44조, 집행정지의 근거는 제46조 참조.</p>
+  <div class="ref-tags">
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=001500" target="_blank" class="tag-law">📋 민사집행법 제15조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=001600" target="_blank" class="tag-law">📋 민사집행법 제16조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=001700" target="_blank" class="tag-law">📋 민사집행법 제17조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004400" target="_blank" class="tag-law">📋 민사집행법 제44조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004600" target="_blank" class="tag-law">📋 민사집행법 제46조</a>
+  </div>
+  <p style="font-size:.85rem;color:#5a6472;margin-top:6px;">확인된 판례 없음 — 집행이의의 사유가 절차상 위법에 한정되고 집행권원에 표시된 청구권 자체의 존부·내용은 이의 사유가 될 수 없다는 법리 방향으로 안내.</p>
+
+  <h2>6. 실무 체크리스트</h2>
+  <ul class="checklist">
+    <li>이의사유가 절차적 위법인지 실체적 권리 다툼인지 구별했다</li>
+    <li>대상 처분이 집행이의 대상인지 즉시항고 대상인지 확인했다</li>
+    <li>인지·송달료를 산정·납부했다</li>
+    <li>집행정지 병행 필요 여부를 판단하고 필요 시 신청서를 준비했다</li>
+    <li>법원 결정문(인용/기각)을 확인했다</li>
+    <li>정지결정 시 집행기관에 통지 여부를 확인했다</li>
+    <li>기각 시 특별항고 등 추가 불복수단을 검토했다</li>
+  </ul>
+
+  <h2>7. 연계 도구·스킬</h2>
+  <div class="tools">
+    <a href="#">fee_calculator.html (인지·송달료 계산)</a>
+    <a href="#">ecfs-orchestrator (전자소송포털 민사집행 신청 자동화)</a>
+    <a href="#">민사집행총론_12_집행정지취소신청.html (병행 업무 연계)</a>
+    <a href="#">민사집행총론_09_청구이의의소.html (실체 다툼 시 연계)</a>
+  </div>
+
+  <div class="meta">
+    최종 확인: 담당 법무사(성명 검토 후 기재) · 최신 개정 확인일 2026-07-17 · 내부 업무자료(외부 게시 금지)
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>강제경매 신청절차 처리 — 직원용 업무자료</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1a2e4a; --navy2:#2d4a7a; --gold:#c8a96e; --ivory:#faf8f5;
+    --sumbg:#eef2f8; --warnbg:#fff3e8; --warn:#c05000;
+    --casebg:#f7f4f0; --caseborder:#6b7280; --ok:#1a5c2e;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--ivory);color:#1f2733;
+       font-family:'Noto Sans KR',sans-serif;line-height:1.7;}
+  .wrap{max-width:920px;margin:0 auto;padding:24px 20px 60px;}
+  h1,h2{font-family:'Noto Serif KR',serif;color:var(--navy);}
+  h1{font-size:1.6rem;margin:.2em 0;}
+  h2{font-size:1.2rem;border-left:5px solid var(--gold);padding-left:12px;margin:2em 0 .8em;}
+
+  .staff-bar{display:flex;justify-content:space-between;align-items:center;
+    background:var(--navy);color:#fff;border-radius:8px;padding:8px 14px;font-size:.85rem;}
+  .staff-bar .tag{background:var(--gold);color:var(--navy);font-weight:700;
+    padding:2px 10px;border-radius:12px;}
+  .cat-badge{display:inline-block;background:var(--navy2);color:#fff;
+    font-size:.78rem;font-weight:600;padding:2px 10px;border-radius:12px;}
+
+  .flow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;}
+  .flow .step{flex:1 1 150px;background:#fff;border:1px solid #d8dde6;
+    border-radius:8px;padding:10px 12px;position:relative;}
+  .flow .step b{color:var(--navy2);display:block;font-size:.9rem;}
+  .flow .step span{font-size:.82rem;color:#5a6472;}
+
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9rem;background:#fff;}
+  th,td{border:1px solid #d8dde6;padding:8px 10px;text-align:left;vertical-align:top;}
+  th{background:var(--sumbg);color:var(--navy);}
+
+  .risk{font-weight:700;} .r-high{color:#c0392b;} .r-mid{color:#b8860b;} .r-low{color:#5a6472;}
+
+  .fee-box{background:#f4f7fb;border:1px solid var(--navy2);border-radius:8px;padding:4px 14px;margin:10px 0;}
+  .fee-note{font-size:.82rem;color:#5a6472;margin:6px 0;}
+
+  .warn{background:var(--warnbg);border:1px solid var(--warn);border-radius:8px;padding:10px 14px;margin:10px 0;}
+  .deadline{color:var(--warn);font-weight:700;}
+
+  .checklist{list-style:none;padding:0;}
+  .checklist li{background:#f0f8f0;border:1px solid var(--ok);border-radius:6px;
+    padding:8px 12px;margin:6px 0;font-size:.9rem;}
+  .checklist li::before{content:"☐ ";color:var(--ok);font-weight:700;}
+
+  .ref-tags{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;}
+  .tag-law{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;
+    text-decoration:none;background:#eef2f8;color:#2d4a7a;border:1px solid #2d4a7a;}
+  .tag-case{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;
+    text-decoration:none;background:#f7f4f0;color:#5a3e28;border:1px solid #6b7280;}
+
+  .tools a{display:inline-block;margin:4px 6px 4px 0;padding:6px 12px;border-radius:8px;
+    background:var(--navy);color:#fff;text-decoration:none;font-size:.85rem;}
+
+  .meta{margin-top:30px;border-top:1px dashed #c4ccd6;padding-top:10px;font-size:.8rem;color:#5a6472;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="staff-bar">
+    <span><span class="tag">직원용</span> 내부 업무자료 · 외부 게시 금지</span>
+    <span>최신 개정 확인일: 2026-07-17</span>
+  </div>
+
+  <h1>강제경매 신청절차 처리</h1>
+  <p><span class="cat-badge">민사집행 · 부동산집행</span></p>
+  <p>집행권원을 확보한 채권자를 대리하여 채무자 소유 부동산에 강제경매를 신청하는 업무다. 집행문·송달증명 확보부터 관할법원 접수, 경매개시결정 확인까지를 처리한다.</p>
+
+  <h2>1. 절차 개관</h2>
+  <div class="flow">
+    <div class="step"><b>① 집행권원·시효 확인</b><span>담당: 법무사·직원 · 당일 · 집행권원 유형 확정, 소멸시효 도과 여부 확인</span></div>
+    <div class="step"><b>② 집행문 부여 신청</b><span>담당: 직원 · 1~2일 · 집행력 있는 정본 확보(불요식 집행권원은 생략)</span></div>
+    <div class="step"><b>③ 송달증명원 발급</b><span>담당: 직원 · 1일 이내 · 송달일 기재된 증명원</span></div>
+    <div class="step"><b>④ 신청서·첨부서류 준비</b><span>담당: 법무사·직원 · 1~2일 · 경매신청서, 등기사항증명서, 채권계산서</span></div>
+    <div class="step"><b>⑤ 관할법원 접수</b><span>담당: 직원(ecfs) · 당일 · 인지대·송달료 납부, 접수증·사건번호</span></div>
+    <div class="step"><b>⑥ 경매개시결정 확인</b><span>담당: 직원 · 접수 당일~3일 · 결정문·등기촉탁 기재 확인 (→ 03 페이지)</span></div>
+  </div>
+
+  <h2>2. 준비서류</h2>
+  <table>
+    <tr><th>서류명</th><th>발급처</th><th>유효기간</th><th>위험도</th><th>비고</th></tr>
+    <tr><td>집행력 있는 정본(판결정본 등)</td><td>발령 법원</td><td>집행력 존속 기간 내</td><td class="risk r-high">🔴</td><td>집행문 부여 여부 반드시 확인</td></tr>
+    <tr><td>집행문(필요한 경우)</td><td>발령 법원 사무관</td><td>발급 후 제한 없음</td><td class="risk r-high">🔴</td><td>지급명령·이행권고결정은 원칙상 불요</td></tr>
+    <tr><td>송달증명원</td><td>발령 법원</td><td>발급 후 제한 없음</td><td class="risk r-mid">🟡</td><td>송달일 미기재 시 접수 반려</td></tr>
+    <tr><td>부동산 등기사항증명서</td><td>등기소·인터넷등기소</td><td>발급일 기준 최신본(접수 당일 재발급 권장)</td><td class="risk r-mid">🟡</td><td>소유자·근저당권 등 현황 확인용</td></tr>
+    <tr><td>채권계산서</td><td>채권자(사무소 작성)</td><td>접수 시점 기준 산정</td><td class="risk r-low">⚪</td><td>원금·이자·비용 내역 명확히 구분</td></tr>
+    <tr><td>법인등기부등본(법인 채권자)</td><td>등기소</td><td>발급일로부터 3개월 통상</td><td class="risk r-low">⚪</td><td>대표자 확인용</td></tr>
+  </table>
+
+  <h2>3. 공과금·보수료</h2>
+  <div class="fee-box">
+    <table>
+      <tr><th>항목</th><th>산정 기준(과세표준·요율)</th><th>근거 법령</th><th>납부처</th><th>납부 시점</th></tr>
+      <tr><td>인지액</td><td>청구금액 기준 정률(민사소송 등 인지법 별표)</td><td>민사소송 등 인지법</td><td>전자소송포털/수입인지</td><td>신청서 접수 시</td></tr>
+      <tr><td>송달료</td><td>당사자 수 × 예납 회차</td><td>송달료규칙</td><td>예납계좌(은행)</td><td>신청 시 예납</td></tr>
+      <tr><td>집행문부여수수료</td><td>건당 정액</td><td>재판예규</td><td>발령 법원</td><td>집행문 신청 시</td></tr>
+      <tr><td>현황조사·감정평가 비용</td><td>목적물 유형·규모별 실비</td><td>민사집행규칙</td><td>예납계좌(은행)</td><td>경매개시결정 후 법원 예납 통지 시</td></tr>
+    </table>
+    <p class="fee-note">※ 세율·요율·정액 수수료는 사무소 단일 출처(보수표·인지규칙) 기준이며, 최신 개정일은 상단 배지 참조. 구체 금액은 fee_calculator.html로 산정.</p>
+    <p class="fee-note">※ 법무사 보수료: 사무소 보수표 유형·가액 구간 참조(임의 확정 금지) + 실비.</p>
+  </div>
+
+  <h2>4. 주의사항</h2>
+  <div class="warn">
+    <p><span class="deadline">⚡ 기한</span> — 판결로 확정된 채권의 소멸시효는 10년(민법 제165조)이다. 판결일로부터 시효 경과 여부를 접수 전 반드시 확인하고, 도과 임박 시 시효중단 조치(재판상 청구 등) 선행 여부를 확인한다.</p>
+    <p>실무 함정: ① 잉여주의 사전검토 누락 — 선순위 담보채권과 집행비용 합계가 부동산 가액을 초과하면 법원이 경매를 취소할 수 있다(민집 제102조). 접수 전 등기부상 선순위 채권 현황을 확인한다. ② 지분 경매 시 낙찰가가 낮게 형성되는 점을 채권자에게 사전 안내. ③ 부동산 소재지 관할 착오 — 관할 없는 법원 접수 시 이송·각하.</p>
+  </div>
+
+  <h2>5. 법령·판례 검토</h2>
+  <p>집행문 부여는 민사집행법 제28조, 관할은 제79조가 근거다. 채권 소멸시효는 민법 제165조, 잉여주의로 인한 경매취소는 민사집행법 제102조를 확인한다.</p>
+  <div class="ref-tags">
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=002800" target="_blank" class="tag-law">📋 민사집행법 제28조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007900" target="_blank" class="tag-law">📋 민사집행법 제79조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=016500" target="_blank" class="tag-law">📋 민법 제165조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=010200" target="_blank" class="tag-law">📋 민사집행법 제102조</a>
+  </div>
+  <p style="font-size:.85rem;color:#5a6472;margin-top:6px;">※ 확인된 판례 사건번호 없음 — 법리 방향(신청 요건·잉여주의)만 서술.</p>
+
+  <h2>6. 실무 체크리스트</h2>
+  <ul class="checklist">
+    <li>착수 전: 집행권원 종류·확정 여부, 소멸시효 도과 여부, 등기부상 선순위 채권 현황(잉여주의) 확인</li>
+    <li>제출 전: 집행문·송달증명원 첨부 여부, 부동산 소재지 관할 일치 여부, 채권계산서 원금·이자·비용 구분 확인</li>
+    <li>완료 후: 경매개시결정 확인, 등기부 압류등기 기재 확인, 사건번호 사건관리대장 기록 및 담당자 인계</li>
+  </ul>
+
+  <h2>7. 연계 도구·스킬</h2>
+  <div class="tools">
+    <a href="#">fee_calculator.html (인지·송달료 등 계산)</a>
+    <a href="#">ecfs-orchestrator (전자소송포털 경매신청 자동화)</a>
+    <a href="#">부동산집행_03_경매개시결정압류처리.html (다음 단계)</a>
+  </div>
+
+  <div class="meta">
+    최종 확인: 담당 법무사(성명 검토 후 기재) · 최신 개정 확인일 2026-07-17 · 내부 업무자료(외부 게시 금지)
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>배당기일·배당표 확인 및 배당이의 처리 — 직원용 업무자료</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1a2e4a; --navy2:#2d4a7a; --gold:#c8a96e; --ivory:#faf8f5;
+    --sumbg:#eef2f8; --warnbg:#fff3e8; --warn:#c05000;
+    --casebg:#f7f4f0; --caseborder:#6b7280; --ok:#1a5c2e;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--ivory);color:#1f2733;
+       font-family:'Noto Sans KR',sans-serif;line-height:1.7;}
+  .wrap{max-width:920px;margin:0 auto;padding:24px 20px 60px;}
+  h1,h2{font-family:'Noto Serif KR',serif;color:var(--navy);}
+  h1{font-size:1.6rem;margin:.2em 0;}
+  h2{font-size:1.2rem;border-left:5px solid var(--gold);padding-left:12px;margin:2em 0 .8em;}
+
+  .staff-bar{display:flex;justify-content:space-between;align-items:center;
+    background:var(--navy);color:#fff;border-radius:8px;padding:8px 14px;font-size:.85rem;}
+  .staff-bar .tag{background:var(--gold);color:var(--navy);font-weight:700;
+    padding:2px 10px;border-radius:12px;}
+  .cat-badge{display:inline-block;background:var(--navy2);color:#fff;
+    font-size:.78rem;font-weight:600;padding:2px 10px;border-radius:12px;}
+
+  .flow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;}
+  .flow .step{flex:1 1 150px;background:#fff;border:1px solid #d8dde6;
+    border-radius:8px;padding:10px 12px;position:relative;}
+  .flow .step b{color:var(--navy2);display:block;font-size:.9rem;}
+  .flow .step span{font-size:.82rem;color:#5a6472;}
+
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9rem;background:#fff;}
+  th,td{border:1px solid #d8dde6;padding:8px 10px;text-align:left;vertical-align:top;}
+  th{background:var(--sumbg);color:var(--navy);}
+
+  .risk{font-weight:700;} .r-high{color:#c0392b;} .r-mid{color:#b8860b;} .r-low{color:#5a6472;}
+
+  .fee-box{background:#f4f7fb;border:1px solid var(--navy2);border-radius:8px;padding:4px 14px;margin:10px 0;}
+  .fee-note{font-size:.82rem;color:#5a6472;margin:6px 0;}
+
+  .warn{background:var(--warnbg);border:1px solid var(--warn);border-radius:8px;padding:10px 14px;margin:10px 0;}
+  .deadline{color:var(--warn);font-weight:700;}
+
+  .checklist{list-style:none;padding:0;}
+  .checklist li{background:#f0f8f0;border:1px solid var(--ok);border-radius:6px;
+    padding:8px 12px;margin:6px 0;font-size:.9rem;}
+  .checklist li::before{content:"☐ ";color:var(--ok);font-weight:700;}
+
+  .ref-tags{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;}
+  .tag-law{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;
+    text-decoration:none;background:#eef2f8;color:#2d4a7a;border:1px solid #2d4a7a;}
+  .tag-case{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;
+    text-decoration:none;background:#f7f4f0;color:#5a3e28;border:1px solid #6b7280;}
+
+  .tools a{display:inline-block;margin:4px 6px 4px 0;padding:6px 12px;border-radius:8px;
+    background:var(--navy);color:#fff;text-decoration:none;font-size:.85rem;}
+
+  .meta{margin-top:30px;border-top:1px dashed #c4ccd6;padding-top:10px;font-size:.8rem;color:#5a6472;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="staff-bar">
+    <span><span class="tag">직원용</span> 내부 업무자료 · 외부 게시 금지</span>
+    <span>최신 개정 확인일: 2026-07-17</span>
+  </div>
+
+  <h1>배당기일·배당표 확인 및 배당이의 처리</h1>
+  <p><span class="cat-badge">민사집행 · 부동산집행</span></p>
+  <p>매각대금 납부 후 법원이 작성한 배당표원안을 사전 검토하고, 배당기일에 출석해 이의 여부를 판단·진술하며 필요 시 배당이의의 소를 제기하는 업무다. 배당기일 당일 출석과 소 제기기간(1주일) 두 기한이 절대적이므로 일정 관리가 핵심이다.</p>
+
+  <h2>1. 절차 개관</h2>
+  <div class="flow">
+    <div class="step"><b>① 배당표원안 열람</b><span>담당: 직원·법무사 · 배당기일 3일 전 비치 · 채권액·순위·배당비율 검토</span></div>
+    <div class="step"><b>② 이의 여부 사전 판단</b><span>담당: 법무사 · 열람 직후~기일 전 · 이의 진술문·근거자료 준비</span></div>
+    <div class="step"><b>③ 배당기일 출석·이의 진술</b><span>담당: 법무사(대리) · 배당기일 당일 · 이의 진술 조서 기재</span></div>
+    <div class="step"><b>④ 배당이의의 소 제기</b><span>담당: 법무사 · 배당기일로부터 1주일 이내 · 소장 접수증(관할: 집행법원)</span></div>
+    <div class="step"><b>⑤ 배당액 공탁·확정</b><span>담당: 법원 · 소송 계속 중 · 이의 부분 공탁, 무이의 부분 즉시 배당 실시</span></div>
+  </div>
+
+  <h2>2. 준비서류</h2>
+  <table>
+    <tr><th>서류명</th><th>발급처</th><th>유효기간</th><th>위험도</th><th>비고</th></tr>
+    <tr><td>배당표원안 열람 자료</td><td>집행법원(비치)</td><td>배당기일 3일 전~당일</td><td class="risk r-high">🔴</td><td>비치기간 미준수 시 배당기일 연기·변경 사유 — 열람 기록 남길 것</td></tr>
+    <tr><td>이의 진술 근거자료(채권 존부·순위 다툼 자료)</td><td>본인 보관·조사</td><td>기일 전 확보</td><td class="risk r-high">🔴</td><td>구두 진술이 원칙이므로 요지를 사전 정리</td></tr>
+    <tr><td>채무자 서면 이의서(채무자가 이의하는 경우)</td><td>직접 작성</td><td>배당표원안 비치~배당기일 종료 전</td><td class="risk r-mid">🟡</td><td>채권자는 서면 이의 불가, 채무자만 서면 가능</td></tr>
+    <tr><td>배당이의의 소 소장</td><td>직접 작성</td><td>배당기일로부터 1주일 이내 제출</td><td class="risk r-high">🔴</td><td>기간 도과 시 이의 취하 간주 — 배당기일 당일~익일 착수 권장</td></tr>
+  </table>
+
+  <h2>3. 공과금·보수료</h2>
+  <div class="fee-box">
+    <table>
+      <tr><th>항목</th><th>산정 기준(과세표준·요율)</th><th>근거 법령</th><th>납부처</th><th>납부 시점</th></tr>
+      <tr><td>배당이의의 소 인지액</td><td>소가(다투는 배당액) 기준 산정</td><td>민사소송 등 인지법</td><td>전자소송포털/수입인지</td><td>소장 접수 시</td></tr>
+      <tr><td>송달료</td><td>당사자 수 × 회차 기준 예납</td><td>송달료규칙</td><td>예납계좌(은행)</td><td>소장 접수 시</td></tr>
+      <tr><td>배당기일 출석(대리) 비용</td><td>사무소 보수표 기준</td><td>-</td><td>-</td><td>배당기일 위임 시</td></tr>
+    </table>
+    <p class="fee-note">※ 인지·송달료 산정 기준은 사무소 단일 출처(인지규칙·보수표) 기준이며, 최신 개정일은 상단 배지 참조. 구체 금액은 fee_calculator.html로 산정.</p>
+    <p class="fee-note">※ 법무사 보수료: 배당기일 대리·배당이의 소송 수임은 사무소 보수표 유형·가액 구간 참조(임의 확정 금지).</p>
+  </div>
+
+  <h2>4. 주의사항</h2>
+  <div class="warn">
+    <p><span class="deadline">⚡ 기한</span> — 배당이의는 반드시 <strong>배당기일 당일 출석</strong>하여 구두로 진술해야 효력이 있다(채무자는 서면 이의 가능, 채권자는 사전 서면 이의 불가). 이의를 진술했더라도 <strong>배당기일로부터 1주일 이내</strong>에 배당이의의 소를 제기하지 않으면 이의가 취하된 것으로 간주되어 원 배당표대로 확정된다.</p>
+    <p>실무 함정: ① 배당기일에 불출석하면 배당표에 명백한 오류가 있어도 이후 다툴 기회가 사실상 사라진다 — 의뢰인 본인 불출석 시 대리 위임 여부를 사전 확정. ② 계산 오류 등 분명한 잘못은 원안 작성 후에도 경정 가능하나, 경정 시 배당기일 변경·속행 절차가 필요하므로 일정 재조정. ③ 이의 진술만으로는 부족하고 소 제기까지 완료해야 하므로, 이의 진술 당일 소장 초안 작성에 바로 착수하는 것이 안전.</p>
+  </div>
+
+  <h2>5. 법령·판례 검토</h2>
+  <p>배당표는 집행법원이 채권계산서·집행기록을 기초로 작성하며(민사집행법 제150조), 배당기일 3일 전까지 배당표원안을 비치한다(제149조 제1항). 이의는 배당기일에 출석해 진술하는 것이 원칙이나 채무자는 서면 이의도 가능하다(제151조). 이의를 진술한 채권자·채무자는 배당기일로부터 1주일 이내에 배당이의의 소를 제기해야 한다(제154조).</p>
+  <div class="ref-tags">
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=014900" target="_blank" class="tag-law">📋 민사집행법 제149조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=015000" target="_blank" class="tag-law">📋 민사집행법 제150조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=015100" target="_blank" class="tag-law">📋 민사집행법 제151조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=015400" target="_blank" class="tag-law">📋 민사집행법 제154조</a>
+  </div>
+  <p style="font-size:.85rem;color:#5a6472;margin-top:6px;">※ 확인된 판례 사건번호 없음 — 배당기일 출석·1주일 소제기 기간의 절대성이라는 법리 방향만 서술.</p>
+
+  <h2>6. 실무 체크리스트</h2>
+  <ul class="checklist">
+    <li>착수 전: 배당표원안 열람 및 채권액·순위·배당비율 사전 검토, 이의 필요성 판단</li>
+    <li>제출 전: 배당기일 출석(대리) 준비, 이의 진술 요지 정리, 채무자 서면 이의는 기일 종료 전 제출 확인</li>
+    <li>완료 후: 이의 진술 시 배당기일로부터 1주일 이내 소장 접수 여부 재확인, 무이의 부분 배당금 지급 확인</li>
+  </ul>
+
+  <h2>7. 연계 도구·스킬</h2>
+  <div class="tools">
+    <a href="#">fee_calculator.html (인지·등록면허세 등 계산)</a>
+    <a href="#">ecfs-orchestrator (전자소송포털 배당이의 소장 제출 자동화)</a>
+    <a href="#">부동산집행_09_배당순위판단.html (선행 검토 자료)</a>
+  </div>
+
+  <div class="meta">
+    최종 확인: 담당 법무사(성명 검토 후 기재) · 최신 개정 확인일 2026-07-17 · 내부 업무자료(외부 게시 금지)
+  </div>
+
+</div>
+</body>
+</html>

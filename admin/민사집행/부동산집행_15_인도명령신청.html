@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>인도명령 신청 — 직원용 업무자료</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1a2e4a; --navy2:#2d4a7a; --gold:#c8a96e; --ivory:#faf8f5;
+    --sumbg:#eef2f8; --warnbg:#fff3e8; --warn:#c05000;
+    --casebg:#f7f4f0; --caseborder:#6b7280; --ok:#1a5c2e;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--ivory);color:#1f2733;
+       font-family:'Noto Sans KR',sans-serif;line-height:1.7;}
+  .wrap{max-width:920px;margin:0 auto;padding:24px 20px 60px;}
+  h1,h2{font-family:'Noto Serif KR',serif;color:var(--navy);}
+  h1{font-size:1.6rem;margin:.2em 0;}
+  h2{font-size:1.2rem;border-left:5px solid var(--gold);padding-left:12px;margin:2em 0 .8em;}
+
+  .staff-bar{display:flex;justify-content:space-between;align-items:center;
+    background:var(--navy);color:#fff;border-radius:8px;padding:8px 14px;font-size:.85rem;}
+  .staff-bar .tag{background:var(--gold);color:var(--navy);font-weight:700;
+    padding:2px 10px;border-radius:12px;}
+  .cat-badge{display:inline-block;background:var(--navy2);color:#fff;
+    font-size:.78rem;font-weight:600;padding:2px 10px;border-radius:12px;}
+
+  .flow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;}
+  .flow .step{flex:1 1 150px;background:#fff;border:1px solid #d8dde6;
+    border-radius:8px;padding:10px 12px;position:relative;}
+  .flow .step b{color:var(--navy2);display:block;font-size:.9rem;}
+  .flow .step span{font-size:.82rem;color:#5a6472;}
+
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9rem;background:#fff;}
+  th,td{border:1px solid #d8dde6;padding:8px 10px;text-align:left;vertical-align:top;}
+  th{background:var(--sumbg);color:var(--navy);}
+
+  .risk{font-weight:700;} .r-high{color:#c0392b;} .r-mid{color:#b8860b;} .r-low{color:#5a6472;}
+
+  .fee-box{background:#f4f7fb;border:1px solid var(--navy2);border-radius:8px;padding:4px 14px;margin:10px 0;}
+  .fee-note{font-size:.82rem;color:#5a6472;margin:6px 0;}
+
+  .warn{background:var(--warnbg);border:1px solid var(--warn);border-radius:8px;padding:10px 14px;margin:10px 0;}
+  .deadline{color:var(--warn);font-weight:700;}
+
+  .checklist{list-style:none;padding:0;}
+  .checklist li{background:#f0f8f0;border:1px solid var(--ok);border-radius:6px;
+    padding:8px 12px;margin:6px 0;font-size:.9rem;}
+  .checklist li::before{content:"☐ ";color:var(--ok);font-weight:700;}
+
+  .ref-tags{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;}
+  .tag-law{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;
+    text-decoration:none;background:#eef2f8;color:#2d4a7a;border:1px solid #2d4a7a;}
+  .tag-case{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;
+    text-decoration:none;background:#f7f4f0;color:#5a3e28;border:1px solid #6b7280;}
+
+  .tools a{display:inline-block;margin:4px 6px 4px 0;padding:6px 12px;border-radius:8px;
+    background:var(--navy);color:#fff;text-decoration:none;font-size:.85rem;}
+
+  .meta{margin-top:30px;border-top:1px dashed #c4ccd6;padding-top:10px;font-size:.8rem;color:#5a6472;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="staff-bar">
+    <span><span class="tag">직원용</span> 내부 업무자료 · 외부 게시 금지</span>
+    <span>최신 개정 확인일: 2026-07-17</span>
+  </div>
+
+  <h1>인도명령 신청</h1>
+  <p><span class="cat-badge">민사집행 · 부동산집행</span></p>
+  <p>낙찰자가 대금납부 후 협의명도가 결렬됐을 때, 집행법원에 인도명령을 신청하여 점유자 퇴거의 집행권원을 확보하는 절차다. 소송 없이 간이하게 진행되며, 결정 확정 후 강제집행 신청의 전제가 된다.</p>
+
+  <h2>1. 절차 개관</h2>
+  <div class="flow">
+    <div class="step"><b>① 신청서 작성</b><span>담당 법무사 · 접수 즉시 · 인도명령신청서(신청인·상대방·목적물·취지 기재)</span></div>
+    <div class="step"><b>② 첨부서류 준비</b><span>담당 직원 · 1일 이내 · 매각허가결정문·대금납부영수증 등</span></div>
+    <div class="step"><b>③ 법원 접수·인지대 납부</b><span>담당 직원 · 접수 당일 · 접수증</span></div>
+    <div class="step"><b>④ 심문(필요 시)</b><span>집행법원 · 수일~2주 · 심문기일 통지(생략 가능)</span></div>
+    <div class="step"><b>⑤ 결정 수령·송달 확인</b><span>담당 직원 · 결정 후 즉시 · 인도명령 결정문</span></div>
+    <div class="step"><b>⑥ 즉시항고기간 경과·확정</b><span>담당 직원 · 결정 후 1주 · 확정증명원</span></div>
+    <div class="step"><b>⑦ 강제집행 신청 연계</b><span>담당 법무사 · 확정 후 · 강제집행신청서(14번 업무와 연계)</span></div>
+  </div>
+
+  <h2>2. 준비서류</h2>
+  <table>
+    <tr><th>서류명</th><th>발급처</th><th>유효기간</th><th>위험도</th><th>비고</th></tr>
+    <tr><td>인도명령 신청서</td><td>담당 법무사 작성</td><td>-</td><td class="risk r-high">🔴</td><td>신청인·상대방·목적물·신청취지 정확 기재, 상대방 특정 오류 시 각하</td></tr>
+    <tr><td>매각허가결정문 사본</td><td>집행법원</td><td>제한 없음</td><td class="risk r-high">🔴</td><td>사건 특정 근거</td></tr>
+    <tr><td>대금납부영수증</td><td>법원 보관금 수납계</td><td>제한 없음</td><td class="risk r-high">🔴</td><td>6개월 기산일 확정, 기한 도과 시 각하</td></tr>
+    <tr><td>등기사항증명서</td><td>등기소·인터넷등기소</td><td>발급 최신본</td><td class="risk r-mid">🟡</td><td>소유권이전등기 완료 확인</td></tr>
+    <tr><td>점유자 확인자료(주민등록등본·현황조사보고서)</td><td>주민센터·집행법원</td><td>발급 최신본</td><td class="risk r-low">⚪</td><td>상대방 특정용(필요 시)</td></tr>
+  </table>
+
+  <h2>3. 공과금·보수료</h2>
+  <div class="fee-box">
+    <table>
+      <tr><th>항목</th><th>산정 기준(과세표준·요율)</th><th>근거 법령</th><th>납부처</th><th>납부 시점</th></tr>
+      <tr><td>인지액</td><td>건당 정액</td><td>민사소송 등 인지법</td><td>전자소송 전자납부</td><td>신청 시</td></tr>
+      <tr><td>송달료</td><td>당사자 수 × 송달료규칙 소정 회수분</td><td>송달료규칙</td><td>송달료 수납은행(전자예납)</td><td>신청 시</td></tr>
+      <tr><td>집행관 수수료(강제집행 신청 시)</td><td>집행목적물·거리 기준</td><td>집행관수수료규칙</td><td>집행관사무소</td><td>강제집행 신청 시</td></tr>
+    </table>
+    <p class="fee-note">※ 세율·요율은 사무소 단일 출처(보수표·인지규칙) 기준이며, 최신 개정 확인일은 상단 배지 참조. 임의로 확정 금액을 안내하지 않는다.</p>
+    <p class="fee-note">※ 법무사 보수료: 보수표 유형·가액구간 참조, 임의 확정 금지. fee_calculator.html로 산출 후 안내.</p>
+  </div>
+
+  <h2>4. 주의사항</h2>
+  <div class="warn">
+    <p><span class="deadline">⚡ 기한</span> — 대금납부일로부터 <strong>6개월 이내</strong>에 신청해야 한다(민집 제136조 제1항 단서). 즉시항고기간은 결정 고지일로부터 1주다.</p>
+    <p>대항력 있는 임차인은 인도명령 신청대상에서 제외되며(각하 사유), 상대방 특정 오류(성명·주소 불일치) 시 보정명령·각하 위험이 있다. 자력구제(임의 자물쇠 교체·물건 반출)는 절대 금지다.</p>
+  </div>
+
+  <h2>5. 법령·판례 검토</h2>
+  <p>인도명령은 매각대금을 낸 날로부터 6개월 이내에 집행법원에 신청하는 간이 절차이며(민집 제136조), 대항력 있는 임차인에게는 신청할 수 없고 별도 명도소송이 필요하다(민집 제136조 제1항).</p>
+  <div class="ref-tags">
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=013600" target="_blank" class="tag-law">📋 민사집행법 제136조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=013600" target="_blank" class="tag-law">📋 민사집행법 제136조 제1항</a>
+  </div>
+
+  <h2>6. 실무 체크리스트</h2>
+  <ul class="checklist">
+    <li>착수 전: 대금납부일 기준 6개월 기한 내인지 확인했는가</li>
+    <li>착수 전: 상대방이 인도명령 대상(대항력 없는 점유자)인지 확인했는가</li>
+    <li>제출 전: 첨부서류(매각허가결정문·대금납부영수증·등기사항증명서)를 모두 갖추었는가</li>
+    <li>완료 후: 즉시항고기간(1주) 경과를 확인하고 확정증명원을 발급받았는가</li>
+  </ul>
+
+  <h2>7. 연계 도구·스킬</h2>
+  <div class="tools">
+    <a href="#">fee_calculator.html (인지·등록면허세 등 계산)</a>
+    <a href="#">ecfs-orchestrator (전자소송포털 경매신청 자동화)</a>
+    <a href="#">ecfs-claim-input (신청취지·신청이유 입력)</a>
+  </div>
+
+  <div class="meta">
+    최종 확인: 담당 법무사(성명 검토 후 기재) · 최신 개정 확인일 2026-07-17 · 내부 업무자료(외부 게시 금지)
+  </div>
+
+</div>
+</body>
+</html>

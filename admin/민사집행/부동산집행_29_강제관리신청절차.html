@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>강제관리 신청절차 — 직원용 업무자료</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1a2e4a; --navy2:#2d4a7a; --gold:#c8a96e; --ivory:#faf8f5;
+    --sumbg:#eef2f8; --warnbg:#fff3e8; --warn:#c05000;
+    --casebg:#f7f4f0; --caseborder:#6b7280; --ok:#1a5c2e;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--ivory);color:#1f2733;
+       font-family:'Noto Sans KR',sans-serif;line-height:1.7;}
+  .wrap{max-width:920px;margin:0 auto;padding:24px 20px 60px;}
+  h1,h2{font-family:'Noto Serif KR',serif;color:var(--navy);}
+  h1{font-size:1.6rem;margin:.2em 0;}
+  h2{font-size:1.2rem;border-left:5px solid var(--gold);padding-left:12px;margin:2em 0 .8em;}
+
+  .staff-bar{display:flex;justify-content:space-between;align-items:center;
+    background:var(--navy);color:#fff;border-radius:8px;padding:8px 14px;font-size:.85rem;}
+  .staff-bar .tag{background:var(--gold);color:var(--navy);font-weight:700;
+    padding:2px 10px;border-radius:12px;}
+  .cat-badge{display:inline-block;background:var(--navy2);color:#fff;
+    font-size:.78rem;font-weight:600;padding:2px 10px;border-radius:12px;}
+
+  .flow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;}
+  .flow .step{flex:1 1 150px;background:#fff;border:1px solid #d8dde6;
+    border-radius:8px;padding:10px 12px;position:relative;}
+  .flow .step b{color:var(--navy2);display:block;font-size:.9rem;}
+  .flow .step span{font-size:.82rem;color:#5a6472;}
+
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9rem;background:#fff;}
+  th,td{border:1px solid #d8dde6;padding:8px 10px;text-align:left;vertical-align:top;}
+  th{background:var(--sumbg);color:var(--navy);}
+
+  .risk{font-weight:700;} .r-high{color:#c0392b;} .r-mid{color:#b8860b;} .r-low{color:#5a6472;}
+
+  .fee-box{background:#f4f7fb;border:1px solid var(--navy2);border-radius:8px;padding:4px 14px;margin:10px 0;}
+  .fee-note{font-size:.82rem;color:#5a6472;margin:6px 0;}
+
+  .warn{background:var(--warnbg);border:1px solid var(--warn);border-radius:8px;padding:10px 14px;margin:10px 0;}
+  .deadline{color:var(--warn);font-weight:700;}
+
+  .checklist{list-style:none;padding:0;}
+  .checklist li{background:#f0f8f0;border:1px solid var(--ok);border-radius:6px;
+    padding:8px 12px;margin:6px 0;font-size:.9rem;}
+  .checklist li::before{content:"☐ ";color:var(--ok);font-weight:700;}
+
+  .ref-tags{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;}
+  .tag-law{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;
+    text-decoration:none;background:#eef2f8;color:#2d4a7a;border:1px solid #2d4a7a;}
+  .tag-case{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;
+    text-decoration:none;background:#f7f4f0;color:#5a3e28;border:1px solid #6b7280;}
+
+  .tools a{display:inline-block;margin:4px 6px 4px 0;padding:6px 12px;border-radius:8px;
+    background:var(--navy);color:#fff;text-decoration:none;font-size:.85rem;}
+
+  .meta{margin-top:30px;border-top:1px dashed #c4ccd6;padding-top:10px;font-size:.8rem;color:#5a6472;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="staff-bar">
+    <span><span class="tag">직원용</span> 내부 업무자료 · 외부 게시 금지</span>
+    <span>최신 개정 확인일: 2026-07-17</span>
+  </div>
+
+  <h1>강제관리 신청절차</h1>
+  <p><span class="cat-badge">민사집행 · 부동산집행</span></p>
+  <p>채무자 부동산의 소유권은 그대로 두고 임대료 등 수익을 관리인이 추심해 채권자에게 배당하는 강제집행이다. 경매(원본집행)와 달리 수익집행이며, 선순위 채권으로 경매 배당이 기대되지 않거나 채권액이 소액인 경우 경매의 대안으로 검토한다. 담당 직원은 대상 부동산의 수익성 판단과 신청서류 준비, 관리인 선임 협조에 집중한다.</p>
+
+  <h2>1. 절차 개관</h2>
+  <div class="flow">
+    <div class="step"><b>① 신청</b><span>담당: 직원 · 접수 시 · 강제관리신청서(채권자·채무자·부동산·수익지급의무자 기재)</span></div>
+    <div class="step"><b>② 강제관리개시결정</b><span>담당: 법원(판사) · 신청 후 수일~수주 · 압류명령(수익처분금지·지급명령) 및 등기촉탁</span></div>
+    <div class="step"><b>③ 관리인 임명</b><span>담당: 법원 · 개시결정과 함께~직후 · 관리인 선임(채권자 추천 가능)</span></div>
+    <div class="step"><b>④ 수익 추심·현금화</b><span>담당: 관리인 · 지속적 · 임대료 수령, 조세·공과금·관리비용 공제</span></div>
+    <div class="step"><b>⑤ 배당</b><span>담당: 관리인·법원 · 수익 발생 시마다 · 채권자 전원 만족 시 변제, 부족 시 배당표</span></div>
+    <div class="step"><b>⑥ 종결(취소결정)</b><span>담당: 법원 · 전액 변제 확인 후 · 강제관리취소결정, 개시결정등기 말소 촉탁</span></div>
+  </div>
+
+  <h2>2. 준비서류</h2>
+  <table>
+    <tr><th>서류명</th><th>발급처</th><th>유효기간</th><th>위험도</th><th>비고</th></tr>
+    <tr><td>집행력 있는 정본·집행문·송달증명서</td><td>판결법원</td><td>집행력 존속 기간 내</td><td class="risk r-high">🔴</td><td>담보권(저당권) 실행으로는 강제관리 신청 불가 — 집행권원 또는 가압류 집행에만 허용</td></tr>
+    <tr><td>부동산등기사항증명서</td><td>인터넷등기소</td><td>발급일로부터 통상 1개월</td><td class="risk r-mid">🟡</td><td>채무자 소유 확인, 선순위 권리 현황 파악</td></tr>
+    <tr><td>수익 지급의무자(임차인) 표시 서류</td><td>본인 조사·임대차 현황 자료</td><td>신청 시점 기준</td><td class="risk r-high">🔴</td><td>임차인 성명·주소 특정 필수 — 미특정 시 개시결정 지연</td></tr>
+    <tr><td>수익성 사전 조사자료(임대현황·예상수익)</td><td>본인 조사</td><td>신청 전 최신 자료</td><td class="risk r-mid">🟡</td><td>수익이 관리비용에 못 미치면 각하·취소 사유 — 신청 전 필수 검토</td></tr>
+    <tr><td>등록면허세·등기신청수수료 영수필확인서</td><td>시·군·구 / 등기소</td><td>신청 시 최신분</td><td class="risk r-low">⚪</td><td>개시결정등기 촉탁용</td></tr>
+  </table>
+
+  <h2>3. 공과금·보수료</h2>
+  <div class="fee-box">
+    <table>
+      <tr><th>항목</th><th>산정 기준(과세표준·요율)</th><th>근거 법령</th><th>납부처</th><th>납부 시점</th></tr>
+      <tr><td>인지액</td><td>강제관리 신청 정액(전자신청 시 별도 감액)</td><td>민사소송 등 인지법</td><td>전자소송포털/수입인지</td><td>신청서 접수 시</td></tr>
+      <tr><td>등록면허세·지방교육세</td><td>건당 정액 + 부가세율</td><td>지방세법</td><td>시·군·구</td><td>개시결정등기 촉탁 시</td></tr>
+      <tr><td>등기신청수수료</td><td>부동산 개수 기준 정액</td><td>등기사항증명서 등 수수료규칙</td><td>대법원</td><td>개시결정등기 촉탁 시</td></tr>
+      <tr><td>송달료</td><td>당사자·이해관계인 수 × 회차 기준 예납</td><td>송달료규칙</td><td>예납계좌(은행)</td><td>신청 시 예납</td></tr>
+    </table>
+    <p class="fee-note">※ 인지·등록면허세·등기신청수수료의 구체 금액은 사무소 단일 출처(보수표·인지규칙) 기준이며, 최신 개정일은 상단 배지 참조. fee_calculator.html로 정확한 금액을 산정한다.</p>
+    <p class="fee-note">※ 법무사 보수료: 사무소 보수표 유형·가액 구간 참조(임의 확정 금지) + 관리인 선임·수익 관리 관련 실비 별도.</p>
+  </div>
+
+  <h2>4. 주의사항</h2>
+  <div class="warn">
+    <p><span class="deadline">⚡ 신청 요건</span> — 강제관리는 <strong>집행권원에 의한 강제집행 또는 가압류 집행</strong>에만 허용되며, <strong>담보권(저당권·근저당권) 실행으로는 신청할 수 없다.</strong> 신청 전 채권자의 권원이 어느 유형인지 반드시 확인한다.</p>
+    <p>실무 함정: ① 채무자가 직접 거주 중인 가옥, 영업 중인 점포(여관·목욕탕 등), 미준공 건물, 자동차·선박·항공기·건설기계는 강제관리 대상이 아니다 — 접수 전 대상적격 확인. ② 수익이 관리비용에도 미치지 못할 것으로 예상되면 각하·취소될 수 있으므로, 신청 전 임대현황·예상수익을 반드시 조사한다. ③ 강제관리는 강제경매와 달리 채권 전액 변제로 당연 종결되지 않으며, 반드시 법원의 취소결정이 있어야 종결·등기말소가 이루어진다 — 사후 관리 소홀 주의. ④ 강제경매와 강제관리는 동시 진행이 가능하므로, 경매 병행 여부를 신청 단계에서 함께 검토한다.</p>
+  </div>
+
+  <h2>5. 법령·판례 검토</h2>
+  <p>강제관리의 요건과 대상은 민사집행법 제163조, 개시결정은 제164조, 관리인 선임은 제166조에 근거한다. 채권자 전원 만족 시의 변제와 부족 시 배당표 작성은 제169조, 취소결정 및 등기말소는 제171조가 근거다. 담보권 실행에는 강제관리가 허용되지 않는다는 점은 담보권 실행 절차를 규정한 제268조와의 대비에서 확인한다(다만 준용조문 상이 여부는 재확인 필요).</p>
+  <div class="ref-tags">
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=016300" target="_blank" class="tag-law">📋 민사집행법 제163조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=016400" target="_blank" class="tag-law">📋 민사집행법 제164조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=016600" target="_blank" class="tag-law">📋 민사집행법 제166조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=016900" target="_blank" class="tag-law">📋 민사집행법 제169조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=017100" target="_blank" class="tag-law">📋 민사집행법 제171조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=026800" target="_blank" class="tag-law">📋 민사집행법 제268조</a>
+  </div>
+  <p style="font-size:.85rem;color:#5a6472;margin-top:6px;">※ 확인된 판례 사건번호 없음 — 대상적격·강제관리 종결 요건(취소결정 필요)이라는 법리 방향만 서술.</p>
+
+  <h2>6. 실무 체크리스트</h2>
+  <ul class="checklist">
+    <li>착수 전: 채권자 권원 유형(집행권원 vs 가압류 vs 담보권) 확인, 담보권이면 강제관리 신청 불가 안내</li>
+    <li>제출 전: 대상 부동산의 수익성·대상적격(거주·영업용 아님) 확인, 수익 지급의무자(임차인) 특정</li>
+    <li>완료 후: 관리인 선임 확인, 개시결정등기 촉탁 완료 확인, 강제경매 병행 여부 사건관리대장 기록</li>
+  </ul>
+
+  <h2>7. 연계 도구·스킬</h2>
+  <div class="tools">
+    <a href="#">fee_calculator.html (인지·등록면허세 등 계산)</a>
+    <a href="#">ecfs-orchestrator (전자소송포털 강제관리 신청 자동화)</a>
+    <a href="#">부동산집행_01_강제경매신청절차.html (병행 검토 자료)</a>
+  </div>
+
+  <div class="meta">
+    최종 확인: 담당 법무사(성명 검토 후 기재) · 최신 개정 확인일 2026-07-17 · 내부 업무자료(외부 게시 금지)
+  </div>
+
+</div>
+</body>
+</html>

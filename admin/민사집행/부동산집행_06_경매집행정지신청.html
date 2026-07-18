@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>경매 집행정지 신청 — 직원용 업무자료</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1a2e4a; --navy2:#2d4a7a; --gold:#c8a96e; --ivory:#faf8f5;
+    --sumbg:#eef2f8; --warnbg:#fff3e8; --warn:#c05000;
+    --casebg:#f7f4f0; --caseborder:#6b7280; --ok:#1a5c2e;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--ivory);color:#1f2733;
+       font-family:'Noto Sans KR',sans-serif;line-height:1.7;}
+  .wrap{max-width:920px;margin:0 auto;padding:24px 20px 60px;}
+  h1,h2{font-family:'Noto Serif KR',serif;color:var(--navy);}
+  h1{font-size:1.6rem;margin:.2em 0;}
+  h2{font-size:1.2rem;border-left:5px solid var(--gold);padding-left:12px;margin:2em 0 .8em;}
+
+  .staff-bar{display:flex;justify-content:space-between;align-items:center;
+    background:var(--navy);color:#fff;border-radius:8px;padding:8px 14px;font-size:.85rem;}
+  .staff-bar .tag{background:var(--gold);color:var(--navy);font-weight:700;
+    padding:2px 10px;border-radius:12px;}
+  .cat-badge{display:inline-block;background:var(--navy2);color:#fff;
+    font-size:.78rem;font-weight:600;padding:2px 10px;border-radius:12px;}
+
+  .flow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;}
+  .flow .step{flex:1 1 150px;background:#fff;border:1px solid #d8dde6;
+    border-radius:8px;padding:10px 12px;position:relative;}
+  .flow .step b{color:var(--navy2);display:block;font-size:.9rem;}
+  .flow .step span{font-size:.82rem;color:#5a6472;}
+
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9rem;background:#fff;}
+  th,td{border:1px solid #d8dde6;padding:8px 10px;text-align:left;vertical-align:top;}
+  th{background:var(--sumbg);color:var(--navy);}
+
+  .risk{font-weight:700;} .r-high{color:#c0392b;} .r-mid{color:#b8860b;} .r-low{color:#5a6472;}
+
+  .fee-box{background:#f4f7fb;border:1px solid var(--navy2);border-radius:8px;padding:4px 14px;margin:10px 0;}
+  .fee-note{font-size:.82rem;color:#5a6472;margin:6px 0;}
+
+  .warn{background:var(--warnbg);border:1px solid var(--warn);border-radius:8px;padding:10px 14px;margin:10px 0;}
+  .deadline{color:var(--warn);font-weight:700;}
+
+  .checklist{list-style:none;padding:0;}
+  .checklist li{background:#f0f8f0;border:1px solid var(--ok);border-radius:6px;
+    padding:8px 12px;margin:6px 0;font-size:.9rem;}
+  .checklist li::before{content:"☐ ";color:var(--ok);font-weight:700;}
+
+  .ref-tags{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;}
+  .tag-law{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;
+    text-decoration:none;background:#eef2f8;color:#2d4a7a;border:1px solid #2d4a7a;}
+  .tag-case{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;
+    text-decoration:none;background:#f7f4f0;color:#5a3e28;border:1px solid #6b7280;}
+
+  .tools a{display:inline-block;margin:4px 6px 4px 0;padding:6px 12px;border-radius:8px;
+    background:var(--navy);color:#fff;text-decoration:none;font-size:.85rem;}
+
+  .meta{margin-top:30px;border-top:1px dashed #c4ccd6;padding-top:10px;font-size:.8rem;color:#5a6472;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="staff-bar">
+    <span><span class="tag">직원용</span> 내부 업무자료 · 외부 게시 금지</span>
+    <span>최신 개정 확인일: 2026-07-17</span>
+  </div>
+
+  <h1>경매 집행정지 신청</h1>
+  <p><span class="cat-badge">민사집행 · 부동산집행</span></p>
+  <p>진행 중인 경매 절차를 일시적으로 중단시키기 위해 청구이의의 소(강제경매) 또는 담보권 부존재 취소신청(임의경매)과 함께 집행정지를 신청하는 업무다. 낙찰자 대금납부 전까지만 실효성이 있어 신속 처리가 핵심이다.</p>
+
+  <h2>1. 절차 개관</h2>
+  <div class="flow">
+    <div class="step"><b>① 정지 사유 확인</b><span>담당: 법무사 · 당일 · 강제경매(변제·소멸시효 등) vs 임의경매(담보권 부존재) 구분</span></div>
+    <div class="step"><b>② 본안 절차 제기</b><span>담당: 법무사·직원 · 1~2일 · 청구이의의 소 제기 또는 임의경매 취소신청</span></div>
+    <div class="step"><b>③ 집행정지 신청서 작성·제출</b><span>담당: 법무사·직원 · 본안 제기와 동시 또는 즉시 · 소명자료 첨부</span></div>
+    <div class="step"><b>④ 담보 제공</b><span>담당: 직원(공탁) · 법원 명령 후 1~2일 · 공탁서 제출</span></div>
+    <div class="step"><b>⑤ 정지결정서 집행법원 제출</b><span>담당: 직원 · 수령 즉시 · 경매계에 결정서 제출, 절차 정지 확인</span></div>
+  </div>
+
+  <h2>2. 준비서류</h2>
+  <table>
+    <tr><th>서류명</th><th>발급처</th><th>유효기간</th><th>위험도</th><th>비고</th></tr>
+    <tr><td>청구이의의 소장 또는 임의경매 취소신청서</td><td>사무소 작성</td><td>낙찰 대금납부 전까지 실효</td><td class="risk r-high">🔴</td><td>대금납부 완료 후에는 정지 실효성 소멸</td></tr>
+    <tr><td>집행정지 신청서</td><td>사무소 작성</td><td>본안 절차와 동시 제출 원칙</td><td class="risk r-high">🔴</td><td>본안 없이 정지만 신청 시 각하 가능성</td></tr>
+    <tr><td>변제영수증·소멸사유 소명자료</td><td>당사자 보관</td><td>제한 없음</td><td class="risk r-mid">🟡</td><td>정지 사유의 핵심 소명자료, 원본 확인 권장</td></tr>
+    <tr><td>담보공탁서</td><td>공탁소</td><td>법원 결정 시까지 유효</td><td class="risk r-mid">🟡</td><td>공탁금액은 법원 재량, 사무소 단일 출처로 사전 협의</td></tr>
+  </table>
+
+  <h2>3. 공과금·보수료</h2>
+  <div class="fee-box">
+    <table>
+      <tr><th>항목</th><th>산정 기준(과세표준·요율)</th><th>근거 법령</th><th>납부처</th><th>납부 시점</th></tr>
+      <tr><td>청구이의의 소 인지액</td><td>소가 기준 정률</td><td>민사소송 등 인지법</td><td>전자소송포털/수입인지</td><td>소장 제출 시</td></tr>
+      <tr><td>집행정지 신청 인지액</td><td>정액(신청 사건 기준)</td><td>민사소송 등 인지법</td><td>전자소송포털/수입인지</td><td>신청서 제출 시</td></tr>
+      <tr><td>담보(공탁금)</td><td>법원 재량, 청구금액·부동산 가액 고려</td><td>민사집행법 제46조</td><td>공탁소</td><td>법원 담보제공명령 후</td></tr>
+    </table>
+    <p class="fee-note">※ 세율·요율·정액 수수료는 사무소 단일 출처(보수표·인지규칙) 기준이며, 최신 개정일은 상단 배지 참조. 공탁금 규모는 사건별 법원 판단이므로 확정 금액을 임의로 안내하지 말 것.</p>
+    <p class="fee-note">※ 법무사 보수료: 사무소 보수표 유형·가액 구간 참조(임의 확정 금지) + 실비.</p>
+  </div>
+
+  <h2>4. 주의사항</h2>
+  <div class="warn">
+    <p><span class="deadline">⚡ 기한</span> — 집행정지는 <strong>낙찰자 대금납부 완료 전</strong>까지만 실효성이 있다. 매각절차가 진행될수록 실효성이 급격히 떨어지므로, 정지 사유 발생 즉시(경매 개시 인지 당일) 착수해야 한다. 대금납부 완료 후에는 매각허가결정 취소·부당이득반환청구 등 별도 절차로 전환해야 함을 안내한다.</p>
+    <p>실무 함정: ① 정지 신청만으로는 경매가 자동으로 멈추지 않으며, 법원의 결정을 받아 결정서를 집행법원(경매계)에 제출해야 실제로 정지된다 — 결정서 미제출 시 경매가 그대로 진행될 수 있으므로 수령 즉시 제출을 최우선 처리한다. ② 정당한 사유 없는 집행정지 신청은 채권자에 대한 손해배상 책임으로 이어질 수 있으므로, 신청 전 소명자료의 충분성을 반드시 검토한다. ③ 파산·회생절차의 중지명령과는 별개 절차이며, 담보권 실행(임의경매)은 별제권으로 회생절차 중에도 계속될 수 있어 별도 검토가 필요하다.</p>
+  </div>
+
+  <h2>5. 법령·판례 검토</h2>
+  <p>청구이의의 소는 민사집행법 제44조, 집행정지 신청은 제45조, 담보 제공에 의한 정지결정은 제46조가 근거다. 임의경매의 담보권 부존재·소멸에 따른 취소는 제266조를 확인한다.</p>
+  <div class="ref-tags">
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004400" target="_blank" class="tag-law">📋 민사집행법 제44조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004500" target="_blank" class="tag-law">📋 민사집행법 제45조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004600" target="_blank" class="tag-law">📋 민사집행법 제46조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=026600" target="_blank" class="tag-law">📋 민사집행법 제266조</a>
+  </div>
+  <p style="font-size:.85rem;color:#5a6472;margin-top:6px;">※ 확인된 판례 사건번호 없음 — 법리 방향(집행정지 요건·시적 한계)만 서술.</p>
+
+  <h2>6. 실무 체크리스트</h2>
+  <ul class="checklist">
+    <li>착수 전: 경매 절차 진행 단계(대금납부 완료 여부) 확인 — 완료 시 정지 대신 다른 구제수단 검토</li>
+    <li>제출 전: 본안 절차(청구이의의 소 또는 취소신청)와 집행정지 신청 동시 제출 여부, 소명자료 완비 확인</li>
+    <li>완료 후: 정지결정서 집행법원(경매계) 제출 완료 및 절차 정지 반영 여부 확인, 담보공탁 사실 사건파일 기록</li>
+  </ul>
+
+  <h2>7. 연계 도구·스킬</h2>
+  <div class="tools">
+    <a href="#">fee_calculator.html (인지·공탁금 등 계산)</a>
+    <a href="#">부동산집행_05_채무자권리대응.html (즉시항고 등 병행 시)</a>
+    <a href="#">ecfs-orchestrator (전자소송포털 청구이의의 소·집행정지 신청 자동화)</a>
+  </div>
+
+  <div class="meta">
+    최종 확인: 담당 법무사(성명 검토 후 기재) · 최신 개정 확인일 2026-07-17 · 내부 업무자료(외부 게시 금지)
+  </div>
+
+</div>
+</body>
+</html>
