@@ -244,9 +244,37 @@ input, textarea, select { font-family: inherit; }
 .sidebar::-webkit-scrollbar-track { background: transparent; }
 .sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 3px; }
 
+/* 상위 그룹 구분 타이틀 (업무공간 / 업무도우미 / 서식자료실) */
+.sb-group-title {
+  margin: 18px 0 6px;
+  padding: 0 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.35);
+  text-transform: uppercase;
+}
+.sb-group-title:first-child { margin-top: 4px; }
+
 /* 카테고리 그룹 */
 .sb-category {
   margin-bottom: 4px;
+}
+
+/* 업무도우미/서식자료실처럼 하위 목록 없이 바로 이동하는 카테고리 */
+.sb-cat-direct {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 20px !important;
+  font-size: 0.88rem; font-weight: 600;
+  color: rgba(255,255,255,0.9);
+  border-left: 3px solid transparent;
+}
+.sb-cat-direct .sb-icon { font-size: 1rem; }
+.sb-cat-direct:hover { background: rgba(255,255,255,0.05); }
+.sb-cat-direct.active {
+  background: rgba(200,169,110,0.1);
+  color: var(--secondary);
+  border-left-color: var(--secondary);
 }
 .sb-cat-header {
   display: flex; align-items: center; gap: 8px;
@@ -326,6 +354,39 @@ input, textarea, select { font-family: inherit; }
   margin-left: var(--sidebar-width);
   padding: 32px 40px;
   min-height: calc(100vh - var(--header-height));
+}
+
+/* ============================================================
+   업무도우미 허브 (카테고리별 핵심절차개관·준비서류·주의할점 목록)
+   ============================================================ */
+.helper-hub-desc {
+  color: rgba(0,0,0,0.55);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+.helper-group-title {
+  font-size: 1rem;
+  margin: 24px 0 12px;
+  color: var(--primary, #1a1a1a);
+}
+.helper-topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.helper-topic-card {
+  padding: 14px 16px;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 8px;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.helper-topic-card:hover {
+  border-color: var(--secondary);
+  background: rgba(200,169,110,0.06);
+  transform: translateY(-1px);
 }
 
 /* ============================================================

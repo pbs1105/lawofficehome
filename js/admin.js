@@ -62,127 +62,168 @@ function initLoginPage() {
    2. 사이드바 메뉴 데이터
    ============================================================ */
 const ADMIN_MENU = [
+  /* ===== 1. 업무공간 ===== */
   {
-    id: 'intake',
-    icon: '📥',
-    label: '접수',
+    id: 'intake', icon: '📥', label: '접수', group: '업무공간',
     items: [
-      { id: 'intake-offline', label: '오프라인 상담 접수 (전화·방문)', external: true, url: 'https://n8npark.app.n8n.cloud/form/2a8c595e-215b-439e-b35d-7a62aeacba4c' },
+      { id: 'intake-offline', label: '직원 접수 (전화·방문 → PC폴더·노션DB 자동생성)', external: true, url: 'https://n8npark.app.n8n.cloud/form/2a8c595e-215b-439e-b35d-7a62aeacba4c' },
     ]
   },
   {
-    id: 'foreign',
-    icon: '🌏',
-    label: '외국인·재외국민 등기',
+    id: 'docmanage', icon: '🗂️', label: '문서관리', group: '업무공간',
     items: [
-      { id: 'for-inherit', label: '재외국민·외국인 상속등기' },
-      { id: 'for-apostille', label: '아포스티유(Apostille)' },
-      { id: 'for-no-reginfo', label: '등기필정보 없는 경우' },
-      { id: 'for-disposal', label: '외국인 부동산 처분 안내' },
+      { id: 'tool-realestate-extract', label: '정부자료 노션DB 추출 (PC폴더·노션DB)' },
     ]
   },
   {
-    id: 'inheritance',
-    icon: '📜',
-    label: '상속',
+    id: 'docgen', icon: '📝', label: '문서생성', group: '업무공간',
     items: [
-      { id: 'inh-start', label: '상속의 개시' },
-      { id: 'inh-heir', label: '상속인 (대습상속 / 상속분)' },
-      { id: 'inh-effect', label: '상속의 효력' },
-      {
-        id: 'inh-accept',
-        label: '상속의 승인과 포기',
-        subItems: [
-          { id: 'inh-renounce', label: '상속포기' },
-          { id: 'inh-limited', label: '한정승인 및 청산절차' },
-          { id: 'inh-bankrupt', label: '상속재산 파산' },
-        ]
-      },
-      { id: 'inh-reserve', label: '유류분' },
-      { id: 'inh-will', label: '유언·유증·유언의 집행' },
-      { id: 'inh-preserve', label: '상속인에 의한 소유권보존등기' },
-      { id: 'inh-transfer', label: '상속을 원인으로 하는 소유권이전등기' },
-      { id: 'inh-correct', label: '상속등기 후의 소유권경정등기' },
-      { id: 'inh-by-heir', label: '상속인에 의한 등기' },
-      { id: 'inh-will-transfer', label: '유언·유증으로 인한 소유권이전등기' },
-      { id: 'inh-foreign', label: '외국인의 상속등기' },
+      { id: 'doc-poa-gen', label: '위임장 자동생성' },
+      { id: 'calc-sales-contract', label: '계약서 자동생성 (매매·증여 등)' },
+      { id: 'calc-realestate-report', label: '실거래신고서 자동생성' },
+      { id: 'calc-acq-report', label: '취득세신고서 자동생성' },
+      { id: 'doc-farmland-gen', label: '농지취득자격증명신청서 자동생성' },
     ]
   },
   {
-    id: 'realestate',
-    icon: '🏠',
-    label: '부동산등기',
+    id: 'receipt', icon: '🧾', label: '영수증', group: '업무공간',
     items: [
-      { id: 're-sale', label: '매매로 인한 소유권이전등기' },
-      { id: 're-gift', label: '증여로 인한 소유권이전등기' },
-      { id: 're-mortgage', label: '근저당권 설정등기' },
-      { id: 're-lease', label: '전세권 설정등기' },
-      { id: 're-cancel', label: '말소등기' },
+      { id: 'calc-comprehensive', label: '공과금 자동생성 (취득세·국민주택채권·인지대·송달료 등)' },
+      { id: 'calc-fee', label: '보수료 자동생성' },
+      { id: 'calc-acq', label: '취득세 계산기 (개별)' },
+      { id: 'calc-reg', label: '등록면허세 계산기 (개별)' },
+      { id: 'calc-bond', label: '국민주택채권 계산기 (개별)' },
+      { id: 'calc-inhtax', label: '상속세 간이 계산기 (개별)' },
     ]
   },
   {
-    id: 'corporation',
-    icon: '🏢',
-    label: '법인등기',
+    id: 'submit', icon: '📤', label: '제출', group: '업무공간',
     items: [
-      { id: 'co-establish', label: '주식회사 설립' },
-      { id: 'co-officer', label: '임원 변경' },
-      { id: 'co-relocate', label: '본점 이전' },
-      { id: 'co-dissolve', label: '해산·청산' },
+      { id: 'submit-ecfs', label: '전자소송 신청' },
+      { id: 'submit-eform', label: '이폼등기 신청' },
     ]
   },
-  {
-    id: 'civil',
-    icon: '⚖️',
-    label: '민사소송·집행',
-    items: [
-      { id: 'cv-payment', label: '지급명령 신청' },
-      { id: 'cv-auction', label: '부동산 강제경매 신청' },
-      { id: 'cv-seizure', label: '채권압류 및 추심' },
-    ]
-  },
-  {
-    id: 'calculator',
-    icon: '🧮',
-    label: '계산기',
-    items: [
-      { id: 'calc-comprehensive', label: '공과금·보수 종합 계산기' },
-      { id: 'calc-sales-contract', label: '매매계약서 자동생성' },
-      { id: 'calc-realestate-report', label: '부동산거래계약 신고서 자동작성' },
-      { id: 'calc-acq-report', label: '취득세 신고서 자동작성' },
-      { id: 'calc-acq', label: '취득세 계산기' },
-      { id: 'calc-reg', label: '등록면허세 계산기' },
-      { id: 'calc-fee', label: '법무사 보수 계산기' },
-      { id: 'calc-inhtax', label: '상속세 간이 계산기' },
-      { id: 'calc-bond', label: '국민주택채권 매입액 계산기' },
-    ]
-  },
-  {
-    id: 'dbtools',
-    icon: '🗂️',
-    label: '데이터 관리',
-    items: [
-      { id: 'tool-realestate-extract', label: '부동산 정부자료 추출' },
-    ]
-  },
-  {
-    id: 'taxrelief',
-    icon: '💰',
-    label: '지방세 감면',
-    items: [
-      { id: 'tax-req', label: '감면 요건 정리' },
-      { id: 'tax-proc', label: '감면 신청 절차' },
-    ]
-  },
-  {
-    id: 'forms',
-    icon: '📋',
-    label: '서식 자료실',
-    items: [
-      { id: 'form-list', label: '자주 쓰는 서식 목록' },
-    ]
-  },
+
+  /* ===== 2. 업무도우미 — 카테고리 클릭 시 핵심절차개관·준비서류·주의할점 허브로 바로 이동 ===== */
+  { id: 'help-realestate', icon: '🏠', label: '부동산등기', group: '업무도우미', directNav: true, items: [] },
+  { id: 'help-corp', icon: '🏢', label: '법인등기', group: '업무도우미', directNav: true, items: [] },
+  { id: 'help-inheritance', icon: '📜', label: '상속', group: '업무도우미', directNav: true, items: [] },
+  { id: 'help-civil', icon: '⚖️', label: '민사소송', group: '업무도우미', directNav: true, items: [] },
+  { id: 'help-enforcement', icon: '🔨', label: '강제집행', group: '업무도우미', directNav: true, items: [] },
+  { id: 'help-preservation', icon: '🚧', label: '가압류·가처분', group: '업무도우미', directNav: true, items: [] },
+  { id: 'help-foreign', icon: '🌏', label: '외국인·재외국민 등기', group: '업무도우미', directNav: true, items: [] },
+  { id: 'help-etc', icon: '📎', label: '기타', group: '업무도우미', directNav: true, items: [] },
+
+  /* ===== 3. 서식자료실 ===== */
+  { id: 'form-list', icon: '📋', label: '서식 자료실', group: '서식자료실', directNav: true, items: [] },
 ];
+
+/* ============================================================
+   2-1. 업무도우미 허브 데이터
+   (사이드바에는 카테고리명만 노출되고, 아래 세부 항목은
+    각 카테고리 허브 페이지 안에서 핵심절차개관·준비서류·주의할점
+    자료로 연결된다)
+   ============================================================ */
+const HELPER_TOPICS = {
+  'help-realestate': [
+    { id: 're-sale', label: '매매로 인한 소유권이전등기' },
+    { id: 're-gift', label: '증여로 인한 소유권이전등기' },
+    { id: 're-mortgage', label: '근저당권 설정등기' },
+    { id: 're-lease', label: '전세권 설정등기' },
+    { id: 're-cancel', label: '말소등기' },
+  ],
+  'help-corp': [
+    { id: 'co-establish', label: '주식회사 설립' },
+    { id: 'co-officer', label: '임원 변경' },
+    { id: 'co-relocate', label: '본점 이전' },
+    { id: 'co-dissolve', label: '해산·청산' },
+  ],
+  'help-inheritance': [
+    { id: 'inh-start', label: '상속의 개시' },
+    { id: 'inh-heir', label: '상속인 (대습상속 / 상속분)' },
+    { id: 'inh-effect', label: '상속의 효력' },
+    { label: '상속의 승인과 포기', items: [
+      { id: 'inh-renounce', label: '상속포기' },
+      { id: 'inh-limited', label: '한정승인 및 청산절차' },
+      { id: 'inh-bankrupt', label: '상속재산 파산' },
+    ]},
+    { id: 'inh-reserve', label: '유류분' },
+    { id: 'inh-will', label: '유언·유증·유언의 집행' },
+    { id: 'inh-preserve', label: '상속인에 의한 소유권보존등기' },
+    { id: 'inh-transfer', label: '상속을 원인으로 하는 소유권이전등기' },
+    { id: 'inh-correct', label: '상속등기 후의 소유권경정등기' },
+    { id: 'inh-by-heir', label: '상속인에 의한 등기' },
+    { id: 'inh-will-transfer', label: '유언·유증으로 인한 소유권이전등기' },
+    { id: 'inh-foreign', label: '외국인의 상속등기' },
+  ],
+  'help-civil': [
+    { id: 'cv-payment', label: '지급명령 신청' },
+  ],
+  'help-enforcement': [
+    { id: 'cv-seizure', label: '채권압류 및 추심' },
+    { id: 'cv-auction', label: '부동산 강제경매 신청' },
+    { label: '민사집행총론', items: [
+      { id: 'doc-mjh-01', label: '강제집행 신청 전체 흐름 파악(개관)' },
+      { id: 'doc-mjh-02', label: '집행권원 종류별 확인' },
+      { id: 'doc-mjh-03', label: '집행문 부여 신청' },
+      { id: 'doc-mjh-04', label: '당사자 변동 시 승계집행문 신청' },
+      { id: 'doc-mjh-05', label: '재산명시신청' },
+      { id: 'doc-mjh-06', label: '재산조회신청' },
+      { id: 'doc-mjh-07', label: '채무불이행자명부 등재신청' },
+      { id: 'doc-mjh-08', label: '집행에 관한 이의신청' },
+      { id: 'doc-mjh-09', label: '청구에 관한 이의의 소 제기' },
+      { id: 'doc-mjh-10', label: '제3자이의의 소 제기' },
+      { id: 'doc-mjh-11', label: '집행문부여에 대한 이의신청' },
+      { id: 'doc-mjh-12', label: '강제집행 정지·취소 신청' },
+      { id: 'doc-mjh-13', label: '집행비용액 확정결정 신청' },
+      { id: 'doc-mjh-14', label: '집행 관련 담보제공·공탁 처리' },
+      { id: 'doc-mjh-15', label: '강제집행면탈 대응(고소·재산은닉 대응)' },
+    ]},
+    { label: '부동산집행', items: [
+      { id: 'doc-re-01', label: '강제경매 신청절차 처리' },
+      { id: 'doc-re-02', label: '임의경매(담보권실행) 신청절차 처리' },
+      { id: 'doc-re-03', label: '경매개시결정 및 압류 처리' },
+      { id: 'doc-re-04', label: '강제경매·임의경매 구분 실무' },
+      { id: 'doc-re-05', label: '경매 중 채무자 권리 대응 지원' },
+      { id: 'doc-re-06', label: '경매 집행정지 신청' },
+      { id: 'doc-re-07', label: '경매 취하·취소 처리' },
+      { id: 'doc-re-08', label: '잉여주의(무잉여) 검토 및 통지 대응' },
+      { id: 'doc-re-09', label: '배당순위 판단' },
+      { id: 'doc-re-10', label: '소액임차인 최우선변제 검토' },
+      { id: 'doc-re-11', label: '입찰 절차 지원' },
+      { id: 'doc-re-12', label: '낙찰 후 대금납부·소유권이전 처리' },
+      { id: 'doc-re-13', label: '권리분석(인수·소멸권리 판별)' },
+      { id: 'doc-re-14', label: '낙찰 후 명도 절차 지원' },
+      { id: 'doc-re-15', label: '인도명령 신청' },
+      { id: 'doc-re-16', label: '유치권 신고 대응' },
+      { id: 'doc-re-17', label: '임차인 대항력 판단' },
+      { id: 'doc-re-18', label: '전세권자 경매신청·배당 처리' },
+      { id: 'doc-re-19', label: '임차인 배당요구 지원' },
+      { id: 'doc-re-20', label: '경매 후 임대차 종료·이사기한 안내' },
+      { id: 'doc-re-21', label: '현황조사보고서·매각물건명세서 검토' },
+      { id: 'doc-re-22', label: '감정평가·최저매각가격 확인' },
+      { id: 'doc-re-23', label: '공유부동산 경매 처리' },
+      { id: 'doc-re-24', label: '농지·임야 경매 특수요건 처리' },
+      { id: 'doc-re-25', label: '소유권이전등기 촉탁 신청' },
+      { id: 'doc-re-26', label: '형식적경매(공유물분할 등) 신청절차' },
+      { id: 'doc-re-27', label: '배당요구 신청 접수·처리(당연배당 판별)' },
+      { id: 'doc-re-28', label: '배당기일·배당표 확인 및 배당이의 처리' },
+      { id: 'doc-re-29', label: '강제관리 신청절차' },
+      { id: 'doc-re-30', label: '자동차·선박·항공기 강제집행' },
+    ]},
+  ],
+  'help-preservation': [],
+  'help-foreign': [
+    { id: 'for-inherit', label: '재외국민·외국인 상속등기' },
+    { id: 'for-apostille', label: '아포스티유(Apostille)' },
+    { id: 'for-no-reginfo', label: '등기필정보 없는 경우' },
+    { id: 'for-disposal', label: '외국인 부동산 처분 안내' },
+  ],
+  'help-etc': [
+    { id: 'tax-req', label: '지방세 감면 요건 정리' },
+    { id: 'tax-proc', label: '지방세 감면 신청 절차' },
+  ],
+};
 
 /* ============================================================
    3. 콘텐츠 데이터 (A타입: 실체법 / B타입: 절차)
@@ -360,7 +401,23 @@ function renderSidebar() {
   if (!sidebar) return;
 
   let html = '';
+  let lastGroup = null;
+
   ADMIN_MENU.forEach(cat => {
+    if (cat.group && cat.group !== lastGroup) {
+      html += `<div class="sb-group-title">${cat.group}</div>`;
+      lastGroup = cat.group;
+    }
+
+    if (cat.directNav) {
+      // 카테고리 자체가 하나의 목적지로 바로 이동 (하위 목록은 콘텐츠 영역 허브에서 표시)
+      html += `<div class="sb-item sb-cat-direct" data-id="${cat.id}" onclick="navigateTo('${cat.id}')">`;
+      html += `<span class="sb-icon">${cat.icon}</span>`;
+      html += `<span>${cat.label}</span>`;
+      html += `</div>`;
+      return;
+    }
+
     html += `<div class="sb-category" data-cat="${cat.id}">`;
     html += `<div class="sb-cat-header" onclick="toggleCategory('${cat.id}')">`;
     html += `<span class="sb-icon">${cat.icon}</span>`;
@@ -444,17 +501,102 @@ function navigateTo(pageId) {
     renderDashboard();
   } else if (pageId.startsWith('calc-')) {
     renderCalculator(pageId);
+  } else if (pageId.startsWith('doc-')) {
+    renderDoc(pageId);
   } else if (pageId.startsWith('tool-')) {
     renderTool(pageId);
+  } else if (pageId.startsWith('help-')) {
+    renderHelperHub(pageId);
   } else {
     renderContentPage(pageId);
   }
+
+  // 업무도우미 허브 하위 항목이면 상위 카테고리도 활성 표시
+  openCategoryForItem(pageId);
 
   // 최근 조회 기록 저장
   saveRecentView(pageId);
 
   // 모바일에서 사이드바 닫기
   closeSidebar();
+}
+
+/** pageId에 대응하는 표시용 제목 조회 (ADMIN_CONTENT 우선, 없으면 사이드바 메뉴 라벨) */
+function getPageTitle(pageId) {
+  const content = ADMIN_CONTENT[pageId];
+  if (content) return content.title;
+
+  for (const cat of ADMIN_MENU) {
+    if (cat.directNav && cat.id === pageId) return cat.label;
+    for (const item of cat.items) {
+      if (item.id === pageId) return item.label;
+      if (item.subItems) {
+        const sub = item.subItems.find(s => s.id === pageId);
+        if (sub) return sub.label;
+      }
+    }
+  }
+
+  // 업무도우미 허브 하위 항목 라벨 조회
+  for (const catId in HELPER_TOPICS) {
+    for (const entry of HELPER_TOPICS[catId]) {
+      if (entry.items) {
+        const sub = entry.items.find(t => t.id === pageId);
+        if (sub) return sub.label;
+      } else if (entry.id === pageId) {
+        return entry.label;
+      }
+    }
+  }
+
+  return pageId;
+}
+
+/** 업무도우미 허브 페이지 렌더링 (카테고리별 핵심절차개관·준비서류·주의할점 자료 목록) */
+function renderHelperHub(pageId) {
+  const area = document.getElementById('contentArea');
+  const cat = ADMIN_MENU.find(c => c.id === pageId);
+  const catLabel = cat ? cat.label : pageId;
+  const topics = HELPER_TOPICS[pageId] || [];
+
+  let listHtml = '';
+  let gridBuffer = '';
+
+  const flushGrid = () => {
+    if (gridBuffer) {
+      listHtml += `<div class="helper-topic-grid">${gridBuffer}</div>`;
+      gridBuffer = '';
+    }
+  };
+
+  topics.forEach(entry => {
+    if (entry.items) {
+      flushGrid();
+      listHtml += `<h3 class="helper-group-title">${entry.label}</h3>`;
+      let subGrid = '';
+      entry.items.forEach(t => {
+        subGrid += `<div class="helper-topic-card" onclick="navigateTo('${t.id}')">${t.label}</div>`;
+      });
+      listHtml += `<div class="helper-topic-grid">${subGrid}</div>`;
+    } else {
+      gridBuffer += `<div class="helper-topic-card" onclick="navigateTo('${entry.id}')">${entry.label}</div>`;
+    }
+  });
+  flushGrid();
+
+  if (!listHtml) {
+    listHtml = `<div class="placeholder-content"><div class="ph-icon">📌</div><h3>내용 준비 중</h3><p>${catLabel} 분야 업무자료는 준비 중입니다.</p></div>`;
+  }
+
+  area.innerHTML = `
+    <div class="content-header">
+      <h1>${catLabel}</h1>
+    </div>
+    <div class="content-section">
+      <p class="helper-hub-desc">핵심절차개관 · 준비서류 · 주의할점을 중심으로 정리된 업무자료입니다. 아래 항목을 클릭해 확인하세요.</p>
+      ${listHtml}
+    </div>`;
+  area.scrollTop = 0;
 }
 
 /** 콘텐츠 페이지 렌더링 */
@@ -466,7 +608,7 @@ function renderContentPage(pageId) {
     area.innerHTML = `
       <div class="placeholder-content">
         <div class="ph-icon">📌</div>
-        <h3>내용 준비 중</h3>
+        <h3>${getPageTitle(pageId)}</h3>
         <p>해당 항목의 내용이 아직 준비되지 않았습니다.</p>
       </div>`;
     return;
@@ -520,8 +662,7 @@ function renderDashboard() {
   } else {
     favHtml = '<div class="fav-list">';
     favs.forEach(f => {
-      const content = ADMIN_CONTENT[f];
-      const label = content ? content.title : f;
+      const label = getPageTitle(f);
       favHtml += `<div class="fav-item" onclick="navigateTo('${f}')">${label}</div>`;
     });
     favHtml += '</div>';
@@ -535,8 +676,7 @@ function renderDashboard() {
   } else {
     recentHtml = '<div class="recent-list">';
     recents.forEach(r => {
-      const content = ADMIN_CONTENT[r.id];
-      const label = content ? content.title : r.id;
+      const label = getPageTitle(r.id);
       recentHtml += `
         <div class="recent-item" onclick="navigateTo('${r.id}')">
           <span>${label}</span>
@@ -689,6 +829,72 @@ function renderTool(toolId) {
     default:
       area.innerHTML = '<div class="placeholder-content"><div class="ph-icon">🗂️</div><h3>준비 중</h3></div>';
   }
+}
+
+/* ============================================================
+   민사집행 업무자료(완결형 HTML 문서) — iframe 렌더링
+   ============================================================ */
+
+/** doc-* pageId → admin/민사집행/ 폴더 내 파일명 매핑 */
+const DOC_FILES = {
+  'doc-mjh-01': '민사집행총론_01_강제집행개관.html',
+  'doc-mjh-02': '민사집행총론_02_집행권원확인.html',
+  'doc-mjh-03': '민사집행총론_03_집행문부여신청.html',
+  'doc-mjh-04': '민사집행총론_04_승계집행문신청.html',
+  'doc-mjh-05': '민사집행총론_05_재산명시신청.html',
+  'doc-mjh-06': '민사집행총론_06_재산조회신청.html',
+  'doc-mjh-07': '민사집행총론_07_채무불이행자명부등재신청.html',
+  'doc-mjh-08': '민사집행총론_08_집행이의신청.html',
+  'doc-mjh-09': '민사집행총론_09_청구이의의소.html',
+  'doc-mjh-10': '민사집행총론_10_제3자이의의소.html',
+  'doc-mjh-11': '민사집행총론_11_집행문부여이의신청.html',
+  'doc-mjh-12': '민사집행총론_12_집행정지취소신청.html',
+  'doc-mjh-13': '민사집행총론_13_집행비용확정신청.html',
+  'doc-mjh-14': '민사집행총론_14_담보공탁처리.html',
+  'doc-mjh-15': '민사집행총론_15_집행면탈대응.html',
+  'doc-re-01': '부동산집행_01_강제경매신청절차.html',
+  'doc-re-02': '부동산집행_02_임의경매신청절차.html',
+  'doc-re-03': '부동산집행_03_경매개시결정압류처리.html',
+  'doc-re-04': '부동산집행_04_강제임의경매구분.html',
+  'doc-re-05': '부동산집행_05_채무자권리대응.html',
+  'doc-re-06': '부동산집행_06_경매집행정지신청.html',
+  'doc-re-07': '부동산집행_07_경매취하취소처리.html',
+  'doc-re-08': '부동산집행_08_잉여주의검토.html',
+  'doc-re-09': '부동산집행_09_배당순위판단.html',
+  'doc-re-10': '부동산집행_10_소액임차인최우선변제.html',
+  'doc-re-11': '부동산집행_11_입찰절차지원.html',
+  'doc-re-12': '부동산집행_12_대금납부소유권이전.html',
+  'doc-re-13': '부동산집행_13_권리분석.html',
+  'doc-re-14': '부동산집행_14_낙찰후명도.html',
+  'doc-re-15': '부동산집행_15_인도명령신청.html',
+  'doc-re-16': '부동산집행_16_유치권대응.html',
+  'doc-re-17': '부동산집행_17_임차인대항력판단.html',
+  'doc-re-18': '부동산집행_18_전세권경매배당처리.html',
+  'doc-re-19': '부동산집행_19_임차인배당요구지원.html',
+  'doc-re-20': '부동산집행_20_임대차종료이사안내.html',
+  'doc-re-21': '부동산집행_21_현황조사매각명세서검토.html',
+  'doc-re-22': '부동산집행_22_감정평가최저매각가격.html',
+  'doc-re-23': '부동산집행_23_공유부동산경매처리.html',
+  'doc-re-24': '부동산집행_24_농지임야경매처리.html',
+  'doc-re-25': '부동산집행_25_소유권이전등기촉탁.html',
+  'doc-re-26': '부동산집행_26_형식적경매신청절차.html',
+  'doc-re-27': '부동산집행_27_배당요구신청처리.html',
+  'doc-re-28': '부동산집행_28_배당기일배당이의처리.html',
+  'doc-re-29': '부동산집행_29_강제관리신청절차.html',
+  'doc-re-30': '부동산집행_30_자동차선박항공기강제집행.html',
+};
+
+/** 완결형 업무자료 문서(iframe) 렌더링 */
+function renderDoc(pageId) {
+  const area = document.getElementById('contentArea');
+  const file = DOC_FILES[pageId];
+
+  if (!file) {
+    area.innerHTML = `<div class="placeholder-content"><div class="ph-icon">📌</div><h3>${getPageTitle(pageId)}</h3><p>준비 중입니다.</p></div>`;
+    return;
+  }
+
+  area.innerHTML = `<iframe src="민사집행/${file}" style="width:100%;height:calc(100vh - 120px);border:none;display:block;" title="${file}"></iframe>`;
 }
 
 /** 취득세 계산기 */
@@ -995,8 +1201,6 @@ function initPortal() {
   const hash = window.location.hash.replace('#', '');
   if (hash && ADMIN_CONTENT[hash]) {
     navigateTo(hash);
-    // 해당 카테고리 열기
-    openCategoryForItem(hash);
   } else {
     navigateTo('dashboard');
   }
@@ -1021,9 +1225,10 @@ function initPortal() {
   });
 }
 
-/** 특정 항목이 속한 카테고리를 자동으로 열기 */
+/** 특정 항목이 속한 카테고리를 자동으로 열기 / 업무도우미 허브 하위 항목이면 상위 카테고리 활성 표시 */
 function openCategoryForItem(itemId) {
   ADMIN_MENU.forEach(cat => {
+    if (cat.directNav) return;
     let found = false;
     cat.items.forEach(item => {
       if (item.id === itemId) found = true;
@@ -1043,4 +1248,18 @@ function openCategoryForItem(itemId) {
       if (catEl) catEl.classList.add('open');
     }
   });
+
+  // 업무도우미 허브 하위 항목이면 해당 카테고리를 활성 표시
+  for (const catId in HELPER_TOPICS) {
+    const flat = [];
+    HELPER_TOPICS[catId].forEach(entry => {
+      if (entry.items) flat.push(...entry.items);
+      else flat.push(entry);
+    });
+    if (flat.some(t => t.id === itemId)) {
+      const el = document.querySelector(`.sb-item[data-id="${catId}"]`);
+      if (el) el.classList.add('active');
+      break;
+    }
+  }
 }
