@@ -503,7 +503,7 @@ function navigateTo(pageId) {
     renderCalculator(pageId);
   } else if (pageId.startsWith('doc-')) {
     renderDoc(pageId);
-  } else if (pageId.startsWith('tool-')) {
+  } else if (pageId.startsWith('tool-') || pageId.startsWith('submit-')) {
     renderTool(pageId);
   } else if (pageId.startsWith('help-')) {
     renderHelperHub(pageId);
@@ -825,6 +825,9 @@ function renderTool(toolId) {
   switch (toolId) {
     case 'tool-realestate-extract':
       area.innerHTML = `<iframe src="부동산정부자료추출.html" style="width:100%;height:calc(100vh - 120px);border:none;display:block;" title="부동산 정부자료 추출"></iframe>`;
+      break;
+    case 'submit-ecfs':
+      area.innerHTML = `<iframe src="전자소송자동신청.html" style="width:100%;height:calc(100vh - 120px);border:none;display:block;" title="전자소송 자동신청"></iframe>`;
       break;
     default:
       area.innerHTML = '<div class="placeholder-content"><div class="ph-icon">🗂️</div><h3>준비 중</h3></div>';

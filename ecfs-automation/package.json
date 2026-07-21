@@ -1,0 +1,14 @@
+{
+  "name": "ecfs-automation-server",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ECFS(전자소송) admin 자동화 파일럿 — n8n 트리거를 받아 Playwright로 ecfs.scourt.go.kr을 조작하는 서버",
+  "main": "ecfs_automation_server.js",
+  "scripts": {
+    "start": "node ecfs_automation_server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "playwright": "^1.47.0"
+  }
+}

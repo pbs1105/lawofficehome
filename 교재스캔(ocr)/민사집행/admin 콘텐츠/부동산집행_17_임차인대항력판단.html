@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>임차인 대항력 판단 — 직원용 업무자료</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1a2e4a; --navy2:#2d4a7a; --gold:#c8a96e; --ivory:#faf8f5;
+    --sumbg:#eef2f8; --warnbg:#fff3e8; --warn:#c05000;
+    --casebg:#f7f4f0; --caseborder:#6b7280; --ok:#1a5c2e;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--ivory);color:#1f2733;
+       font-family:'Noto Sans KR',sans-serif;line-height:1.7;}
+  .wrap{max-width:920px;margin:0 auto;padding:24px 20px 60px;}
+  h1,h2{font-family:'Noto Serif KR',serif;color:var(--navy);}
+  h1{font-size:1.6rem;margin:.2em 0;}
+  h2{font-size:1.2rem;border-left:5px solid var(--gold);padding-left:12px;margin:2em 0 .8em;}
+
+  .staff-bar{display:flex;justify-content:space-between;align-items:center;
+    background:var(--navy);color:#fff;border-radius:8px;padding:8px 14px;font-size:.85rem;}
+  .staff-bar .tag{background:var(--gold);color:var(--navy);font-weight:700;
+    padding:2px 10px;border-radius:12px;}
+  .cat-badge{display:inline-block;background:var(--navy2);color:#fff;
+    font-size:.78rem;font-weight:600;padding:2px 10px;border-radius:12px;}
+
+  .flow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;}
+  .flow .step{flex:1 1 150px;background:#fff;border:1px solid #d8dde6;
+    border-radius:8px;padding:10px 12px;position:relative;}
+  .flow .step b{color:var(--navy2);display:block;font-size:.9rem;}
+  .flow .step span{font-size:.82rem;color:#5a6472;}
+
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9rem;background:#fff;}
+  th,td{border:1px solid #d8dde6;padding:8px 10px;text-align:left;vertical-align:top;}
+  th{background:var(--sumbg);color:var(--navy);}
+
+  .risk{font-weight:700;} .r-high{color:#c0392b;} .r-mid{color:#b8860b;} .r-low{color:#5a6472;}
+
+  .fee-box{background:#f4f7fb;border:1px solid var(--navy2);border-radius:8px;padding:4px 14px;margin:10px 0;}
+  .fee-note{font-size:.82rem;color:#5a6472;margin:6px 0;}
+
+  .warn{background:var(--warnbg);border:1px solid var(--warn);border-radius:8px;padding:10px 14px;margin:10px 0;}
+  .deadline{color:var(--warn);font-weight:700;}
+
+  .checklist{list-style:none;padding:0;}
+  .checklist li{background:#f0f8f0;border:1px solid var(--ok);border-radius:6px;
+    padding:8px 12px;margin:6px 0;font-size:.9rem;}
+  .checklist li::before{content:"☐ ";color:var(--ok);font-weight:700;}
+
+  .ref-tags{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;}
+  .tag-law{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;
+    text-decoration:none;background:#eef2f8;color:#2d4a7a;border:1px solid #2d4a7a;}
+  .tag-case{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;
+    text-decoration:none;background:#f7f4f0;color:#5a3e28;border:1px solid #6b7280;}
+
+  .tools a{display:inline-block;margin:4px 6px 4px 0;padding:6px 12px;border-radius:8px;
+    background:var(--navy);color:#fff;text-decoration:none;font-size:.85rem;}
+
+  .meta{margin-top:30px;border-top:1px dashed #c4ccd6;padding-top:10px;font-size:.8rem;color:#5a6472;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="staff-bar">
+    <span><span class="tag">직원용</span> 내부 업무자료 · 외부 게시 금지</span>
+    <span>최신 개정 확인일: 2026-07-17</span>
+  </div>
+
+  <h1>임차인 대항력 판단</h1>
+  <p><span class="cat-badge">민사집행 · 부동산집행</span></p>
+  <p>경매 목적 부동산의 임차인이 낙찰자에게 대항할 수 있는지(대항력 유무)를 전입일·점유개시일·말소기준권리 등기일을 대조하여 판단하고, 배당요구 여부에 따른 인수금액을 산정하는 업무다. 권리분석(13번 업무)의 핵심 하위 절차이며 인도명령 대상 여부(15번 업무)의 전제가 된다.</p>
+
+  <h2>1. 절차 개관</h2>
+  <div class="flow">
+    <div class="step"><b>① 임차인 현황 확인</b><span>담당 직원 · 접수 즉시 · 매각물건명세서·현황조사보고서 상 임차인 목록 정리</span></div>
+    <div class="step"><b>② 전입일·점유개시일 확인</b><span>담당 직원 · 1일 · 주민등록초본·현황조사보고서 대조</span></div>
+    <div class="step"><b>③ 말소기준권리와 대항력발생시점 대조</b><span>담당 법무사 · 1일 · 대항력 유무 판정표</span></div>
+    <div class="step"><b>④ 배당요구·확정일자 확인</b><span>담당 직원 · 1일 · 배당요구종기 내 신청여부, 우선변제권 순위 확인</span></div>
+    <div class="step"><b>⑤ 인수금액 산정·결과 반영</b><span>담당 법무사 · 1일 · 권리분석보고서 통합 또는 별도 안내서</span></div>
+  </div>
+
+  <h2>2. 준비서류</h2>
+  <table>
+    <tr><th>서류명</th><th>발급처</th><th>유효기간</th><th>위험도</th><th>비고</th></tr>
+    <tr><td>주민등록초본(전입일 확인용)</td><td>주민센터·정부24</td><td>발급 최신본(1개월 이내 권장)</td><td class="risk r-high">🔴</td><td>대항력 발생시점(전입신고 익일 0시) 산정 기준</td></tr>
+    <tr><td>등기사항증명서</td><td>등기소·인터넷등기소</td><td>발급 최신본</td><td class="risk r-high">🔴</td><td>말소기준권리 등기일 확인</td></tr>
+    <tr><td>임대차계약서(확정일자 포함)</td><td>임차인 보관·주민센터</td><td>계약일 기준</td><td class="risk r-mid">🟡</td><td>우선변제권 순위 확인</td></tr>
+    <tr><td>현황조사보고서·매각물건명세서</td><td>집행법원</td><td>매 회차 갱신</td><td class="risk r-mid">🟡</td><td>배당요구 여부·실제 점유 현황 대조</td></tr>
+  </table>
+
+  <h2>3. 공과금·보수료</h2>
+  <div class="fee-box">
+    <table>
+      <tr><th>항목</th><th>산정 기준(과세표준·요율)</th><th>근거 법령</th><th>납부처</th><th>납부 시점</th></tr>
+      <tr><td>주민등록초본 발급수수료</td><td>건당 정액</td><td>-</td><td>주민센터·정부24</td><td>발급 시</td></tr>
+      <tr><td>등기사항증명서 발급수수료</td><td>건당 정액</td><td>등기사항증명서 등 수수료규칙</td><td>등기소·인터넷등기소</td><td>발급 시</td></tr>
+      <tr><td>권리분석(임차인 대항력 판단) 용역 보수료</td><td>사무소 보수표 참조</td><td>사무소 보수표</td><td>의뢰인</td><td>착수 또는 완료 시</td></tr>
+    </table>
+    <p class="fee-note">※ 세율·요율은 사무소 단일 출처(보수표·인지규칙) 기준이며, 최신 개정 확인일은 상단 배지 참조. 임의로 확정 금액을 안내하지 않는다.</p>
+    <p class="fee-note">※ 법무사 보수료: 보수표 유형·가액구간 참조, 임의 확정 금지. fee_calculator.html로 산출 후 안내.</p>
+  </div>
+
+  <h2>4. 주의사항</h2>
+  <div class="warn">
+    <p><span class="deadline">⚡ 기한</span> — 배당요구는 배당요구종기까지 신청되어야 배당대상이 되며, 대항력 판단 자체도 매각기일 전 완료가 원칙이다. 종기 이후 배당요구는 무효다.</p>
+    <p>전입신고만 있고 확정일자가 없으면 대항력은 있어도 우선변제권이 없어 배당순위가 밀린다 — 두 개념을 혼동하지 말고 의뢰인에게 명확히 구분 안내할 것. 임차인이 배당 전 이사하면 대항력이 소멸하므로 배당 시점까지 점유 유지 여부를 반드시 확인할 것.</p>
+  </div>
+
+  <h2>5. 법령·판례 검토</h2>
+  <p>임차인이 주택을 인도받아 점유하고 전입신고를 마치면 그 다음 날 0시부터 대항력이 발생한다(주임법 제3조 제1항). 대항력 발생시점과 말소기준권리의 등기일을 비교하여 선순위·후순위를 가리며, 대항력 있는 임차인이 배당에서 보증금 전액을 받지 못하면 그 차액은 낙찰자에게 인수된다.</p>
+  <div class="ref-tags">
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=276291&joNo=000300" target="_blank" class="tag-law">📋 주택임대차보호법 제3조 제1항</a>
+  </div>
+
+  <h2>6. 실무 체크리스트</h2>
+  <ul class="checklist">
+    <li>착수 전: 임차인의 전입일과 확정일자를 각각 확인했는가(두 개념을 혼동하지 않았는가)</li>
+    <li>착수 전: 말소기준권리 등기일과 전입일(대항력 발생시점)을 정확히 대조했는가</li>
+    <li>제출 전: 배당요구종기 내 배당요구 여부를 확인했는가</li>
+    <li>완료 후: 대항력 있는 임차인의 인수금액(미배당 보증금)을 낙찰자·의뢰인에게 명확히 안내했는가</li>
+  </ul>
+
+  <h2>7. 연계 도구·스킬</h2>
+  <div class="tools">
+    <a href="#">fee_calculator.html (인지·등록면허세 등 계산)</a>
+    <a href="#">ecfs-orchestrator (전자소송포털 경매신청 자동화)</a>
+    <a href="부동산집행_13_권리분석.html">부동산집행_13_권리분석.html (13번 업무 연계)</a>
+  </div>
+
+  <div class="meta">
+    최종 확인: 담당 법무사(성명 검토 후 기재) · 최신 개정 확인일 2026-07-17 · 내부 업무자료(외부 게시 금지)
+  </div>
+
+</div>
+</body>
+</html>

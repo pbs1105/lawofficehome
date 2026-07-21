@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>경매 취하·취소 처리 — 직원용 업무자료</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1a2e4a; --navy2:#2d4a7a; --gold:#c8a96e; --ivory:#faf8f5;
+    --sumbg:#eef2f8; --warnbg:#fff3e8; --warn:#c05000;
+    --casebg:#f7f4f0; --caseborder:#6b7280; --ok:#1a5c2e;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--ivory);color:#1f2733;
+       font-family:'Noto Sans KR',sans-serif;line-height:1.7;}
+  .wrap{max-width:920px;margin:0 auto;padding:24px 20px 60px;}
+  h1,h2{font-family:'Noto Serif KR',serif;color:var(--navy);}
+  h1{font-size:1.6rem;margin:.2em 0;}
+  h2{font-size:1.2rem;border-left:5px solid var(--gold);padding-left:12px;margin:2em 0 .8em;}
+
+  .staff-bar{display:flex;justify-content:space-between;align-items:center;
+    background:var(--navy);color:#fff;border-radius:8px;padding:8px 14px;font-size:.85rem;}
+  .staff-bar .tag{background:var(--gold);color:var(--navy);font-weight:700;
+    padding:2px 10px;border-radius:12px;}
+  .cat-badge{display:inline-block;background:var(--navy2);color:#fff;
+    font-size:.78rem;font-weight:600;padding:2px 10px;border-radius:12px;}
+
+  .flow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;}
+  .flow .step{flex:1 1 150px;background:#fff;border:1px solid #d8dde6;
+    border-radius:8px;padding:10px 12px;position:relative;}
+  .flow .step b{color:var(--navy2);display:block;font-size:.9rem;}
+  .flow .step span{font-size:.82rem;color:#5a6472;}
+
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9rem;background:#fff;}
+  th,td{border:1px solid #d8dde6;padding:8px 10px;text-align:left;vertical-align:top;}
+  th{background:var(--sumbg);color:var(--navy);}
+
+  .risk{font-weight:700;} .r-high{color:#c0392b;} .r-mid{color:#b8860b;} .r-low{color:#5a6472;}
+
+  .fee-box{background:#f4f7fb;border:1px solid var(--navy2);border-radius:8px;padding:4px 14px;margin:10px 0;}
+  .fee-note{font-size:.82rem;color:#5a6472;margin:6px 0;}
+
+  .warn{background:var(--warnbg);border:1px solid var(--warn);border-radius:8px;padding:10px 14px;margin:10px 0;}
+  .deadline{color:var(--warn);font-weight:700;}
+
+  .checklist{list-style:none;padding:0;}
+  .checklist li{background:#f0f8f0;border:1px solid var(--ok);border-radius:6px;
+    padding:8px 12px;margin:6px 0;font-size:.9rem;}
+  .checklist li::before{content:"☐ ";color:var(--ok);font-weight:700;}
+
+  .ref-tags{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;}
+  .tag-law{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;
+    text-decoration:none;background:#eef2f8;color:#2d4a7a;border:1px solid #2d4a7a;}
+  .tag-case{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;
+    text-decoration:none;background:#f7f4f0;color:#5a3e28;border:1px solid #6b7280;}
+
+  .tools a{display:inline-block;margin:4px 6px 4px 0;padding:6px 12px;border-radius:8px;
+    background:var(--navy);color:#fff;text-decoration:none;font-size:.85rem;}
+
+  .meta{margin-top:30px;border-top:1px dashed #c4ccd6;padding-top:10px;font-size:.8rem;color:#5a6472;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="staff-bar">
+    <span><span class="tag">직원용</span> 내부 업무자료 · 외부 게시 금지</span>
+    <span>최신 개정 확인일: 2026-07-17</span>
+  </div>
+
+  <h1>경매 취하·취소 처리</h1>
+  <p><span class="cat-badge">민사집행 · 부동산집행</span></p>
+  <p>경매신청 채권자의 신청 철회(취하) 또는 법원의 직권·신청에 의한 절차 종료(취소)를 처리하는 업무다. 낙찰자의 매각대금 완납 전까지만 가능하며, 처리 완료 시 경매개시결정등기 말소로 이어진다.</p>
+
+  <h2>1. 절차 개관</h2>
+  <div class="flow">
+    <div class="step"><b>① 사유 확인</b><span>담당 법무사 · 즉시 · 취하/취소 사유 판단(변제완료·담보권소멸·잉여없음 등)</span></div>
+    <div class="step"><b>② 이중경매·배당요구 확인</b><span>담당 법무사 · 당일 · 전원 동의 필요 여부 확정</span></div>
+    <div class="step"><b>③ 서류 작성·접수</b><span>담당 직원 · 1~2일 · 취하서/취소신청서 법원 제출</span></div>
+    <div class="step"><b>④ 등기말소 확인</b><span>담당 직원 · 접수 후 수일 · 경매개시결정등기 말소 확인</span></div>
+  </div>
+
+  <h2>2. 준비서류</h2>
+  <table>
+    <tr><th>서류명</th><th>발급처</th><th>유효기간</th><th>위험도</th><th>비고</th></tr>
+    <tr><td>취하서(채권자 작성·인감날인)</td><td>채권자 본인</td><td>-</td><td class="risk r-high">🔴</td><td>이중경매·배당요구채권자가 있으면 전원 동의 필요</td></tr>
+    <tr><td>채권자 인감증명서</td><td>주민센터</td><td>발급 3개월</td><td class="risk r-mid">🟡</td><td>취하서 진정성 확인용</td></tr>
+    <tr><td>위임장(법무사 대리 시)</td><td>채권자 작성</td><td>-</td><td class="risk r-mid">🟡</td><td>인감날인·인감증명 첨부</td></tr>
+    <tr><td>등기사항증명서(현황확인)</td><td>등기소·인터넷등기소</td><td>발급 최신본</td><td class="risk r-low">⚪</td><td>경매개시결정등기 표시 및 말소 여부 확인</td></tr>
+  </table>
+
+  <h2>3. 공과금·보수료</h2>
+  <div class="fee-box">
+    <table>
+      <tr><th>항목</th><th>산정 기준</th><th>근거 법령</th><th>납부처</th><th>납부 시점</th></tr>
+      <tr><td>경매신청 인지대(기납부분)</td><td>취하·취소 시 원칙적 환급 불가</td><td>민사소송 등 인지법</td><td>-</td><td>해당 없음</td></tr>
+      <tr><td>집행비용 정산</td><td>감정료·현황조사료 등 기지출분 정산</td><td>민사집행법·민사집행규칙</td><td>채권자/채무자 협의</td><td>취하·취소 처리 시</td></tr>
+      <tr><td>등기말소 관련 비용</td><td>말소등기 촉탁 실비</td><td>등기사항증명서 등 수수료규칙</td><td>등기소</td><td>말소 촉탁 시</td></tr>
+    </table>
+    <p class="fee-note">※ 세율·요율·인지액은 사무소 단일 출처(보수표·인지규칙) 기준이며, 최신 개정일은 상단 배지 참조.</p>
+    <p class="fee-note">※ 법무사 보수료: 보수표 유형·가액 구간 참조. 임의 확정 금지.</p>
+  </div>
+
+  <h2>4. 주의사항</h2>
+  <div class="warn">
+    <p><span class="deadline">⚡ 기한</span> — 낙찰자가 매각대금을 완납한 이후에는 취하가 불가능하다(민집 제266조 제2항). 대금납부 전까지가 마지막 처리 기회다.</p>
+    <p>이중경매 신청 채권자·배당요구 채권자가 있으면 최초 신청 채권자 1인의 취하만으로는 절차가 종결되지 않는다 — 전원의 동의·처리 여부를 반드시 확인한다. 채권자와의 취하 합의는 구두가 아닌 서면으로 받고, 취하서의 법원 접수 여부까지 직접 확인한다. 취소는 취하와 달리 채권 소멸 효과가 없어 동일 채권으로 재신청이 가능하므로, 채무자 측 상담 시 근본적 해결(변제·합의)이 필요함을 안내한다.</p>
+  </div>
+
+  <h2>5. 법령·판례 검토</h2>
+  <p>경매 취하는 신청채권자의 임의 철회로 민사집행법 제266조가 준용되며, 낙찰자 대금완납 전까지만 가능하다(제2항). 경매 취소는 담보권 소멸·부존재(임의경매), 잉여주의에 따른 매각불능(제102조), 신청 부적법, 채무자 파산선고 등을 사유로 법원이 결정한다.</p>
+  <div class="ref-tags">
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=026600" target="_blank" class="tag-law">📋 민사집행법 제266조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=010200" target="_blank" class="tag-law">📋 민사집행법 제102조</a>
+  </div>
+  <p style="font-size:.85rem;color:#5a6472;margin-top:6px;">확인된 판례 없음 — 법리 방향만 서술.</p>
+
+  <h2>6. 실무 체크리스트</h2>
+  <ul class="checklist">
+    <li>착수 전: 이중경매·배당요구 채권자 유무를 사건기록·법원 사건검색으로 확인했는가</li>
+    <li>제출 전: 취하서(또는 취소신청서)의 채권자 인감·위임장(대리 시)을 확인했는가</li>
+    <li>완료 후: 경매개시결정등기 말소 여부를 등기사항증명서로 확인했는가</li>
+  </ul>
+
+  <h2>7. 연계 도구·스킬</h2>
+  <div class="tools">
+    <a href="#">fee_calculator.html (인지·등록면허세 등 계산)</a>
+    <a href="#">ecfs-orchestrator (전자소송포털 경매신청 자동화)</a>
+  </div>
+
+  <div class="meta">
+    최종 확인: 담당 법무사(성명 검토 후 기재) · 최신 개정 확인일 2026-07-17 · 내부 업무자료(외부 게시 금지)
+  </div>
+
+</div>
+</body>
+</html>

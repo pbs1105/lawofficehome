@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>강제집행면탈 대응(고소·재산은닉 대응) — 직원용 업무자료</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1a2e4a; --navy2:#2d4a7a; --gold:#c8a96e; --ivory:#faf8f5;
+    --sumbg:#eef2f8; --warnbg:#fff3e8; --warn:#c05000;
+    --casebg:#f7f4f0; --caseborder:#6b7280; --ok:#1a5c2e;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--ivory);color:#1f2733;
+       font-family:'Noto Sans KR',sans-serif;line-height:1.7;}
+  .wrap{max-width:920px;margin:0 auto;padding:24px 20px 60px;}
+  h1,h2{font-family:'Noto Serif KR',serif;color:var(--navy);}
+  h1{font-size:1.6rem;margin:.2em 0;}
+  h2{font-size:1.2rem;border-left:5px solid var(--gold);padding-left:12px;margin:2em 0 .8em;}
+
+  .staff-bar{display:flex;justify-content:space-between;align-items:center;
+    background:var(--navy);color:#fff;border-radius:8px;padding:8px 14px;font-size:.85rem;}
+  .staff-bar .tag{background:var(--gold);color:var(--navy);font-weight:700;
+    padding:2px 10px;border-radius:12px;}
+  .cat-badge{display:inline-block;background:var(--navy2);color:#fff;
+    font-size:.78rem;font-weight:600;padding:2px 10px;border-radius:12px;}
+
+  .flow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;}
+  .flow .step{flex:1 1 150px;background:#fff;border:1px solid #d8dde6;
+    border-radius:8px;padding:10px 12px;position:relative;}
+  .flow .step b{color:var(--navy2);display:block;font-size:.9rem;}
+  .flow .step span{font-size:.82rem;color:#5a6472;}
+
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9rem;background:#fff;}
+  th,td{border:1px solid #d8dde6;padding:8px 10px;text-align:left;vertical-align:top;}
+  th{background:var(--sumbg);color:var(--navy);}
+
+  .risk{font-weight:700;} .r-high{color:#c0392b;} .r-mid{color:#b8860b;} .r-low{color:#5a6472;}
+
+  .fee-box{background:#f4f7fb;border:1px solid var(--navy2);border-radius:8px;padding:4px 14px;margin:10px 0;}
+  .fee-note{font-size:.82rem;color:#5a6472;margin:6px 0;}
+
+  .warn{background:var(--warnbg);border:1px solid var(--warn);border-radius:8px;padding:10px 14px;margin:10px 0;}
+  .deadline{color:var(--warn);font-weight:700;}
+
+  .checklist{list-style:none;padding:0;}
+  .checklist li{background:#f0f8f0;border:1px solid var(--ok);border-radius:6px;
+    padding:8px 12px;margin:6px 0;font-size:.9rem;}
+  .checklist li::before{content:"☐ ";color:var(--ok);font-weight:700;}
+
+  .ref-tags{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;}
+  .tag-law{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;
+    text-decoration:none;background:#eef2f8;color:#2d4a7a;border:1px solid #2d4a7a;}
+  .tag-case{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;
+    text-decoration:none;background:#f7f4f0;color:#5a3e28;border:1px solid #6b7280;}
+
+  .tools a{display:inline-block;margin:4px 6px 4px 0;padding:6px 12px;border-radius:8px;
+    background:var(--navy);color:#fff;text-decoration:none;font-size:.85rem;}
+
+  .meta{margin-top:30px;border-top:1px dashed #c4ccd6;padding-top:10px;font-size:.8rem;color:#5a6472;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- 상단 직원용 배지 -->
+  <div class="staff-bar">
+    <span><span class="tag">직원용</span> 내부 업무자료 · 외부 게시 금지</span>
+    <span>최신 개정 확인일: 2026-07-17</span>
+  </div>
+
+  <!-- 블록 1: 업무 개요 -->
+  <h1>강제집행면탈 대응(고소·재산은닉 대응)</h1>
+  <p><span class="cat-badge">민사집행</span></p>
+  <p>채무자가 강제집행을 피할 목적으로 재산을 은닉·허위양도한 정황이 확인될 때, 강제집행면탈죄 고소장 작성을 지원하고 사해행위취소소송 병행 여부를 검토하는 업무다. 사무소는 수사기관에 대한 조언이 아니라 의뢰인의 채권 회수를 위한 내부 절차(자료 정리·고소장 초안·병행 소송 준비)를 수행한다.</p>
+
+  <!-- 블록 2: 절차 개관 -->
+  <h2>1. 절차 개관</h2>
+  <div class="flow">
+    <div class="step"><b>① 재산은닉 정황 파악·자료 수집</b><span>담당: 사무장 · 소요 수일~수주 · 산출물: 등기이력·계좌내역 등 증빙자료</span></div>
+    <div class="step"><b>② 강제집행면탈죄 고소장 작성 지원</b><span>담당: 법무사 · 소요 의뢰인 협의 · 산출물: 고소장 초안</span></div>
+    <div class="step"><b>③ 사해행위취소소송 병행 검토·제기</b><span>담당: 법무사 · 소요 별도 소송절차 · 산출물: 소장</span></div>
+    <div class="step"><b>④ 진행 관리·회수 절차 연계</b><span>담당: 사무장 · 소요 지속 관리 · 산출물: 수사결과통지·판결 후속 조치</span></div>
+  </div>
+
+  <!-- 블록 3: 준비서류 -->
+  <h2>2. 준비서류</h2>
+  <table>
+    <tr><th>서류명</th><th>발급처</th><th>유효기간</th><th>위험도</th><th>비고</th></tr>
+    <tr><td>집행권원·판결정본</td><td>관할 법원</td><td>사건 종결까지 보관</td><td class="risk r-high">🔴</td><td>채권 존재 및 발생시점 입증 기초</td></tr>
+    <tr><td>부동산등기부등본(이전 이력 포함)</td><td>등기소</td><td>발급 후 최신본 재확인</td><td class="risk r-high">🔴</td><td>처분시점과 소송계속중 여부 대조 필수</td></tr>
+    <tr><td>재산조회·재산명시 결과</td><td>관할 법원</td><td>결과 통지일 기준</td><td class="risk r-mid">🟡</td><td>은닉 정황 자료로 활용</td></tr>
+    <tr><td>금융거래내역(계좌추적 등)</td><td>금융기관/법원 사실조회</td><td>사건별 확인</td><td class="risk r-mid">🟡</td><td>증거 확보에 시일 소요, 사전 착수 필요</td></tr>
+  </table>
+
+  <!-- 블록 4: 공과금·보수료 -->
+  <h2>3. 공과금·보수료</h2>
+  <div class="fee-box">
+    <table>
+      <tr><th>항목</th><th>산정 기준(과세표준·요율)</th><th>근거 법령</th><th>납부처</th><th>납부 시점</th></tr>
+      <tr><td>고소장 접수 관련 비용</td><td>형사 고소는 통상 인지·수수료 없음</td><td>해당 없음(수사기관 접수 절차)</td><td>경찰서/검찰청</td><td>접수 시</td></tr>
+      <tr><td>사해행위취소소송 인지액</td><td>소가에 따른 정률 기준</td><td>민사소송 등 인지법·인지규칙</td><td>관할 법원</td><td>소장 제출 시</td></tr>
+      <tr><td>송달료</td><td>당사자 수 × 회차 기준</td><td>송달료규칙</td><td>관할 법원</td><td>소장 제출 시</td></tr>
+      <tr><td>법무사 보수</td><td>보수표 유형·가액구간 참조</td><td>법무사보수규정</td><td>사무소</td><td>수임 시/완료 시(사무소 정책에 따름)</td></tr>
+    </table>
+    <p class="fee-note">※ 형사 고소 절차 특성상 공과금 항목은 적으며, 병행하는 사해행위취소소송의 인지·송달료는 사무소 단일 출처(인지규칙·송달료규칙) 기준으로 산정한다. 구체적 금액은 임의로 확정해 적지 않고 최신 개정 확인일(상단 배지) 기준으로 조회한다.</p>
+    <p class="fee-note">※ 법무사 보수료는 보수표 유형·가액구간을 참조하며, 이 페이지에서 임의로 확정하지 않는다.</p>
+  </div>
+
+  <!-- 블록 5: 주의사항 -->
+  <h2>4. 주의사항</h2>
+  <div class="warn">
+    <p><span class="deadline">⚡ 기한</span> — 사해행위취소소송은 취소원인을 안 날로부터 1년, 행위가 있은 날로부터 5년의 제척기간이 있다(민법 제406조 제2항). 착수 즉시 처분행위 인지시점·행위시점을 확정하여 기산일을 관리한다. 재명시 신청은 집행 불능 확인일로부터 6개월 경과 후에만 가능하다(민사집행법 제69조 제1항).</p>
+    <p>강제집행면탈죄는 '강제집행을 피할 목적'이 핵심 성립요건이다. 처분시점·소송진행경과·처분가격 적정성 등 정황증거를 사전에 정리하지 않고 고소장을 접수하면 불기소 위험이 크다. 형사 고소만으로는 채권을 직접 회수할 수 없으므로, 사해행위취소소송 병행 여부를 초기 상담 단계에서 반드시 확정한다.</p>
+  </div>
+
+  <!-- 블록 6: 법령·판례 검토 -->
+  <h2>5. 법령·판례 검토</h2>
+  <p>강제집행을 피할 목적으로 재산을 은닉·손괴·허위양도하거나 허위채무를 부담하면 강제집행면탈죄가 성립한다(형법 제327조). 재산명시 위반(불출석·허위목록·선서거부)은 감치(민사집행법 제68조)와 형사처벌의 대상이 되며, 재명시 신청(제69조)·채무불이행자명부 등재(제70조)·명부 말소(제73조)·재산조회(제74조)가 연계 절차다. 재산을 가족 등에게 이전한 경우 별도로 사해행위취소소송(민법 제406조)을 검토하고, 채권 자체의 소멸시효(민법 제165조, 판결채권 10년)를 함께 관리한다.</p>
+  <div class="ref-tags">
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=188383&joNo=032700" target="_blank" class="tag-law">📋 형법 제327조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006800" target="_blank" class="tag-law">📋 민사집행법 제68조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=006900" target="_blank" class="tag-law">📋 민사집행법 제69조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007000" target="_blank" class="tag-law">📋 민사집행법 제70조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007300" target="_blank" class="tag-law">📋 민사집행법 제73조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=007400" target="_blank" class="tag-law">📋 민사집행법 제74조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=040600" target="_blank" class="tag-law">📋 민법 제406조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265307&joNo=016500" target="_blank" class="tag-law">📋 민법 제165조</a>
+    <a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2009%EB%8F%84875" target="_blank" class="tag-case">⚖️ 대법원 2009도875</a>
+    <a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2007%EB%8F%848153" target="_blank" class="tag-case">⚖️ 대법원 2007도8153</a>
+  </div>
+
+  <!-- 블록 7: 실무 체크리스트 -->
+  <h2>6. 실무 체크리스트</h2>
+  <ul class="checklist">
+    <li>착수 전 — 처분행위 시점과 소송계속중·채무발생 시점의 선후관계를 정리하고, 사해행위취소소송 제척기간의 기산일을 확정</li>
+    <li>제출 전 — 고소장 첨부자료(등기이력·계좌내역 등) 정리를 완료하고, 사해행위취소소송 병행 여부를 의뢰인과 확정</li>
+    <li>완료 후 — 수사결과통지·판결 결과를 재산조회·강제집행 절차에 즉시 연계하여 회수 조치 진행</li>
+  </ul>
+
+  <!-- 블록 8: 연계 도구·스킬 -->
+  <h2>7. 연계 도구·스킬</h2>
+  <div class="tools">
+    <a href="#">fee_calculator.html (인지·송달료 계산)</a>
+    <a href="#">ecfs-orchestrator (전자소송포털 민사집행 신청 자동화, 사해행위취소소송 제기용)</a>
+    <a href="#">재산조회·재산명시 신청 스킬</a>
+  </div>
+
+  <!-- 하단 메타 -->
+  <div class="meta">
+    최종 확인: 담당 법무사(성명 검토 후 기재) · 최신 개정 확인일 2026-07-17 · 내부 업무자료(외부 게시 금지)
+  </div>
+
+</div>
+</body>
+</html>

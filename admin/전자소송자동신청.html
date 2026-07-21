@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LOAS 전자소송 자동신청 · Admin</title>
+<style>
+  :root{
+    --bg:#0f172a; --card:#1e293b; --line:#334155; --muted:#94a3b8;
+    --text:#e2e8f0; --accent:#38bdf8; --accent2:#22c55e; --warn:#fbbf24; --danger:#f87171;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI",system-ui,"Malgun Gothic",sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+  .wrap{max-width:960px;margin:0 auto;padding:28px 18px 100px}
+  h1{font-size:20px;margin:0 0 4px}
+  h2{font-size:15px;margin:0 0 12px}
+  .sub{color:var(--muted);font-size:13px;margin-bottom:18px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:18px}
+  .card-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+  .card-title h2{margin:0}
+  label{display:block;font-size:13px;color:var(--muted);margin:0 0 6px}
+  input,select,textarea{width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--line);background:#0b1220;color:var(--text);font-size:14px;font-family:inherit}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent)}
+  textarea{resize:vertical;min-height:90px}
+  .row{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap;margin-bottom:12px}
+  .row:last-child{margin-bottom:0}
+  .row > div{flex:1;min-width:180px}
+  .field{margin-bottom:12px}
+  .field:last-child{margin-bottom:0}
+  .checkline{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text)}
+  .checkline input[type=checkbox]{width:auto}
+  button{cursor:pointer;border:none;border-radius:8px;padding:11px 18px;font-size:14px;font-weight:600;transition:.15s;font-family:inherit}
+  button:disabled{opacity:.5;cursor:not-allowed}
+  .btn-primary{background:var(--accent);color:#04263a}
+  .btn-primary:hover:not(:disabled){background:#7dd3fc}
+  .btn-go{background:var(--accent2);color:#052e16}
+  .btn-go:hover:not(:disabled){background:#4ade80}
+  .btn-danger{background:var(--danger);color:#3a0b0b}
+  .btn-danger:hover:not(:disabled){background:#fca5a5}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line);padding:7px 12px;font-weight:500}
+  .btn-ghost:hover:not(:disabled){color:var(--text);border-color:var(--accent)}
+  .btn-sm{padding:6px 10px;font-size:12px}
+  table{width:100%;border-collapse:collapse;margin-top:8px;font-size:13px}
+  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:middle}
+  th{color:var(--muted);font-weight:600;font-size:12px}
+  .badge{display:inline-block;font-size:11px;padding:2px 8px;border-radius:999px;background:#0b1220;border:1px solid var(--line);color:var(--muted)}
+  .badge.ok{color:var(--accent2);border-color:var(--accent2)}
+  .badge.err{color:var(--danger);border-color:var(--danger)}
+  .badge.pending{color:var(--warn);border-color:var(--warn)}
+  .status{font-size:13px;margin-top:12px;min-height:20px}
+  .status.err{color:var(--danger)}
+  .status.ok{color:var(--accent2)}
+  .status.pending{color:var(--warn)}
+  .muted{color:var(--muted)}
+  details{margin-bottom:18px}
+  summary{cursor:pointer;color:var(--muted);font-size:13px;padding:4px 0}
+  pre{background:#0b1220;border:1px solid var(--line);border-radius:8px;padding:12px;overflow:auto;font-size:12px;white-space:pre-wrap;word-break:break-all;max-height:320px}
+  .hint{font-size:12px;color:var(--muted);margin-top:6px}
+  .warning-banner{background:#3a2a0b;border:1px solid var(--warn);color:#fde68a;border-radius:10px;padding:14px 16px;margin-bottom:18px;font-size:13px;line-height:1.7}
+  .warning-banner b{color:var(--warn)}
+  .danger-banner{background:#3a0b0b;border:1px solid var(--danger);color:#fecaca;border-radius:10px;padding:14px 16px;margin:12px 0;font-size:13px;line-height:1.7}
+  .danger-banner b{color:var(--danger)}
+  .stepper{display:flex;flex-direction:column;gap:0;margin-top:10px}
+  .step{display:flex;align-items:center;gap:12px;padding:8px 4px;border-left:2px solid var(--line);margin-left:9px;padding-left:16px;position:relative}
+  .step::before{content:'';position:absolute;left:-7px;top:14px;width:12px;height:12px;border-radius:50%;background:var(--line);border:2px solid var(--card)}
+  .step.done::before{background:var(--accent2)}
+  .step.active::before{background:var(--warn);animation:pulse 1s infinite}
+  .step.failed::before{background:var(--danger)}
+  .step.blocked::before{background:var(--warn)}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+  .step-label{font-size:13px}
+  .step.done .step-label{color:var(--accent2)}
+  .step.failed .step-label{color:var(--danger)}
+  .step.blocked .step-label{color:var(--warn)}
+  .step-detail{font-size:11px;color:var(--muted);margin-left:auto}
+  .evtable input{padding:7px 9px;font-size:13px}
+  .evtable td{padding:6px 4px}
+  .evtable .col-path{min-width:220px}
+  .evtable .col-name{min-width:110px}
+  .evtable .col-num{width:70px}
+  .section-tag{font-weight:700;font-size:12px;color:var(--accent);margin:14px 0 8px}
+  .result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:10px}
+  .stat{background:#0b1220;border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+  .stat b{display:block;font-size:15px;margin-top:2px;word-break:break-all}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>⚖️ 전자소송 자동신청 · Admin</h1>
+  <div class="sub">Notion 사건 정보를 바탕으로 ecfs.scourt.go.kr 소장 작성 화면(전자소송 동의 → 사건기본정보 → 당사자 → 청구취지·이유 → 소명서류 → 임시저장)을 자동으로 채웁니다.</div>
+
+  <div class="warning-banner">
+    <b>⚠️ 실제 전자소송포털에 데이터가 입력됩니다.</b><br>
+    이 화면은 사무실 PC에서 실행 중인 로컬 자동화 서버(<code>http://localhost:3939</code>)를 호출해, 직원이 인증서로 이미 로그인해 둔 실제 Chrome 화면을 직접 조작합니다.
+    <b>최종 [등록] 클릭 전자서명·제출은 이 자동화가 절대 하지 않지만, 당사자 정보·신청취지 등은 실제 화면에 그대로 입력됩니다.</b>
+    반드시 실행 전 아래 내용을 확인하고, 실행 후에는 포털 화면에서 입력 내용을 직접 검토·제출하세요.
+    <br><br>
+    사전 준비: ① 사무실 PC에서 <code>2_start_chrome_debug.bat</code>로 연 Chrome에 인증서로 로그인 ② <code>3_start_server.bat</code>(또는 Windows 서비스)로 자동화 서버 실행.
+  </div>
+
+  <details>
+    <summary>⚙️ 연결 설정 (자동화 서버 주소)</summary>
+    <div class="card" style="margin-top:10px">
+      <div class="field">
+        <label>자동화 서버 주소</label>
+        <input id="serverUrl" value="http://localhost:3939" />
+        <div class="hint">사무실 PC가 아닌 다른 PC에서 이 화면을 열었다면, 자동화 서버가 실행 중인 PC의 주소(예: <code>http://192.168.0.10:3939</code>)로 바꾸세요.</div>
+      </div>
+    </div>
+  </details>
+
+  <!-- ========== 서버 상태 ========== -->
+  <div class="card">
+    <div class="card-title">
+      <h2>1) 서버 상태</h2>
+      <button class="btn-ghost btn-sm" onclick="checkHealth()">상태 확인</button>
+    </div>
+    <div id="healthBox" class="muted" style="font-size:13px">아직 확인 안 함 — [상태 확인]을 눌러 자동화 서버·킵얼라이브 상태를 확인하세요.</div>
+  </div>
+
+  <!-- ========== 메인: 사건 자동신청 ========== -->
+  <div class="card">
+    <div class="card-title"><h2>2) 사건 자동신청 (Notion 연동)</h2></div>
+
+    <div class="field">
+      <label>Notion 사건 페이지 ID 또는 URL</label>
+      <input id="notionCaseId" placeholder="Notion에서 사건 페이지를 열고 URL을 그대로 붙여넣으세요" oninput="handleNotionIdInput()" />
+      <div class="hint" id="notionIdHint">사건부DB 페이지의 URL을 통째로 붙여넣으면 자동으로 페이지 ID만 추출합니다.</div>
+    </div>
+
+    <div class="row">
+      <div>
+        <label>사건번호(화면 표시용, 선택)</label>
+        <input id="caseLabel" placeholder="예: 260721_01" />
+      </div>
+    </div>
+
+    <div class="section-tag">사건기본정보</div>
+    <div class="row">
+      <div>
+        <label>법원명 (비워두면 기본값 유지)</label>
+        <input id="courtName" placeholder="예: 창원지방법원" />
+      </div>
+      <div>
+        <label>사건명 *</label>
+        <input id="caseName" placeholder="예: 대여금" />
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <label>청구구분 *</label>
+        <select id="claimType" onchange="handleClaimTypeChange()">
+          <option value="재산권상청구">재산권상청구</option>
+          <option value="비재산권상청구">비재산권상청구</option>
+        </select>
+      </div>
+      <div id="litigationValueWrap">
+        <label>소가 (재산권상청구 시 필수, 원)</label>
+        <input id="litigationValue" type="number" min="0" placeholder="예: 10000000" />
+      </div>
+      <div id="lwstTypeCheckWrap" style="display:none">
+        <label>&nbsp;</label>
+        <span class="checkline"><input type="checkbox" id="lwstTypeCheck" /> 회사·무체재산권 관련 소송</span>
+      </div>
+    </div>
+
+    <div class="section-tag">신청취지 및 이유</div>
+    <div class="field">
+      <label>신청취지(청구취지) *</label>
+      <textarea id="purposeText" placeholder="1. 피고는 원고에게 금 000원을 지급하라.&#10;2. 소송비용은 피고가 부담한다.&#10;라는 판결을 구합니다."></textarea>
+    </div>
+    <div class="field">
+      <label>신청이유(청구원인, HTML 가능) *</label>
+      <textarea id="reasonHtml" placeholder="<p>청구원인을 입력하세요.</p>" style="min-height:140px"></textarea>
+      <div class="hint">2,000자를 초과하면 포털에서 별지 첨부 방식으로 자동 전환됩니다.</div>
+    </div>
+
+    <div class="section-tag">가압류·가처분 진술서</div>
+    <div class="field">
+      <span class="checkline"><input type="checkbox" id="requiresAffidavit" onchange="handleAffidavitToggle()" /> 이 사건은 가압류·가처분 사건입니다 (가압류신청 진술서 필요)</span>
+    </div>
+    <div id="affidavitAckWrap" style="display:none" class="danger-banner">
+      진술서 문장은 자동화가 작성하지 않습니다. <b>ecfs-affidavit-checklist</b> 체크리스트를 참고해 법무사가 직접 작성·확인한 뒤에만 아래를 체크하세요.
+      미확인 상태로 실행하면 소명서류 업로드 직전 단계에서 자동으로 멈춥니다(정상 동작).
+      <div style="margin-top:8px"><span class="checkline"><input type="checkbox" id="affidavitAcknowledged" /> 가압류신청 진술서 작성을 확인했습니다</span></div>
+    </div>
+
+    <div class="section-tag">소명서류 · 첨부서류 (선택 — 파일은 이 PC의 로컬 경로를 그대로 입력)</div>
+    <div class="hint" style="margin-bottom:8px">파일 경로는 Windows 경로(예: <code>C:\Users\...\증거1.pdf</code>)로 입력하세요. 자동화 서버가 실행 중인 PC에서 실제로 열 수 있는 경로여야 합니다.</div>
+
+    <div style="margin-bottom:6px;font-weight:600;font-size:13px">소명서류</div>
+    <table class="evtable">
+      <thead><tr><th class="col-path">파일 경로</th><th class="col-name">서류명</th><th class="col-num">서증번호</th><th class="col-num">가지번호</th><th></th></tr></thead>
+      <tbody id="evidencePrvBody"></tbody>
+    </table>
+    <button class="btn-ghost btn-sm" style="margin-top:8px" onclick="addEvidenceRow('evidencePrvBody')">+ 소명서류 추가</button>
+
+    <div style="margin:16px 0 6px;font-weight:600;font-size:13px">첨부서류 (전자소송동의서·위임장 등)</div>
+    <table class="evtable">
+      <thead><tr><th class="col-path">파일 경로</th><th class="col-name">서류명</th><th class="col-num">서증번호</th><th class="col-num">가지번호</th><th></th></tr></thead>
+      <tbody id="evidenceAtchBody"></tbody>
+    </table>
+    <button class="btn-ghost btn-sm" style="margin-top:8px" onclick="addEvidenceRow('evidenceAtchBody')">+ 첨부서류 추가</button>
+
+    <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--line)">
+      <span class="checkline" style="margin-bottom:12px"><input type="checkbox" id="confirmCheck" /> 위 경고를 확인했으며, 이 내용을 실제 전자소송포털 화면에 입력하는 데 동의합니다.</span>
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+        <button id="startBtn" class="btn-go" onclick="startAutoSubmit()">🚀 자동신청 시작</button>
+        <button class="btn-ghost" onclick="resetForm()">입력 초기화</button>
+        <span class="muted" id="runStatus"></span>
+      </div>
+    </div>
+
+    <div id="progressWrap" style="display:none;margin-top:20px;padding-top:16px;border-top:1px solid var(--line)">
+      <h2 style="font-size:14px">진행상황</h2>
+      <div class="stepper" id="stepper"></div>
+    </div>
+
+    <div id="resultWrap" style="display:none;margin-top:16px"></div>
+  </div>
+
+  <!-- ========== 개별 STEP 실행 (복구용) ========== -->
+  <details>
+    <summary>🛠️ 개별 단계 실행 (문제 발생 시 복구용 — 고급)</summary>
+    <div class="card" style="margin-top:10px">
+      <div class="hint" style="margin-bottom:14px">전체 흐름이 중간에 멈췄을 때, 특정 단계만 다시 실행하거나 확인하는 용도입니다. payload는 JSON 형식으로 직접 입력합니다.</div>
+
+      <div class="field">
+        <label>1) 전자소송 동의 (civil-consent) — payload 불필요</label>
+        <textarea id="consentPayload">{}</textarea>
+        <button class="btn-primary btn-sm" style="margin-top:8px" onclick="runSingle('civil-consent','consentPayload')">실행</button>
+      </div>
+
+      <div class="field">
+        <label>2) 당사자 입력 (party-input) — 원고 비회원</label>
+        <textarea id="partyPayload" style="min-height:180px">{
+  "name": "테스트원고",
+  "ssnFront": "900101",
+  "ssnBack": "1234567",
+  "address": { "sido": "경상남도", "sigungu": "진주시", "roadName": "테스트로", "buildingMain": "1" },
+  "deliveryRecipientId": "pbs1105",
+  "contact": { "mobile": "010-0000-0000", "email": "test@example.com" }
+}</textarea>
+        <button class="btn-primary btn-sm" style="margin-top:8px" onclick="runSingle('party-input','partyPayload')">실행</button>
+      </div>
+
+      <div class="field">
+        <label>3) 신청취지 및 이유 (claim-input)</label>
+        <textarea id="claimPayload" style="min-height:120px">{
+  "purposeText": "1. 피고는 원고에게 금 1,000,000원을 지급하라.\n2. 소송비용은 피고가 부담한다.\n라는 판결을 구합니다.",
+  "reasonHtml": "<p>청구원인 내용</p>"
+}</textarea>
+        <button class="btn-primary btn-sm" style="margin-top:8px" onclick="runSingle('claim-input','claimPayload')">실행</button>
+      </div>
+
+      <div class="field">
+        <label>4) 사건기본정보 (case-basic-info)</label>
+        <textarea id="caseBasicPayload">{
+  "caseName": "대여금",
+  "claimType": "재산권상청구",
+  "litigationValue": 10000000
+}</textarea>
+        <button class="btn-primary btn-sm" style="margin-top:8px" onclick="runSingle('case-basic-info','caseBasicPayload')">실행</button>
+      </div>
+
+      <div class="field">
+        <label>5) 임시저장 (temp-save)</label>
+        <textarea id="tempSavePayload">{ "emergency": false }</textarea>
+        <button class="btn-primary btn-sm" style="margin-top:8px" onclick="runSingle('temp-save','tempSavePayload')">실행</button>
+      </div>
+
+      <div class="field">
+        <label>6) 소명서류·첨부서류 업로드 (evidence-upload)</label>
+        <textarea id="evidencePayload" style="min-height:150px">{
+  "section": "prvDocmt",
+  "files": [ { "filePath": "C:\\경로\\증거.pdf" } ],
+  "gridEdits": [ { "row": 0, "seq": "1", "gaji": "", "name": "증거" } ]
+}</textarea>
+        <button class="btn-primary btn-sm" style="margin-top:8px" onclick="runSingle('evidence-upload','evidencePayload')">실행</button>
+      </div>
+
+      <div style="margin-top:14px">
+        <div class="status" id="singleRunStatus"></div>
+        <pre id="singleRunOut" style="display:none"></pre>
+      </div>
+    </div>
+  </details>
+
+  <!-- ========== 실행 이력 ========== -->
+  <div class="card">
+    <div class="card-title">
+      <h2>3) 실행 이력</h2>
+      <div style="display:flex;gap:8px">
+        <button class="btn-ghost btn-sm" onclick="fetchLastRun()">마지막 실행 결과</button>
+        <button class="btn-ghost btn-sm" onclick="fetchAuditLog()">최근 감사로그</button>
+      </div>
+    </div>
+    <div id="historyBox" class="muted" style="font-size:13px">조회 버튼을 눌러 확인하세요.</div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ---------------- 서버 주소 ---------------- */
+  var serverInput = document.getElementById('serverUrl');
+  var savedServer = localStorage.getItem('ecfs_server_url');
+  if (savedServer) serverInput.value = savedServer;
+  serverInput.addEventListener('change', function(){
+    localStorage.setItem('ecfs_server_url', serverInput.value.trim());
+  });
+  function SERVER(){ return serverInput.value.trim().replace(/\/$/, ''); }
+
+  var CALLBACK_SECRET_HINT = null; // 서버가 자체 secret을 콜백 body에 담아 보내므로 여기서는 불필요
+
+  /* ---------------- 공용 fetch 헬퍼 ---------------- */
+  function apiGet(path){
+    return fetch(SERVER() + path).then(function(r){ return r.json().then(function(j){ return { ok: r.ok, status: r.status, body: j }; }); });
+  }
+  function apiPost(path, body){
+    return fetch(SERVER() + path, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    }).then(function(r){ return r.json().then(function(j){ return { ok: r.ok, status: r.status, body: j }; }); });
+  }
+
+  /* ---------------- 1) 서버 상태 ---------------- */
+  window.checkHealth = function(){
+    var box = document.getElementById('healthBox');
+    box.textContent = '확인 중...';
+    apiGet('/health').then(function(res){
+      if (!res.ok) { box.innerHTML = '<span style="color:var(--danger)">서버 응답 오류: HTTP ' + res.status + '</span>'; return; }
+      var h = res.body;
+      box.innerHTML =
+        '<div class="result-grid">' +
+          '<div class="stat">서버 상태<b style="color:var(--accent2)">정상</b></div>' +
+          '<div class="stat">현재 작업 중<b>' + (h.busy ? '예 (다른 사건 진행 중)' : '아니오') + '</b></div>' +
+          '<div class="stat">세션 킵얼라이브<b>' + (h.keepAliveActive ? '작동 중' : '미시작') + '</b></div>' +
+          '<div class="stat">마지막 실행<b>' + (h.lastRunAt || '-') + '</b></div>' +
+        '</div>' +
+        '<div class="hint">등록된 액션: ' + (h.actions || []).join(', ') + '</div>';
+    }).catch(function(e){
+      box.innerHTML = '<span style="color:var(--danger)">서버에 연결할 수 없습니다: ' + escapeHtml(e.message) + '<br>사무실 PC에서 자동화 서버(3_start_server.bat)가 실행 중인지 확인하세요.</span>';
+    });
+  };
+
+  /* ---------------- Notion ID 파싱 ---------------- */
+  window.handleNotionIdInput = function(){
+    var el = document.getElementById('notionCaseId');
+    var hint = document.getElementById('notionIdHint');
+    var extracted = extractNotionId(el.value);
+    if (!el.value.trim()) {
+      hint.textContent = 'Notion에서 사건 페이지를 열고 URL을 그대로 붙여넣으세요.';
+      hint.style.color = '';
+      return;
+    }
+    if (extracted) {
+      hint.innerHTML = '인식된 페이지 ID: <code>' + extracted + '</code>';
+      hint.style.color = 'var(--accent2)';
+    } else {
+      hint.textContent = '유효한 Notion 페이지 ID를 찾지 못했습니다. URL 전체를 붙여넣었는지 확인하세요.';
+      hint.style.color = 'var(--danger)';
+    }
+  };
+
+  function extractNotionId(raw){
+    if (!raw) return null;
+    var cleaned = raw.trim();
+    var hexMatch = cleaned.replace(/-/g, '').match(/[0-9a-fA-F]{32}/);
+    if (!hexMatch) return null;
+    var hex = hexMatch[0].toLowerCase();
+    return hex.slice(0,8) + '-' + hex.slice(8,12) + '-' + hex.slice(12,16) + '-' + hex.slice(16,20) + '-' + hex.slice(20);
+  }
+
+  /* ---------------- 청구구분 / 진술서 토글 ---------------- */
+  window.handleClaimTypeChange = function(){
+    var claimType = document.getElementById('claimType').value;
+    document.getElementById('litigationValueWrap').style.display = (claimType === '재산권상청구') ? '' : 'none';
+    document.getElementById('lwstTypeCheckWrap').style.display = (claimType === '비재산권상청구') ? '' : 'none';
+  };
+
+  window.handleAffidavitToggle = function(){
+    document.getElementById('affidavitAckWrap').style.display = document.getElementById('requiresAffidavit').checked ? '' : 'none';
+  };
+
+  /* ---------------- 소명서류/첨부서류 동적 행 ---------------- */
+  window.addEvidenceRow = function(bodyId){
+    var tbody = document.getElementById(bodyId);
+    var tr = document.createElement('tr');
+    tr.innerHTML =
+      '<td><input type="text" class="ev-path" placeholder="C:\\경로\\파일.pdf" /></td>' +
+      '<td><input type="text" class="ev-name" placeholder="서류명" /></td>' +
+      '<td><input type="text" class="ev-seq" placeholder="1" /></td>' +
+      '<td><input type="text" class="ev-gaji" placeholder="" /></td>' +
+      '<td><button class="btn-ghost btn-sm" type="button" onclick="this.closest(\'tr\').remove()">삭제</button></td>';
+    tbody.appendChild(tr);
+  };
+
+  function collectEvidenceSection(bodyId, sectionKey){
+    var rows = Array.prototype.slice.call(document.getElementById(bodyId).querySelectorAll('tr'));
+    var files = [];
+    var gridEdits = [];
+    var rowIdx = 0;
+    rows.forEach(function(tr){
+      var path = tr.querySelector('.ev-path').value.trim();
+      if (!path) return;
+      files.push({ filePath: path });
+      gridEdits.push({
+        row: rowIdx,
+        seq: tr.querySelector('.ev-seq').value.trim(),
+        gaji: tr.querySelector('.ev-gaji').value.trim(),
+        name: tr.querySelector('.ev-name').value.trim()
+      });
+      rowIdx += 1;
+    });
+    if (files.length === 0) return null;
+    return { section: sectionKey, files: files, gridEdits: gridEdits };
+  }
+
+  /* ---------------- 폼 → payload 구성 ---------------- */
+  function collectOverrides(){
+    var errors = [];
+    var caseName = document.getElementById('caseName').value.trim();
+    var claimType = document.getElementById('claimType').value;
+    var litigationValueRaw = document.getElementById('litigationValue').value;
+    var purposeText = document.getElementById('purposeText').value.trim();
+    var reasonHtml = document.getElementById('reasonHtml').value.trim();
+    var requiresAffidavit = document.getElementById('requiresAffidavit').checked;
+    var affidavitAcknowledged = document.getElementById('affidavitAcknowledged').checked;
+
+    if (!caseName) errors.push('사건명을 입력하세요.');
+    if (!purposeText) errors.push('신청취지를 입력하세요.');
+    if (!reasonHtml) errors.push('신청이유를 입력하세요.');
+    if (claimType === '재산권상청구' && !litigationValueRaw) errors.push('재산권상청구는 소가를 입력해야 합니다.');
+
+    var caseBasicInfo = { caseName: caseName, claimType: claimType };
+    var courtName = document.getElementById('courtName').value.trim();
+    if (courtName) caseBasicInfo.courtName = courtName;
+    if (claimType === '재산권상청구') {
+      caseBasicInfo.litigationValue = Number(litigationValueRaw);
+    } else if (document.getElementById('lwstTypeCheck').checked) {
+      caseBasicInfo.lwstTypeCheck = true;
+    }
+
+    var evidence = [];
+    var prv = collectEvidenceSection('evidencePrvBody', 'prvDocmt');
+    var atch = collectEvidenceSection('evidenceAtchBody', 'atch');
+    if (prv) evidence.push(prv);
+    if (atch) evidence.push(atch);
+
+    var overrides = {
+      caseBasicInfo: caseBasicInfo,
+      claim: { purposeText: purposeText, reasonHtml: reasonHtml },
+      evidence: evidence,
+      requiresAffidavit: requiresAffidavit,
+      affidavitAcknowledged: requiresAffidavit ? affidavitAcknowledged : false
+    };
+
+    return { overrides: overrides, errors: errors };
+  }
+
+  /* ---------------- 자동신청 시작 (run-full-from-notion) ---------------- */
+  var STEP_STAGES = [
+    { key: 'STEP1_civil_consent', label: '① 전자소송 동의' },
+    { key: 'STEP2_case_basic_info', label: '② 사건기본정보' },
+    { key: 'STEP4_parties', label: '④ 당사자 입력', matchPrefix: 'STEP4_party_' },
+    { key: 'STEP6_claim_input', label: '⑥ 청구취지·이유' },
+    { key: 'STEP7_temp_save', label: '⑦ 임시저장' },
+    { key: 'STEP8_session_extend', label: '⑧ 세션 연장' },
+    { key: 'STEP8_5_affidavit', label: '⑧.5 가압류신청 진술서 확인' },
+    { key: 'STEP9_evidence', label: '⑨ 소명서류·첨부서류 업로드', matchPrefix: 'STEP9_evidence_' },
+    { key: 'STEP10_final_temp_save', label: '⑩ 최종 임시저장' }
+  ];
+
+  var pollTimer = null;
+
+  function renderStepper(progressLog){
+    var stepper = document.getElementById('stepper');
+    var latestByStage = {};
+    (progressLog || []).forEach(function(ev){
+      STEP_STAGES.forEach(function(stage){
+        if (ev.step === stage.key || (stage.matchPrefix && (ev.step || '').indexOf(stage.matchPrefix) === 0)) {
+          latestByStage[stage.key] = ev;
+        }
+      });
+    });
+
+    stepper.innerHTML = STEP_STAGES.map(function(stage){
+      var ev = latestByStage[stage.key];
+      var cls = 'step';
+      var detail = '';
+      if (ev) {
+        if (ev.status === 'done') cls += ' done';
+        else if (ev.status === 'failed') cls += ' failed';
+        else if (ev.status === 'blocked') cls += ' blocked';
+        else cls += ' active';
+        if (ev.detail && ev.detail.message) detail = escapeHtml(ev.detail.message);
+      }
+      return '<div class="' + cls + '"><span class="step-label">' + stage.label + '</span>' + (detail ? '<span class="step-detail">' + detail + '</span>' : '') + '</div>';
+    }).join('');
+  }
+
+  function renderFinalResult(result){
+    var wrap = document.getElementById('resultWrap');
+    wrap.style.display = '';
+    var cls = result.success ? 'result-grid' : 'result-grid';
+    var banner = '';
+    if (result.needsManualReview) {
+      banner = '<div class="danger-banner"><b>⚠️ 수동 확인 필요</b><br>' + escapeHtml(result.message || '자동화가 중간에 실패했습니다.') + '</div>';
+    } else if (result.status === 'blocked') {
+      banner = '<div class="warning-banner"><b>⏸ 진술서 확인 대기 중 정지</b><br>' + escapeHtml(result.message || '') + '</div>';
+    } else if (result.success) {
+      banner = '<div class="card" style="border-color:var(--accent2)"><b style="color:var(--accent2)">✅ 전체 흐름 완료</b><br>' + escapeHtml(result.message || '') + '<br><span class="hint">최종 제출 전 반드시 포털 화면에서 직접 검토하세요.</span></div>';
+    } else {
+      banner = '<div class="danger-banner"><b>❌ 실패</b><br>' + escapeHtml(result.message || '') + '</div>';
+    }
+    wrap.innerHTML = banner + '<details style="margin-top:10px"><summary>상세 로그 보기</summary><pre>' + escapeHtml(JSON.stringify(result, null, 2)) + '</pre></details>';
+  }
+
+  function startPolling(){
+    if (pollTimer) clearInterval(pollTimer);
+    document.getElementById('progressWrap').style.display = '';
+    document.getElementById('resultWrap').style.display = 'none';
+    renderStepper([]);
+
+    pollTimer = setInterval(function(){
+      apiGet('/__last_progress').then(function(res){
+        if (res.ok) renderStepper(res.body.progressLog);
+      }).catch(function(){});
+
+      apiGet('/__last_result').then(function(res){
+        if (res.ok && res.body.lastResult) {
+          var lr = res.body.lastResult;
+          document.getElementById('runStatus').textContent = lr.success ? '완료' : (lr.status === 'blocked' ? '진술서 확인 대기' : '실패');
+          renderFinalResult(lr);
+          if (lr.status !== 'accepted') {
+            clearInterval(pollTimer);
+            pollTimer = null;
+            document.getElementById('startBtn').disabled = false;
+          }
+        }
+      }).catch(function(){});
+    }, 3000);
+  }
+
+  window.startAutoSubmit = function(){
+    var notionRaw = document.getElementById('notionCaseId').value;
+    var notionId = extractNotionId(notionRaw);
+    var confirmChecked = document.getElementById('confirmCheck').checked;
+    var runStatus = document.getElementById('runStatus');
+
+    var errors = [];
+    if (!notionId) errors.push('Notion 사건 페이지 ID를 올바르게 입력하세요.');
+    if (!confirmChecked) errors.push('실행 전 경고 확인 체크박스에 동의해야 합니다.');
+
+    var collected = collectOverrides();
+    errors = errors.concat(collected.errors);
+
+    if (errors.length > 0) {
+      runStatus.innerHTML = '<span style="color:var(--danger)">' + errors.map(escapeHtml).join(' / ') + '</span>';
+      return;
+    }
+
+    if (!confirm('실제 전자소송포털 화면에 데이터를 입력합니다. 테스트용 사건이 아니라면 신중히 확인하세요. 계속하시겠습니까?')) {
+      return;
+    }
+
+    var startBtn = document.getElementById('startBtn');
+    startBtn.disabled = true;
+    runStatus.textContent = '요청 전송 중...';
+
+    var caseLabel = document.getElementById('caseLabel').value.trim();
+
+    apiPost('/run-full-from-notion', {
+      사건번호: caseLabel || undefined,
+      notion_case_page_id: notionId,
+      overrides: collected.overrides,
+      콜백URL: SERVER() + '/__test_callback',
+      진행콜백URL: SERVER() + '/__test_progress_callback'
+    }).then(function(res){
+      if (res.status === 202) {
+        runStatus.textContent = '실행 시작됨 — 진행상황을 확인하세요.';
+        startPolling();
+      } else {
+        runStatus.innerHTML = '<span style="color:var(--danger)">요청 거부됨: ' + escapeHtml(JSON.stringify(res.body)) + '</span>';
+        startBtn.disabled = false;
+      }
+    }).catch(function(e){
+      runStatus.innerHTML = '<span style="color:var(--danger)">서버에 연결할 수 없습니다: ' + escapeHtml(e.message) + '</span>';
+      startBtn.disabled = false;
+    });
+  };
+
+  window.resetForm = function(){
+    if (!confirm('입력한 내용을 모두 지우시겠습니까?')) return;
+    ['notionCaseId','caseLabel','courtName','caseName','litigationValue','purposeText','reasonHtml'].forEach(function(id){
+      document.getElementById(id).value = '';
+    });
+    document.getElementById('claimType').value = '재산권상청구';
+    document.getElementById('requiresAffidavit').checked = false;
+    document.getElementById('affidavitAcknowledged').checked = false;
+    document.getElementById('lwstTypeCheck').checked = false;
+    document.getElementById('confirmCheck').checked = false;
+    document.getElementById('evidencePrvBody').innerHTML = '';
+    document.getElementById('evidenceAtchBody').innerHTML = '';
+    handleClaimTypeChange();
+    handleAffidavitToggle();
+    handleNotionIdInput();
+    document.getElementById('progressWrap').style.display = 'none';
+    document.getElementById('resultWrap').style.display = 'none';
+    document.getElementById('runStatus').textContent = '';
+  };
+
+  /* ---------------- 개별 STEP 실행 (복구용) ---------------- */
+  window.runSingle = function(action, textareaId){
+    var statusEl = document.getElementById('singleRunStatus');
+    var outEl = document.getElementById('singleRunOut');
+    var payload;
+    try {
+      payload = JSON.parse(document.getElementById(textareaId).value);
+    } catch (e) {
+      statusEl.innerHTML = '<span style="color:var(--danger)">payload JSON 파싱 오류: ' + escapeHtml(e.message) + '</span>';
+      return;
+    }
+    if (!confirm(action + ' 단계를 실행합니다. 실제 화면에 데이터가 입력됩니다. 계속하시겠습니까?')) return;
+
+    statusEl.textContent = '요청 중...';
+    outEl.style.display = 'none';
+
+    apiPost('/run', {
+      action: action,
+      사건번호: 'ADMIN_단일실행',
+      사건_page_id: 'admin-single-run',
+      payload: payload,
+      콜백URL: SERVER() + '/__test_callback'
+    }).then(function(res){
+      statusEl.textContent = 'HTTP ' + res.status;
+      outEl.style.display = '';
+      outEl.textContent = JSON.stringify(res.body, null, 2);
+      if (res.status === 202) {
+        pollSingleResult();
+      }
+    }).catch(function(e){
+      statusEl.innerHTML = '<span style="color:var(--danger)">요청 실패: ' + escapeHtml(e.message) + '</span>';
+    });
+  };
+
+  function pollSingleResult(){
+    var tries = 0;
+    var timer = setInterval(function(){
+      tries += 1;
+      apiGet('/__last_result').then(function(res){
+        if (res.ok && res.body.lastResult) {
+          document.getElementById('singleRunOut').textContent = JSON.stringify(res.body.lastResult, null, 2);
+          document.getElementById('singleRunStatus').textContent = res.body.lastResult.success ? '완료' : '실패';
+        }
+      }).catch(function(){});
+      if (tries > 20) clearInterval(timer);
+    }, 3000);
+  }
+
+  /* ---------------- 실행 이력 ---------------- */
+  window.fetchLastRun = function(){
+    var box = document.getElementById('historyBox');
+    box.textContent = '조회 중...';
+    apiGet('/last-run').then(function(res){
+      if (!res.ok) { box.innerHTML = '<span style="color:var(--danger)">조회 실패</span>'; return; }
+      var lr = res.body.lastRun;
+      if (!lr) { box.textContent = '아직 실행 기록이 없습니다.'; return; }
+      box.innerHTML =
+        '<div class="result-grid">' +
+          '<div class="stat">사건<b>' + escapeHtml(lr.사건번호 || lr.사건_page_id || '-') + '</b></div>' +
+          '<div class="stat">동작<b>' + escapeHtml(lr.action || '-') + '</b></div>' +
+          '<div class="stat">상태<b style="color:' + (lr.success ? 'var(--accent2)' : 'var(--danger)') + '">' + (lr.success ? '성공' : '실패') + (lr.needsManualReview ? ' (수동확인)' : '') + '</b></div>' +
+          '<div class="stat">시각<b>' + escapeHtml(lr.savedAt || '-') + '</b></div>' +
+        '</div>' +
+        '<div class="hint">' + escapeHtml(lr.message || '') + '</div>';
+    }).catch(function(e){
+      box.innerHTML = '<span style="color:var(--danger)">서버에 연결할 수 없습니다: ' + escapeHtml(e.message) + '</span>';
+    });
+  };
+
+  window.fetchAuditLog = function(){
+    var box = document.getElementById('historyBox');
+    box.textContent = '조회 중...';
+    apiGet('/audit-log?limit=50').then(function(res){
+      if (!res.ok) { box.innerHTML = '<span style="color:var(--danger)">조회 실패</span>'; return; }
+      var events = res.body.events || [];
+      if (events.length === 0) { box.textContent = '감사로그가 비어 있습니다.'; return; }
+      var rows = events.slice().reverse().map(function(ev){
+        var statusColor = ev.status === 'done' || ev.success === true ? 'var(--accent2)' : (ev.status === 'failed' || ev.success === false ? 'var(--danger)' : 'var(--warn)');
+        return '<tr>' +
+          '<td class="muted">' + escapeHtml(ev.at || ev.savedAt || '-') + '</td>' +
+          '<td>' + escapeHtml(ev.사건번호 || ev.사건_page_id || '-') + '</td>' +
+          '<td>' + escapeHtml(ev.type || '-') + '</td>' +
+          '<td>' + escapeHtml(ev.step || ev.action || '-') + '</td>' +
+          '<td style="color:' + statusColor + '">' + escapeHtml(ev.status || (ev.success === undefined ? '-' : (ev.success ? 'success' : 'failed'))) + '</td>' +
+        '</tr>';
+      }).join('');
+      box.innerHTML = '<table><thead><tr><th>시각</th><th>사건</th><th>유형</th><th>단계/동작</th><th>상태</th></tr></thead><tbody>' + rows + '</tbody></table>';
+    }).catch(function(e){
+      box.innerHTML = '<span style="color:var(--danger)">서버에 연결할 수 없습니다: ' + escapeHtml(e.message) + '</span>';
+    });
+  };
+
+  /* ---------------- 유틸 ---------------- */
+  function escapeHtml(s){
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+      return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c];
+    });
+  }
+
+  /* ---------------- 초기화 ---------------- */
+  handleClaimTypeChange();
+  handleAffidavitToggle();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "action": "run-full",
+  "사건번호": "PHASE5_TEST_7",
+  "사건_page_id": "phase5-test-page-7",
+  "success": false,
+  "status": "failed",
+  "needsManualReview": true,
+  "emergencySaved": false,
+  "message": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '확인', exact: true }).first()\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"확인\" tabindex=\"0\" type=\"button\" class=\"w2trigger btn_fcm ty1\" id=\"mf_pfwork_wfm_btprt_btn_btprtIndctCfm\" name=\"mf_pfwork_wfm_btprt_btn_btprtIndctCfm\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div id=\"_modal\" class=\"w2modal_popup\"></div> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div id=\"_modal\" class=\"w2modal_popup\"></div> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    57 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div id=\"_modal\" class=\"w2modal_popup\"></div> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
+  "savedAt": "2026-07-21T02:21:34.405Z"
+}

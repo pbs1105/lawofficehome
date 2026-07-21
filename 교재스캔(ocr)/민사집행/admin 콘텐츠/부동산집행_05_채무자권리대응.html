@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>경매 중 채무자 권리 대응 지원 — 직원용 업무자료</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1a2e4a; --navy2:#2d4a7a; --gold:#c8a96e; --ivory:#faf8f5;
+    --sumbg:#eef2f8; --warnbg:#fff3e8; --warn:#c05000;
+    --casebg:#f7f4f0; --caseborder:#6b7280; --ok:#1a5c2e;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--ivory);color:#1f2733;
+       font-family:'Noto Sans KR',sans-serif;line-height:1.7;}
+  .wrap{max-width:920px;margin:0 auto;padding:24px 20px 60px;}
+  h1,h2{font-family:'Noto Serif KR',serif;color:var(--navy);}
+  h1{font-size:1.6rem;margin:.2em 0;}
+  h2{font-size:1.2rem;border-left:5px solid var(--gold);padding-left:12px;margin:2em 0 .8em;}
+
+  .staff-bar{display:flex;justify-content:space-between;align-items:center;
+    background:var(--navy);color:#fff;border-radius:8px;padding:8px 14px;font-size:.85rem;}
+  .staff-bar .tag{background:var(--gold);color:var(--navy);font-weight:700;
+    padding:2px 10px;border-radius:12px;}
+  .cat-badge{display:inline-block;background:var(--navy2);color:#fff;
+    font-size:.78rem;font-weight:600;padding:2px 10px;border-radius:12px;}
+
+  .flow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;}
+  .flow .step{flex:1 1 150px;background:#fff;border:1px solid #d8dde6;
+    border-radius:8px;padding:10px 12px;position:relative;}
+  .flow .step b{color:var(--navy2);display:block;font-size:.9rem;}
+  .flow .step span{font-size:.82rem;color:#5a6472;}
+
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9rem;background:#fff;}
+  th,td{border:1px solid #d8dde6;padding:8px 10px;text-align:left;vertical-align:top;}
+  th{background:var(--sumbg);color:var(--navy);}
+
+  .risk{font-weight:700;} .r-high{color:#c0392b;} .r-mid{color:#b8860b;} .r-low{color:#5a6472;}
+
+  .fee-box{background:#f4f7fb;border:1px solid var(--navy2);border-radius:8px;padding:4px 14px;margin:10px 0;}
+  .fee-note{font-size:.82rem;color:#5a6472;margin:6px 0;}
+
+  .warn{background:var(--warnbg);border:1px solid var(--warn);border-radius:8px;padding:10px 14px;margin:10px 0;}
+  .deadline{color:var(--warn);font-weight:700;}
+
+  .checklist{list-style:none;padding:0;}
+  .checklist li{background:#f0f8f0;border:1px solid var(--ok);border-radius:6px;
+    padding:8px 12px;margin:6px 0;font-size:.9rem;}
+  .checklist li::before{content:"☐ ";color:var(--ok);font-weight:700;}
+
+  .ref-tags{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;}
+  .tag-law{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;
+    text-decoration:none;background:#eef2f8;color:#2d4a7a;border:1px solid #2d4a7a;}
+  .tag-case{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;
+    text-decoration:none;background:#f7f4f0;color:#5a3e28;border:1px solid #6b7280;}
+
+  .tools a{display:inline-block;margin:4px 6px 4px 0;padding:6px 12px;border-radius:8px;
+    background:var(--navy);color:#fff;text-decoration:none;font-size:.85rem;}
+
+  .meta{margin-top:30px;border-top:1px dashed #c4ccd6;padding-top:10px;font-size:.8rem;color:#5a6472;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="staff-bar">
+    <span><span class="tag">직원용</span> 내부 업무자료 · 외부 게시 금지</span>
+    <span>최신 개정 확인일: 2026-07-17</span>
+  </div>
+
+  <h1>경매 중 채무자 권리 대응 지원</h1>
+  <p><span class="cat-badge">민사집행 · 부동산집행</span></p>
+  <p>경매가 진행 중인 부동산의 채무자(소유자)를 대리하여 이해관계인 지위에 따른 열람·의견진술·즉시항고·청구이의의 소 등 권리 행사를 지원하는 업무다.</p>
+
+  <h2>1. 절차 개관</h2>
+  <div class="flow">
+    <div class="step"><b>① 이해관계인 지위 확인</b><span>담당: 법무사 · 당일 · 채무자·소유자 여부, 사건 기본정보 확인</span></div>
+    <div class="step"><b>② 매각물건명세서 등 열람 지원</b><span>담당: 직원 · 1~2일 · 매각물건명세서·현황조사서·감정평가서 열람등사</span></div>
+    <div class="step"><b>③ 매각결정기일 의견진술 준비</b><span>담당: 법무사 · 기일 전 · 이의 사유(민집 121조 각호) 해당 여부 검토</span></div>
+    <div class="step"><b>④ 즉시항고 검토</b><span>담당: 법무사·직원 · 결정 고지 후 1주일 이내 · 항고장 작성, 항고보증금 공탁</span></div>
+    <div class="step"><b>⑤ 청구이의의 소·집행이의 검토</b><span>담당: 법무사 · 사유 발생 시 즉시 · 소 제기 및 집행정지 신청 병행 여부 판단</span></div>
+  </div>
+
+  <h2>2. 준비서류</h2>
+  <table>
+    <tr><th>서류명</th><th>발급처</th><th>유효기간</th><th>위험도</th><th>비고</th></tr>
+    <tr><td>즉시항고장</td><td>사무소 작성</td><td>결정 고지일로부터 1주일 이내 제출</td><td class="risk r-high">🔴</td><td>기간 도과 시 각하, 재기 불가</td></tr>
+    <tr><td>항고보증금 공탁서</td><td>공탁소</td><td>제출 시까지 유효</td><td class="risk r-high">🔴</td><td>최저매각가격의 10분의 1(민집 130조 3항) — 정확한 금액은 사무소 단일 출처로 재산정</td></tr>
+    <tr><td>변제영수증 등 소멸사유 소명자료</td><td>당사자 보관</td><td>제한 없음</td><td class="risk r-mid">🟡</td><td>청구이의의 소·담보권 부존재 주장 시 필수</td></tr>
+    <tr><td>매각물건명세서·현황조사서·감정평가서</td><td>집행법원(경매계)</td><td>열람 시점 기준</td><td class="risk r-low">⚪</td><td>이의 사유 발굴을 위한 기초 검토 자료</td></tr>
+  </table>
+
+  <h2>3. 공과금·보수료</h2>
+  <div class="fee-box">
+    <table>
+      <tr><th>항목</th><th>산정 기준(과세표준·요율)</th><th>근거 법령</th><th>납부처</th><th>납부 시점</th></tr>
+      <tr><td>즉시항고 인지액</td><td>정액(항고 사건 기준)</td><td>민사소송 등 인지법</td><td>전자소송포털/수입인지</td><td>항고장 제출 시</td></tr>
+      <tr><td>항고보증금</td><td>최저매각가격의 10분의 1(비율은 법정, 금액은 사건별 확인)</td><td>민사집행법 제130조 제3항</td><td>공탁소</td><td>항고장 제출 시</td></tr>
+      <tr><td>청구이의의 소 인지액</td><td>소가 기준 정률</td><td>민사소송 등 인지법</td><td>전자소송포털/수입인지</td><td>소장 제출 시</td></tr>
+    </table>
+    <p class="fee-note">※ 세율·요율·정액 수수료는 사무소 단일 출처(보수표·인지규칙) 기준이며, 최신 개정일은 상단 배지 참조. 항고보증금 금액은 fee_calculator.html로 산정.</p>
+    <p class="fee-note">※ 법무사 보수료: 사무소 보수표 유형·가액 구간 참조(임의 확정 금지) + 실비.</p>
+  </div>
+
+  <h2>4. 주의사항</h2>
+  <div class="warn">
+    <p><span class="deadline">⚡ 기한</span> — 매각허부 결정에 대한 즉시항고는 결정 고지일로부터 <strong>1주일 이내</strong>(민집 제130조)에 해야 하며, 도과 시 회복 불가. 경매 진행 상황을 정기적으로 조회하여 결정 고지 시점을 놓치지 않도록 사건관리대장에 기일 알림을 설정한다.</p>
+    <p>실무 함정: ① 항고가 기각되면 항고보증금의 일부가 몰수될 수 있으므로 승산 없는 항고는 신중히 판단할 것(민집 제130조 제3항). ② 채무자 본인은 매수신청인이 될 수 없다(민집 제113조) — 가족·제3자 명의 입찰은 가능하다는 점을 명확히 구분하여 안내. ③ 감정평가액 자체에 대한 직접 불복절차는 없으며, 즉시항고 시 이의 사유로만 주장 가능하다는 점을 사전에 안내하여 기대치를 관리할 것.</p>
+  </div>
+
+  <h2>5. 법령·판례 검토</h2>
+  <p>이해관계인 지위는 민사집행법 제90조, 매각결정기일 의견진술은 제120조, 이의 사유는 제121조, 즉시항고는 제129조·제130조가 근거다. 청구이의의 소는 제44조, 집행에 관한 이의는 제16조, 담보권 소멸에 따른 임의경매 취소는 제266조, 채무자의 매수신청 제한은 제113조를 확인한다.</p>
+  <div class="ref-tags">
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=009000" target="_blank" class="tag-law">📋 민사집행법 제90조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=012000" target="_blank" class="tag-law">📋 민사집행법 제120조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=012100" target="_blank" class="tag-law">📋 민사집행법 제121조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=012900" target="_blank" class="tag-law">📋 민사집행법 제129조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=013000" target="_blank" class="tag-law">📋 민사집행법 제130조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=004400" target="_blank" class="tag-law">📋 민사집행법 제44조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=001600" target="_blank" class="tag-law">📋 민사집행법 제16조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=026600" target="_blank" class="tag-law">📋 민사집행법 제266조</a>
+    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=265351&joNo=011300" target="_blank" class="tag-law">📋 민사집행법 제113조</a>
+  </div>
+  <p style="font-size:.85rem;color:#5a6472;margin-top:6px;">※ 확인된 판례 사건번호 없음 — 법리 방향(이해관계인 권리·항고 요건)만 서술.</p>
+
+  <h2>6. 실무 체크리스트</h2>
+  <ul class="checklist">
+    <li>착수 전: 채무자(소유자) 이해관계인 지위 확인, 경매 진행 단계(매각결정기일 여부) 확인</li>
+    <li>제출 전: 즉시항고 사유가 민집 제121조 각호에 해당하는지 검토, 항고보증금 공탁 완료 여부 확인</li>
+    <li>완료 후: 항고 결과·집행정지 결정문 사건파일 보관, 후속 기일(재항고·본안소송) 일정 등록</li>
+  </ul>
+
+  <h2>7. 연계 도구·스킬</h2>
+  <div class="tools">
+    <a href="#">fee_calculator.html (항고보증금·인지액 계산)</a>
+    <a href="#">부동산집행_06_경매집행정지신청.html (집행정지 병행 시)</a>
+    <a href="#">ecfs-orchestrator (전자소송포털 청구이의의 소·항고장 제출 자동화)</a>
+  </div>
+
+  <div class="meta">
+    최종 확인: 담당 법무사(성명 검토 후 기재) · 최신 개정 확인일 2026-07-17 · 내부 업무자료(외부 게시 금지)
+  </div>
+
+</div>
+</body>
+</html>
