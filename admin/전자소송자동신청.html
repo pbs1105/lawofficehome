@@ -304,6 +304,28 @@
 (function(){
   'use strict';
 
+  /* ---------------- 로컬 서버 전용 가드 ----------------
+     전자소송 자동화는 각자 PC의 로컬 자동화 서버(http://localhost:3939)가 이 페이지를
+     서빙할 때만 동작한다. 자동화는 인증서로 로그인한 '내 Chrome'을 CDP로 조작하므로,
+     반드시 내 PC에서 실행해야 한다. Vercel 등 원격 HTTPS에서 열리면 브라우저가
+     http://localhost 호출을 혼합 콘텐츠로 차단(→ "Failed to fetch")하므로, 그 경우
+     아래 안내 배너를 띄워 각자 로컬 주소로 유도한다. */
+  (function localOriginGuard(){
+    var h = location.hostname;
+    if (h === 'localhost' || h === '127.0.0.1') return; // 로컬에서 열림 — 정상 동작
+    var LOCAL_URL = 'http://localhost:3939/admin/portal.html#submit-ecfs';
+    var b = document.createElement('div');
+    b.style.cssText = 'background:#7f1d1d;border:1px solid #f87171;color:#fee2e2;border-radius:12px;padding:16px 18px;margin-bottom:18px;font-size:14px;line-height:1.6';
+    b.innerHTML =
+      '<div style="font-weight:700;font-size:15px;margin-bottom:6px">⚠️ 전자소송 자동화는 \'내 PC\'의 로컬 주소에서 실행합니다</div>' +
+      '지금 이 화면은 원격(HTTPS) 주소에서 열려 있어 <b>내 PC의 자동화 서버에 연결할 수 없습니다</b>. ' +
+      '자동화는 인증서로 로그인한 <b>내 Chrome</b>을 조작하므로 반드시 내 PC에서 실행해야 합니다.<br>' +
+      '① 내 PC에서 <code>2_start_chrome_debug.bat</code>로 Chrome을 열어 인증서 로그인 → ② <code>3_start_server.bat</code>로 서버 실행 → ③ 아래 버튼으로 로컬 주소에서 여세요.' +
+      '<div style="margin-top:12px"><a href="' + LOCAL_URL + '" target="_top" style="display:inline-block;background:#22c55e;color:#052e16;font-weight:700;text-decoration:none;padding:10px 16px;border-radius:8px">🔗 내 PC에서 전자소송 자동화 열기 (localhost:3939)</a></div>';
+    var wrap = document.querySelector('.wrap');
+    if (wrap) wrap.insertBefore(b, wrap.firstChild);
+  })();
+
   /* ---------------- 서버 주소 ---------------- */
   var serverInput = document.getElementById('serverUrl');
   var savedServer = localStorage.getItem('ecfs_server_url');

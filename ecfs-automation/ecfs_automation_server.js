@@ -46,6 +46,7 @@
  */
 
 const express = require('express');
+const path = require('path');
 const { attachToExistingBrowser, submitPlaintiffNonMember } = require('./ecfs_party_input');
 const { submitClaim } = require('./ecfs_claim_input');
 const { submitCivilConsent } = require('./ecfs_civil_consent');
@@ -152,6 +153,22 @@ app.use((req, res, next) => {
   }
   next();
 });
+
+// ---------------------------------------------------------------------------
+// 정적 파일 서빙 — admin 페이지를 이 서버가 직접 제공한다.
+// 이렇게 하면 직원은 http://localhost:3939/admin/portal.html 로 admin 페이지를
+// 열게 되고, 페이지(HTTP·localhost)와 자동화 API(HTTP·localhost)가 같은 오리진이
+// 되어 ① 혼합 콘텐츠 차단(HTTPS 페이지 → http://localhost 호출 금지)과
+// ② CORS 문제가 모두 원천적으로 사라진다.
+// (Vercel 등 HTTPS로 배포된 admin 페이지에서 http://localhost 를 호출하면
+//  브라우저가 혼합 콘텐츠로 차단하므로 "Failed to fetch"가 계속 발생한다 —
+//  자동화 기능을 쓸 때는 반드시 이 로컬 주소로 admin 페이지를 연다.)
+// 홈페이지 루트(이 스크립트의 상위 폴더)를 그대로 서빙하므로 ../css, ../js 등
+// 상대경로 자산도 정상 로드된다. API 라우트(/health, /run 등)는 실제 파일이
+// 아니므로 static 을 통과해 아래 라우트 핸들러가 처리한다.
+// ---------------------------------------------------------------------------
+const SITE_ROOT = path.join(__dirname, '..');
+app.use(express.static(SITE_ROOT));
 
 app.get('/health', (req, res) => {
   res.json({ ok: true, busy, actions: Object.keys(ACTIONS), keepAliveActive: !!keepAliveStop, lastRunAt: lastRunSummary?.savedAt || null });
@@ -583,6 +600,7 @@ process.on('SIGTERM', () => shutdown('SIGTERM'));
 
 app.listen(PORT, () => {
   console.log(`ECFS 자동화 서버 실행 중 — http://localhost:${PORT}`);
+  console.log(`▶ admin 페이지: http://localhost:${PORT}/admin/portal.html  (이 주소로 열어야 서버에 연결됩니다)`);
   console.log(`CDP 접속 대상: ${CDP_ENDPOINT}`);
   console.log(`등록된 action: ${Object.keys(ACTIONS).join(', ')}`);
   console.log(`감사 로그 디렉터리: ${LOG_DIR}`);
