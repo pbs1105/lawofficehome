@@ -100,6 +100,8 @@ const ADMIN_MENU = [
     id: 'submit', icon: '📤', label: '제출', group: '업무공간',
     items: [
       { id: 'submit-ecfs', label: '전자소송 신청' },
+      { id: 'submit-ecfs-console', label: '전자소송 콘솔' },
+      { id: 'submit-ecfs-install', label: '전자소송 자동화 설치 (직원 PC 1회)' },
       { id: 'submit-eform', label: '이폼등기 신청' },
     ]
   },
@@ -828,6 +830,15 @@ function renderTool(toolId) {
       break;
     case 'submit-ecfs':
       area.innerHTML = `<iframe src="전자소송자동신청.html" style="width:100%;height:calc(100vh - 120px);border:none;display:block;" title="전자소송 자동신청"></iframe>`;
+      break;
+    // v2 — 직원 PC 에이전트가 서빙하는 콘솔을 창틀(iframe)로 비춘다. 콘솔을 admin 에 다시 만들지 않는다.
+    // allow 는 바깥 iframe 부터 위임해야 안쪽(127.0.0.1 콘솔)에 닿는다 — PLAN-micro-admin-console 단계 2.
+    case 'submit-ecfs-console':
+      area.innerHTML = `<iframe src="전자소송-콘솔.html" allow="local-network-access; clipboard-write" style="width:100%;height:calc(100vh - 120px);border:none;display:block;" title="전자소송 콘솔"></iframe>`;
+      break;
+    // v2 설치 안내 — zip 은 사무소 Drive 제한 링크로만 받는다(공개 저장소에 넣지 않음).
+    case 'submit-ecfs-install':
+      area.innerHTML = `<iframe src="전자소송-설치.html" style="width:100%;height:calc(100vh - 120px);border:none;display:block;" title="전자소송 자동화 설치"></iframe>`;
       break;
     default:
       area.innerHTML = '<div class="placeholder-content"><div class="ph-icon">🗂️</div><h3>준비 중</h3></div>';

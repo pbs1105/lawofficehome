@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>전자소송 콘솔 - 박배선법무사 사무소</title>
+<style>
+  /* 콘솔 창틀 — ecfs-automation-v2/PLAN-micro-admin-console.md 단계 1.
+     콘솔을 여기서 다시 만들지 않는다. 직원 PC 에이전트가 서빙하는 콘솔을 iframe 으로 비출 뿐이다
+     (실행 UI 는 에이전트 한 곳 — PLAN-macro §8). 연결 뒤의 상태 표시는 콘솔 자신이 한다.
+     내부용 화면이라 DESIGN-ui.md 저채도 다크 기준. */
+  :root{
+    color-scheme:dark;
+    --bg:#0f1115;--surface:#181b22;--border:#2a2f3a;--border-input:#343a46;
+    --text-strong:#e6e8ec;--text-heading:#cfd3da;--text:#c5c9d1;--text-muted:#a9afba;--text-dim:#8b93a1;
+    --accent:#a3564c;--accent-text:#ddd0cd;--focus:#8b7cf6;--danger:#ff6b78;
+  }
+  html,body{height:100%}
+  body{margin:0;background:var(--bg);color:var(--text);display:flex;flex-direction:column;
+    font:15px/1.7 "Malgun Gothic","맑은 고딕",system-ui,sans-serif}
+  .bar{flex:none;display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+    padding:8px 16px;background:var(--surface);border-bottom:1px solid var(--border)}
+  .bar .state{font-weight:600;color:var(--text-heading)}
+  .bar .state.bad{color:var(--danger)}
+  .bar .hint{color:var(--text-muted);font-size:14px}
+  .bar .actions{margin-left:auto;display:flex;gap:8px}
+  .btn{background:var(--border);color:var(--text);border:1px solid var(--border-input);border-radius:6px;
+    padding:6px 14px;font-size:14px;font-family:inherit;text-decoration:none;cursor:pointer}
+  .btn.primary{background:var(--accent);color:var(--accent-text);border-color:var(--accent)}
+  .btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+  #frame{flex:1 1 auto;width:100%;border:0;display:block;background:var(--bg)}
+  .help{flex:1 1 auto;overflow:auto;padding:24px 16px}
+  .card{max-width:760px;margin:0 auto;background:var(--surface);border:1px solid var(--border);
+    border-radius:8px;padding:22px 24px}
+  .card h1{font-size:20px;font-weight:600;color:var(--text-strong);margin:0 0 8px}
+  .card p{margin:0 0 14px}
+  ol{margin:0 0 16px;padding-left:24px}
+  ol li{margin-bottom:10px}
+  b{color:var(--text-strong)}
+  .notice{background:var(--bg);border:1px solid var(--border-input);border-radius:8px;padding:12px 16px;margin-top:14px}
+  [hidden]{display:none !important}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <span class="state" id="state">… 연결 확인 중</span>
+  <span class="hint" id="hint">내 PC의 전자소송 에이전트에 연결하는 중입니다.</span>
+  <span class="actions">
+    <button class="btn" id="retry" type="button">다시 연결</button>
+    <a class="btn" id="popout" target="_blank" rel="noopener">새 창으로 열기</a>
+  </span>
+</div>
+
+<div class="help" id="help" hidden>
+  <div class="card">
+    <h1 id="helpTitle">✘ 내 PC의 에이전트에 연결되지 않았습니다</h1>
+    <p id="helpLead">아래 순서대로 확인하세요.</p>
+    <ol>
+      <li>바탕화면의 <b>ECFS 콘솔</b>을 실행했나요? 에이전트 창(검은 창)이 떠 있어야 합니다.</li>
+      <li>Chrome 주소창 근처에 <b>"로컬 네트워크 접근"</b> 허용 요청이 떴다면 <b>허용</b>을 누르세요.<br>
+        예전에 "차단"을 눌렀다면: 주소창 왼쪽 아이콘 → 사이트 설정 → 로컬 네트워크 접근 → 허용.</li>
+      <li>위의 <b>[다시 연결]</b>을 누르세요.</li>
+    </ol>
+    <div class="notice">그래도 안 되면 <b>[새 창으로 열기]</b>를 누르세요. 콘솔은 admin 없이도 그대로 쓸 수 있습니다.</div>
+  </div>
+</div>
+
+<iframe id="frame" title="전자소송 콘솔" allow="local-network-access; clipboard-write" hidden></iframe>
+
+<script>
+const AGENT = 'http://127.0.0.1:8787';
+const CONSOLE_URL = AGENT + '/console/';
+const TIMEOUT_MS = 5000;
+
+const $ = (id) => document.getElementById(id);
+$('popout').href = CONSOLE_URL;
+
+function show(kind) {
+  const ok = kind === 'ok';
+  $('frame').hidden = !ok;
+  $('help').hidden = ok || kind === 'checking';
+  $('state').classList.toggle('bad', kind === 'down' || kind === 'waiting');
+  if (kind === 'checking') {
+    $('state').textContent = '… 연결 확인 중';
+    $('hint').textContent = '내 PC의 전자소송 에이전트에 연결하는 중입니다.';
+  } else if (kind === 'ok') {
+    $('state').textContent = '✔ 연결됨';
+    $('hint').textContent = '처음 연결한 PC라면 콘솔 위의 토큰 입력줄에 토큰을 한 번 넣으세요(이 PC에서 1회).';
+  } else if (kind === 'waiting') {
+    $('state').textContent = '✘ 응답 없음';
+    $('hint').textContent = 'Chrome의 "로컬 네트워크 접근" 허용 요청을 확인하세요.';
+    $('helpTitle').textContent = '✘ 응답을 기다리다 멈췄습니다';
+    $('helpLead').textContent = 'Chrome이 허용을 기다리고 있을 수 있습니다. 2번을 먼저 확인하세요.';
+  } else {
+    $('state').textContent = '✘ 연결 안 됨';
+    $('hint').textContent = '에이전트가 꺼져 있거나 Chrome이 접근을 막았습니다.';
+    $('helpTitle').textContent = '✘ 내 PC의 에이전트에 연결되지 않았습니다';
+    $('helpLead').textContent = '아래 순서대로 확인하세요.';
+  }
+}
+
+async function connect() {
+  show('checking');
+  const ctl = new AbortController();
+  const timer = setTimeout(() => ctl.abort(), TIMEOUT_MS);
+  try {
+    // 에이전트는 CORS 허용 헤더를 주지 않는다 — no-cors 로 "닿는가"만 본다(응답 내용은 콘솔이 보여 준다).
+    await fetch(AGENT + '/health', { mode: 'no-cors', cache: 'no-store', signal: ctl.signal });
+    const f = $('frame');
+    if (f.src !== CONSOLE_URL) f.src = CONSOLE_URL; else f.contentWindow.location.replace(CONSOLE_URL);
+    show('ok');
+  } catch (e) {
+    show(e.name === 'AbortError' ? 'waiting' : 'down');
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+$('retry').addEventListener('click', connect);
+connect();
+</script>
+</body>
+</html>
