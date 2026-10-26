@@ -724,6 +724,10 @@ button.consult-modal-btn,
   border-color: var(--secondary);
   background: rgba(201, 168, 76, 0.06);
 }
+.consult-modal-btn.kakao:hover {
+  border-color: #e0c200;
+  background: rgba(254, 229, 0, 0.08);
+}
 .consult-modal-btn.corporate:hover {
   border-color: var(--primary);
   background: rgba(30, 58, 95, 0.04);

@@ -341,7 +341,7 @@ const CONTENT_DATA = {
         sections: [
           {
             heading: '콘텐츠 준비 중입니다',
-            content: `<p>개인회생·개인파산 관련 안내 콘텐츠를 준비하고 있습니다. 궁금하신 사항은 상담신청을 이용해 주세요.</p>`
+            content: `<p>개인회생·개인파산 관련 안내 콘텐츠를 준비하고 있습니다. 궁금하신 사항은 온라인상담신청을 이용해 주세요.</p>`
           }
         ]
       }
@@ -689,7 +689,7 @@ function buildNavbar(activePage) {
           </li>
         </ul>
         <div class="nav-cta">
-          <button class="btn-primary" onclick="openModal()">📞 상담신청</button>
+          <button class="btn-primary" onclick="openModal()">📞 온라인상담신청</button>
         </div>
         <button class="nav-burger" id="navBurger" onclick="toggleMenu()">
           <span></span><span></span><span></span>
@@ -719,7 +719,7 @@ function buildFooter() {
             <div class="info-row"><span class="label">전화</span><span>055-312-9345 (9346)</span></div>
             <div class="info-row"><span class="label">팩스</span><span>055-312-9347</span></div>
             <div class="info-row"><span class="label">이메일</span><span>pbaesun@gmail.com</span></div>
-            <div class="info-row"><span class="label">운영</span><span>업무시간 평일 09:00~18:00 · 온라인 상담신청 24시간</span></div>
+            <div class="info-row"><span class="label">운영</span><span>업무시간 평일 09:00~18:00 · 온라인상담신청 24시간</span></div>
           </div>
           <div class="footer-nav">
             <div class="footer-nav-title">업무 안내</div>
@@ -728,15 +728,23 @@ function buildFooter() {
             </ul>
           </div>
           <div class="footer-consult">
-            <h3>📞 상담신청</h3>
+            <h3>📞 온라인상담신청</h3>
             <p style="font-size:0.83rem;color:rgba(255,255,255,0.65);margin-bottom:18px;line-height:1.7;">
               개인·법인 모두 모든 업무에 대한 상담이 가능합니다.
             </p>
             <a href="${CONSULT_URL}" target="_blank" class="footer-consult-btn">
               <span class="footer-consult-btn-icon">📝</span>
               <div>
-                <div class="footer-consult-btn-title">상담신청 하기</div>
-                <div class="footer-consult-btn-sub">개인·법인 통합 상담 신청</div>
+                <div class="footer-consult-btn-title">양식상담</div>
+                <div class="footer-consult-btn-sub">상담 신청서 작성</div>
+              </div>
+              <span style="margin-left:auto;opacity:0.7;">→</span>
+            </a>
+            <a href="${KAKAO_URL}" target="_blank" rel="noopener" class="footer-consult-btn" style="margin-top:10px;">
+              <span class="footer-consult-btn-icon">💬</span>
+              <div>
+                <div class="footer-consult-btn-title">카톡상담</div>
+                <div class="footer-consult-btn-sub">카카오톡 채널로 바로 문의</div>
               </div>
               <span style="margin-left:auto;opacity:0.7;">→</span>
             </a>
@@ -759,6 +767,7 @@ function buildFooter() {
    MODAL
    ============================================================ */
 const CONSULT_URL = 'https://n8npark.app.n8n.cloud/form/c1a2b3c4-d5e6-4f70-8a90-111122223333';
+const KAKAO_URL = 'http://pf.kakao.com/_PZMNn';   // 카톡상담 (카카오톡 채널)
 
 /* ═══════════════════════════════════════════════
    법령·판례 참조 태그 팝업
@@ -840,7 +849,7 @@ function buildModal() {
       <div class="modal-box modal-box--select">
         <div class="modal-header">
           <div>
-            <h2>⚖️ 상담신청</h2>
+            <h2>⚖️ 온라인상담신청</h2>
             <p>개인·법인 모두 모든 업무에 대한 상담이 가능합니다.</p>
           </div>
           <button class="modal-close" onclick="closeModal()">✕</button>
@@ -850,17 +859,27 @@ function buildModal() {
 
             <button class="consult-type-card" onclick="goToConsult()">
               <div class="consult-type-icon">📝</div>
-              <div class="consult-type-name">상담 신청하기</div>
+              <div class="consult-type-name">양식상담</div>
               <div class="consult-type-desc">
-                <p>개인·법인 <strong>통합 상담 신청</strong></p>
-                <span class="consult-type-note">※ 법인등기, 부동산등기, 민사소송, 민사집행, 상속 등 모든 업무 상담가능</span>
+                <p>상담 신청서를 <strong>작성</strong>해 접수</p>
+                <span class="consult-type-note">※ 법인등기, 부동산등기, 민사소송, 민사집행, 상속, 회생파산 등 모든 업무 상담가능</span>
               </div>
-              <div class="consult-type-btn">상담 신청하기 →</div>
+              <div class="consult-type-btn">양식상담 →</div>
             </button>
+
+            <a class="consult-type-card" href="${KAKAO_URL}" target="_blank" rel="noopener">
+              <div class="consult-type-icon">💬</div>
+              <div class="consult-type-name">카톡상담</div>
+              <div class="consult-type-desc">
+                <p>카카오톡 채널로 <strong>바로 문의</strong></p>
+                <span class="consult-type-note">※ 카카오톡 앱 또는 웹에서 채팅으로 상담</span>
+              </div>
+              <div class="consult-type-btn">카톡상담 →</div>
+            </a>
 
           </div>
           <p class="privacy-note" style="margin-top:20px;">
-            버튼을 누르시면 상담 신청 양식으로 이동합니다.<br>
+            양식상담은 상담 신청서로, 카톡상담은 카카오톡 채널로 이동합니다.<br>
             전화 문의: <strong>055-312-9345</strong> (평일 09:00~18:00)
           </p>
         </div>
@@ -1015,7 +1034,7 @@ function renderSubcategoryContent(catId, selectedSubId, selectedTopicId) {
       ${sectionsHTML}
       <div style="margin-top:40px;padding:24px;background:var(--accent);border-radius:var(--radius);text-align:center;">
         <p style="font-weight:600;color:var(--primary);margin-bottom:12px;">더 자세한 내용이 궁금하신가요? 법무사에게 직접 상담받으세요.</p>
-        <button class="btn-primary" onclick="openModal()">📞 무료 상담 신청</button>
+        <button class="btn-primary" onclick="openModal()">📞 온라인상담신청</button>
       </div>`;
     activateLawTags(articleEl);
     activateCaseNumbers(articleEl);
@@ -1042,7 +1061,7 @@ function renderSubcategoryContent(catId, selectedSubId, selectedTopicId) {
       <div class="sidebar-consult">
         <h4>전문가 상담</h4>
         <p>서류 준비부터 등기까지<br>전 과정을 도와드립니다.</p>
-        <button class="btn-white" onclick="openModal()">상담 신청</button>
+        <button class="btn-white" onclick="openModal()">온라인상담신청</button>
       </div>`;
   }
 }
@@ -1192,7 +1211,7 @@ function renderCategoryContent(catId, selectedTopicId) {
       ${sectionsHTML}
       <div style="margin-top:40px;padding:24px;background:var(--accent);border-radius:var(--radius);text-align:center;">
         <p style="font-weight:600;color:var(--primary);margin-bottom:12px;">더 자세한 내용이 궁금하신가요? 법무사에게 직접 상담받으세요.</p>
-        <button class="btn-primary" onclick="openModal()">📞 무료 상담 신청</button>
+        <button class="btn-primary" onclick="openModal()">📞 온라인상담신청</button>
       </div>`;
     activateLawTags(articleEl);
     activateCaseNumbers(articleEl);
@@ -1219,7 +1238,7 @@ function renderCategoryContent(catId, selectedTopicId) {
       <div class="sidebar-consult">
         <h4>전문가 상담</h4>
         <p>서류 준비부터 등기까지<br>전 과정을 도와드립니다.</p>
-        <button class="btn-white" onclick="openModal()">상담 신청</button>
+        <button class="btn-white" onclick="openModal()">온라인상담신청</button>
       </div>`;
   }
 }
@@ -1297,7 +1316,7 @@ function renderBlogPosts(catId) {
         ${post.answer}
         <div class="answer-consult">
           <p>더 자세한 상담이 필요하신가요?</p>
-          <button onclick="openModal()">무료 상담 신청</button>
+          <button onclick="openModal()">온라인상담신청</button>
         </div>
       </div>
     </div>`).join('');
