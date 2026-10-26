@@ -193,6 +193,7 @@ input, textarea, select { font-family: inherit; }
   font-size: 0.82rem;
   color: rgba(255,255,255,0.6);
 }
+.portal-header .ph-home,
 .portal-header .ph-logout {
   padding: 6px 16px;
   background: rgba(255,255,255,0.1);
@@ -201,6 +202,7 @@ input, textarea, select { font-family: inherit; }
   border-radius: var(--radius);
   transition: var(--transition);
 }
+.portal-header .ph-home:hover,
 .portal-header .ph-logout:hover { background: rgba(255,255,255,0.2); color: #fff; }
 
 /* 모바일 사이드바 토글 */

@@ -110,6 +110,7 @@ const ADMIN_MENU = [
   { id: 'help-realestate', icon: '🏠', label: '부동산등기', group: '업무도우미', directNav: true, items: [] },
   { id: 'help-corp', icon: '🏢', label: '법인등기', group: '업무도우미', directNav: true, items: [] },
   { id: 'help-inheritance', icon: '📜', label: '상속', group: '업무도우미', directNav: true, items: [] },
+  { id: 'help-insolvency', icon: '💳', label: '회생파산', group: '업무도우미', directNav: true, items: [] },
   { id: 'help-civil', icon: '⚖️', label: '민사소송', group: '업무도우미', directNav: true, items: [] },
   { id: 'help-enforcement', icon: '🔨', label: '강제집행', group: '업무도우미', directNav: true, items: [] },
   { id: 'help-preservation', icon: '🚧', label: '가압류·가처분', group: '업무도우미', directNav: true, items: [] },
@@ -215,6 +216,7 @@ const HELPER_TOPICS = {
     ]},
   ],
   'help-preservation': [],
+  'help-insolvency': [],
   'help-foreign': [
     { id: 'for-inherit', label: '재외국민·외국인 상속등기' },
     { id: 'for-apostille', label: '아포스티유(Apostille)' },
