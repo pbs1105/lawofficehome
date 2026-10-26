@@ -77,17 +77,23 @@ function splitSsn(raw) {
 }
 
 /**
- * ⚠️ Notion 주소는 구조화(시도/시군구/도로명/본번)돼 있지 않은 한 줄 텍스트다.
- * ecfs_party_input.fillAddress는 팝업에서 시도/시군구 드롭다운 + 도로명/본번/부번
- * 개별 입력을 받는 구조라 이 텍스트를 그대로 넣을 수 없다. 자동 분리(정규식 등)를
- * 시도하지 않는 이유: 도로명 주소 형식이 다양해 잘못 나뉘면 실제 송달 주소가
- * 틀어질 위험이 첨부파일 업로드 실패 같은 단순 오류보다 훨씬 크다.
- * → addressRaw만 실어 보내고, needsManualAddressSplit=true로 표시한다.
- *   호출측(서버/오케스트레이터 실행 전)이 이 플래그를 보고 법무사에게 구조화된
- *   주소(overrides.parties[i].address)를 요청해야 한다.
+ * Notion 한 줄 주소를 보수적 파서(ecfs_address.parseAddress)로 구조화한다.
+ * 확실한 도로명 주소만 분리하고(시도/시군구/도로명/본번/부번), 지번 주소·형식 불명이면
+ * 추측하지 않고 needsManualAddressSplit=true로 표시해 법무사가 overrides.parties[i].address로
+ * 구조화 주소를 공급하게 한다(잘못 나뉘면 송달 주소 오류 위험 — 정확성 우선).
+ * (2026-07-29: 기존 '자동 분리 안 함' 결정을 법무사 승인 하에 보수적 파서로 대체.)
  */
 function markAddressNeedsReview(rawAddress) {
-  return { addressRaw: rawAddress || null, needsManualAddressSplit: true };
+  const { parseAddress } = require('./ecfs_address');
+  const p = parseAddress(rawAddress);
+  if (p.matched) {
+    return {
+      address: { sido: p.sido, sigungu: p.sigungu, roadName: p.roadName, buildingMain: p.buildingMain, buildingSub: p.buildingSub },
+      addressRaw: rawAddress || null,
+      needsManualAddressSplit: false,
+    };
+  }
+  return { addressRaw: rawAddress || null, needsManualAddressSplit: true, addressParseReason: p.reason };
 }
 
 function mapCustomerToPlaintiff(customerProps) {

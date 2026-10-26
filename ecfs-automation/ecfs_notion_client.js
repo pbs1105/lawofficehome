@@ -24,6 +24,11 @@
 const NOTION_API_BASE = 'https://api.notion.com/v1';
 const NOTION_VERSION = '2022-06-28';
 
+// 사건부DB(제목: "사건번호-고객명-사건명", 사건번호 formula는 YYMMDD_NN).
+// 사건번호 → 페이지 id 해석에 사용한다. 워크스페이스가 바뀌면 환경변수로 덮어쓴다.
+const CASE_DB_ID = process.env.CASE_DB_ID || '2f70ce34-50b8-8090-a77b-ef2ecdb1d20d';
+const CASE_TITLE_PROP = process.env.CASE_TITLE_PROP || '사건번호-고객명-사건명';
+
 function authHeaders() {
   const key = process.env.NOTION_API_KEY;
   if (!key) {
@@ -131,8 +136,49 @@ function richTextValue(content) {
   return { rich_text: content ? [{ type: 'text', text: { content } }] : [] };
 }
 
+// -------------------------------------------------------------------------
+// 사건번호 → 사건부DB 페이지 조회
+// -------------------------------------------------------------------------
+async function queryDatabase(databaseId, body) {
+  const res = await fetch(`${NOTION_API_BASE}/databases/${databaseId}/query`, {
+    method: 'POST',
+    headers: authHeaders(),
+    body: JSON.stringify(body || {}),
+  });
+  if (!res.ok) {
+    const text = await res.text().catch(() => '');
+    throw new Error(`Notion DB 조회 실패 (${databaseId}): HTTP ${res.status} ${text}`);
+  }
+  return res.json();
+}
+
+// 사건번호(YYMMDD_NN, 분기 YYMMDD_NN_NN 등) → { pageId, title, caseNo }
+// 제목이 "사건번호-고객명-사건명" 형식이므로, title starts_with로 후보를 좁힌 뒤
+// 맨 앞 '-' 이전 토큰이 입력 사건번호와 '정확히' 일치하는 행만 채택한다.
+// (사건번호에는 '-'가 없고 '_'만 있으므로 260722_01 과 260722_01_01 을 안전하게 구분한다.)
+async function findCaseByNumber(caseNumber) {
+  const num = String(caseNumber == null ? '' : caseNumber).trim();
+  if (!num) throw new Error('사건번호가 비어 있음');
+  const data = await queryDatabase(CASE_DB_ID, {
+    filter: { property: CASE_TITLE_PROP, title: { starts_with: num } },
+    page_size: 25,
+  });
+  const rows = (data.results || []).map((p) => {
+    const titleArr = (p.properties && p.properties[CASE_TITLE_PROP] && p.properties[CASE_TITLE_PROP].title) || [];
+    const title = titleArr.map((x) => x.plain_text).join('');
+    return { pageId: p.id, title, caseNo: title.split('-')[0].trim() };
+  });
+  const exact = rows.filter((r) => r.caseNo === num);
+  if (exact.length === 1) return exact[0];
+  if (exact.length === 0) {
+    throw new Error(`사건번호 '${num}'에 해당하는 사건을 사건부DB에서 찾지 못했습니다. 사건번호를 확인하거나, Notion 통합이 사건부DB에 연결(초대)돼 있는지 확인하세요.`);
+  }
+  throw new Error(`사건번호 '${num}'에 해당하는 사건이 ${exact.length}건 있습니다 — 사건번호 중복 여부를 Notion에서 확인하세요.`);
+}
+
 module.exports = {
   NOTION_API_BASE,
+  CASE_DB_ID,
   getPage,
   getPageProperties,
   updatePageProperties,
@@ -140,4 +186,6 @@ module.exports = {
   extractAllProperties,
   selectValue,
   richTextValue,
+  queryDatabase,
+  findCaseByNumber,
 };

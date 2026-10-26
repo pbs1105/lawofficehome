@@ -123,17 +123,28 @@
     <div class="card-title"><h2>2) 사건 자동신청 (Notion 연동)</h2></div>
 
     <div class="field">
-      <label>Notion 사건 페이지 ID 또는 URL</label>
-      <input id="notionCaseId" placeholder="Notion에서 사건 페이지를 열고 URL을 그대로 붙여넣으세요" oninput="handleNotionIdInput()" />
-      <div class="hint" id="notionIdHint">사건부DB 페이지의 URL을 통째로 붙여넣으면 자동으로 페이지 ID만 추출합니다.</div>
+      <label>사건번호</label>
+      <div class="row" style="grid-template-columns:1fr auto auto;gap:8px;align-items:end">
+        <input id="caseLabel" placeholder="예: 260721_01" oninput="handleCaseNoInput()" onkeydown="if(event.key==='Enter'){event.preventDefault();resolveCase();}" />
+        <button type="button" class="btn-ghost" onclick="resolveCase()">🔍 사건 조회</button>
+        <button type="button" class="btn-ghost" onclick="loadPrefill()">🗂️ 파일 추출 불러오기</button>
+      </div>
+      <div class="hint" id="caseHint">사건번호를 입력하고 [사건 조회](Notion 연동) 또는 [파일 추출 불러오기](03_제출확정자료 기반)를 누르세요.</div>
     </div>
 
-    <div class="row">
-      <div>
-        <label>사건번호(화면 표시용, 선택)</label>
-        <input id="caseLabel" placeholder="예: 260721_01" />
-      </div>
+    <div id="prefillWrap" class="field" style="display:none">
+      <label>당사자 (파일 추출 결과 · 검토·수정)</label>
+      <textarea id="partiesJson" style="min-height:130px;font-family:ui-monospace,Consolas,monospace;font-size:12px" placeholder='[{"role":"원고", ...}]'></textarea>
+      <div class="hint" id="prefillWarn"></div>
     </div>
+
+    <details style="margin-bottom:14px">
+      <summary style="cursor:pointer;color:var(--muted);font-size:13px">고급 — Notion 페이지 ID·URL 직접 입력 (보통 비워두세요)</summary>
+      <div class="field" style="margin-top:10px">
+        <input id="notionCaseId" placeholder="(선택) 사건번호로 조회가 안 될 때만 Notion 페이지 URL을 직접 붙여넣기" oninput="handleNotionIdInput()" />
+        <div class="hint" id="notionIdHint">여기에 값을 넣으면 사건번호 대신 이 페이지 ID를 우선 사용합니다.</div>
+      </div>
+    </details>
 
     <div class="section-tag">사건기본정보</div>
     <div class="row">
@@ -149,7 +160,11 @@
     <div class="row">
       <div>
         <label>청구구분 *</label>
+        <!-- 값이 비었을 때 화면에 빈칸이 아니라 "선택하세요"가 보이도록 placeholder
+             option을 둔다. 청구구분은 소가 산정·인지액에 직결되는 법적 판단이므로
+             기본값을 임의로 정해두지 않고 매번 명시적으로 고르게 한다. -->
         <select id="claimType" onchange="handleClaimTypeChange()">
+          <option value="" selected>— 선택하세요 —</option>
           <option value="재산권상청구">재산권상청구</option>
           <option value="비재산권상청구">비재산권상청구</option>
         </select>
@@ -369,7 +384,98 @@
     });
   };
 
-  /* ---------------- Notion ID 파싱 ---------------- */
+  /* ---------------- 사건번호 → 사건 조회 / 파일 추출 프리필 ---------------- */
+  var resolvedCase = null;   // { pageId, title, caseNo } — '사건 조회' 성공 시 저장
+  var prefillLoaded = false; // 파일 추출 프리필을 불러왔는지(있으면 파일기반 /run-full 경로)
+
+  window.handleCaseNoInput = function(){
+    resolvedCase = null;  // 사건번호가 바뀌면 이전 조회/프리필 결과 무효화
+    prefillLoaded = false;
+    document.getElementById('prefillWrap').style.display = 'none';
+    document.getElementById('partiesJson').value = '';
+    var hint = document.getElementById('caseHint');
+    hint.textContent = '사건번호를 입력하고 [사건 조회](Notion 연동) 또는 [파일 추출 불러오기](03_제출확정자료 기반)를 누르세요.';
+    hint.style.color = '';
+  };
+
+  // 파일 기반: n8n이 03_제출확정자료에서 추출해 서버에 올려둔 payload를 불러와 폼을 채운다.
+  window.loadPrefill = function(){
+    var caseNo = document.getElementById('caseLabel').value.trim();
+    var hint = document.getElementById('caseHint');
+    if (!caseNo) { hint.textContent = '먼저 사건번호를 입력하세요. (예: 260721_01)'; hint.style.color = 'var(--danger)'; return; }
+    hint.textContent = '파일 추출 결과 불러오는 중...'; hint.style.color = '';
+    apiGet('/prefill?사건번호=' + encodeURIComponent(caseNo)).then(function(res){
+      if (!(res.ok && res.body && res.body.ok)) {
+        var msg = (res.body && res.body.message) ? res.body.message : ('HTTP ' + res.status);
+        hint.innerHTML = '⚠️ ' + escapeHtml(msg); hint.style.color = 'var(--danger)';
+        return;
+      }
+      var p = res.body.payload || {};
+      var cbi = p.caseBasicInfo || {};
+      if (cbi.caseName != null) document.getElementById('caseName').value = cbi.caseName;
+      if (cbi.courtName != null) document.getElementById('courtName').value = cbi.courtName;
+      // ⚠️ 2026-07-29 버그 수정: 추출값이 "비재산권상 청구"처럼 띄어쓰기가 있으면
+      // select에 그 값을 그대로 넣는 순간 매칭되는 option이 없어 **값이 조용히
+      // 빈 문자열로 비워진다**. 그 상태로 실행하면 서버가 "청구구분이 비었다"며
+      // 사건명까지 입력한 뒤 중단됐고, 화면에는 청구구분을 고르라는 안내만
+      // 반복돼 원인을 알기 어려웠다. 정규화 후 넣고, 못 알아보면 사용자에게 알린다.
+      if (cbi.claimType) {
+        var ct = normalizeClaimType(cbi.claimType);
+        if (ct) {
+          document.getElementById('claimType').value = ct;
+        } else {
+          claimTypePrefillWarning = '청구구분 추출값 "' + cbi.claimType + '"을 알아보지 못했습니다 — 아래에서 직접 선택하세요.';
+        }
+        handleClaimTypeChange();
+      }
+      if (cbi.litigationValue != null) document.getElementById('litigationValue').value = cbi.litigationValue;
+      var cl = p.claim || {};
+      if (cl.purposeText != null) document.getElementById('purposeText').value = cl.purposeText;
+      if (cl.reasonHtml != null) document.getElementById('reasonHtml').value = cl.reasonHtml;
+      var parties = Array.isArray(p.parties) ? p.parties : [];
+      document.getElementById('partiesJson').value = JSON.stringify(parties, null, 2);
+      document.getElementById('prefillWrap').style.display = '';
+      prefillLoaded = true;
+      var warns = (res.body.warnings || []).slice();
+      if (claimTypePrefillWarning) { warns.unshift(claimTypePrefillWarning); claimTypePrefillWarning = ''; }
+      var wEl = document.getElementById('prefillWarn');
+      if (warns.length) { wEl.innerHTML = '⚠️ 확인 필요: ' + warns.map(escapeHtml).join(' · '); wEl.style.color = 'var(--warn)'; }
+      else { wEl.textContent = '추출된 당사자를 검토·수정하세요.'; wEl.style.color = ''; }
+      hint.innerHTML = '✅ 파일 추출 결과를 불러왔습니다(사건기본정보·청구·당사자). 검토·수정 후 실행하세요.';
+      hint.style.color = 'var(--accent2)';
+    }).catch(function(e){
+      hint.innerHTML = '<span style="color:var(--danger)">서버에 연결할 수 없습니다: ' + escapeHtml(e.message) + '</span>';
+    });
+  };
+
+  window.resolveCase = function(){
+    var caseNo = document.getElementById('caseLabel').value.trim();
+    var hint = document.getElementById('caseHint');
+    if (!caseNo) {
+      hint.textContent = '먼저 사건번호를 입력하세요. (예: 260721_01)';
+      hint.style.color = 'var(--danger)';
+      return;
+    }
+    hint.textContent = '조회 중...';
+    hint.style.color = '';
+    apiGet('/resolve-case?caseNo=' + encodeURIComponent(caseNo)).then(function(res){
+      if (res.ok && res.body && res.body.ok) {
+        resolvedCase = { pageId: res.body.pageId, title: res.body.title, caseNo: res.body.caseNo };
+        hint.innerHTML = '✅ 찾은 사건: <b>' + escapeHtml(res.body.title) + '</b>';
+        hint.style.color = 'var(--accent2)';
+      } else {
+        resolvedCase = null;
+        var msg = (res.body && res.body.message) ? res.body.message : ('HTTP ' + res.status);
+        hint.innerHTML = '⚠️ ' + escapeHtml(msg);
+        hint.style.color = 'var(--danger)';
+      }
+    }).catch(function(e){
+      resolvedCase = null;
+      hint.innerHTML = '<span style="color:var(--danger)">서버에 연결할 수 없습니다: ' + escapeHtml(e.message) + '</span>';
+    });
+  };
+
+  /* ---------------- Notion ID 파싱(고급 — 직접 입력) ---------------- */
   window.handleNotionIdInput = function(){
     var el = document.getElementById('notionCaseId');
     var hint = document.getElementById('notionIdHint');
@@ -379,9 +485,14 @@
       hint.style.color = '';
       return;
     }
-    if (extracted) {
+    if (extracted && isPlausibleNotionId(extracted)) {
       hint.innerHTML = '인식된 페이지 ID: <code>' + extracted + '</code>';
       hint.style.color = 'var(--accent2)';
+    } else if (extracted) {
+      hint.innerHTML = '⚠️ <code>' + extracted + '</code> 은(는) 유효한 Notion 페이지 ID 형식이 아닙니다. ' +
+        'Notion에서 <b>사건부DB의 해당 사건 행을 페이지로 연 뒤</b> 우측 상단 ⋯ → <b>링크 복사</b>로 얻은 주소를 붙여넣으세요. ' +
+        '(데이터베이스·뷰 URL이나 임의의 값이 아니라, <b>특정 사건 페이지</b>의 링크여야 합니다.)';
+      hint.style.color = 'var(--danger)';
     } else {
       hint.textContent = '유효한 Notion 페이지 ID를 찾지 못했습니다. URL 전체를 붙여넣었는지 확인하세요.';
       hint.style.color = 'var(--danger)';
@@ -391,10 +502,47 @@
   function extractNotionId(raw){
     if (!raw) return null;
     var cleaned = raw.trim();
-    var hexMatch = cleaned.replace(/-/g, '').match(/[0-9a-fA-F]{32}/);
-    if (!hexMatch) return null;
-    var hex = hexMatch[0].toLowerCase();
+    // 대시가 있든 없든 UUID 형태를 그대로 매칭한다. (기존처럼 전체 문자열의 대시를
+    // 먼저 다 지우면 URL 속 서로 다른 hex 조각이 붙어 엉뚱한 32자리가 잡힐 수 있음)
+    var UUID = /[0-9a-fA-F]{8}-?[0-9a-fA-F]{4}-?[0-9a-fA-F]{4}-?[0-9a-fA-F]{4}-?[0-9a-fA-F]{12}/g;
+    var candidate = null;
+    // 사이드패널/peek URL은 실제 페이지 id가 'p=' 파라미터에 담긴다 → 이걸 우선 사용
+    var pParam = cleaned.match(/[?&]p=([0-9a-fA-F-]{32,36})/);
+    if (pParam) {
+      var pm = pParam[1].match(UUID);
+      if (pm) candidate = pm[0];
+    }
+    if (!candidate) {
+      // 쿼리스트링을 떼고 경로에서 '마지막' UUID를 사용한다(제목-아이디 형태의 끝이 페이지 id)
+      var path = cleaned.split('?')[0];
+      var matches = path.match(UUID) || cleaned.match(UUID);
+      if (matches) candidate = matches[matches.length - 1];
+    }
+    if (!candidate) return null;
+    var hex = candidate.replace(/-/g, '').toLowerCase();
+    if (hex.length !== 32) return null;
     return hex.slice(0,8) + '-' + hex.slice(8,12) + '-' + hex.slice(12,16) + '-' + hex.slice(16,20) + '-' + hex.slice(20);
+  }
+
+  // Notion 오브젝트 id는 UUID(버전 nibble 1~8, variant 8/9/a/b)다. 이 형식이 아니면
+  // 실제 페이지 id가 아닐 가능성이 매우 높다 — 예: DB/뷰 URL이나 임의의 값을 붙여넣어
+  // 엉뚱한 32자리를 잡은 경우. Notion API도 이런 값은 조회 전에 400(valid uuid 아님)으로 거부한다.
+  function isPlausibleNotionId(id){
+    return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(id || '');
+  }
+
+  /* ---------------- 청구구분 정규화 ----------------
+     포털 화면 라벨("비재산권상 청구")·AI 추출값의 띄어쓰기 차이를 흡수해
+     select 옵션값과 일치시킨다. 알아볼 수 없으면 추측하지 않고 ''를 돌려준다
+     (청구구분은 소가 산정·인지액에 직결되는 법적 판단이라 임의 추정 금지). */
+  var claimTypePrefillWarning = '';
+  function normalizeClaimType(raw){
+    if (raw == null) return '';
+    var s = String(raw).replace(/\s+/g, '');
+    if (!s) return '';
+    if (/^비재산권상(의)?(청구)?$/.test(s)) return '비재산권상청구';
+    if (/^재산권상(의)?(청구)?$/.test(s)) return '재산권상청구';
+    return '';
   }
 
   /* ---------------- 청구구분 / 진술서 토글 ---------------- */
@@ -446,7 +594,9 @@
   function collectOverrides(){
     var errors = [];
     var caseName = document.getElementById('caseName').value.trim();
-    var claimType = document.getElementById('claimType').value;
+    // 정규화한 값만 서버로 보낸다 — 빈 값이면 여기서 막아, 포털에 사건명만
+    // 입력된 채 중간에 멈추는 사고를 방지한다(2026-07-29 실사건에서 발생).
+    var claimType = normalizeClaimType(document.getElementById('claimType').value);
     var litigationValueRaw = document.getElementById('litigationValue').value;
     var purposeText = document.getElementById('purposeText').value.trim();
     var reasonHtml = document.getElementById('reasonHtml').value.trim();
@@ -456,6 +606,7 @@
     if (!caseName) errors.push('사건명을 입력하세요.');
     if (!purposeText) errors.push('신청취지를 입력하세요.');
     if (!reasonHtml) errors.push('신청이유를 입력하세요.');
+    if (!claimType) errors.push('청구구분(재산권상청구/비재산권상청구)을 선택하세요. — 파일 추출값이 목록에 없는 표기였으면 선택이 비어 있을 수 있습니다.');
     if (claimType === '재산권상청구' && !litigationValueRaw) errors.push('재산권상청구는 소가를 입력해야 합니다.');
 
     var caseBasicInfo = { caseName: caseName, claimType: claimType };
@@ -569,13 +720,19 @@
   }
 
   window.startAutoSubmit = function(){
+    var caseLabel = document.getElementById('caseLabel').value.trim();
     var notionRaw = document.getElementById('notionCaseId').value;
+    var advancedProvided = !!notionRaw.trim();
     var notionId = extractNotionId(notionRaw);
     var confirmChecked = document.getElementById('confirmCheck').checked;
     var runStatus = document.getElementById('runStatus');
 
     var errors = [];
-    if (!notionId) errors.push('Notion 사건 페이지 ID를 올바르게 입력하세요.');
+    // 사건번호만 있어도 서버가 사건부DB에서 페이지를 자동으로 찾는다. 고급 항목은 선택.
+    if (!caseLabel && !advancedProvided) errors.push('사건번호를 입력하세요.');
+    if (advancedProvided && !(notionId && isPlausibleNotionId(notionId))) {
+      errors.push('고급 항목의 Notion 페이지 ID가 올바르지 않습니다. (사건번호만 쓸 경우 고급 항목은 비워두세요.)');
+    }
     if (!confirmChecked) errors.push('실행 전 경고 확인 체크박스에 동의해야 합니다.');
 
     var collected = collectOverrides();
@@ -594,26 +751,55 @@
     startBtn.disabled = true;
     runStatus.textContent = '요청 전송 중...';
 
-    var caseLabel = document.getElementById('caseLabel').value.trim();
+    function handleRunResponse(res){
+      if (res.status === 202) { runStatus.textContent = '실행 시작됨 — 진행상황을 확인하세요.'; startPolling(); }
+      else { runStatus.innerHTML = '<span style="color:var(--danger)">요청 거부됨: ' + escapeHtml(JSON.stringify(res.body)) + '</span>'; startBtn.disabled = false; }
+    }
+    function handleRunError(e){ runStatus.innerHTML = '<span style="color:var(--danger)">서버에 연결할 수 없습니다: ' + escapeHtml(e.message) + '</span>'; startBtn.disabled = false; }
 
+    if (prefillLoaded) {
+      // 파일 기반: 당사자(JSON 검토본) + 폼값으로 payload 구성 → /run-full (Notion 당사자 매핑 안 씀)
+      var parties;
+      try { parties = JSON.parse(document.getElementById('partiesJson').value); }
+      catch (e) { runStatus.innerHTML = '<span style="color:var(--danger)">당사자(JSON) 형식 오류: ' + escapeHtml(e.message) + '</span>'; startBtn.disabled = false; return; }
+      var payload = {
+        caseBasicInfo: collected.overrides.caseBasicInfo,
+        parties: parties,
+        claim: collected.overrides.claim,
+        evidence: collected.overrides.evidence,
+        requiresAffidavit: collected.overrides.requiresAffidavit,
+        affidavitAcknowledged: collected.overrides.affidavitAcknowledged
+      };
+      var runFile = function(pid){
+        apiPost('/run-full', {
+          사건번호: caseLabel || undefined,
+          사건_page_id: pid,
+          payload: payload,
+          콜백URL: SERVER() + '/__test_callback',
+          진행콜백URL: SERVER() + '/__test_progress_callback'
+        }).then(handleRunResponse).catch(handleRunError);
+      };
+      // /run-full은 상태 되쓰기용 사건_page_id가 필요 → 확인된 값 없으면 먼저 조회
+      if (resolvedCase && resolvedCase.caseNo === caseLabel) { runFile(resolvedCase.pageId); }
+      else {
+        apiGet('/resolve-case?사건번호=' + encodeURIComponent(caseLabel)).then(function(r){
+          if (r.ok && r.body && r.body.ok) runFile(r.body.pageId);
+          else { runStatus.innerHTML = '<span style="color:var(--danger)">상태 기록용 page_id 조회 실패: ' + escapeHtml((r.body && r.body.message) || ('HTTP ' + r.status)) + '</span>'; startBtn.disabled = false; }
+        }).catch(handleRunError);
+      }
+      return;
+    }
+
+    // Notion 기반(기존): 사건번호로 서버가 사건부DB에서 당사자 매핑
+    var pageId = (advancedProvided && notionId) ? notionId
+               : (resolvedCase && resolvedCase.caseNo === caseLabel ? resolvedCase.pageId : undefined);
     apiPost('/run-full-from-notion', {
       사건번호: caseLabel || undefined,
-      notion_case_page_id: notionId,
+      notion_case_page_id: pageId,
       overrides: collected.overrides,
       콜백URL: SERVER() + '/__test_callback',
       진행콜백URL: SERVER() + '/__test_progress_callback'
-    }).then(function(res){
-      if (res.status === 202) {
-        runStatus.textContent = '실행 시작됨 — 진행상황을 확인하세요.';
-        startPolling();
-      } else {
-        runStatus.innerHTML = '<span style="color:var(--danger)">요청 거부됨: ' + escapeHtml(JSON.stringify(res.body)) + '</span>';
-        startBtn.disabled = false;
-      }
-    }).catch(function(e){
-      runStatus.innerHTML = '<span style="color:var(--danger)">서버에 연결할 수 없습니다: ' + escapeHtml(e.message) + '</span>';
-      startBtn.disabled = false;
-    });
+    }).then(handleRunResponse).catch(handleRunError);
   };
 
   window.resetForm = function(){
@@ -621,7 +807,7 @@
     ['notionCaseId','caseLabel','courtName','caseName','litigationValue','purposeText','reasonHtml'].forEach(function(id){
       document.getElementById(id).value = '';
     });
-    document.getElementById('claimType').value = '재산권상청구';
+    document.getElementById('claimType').value = ''; // 법적 판단 항목 — 매번 직접 선택
     document.getElementById('requiresAffidavit').checked = false;
     document.getElementById('affidavitAcknowledged').checked = false;
     document.getElementById('lwstTypeCheck').checked = false;
@@ -631,6 +817,7 @@
     handleClaimTypeChange();
     handleAffidavitToggle();
     handleNotionIdInput();
+    handleCaseNoInput();
     document.getElementById('progressWrap').style.display = 'none';
     document.getElementById('resultWrap').style.display = 'none';
     document.getElementById('runStatus').textContent = '';

@@ -47,7 +47,7 @@
 
 const express = require('express');
 const path = require('path');
-const { attachToExistingBrowser, submitPlaintiffNonMember } = require('./ecfs_party_input');
+const { attachToExistingBrowser, submitPlaintiffNonMember, submitDefendant } = require('./ecfs_party_input');
 const { submitClaim } = require('./ecfs_claim_input');
 const { submitCivilConsent } = require('./ecfs_civil_consent');
 const { submitCaseBasicInfo } = require('./ecfs_case_basic_info');
@@ -56,7 +56,9 @@ const { submitEvidenceUpload } = require('./ecfs_evidence_upload');
 const { startKeepAlive } = require('./ecfs_session_extend');
 const { runFullFlow } = require('./ecfs_orchestrator');
 const { buildPayloadFromNotionCase } = require('./ecfs_fill_engine');
-const { updatePageProperties, selectValue } = require('./ecfs_notion_client');
+const { updatePageProperties, selectValue, findCaseByNumber } = require('./ecfs_notion_client');
+const { maskSsns } = require('./ecfs_privacy');
+const { buildPayloadFromExtraction } = require('./ecfs_file_payload');
 const { LOG_DIR, appendAuditEvent, writeLastState, readLastState, readRecentAuditEvents } = require('./ecfs_audit_log');
 
 const PORT = process.env.PORT || 3939;
@@ -70,8 +72,15 @@ const ACTIONS = {
     return { message: '전자소송 동의 완료' };
   },
   'party-input': async (page, payload) => {
+    // role로 원고쪽/피고쪽 분기(명칭: 본안=원고/피고, 가처분=신청인/피신청인, 가압류=채권자/채무자).
+    // role이 없으면 기존 동작(원고쪽 비회원) 유지.
+    const 피고쪽 = ['피고', '피신청인', '채무자'];
+    if (payload && 피고쪽.includes(payload.role)) {
+      await submitDefendant(page, payload);
+      return { message: '피고(피신청인/채무자) 입력 완료' };
+    }
     await submitPlaintiffNonMember(page, payload);
-    return { message: '당사자 입력 완료' };
+    return { message: '원고(신청인/채권자) 입력 완료' };
   },
   'claim-input': async (page, payload) => {
     await submitClaim(page, payload);
@@ -92,7 +101,9 @@ const ACTIONS = {
   },
   'evidence-upload': async (page, payload) => {
     const result = await submitEvidenceUpload(page, payload);
-    return { message: `${payload?.section || ''} 소명/첨부서류 업로드 완료 (${result.uploadedCount}건)` };
+    // 본안=입증서류, 신청사건=소명서류(같은 prvDocmt 컴포넌트). 첨부서류는 atch.
+    const label = payload?.section === 'atch' ? '첨부서류' : '입증(소명)서류';
+    return { message: `${label} 업로드 완료 (${result.uploadedCount}건)` };
   },
   // 'civil-consent'는 위에 이미 등록됨 — 선택자 실측 검증 전까지는
   // 반드시 더미 사건으로만 테스트할 것 (sop.md 4장 참조)
@@ -186,6 +197,124 @@ app.get('/audit-log', (req, res) => {
   const limit = Math.min(parseInt(req.query.limit, 10) || 200, 1000);
   const days = Math.min(parseInt(req.query.days, 10) || 3, 30);
   res.json({ ok: true, events: readRecentAuditEvents(limit, days) });
+});
+
+// 사건번호 → 사건부DB 페이지 조회. admin 페이지가 '사건 조회' 버튼에서 호출해
+// 어떤 사건이 매칭됐는지 사람에게 먼저 보여주는 용도. (실행 전 확인 단계)
+app.get('/resolve-case', async (req, res) => {
+  const caseNo = String(req.query.caseNo || req.query.사건번호 || '').trim();
+  if (!caseNo) return res.status(400).json({ ok: false, error: 'missing_caseNo', message: '사건번호가 필요합니다.' });
+  try {
+    const found = await findCaseByNumber(caseNo);
+    res.json({ ok: true, pageId: found.pageId, title: found.title, caseNo: found.caseNo });
+  } catch (e) {
+    res.status(404).json({ ok: false, error: 'not_found', message: e.message });
+  }
+});
+
+// ---------------------------------------------------------------------------
+// 프리필 브릿지 (파일 기반 흐름, sop_파일기반_추출_계획.md §4[6])
+// n8n이 03_제출확정자료를 AI로 추출해 만든 payload를 POST /prefill로 보내두면,
+// admin 「전자소송 신청」 화면이 GET /prefill?사건번호= 로 불러와 폼에 채워
+// 법무사가 검토·수정 후 실행한다(사람 검증 게이트). 메모리 보관(서버 재시작 시 소멸).
+// ⚠️ 실제 실행/제출은 여전히 사람이 admin에서 트리거한다 — 여기서 자동 실행하지 않는다.
+// ---------------------------------------------------------------------------
+const prefillStore = new Map(); // 사건번호 → { payload, warnings, savedAt }
+const PREFILL_MAX = 50;
+
+// 프리필 디스크 영속화 — 서버 재시작 시 메모리 Map이 비워져도 admin이 마지막 추출을
+// 불러올 수 있도록 LOG_DIR/prefill/<사건번호>.json 에 저장하고, 조회 시 없으면 디스크에서 복구한다.
+// (오피스 로컬 서버 내부 저장이며, 외부 AI로는 여전히 마스킹된 텍스트만 나간다.)
+const PREFILL_DIR = path.join(LOG_DIR, 'prefill');
+function prefillPath(caseNo) {
+  const safe = String(caseNo).replace(/[^0-9A-Za-z_\-]/g, '_');
+  return path.join(PREFILL_DIR, `${safe}.json`);
+}
+function persistPrefill(caseNo, entry) {
+  try {
+    require('fs').mkdirSync(PREFILL_DIR, { recursive: true });
+    require('fs').writeFileSync(prefillPath(caseNo), JSON.stringify(entry), 'utf8');
+  } catch (e) {
+    console.warn(`[프리필] 디스크 저장 실패(사건 ${caseNo}): ${e.message}`);
+  }
+}
+function loadPrefillFromDisk(caseNo) {
+  try {
+    return JSON.parse(require('fs').readFileSync(prefillPath(caseNo), 'utf8'));
+  } catch (e) {
+    return null;
+  }
+}
+
+app.post('/prefill', (req, res) => {
+  const { 사건번호, payload, warnings } = req.body || {};
+  if (!사건번호 || !payload) {
+    return res.status(400).json({ ok: false, error: 'missing_fields', required: ['사건번호', 'payload'] });
+  }
+  if (prefillStore.size >= PREFILL_MAX && !prefillStore.has(사건번호)) {
+    prefillStore.delete(prefillStore.keys().next().value); // 가장 오래된 항목 제거(간단한 상한)
+  }
+  const entry = { payload, warnings: Array.isArray(warnings) ? warnings : [], savedAt: new Date().toISOString() };
+  prefillStore.set(사건번호, entry);
+  persistPrefill(사건번호, entry);
+  console.log(`[프리필] 저장됨 — 사건 ${사건번호} (당사자 ${Array.isArray(payload.parties) ? payload.parties.length : 0}명, 경고 ${Array.isArray(warnings) ? warnings.length : 0}건)`);
+  res.json({ ok: true, 사건번호 });
+});
+
+app.get('/prefill', (req, res) => {
+  const caseNo = String(req.query.사건번호 || req.query.caseNo || '').trim();
+  if (!caseNo) return res.status(400).json({ ok: false, error: 'missing_caseNo' });
+  let item = prefillStore.get(caseNo);
+  if (!item) {
+    item = loadPrefillFromDisk(caseNo); // 재시작 후에도 디스크에서 복구
+    if (item) prefillStore.set(caseNo, item);
+  }
+  if (!item) return res.status(404).json({ ok: false, error: 'not_found', message: `사건 ${caseNo}의 프리필 데이터가 없습니다. (n8n 추출을 먼저 실행하세요)` });
+  res.json({ ok: true, 사건번호: caseNo, payload: item.payload, warnings: item.warnings, savedAt: item.savedAt });
+});
+
+// n8n 헬퍼 (§4.5) — 주민번호가 오피스 서버 밖(외부 AI)으로 나가지 않도록,
+// 마스킹·조립을 서버에서 처리한다. n8n은 이 두 엔드포인트를 HTTP로 호출한다.
+//   [A] POST /privacy/mask { text } → { masked, tokens }
+//       텍스트의 주민번호를 ⟦주민번호N⟧로 치환. masked만 AI 노드에 넣는다.
+//   [B] POST /build-prefill { 사건번호, raw, tokens } → payload 조립 + 프리필 저장
+//       AI가 돌려준 raw(주민번호는 토큰 참조)와 tokens로 실값을 되채워 payload 완성.
+app.post('/privacy/mask', (req, res) => {
+  const text = (req.body && req.body.text) || '';
+  if (!text) return res.status(400).json({ ok: false, error: 'missing_text' });
+  const { masked, tokens } = maskSsns(String(text));
+  res.json({ ok: true, masked, tokens });
+});
+
+app.post('/build-prefill', (req, res) => {
+  const { 사건번호, raw, tokens } = req.body || {};
+  if (!사건번호 || !raw) {
+    return res.status(400).json({ ok: false, error: 'missing_fields', required: ['사건번호', 'raw'] });
+  }
+  const { payload, warnings } = buildPayloadFromExtraction(raw, tokens || {});
+  if (!payload) return res.status(422).json({ ok: false, error: 'build_failed', warnings });
+
+  // ⚠️ 빈 추출이 정상 프리필을 덮어쓰는 것 방지.
+  // n8n 병합(텍스트 합류) 타이밍상 같은 실행에서 '제출자료 취합'이 두 번 돌아
+  // 빈 텍스트→당사자 0명 추출이 뒤따라 오는 사례가 있다. 이때 이미 저장된
+  // 정상 프리필(당사자 있음)을 빈 것으로 덮어쓰면 admin이 빈 화면을 불러온다.
+  const incomingParties = Array.isArray(payload.parties) ? payload.parties.length : 0;
+  const existing = prefillStore.get(사건번호) || loadPrefillFromDisk(사건번호);
+  const existingParties = existing && existing.payload && Array.isArray(existing.payload.parties)
+    ? existing.payload.parties.length : 0;
+  if (incomingParties === 0 && existingParties > 0) {
+    console.log(`[프리필] 빈 추출 무시 — 사건 ${사건번호} (기존 당사자 ${existingParties}명 유지)`);
+    return res.json({ ok: true, 사건번호, payload: existing.payload, warnings: existing.warnings, skipped: 'empty_extraction_ignored' });
+  }
+
+  if (prefillStore.size >= PREFILL_MAX && !prefillStore.has(사건번호)) {
+    prefillStore.delete(prefillStore.keys().next().value);
+  }
+  const entry = { payload, warnings, savedAt: new Date().toISOString() };
+  prefillStore.set(사건번호, entry);
+  persistPrefill(사건번호, entry); // 재시작 후에도 admin이 불러올 수 있도록 디스크에도 저장
+  console.log(`[프리필] 조립·저장 — 사건 ${사건번호} (당사자 ${payload.parties.length}명, 경고 ${warnings.length}건)`);
+  res.json({ ok: true, 사건번호, payload, warnings });
 });
 
 // ---------------------------------------------------------------------------
@@ -288,11 +417,15 @@ app.post('/run-full', (req, res) => {
 // 실행 시작/완료/실패를 사건부DB의 "전자소송자동화상태" 필드에 되쓴다
 // (best-effort — Notion 쓰기가 실패해도 전체 흐름은 막지 않음).
 // ---------------------------------------------------------------------------
-app.post('/run-full-from-notion', (req, res) => {
+app.post('/run-full-from-notion', async (req, res) => {
   const { 사건번호, notion_case_page_id, overrides, 콜백URL, 진행콜백URL } = req.body || {};
 
-  if (!notion_case_page_id || !콜백URL) {
-    return res.status(400).json({ ok: false, error: 'missing_fields', required: ['notion_case_page_id', '콜백URL'] });
+  if (!콜백URL) {
+    return res.status(400).json({ ok: false, error: 'missing_fields', required: ['콜백URL'] });
+  }
+  // 페이지 id는 직접 주거나(고급), 사건번호로 자동 해석하거나 둘 중 하나면 된다.
+  if (!notion_case_page_id && !사건번호) {
+    return res.status(400).json({ ok: false, error: 'missing_fields', required: ['사건번호 또는 notion_case_page_id'] });
   }
   if (!overrides?.caseBasicInfo || !overrides?.claim) {
     return res.status(400).json({
@@ -305,13 +438,25 @@ app.post('/run-full-from-notion', (req, res) => {
     return res.status(409).json({ ok: false, error: 'server_busy', message: '다른 작업이 진행 중입니다. 완료 후 재시도하세요.' });
   }
 
+  // 페이지 ID 확보: 직접 준 값이 있으면 그대로 쓰고, 없으면 사건번호로 사건부DB에서 조회.
+  let pageId = notion_case_page_id;
+  if (!pageId) {
+    try {
+      const found = await findCaseByNumber(사건번호);
+      pageId = found.pageId;
+      console.log(`[${사건번호}] 사건번호 → 페이지 조회 성공: ${found.title} (${pageId})`);
+    } catch (e) {
+      return res.status(404).json({ ok: false, error: 'case_not_found', message: e.message });
+    }
+  }
+
   res.status(202).json({ ok: true, status: 'accepted', 사건번호, action: 'run-full-from-notion' });
 
   progressLog = [];
   busy = true;
-  runFullFromNotionAction(notion_case_page_id, overrides, 콜백URL, 진행콜백URL, 사건번호)
+  runFullFromNotionAction(pageId, overrides, 콜백URL, 진행콜백URL, 사건번호)
     .catch((err) => {
-      console.error(`[${사건번호 || notion_case_page_id}] run-full-from-notion 예기치 못한 오류:`, err);
+      console.error(`[${사건번호 || pageId}] run-full-from-notion 예기치 못한 오류:`, err);
     })
     .finally(() => {
       busy = false;
@@ -394,6 +539,9 @@ async function runFullFromNotionAction(casePageId, overrides, callbackUrl, progr
       needsManualReview,
       emergencySaved: result.emergencySaved || false,
       message: result.error || result.stoppedAt || null,
+      // 실패 시 "무엇이 클릭을 막았는지"(열린 대화상자 텍스트·차단 요소)를 함께 남긴다.
+      // 예전에는 Timeout 메시지만 남아 /last-run만 보고는 원인을 알 수 없었다.
+      diagnostics: result.diagnostics || null,
     });
 
     await notifyCallback(callbackUrl, {
@@ -460,6 +608,9 @@ async function runFullAction(casePageId, payload, callbackUrl, progressCallbackU
       needsManualReview,
       emergencySaved: result.emergencySaved || false,
       message: result.error || result.stoppedAt || null,
+      // 실패 시 "무엇이 클릭을 막았는지"(열린 대화상자 텍스트·차단 요소)를 함께 남긴다.
+      // 예전에는 Timeout 메시지만 남아 /last-run만 보고는 원인을 알 수 없었다.
+      diagnostics: result.diagnostics || null,
     });
 
     await notifyCallback(callbackUrl, {
@@ -498,14 +649,44 @@ async function runFullAction(casePageId, payload, callbackUrl, progressCallbackU
   }
 }
 
+// ECFS 세션은 무동작 30분 시 만료된다. 15분 간격으로 연장하면 항상 "만료 15분 전"에 자동 연장된다.
+const SESSION_KEEPALIVE_MS = 15 * 60 * 1000;
+
 function ensureKeepAlive(page) {
   if (keepAliveStop) return;
   keepAliveStop = startKeepAlive(page, {
+    intervalMs: SESSION_KEEPALIVE_MS,
     onResult: (r) => {
-      if (!r.ok) console.warn('[세션 킵얼라이브] 실패 — 직원 재로그인 필요할 수 있음:', r);
+      if (r.ok) console.log(`[세션연장] 성공 — 30분 타이머 리셋 (${r.at})`);
+      else console.warn('[세션연장] 실패 — 직원 재로그인 필요할 수 있음:', r);
     },
   });
-  console.log('[세션 킵얼라이브] 시작 (5분 간격)');
+  console.log(`[세션연장] 상시 자동연장 시작 — ${SESSION_KEEPALIVE_MS / 60000}분 간격 (세션 만료 15분 전 자동 연장)`);
+}
+
+// 서버 시작 시부터 세션을 지키기 위해, ECFS 탭이 준비되면(로그인 후) 자동으로 keepalive를 시작한다.
+// 아직 탭이 없거나 로그인 전이면 1분마다 재시도한다.
+function startSessionKeeperWhenReady() {
+  const tryStart = async () => {
+    if (keepAliveStop) return true;
+    try {
+      const attached = await attachToExistingBrowser(CDP_ENDPOINT);
+      ensureKeepAlive(attached.page);
+      return true;
+    } catch (_) {
+      return false; // ECFS 탭 없음/로그인 전 — 다음 주기에 재시도
+    }
+  };
+  (async () => {
+    if (await tryStart()) return;
+    console.log('[세션연장] ECFS 탭 대기 중 — 로그인 후 소장 화면이 열리면 자동으로 연장을 시작합니다(1분마다 확인).');
+    const poll = setInterval(async () => {
+      if (await tryStart()) {
+        clearInterval(poll);
+        console.log('[세션연장] ECFS 탭 감지 — 자동연장 활성화됨.');
+      }
+    }, 60 * 1000);
+  })();
 }
 
 async function runAction(action, casePageId, payload, callbackUrl, caseNo) {
@@ -598,10 +779,22 @@ function shutdown(signal) {
 process.on('SIGINT', () => shutdown('SIGINT'));
 process.on('SIGTERM', () => shutdown('SIGTERM'));
 
+const BUILD_VERSION = '2026-07-30e — 법인 원고 정식 입력(fillPlaintiffOrg): 비회원체크+인격구분=법인+법인등록번호+대표자. 자연인=주민등록번호/법인=법인등록번호 분기. 피고 법인은 대표자로 등록';
 app.listen(PORT, () => {
+  try {
+    require('fs').writeFileSync(
+      require('path').join(LOG_DIR, 'version.txt'),
+      `build: ${BUILD_VERSION}\nstarted: ${new Date().toISOString()}\n`
+    );
+  } catch (_) { /* 기록 실패는 무시 */ }
+  console.log('════════════════════════════════════════════════');
+  console.log(`[빌드] ${BUILD_VERSION}`);
+  console.log('  ↑ 이 줄이 보이면 새 코드로 실행 중입니다. 안 보이면 옛 서버가 아직 살아있는 것.');
+  console.log('════════════════════════════════════════════════');
   console.log(`ECFS 자동화 서버 실행 중 — http://localhost:${PORT}`);
   console.log(`▶ admin 페이지: http://localhost:${PORT}/admin/portal.html  (이 주소로 열어야 서버에 연결됩니다)`);
   console.log(`CDP 접속 대상: ${CDP_ENDPOINT}`);
   console.log(`등록된 action: ${Object.keys(ACTIONS).join(', ')}`);
   console.log(`감사 로그 디렉터리: ${LOG_DIR}`);
+  startSessionKeeperWhenReady(); // 서버 시작과 함께 세션 자동연장 감시 시작(ECFS 탭 준비되면 15분 간격 연장)
 });

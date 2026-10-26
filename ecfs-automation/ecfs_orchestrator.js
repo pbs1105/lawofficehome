@@ -69,6 +69,127 @@ async function checkAffidavitBannerVisible(page) {
 }
 
 /**
+ * STEP 0 — 실행 전 화면 상태 점검(preflight).
+ *
+ * ⚠️ 2026-07-29 신규. 감사로그(2026-07-27 1회차)에 STEP1이 15초 타임아웃으로
+ * 실패하고 EMERGENCY_TEMP_SAVE까지 "[임시저장] 버튼을 찾지 못함"으로 실패한
+ * 기록이 있는데, 이는 **대상 탭이 애초에 전자소송 작성 화면이 아니었다**는 뜻이다.
+ * 그런 경우 15초를 기다린 끝에 원인 불명의 타임아웃 메시지만 남으므로, 실행
+ * 시작 시점에 화면 상태를 판별해 사람이 바로 조치할 수 있는 메시지를 준다.
+ * 동시에 이전 실행이 남긴 팝업을 닫아, 그 팝업 오버레이 때문에 첫 클릭부터
+ * 막히는 연쇄 실패를 끊는다.
+ */
+/**
+ * 포털을 건드리기 전에 payload 필수값을 **한 번에 모두** 검증한다.
+ *
+ * ⚠️ 2026-07-29 실사건에서 드러난 문제: 청구구분이 비어 있는 채로 실행되어
+ * 사건명까지 입력한 다음 STEP2 도중에 예외가 났다. 포털에는 반쯤 입력된
+ * 상태가 남고, 화면에는 "청구구분을 선택하라"는 말만 반복돼 원인을 알기
+ * 어려웠다. 이런 값 문제는 브라우저를 건드리기 전에 걸러야 한다.
+ */
+function validatePayload(payload = {}) {
+  const { normalizeClaimType } = require('./ecfs_case_basic_info');
+  const errors = [];
+  const resumeFrom = payload.resumeFrom;
+
+  if (shouldRun('case_basic_info', resumeFrom)) {
+    const cbi = payload.caseBasicInfo;
+    if (!cbi) {
+      errors.push('사건기본정보(caseBasicInfo)가 없습니다.');
+    } else {
+      if (!cbi.caseName || !String(cbi.caseName).trim()) errors.push('사건명(caseName)이 비어 있습니다.');
+      const ct = normalizeClaimType(cbi.claimType);
+      if (!ct) {
+        errors.push(
+          `청구구분(claimType)이 올바르지 않습니다 — 받은 값: ${JSON.stringify(cbi.claimType ?? null)}. admin 화면의 「청구구분」이 실제로 선택돼 있는지 확인하세요.`
+        );
+      } else if (ct === '재산권상청구' && !(Number(cbi.litigationValue) > 0)) {
+        errors.push(`재산권상청구인데 소가(litigationValue)가 없습니다 — 받은 값: ${JSON.stringify(cbi.litigationValue ?? null)}`);
+      }
+    }
+  }
+
+  if (shouldRun('parties', resumeFrom)) {
+    const parties = payload.parties || [];
+    if (parties.length === 0) errors.push('당사자(parties)가 비어 있습니다.');
+    parties.forEach((p, i) => {
+      if (p.role !== '원고' && p.role !== '피고') {
+        errors.push(`당사자[${i}] role이 올바르지 않습니다 — 받은 값: ${JSON.stringify(p.role ?? null)} ('원고' 또는 '피고')`);
+      }
+    });
+  }
+
+  if (shouldRun('claim', resumeFrom)) {
+    const c = payload.claim;
+    if (!c) errors.push('청구취지·청구원인(claim)이 없습니다.');
+    else {
+      if (!c.purposeText && !c.purposeFilePath) errors.push('신청취지(purposeText)가 비어 있습니다.');
+      if (!c.reasonHtml && !c.reasonFilePath) errors.push('신청이유(reasonHtml)가 비어 있습니다.');
+    }
+  }
+
+  return errors;
+}
+
+async function preflight(page, payload = {}) {
+  const { closeOpenDialogs, describeBlockingState } = require('./ecfs_dialog');
+
+  // (1) 값 검증이 먼저 — 브라우저를 건드리기 전에 걸러낸다.
+  const valueErrors = validatePayload(payload);
+  if (valueErrors.length > 0) {
+    const err = new Error(`실행 전 입력값 확인 필요 (포털은 아직 건드리지 않았습니다):\n- ${valueErrors.join('\n- ')}`);
+    err.preflightValueError = true; // 포털을 안 건드렸으므로 긴급 임시저장도 하지 않는다
+    throw err;
+  }
+
+  // 이전 실행이 남긴 팝업 정리 (닫은 팝업 텍스트는 진단 정보로 남긴다)
+  const leftovers = await closeOpenDialogs(page, { max: 4 });
+
+  const screen = await page
+    .evaluate(() => ({
+      url: location.href,
+      consent: !!document.getElementById('mf_pfwork_cbx_agree_input_0'),
+      drafting: !!document.getElementById('mf_pfwork_btn_tmpSave'),
+      title: document.title,
+    }))
+    .catch(() => ({ url: null, consent: false, drafting: false, title: null }));
+
+  const firstStep = payload.resumeFrom || 'civil_consent';
+  const info = {
+    ...screen,
+    leftoverDialogs: leftovers.closedCount,
+    leftoverDialogTexts: leftovers.texts,
+    firstStep,
+  };
+
+  if (leftovers.remaining) {
+    const { summary } = await describeBlockingState(page);
+    throw new Error(
+      `실행 전 화면에 닫히지 않는 대화상자가 남아 있습니다 — 직원이 화면에서 직접 닫은 뒤 다시 실행하세요. 상태: ${summary}`
+    );
+  }
+
+  if (firstStep === 'civil_consent') {
+    if (!screen.consent) {
+      if (screen.drafting) {
+        throw new Error(
+          '이미 소장 작성 화면이 열려 있습니다(전자소송 동의가 끝난 상태). STEP1을 건너뛰려면 resumeFrom:"case_basic_info"로 실행하세요.'
+        );
+      }
+      throw new Error(
+        `전자소송 동의 화면이 아닙니다 — 현재 화면: ${screen.title || '(제목 없음)'} / ${screen.url}. 직원이 "민사 서류 제출 → 소장" 화면을 열어둔 뒤 다시 실행하세요.`
+      );
+    }
+  } else if (!screen.drafting) {
+    throw new Error(
+      `소장 작성 화면이 아닙니다(resumeFrom:"${firstStep}") — 현재 화면: ${screen.title || '(제목 없음)'} / ${screen.url}. 작성중서류에서 해당 사건을 열어둔 뒤 다시 실행하세요.`
+    );
+  }
+
+  return info;
+}
+
+/**
  * STEP 하나를 실행하고, 실패하면 delayMs만큼 기다렸다가 최대 retries회
  * 재시도한다(기본 1회 재시도 = 총 2회 시도). 재시도 직전 onRetry(err, attempt)를
  * 호출해 진행상황 콜백/감사로그에 'retrying'을 남길 수 있게 한다.
@@ -125,6 +246,12 @@ async function runFullFlow(page, payload = {}, opts = {}) {
     });
 
   try {
+    // STEP 0 — 화면 상태 점검 + 이전 실행이 남긴 팝업 정리
+    if (payload.skipPreflight !== true) {
+      const pf = await preflight(page, payload);
+      report('STEP0_preflight', 'done', pf);
+    }
+
     if (shouldRun('civil_consent', payload.resumeFrom)) {
       await retrying('STEP1_civil_consent', () => submitCivilConsent(page));
       report('STEP1_civil_consent', 'done');
@@ -202,12 +329,31 @@ async function runFullFlow(page, payload = {}, opts = {}) {
 
     return { ok: true, status: 'completed', log };
   } catch (err) {
-    report('ERROR', 'failed', { message: err.message });
+    // ⚠️ 2026-07-29: 실패 시 "왜 막혔는지"를 감사로그에 남긴다. 예전에는
+    // `locator.click: Timeout 30000ms` 한 줄만 남아서, 어떤 대화상자가 떠 있었고
+    // 무엇이 클릭을 가로막았는지 사후에 알 수 없었다(원인 추적이 몇 주 지연된 원인).
+    let diagnostics = null;
+    try {
+      const { describeBlockingState } = require('./ecfs_dialog');
+      const { summary } = await describeBlockingState(page);
+      const screen = await page
+        .evaluate(() => ({ url: location.href, title: document.title }))
+        .catch(() => null);
+      diagnostics = { blocking: summary, screen };
+    } catch { /* 진단 수집 실패가 실패 처리 자체를 막지 않게 한다 */ }
+
+    report('ERROR', 'failed', { message: err.message, trace: err.trace || null, diagnostics });
 
     // 재시도까지 실패한 뒤 마지막 안전망 — 긴급 임시저장 시도 (원본 스킬의 "오류 발생 시 응급 처치" 절차)
     // 여기서부터는 "사람에게 이관"이 필요한 지점이다 — 반환값의 status:'failed'를 서버가
     // needsManualReview:true로 변환해 admin 페이지에 노출한다.
     let emergencySaved = false;
+    if (err.preflightValueError) {
+      // 입력값 문제로 실행 자체가 시작되지 않았다 — 포털 화면은 그대로이므로
+      // 긴급 임시저장(더미 주입)을 하면 오히려 멀쩡한 화면을 더럽힌다.
+      report('EMERGENCY_TEMP_SAVE', 'done', { skipped: true, reason: '입력값 검증 단계에서 중단 — 포털 미조작' });
+      return { ok: false, status: 'failed', error: err.message, diagnostics, emergencySaved: false, log };
+    }
     try {
       const saveResult = await emergencyTempSaveWithDummy(page, payload.emergencyRequiredFieldIds || []);
       report('EMERGENCY_TEMP_SAVE', 'done', saveResult);
@@ -216,7 +362,7 @@ async function runFullFlow(page, payload = {}, opts = {}) {
       report('EMERGENCY_TEMP_SAVE', 'failed', { message: saveErr.message });
     }
 
-    return { ok: false, status: 'failed', error: err.message, emergencySaved, log };
+    return { ok: false, status: 'failed', error: err.message, diagnostics, emergencySaved, log };
   }
 }
 
@@ -224,5 +370,7 @@ module.exports = {
   RESUME_ORDER,
   checkAffidavitBannerVisible,
   withStepRetry,
+  validatePayload,
+  preflight,
   runFullFlow,
 };

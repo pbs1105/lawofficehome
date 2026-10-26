@@ -12,6 +12,7 @@ const CATEGORIES = [
   { id: 'preservation', name: '보전처분',   icon: '🛡️' },
   { id: 'enforcement',  name: '강제집행',   icon: '⚡' },
   { id: 'inheritance',  name: '상속',       icon: '📜' },
+  { id: 'insolvency',   name: '회생파산',   icon: '💳' },
   { id: 'etc',         name: '기타',       icon: '📁' },
 ];
 
@@ -329,6 +330,22 @@ const CONTENT_DATA = {
   inheritance: {
     label: '상속',
     get topics() { return typeof INHERITANCE_TOPICS !== 'undefined' ? INHERITANCE_TOPICS : []; }
+  },
+  /* ---- 회생파산 ---- */
+  insolvency: {
+    label: '회생파산',
+    topics: [
+      {
+        id: 'ins-0', title: '회생파산 안내 (준비 중)',
+        meta: '개인회생·개인파산 절차 안내',
+        sections: [
+          {
+            heading: '콘텐츠 준비 중입니다',
+            content: `<p>개인회생·개인파산 관련 안내 콘텐츠를 준비하고 있습니다. 궁금하신 사항은 상담신청을 이용해 주세요.</p>`
+          }
+        ]
+      }
+    ]
   },
   /* ---- 기타 ---- */
   etc: {

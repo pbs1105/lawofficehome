@@ -19,6 +19,8 @@
  * -----------------------------------------------------------------------
  */
 
+const { clearBlockersBeforeClick, waitForDialog, clickPopupConfirm, describeBlockingState } = require('./ecfs_safe_register');
+
 const TEMP_SAVE_BTN_ID = 'mf_pfwork_btn_tmpSave'; // dry-run(v0.1) STEP 7 실측 확인
 
 // -------------------------------------------------------------------------
@@ -37,38 +39,62 @@ async function clickTempSave(page) {
     throw new Error('[임시저장] 버튼을 찾지 못함 — 실제 DOM 확인 필요');
   }
 
-  // Phase 5에서 발견된 유령 모달 배경 방어 (ecfs_safe_register.js 상단 주석 참조)
-  await require('./ecfs_safe_register').clearStuckModalIfBlocking(page);
+  // 클릭 전 잔존 팝업을 정상적으로 닫고(먼저), 그래도 남은 빈 오버레이만 무력화한다.
+  await clearBlockersBeforeClick(page);
 
-  await target.first().click();
-  await page.waitForTimeout(1500);
+  try {
+    await target.first().click({ timeout: 12000 });
+  } catch (e) {
+    await clearBlockersBeforeClick(page);
+    try {
+      await target.first().click({ timeout: 12000 });
+    } catch (e2) {
+      const { summary } = await describeBlockingState(page);
+      throw new Error(`[임시저장] 버튼 클릭 실패: ${e2.message.split('\n')[0]} — 화면 상태: ${summary}`);
+    }
+  }
+  await page.waitForTimeout(1200);
 
   const result = await handleTempSavePopup(page);
   return { ok: true, popup: result };
 }
 
+/**
+ * 임시저장 팝업 처리.
+ *
+ * ⚠️ 2026-07-29 개정 — 예전 구현의 두 가지 문제를 고쳤다.
+ *   1) 팝업 존재 판정을 "이름이 '확인'인 버튼이 보이는가"로 했는데, 이 화면에는
+ *      당사자 '표시확인' 버튼(value="확인")이 팝업과 무관하게 항상 떠 있다.
+ *      제외 ID를 하드코딩해 막았지만, 같은 종류의 버튼이 하나 더 생기면 다시
+ *      깨지는 방식이었다. 이제 히트테스트(elementFromPoint)로 "실제로 화면 맨
+ *      위에서 클릭 가능한" 버튼만 팝업 버튼으로 인정한다(ecfs_dialog.js).
+ *   2) 필수항목 누락 판정을 페이지 전체 본문 텍스트로 했는데, 그 문구가 화면
+ *      어딘가에 안내문으로 있어도 오탐이 난다. 이제 대화상자 본문 텍스트만 본다.
+ *
+ * 임시저장은 "임시저장하시겠습니까?"(확인) → "저장되었습니다"(확인)처럼 팝업이
+ * 연달아 뜰 수 있어, 최대 3개까지 순서대로 처리한다.
+ */
 async function handleTempSavePopup(page) {
-  // "저장되었습니다." / "입력된 정보를 임시저장하시겠습니까?" 등 → 확인 클릭
-  // ⚠️ Phase 5 라이브 테스트에서 발견된 중요 버그: 소장 작성 화면은 당사자
-  // 섹션의 "사용자정보확인" 버튼처럼 이름에 "확인"이 들어간 버튼이 팝업과
-  // 무관하게 항상 화면에 떠 있다. 정규식 /확인/(부분일치)으로 찾으면 팝업이
-  // 뜨지도 않았는데 이 버튼이 "visible"로 잡혀 popupSeen:true로 오판하고,
-  // 엉뚱하게 "사용자정보확인" 버튼을 클릭해버리는 사고로 이어질 수 있었다
-  // (실제로 STEP2 사건기본정보 등록 직후 이 패턴 때문에 클릭이 멈춘 것을 확인).
-  // exact:true로 정확히 "확인"이라는 이름의 버튼만 찾도록 수정.
-  const confirmBtn = page.getByRole('button', { name: '확인', exact: true });
-  const visible = await confirmBtn.first().isVisible({ timeout: 2000 }).catch(() => false);
-  if (!visible) return { popupSeen: false };
+  const seen = [];
+  for (let i = 0; i < 3; i += 1) {
+    const dialog = await waitForDialog(page, { timeoutMs: i === 0 ? 4000 : 2000 });
+    if (!dialog.found) break;
 
-  const text = await page.locator('body').innerText().catch(() => '');
-  if (/필수 항목을 입력하세요/.test(text)) {
-    await confirmBtn.first().click();
-    throw new Error('임시저장 거부됨 — 필수 항목 누락 (필요 시 emergencyTempSaveWithDummy 사용)');
+    const text = dialog.dialogText || '';
+    seen.push(text);
+
+    if (/필수 항목|입력하세요|선택하세요/.test(text)) {
+      await clickPopupConfirm(page); // 거부 팝업은 닫아두고 예외로 이관
+      throw new Error(`임시저장 거부됨 — ${text} (필요 시 emergencyTempSaveWithDummy 사용)`);
+    }
+
+    await clickPopupConfirm(page);
+    await page.waitForTimeout(600);
+
+    if (/저장되었습니다|임시저장이 완료/.test(text)) break;
   }
 
-  await confirmBtn.first().click();
-  await page.waitForTimeout(500);
-  return { popupSeen: true };
+  return { popupSeen: seen.length > 0, dialogTexts: seen };
 }
 
 // -------------------------------------------------------------------------

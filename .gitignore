@@ -1,2 +1,5 @@
 # Claude Code 워크트리(임시 작업본) - 저장소에 포함하지 않음
 .claude/worktrees/
+
+# 전자소송 자동화 로그(의뢰인 개인정보 포함) - 저장소에 포함하지 않음
+ecfs-automation/logs/
