@@ -715,12 +715,11 @@ function buildFooter() {
               <div class="logo-icon">⚖</div>
               박배선 법무사 사무소
             </div>
-            <div class="info-row"><span class="label">주소</span><span>서울특별시 서초구 서초대로 123, 4층 (서초동)</span></div>
-            <div class="info-row"><span class="label">전화</span><span>02-1234-5678</span></div>
-            <div class="info-row"><span class="label">팩스</span><span>02-1234-5679</span></div>
-            <div class="info-row"><span class="label">이메일</span><span>info@bslaw.kr</span></div>
-            <div class="info-row"><span class="label">운영</span><span>평일 09:00~18:00 (토요일 09:00~13:00)</span></div>
-            <div class="info-row"><span class="label">등록</span><span>법무사등록번호 제2024-서초-001호</span></div>
+            <div class="info-row"><span class="label">주소</span><span>경상남도 김해시 계동로 233, 403호 (대청동, 마루애빌딩)</span></div>
+            <div class="info-row"><span class="label">전화</span><span>055-312-9345 (9346)</span></div>
+            <div class="info-row"><span class="label">팩스</span><span>055-312-9347</span></div>
+            <div class="info-row"><span class="label">이메일</span><span>pbaesun@gmail.com</span></div>
+            <div class="info-row"><span class="label">운영</span><span>업무시간 평일 09:00~18:00 · 온라인 상담신청 24시간</span></div>
           </div>
           <div class="footer-nav">
             <div class="footer-nav-title">업무 안내</div>
