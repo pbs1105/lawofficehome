@@ -1,0 +1,444 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="topic-id" content="S-B07"><meta name="robots" content="noindex,nofollow"><title>신청자료 숫자 대조와 보정 관리 · 직원용</title>
+<style>
+:root{--bg:#0f1b2d;--surface:#16263d;--surface2:#1b2e49;--ink:#cfd8e3;--head:#e2cfa3;--muted:#93a2b5;--line:#2c3f5a;
+--gold:#bfa06a;--link:#9fc0ea;--th:#223a5e;--thInk:#dfe6ef;--teal:#3fb6a8;--tealBg:#14322f;--mag:#c862b8;--magBg:#33193a;
+--goldBg:#2c2618;color-scheme:dark}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans KR',system-ui,sans-serif;line-height:1.75;font-size:16px}
+.wrap{max-width:980px;margin:0 auto;padding:18px 16px 80px}
+h1,h2,h3{color:var(--head);line-height:1.4;font-family:'Noto Serif KR',serif}
+h1{font-size:1.6rem;margin:.3em 0 .3em}h2{font-size:1.25rem;margin:2em 0 .6em;padding-bottom:.3em;border-bottom:2px solid var(--gold)}
+h3{font-size:1.06rem;margin:1.6em 0 .4em;padding:6px 10px;background:var(--surface2);border-left:4px solid var(--gold);border-radius:4px}
+strong{color:#e8dcc0}a{color:var(--link)}code{font-family:inherit}
+.topbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:.8rem;color:var(--muted)}
+.badge{display:inline-flex;gap:4px;align-items:center;padding:2px 10px;border-radius:12px;font-size:.78rem;font-weight:600;border:1px solid var(--line)}
+.b-staff{background:var(--surface2);color:var(--head)}
+.b-ok{background:var(--tealBg);color:#9fe0d6;border-color:var(--teal)}
+.b-ng{background:var(--magBg);color:#efc2e8;border-color:var(--mag)}
+blockquote{margin:10px 0;padding:8px 14px;background:var(--surface);border-left:4px solid var(--line);border-radius:4px;color:var(--muted);font-size:.9rem}
+blockquote p{margin:.2em 0}
+.table-wrap{overflow-x:auto;margin:8px 0}
+table{border-collapse:collapse;width:100%;font-size:.92rem;background:var(--surface)}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}th{background:var(--th);color:var(--thInk);font-weight:500}
+.card td:first-child{width:8.5em;color:var(--gold);font-weight:600;white-space:nowrap}
+ul{padding-left:1.3em}li{margin:.2em 0}
+.cite{display:inline-flex;align-items:center;gap:3px;font-size:.72rem;font-weight:600;text-decoration:none;padding:0 7px;border-radius:9px;margin:0 2px;vertical-align:1px;white-space:nowrap}
+.cite.ok{background:var(--tealBg);color:#9fe0d6;border:1px solid var(--teal)}
+.cite.ng{background:var(--magBg);color:#efc2e8;border:1px solid var(--mag)}
+.r{display:inline-block;font-size:.72rem;font-weight:700;padding:0 7px;border-radius:9px;margin-right:3px;vertical-align:1px}
+.r-ans{background:#173149;color:#a9cdf0;border:1px solid #3d6f9e}
+.r-fwd{background:var(--goldBg);color:#e6cf9a;border:1px solid var(--gold)}
+.r-law{background:#2d1f3a;color:#dcc2f0;border:1px solid #8a63b5}
+.unv{border-left:4px solid var(--mag)!important;background:linear-gradient(90deg,rgba(200,98,184,.10),transparent 60%)}
+li.unv,p.unv{padding-left:8px;margin-left:-12px}
+.dec{border-left:4px solid var(--gold)!important;background:linear-gradient(90deg,rgba(191,160,106,.10),transparent 60%)}
+li.dec,p.dec{padding-left:8px;margin-left:-12px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin:12px 0}
+summary{cursor:pointer;color:var(--head);font-weight:600}
+.panel{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--mag);border-radius:8px;padding:12px 16px;margin:14px 0 22px}
+.panel h2{margin:.2em 0 .4em;border:none;font-size:1.08rem}
+.panel .tier{margin:10px 0 4px;font-weight:700;color:var(--head)}
+.panel ol{margin:4px 0 4px 1.2em;padding:0}.panel li{font-size:.9rem}
+.panel label{display:flex;gap:8px;align-items:flex-start;cursor:pointer}
+.panel input{margin-top:5px;accent-color:#3fb6a8;flex:none}
+.panel .done{color:#9fe0d6}.panel .done::after{content:" ✓";}
+.prog{font-size:.82rem;color:var(--muted)}
+.legend{font-size:.8rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:10px;margin:6px 0}
+.idx a{display:block;padding:10px 14px;margin:8px 0;background:var(--surface);border:1px solid var(--line);border-radius:8px;text-decoration:none;color:var(--ink)}
+.idx a:hover{border-color:var(--gold)}
+@media print{body{background:#fff;color:#000}.panel{display:none}details{display:block}}
+@media (max-width:640px){body{font-size:15.5px}.card td:first-child{width:6.5em;white-space:normal}}
+</style></head><body data-page="S-B07"><div class="wrap">
+<div class="topbar"><span class="badge b-staff">직원용 · 내부자료</span><span class="badge b-ng">◇ 검증 전 — 내부 검토용</span><span>회생파산 › 사업자·법인 회생 · S-B07</span>
+<span>법령 기준일 2026-10-26 · 다음 점검 2027-01-31</span></div>
+<h1>신청자료 숫자 대조와 보정 관리</h1><div class="legend"><span><span class="cite ok">✓</span> 확인된 근거</span><span><span class="cite ng">◇</span> 확인 전 근거</span><span><span class="r r-ans">● 답</span> 직원 즉답</span><span><span class="r r-fwd">◐ 안내→법무사</span></span><span><span class="r r-law">▲ 법무사</span> 법무사만</span><span style="border-left:4px solid var(--mag);padding-left:6px">자홍 레일 = 확인 전 내용</span><span style="border-left:4px solid var(--gold);padding-left:6px">금색 레일 = 법무사 결정 대기</span></div><section class="panel"><h2>◇ 검증 패널 <span class="prog" id="prog"></span></h2><div class="tier">① 필수 확인 — 고객에게 착오·손해를 줄 수 있는 것 (3)</div><ol><li><label><input type="checkbox" data-k="cCHB-151"><span>근거 확인: <a href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제151조" target="_blank" rel="noopener">채무자 회생 및 파산에 관한 법률 제151조(회생채권자 등의 목록에 기재된 회생채권 등의 신고 의제)</a> — 관리인이 제출한 목록에 기재된 회생채권·회생담보권은 신고된 것으로 봄 — 목록 기재가 곧 신고 효과</span></label></li><li><label><input type="checkbox" data-k="cSC-2018DA43180"><span>근거 확인: <a href="https://www.scourt.go.kr/sjudge/1614760004486_172644.pdf" target="_blank" rel="noopener">대법원 2021. 2. 25. 선고 2018다43180 판결(손해배상)</a> — 법무사는 위임받은 서류 작성·제출과 관련해 회생법원 보정권고 내용을 적절히 설명·조언할 의무가 있고, 이를 게을리해 채권이 누락된 채권자목록이 제출되면 책임. 손해는 인가가 아니라 면책결정 시 확정</span></label></li><li><label><input type="checkbox" data-k="cCHB-251"><span>근거 확인: <a href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제251조" target="_blank" rel="noopener">채무자 회생 및 파산에 관한 법률 제251조(회생채권 등의 면책 등)</a> — 회생계획인가결정이 있으면 계획이나 법률로 인정된 권리를 제외하고 채무자는 모든 회생채권·회생담보권에 관한 책임을 면함 — 목록에 없고 신고도 안 된 채권은 실권 위험</span></label></li></ol><div class="tier">② 개략 확인</div><ol><li><label><input type="checkbox" data-k="r1"><span>A 즉답 카드 — 직원이 고객에게 그대로 말해도 되는 내용인가</span></label></li><li><label><input type="checkbox" data-k="r2"><span>B 단계 순서와 할 일이 실제 사무소 흐름과 맞는가</span></label></li><li><label><input type="checkbox" data-k="r3"><span>C 서류표·비용표에 빠진 항목이 없는가</span></label></li><li><label><input type="checkbox" data-k="r4"><span>응답 범위 표시(답·안내→법무사·법무사)가 적절한가</span></label></li></ol><div class="tier">③ 점진 확인</div><p class="prog" style="margin:2px 0">표현·순서·세부 실무는 사용하면서 고친다 — 직원 의견은 제작메모에 남긴다.</p></section>
+<blockquote>
+<p>직원용 · 내부자료 · <strong><span title="확인 전">◇⚠️</span> 검증 전 초안</strong> · 법령 기준일 2026. 10. 26. · 최종 확인 법무사 (검증 후 기재)
+응답 범위 표시: <span class="r r-ans">● 답</span> 바로 답함 · <span class="r r-fwd">◐ 안내→법무사</span> 일반 기준만 안내 · <span class="r r-law">▲ 법무사</span> 법무사만 답함
+S-B02(접수)의 B2 "숫자 대조"와 B5 "보정"을 자세히 푼 페이지다. 법인회생·간이회생 공통.</p>
+</blockquote>
+<h2>A 즉답 카드</h2>
+<ul>
+<li><strong>한 문장</strong> — 신청서의 숫자는 <strong>같은 날짜 기준으로, 서로 다른 장부가 같은 말을 해야</strong> 믿어진다. 맞지 않는 숫자는 고치거나, 왜 다른지 적어 둔다. <span class="r r-ans">● 답</span></li>
+<li><strong>업무범위</strong> — 사무소는 회사가 준 자료의 숫자를 대조하고 차이를 표로 정리해 서류에 반영한다. 숫자의 <strong>사실 확인과 회계 판단은 회사·세무사</strong>가, 법원 보정명령에 대한 진술은 대표자가 한다. <span class="r r-ans">● 답</span> <a class="cite ok" href="https://www.law.go.kr/법령/법무사법/제2조" target="_blank" rel="noopener" title="법무사법 제2조(업무) — ①1. 법원·공소청(검찰)에 제출하는 서류 작성 / 6. 개인파산·개인회생 신청 대리(기일 진술 대리 제외) / 7. 작성 서류 제출 대행 / 8. 부수 상담·자문">✓ 법무사법 제2조</a></li>
+<li><strong>왜 중요한가</strong> — 숫자가 서로 맞지 않으면 보정명령이 나오고, 불성실한 신청으로 보이면 기각 사유가 된다<a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제42조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제42조(회생절차개시신청의 기각사유) — 비용 미납, 불성실한 신청, 채권자 일반의 이익에 맞지 않는 경우 기각">✓ 채무자회생법 제42조</a>. 간이회생은 채권 합계로 대상 여부가 갈린다<a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제293조의2" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제293조의2(용어의 정의) — 소액영업소득자 = 신청 당시 회생채권·회생담보권 총액이 50억원 이하 범위에서 대통령령으로 정한 금액 이하인 영업소득자, 간이회생절차는 이들에게 적용">✓ 채무자회생법 제293조의2</a><a class="cite ok" href="https://bsb.scourt.go.kr/bsb/info/info_01/index.html" target="_blank" rel="noopener" title="부산회생법원 실무준칙 제201호(간이회생사건 처리기준) 제3조 — 소액영업소득자 판단 시 공익채무·미발생 구상채무는 채무 총액에 넣지 않고, 다툼 있는 채무는 첨부서류·심문결과 등으로 포함 여부 판단">✓ 부산준칙 제201호 제3조</a>. 개시 후에는 관리인이 낸 <strong>목록에 적힌 채권은 신고된 것으로 보기</strong> 때문에<a class="cite ng" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제151조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제151조(회생채권자 등의 목록에 기재된 회생채권 등의 신고 의제) — 관리인이 제출한 목록에 기재된 회생채권·회생담보권은 신고된 것으로 봄 — 목록 기재가 곧 신고 효과">◇ 채무자회생법 제151조</a>, 목록이 틀리면 회사와 채권자 모두에게 손해가 이어진다.</li>
+<li><strong>법원이 자주 지적하는 빠짐</strong> — 금융기관별 부채, <strong>보증채무(특히 지급보증으로 인한 우발채무)</strong>, 신청 전후 자금수지표, 최근 경영실적, 외부감사보고서, 대주주 주식 변동(회생사건실무).</li>
+<li><strong>고객이 꼭 묻는 것</strong></li>
+<li>"장부가 엉망인데 신청할 수 있나요?" → 가능하다. 다만 어느 숫자가 장부에서 나왔고 어느 숫자가 추정인지 구분해 적어야 한다. <span class="r r-ans">● 답</span></li>
+<li>"보정명령이 나왔는데 큰일인가요?" → 흔한 절차다. 기한 안에 요구한 자료를 내면 된다. 기한을 넘기면 불이익이 있을 수 있다. <span class="r r-ans">● 답</span></li>
+<li><strong>✖ 말하면 안 되는 말</strong> — ① "숫자는 대충 맞추면 됩니다" ② "이 채권자는 빼고 내죠"(목록 누락 → 불성실·실권 문제) ③ "보정은 무시해도 됩니다"</li>
+<li><strong>다음 페이지</strong> — 진단표 S-B01 B2 / 접수 S-B02 / 개시 후 목록 제출 S-B03</li>
+</ul>
+<h2>B 단계</h2>
+<h3>B0 기준일과 자료 표지</h3>
+<div class="table-wrap"><table class="card">
+<thead>
+<tr>
+<th>칸</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>목적</td>
+<td>모든 숫자를 <strong>같은 기준일</strong>로 놓고, 어디서 왔는지 표시한다</td>
+</tr>
+<tr>
+<td>할 일</td>
+<td>① [직원] 신청 기준일 확인(S-B01·S-B02 B0) ② [직원] 받은 자료마다 표지 — 자료명·기준일·출처(장부/금융기관/등기/회사 설명)·작성자·<strong>확정/추정</strong> ③ [직원] 기준일이 다른 자료는 기준일로 다시 받거나 차이를 적는다</td>
+</tr>
+<tr>
+<td>받을 것·안내할 것</td>
+<td>안내 <span class="r r-ans">● 답</span>: "모든 금액을 ○월 ○일 기준으로 맞춰 주세요. 그날 기준 자료가 없으면 가장 가까운 날짜 자료와 그 이후 변동을 알려 주시면 됩니다."</td>
+</tr>
+<tr>
+<td>만들어 낼 것</td>
+<td>대조표(C1) 시트 생성 — <code>02 작업자료/대조표_v1.xlsx</code></td>
+</tr>
+<tr>
+<td>⚡ 기한</td>
+<td>접수 목표일 역산</td>
+</tr>
+<tr>
+<td>이 단계의 함정</td>
+<td>재무상태표는 결산일, 부채증명서는 발급일, 채권자 명부는 작성일 — 날짜가 다른 숫자를 그대로 비교하면 차이가 "오류"로 보인다</td>
+</tr>
+<tr>
+<td>완료 기준</td>
+<td>☐ 기준일 확정 ☐ 모든 자료에 표지 ☐ 추정치 표시</td>
+</tr>
+</tbody>
+</table></div>
+<h3>B1 부채 대조 — 명부·장부·증명서</h3>
+<div class="table-wrap"><table class="card">
+<thead>
+<tr>
+<th>칸</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>목적</td>
+<td>채권자 명부의 합계가 장부·금융기관 자료와 맞는지 확인하고, 다르면 이유를 남긴다</td>
+</tr>
+<tr>
+<td>할 일</td>
+<td>① [직원] <strong>채권자 명부 합계 ↔ 재무상태표 부채 계정 ↔ 부채증명서 ↔ 계정별 원장</strong> 4방향 대조 ② [직원] 차이 원인 분류 — 기준일 차이 / 이자·지연손해금 포함 여부 / 미발생 구상채무 / 회사·대표 개인 채무 혼재 / 장부 누락 / 다툼 ③ [직원] 성질 분류 표시 — 회생담보권·회생채권·공익채권(근로자 임금·퇴직금 등)<a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제179조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제179조(공익채권이 되는 청구권) — 근로자의 임금·퇴직금·재해보상금 등은 공익채권">✓ 채무자회생법 제179조</a> ④ [법무사] 다툼 있는 채무·분류 판단</td>
+</tr>
+<tr>
+<td>받을 것·안내할 것</td>
+<td>금융기관별 부채증명서, 거래처 잔액 확인 자료, 미지급 임금·세금 내역</td>
+</tr>
+<tr>
+<td>만들어 낼 것</td>
+<td>대조표 ① 부채 시트, 차이 원인표</td>
+</tr>
+<tr>
+<td>⚡ 기한</td>
+<td>해당 없음</td>
+</tr>
+<tr>
+<td>이 단계의 함정</td>
+<td>간이회생 50억 판단은 장부 부채총액이 아니라 회생채권·회생담보권 합계(공익채무·미발생 구상채무 제외)<a class="cite ok" href="https://bsb.scourt.go.kr/bsb/info/info_01/index.html" target="_blank" rel="noopener" title="부산회생법원 실무준칙 제201호(간이회생사건 처리기준) 제3조 — 소액영업소득자 판단 시 공익채무·미발생 구상채무는 채무 총액에 넣지 않고, 다툼 있는 채무는 첨부서류·심문결과 등으로 포함 여부 판단">✓ 부산준칙 제201호 제3조</a> — 이 시트에서 두 합계를 <strong>따로</strong> 낸다. <strong>채권자를 빼거나 금액을 줄이자는 요청은 받지 않는다</strong> <span class="r r-law">▲ 법무사</span></td>
+</tr>
+<tr>
+<td>완료 기준</td>
+<td>☐ 4방향 대조 ☐ 차이 원인 기록 ☐ 성질 분류 ☐ 간이 판단용 합계 별도</td>
+</tr>
+</tbody>
+</table></div>
+<h3>B2 담보·보증 대조 — 가장 자주 빠지는 곳</h3>
+<div class="table-wrap"><table class="card">
+<thead>
+<tr>
+<th>칸</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>목적</td>
+<td>담보와 보증을 빠짐없이 찾아 채권자·재산과 연결한다</td>
+</tr>
+<tr>
+<td>할 일</td>
+<td>① [직원] 담보 연결 — 재산목록의 담보물 ↔ 등기부의 근저당·질권 ↔ 채권자 명부의 회생담보권 ② [직원] <strong>회사가 남을 위해 선 보증·물상보증</strong>(우발채무) 목록 — 약정서·등기로 확인 ③ [직원] <strong>남이 회사를 위해 선 보증</strong>(대표자 개인 보증 등) 별도 목록 ④ [법무사] 우발채무의 기재 방법 판단</td>
+</tr>
+<tr>
+<td>받을 것·안내할 것</td>
+<td>대출·보증 약정서, 담보 설정 계약서, 등기사항증명서. 안내 <span class="r r-ans">● 답</span>: "회사가 다른 회사나 사람을 위해 서 준 보증도 꼭 알려 주세요. 장부에 안 나타나 자주 빠집니다."</td>
+</tr>
+<tr>
+<td>만들어 낼 것</td>
+<td>대조표 ② 담보·보증 시트</td>
+</tr>
+<tr>
+<td>⚡ 기한</td>
+<td>해당 없음</td>
+</tr>
+<tr>
+<td>이 단계의 함정</td>
+<td>지급보증으로 인한 우발채무는 법원이 특히 자주 누락을 지적한다(회생사건실무). 대표자 개인 보증은 회사 회생계획의 영향을 받지 않으므로<a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제250조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제250조(회생계획의 효력범위) — 회생계획은 보증인 등 채무자와 함께 채무를 부담하는 자에 대한 채권자의 권리와 제3자가 제공한 담보에 영향을 미치지 않음">✓ 채무자회생법 제250조</a> 회사 채무와 섞지 않는다</td>
+</tr>
+<tr>
+<td>완료 기준</td>
+<td>☐ 담보 3방향 연결 ☐ 회사 제공 보증 목록 ☐ 대표 등 보증 목록</td>
+</tr>
+</tbody>
+</table></div>
+<h3>B3 자산·집행 대조</h3>
+<div class="table-wrap"><table class="card">
+<thead>
+<tr>
+<th>칸</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>목적</td>
+<td>재산목록이 장부·등기와 맞고, 집행 중인 재산이 정확히 특정되게 한다</td>
+</tr>
+<tr>
+<td>할 일</td>
+<td>① [직원] 재산목록 ↔ 장부(고정자산 대장) ↔ 등기·등록부 ② [직원] 통장 잔액 ↔ 장부 현금 — 차이 사유 ③ [직원] 압류·가압류·경매·체납처분 목록 ↔ 대상 재산 ↔ 채권자 ④ [직원] <strong>회사 계좌와 대표 개인 계좌가 섞인 거래</strong> 표시</td>
+</tr>
+<tr>
+<td>받을 것·안내할 것</td>
+<td>통장 거래내역(최근 1년), 고정자산 대장, 집행 관련 결정문</td>
+</tr>
+<tr>
+<td>만들어 낼 것</td>
+<td>대조표 ③ 자산·집행 시트</td>
+</tr>
+<tr>
+<td>⚡ 기한</td>
+<td>경매 매각기일 등 집행 일정은 노션 기한db에 즉시</td>
+</tr>
+<tr>
+<td>이 단계의 함정</td>
+<td>신청 직전 특정 채권자 변제·담보 추가·자산 이전이 보이면 시점·경위를 기록해 법무사에게 넘긴다(부인 대상 가능성) — 사무소가 효과를 단정하지 않는다. 회사·대표 계좌 혼재 금액은 정리 전까지 목록에 합산하지 않는다</td>
+</tr>
+<tr>
+<td>완료 기준</td>
+<td>☐ 재산 3방향 대조 ☐ 현금 차이 사유 ☐ 집행 목록 연결 ☐ 혼재 거래 표시</td>
+</tr>
+</tbody>
+</table></div>
+<h3>B4 자금수지·사업 자료의 일관성</h3>
+<div class="table-wrap"><table class="card">
+<thead>
+<tr>
+<th>칸</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>목적</td>
+<td>과거 실적·자금 흐름과 앞으로의 계획이 서로 모순되지 않게 한다</td>
+</tr>
+<tr>
+<td>할 일</td>
+<td>① [직원] 월별 자금운용 실적 ↔ 통장 입출금 합계 ② [직원] 손익계산서 매출 ↔ 부가세 신고 매출(세무사 확인) ③ [직원] 향후 자금수지 계획은 <strong>추정</strong>으로 표시하고 가정(매출·원가·회수 기간)을 적는다 ④ [법무사] 신청서 서술(개시 원인·사업 전망)과 숫자의 일치 확인</td>
+</tr>
+<tr>
+<td>받을 것·안내할 것</td>
+<td>부가세 신고서, 월별 매출·매입 자료, 수주잔고</td>
+</tr>
+<tr>
+<td>만들어 낼 것</td>
+<td>대조표 ④ 자금 시트</td>
+</tr>
+<tr>
+<td>⚡ 기한</td>
+<td>해당 없음</td>
+</tr>
+<tr>
+<td>이 단계의 함정</td>
+<td>아직 부도가 나지 않은 회사는 신청 전후 자금수지표가 <strong>개시 원인 판단의 핵심 자료</strong>다(회생사건실무). 추정치를 확정치처럼 쓰지 않는다</td>
+</tr>
+<tr>
+<td>완료 기준</td>
+<td>☐ 실적↔통장 ☐ 매출↔부가세 ☐ 추정 가정 기록 ☐ 서술과 숫자 일치</td>
+</tr>
+</tbody>
+</table></div>
+<h3>B5 보정 대응</h3>
+<div class="table-wrap"><table class="card">
+<thead>
+<tr>
+<th>칸</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>목적</td>
+<td>법원의 보정 요구에 기한 안에, 이력이 남게 답한다</td>
+</tr>
+<tr>
+<td>할 일</td>
+<td>① [직원] 보정명령·보정 요청(전화 포함) 수령 즉시 — 요구 사항·기한을 노션 기한db 등록, 결정문은 <code>04 제출결과자료</code> ② [직원] 요구 자료를 고객에게 요청하고 <strong>요청 내용을 고객에게 설명한 사실·일시 기록</strong> ③ [직원] 보정서 작성(작성 서류 추가 위임 — S-C01) → 대조표 갱신 ④ [법무사] 검토 ⑤ [직원] 제출 후 버전 동결(<code>03 제출확정자료</code>)</td>
+</tr>
+<tr>
+<td>받을 것·안내할 것</td>
+<td>안내 <span class="r r-ans">● 답</span>: "법원이 ○○ 자료를 ○월 ○일까지 내라고 했습니다. 이 자료가 필요합니다." 보정 대응 방향 <span class="r r-law">▲ 법무사</span></td>
+</tr>
+<tr>
+<td>만들어 낼 것</td>
+<td>보정서, 보정 이력표(요구일·기한·요구 사항·회신일·제출 버전)</td>
+</tr>
+<tr>
+<td>⚡ 기한</td>
+<td><strong>보정 기한</strong>(명령서 기준) — D-3 알림</td>
+</tr>
+<tr>
+<td>이 단계의 함정</td>
+<td>법원은 자료가 부실해도 대체로 대표자 심문에서 보완하게 하지만, <strong>매우 부실하면 심문 전에 보정명령</strong>을 낸다(회생사건실무). 보정 내용을 고객에게 제대로 설명하지 않아 채권이 빠지면 사무소 책임 문제가 된다 — 개인회생 사안이지만 대법원이 법무사의 보정권고 설명 의무를 인정했다<a class="cite ng" href="https://www.scourt.go.kr/sjudge/1614760004486_172644.pdf" target="_blank" rel="noopener" title="대법원 2021. 2. 25. 선고 2018다43180 판결(손해배상) — 법무사는 위임받은 서류 작성·제출과 관련해 회생법원 보정권고 내용을 적절히 설명·조언할 의무가 있고, 이를 게을리해 채권이 누락된 채권자목록이 제출되면 책임. 손해는 인가가 아니라 면책결정 시 확정">◇ 대법 2021. 2. 25. 선고 2018다43180</a></td>
+</tr>
+<tr>
+<td>완료 기준</td>
+<td>☐ 기한 등록 ☐ 고객 설명 기록 ☐ 보정서 제출 ☐ 이력표 갱신</td>
+</tr>
+</tbody>
+</table></div>
+<h3>B6 개시 후 목록으로 넘기기</h3>
+<div class="table-wrap"><table class="card">
+<thead>
+<tr>
+<th>칸</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>목적</td>
+<td>신청 단계 대조표를 개시 후 <strong>회생채권자 등의 목록</strong>의 기초로 넘긴다</td>
+</tr>
+<tr>
+<td>할 일</td>
+<td>① [직원] 개시결정문의 목록 제출 기간 확인 — 개시결정일부터 2주~2개월 사이에서 법원이 정함<a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제50조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제50조(개시결정과 동시에 정하여야 할 사항) — 목록 제출기간 개시결정일부터 2주~2월, 신고기간 그 말일부터 1주~1월, 조사기간 신고기간 말일부터 1주~1월, 계획안 제출기간 조사기간 말일부터 4개월 이하(②연장 가능)">✓ 채무자회생법 제50조</a> ② [직원] 대조표를 목록 양식으로 옮김 — 목록은 <strong>관리인</strong>이 낸다(중소기업은 대표자가 관리인으로 보는 경우 많음)<a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제147조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제147조(목록) — 관리인은 회생채권자·회생담보권자·주주 목록을 제출기간 안에 제출">✓ 채무자회생법 제147조</a><a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제74조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제74조(관리인의 선임) — ③개인·중소기업 등은 관리인을 선임하지 않을 수 있음 ④그 경우 채무자의 대표자를 관리인으로 봄">✓ 채무자회생법 제74조</a> ③ [법무사] 최종 검토 ④ [직원] S-B03으로 인계</td>
+</tr>
+<tr>
+<td>받을 것·안내할 것</td>
+<td>안내 <span class="r r-ans">● 답</span>: "목록에 적힌 채권은 채권자가 따로 신고하지 않아도 신고한 것으로 봅니다. 그래서 목록을 빠짐없이 정확하게 내는 것이 중요합니다." <a class="cite ng" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제151조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제151조(회생채권자 등의 목록에 기재된 회생채권 등의 신고 의제) — 관리인이 제출한 목록에 기재된 회생채권·회생담보권은 신고된 것으로 봄 — 목록 기재가 곧 신고 효과">◇ 채무자회생법 제151조</a></td>
+</tr>
+<tr>
+<td>만들어 낼 것</td>
+<td>목록 초안(관리인 명의)</td>
+</tr>
+<tr>
+<td>⚡ 기한</td>
+<td><strong>목록 제출 기간</strong>(개시결정문)</td>
+</tr>
+<tr>
+<td>이 단계의 함정</td>
+<td>목록에도 없고 채권자가 신고도 하지 않은 채권은 인가 후 실권될 수 있다<a class="cite ng" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제251조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제251조(회생채권 등의 면책 등) — 회생계획인가결정이 있으면 계획이나 법률로 인정된 권리를 제외하고 채무자는 모든 회생채권·회생담보권에 관한 책임을 면함 — 목록에 없고 신고도 안 된 채권은 실권 위험">◇ 채무자회생법 제251조</a><a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제148조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제148조(회생채권의 신고) — 회생채권자는 신고기간 안에 채권 내용·원인 등을 신고하고 증거서류 제출">✓ 채무자회생법 제148조</a> — 반대로 채권자 쪽에서는 큰 손해이고, 의도적 누락은 문제가 된다. 신청 단계에서 정리한 숫자를 목록에서 다시 바꾸면 이유를 남긴다</td>
+</tr>
+<tr>
+<td>완료 기준</td>
+<td>☐ 제출 기간 등록 ☐ 목록 초안 ☐ 법무사 검토 ☐ S-B03 인계</td>
+</tr>
+</tbody>
+</table></div>
+<h2>C 참조표</h2>
+<h3>C1 대조표 양식 — 열 정의 (<code>02 작업자료/대조표_vN.xlsx</code>)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>열</th>
+<th>내용</th>
+<th>예</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>자료명</td>
+<td>무엇에서 나온 숫자인가</td>
+<td>○○은행 부채증명서</td>
+</tr>
+<tr>
+<td>기준일</td>
+<td>숫자의 기준 날짜</td>
+<td>신청 기준일</td>
+</tr>
+<tr>
+<td>출처</td>
+<td>장부 / 금융기관 / 등기 / 회사 설명 / 추정</td>
+<td>금융기관</td>
+</tr>
+<tr>
+<td>금액</td>
+<td>원 단위</td>
+<td>—</td>
+</tr>
+<tr>
+<td>대조 대상</td>
+<td>같은 항목의 다른 자료</td>
+<td>재무상태표 단기차입금</td>
+</tr>
+<tr>
+<td>차이</td>
+<td>금액 차</td>
+<td>—</td>
+</tr>
+<tr>
+<td>차이 사유</td>
+<td>기준일·이자·구상채무·혼재·누락·다툼</td>
+<td>이자 미포함</td>
+</tr>
+<tr>
+<td>확정/추정</td>
+<td>확정 · 추정 · 다툼</td>
+<td>확정</td>
+</tr>
+<tr>
+<td>성질</td>
+<td>회생담보권 · 회생채권 · 공익채권 · 제외</td>
+<td>회생담보권</td>
+</tr>
+<tr>
+<td>간이 합계 포함</td>
+<td>○ / × (공익채무·미발생 구상채무는 ×)</td>
+<td>○</td>
+</tr>
+<tr>
+<td>보완 담당·기한</td>
+<td>회사 / 세무사 / 사무소</td>
+<td>세무사, ○/○</td>
+</tr>
+</tbody>
+</table></div>
+<p>시트 구성: ① 부채 ② 담보·보증 ③ 자산·집행 ④ 자금 ⑤ 보정 이력. <strong>고객 실명·계좌번호는 이 매뉴얼에 적지 않는다</strong> — 사건 대조표는 사건폴더 <code>02 작업자료</code>에만 둔다.</p>
+<h3>C2 비용</h3>
+<ul>
+<li>이 업무 자체의 법원 비용은 없다. 보정서 등 <strong>추가로 작성하는 서류는 작성 서류 단위로 추가 보수</strong>(S-C01 C2, 법인 사건).</li>
+<li>회계 정리·재무제표 재작성은 세무사·회계사 업무다 — 사무소가 대신하지 않는다.</li>
+</ul>
+<h3>C3 단계에 속하지 않는 함정</h3>
+<ul>
+<li><strong>불성실 신청</strong> — 숫자를 의도적으로 맞추거나 채권자를 빼면 기각 사유가 될 수 있다<a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제42조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제42조(회생절차개시신청의 기각사유) — 비용 미납, 불성실한 신청, 채권자 일반의 이익에 맞지 않는 경우 기각">✓ 채무자회생법 제42조</a>.</li>
+<li><strong>특정 채권자 우대</strong> — 신청 직전 일부 채권자에게만 갚거나 담보를 주는 행위는 부인 대상이 될 수 있다. 사무소는 기록하고 법무사에게 넘긴다.</li>
+<li><strong>필수 기재사항</strong> — 신청서에는 자본·자산·부채 등 재산 상태를 적어야 하므로<a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제36조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제36조(신청서) — 신청서 기재사항 — 상호·소재지·대표자, 신청취지, 개시원인, 사업목적과 업무상황, 자본·자산·부채 등 재산상태 등">✓ 채무자회생법 제36조</a> 대조표 없이 신청서 숫자를 쓰지 않는다.</li>
+<li><strong>업무범위</strong> — 회계 판단·가치 평가를 사무소가 하지 않는다(S-C01).</li>
+</ul>
+<details>
+<summary>D 근거·갱신</summary>
+<ul>
+<li>근거표: citations.json 자동 생성 — 이번 페이지 새 근거 2건(CHB-151 목록 기재 채권의 신고 의제, CHB-251 인가 후 면책·실권) 확인 대기</li>
+<li>법령 기준일 2026. 10. 26. · next_review 2027-01-31</li>
+<li>연계 도구: 대조표 엑셀 양식(미착수) — S-B01 진단표와 같은 파일로 만들면 진단 → 대조 → 목록으로 숫자가 이어진다</li>
+</ul>
+</details>
+</div><script>
+(function(){var key='adminchk:'+document.body.dataset.page;var st={};
+try{st=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
+var boxes=document.querySelectorAll('.panel input[type=checkbox]');
+function upd(){var n=0;boxes.forEach(function(b){if(b.checked)n++;b.parentNode.classList.toggle('done',b.checked)});
+var p=document.getElementById('prog');if(p)p.textContent='확인 '+n+' / '+boxes.length;}
+boxes.forEach(function(b){b.checked=!!st[b.dataset.k];b.addEventListener('change',function(){st[b.dataset.k]=b.checked;
+try{localStorage.setItem(key,JSON.stringify(st))}catch(e){}upd();});});upd();})();
+</script></body></html>

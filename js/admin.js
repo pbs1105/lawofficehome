@@ -216,7 +216,22 @@ const HELPER_TOPICS = {
     ]},
   ],
   'help-preservation': [],
-  'help-insolvency': [],
+  'help-insolvency': [
+    { label: '공통 기초', items: [
+      { id: 'doc-rh-c01', label: '업무범위와 수임 구조' },
+      { id: 'doc-rh-r01', label: '공통 기준표(비용·기한·생계비)' },
+    ]},
+    { label: '사업자·법인 회생', items: [
+      { id: 'doc-rh-b01', label: '법인 신청 전 진단 — 회생·간이회생·파산' },
+      { id: 'doc-rh-b02', label: '법인회생 개시신청 접수' },
+      { id: 'doc-rh-b07', label: '신청자료 숫자 대조와 보정 관리' },
+    ]},
+    { label: '개인회생', items: [
+      { id: 'doc-rh-i01', label: '개인회생 신청 접수' },
+      { id: 'doc-rh-i02', label: '금지명령·중지명령' },
+      { id: 'doc-rh-i03', label: '변제계획안과 월 변제금 계산' },
+    ]},
+  ],
   'help-foreign': [
     { id: 'for-inherit', label: '재외국민·외국인 상속등기' },
     { id: 'for-apostille', label: '아포스티유(Apostille)' },
@@ -898,6 +913,15 @@ const DOC_FILES = {
   'doc-re-28': '부동산집행_28_배당기일배당이의처리.html',
   'doc-re-29': '부동산집행_29_강제관리신청절차.html',
   'doc-re-30': '부동산집행_30_자동차선박항공기강제집행.html',
+  // 회생파산 직원용 자료 — admin/회생파산/ 폴더(경로 포함)
+  'doc-rh-c01': '회생파산/S-C01_scope-and-engagement.html',
+  'doc-rh-r01': '회생파산/S-R01_공통기준표.html',
+  'doc-rh-b01': '회생파산/S-B01_corp-pre-filing-diagnosis.html',
+  'doc-rh-b02': '회생파산/S-B02_corp-rehab-filing.html',
+  'doc-rh-b07': '회생파산/S-B07_filing-data-reconciliation.html',
+  'doc-rh-i01': '회생파산/S-I01_individual-rehab-filing.html',
+  'doc-rh-i02': '회생파산/S-I02_individual-stay-order.html',
+  'doc-rh-i03': '회생파산/S-I03_individual-repayment-plan.html',
 };
 
 /** 완결형 업무자료 문서(iframe) 렌더링 */
@@ -910,7 +934,9 @@ function renderDoc(pageId) {
     return;
   }
 
-  area.innerHTML = `<iframe src="민사집행/${file}" style="width:100%;height:calc(100vh - 120px);border:none;display:block;" title="${file}"></iframe>`;
+  // 경로가 없는 파일명은 기존 민사집행 폴더 기준
+  const src = file.includes('/') ? file : `민사집행/${file}`;
+  area.innerHTML = `<iframe src="${src}" style="width:100%;height:calc(100vh - 120px);border:none;display:block;" title="${file}"></iframe>`;
 }
 
 /** 취득세 계산기 */

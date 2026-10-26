@@ -1,0 +1,429 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="topic-id" content="S-I03"><meta name="robots" content="noindex,nofollow"><title>개인회생 변제계획안과 월 변제금 계산 · 직원용</title>
+<style>
+:root{--bg:#0f1b2d;--surface:#16263d;--surface2:#1b2e49;--ink:#cfd8e3;--head:#e2cfa3;--muted:#93a2b5;--line:#2c3f5a;
+--gold:#bfa06a;--link:#9fc0ea;--th:#223a5e;--thInk:#dfe6ef;--teal:#3fb6a8;--tealBg:#14322f;--mag:#c862b8;--magBg:#33193a;
+--goldBg:#2c2618;color-scheme:dark}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans KR',system-ui,sans-serif;line-height:1.75;font-size:16px}
+.wrap{max-width:980px;margin:0 auto;padding:18px 16px 80px}
+h1,h2,h3{color:var(--head);line-height:1.4;font-family:'Noto Serif KR',serif}
+h1{font-size:1.6rem;margin:.3em 0 .3em}h2{font-size:1.25rem;margin:2em 0 .6em;padding-bottom:.3em;border-bottom:2px solid var(--gold)}
+h3{font-size:1.06rem;margin:1.6em 0 .4em;padding:6px 10px;background:var(--surface2);border-left:4px solid var(--gold);border-radius:4px}
+strong{color:#e8dcc0}a{color:var(--link)}code{font-family:inherit}
+.topbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:.8rem;color:var(--muted)}
+.badge{display:inline-flex;gap:4px;align-items:center;padding:2px 10px;border-radius:12px;font-size:.78rem;font-weight:600;border:1px solid var(--line)}
+.b-staff{background:var(--surface2);color:var(--head)}
+.b-ok{background:var(--tealBg);color:#9fe0d6;border-color:var(--teal)}
+.b-ng{background:var(--magBg);color:#efc2e8;border-color:var(--mag)}
+blockquote{margin:10px 0;padding:8px 14px;background:var(--surface);border-left:4px solid var(--line);border-radius:4px;color:var(--muted);font-size:.9rem}
+blockquote p{margin:.2em 0}
+.table-wrap{overflow-x:auto;margin:8px 0}
+table{border-collapse:collapse;width:100%;font-size:.92rem;background:var(--surface)}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}th{background:var(--th);color:var(--thInk);font-weight:500}
+.card td:first-child{width:8.5em;color:var(--gold);font-weight:600;white-space:nowrap}
+ul{padding-left:1.3em}li{margin:.2em 0}
+.cite{display:inline-flex;align-items:center;gap:3px;font-size:.72rem;font-weight:600;text-decoration:none;padding:0 7px;border-radius:9px;margin:0 2px;vertical-align:1px;white-space:nowrap}
+.cite.ok{background:var(--tealBg);color:#9fe0d6;border:1px solid var(--teal)}
+.cite.ng{background:var(--magBg);color:#efc2e8;border:1px solid var(--mag)}
+.r{display:inline-block;font-size:.72rem;font-weight:700;padding:0 7px;border-radius:9px;margin-right:3px;vertical-align:1px}
+.r-ans{background:#173149;color:#a9cdf0;border:1px solid #3d6f9e}
+.r-fwd{background:var(--goldBg);color:#e6cf9a;border:1px solid var(--gold)}
+.r-law{background:#2d1f3a;color:#dcc2f0;border:1px solid #8a63b5}
+.unv{border-left:4px solid var(--mag)!important;background:linear-gradient(90deg,rgba(200,98,184,.10),transparent 60%)}
+li.unv,p.unv{padding-left:8px;margin-left:-12px}
+.dec{border-left:4px solid var(--gold)!important;background:linear-gradient(90deg,rgba(191,160,106,.10),transparent 60%)}
+li.dec,p.dec{padding-left:8px;margin-left:-12px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin:12px 0}
+summary{cursor:pointer;color:var(--head);font-weight:600}
+.panel{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--mag);border-radius:8px;padding:12px 16px;margin:14px 0 22px}
+.panel h2{margin:.2em 0 .4em;border:none;font-size:1.08rem}
+.panel .tier{margin:10px 0 4px;font-weight:700;color:var(--head)}
+.panel ol{margin:4px 0 4px 1.2em;padding:0}.panel li{font-size:.9rem}
+.panel label{display:flex;gap:8px;align-items:flex-start;cursor:pointer}
+.panel input{margin-top:5px;accent-color:#3fb6a8;flex:none}
+.panel .done{color:#9fe0d6}.panel .done::after{content:" ✓";}
+.prog{font-size:.82rem;color:var(--muted)}
+.legend{font-size:.8rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:10px;margin:6px 0}
+.idx a{display:block;padding:10px 14px;margin:8px 0;background:var(--surface);border:1px solid var(--line);border-radius:8px;text-decoration:none;color:var(--ink)}
+.idx a:hover{border-color:var(--gold)}
+@media print{body{background:#fff;color:#000}.panel{display:none}details{display:block}}
+@media (max-width:640px){body{font-size:15.5px}.card td:first-child{width:6.5em;white-space:normal}}
+</style></head><body data-page="S-I03"><div class="wrap">
+<div class="topbar"><span class="badge b-staff">직원용 · 내부자료</span><span class="badge b-ng">◇ 검증 전 — 내부 검토용</span><span>회생파산 › 개인회생 · S-I03</span>
+<span>법령 기준일 2026-10-26 · 다음 점검 2027-01-31</span></div>
+<h1>개인회생 변제계획안과 월 변제금 계산</h1><div class="legend"><span><span class="cite ok">✓</span> 확인된 근거</span><span><span class="cite ng">◇</span> 확인 전 근거</span><span><span class="r r-ans">● 답</span> 직원 즉답</span><span><span class="r r-fwd">◐ 안내→법무사</span></span><span><span class="r r-law">▲ 법무사</span> 법무사만</span><span style="border-left:4px solid var(--mag);padding-left:6px">자홍 레일 = 확인 전 내용</span><span style="border-left:4px solid var(--gold);padding-left:6px">금색 레일 = 법무사 결정 대기</span></div><section class="panel"><h2>◇ 검증 패널 <span class="prog" id="prog"></span></h2><div class="tier">① 필수 확인 — 고객에게 착오·손해를 줄 수 있는 것 (7)</div><ol><li><label><input type="checkbox" data-k="u0"><span>계산 엑셀: 06-admin/tools/개인회생_변제금계산_v1.xlsx — 생계비 60%(원 단위 반올림 가정 ⚠️), 라이프니쯔 연 5% 복리(소수 4자리 절사, 33개월 = 30.7719로 실무서 표와 일치), 인가 전 적립 3개월 가정, 최저변제액 = 3천만원 …</span></label></li><li><label><input type="checkbox" data-k="u1"><span>이 단계의 함정 엑셀 값은 개략치 다 — 생계비 원 단위 처리, 2027년 고시 원문, 최저변제액 수치가 아직 ⚠️ (신규) 확인 대기다. 채권자가 이의하면 가용소득 전부 투입·청산가치·최저변제액을 모두 맞춰야 한다 ✓ 채무자회생법 제614조</span></label></li><li><label><input type="checkbox" data-k="cCHB-579-4"><span>근거 확인: <a href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제579조" target="_blank" rel="noopener">채무자 회생 및 파산에 관한 법률 제579조 제4호(가용소득)</a> — 가용소득 = 채무자가 받는 모든 소득에서 소득세·주민세(지방소득세)·건강보험료 등, 채무자와 피부양자의 생계비, 영업소득자의 영업 경영·보존·계속에 필요한 비용을 뺀 금액</span></label></li><li><label><input type="checkbox" data-k="cBSB-405-2"><span>근거 확인: <a href="https://bsb.scourt.go.kr/bsb/info/info_01/index.html" target="_blank" rel="noopener">부산회생법원 실무준칙 제405호 제2조(배우자 또는 성년 자녀를 부양가족으로 볼 것인지 여부)</a> — 생계비 = 개시신청 당시 기준 중위소득 × 100분의 60, 경제활동이 가능한 연령의 배우자·성년 자녀도 제반 사정상 상당하면 부양가족으로 볼 수 있음</span></label></li><li><label><input type="checkbox" data-k="cBSB-405-3"><span>근거 확인: <a href="https://bsb.scourt.go.kr/bsb/info/info_01/index.html" target="_blank" rel="noopener">부산회생법원 실무준칙 제405호 제3조(추가 생계비 인정의 기본원칙)</a> — ①지속적으로 지출할 주거비·의료비·미성년 자녀 교육비는 합리적 범위에서 60% 금액에 가산해 생계비로 인정 ②산정 시 민사집행법 제246조①4호·시행령 제3·4조에 따른 금액 고려 가능</span></label></li><li><label><input type="checkbox" data-k="cBSB-424-3"><span>근거 확인: <a href="https://bsb.scourt.go.kr/bsb/info/info_01/index.html" target="_blank" rel="noopener">부산회생법원 실무준칙 제424호 제3조(3년 초과의 변제기간을 정할 수 있는 경우)</a> — 청산가치보장, 재단채권·우선채권 전액 변제, 최저변제액 제공, 불성실한 소비 여부, 자발적 변제 의사, 주택담보대출 채무재조정 등을 고려해 3년 초과로 수정 명령 가능, 5년 초과 불가</span></label></li><li><label><input type="checkbox" data-k="cMOHW-MEDIAN-2026"><span>근거 확인: <a href="https://www.mohw.go.kr" target="_blank" rel="noopener">2026년 기준 중위소득(보건복지부 고시)</a> — 1인 2,564,238원 · 2인 4,199,292 · 3인 5,359,036 · 4인 6,494,738 · 5인 7,556,719 · 6인 8,555,952</span></label></li></ol><div class="tier">② 개략 확인</div><ol><li><label><input type="checkbox" data-k="r1"><span>A 즉답 카드 — 직원이 고객에게 그대로 말해도 되는 내용인가</span></label></li><li><label><input type="checkbox" data-k="r2"><span>B 단계 순서와 할 일이 실제 사무소 흐름과 맞는가</span></label></li><li><label><input type="checkbox" data-k="r3"><span>C 서류표·비용표에 빠진 항목이 없는가</span></label></li><li><label><input type="checkbox" data-k="r4"><span>응답 범위 표시(답·안내→법무사·법무사)가 적절한가</span></label></li></ol><div class="tier">③ 점진 확인</div><p class="prog" style="margin:2px 0">표현·순서·세부 실무는 사용하면서 고친다 — 직원 의견은 제작메모에 남긴다.</p></section>
+<blockquote>
+<p>직원용 · 내부자료 · <strong><span title="확인 전">◇⚠️</span> 검증 전 초안</strong> · 법령 기준일 2026. 10. 26. · 최종 확인 법무사 (검증 후 기재)
+응답 범위 표시: <span class="r r-ans">● 답</span> 바로 답함 · <span class="r r-fwd">◐ 안내→법무사</span> 일반 기준만 안내 · <span class="r r-law">▲ 법무사</span> 법무사만 답함
+월 변제금을 어떻게 정하고 변제계획안을 어떻게 내는지. 계산은 <strong>개인회생_변제금계산_v1.xlsx</strong>(06-admin/tools)로 한다.</p>
+</blockquote>
+<h2>A 즉답 카드</h2>
+<ul>
+<li><strong>한 문장</strong> — 월 변제금은 <strong>소득에서 세금·보험료와 생계비를 뺀 나머지(가용소득) 전부</strong>이고, 이것을 원칙적으로 <strong>3년</strong> 동안 낸다. <span class="r r-ans">● 답</span> <a class="cite ng" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제579조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제579조 제4호(가용소득) — 가용소득 = 채무자가 받는 모든 소득에서 소득세·주민세(지방소득세)·건강보험료 등, 채무자와 피부양자의 생계비, 영업소득자의 영업 경영·보존·계속에 필요한 비용을 뺀 금액">◇ 채무자회생법 제579조 제4호</a><a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제611조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제611조(변제계획의 내용) — ⑤변제기간은 변제개시일부터 3년 이내, 청산가치 보장 등 특별한 사정이 있으면 5년 이내">✓ 채무자회생법 제611조</a></li>
+<li><strong>업무범위</strong> — 사무소가 변제계획안을 계산·작성해 제출한다. 채권자집회에서 변제계획을 설명하는 등 <strong>기일에서의 진술은 본인</strong>이 한다. <span class="r r-ans">● 답</span> <a class="cite ok" href="https://www.law.go.kr/법령/법무사법/제2조" target="_blank" rel="noopener" title="법무사법 제2조(업무) — ①1. 법원·공소청(검찰)에 제출하는 서류 작성 / 6. 개인파산·개인회생 신청 대리(기일 진술 대리 제외) / 7. 작성 서류 제출 대행 / 8. 부수 상담·자문">✓ 법무사법 제2조</a><a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제613조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제613조(개인회생채권자집회) — 법원은 채권자집회 기일과 변제계획 요지를 통지, 채무자는 출석해 요구가 있으면 변제계획을 설명, 채권자는 이의 진술 가능">✓ 채무자회생법 제613조</a></li>
+<li><strong>생계비</strong> — 신청 당시 기준 중위소득의 <strong>60%</strong>(가구원 수 기준). 주거비·의료비·미성년 자녀 교육비는 법원이 합리적 범위에서 더 인정할 수 있다. <span class="r r-ans">● 답</span> <a class="cite ng" href="https://bsb.scourt.go.kr/bsb/info/info_01/index.html" target="_blank" rel="noopener" title="부산회생법원 실무준칙 제405호 제2조(배우자 또는 성년 자녀를 부양가족으로 볼 것인지 여부) — 생계비 = 개시신청 당시 기준 중위소득 × 100분의 60, 경제활동이 가능한 연령의 배우자·성년 자녀도 제반 사정상 상당하면 부양가족으로 볼 수 있음">◇ 부산준칙 제405호 제2조</a><a class="cite ng" href="https://bsb.scourt.go.kr/bsb/info/info_01/index.html" target="_blank" rel="noopener" title="부산회생법원 실무준칙 제405호 제3조(추가 생계비 인정의 기본원칙) — ①지속적으로 지출할 주거비·의료비·미성년 자녀 교육비는 합리적 범위에서 60% 금액에 가산해 생계비로 인정 ②산정 시 민사집행법 제246조①4호·시행령 제3·4조에 따른 금액 고려 가능">◇ 부산준칙 제405호 제3조</a></li>
+<li><strong>기간</strong> — 원금을 3년 안에 다 갚을 수 있으면 그때까지, 아니면 3년. 파산했을 때 채권자가 받을 몫(청산가치)보다 적게 갚게 되면 <strong>최장 5년</strong>까지 늘어난다. <span class="r r-fwd">◐ 안내→법무사</span> <a class="cite ok" href="https://bsb.scourt.go.kr/bsb/info/info_01/index.html" target="_blank" rel="noopener" title="부산회생법원 실무준칙 제424호(변제계획의 변제기간) 제2조 — 3년 안에 원금 전부를 갚을 수 있으면 그때까지, 또 65세 이상·중증 장애인·30세 미만 청년·미성년 자녀 2명 이상 양육·한부모·전세사기 피해자 등은 원금 전부를 갚지 못해도 3년 미만 변제기간 가능">✓ 부산준칙 제424호 제2조</a><a class="cite ng" href="https://bsb.scourt.go.kr/bsb/info/info_01/index.html" target="_blank" rel="noopener" title="부산회생법원 실무준칙 제424호 제3조(3년 초과의 변제기간을 정할 수 있는 경우) — 청산가치보장, 재단채권·우선채권 전액 변제, 최저변제액 제공, 불성실한 소비 여부, 자발적 변제 의사, 주택담보대출 채무재조정 등을 고려해 3년 초과로 수정 명령 가능, 5년 초과 불가">◇ 부산준칙 제424호 제3조</a></li>
+<li><strong>언제 내나</strong> — 신청일부터 <strong>14일 안</strong>(법원이 늘릴 수 있음). 실무는 신청서와 함께 낸다. <span class="r r-ans">● 답</span> <a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제610조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제610조(변제계획안의 제출기간 등) — 채무자는 신청일부터 14일 이내 변제계획안 제출(법원이 늘릴 수 있음), 인가 전 수정 가능, 법원은 수정 명령 가능">✓ 채무자회생법 제610조</a></li>
+<li><strong>고객이 꼭 묻는 세 가지</strong></li>
+<li>"한 달에 얼마 내야 하나요?" → "소득과 가족 수로 대략 계산해 드릴 수 있고, 정확한 금액은 서류를 보고 법무사가 정합니다." 숫자를 확정해 말하지 않는다. <span class="r r-fwd">◐ 안내→법무사</span></li>
+<li>"내년에 신청하면 덜 내나요?" → 2027. 1. 1. 이후 신청하면 2027년 생계비(인상)가 적용되어 월 변제금이 줄 수 있다. 다만 그동안 압류·독촉이 계속될 수 있어 <strong>접수 시기는 법무사가 정한다</strong>. <span class="r r-law">▲ 법무사</span> <a class="cite ok" href="https://www.khan.co.kr/article/202607281741011/" target="_blank" rel="noopener" title="2027년 기준 중위소득(보건복지부, 2026. 7. 28. 중앙생활보장위원회 의결) — 1인 2,736,042원 · 2인 4,480,645 · 3인 5,718,091 · 4인 6,929,885 · 5인 8,063,019 · 6인 9,129,201 (전년 대비 6.70% 인상)">✓ 2027년 기준 중위소득(보건복지부, 2026. 7. 28. </a></li>
+<li>"빚을 다 갚아야 하나요?" → 정해진 기간 동안 정해진 금액을 다 내면 나머지는 면책 절차로 넘어간다(S-I04). <span class="r r-ans">● 답</span> <a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제611조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제611조(변제계획의 내용) — ⑤변제기간은 변제개시일부터 3년 이내, 청산가치 보장 등 특별한 사정이 있으면 5년 이내">✓ 채무자회생법 제611조</a></li>
+<li><strong>✖ 말하면 안 되는 말</strong> — ① "월 ○○만원이면 됩니다"(확정 금액) ② "3년이면 무조건 끝납니다" ③ "소득은 적게 적어도 됩니다"</li>
+<li><strong>다음 페이지</strong> — 신청 접수 S-I01 / 압류 차단 S-I02 / 개시결정 이후 S-I04 / 생계비 기준표 S-R01 R-4 / 고객용 I05(비용)</li>
+</ul>
+<h2>B 단계</h2>
+<h3>B1 소득과 가구원 수를 확정한다</h3>
+<div class="table-wrap"><table class="card">
+<thead>
+<tr>
+<th>칸</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>목적</td>
+<td>계산의 출발점인 월 소득과 가구원 수를 자료로 굳힌다</td>
+</tr>
+<tr>
+<td>할 일</td>
+<td>① [직원] 급여소득자: 원천징수영수증·급여명세서·급여 통장으로 <strong>최근 1년 월평균</strong> 산출, 상여·수당 포함 여부 표시 ② [직원] 영업소득자: 부가세 과세표준·소득금액증명·카드매출로 월평균 산출, 영업 필요 비용 따로 정리 ③ [직원] 세금(소득세·지방소득세)과 건강보험·국민연금·고용보험 월액 정리 ④ [직원] 가구원 — 주민등록·가족관계 자료로 부양가족 후보 정리 ⑤ [법무사] 경제활동이 가능한 배우자·성년 자녀를 부양가족으로 넣을지 판단<a class="cite ng" href="https://bsb.scourt.go.kr/bsb/info/info_01/index.html" target="_blank" rel="noopener" title="부산회생법원 실무준칙 제405호 제2조(배우자 또는 성년 자녀를 부양가족으로 볼 것인지 여부) — 생계비 = 개시신청 당시 기준 중위소득 × 100분의 60, 경제활동이 가능한 연령의 배우자·성년 자녀도 제반 사정상 상당하면 부양가족으로 볼 수 있음">◇ 부산준칙 제405호 제2조</a></td>
+</tr>
+<tr>
+<td>받을 것·안내할 것</td>
+<td>소득·가족 자료(G-I01). 안내 <span class="r r-ans">● 답</span>: "소득은 실제보다 줄여 적으면 나중에 절차가 폐지될 수 있습니다. 있는 그대로 알려 주세요."</td>
+</tr>
+<tr>
+<td>만들어 낼 것</td>
+<td>소득 산정표(계산 엑셀 [입력] 시트 값)</td>
+</tr>
+<tr>
+<td>⚡ 기한</td>
+<td>신청 전</td>
+</tr>
+<tr>
+<td>이 단계의 함정</td>
+<td><strong>직장을 자주 옮긴 고객</strong>은 소득이 계속되는지(현 직장 재직 기간, 4대보험 가입 이력)를 법원이 따진다 — 재직증명과 가입내역을 꼭 받는다. 부양가족을 근거 없이 늘리면 보정에서 다시 줄어 월 변제금이 오른다</td>
+</tr>
+<tr>
+<td>완료 기준</td>
+<td>☐ 월평균 소득 ☐ 세금·보험료 ☐ 가구원 수(법무사 확인)</td>
+</tr>
+</tbody>
+</table></div>
+<h3>B2 재산과 청산가치를 정리한다</h3>
+<div class="table-wrap"><table class="card">
+<thead>
+<tr>
+<th>칸</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>목적</td>
+<td>파산했다면 채권자에게 돌아갈 몫(청산가치)을 대략 정한다</td>
+</tr>
+<tr>
+<td>할 일</td>
+<td>① [직원] 재산목록과 같은 자료로 예금·보험 해약환급금·임차보증금·차량·부동산·퇴직금 예상액을 표로 정리 ② [법무사] 압류금지·면제 재산을 빼고 청산가치 결정(퇴직금·보증금 반영 방법 포함) ③ [직원] 결정된 값을 엑셀 [입력]의 청산가치 칸에 넣는다</td>
+</tr>
+<tr>
+<td>받을 것·안내할 것</td>
+<td>재산 자료(S-I01 C1-4). 안내 <span class="r r-ans">● 답</span>: "가진 재산이 많으면 그만큼 더 갚아야 할 수 있어 재산을 모두 확인합니다."</td>
+</tr>
+<tr>
+<td>만들어 낼 것</td>
+<td>청산가치 산정표</td>
+</tr>
+<tr>
+<td>⚡ 기한</td>
+<td>신청 전</td>
+</tr>
+<tr>
+<td>이 단계의 함정</td>
+<td>청산가치보다 적게 갚는 계획은 인가되지 않는다<a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제614조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제614조(변제계획의 인부) — 파산 시 배당액 이상 변제(청산가치 보장), 이의 시 가용소득 전부 투입 등 요건">✓ 채무자회생법 제614조</a>. 3년 치 변제금의 현재가치가 청산가치보다 작으면 기간이 늘어난다(B3). 신청 직전 재산 처분·명의 이전은 문제가 된다 — 발견 즉시 <span class="r r-law">▲ 법무사</span></td>
+</tr>
+<tr>
+<td>완료 기준</td>
+<td>☐ 재산표 ☐ 청산가치(법무사 확정)</td>
+</tr>
+</tbody>
+</table></div>
+<h3>B3 계산한다 — 2026 기준과 2027 기준</h3>
+<div class="table-wrap"><table class="card">
+<thead>
+<tr>
+<th>칸</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>목적</td>
+<td>월 변제금·변제기간·총변제액을 계산하고 인가 요건을 미리 점검한다</td>
+</tr>
+<tr>
+<td>할 일</td>
+<td>① [직원] 엑셀 [입력] 시트 청록 칸에 B1·B2 값 입력 ② [직원] [계산] 시트에서 확인 — 월 가용소득, 원금 전액 변제 개월, 기본 변제기간, 청산가치 충족 개월, 제안 변제기간, 총변제액과 현가 ③ [직원] <strong>2026 기준과 2027 기준을 나란히</strong> 출력 ④ [직원] 판정 칸이 ✖ 또는 △이면 즉시 법무사 보고 ⑤ [법무사] 변제기간 확정 — 원금 3년 안 완납 가능 시 그 기간<a class="cite ok" href="https://bsb.scourt.go.kr/bsb/info/info_01/index.html" target="_blank" rel="noopener" title="부산회생법원 실무준칙 제424호(변제계획의 변제기간) 제2조 — 3년 안에 원금 전부를 갚을 수 있으면 그때까지, 또 65세 이상·중증 장애인·30세 미만 청년·미성년 자녀 2명 이상 양육·한부모·전세사기 피해자 등은 원금 전부를 갚지 못해도 3년 미만 변제기간 가능">✓ 부산준칙 제424호 제2조</a>, 특례 대상(65세 이상, 중증 장애인, 30세 미만, 미성년 자녀 2명 이상, 한부모, 전세사기 피해자)은 3년 미만 가능, 청산가치 등 사유가 있으면 5년 이내 연장<a class="cite ng" href="https://bsb.scourt.go.kr/bsb/info/info_01/index.html" target="_blank" rel="noopener" title="부산회생법원 실무준칙 제424호 제3조(3년 초과의 변제기간을 정할 수 있는 경우) — 청산가치보장, 재단채권·우선채권 전액 변제, 최저변제액 제공, 불성실한 소비 여부, 자발적 변제 의사, 주택담보대출 채무재조정 등을 고려해 3년 초과로 수정 명령 가능, 5년 초과 불가">◇ 부산준칙 제424호 제3조</a></td>
+</tr>
+<tr>
+<td>받을 것·안내할 것</td>
+<td>안내 <span class="r r-fwd">◐ 안내→법무사</span>: "대략 이 범위입니다. 정확한 금액은 서류를 보고 법무사가 정합니다."</td>
+</tr>
+<tr>
+<td>만들어 낼 것</td>
+<td>계산표(<code>02 작업자료</code>에 사건별 사본 저장)</td>
+</tr>
+<tr>
+<td>⚡ 기한</td>
+<td>신청 전</td>
+</tr>
+<tr class="unv">
+<td>이 단계의 함정</td>
+<td>엑셀 값은 <strong>개략치</strong>다 — 생계비 원 단위 처리, 2027년 고시 원문, 최저변제액 수치가 아직 <span title="확인 전">◇⚠️</span> (신규) 확인 대기다. 채권자가 이의하면 가용소득 전부 투입·청산가치·최저변제액을 모두 맞춰야 한다<a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제614조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제614조(변제계획의 인부) — 파산 시 배당액 이상 변제(청산가치 보장), 이의 시 가용소득 전부 투입 등 요건">✓ 채무자회생법 제614조</a></td>
+</tr>
+<tr>
+<td>완료 기준</td>
+<td>☐ 2026·2027 비교표 ☐ 판정 확인 ☐ 법무사 기간 확정</td>
+</tr>
+</tbody>
+</table></div>
+<h3>B4 접수 시기를 정한다</h3>
+<div class="table-wrap"><table class="card">
+<thead>
+<tr>
+<th>칸</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>목적</td>
+<td>생계비 적용 연도에 따른 차이와 기다리는 동안의 손해를 비교해 접수일을 정한다</td>
+</tr>
+<tr>
+<td>할 일</td>
+<td>① [직원] 엑셀 [계산]의 '연내 접수 vs 내년 접수 월 변제금 차이' × 변제기간으로 총액 차이 산출 ② [직원] 기다리는 동안 생길 일 정리 — 급여 압류 진행, 독촉, 새 집행 위험 ③ [법무사] 접수 시기 결정·고객 설명<a class="cite ng" href="https://www.mohw.go.kr" target="_blank" rel="noopener" title="2026년 기준 중위소득(보건복지부 고시) — 1인 2,564,238원 · 2인 4,199,292 · 3인 5,359,036 · 4인 6,494,738 · 5인 7,556,719 · 6인 8,555,952">◇ 2026년 기준 중위소득(보건복지부 고시)</a><a class="cite ok" href="https://www.khan.co.kr/article/202607281741011/" target="_blank" rel="noopener" title="2027년 기준 중위소득(보건복지부, 2026. 7. 28. 중앙생활보장위원회 의결) — 1인 2,736,042원 · 2인 4,480,645 · 3인 5,718,091 · 4인 6,929,885 · 5인 8,063,019 · 6인 9,129,201 (전년 대비 6.70% 인상)">✓ 2027년 기준 중위소득(보건복지부, 2026. 7. 28. </a></td>
+</tr>
+<tr>
+<td>받을 것·안내할 것</td>
+<td>고객 의사. 결정 설명 <span class="r r-law">▲ 법무사</span></td>
+</tr>
+<tr>
+<td>만들어 낼 것</td>
+<td>접수 시기 결정 기록(노션 사건db 메모)</td>
+</tr>
+<tr>
+<td>⚡ 기한</td>
+<td>2026. 12. 31.(연내 접수 마감) — 연내 접수로 정하면 기한db 등록</td>
+</tr>
+<tr>
+<td>이 단계의 함정</td>
+<td>생계비만 보고 미루면 그동안 압류로 떼이는 돈이 더 클 수 있다. 압류가 있으면 금지·중지명령(S-I02)과 함께 판단한다</td>
+</tr>
+<tr>
+<td>완료 기준</td>
+<td>☐ 총액 차이 ☐ 대기 손해 ☐ 법무사 결정</td>
+</tr>
+</tbody>
+</table></div>
+<h3>B5 변제계획안 작성·제출</h3>
+<div class="table-wrap"><table class="card">
+<thead>
+<tr>
+<th>칸</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>목적</td>
+<td>법원 양식으로 변제계획안을 만들어 기한 안에 낸다</td>
+</tr>
+<tr>
+<td>할 일</td>
+<td>① [직원] 부산회생법원 공고 양식으로 작성 — 월 변제금, 변제기간, 변제 시작일, 채권자별 배분(채권액 비율) ② [직원] 채권자목록 금액과 배분표 합계 대조(S-B07 대조 방식 준용) ③ [법무사] 검토 → <strong>제출은 사람이</strong> ④ [직원] 신청일 + 14일을 제출 기한으로 등록(신청서와 함께 내면 완료 처리)<a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제610조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제610조(변제계획안의 제출기간 등) — 채무자는 신청일부터 14일 이내 변제계획안 제출(법원이 늘릴 수 있음), 인가 전 수정 가능, 법원은 수정 명령 가능">✓ 채무자회생법 제610조</a> ⑤ [직원] 고객에게 적립 계좌·첫 입금일 안내</td>
+</tr>
+<tr>
+<td>받을 것·안내할 것</td>
+<td>안내 <span class="r r-ans">● 답</span>: "법원이 정한 계좌로 매달 정해진 날에 넣으셔야 합니다. 한 번이라도 밀리면 바로 알려 주세요."</td>
+</tr>
+<tr>
+<td>만들어 낼 것</td>
+<td>변제계획안(<code>02 작업자료</code> → 확정본 <code>03 제출확정자료</code>)</td>
+</tr>
+<tr>
+<td>⚡ 기한</td>
+<td>신청일부터 14일 <a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제610조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제610조(변제계획안의 제출기간 등) — 채무자는 신청일부터 14일 이내 변제계획안 제출(법원이 늘릴 수 있음), 인가 전 수정 가능, 법원은 수정 명령 가능">✓ 채무자회생법 제610조</a></td>
+</tr>
+<tr>
+<td>이 단계의 함정</td>
+<td>인가 전 적립금이 <strong>3회 이상</strong> 밀리면 인가가 늦어지고 보정 대상이 된다<a class="cite ok" href="https://bsb.scourt.go.kr/bsb/info/info_01/index.html" target="_blank" rel="noopener" title="부산회생법원 실무준칙 제431호(변제계획의 인가결정) 제2조·제3조 — 회생위원은 채권자집회 후 즉시 인가할 수 있는 사건을 보고하고 법원은 즉시 인가 여부 결정, 송달 미완료·이의 미답변·변제금 3회 이상 미납 등은 보정 후 결정">✓ 부산준칙 제431호 제2조·제3조</a> — 첫 3개월 입금을 직원이 확인한다</td>
+</tr>
+<tr>
+<td>완료 기준</td>
+<td>☐ 양식 ☐ 배분 합계 대조 ☐ 제출 ☐ 입금 안내</td>
+</tr>
+</tbody>
+</table></div>
+<h3>B6 수정과 채권자집회</h3>
+<div class="table-wrap"><table class="card">
+<thead>
+<tr>
+<th>칸</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>목적</td>
+<td>회생위원 보정권고와 채권자 이의에 맞춰 계획을 고치고 인가까지 간다</td>
+</tr>
+<tr>
+<td>할 일</td>
+<td>① [직원] 보정권고로 생계비·소득·기간이 바뀌면 엑셀로 다시 계산 → 수정안 작성<a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제610조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제610조(변제계획안의 제출기간 등) — 채무자는 신청일부터 14일 이내 변제계획안 제출(법원이 늘릴 수 있음), 인가 전 수정 가능, 법원은 수정 명령 가능">✓ 채무자회생법 제610조</a> ② [법무사] 수정 방향 결정 ③ [직원] 채권자집회 기일 안내 — <strong>본인 출석</strong>, 요구가 있으면 본인이 변제계획을 설명<a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제613조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제613조(개인회생채권자집회) — 법원은 채권자집회 기일과 변제계획 요지를 통지, 채무자는 출석해 요구가 있으면 변제계획을 설명, 채권자는 이의 진술 가능">✓ 채무자회생법 제613조</a> ④ [직원] 이의가 나오면 요건(가용소득 전부, 청산가치, 최저변제액)을 엑셀로 다시 점검<a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제614조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제614조(변제계획의 인부) — 파산 시 배당액 이상 변제(청산가치 보장), 이의 시 가용소득 전부 투입 등 요건">✓ 채무자회생법 제614조</a></td>
+</tr>
+<tr>
+<td>받을 것·안내할 것</td>
+<td>안내 <span class="r r-ans">● 답</span>: "○월 ○일 채권자집회에 직접 나가셔야 합니다. 저희가 미리 준비를 도와 드립니다."</td>
+</tr>
+<tr>
+<td>만들어 낼 것</td>
+<td>수정 변제계획안, 재계산표</td>
+</tr>
+<tr>
+<td>⚡ 기한</td>
+<td>보정 기한 · 채권자집회 기일</td>
+</tr>
+<tr>
+<td>이 단계의 함정</td>
+<td>수정할 때 생계비 적용 연도는 바뀌지 않는다(신청 당시 기준) — 엑셀의 신청 예정일을 실제 신청일로 고쳐 둔다</td>
+</tr>
+<tr>
+<td>완료 기준</td>
+<td>☐ 수정안 제출 ☐ 집회 출석 ☐ 인가(S-I04 인계)</td>
+</tr>
+</tbody>
+</table></div>
+<h2>C 참조표</h2>
+<h3>C1 서류</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>행</th>
+<th>서류</th>
+<th>받는 곳·만드는 곳</th>
+<th>위험도</th>
+<th>단계</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C1-1</td>
+<td>소득 자료(원천징수영수증·급여명세서·급여 통장 / 부가세·소득금액증명·카드매출)</td>
+<td>고객·홈택스</td>
+<td>🔴</td>
+<td>B1</td>
+</tr>
+<tr>
+<td>C1-2</td>
+<td>재직증명서, 건강보험 자격득실확인서, 국민연금 가입내역</td>
+<td>회사·공단</td>
+<td>🔴</td>
+<td>B1</td>
+</tr>
+<tr>
+<td>C1-3</td>
+<td>주민등록등본, 가족관계증명서(부양가족 판단)</td>
+<td>정부24·법원</td>
+<td>🔴</td>
+<td>B1</td>
+</tr>
+<tr>
+<td>C1-4</td>
+<td>추가 생계비 자료 — 임대차계약서·월세 납부 내역, 지속적 의료비 영수증·진단서, 자녀 교육비 납부 내역</td>
+<td>고객</td>
+<td>🟡</td>
+<td>B1</td>
+</tr>
+<tr>
+<td>C1-5</td>
+<td>재산 자료(S-I01 C1-4와 같음)</td>
+<td>고객·각 기관</td>
+<td>🔴</td>
+<td>B2</td>
+</tr>
+<tr>
+<td>C1-6</td>
+<td>계산표(개인회생_변제금계산_v1.xlsx 사건별 사본)</td>
+<td>사무소</td>
+<td>🟡 내부</td>
+<td>B3</td>
+</tr>
+<tr>
+<td>C1-7</td>
+<td>변제계획안</td>
+<td>사무소 작성</td>
+<td>🔴</td>
+<td>B5</td>
+</tr>
+</tbody>
+</table></div>
+<h3>C2 비용</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+<th>근거</th>
+<th>내는 때</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>변제계획안 제출</td>
+<td>별도 인지·송달료 없음(개시신청 비용에 포함)</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>월 적립금</td>
+<td>계획안의 월 변제금을 회생위원 계좌로 매달</td>
+<td>—</td>
+<td>첫 입금일부터</td>
+</tr>
+<tr>
+<td>생계비 기준</td>
+<td>기준표 S-R01 R-4</td>
+<td><a class="cite ng" href="https://www.mohw.go.kr" target="_blank" rel="noopener" title="2026년 기준 중위소득(보건복지부 고시) — 1인 2,564,238원 · 2인 4,199,292 · 3인 5,359,036 · 4인 6,494,738 · 5인 7,556,719 · 6인 8,555,952">◇ 2026년 기준 중위소득(보건복지부 고시)</a><a class="cite ok" href="https://www.khan.co.kr/article/202607281741011/" target="_blank" rel="noopener" title="2027년 기준 중위소득(보건복지부, 2026. 7. 28. 중앙생활보장위원회 의결) — 1인 2,736,042원 · 2인 4,480,645 · 3인 5,718,091 · 4인 6,929,885 · 5인 8,063,019 · 6인 9,129,201 (전년 대비 6.70% 인상)">✓ 2027년 기준 중위소득(보건복지부, 2026. 7. 28. </a></td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<h3>C3 단계에 속하지 않는 함정</h3>
+<ul>
+<li><strong>생계비 적용 연도</strong> — 신청 당시 기준. 2026년 안 신청 = 2026년 값, 2027. 1. 1. 이후 = 2027년 값<a class="cite ng" href="https://bsb.scourt.go.kr/bsb/info/info_01/index.html" target="_blank" rel="noopener" title="부산회생법원 실무준칙 제405호 제2조(배우자 또는 성년 자녀를 부양가족으로 볼 것인지 여부) — 생계비 = 개시신청 당시 기준 중위소득 × 100분의 60, 경제활동이 가능한 연령의 배우자·성년 자녀도 제반 사정상 상당하면 부양가족으로 볼 수 있음">◇ 부산준칙 제405호 제2조</a>.</li>
+<li><strong>개략치를 확정처럼 말하지 않는다</strong> — 엑셀 결과는 상담용이다. 고객에게 숫자를 줄 때는 범위로, "법무사가 정한다"를 붙인다.</li>
+<li><strong>소득을 줄여 적거나 재산을 빼면</strong> 인가 뒤에도 폐지될 수 있다 — 고객이 요청해도 따르지 않고 <span class="r r-law">▲ 법무사</span>에게 넘긴다.</li>
+<li><strong>엑셀 개인정보</strong> — 계산 파일에 고객 실명·주민번호·계좌를 적지 않는다. 사건별 사본은 사건폴더 <code>02 작업자료</code>에 사건번호로 저장한다.</li>
+<li><strong>업무범위</strong> — 집회·심문에서의 진술은 본인(S-C01).</li>
+</ul>
+<details>
+<summary>D 근거·갱신</summary>
+<ul>
+<li>근거표: citations.json 자동 생성 — 이번 페이지 새 근거 CHB-579-4, BSB-405-2, BSB-405-3, BSB-424-3, MOHW-MEDIAN-2026 확인 대기</li>
+<li class="unv">계산 엑셀: 06-admin/tools/개인회생_변제금계산_v1.xlsx — 생계비 60%(원 단위 반올림 가정 <span title="확인 전">◇⚠️</span>), 라이프니쯔 연 5% 복리(소수 4자리 절사, 33개월 = 30.7719로 실무서 표와 일치), 인가 전 적립 3개월 가정, 최저변제액 = 3천만원 한도에서 총액 5천만원 미만 5% / 이상 3% + 100만원 <span title="확인 전">◇⚠️</span></li>
+<li>법령 기준일 2026. 10. 26. · 부산 준칙 2026. 8. 28. 판(제405호 2025. 3. 19. 개정, 제424호 2026. 3. 11. 개정) · next_review 2027-01-31(2027년 생계비 적용 시작)</li>
+</ul>
+</details>
+</div><script>
+(function(){var key='adminchk:'+document.body.dataset.page;var st={};
+try{st=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
+var boxes=document.querySelectorAll('.panel input[type=checkbox]');
+function upd(){var n=0;boxes.forEach(function(b){if(b.checked)n++;b.parentNode.classList.toggle('done',b.checked)});
+var p=document.getElementById('prog');if(p)p.textContent='확인 '+n+' / '+boxes.length;}
+boxes.forEach(function(b){b.checked=!!st[b.dataset.k];b.addEventListener('change',function(){st[b.dataset.k]=b.checked;
+try{localStorage.setItem(key,JSON.stringify(st))}catch(e){}upd();});});upd();})();
+</script></body></html>
