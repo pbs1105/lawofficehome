@@ -1,0 +1,103 @@
+/* ======= 회생파산 (insolvency) 콘텐츠 스타일 =======
+   원본: rehab-kb/05-public/html 의 페이지 스타일을 .rehab 범위로 옮긴 것.
+   다크모드 값은 원본 페이지가 쓰던 값을 그대로 쓰므로
+   scripts/build_dark_css.py 의 변환 대상에 넣지 않는다.
+   #articleContent 를 붙여 style.css·dark-style.css 의 일반 규칙보다 우선하게 한다. */
+
+#articleContent .rehab {
+  --r-surface:#ffffff; --r-ink:#2b2b2b; --r-head:#1a2e4a; --r-muted:#5b6472; --r-line:#e1dbd0;
+  --r-gold:#c8a96e; --r-link:#2d4a7a; --r-th:#1a2e4a; --r-thInk:#ffffff;
+  --r-sumBg:#eef2f8; --r-sumLine:#2d4a7a; --r-warnBg:#fff3e8; --r-warnLine:#c05000;
+  --r-ctaBg:#fdf6e9; --r-tagBg:#eef2f8; --r-tagInk:#2d4a7a; --r-tagLine:#2d4a7a;
+  --r-btnBg:#1a2e4a; --r-btnInk:#ffffff;
+  color: var(--r-ink); line-height: 1.8; font-size: 16px;
+}
+[data-theme="dark"] #articleContent .rehab {
+  --r-surface:#16263d; --r-ink:#d3dbe6; --r-head:#e6d3a8; --r-muted:#9aa8ba; --r-line:#2c3f5a;
+  --r-gold:#c8a96e; --r-link:#9fc0ea; --r-th:#223a5e; --r-thInk:#e3e9f1;
+  --r-sumBg:#1a2d4a; --r-sumLine:#5b7fb5; --r-warnBg:#2b2019; --r-warnLine:#d0803f;
+  --r-ctaBg:#2a2416; --r-tagBg:#1e3354; --r-tagInk:#b9cbe6; --r-tagLine:#45689c;
+  --r-btnBg:#c8a96e; --r-btnInk:#14202f;
+}
+
+#articleContent .rehab p { color: var(--r-ink); margin: 0.6em 0; }
+#articleContent .rehab h3 {
+  font-family: 'Noto Serif KR', serif; color: var(--r-head); line-height: 1.4;
+  font-size: 1.1rem; margin: 1.8em 0 .5em;
+}
+#articleContent .rehab strong { color: var(--r-head); font-weight: 700; }
+#articleContent .rehab a { color: var(--r-link); }
+
+#articleContent .rehab .box { border-left: 4px solid; border-radius: 6px; padding: 14px 18px; margin: 14px 0; }
+#articleContent .rehab .for { background: var(--r-surface); border: 1px solid var(--r-line); border-left: 4px solid var(--r-gold); }
+#articleContent .rehab .summary { background: var(--r-sumBg); border-color: var(--r-sumLine); }
+#articleContent .rehab .warn { background: var(--r-warnBg); border-color: var(--r-warnLine); }
+#articleContent .rehab .cta { background: var(--r-ctaBg); border-color: var(--r-gold); border-left-width: 6px; }
+
+#articleContent .rehab ul, #articleContent .rehab ol { padding-left: 1.3em; margin: 0.6em 0; }
+#articleContent .rehab ul { list-style: disc; }
+#articleContent .rehab ol { list-style: decimal; }
+#articleContent .rehab li { margin: .35em 0; color: var(--r-ink); }
+#articleContent .rehab ul.checklist { list-style: none; padding-left: 0; }
+#articleContent .rehab .chk { color: var(--r-chk, #8a6a2f); font-weight: 700; margin-right: 4px; }
+[data-theme="dark"] #articleContent .rehab .chk { color: var(--r-gold); }
+
+#articleContent .rehab .table-wrap { overflow-x: auto; }
+#articleContent .rehab table {
+  border-collapse: collapse; width: 100%; font-size: .93rem; margin: 8px 0; background: var(--r-surface);
+}
+#articleContent .rehab th, #articleContent .rehab td {
+  border: 1px solid var(--r-line); padding: 8px 10px; text-align: left; vertical-align: top; color: var(--r-ink);
+}
+#articleContent .rehab th { background: var(--r-th); color: var(--r-thInk); font-weight: 500; }
+
+#articleContent .rehab .ref-tags { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
+#articleContent .rehab .tag-law {
+  display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: .78rem; font-weight: 600;
+  text-decoration: none; background: var(--r-tagBg); color: var(--r-tagInk); border: 1px solid var(--r-tagLine);
+}
+#articleContent .rehab .tag-law:hover { filter: brightness(1.15); }
+#articleContent .rehab details.refs-mini { margin: 2px 0 12px; }
+#articleContent .rehab details.refs-mini > summary {
+  display: inline-block; list-style: none; font-size: .74rem; color: var(--r-muted);
+  border: 1px solid var(--r-line); border-radius: 10px; padding: 0 9px; cursor: pointer; user-select: none;
+}
+#articleContent .rehab details.refs-mini > summary::-webkit-details-marker { display: none; }
+#articleContent .rehab details.refs-mini[open] > summary { color: var(--r-tagInk); border-color: var(--r-tagLine); }
+#articleContent .rehab li details.refs-mini { margin: 2px 0 4px; }
+
+#articleContent .rehab details.qa {
+  background: var(--r-surface); border: 1px solid var(--r-line); border-radius: 6px; margin: 8px 0; padding: 10px 14px;
+}
+#articleContent .rehab details.qa summary { cursor: pointer; font-weight: 600; color: var(--r-head); }
+#articleContent .rehab .ans { margin-top: 8px; }
+
+#articleContent .rehab .note { font-size: .85rem; color: var(--r-muted); }
+#articleContent .rehab .btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+#articleContent .rehab .btn {
+  display: inline-block; padding: 10px 18px; border-radius: 6px; text-decoration: none; font-weight: 600;
+  font-size: 0.95rem; font-family: inherit; cursor: pointer; border: 1px solid transparent; line-height: 1.5;
+}
+#articleContent .rehab .btn-main { background: var(--r-btnBg); color: var(--r-btnInk); }
+#articleContent .rehab .btn-sub { background: transparent; color: var(--r-ink); border-color: var(--r-line); }
+#articleContent .rehab .disclaimer {
+  margin-top: 32px; font-size: .8rem; color: var(--r-muted); border-top: 1px solid var(--r-line); padding-top: 14px;
+}
+
+/* 모바일: 표를 카드형으로 (근거 법령 표 제외) */
+@media (max-width: 600px) {
+  #articleContent .rehab .table-wrap:not(.refs) table,
+  #articleContent .rehab .table-wrap:not(.refs) tbody,
+  #articleContent .rehab .table-wrap:not(.refs) tr,
+  #articleContent .rehab .table-wrap:not(.refs) td { display: block; width: 100%; }
+  #articleContent .rehab .table-wrap:not(.refs) tr:first-child { display: none; }
+  #articleContent .rehab .table-wrap:not(.refs) tr {
+    border: 1px solid var(--r-line); border-radius: 8px; margin: 10px 0; padding: 6px 10px; background: var(--r-surface);
+  }
+  #articleContent .rehab .table-wrap:not(.refs) td { border: 0; padding: 5px 0; }
+  #articleContent .rehab .table-wrap:not(.refs) td[data-label]::before {
+    content: attr(data-label); display: block; font-size: .78rem; color: var(--r-gold); font-weight: 600; margin-bottom: 2px;
+  }
+  #articleContent .rehab .table-wrap:not(.refs) td.grp { font-weight: 700; color: var(--r-head); }
+  #articleContent .rehab .table-wrap:not(.refs) td.grp::before { display: none; }
+}

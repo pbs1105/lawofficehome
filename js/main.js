@@ -334,18 +334,7 @@ const CONTENT_DATA = {
   /* ---- 회생파산 ---- */
   insolvency: {
     label: '회생파산',
-    topics: [
-      {
-        id: 'ins-0', title: '회생파산 안내 (준비 중)',
-        meta: '개인회생·개인파산 절차 안내',
-        sections: [
-          {
-            heading: '콘텐츠 준비 중입니다',
-            content: `<p>개인회생·개인파산 관련 안내 콘텐츠를 준비하고 있습니다. 궁금하신 사항은 온라인상담신청을 이용해 주세요.</p>`
-          }
-        ]
-      }
-    ]
+    get subcategories() { return typeof INSOLVENCY_SUBCATEGORIES !== 'undefined' ? INSOLVENCY_SUBCATEGORIES : []; }
   },
   /* ---- 기타 ---- */
   etc: {
@@ -1032,10 +1021,10 @@ function renderSubcategoryContent(catId, selectedSubId, selectedTopicId) {
         </div>
       </div>
       ${sectionsHTML}
-      <div style="margin-top:40px;padding:24px;background:var(--accent);border-radius:var(--radius);text-align:center;">
+      ${activeTopic.ownCta ? '' : `<div style="margin-top:40px;padding:24px;background:var(--accent);border-radius:var(--radius);text-align:center;">
         <p style="font-weight:600;color:var(--primary);margin-bottom:12px;">더 자세한 내용이 궁금하신가요? 법무사에게 직접 상담받으세요.</p>
         <button class="btn-primary" onclick="openModal()">📞 온라인상담신청</button>
-      </div>`;
+      </div>`}`;
     activateLawTags(articleEl);
     activateCaseNumbers(articleEl);
     activateCaseTags(articleEl);
@@ -1209,10 +1198,10 @@ function renderCategoryContent(catId, selectedTopicId) {
         </div>
       </div>
       ${sectionsHTML}
-      <div style="margin-top:40px;padding:24px;background:var(--accent);border-radius:var(--radius);text-align:center;">
+      ${activeTopic.ownCta ? '' : `<div style="margin-top:40px;padding:24px;background:var(--accent);border-radius:var(--radius);text-align:center;">
         <p style="font-weight:600;color:var(--primary);margin-bottom:12px;">더 자세한 내용이 궁금하신가요? 법무사에게 직접 상담받으세요.</p>
         <button class="btn-primary" onclick="openModal()">📞 온라인상담신청</button>
-      </div>`;
+      </div>`}`;
     activateLawTags(articleEl);
     activateCaseNumbers(articleEl);
     activateCaseTags(articleEl);
