@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" data-theme-key="theme-admin" data-theme-default="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>내부 포털 - 박배선법무사 사무소</title>
   <link rel="stylesheet" href="../css/admin.css" />
+  <link rel="stylesheet" href="../css/dark-admin.css" />
+  <script src="../js/theme.js"></script>
 </head>
 <body>
 
@@ -22,9 +24,10 @@
     </div>
     <span class="ph-portal-label">직원 내부 포털</span>
 
-    <!-- 우측: 날짜/시간 + 홈페이지 + 로그아웃 -->
+    <!-- 우측: 날짜/시간 + 테마 전환 + 홈페이지 + 로그아웃 -->
     <div class="ph-right">
       <span class="ph-datetime" id="portalDateTime"></span>
+      <button class="ph-theme" type="button" data-theme-toggle></button>
       <a class="ph-home" href="../index.html">🏠 홈페이지</a>
       <button class="ph-logout" onclick="logout()">로그아웃</button>
     </div>
