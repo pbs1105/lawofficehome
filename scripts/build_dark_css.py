@@ -92,9 +92,9 @@ def public_text(rgb, a):
     h, l, s = to_hls(rgb)
     if l < 0.6:
         # 어두운 글자 → 밝은 글자 (어두울수록 더 밝게)
-        nl = 0.62 + (0.6 - l) * 0.42
-        return fmt(from_hls(h, min(nl, 0.88), s * 0.6), a)
-    return fmt(from_hls(h, min(l, 0.88), s * 0.7), a)
+        nl = 0.68 + (0.6 - l) * 0.42
+        return fmt(from_hls(h, min(nl, 0.92), s * 0.6), a)
+    return fmt(from_hls(h, min(max(l, 0.7), 0.92), s * 0.7), a)
 
 
 def public_border(rgb, a):
@@ -138,15 +138,14 @@ def admin_text(rgb, a):
     h, l, s = to_hls(rgb)
     if s > 0.35 and 0.2 < l < 0.8:
         # 강조 글자 → 채도 낮추고 읽히는 밝기로
-        return fmt(from_hls(h, max(0.68, min(l, 0.78)), s * 0.55), a)
+        return fmt(from_hls(h, max(0.72, min(l, 0.8)), s * 0.55), a)
+    # 2026-10-27 사용자 요청 "조금 더 밝게" → 본문·약함 글자를 표에서 한 칸씩 밝게
     if l < 0.2 or l > 0.92:
         tok = ADMIN_TEXT[0]        # 제목·흰 글자
     elif l < 0.35:
-        tok = ADMIN_TEXT[2]        # 본문
-    elif l < 0.5:
-        tok = ADMIN_TEXT[3]        # 약함
+        tok = ADMIN_TEXT[1]        # 본문
     else:
-        tok = ADMIN_TEXT[3]
+        tok = ADMIN_TEXT[2]        # 약함
     return fmt(_rgb(tok), a)
 
 
@@ -323,12 +322,12 @@ def convert_inline(paths, mode, vars_):
 BASE = {
     'public': (
         ':root%s { color-scheme: dark; }\n' % SCOPE +
-        'html%s body { background: #12161d; color: #d3d8e0; }\n' % SCOPE +
+        'html%s body { background: #12161d; color: #dde1e7; }\n' % SCOPE +
         '%s img:not([src$=".svg"]) { filter: brightness(0.88); }\n' % SCOPE
     ),
     'admin': (
         ':root%s { color-scheme: dark; }\n' % SCOPE +
-        'html%s body { background: #0f1115; color: #c5c9d1; }\n' % SCOPE +
+        'html%s body { background: #0f1115; color: #cfd3da; }\n' % SCOPE +
         '%s input::placeholder, %s textarea::placeholder { color: #a9afba; opacity: 0.8; }\n' % (SCOPE, SCOPE) +
         '%s :focus-visible { outline-color: #8b7cf6; }\n' % SCOPE
     ),
