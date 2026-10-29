@@ -35,6 +35,8 @@ SUBCATEGORIES = [
     ('ins-individual', '개인회생·개인파산', [
         'I01_individual-rehab-eligibility.html', 'I03_individual-stop-garnishment.html',
         'I04_individual-rehab-process.html', 'I05_individual-rehab-cost.html',
+        'I08_disadvantages.html', 'I09_keep-home-car.html',
+        'I11_missed-payments.html', 'I12_after-discharge.html',
     ]),
 ]
 
