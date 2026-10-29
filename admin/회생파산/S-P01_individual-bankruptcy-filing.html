@@ -1,0 +1,502 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="topic-id" content="S-P01"><meta name="robots" content="noindex,nofollow"><title>개인파산·면책 신청 · 직원용</title>
+<style>
+:root{--bg:#0f1b2d;--surface:#16263d;--surface2:#1b2e49;--ink:#cfd8e3;--head:#e2cfa3;--muted:#93a2b5;--line:#2c3f5a;
+--gold:#bfa06a;--link:#9fc0ea;--th:#223a5e;--thInk:#dfe6ef;--teal:#3fb6a8;--tealBg:#14322f;--mag:#c862b8;--magBg:#33193a;
+--goldBg:#2c2618;color-scheme:dark}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans KR',system-ui,sans-serif;line-height:1.75;font-size:16px}
+.wrap{max-width:980px;margin:0 auto;padding:18px 16px 80px}
+h1,h2,h3{color:var(--head);line-height:1.4;font-family:'Noto Serif KR',serif}
+h1{font-size:1.6rem;margin:.3em 0 .3em}h2{font-size:1.25rem;margin:2em 0 .6em;padding-bottom:.3em;border-bottom:2px solid var(--gold)}
+h3{font-size:1.06rem;margin:1.6em 0 .4em;padding:6px 10px;background:var(--surface2);border-left:4px solid var(--gold);border-radius:4px}
+strong{color:#e8dcc0}a{color:var(--link)}code{font-family:inherit}
+.topbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:.8rem;color:var(--muted)}
+.badge{display:inline-flex;gap:4px;align-items:center;padding:2px 10px;border-radius:12px;font-size:.78rem;font-weight:600;border:1px solid var(--line)}
+.b-staff{background:var(--surface2);color:var(--head)}
+.b-ok{background:var(--tealBg);color:#9fe0d6;border-color:var(--teal)}
+.b-ng{background:var(--magBg);color:#efc2e8;border-color:var(--mag)}
+blockquote{margin:10px 0;padding:8px 14px;background:var(--surface);border-left:4px solid var(--line);border-radius:4px;color:var(--muted);font-size:.9rem}
+blockquote p{margin:.2em 0}
+.table-wrap{overflow-x:auto;margin:8px 0}
+table{border-collapse:collapse;width:100%;font-size:.92rem;background:var(--surface)}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}th{background:var(--th);color:var(--thInk);font-weight:500}
+.card td:first-child{width:8.5em;color:var(--gold);font-weight:600;white-space:nowrap}
+ul{padding-left:1.3em}li{margin:.2em 0}
+.cite{display:inline-flex;align-items:center;gap:3px;font-size:.72rem;font-weight:600;text-decoration:none;padding:0 7px;border-radius:9px;margin:0 2px;vertical-align:1px;white-space:nowrap}
+.cite.ok{background:var(--tealBg);color:#9fe0d6;border:1px solid var(--teal)}
+.cite.ng{background:var(--magBg);color:#efc2e8;border:1px solid var(--mag)}
+.r{display:inline-block;font-size:.72rem;font-weight:700;padding:0 7px;border-radius:9px;margin-right:3px;vertical-align:1px}
+.r-ans{background:#173149;color:#a9cdf0;border:1px solid #3d6f9e}
+.r-fwd{background:var(--goldBg);color:#e6cf9a;border:1px solid var(--gold)}
+.r-law{background:#2d1f3a;color:#dcc2f0;border:1px solid #8a63b5}
+.unv{border-left:4px solid var(--mag)!important;background:linear-gradient(90deg,rgba(200,98,184,.10),transparent 60%)}
+li.unv,p.unv{padding-left:8px;margin-left:-12px}
+.dec{border-left:4px solid var(--gold)!important;background:linear-gradient(90deg,rgba(191,160,106,.10),transparent 60%)}
+li.dec,p.dec{padding-left:8px;margin-left:-12px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin:12px 0}
+summary{cursor:pointer;color:var(--head);font-weight:600}
+.panel{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--mag);border-radius:8px;padding:12px 16px;margin:14px 0 22px}
+.panel h2{margin:.2em 0 .4em;border:none;font-size:1.08rem}
+.panel .tier{margin:10px 0 4px;font-weight:700;color:var(--head)}
+.panel ol{margin:4px 0 4px 1.2em;padding:0}.panel li{font-size:.9rem}
+.panel label{display:flex;gap:8px;align-items:flex-start;cursor:pointer}
+.panel input{margin-top:5px;accent-color:#3fb6a8;flex:none}
+.panel .done{color:#9fe0d6}.panel .done::after{content:" ✓";}
+.prog{font-size:.82rem;color:var(--muted)}
+.legend{font-size:.8rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:10px;margin:6px 0}
+.idx a{display:block;padding:10px 14px;margin:8px 0;background:var(--surface);border:1px solid var(--line);border-radius:8px;text-decoration:none;color:var(--ink)}
+.idx a:hover{border-color:var(--gold)}
+@media print{body{background:#fff;color:#000}.panel{display:none}details{display:block}}
+@media (max-width:640px){body{font-size:15.5px}.card td:first-child{width:6.5em;white-space:normal}}
+</style></head><body data-page="S-P01"><div class="wrap">
+<div class="topbar"><span class="badge b-staff">직원용 · 내부자료</span><span class="badge b-ng">◇ 검증 전 — 내부 검토용</span><span>회생파산 › 개인파산 · S-P01</span>
+<span>법령 기준일 2026-10-27 · 다음 점검 2027-08-31</span></div>
+<h1>개인파산·면책 신청</h1><div class="legend"><span><span class="cite ok">✓</span> 확인된 근거</span><span><span class="cite ng">◇</span> 확인 전 근거</span><span><span class="r r-ans">● 답</span> 직원 즉답</span><span><span class="r r-fwd">◐ 안내→법무사</span></span><span><span class="r r-law">▲ 법무사</span> 법무사만</span><span style="border-left:4px solid var(--mag);padding-left:6px">자홍 레일 = 확인 전 내용</span><span style="border-left:4px solid var(--gold);padding-left:6px">금색 레일 = 법무사 결정 대기</span></div><section class="panel"><h2>◇ 검증 패널 <span class="prog" id="prog"></span></h2><div class="tier">① 필수 확인 — 고객에게 착오·손해를 줄 수 있는 것 (7)</div><ol><li><label><input type="checkbox" data-k="u0"><span>할 일 ① [직원] 신청 대리 위임장 — &quot;각종 기일에서의 진술 대리 제외&quot; 문구 ② [직원] 위임계약서 — 포함 범위(예: 신청~면책결정), 범위 밖(이의 대응 소송, 즉시항고 등) ③ [법무사] 견적 — 사건 단위(개인파산·개인회생 신청사건 기본보수, 채무금액 기준…</span></label></li><li><label><input type="checkbox" data-k="u1"><span>할 일 ① [직원] 자료제출목록 서식(예규 별지 — 실무서 [양식 1-7])대로 요청: 가족관계증명서·혼인관계증명서( 상세 ), 주민등록초본( 과거 주소 전체·개명·번호 변동 포함 ), 주민등록등본, 지방세 세목별 과세증명( 과거 5년, 전국 단위, 모든 세목 ), 자…</span></label></li><li><label><input type="checkbox" data-k="u2"><span>이 단계의 함정 예납금을 기한 안에 내지 않으면 신청이 기각될 수 있다 ⚠️ (신규) 미납 효과 근거 조문 확인. 최근에 재산이 바뀌었거나 최근 채무가 크면 예납금이 늘 수 있다 ✓ 부산준칙 제361호 개인파산 예납금 납부기준 제2조~제4조 — 상담 때 미리 알려 둔다</span></label></li><li><label><input type="checkbox" data-k="u3"><span>C1-9 그 밖에 자료제출목록 서식의 나머지 항목 ⚠️ (신규) 현행 예규 서식 대조 — 🟡 B2</span></label></li><li><label><input type="checkbox" data-k="u4"><span>법무사 보수 ⚠️ 잠정 사건 단위 — 견적서 ✓ 법무사 보수기준 제24조의1(개인파산·개인회생 신청사건 기본보 견적서</span></label></li><li><label><input type="checkbox" data-k="cCHB-556"><span>근거 확인: <a href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제556조" target="_blank" rel="noopener">채무자 회생 및 파산에 관한 법률 제556조(면책신청)</a> — 개인 채무자는 파산신청일부터 파산선고 확정 후 1월 이내 면책신청 가능, 채무자가 파산신청을 한 경우 반대 의사표시가 없으면 파산신청과 동시에 면책신청을 한 것으로 봄(간주면책신청) — 채권자 신청</span></label></li><li><label><input type="checkbox" data-k="cBSB-374"><span>근거 확인: <a href="https://bsb.scourt.go.kr/bsb/info/info_01/index.html" target="_blank" rel="noopener">부산회생법원 실무준칙 제374호(개인 파산관재인의 자료제출 요구)</a> — 파산관재인이 예규 별지 제1~7호 외 자료를 요구할 때는 어떤 정황에 기초한 요구인지 채무자에게 고지하고 법원에 사후 보고</span></label></li></ol><div class="tier">② 개략 확인</div><ol><li><label><input type="checkbox" data-k="r1"><span>A 즉답 카드 — 직원이 고객에게 그대로 말해도 되는 내용인가</span></label></li><li><label><input type="checkbox" data-k="r2"><span>B 단계 순서와 할 일이 실제 사무소 흐름과 맞는가</span></label></li><li><label><input type="checkbox" data-k="r3"><span>C 서류표·비용표에 빠진 항목이 없는가</span></label></li><li><label><input type="checkbox" data-k="r4"><span>응답 범위 표시(답·안내→법무사·법무사)가 적절한가</span></label></li></ol><div class="tier">③ 점진 확인</div><p class="prog" style="margin:2px 0">표현·순서·세부 실무는 사용하면서 고친다 — 직원 의견은 제작메모에 남긴다.</p></section>
+<blockquote>
+<p>직원용 · 내부자료 · <strong><span title="확인 전">◇⚠️</span> 검증 전 초안</strong> · 법령 기준일 2026. 10. 27. · 최종 확인 법무사 (검증 후 기재)
+응답 범위 표시: <span class="r r-ans">● 답</span> 바로 답함 · <span class="r r-fwd">◐ 안내→법무사</span> 일반 기준만 안내 · <span class="r r-law">▲ 법무사</span> 법무사만 답함
+상담·수임부터 파산선고(파산관재인 선임)까지. 관재인 조사 대응과 면책결정은 S-P02, 개인회생과의 선택은 S-C02.</p>
+</blockquote>
+<h2>A 즉답 카드</h2>
+<ul>
+<li><strong>한 문장</strong> — 개인파산은 <strong>갚을 수 없는 상태(지급불능)</strong>인 사람이 재산을 정리하고 남은 빚을 <strong>면책</strong>받는 절차다. 본인이 파산을 신청하면 반대 의사를 밝히지 않는 한 <strong>면책신청도 함께 한 것으로 본다</strong>. <span class="r r-ans">● 답</span> <a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제305조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제305조(보통파산원인) — 채무자가 지급할 수 없을 때 신청에 의해 파산선고, 지급정지는 지급불능으로 추정">✓ 채무자회생법 제305조</a><a class="cite ng" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제556조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제556조(면책신청) — 개인 채무자는 파산신청일부터 파산선고 확정 후 1월 이내 면책신청 가능, 채무자가 파산신청을 한 경우 반대 의사표시가 없으면 파산신청과 동시에 면책신청을 한 것으로 봄(간주면책신청) — 채권자 신청 파산에는 적용되지 않음">◇ 채무자회생법 제556조</a></li>
+<li><strong>업무범위</strong> — 사무소가 <strong>신청 대리인</strong>으로 신청서·목록 작성, 제출, 보정을 맡는다. 법원 심문, 파산관재인 면담, 채권자집회 등 <strong>기일에서의 진술은 본인</strong>이 한다. <span class="r r-ans">● 답</span> <a class="cite ok" href="https://www.law.go.kr/법령/법무사법/제2조" target="_blank" rel="noopener" title="법무사법 제2조(업무) — ①1. 법원·공소청(검찰)에 제출하는 서류 작성 / 6. 개인파산·개인회생 신청 대리(기일 진술 대리 제외) / 7. 작성 서류 제출 대행 / 8. 부수 상담·자문">✓ 법무사법 제2조</a></li>
+<li><strong>누가 쓸 수 있나</strong> — 소득이 없거나 생계비를 넘는 소득이 거의 없어 빚을 갚을 수 없는 개인. 소득이 꾸준하면 개인회생이 먼저 검토된다(S-C02). 파산 면책 뒤 7년, 개인회생 면책 뒤 5년이 지나지 않았으면 면책이 안 될 수 있다. <span class="r r-fwd">◐ 안내→법무사</span> <a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제564조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제564조(면책허가) — 불허가 사유(재산 은닉 등 범죄행위, 허위 채권자목록·진술, 파산 면책 후 7년·개인회생 면책 후 5년 미경과, 과다한 낭비·도박 등)가 없으면 면책 허가">✓ 채무자회생법 제564조</a></li>
+<li><strong>처음 필요한 현금(가상 예: 채권자 10곳)</strong> — 인지 2,000원 + 송달료(파산 (10 + 10 × 4)회 + 면책 (10 + 10 × 3)회) × 5,640원 = 507,600원 ≈ <strong>약 51만원</strong> + 파산관재인 선임 시 예납금 <strong>40만원 원칙</strong>(법원이 증감) + 법무사 보수. <span class="r r-ans">● 답</span> <a class="cite ok" href="https://korea.legal/wiki/%ec%9e%ac%ed%8c%90%ec%98%88%ea%b7%9c-%ec%a0%9c1916%ed%98%b8-%eb%b3%84%ed%91%9c-%eb%af%bc%ec%82%ac%ec%a0%91%ec%88%98%ec%84%9c%eb%a5%98-%ec%9d%b8%ec%a7%80%ec%95%a1-%ec%9d%bc%eb%9e%8c/" target="_blank" rel="noopener" title="재판예규 제1916호 민사접수서류에 붙일 인지액 일람표 — 도산사건 — 도산사건 인지액: 채무자(법인 포함) 파산신청 1,000원(채권자 신청 30,000원) / 파산절차 면책신청 1,000원 / 조사확정재판 신청 1,000원 / 부인 청구 1,000원 / 보전처분·중지·금지명령 2,000원 · 예규 제3조② 전자문서 제출 시 10분의 9">✓ 재판예규 제1916호 민사접수서류에 붙일 인지액 일람표</a><a class="cite ok" href="https://www.easylaw.go.kr/CSP/CnpClsMain.laf?csmSeq=568&amp;ccfNo=2&amp;cciNo=4&amp;cnpClsNo=3" target="_blank" rel="noopener" title="송달료규칙의 시행에 따른 업무처리요령(재일 87-4) [별표 1] 적용대상사건 및 송달료 예납기준표 — 회생(회합·회단)·간이회생(간회합·간회단)·파산합의 사건: 40회분 + 채권자 수×3회분 / 파산단독: 10회분 + 채권자 수×4회분 / 개인회생: 10회분 + 채권자 수×8회분">✓ 송달료 예규 [별표 1] 적용대상사건 및 송달료 예납기준표</a><a class="cite ok" href="https://korea.legal/wiki/%ea%b0%9c%ec%9d%b8%ed%8c%8c%ec%82%b0-%eb%b0%8f-%eb%a9%b4%ec%b1%85-%eb%b9%84%ec%9a%a9%c2%b7%ec%88%98%ec%88%98%eb%a3%8c/" target="_blank" rel="noopener" title="송달료 예규(재판예규 제1950호) 별표 1 — 면책사건 — 개인파산 면책사건 송달료: 10회분 + 채권자 수 × 3회분(파산사건 10회분 + 채권자 수 × 4회분과 별도)">✓ 송달료 예규(재판예규 제1950호) 별표 1</a><a class="cite ok" href="https://bsb.scourt.go.kr/bsb/info/info_01/index.html" target="_blank" rel="noopener" title="부산회생법원 실무준칙 제361호 개인파산 예납금 납부기준 제2조~제4조 — 동시폐지하지 않는 개인파산 예납금 40만원 원칙, 증액 사유를 종합해 예규 상한 500만원까지 증액, 감액 사유 2개 이상이면 감액 가능">✓ 부산준칙 제361호 개인파산 예납금 납부기준 제2조~제4조</a></li>
+<li><strong>고객이 꼭 묻는 세 가지</strong></li>
+<li>"파산하면 모든 빚이 없어지나요?" → 면책되면 갚을 책임이 없어지지만, <strong>세금, 벌금, 고의 불법행위 손해배상, 양육비, 일부러 목록에서 뺀 빚</strong> 등은 남고 보증인 책임도 남는다. <span class="r r-fwd">◐ 안내→법무사</span> <a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제566조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제566조(면책의 효력) — 면책돼도 조세, 벌금 등, 고의 불법행위 손해배상, 근로자 임금·퇴직금, 악의로 목록에서 뺀 청구권, 양육비 등은 남음">✓ 채무자회생법 제566조</a><a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제567조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제567조(보증인 등에 대한 효과) — 면책은 보증인 등 공동채무자에 대한 권리와 담보에 영향 없음">✓ 채무자회생법 제567조</a></li>
+<li>"집 보증금이나 생활비도 뺏기나요?" → 주거용 임차보증금 중 일정액과 6개월 생계비 상당액 등은 <strong>면제재산</strong>으로 신청해 지킬 수 있다. 범위는 법무사가 확인한다. <span class="r r-fwd">◐ 안내→법무사</span> <a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제383조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제383조(파산재단에 속하지 아니하는 재산) — ②개인 채무자의 신청으로 면제 가능: 1. 주거용 건물 임차보증금반환청구권 중 주택임대차보호법 제8조 우선변제 범위 내 대통령령 금액 이하 2. 6월간 생계비에 쓸 특정 재산 중 대통령령 금액 이하">✓ 채무자회생법 제383조</a></li>
+<li>"얼마나 걸리나요?" → 신청 → 심리·보정 → 예납 → 파산선고·관재인 선임 → 관재인 조사 → 면책결정. 기간은 사건마다 다르다. <span class="r r-ans">● 답</span></li>
+<li><strong>✖ 말하면 안 되는 말</strong> — ① "파산하면 빚이 전부 없어집니다" ② "재산은 가족 명의로 옮겨 두세요" ③ "도박·낭비로 진 빚도 문제없습니다" ④ "법원에는 안 가셔도 됩니다"</li>
+<li><strong>다음 페이지</strong> — 관재인 조사·면책 S-P02 / 개인회생과의 선택 S-C02 / 비용 기준표 S-R01 / 고객 안내문 G-P01(준비서류·비용)</li>
+</ul>
+<h2>B 단계</h2>
+<h3>B0 상담 — 파산이 맞는지, 면책을 막는 사정이 있는지</h3>
+<div class="table-wrap"><table class="card">
+<thead>
+<tr>
+<th>칸</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>목적</td>
+<td>지급불능 여부, 개인회생과의 선택, 면책불허가 위험을 가늠해 수임 여부를 정한다</td>
+</tr>
+<tr>
+<td>할 일</td>
+<td>① [직원] 상담 시트 — 소득(유무·금액), 가족 수, 채무 총액·채권자 수·발생 시기, 재산(보증금·차·보험·예금·부동산), <strong>최근 1~2년 재산 처분·명의 이전</strong>, <strong>최근 생긴 큰 채무</strong>, 채무가 늘어난 이유(사업 실패·생활비·의료비·투자·도박 등), 과거 파산·회생·면책 이력 ② [직원] 소득이 생계비를 넘으면 개인회생 검토로 표시(S-C02) ③ [법무사] 면책불허가 사유 사전 점검 — 재산 은닉·손괴, 허위 목록·진술, 낭비·도박으로 인한 과다 채무, 최근 면책 이력<a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제564조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제564조(면책허가) — 불허가 사유(재산 은닉 등 범죄행위, 허위 채권자목록·진술, 파산 면책 후 7년·개인회생 면책 후 5년 미경과, 과다한 낭비·도박 등)가 없으면 면책 허가">✓ 채무자회생법 제564조</a> ④ [법무사] 방향 결정</td>
+</tr>
+<tr>
+<td>받을 것·안내할 것</td>
+<td>안내 <span class="r r-ans">● 답</span>: "파산은 재산과 소득을 법원에 모두 밝히고 남은 빚을 면책받는 절차입니다. 숨기면 면책이 안 될 수 있습니다." 절차 선택 <span class="r r-law">▲ 법무사</span></td>
+</tr>
+<tr>
+<td>만들어 낼 것</td>
+<td>상담 기록(노션 상담db)</td>
+</tr>
+<tr>
+<td>⚡ 기한</td>
+<td>해당 없음(압류·소송이 진행 중이면 서두른다)</td>
+</tr>
+<tr>
+<td>이 단계의 함정</td>
+<td>고객이 <strong>신청 전에 재산을 가족에게 넘기거나 특정 채권자에게만 갚은 경우</strong> 관재인이 되돌릴 수 있고(부인권), 면책에도 불리하다 — 상담 때 반드시 묻고 <span class="r r-law">▲ 법무사</span>에게 넘긴다. 비면책채권(세금·벌금·양육비 등)이 대부분이면 파산의 실익이 적다<a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제566조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제566조(면책의 효력) — 면책돼도 조세, 벌금 등, 고의 불법행위 손해배상, 근로자 임금·퇴직금, 악의로 목록에서 뺀 청구권, 양육비 등은 남음">✓ 채무자회생법 제566조</a></td>
+</tr>
+<tr>
+<td>완료 기준</td>
+<td>☐ 상담 시트 ☐ 면책불허가 위험 점검 ☐ 법무사 방향 결정</td>
+</tr>
+</tbody>
+</table></div>
+<h3>B1 수임 — 위임장과 보수</h3>
+<div class="table-wrap"><table class="card">
+<thead>
+<tr>
+<th>칸</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>목적</td>
+<td>신청 대리 위임과 보수를 업무범위 안에서 정한다</td>
+</tr>
+<tr class="unv">
+<td>할 일</td>
+<td>① [직원] <strong>신청 대리 위임장</strong> — "각종 기일에서의 진술 대리 제외" 문구 ② [직원] 위임계약서 — 포함 범위(예: 신청~면책결정), 범위 밖(이의 대응 소송, 즉시항고 등) ③ [법무사] 견적 — 사건 단위(개인파산·개인회생 신청사건 기본보수, 채무금액 기준) <span title="확인 전">◇⚠️</span> 잠정안<a class="cite ok" href="https://kjaar.kabl.kr/mod/page/view.do?MID=kjaa_page_0202" target="_blank" rel="noopener" title="대한법무사협회 법무사 보수기준 제24조의1(개인파산·개인회생 신청사건 기본보수) — 채무금액 기준 사건 단위: 5천만원까지 1,030,000원 / ~3억 1,030,000+초과액 8/10,000 / ~5억 1,230,000+7/10,000 / ~10억 1,370,000+5/10,000 / 10억 초과 1,620,000+4/10,000. <span title="확인 전">◇⚠️</span> 문구(&quot;…기본보수는 다음의 구분에 따라 가산한다&quot;)가 단독 사건보수인지 제23조 서류보수에 더하는 것인지 원문 확인 필요">✓ 법무사 보수기준 제24조의1(개인파산·개인회생 신청사건 기본보</a> ④ [직원] G-P01 안내문(준비서류·비용) 출력·전달</td>
+</tr>
+<tr>
+<td>받을 것·안내할 것</td>
+<td>위임장·계약서 서명. 안내 <span class="r r-ans">● 답</span>: "법원 심문이나 파산관재인 면담에는 본인이 직접 가셔야 하고, 준비는 저희가 돕습니다."</td>
+</tr>
+<tr>
+<td>만들어 낼 것</td>
+<td>위임장, 위임계약서, 견적서, 사건폴더</td>
+</tr>
+<tr>
+<td>⚡ 기한</td>
+<td>해당 없음</td>
+</tr>
+<tr>
+<td>이 단계의 함정</td>
+<td>예납금(관재인 비용)은 사무소 보수와 별개이고 법원이 정한다 — 견적서에 따로 적는다<a class="cite ok" href="https://bsb.scourt.go.kr/bsb/info/info_01/index.html" target="_blank" rel="noopener" title="부산회생법원 실무준칙 제361호 개인파산 예납금 납부기준 제2조~제4조 — 동시폐지하지 않는 개인파산 예납금 40만원 원칙, 증액 사유를 종합해 예규 상한 500만원까지 증액, 감액 사유 2개 이상이면 감액 가능">✓ 부산준칙 제361호 개인파산 예납금 납부기준 제2조~제4조</a></td>
+</tr>
+<tr>
+<td>완료 기준</td>
+<td>☐ 위임장 ☐ 계약서 ☐ 견적서 ☐ G-P01 전달</td>
+</tr>
+</tbody>
+</table></div>
+<h3>B2 서류 수집 — 자료제출목록</h3>
+<div class="table-wrap"><table class="card">
+<thead>
+<tr>
+<th>칸</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>목적</td>
+<td>예규가 정한 자료제출목록의 소명자료를 신청 때 한꺼번에 낸다</td>
+</tr>
+<tr class="unv">
+<td>할 일</td>
+<td>① [직원] 자료제출목록 서식(예규 별지 — 실무서 [양식 1-7])대로 요청: 가족관계증명서·혼인관계증명서(<strong>상세</strong>), 주민등록초본(<strong>과거 주소 전체·개명·번호 변동 포함</strong>), 주민등록등본, 지방세 세목별 과세증명(<strong>과거 5년, 전국 단위, 모든 세목</strong>), 자동차등록원부·시가 자료, 부동산 등기사항증명서, 생명보험 가입내역조회와 해약환급금 내역, (영업했던 경우) 세무서 사실증명 8종(과거 3년), <strong>과거 1년 은행 통장 거래내역</strong> 등 <span title="확인 전">◇⚠️</span> (신규) 전체 목록은 현행 예규 서식으로 대조 ② [직원] 제3자 주민번호 뒷자리가 가려진 증명서로 받는다(본인 번호는 전체) ③ [직원] 원본은 <code>01 접수수집자료</code></td>
+</tr>
+<tr>
+<td>받을 것·안내할 것</td>
+<td>안내 <span class="r r-ans">● 답</span>: "빚과 재산은 작은 것도 모두 알려 주세요. 통장 1년치는 가족 계좌로 거래했다면 그 내역도 필요합니다."</td>
+</tr>
+<tr>
+<td>만들어 낼 것</td>
+<td>자료 수령 체크표</td>
+</tr>
+<tr>
+<td>⚡ 기한</td>
+<td>고객과 정한 수령일</td>
+</tr>
+<tr>
+<td>이 단계의 함정</td>
+<td>낼 수 없는 자료는 <strong>사유를 소명</strong>하고 나중에 바로 내야 한다 — 빈칸으로 두면 보정이 늘어난다. 파산관재인은 이 목록 밖 자료를 요구할 때 <strong>어떤 정황 때문인지 알려야</strong> 한다<a class="cite ng" href="https://bsb.scourt.go.kr/bsb/info/info_01/index.html" target="_blank" rel="noopener" title="부산회생법원 실무준칙 제374호(개인 파산관재인의 자료제출 요구) — 파산관재인이 예규 별지 제1~7호 외 자료를 요구할 때는 어떤 정황에 기초한 요구인지 채무자에게 고지하고 법원에 사후 보고">◇ 부산준칙 제374호</a> — 요구 이유를 기록해 둔다</td>
+</tr>
+<tr>
+<td>완료 기준</td>
+<td>☐ 목록 서류 ☐ 미제출 사유 정리 ☐ 원본 보관</td>
+</tr>
+</tbody>
+</table></div>
+<h3>B3 신청서·목록 작성</h3>
+<div class="table-wrap"><table class="card">
+<thead>
+<tr>
+<th>칸</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>목적</td>
+<td>정형 양식으로 신청서와 목록을 빠짐없이 만든다</td>
+</tr>
+<tr>
+<td>할 일</td>
+<td>① [직원] <strong>파산 및 면책 신청서</strong>(면책 반대 의사가 없으면 간주면책 — 별도 면책신청서 불필요)<a class="cite ng" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제556조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제556조(면책신청) — 개인 채무자는 파산신청일부터 파산선고 확정 후 1월 이내 면책신청 가능, 채무자가 파산신청을 한 경우 반대 의사표시가 없으면 파산신청과 동시에 면책신청을 한 것으로 봄(간주면책신청) — 채권자 신청 파산에는 적용되지 않음">◇ 채무자회생법 제556조</a> ② [직원] <strong>진술서</strong> — 경력, 생활상황, 채무가 늘어난 경위, 지급불능에 이른 사정 ③ [직원] <strong>채권자목록</strong> — 채권자별 성명, 차용·구입 일자, 원인, 사용처, 남은 금액 + 채권자 주소 ④ [직원] 재산목록(처분한 재산 포함), 현재의 생활상황, 수입·지출 목록 ⑤ [직원] 해당하면 <strong>면제재산 신청서</strong>(주거용 임차보증금 일정액, 6개월 생계비 상당액 등)<a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제383조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제383조(파산재단에 속하지 아니하는 재산) — ②개인 채무자의 신청으로 면제 가능: 1. 주거용 건물 임차보증금반환청구권 중 주택임대차보호법 제8조 우선변제 범위 내 대통령령 금액 이하 2. 6월간 생계비에 쓸 특정 재산 중 대통령령 금액 이하">✓ 채무자회생법 제383조</a> ⑥ [법무사] 검토</td>
+</tr>
+<tr>
+<td>받을 것·안내할 것</td>
+<td>진술서 내용 확인(고객 서명). 안내 <span class="r r-ans">● 답</span>: "진술서는 본인 이야기라 직접 확인하고 서명하셔야 합니다."</td>
+</tr>
+<tr>
+<td>만들어 낼 것</td>
+<td>신청서 일체(<code>02 작업자료</code> → 확정본 <code>03 제출확정자료</code>)</td>
+</tr>
+<tr>
+<td>⚡ 기한</td>
+<td>해당 없음</td>
+</tr>
+<tr>
+<td>이 단계의 함정</td>
+<td><strong>악의로 목록에서 뺀 채권은 면책되지 않는다</strong><a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제566조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제566조(면책의 효력) — 면책돼도 조세, 벌금 등, 고의 불법행위 손해배상, 근로자 임금·퇴직금, 악의로 목록에서 뺀 청구권, 양육비 등은 남음">✓ 채무자회생법 제566조</a>. 사용처를 "생활비"로 뭉뚱그리면 관재인 조사에서 다시 묻는다 — 구체적으로 적는다. 면제재산은 <strong>신청해야</strong> 인정되므로 빠뜨리지 않는다. 임차보증금 면제 한도는 부산(광역시, 군 제외) 2,800만원, 김해·양산·기장군 등 그 밖의 지역 2,500만원(주택가격의 2분의 1 한도), 6개월 생계비 면제는 2026년 기준 약 1,558만원까지<a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률시행령/제16조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 시행령 제16조(면제재산) — ①면제 가능 임차보증금 상한 = 주택임대차보호법 시행령 제10조①의 금액(주택가격 1/2 초과 시 1/2) ②6월 생계비 면제 상한 = 4인가구 기준 중위소득의 40% × 6">✓ 채무자회생법 시행령 제16조</a><a class="cite ok" href="https://www.law.go.kr/법령/주택임대차보호법시행령/제10조" target="_blank" rel="noopener" title="주택임대차보호법 시행령 제10조(보증금 중 일정액의 범위 등) — 우선변제 받을 보증금 중 일정액: 서울 5,500만원 / 과밀억제권역·세종·용인·화성·김포 4,800만원 / 광역시(군 제외)·안산·광주·파주·이천·평택 2,800만원 / 그 밖의 지역 2,500만원, 주택가액 1/2 한도 ※부칙(2023. 2. 21.) 제2조: 시행 전 임차주택에 담보물권을 취득한 자에 대해서는 종전 규정 적용">✓ 주택임대차보호법 시행령 제10조</a></td>
+</tr>
+<tr>
+<td>완료 기준</td>
+<td>☐ 신청서 ☐ 진술서 서명 ☐ 채권자목록·주소 ☐ 재산·생활·수입지출 ☐ 면제재산(해당 시) ☐ 법무사 검토</td>
+</tr>
+</tbody>
+</table></div>
+<h3>B4 접수</h3>
+<div class="table-wrap"><table class="card">
+<thead>
+<tr>
+<th>칸</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>목적</td>
+<td>관할 법원에 비용을 갖춰 접수한다</td>
+</tr>
+<tr>
+<td>할 일</td>
+<td>① [직원] 관할 — 채무자 주소지 회생법원(울산·경남 거주자는 부산회생법원에도 신청 가능)<a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제3조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제3조(재판관할) — ①주소·주된 사무소 소재지 등 관할 회생법원 ②회생·파산은 고등법원 소재지 회생법원에도 ⑪울산·경남 소재 채무자는 부산회생법원에도 신청 가능(2022.12.27 신설)">✓ 채무자회생법 제3조</a> ② [직원] 인지 <strong>2,000원</strong>(파산 1,000 + 면책 1,000, 전자제출 10분의 9)<a class="cite ok" href="https://korea.legal/wiki/%ec%9e%ac%ed%8c%90%ec%98%88%ea%b7%9c-%ec%a0%9c1916%ed%98%b8-%eb%b3%84%ed%91%9c-%eb%af%bc%ec%82%ac%ec%a0%91%ec%88%98%ec%84%9c%eb%a5%98-%ec%9d%b8%ec%a7%80%ec%95%a1-%ec%9d%bc%eb%9e%8c/" target="_blank" rel="noopener" title="재판예규 제1916호 민사접수서류에 붙일 인지액 일람표 — 도산사건 — 도산사건 인지액: 채무자(법인 포함) 파산신청 1,000원(채권자 신청 30,000원) / 파산절차 면책신청 1,000원 / 조사확정재판 신청 1,000원 / 부인 청구 1,000원 / 보전처분·중지·금지명령 2,000원 · 예규 제3조② 전자문서 제출 시 10분의 9">✓ 재판예규 제1916호 민사접수서류에 붙일 인지액 일람표</a><a class="cite ok" href="https://korea.legal/wiki/%eb%af%bc%ec%82%ac%ec%86%8c%ec%86%a1-%eb%93%b1-%ec%9d%b8%ec%a7%80%eb%b2%95-%ec%a0%9c16%ec%a1%b0/" target="_blank" rel="noopener" title="민사소송 등 인지법 제16조(전자소송에서의 특례) — ①등록사용자로서 전자소송에 동의한 자가 전자문서로 제출하는 소장에는 제2조 인지액의 10분의 9 ②제1항은 제3조부터 제10조까지 준용 → 제9조의 회생·개인회생 개시신청서 등도 전자제출 시 10분의 9(30,000원 → 27,000원)">✓ 민사소송 등 인지법 제16조</a> ③ [직원] 송달료 — 파산 (10회 + 채권자 수 × 4회) + 면책 (10회 + 채권자 수 × 3회), 1회 5,640원<a class="cite ok" href="https://www.easylaw.go.kr/CSP/CnpClsMain.laf?csmSeq=568&amp;ccfNo=2&amp;cciNo=4&amp;cnpClsNo=3" target="_blank" rel="noopener" title="송달료규칙의 시행에 따른 업무처리요령(재일 87-4) [별표 1] 적용대상사건 및 송달료 예납기준표 — 회생(회합·회단)·간이회생(간회합·간회단)·파산합의 사건: 40회분 + 채권자 수×3회분 / 파산단독: 10회분 + 채권자 수×4회분 / 개인회생: 10회분 + 채권자 수×8회분">✓ 송달료 예규 [별표 1] 적용대상사건 및 송달료 예납기준표</a><a class="cite ok" href="https://korea.legal/wiki/%ea%b0%9c%ec%9d%b8%ed%8c%8c%ec%82%b0-%eb%b0%8f-%eb%a9%b4%ec%b1%85-%eb%b9%84%ec%9a%a9%c2%b7%ec%88%98%ec%88%98%eb%a3%8c/" target="_blank" rel="noopener" title="송달료 예규(재판예규 제1950호) 별표 1 — 면책사건 — 개인파산 면책사건 송달료: 10회분 + 채권자 수 × 3회분(파산사건 10회분 + 채권자 수 × 4회분과 별도)">✓ 송달료 예규(재판예규 제1950호) 별표 1</a><a class="cite ok" href="https://www.easylaw.go.kr/CSP/CnpClsMain.laf?csmSeq=568&amp;ccfNo=2&amp;cciNo=4&amp;cnpClsNo=3" target="_blank" rel="noopener" title="1회 송달료 5,640원(국내 통상우편요금 및 우편이용에 관한 수수료 별표) — 찾기쉬운 생활법령정보 — 1회분 송달료 5,640원(2026. 7. 1.부터)">✓ 1회 송달료 5,640원(국내 통상우편요금 및 우편이용에 관한</a> ④ [법무사] 최종 확인 후 <strong>제출은 사람이</strong> ⑤ [직원] 사건번호 기록, 접수증 <code>04 제출결과자료</code></td>
+</tr>
+<tr>
+<td>받을 것·안내할 것</td>
+<td>안내 <span class="r r-ans">● 답</span>: "오늘 접수했습니다. 법원이 서류를 보고 보정이나 심문 일정을 알려 올 수 있습니다."</td>
+</tr>
+<tr>
+<td>만들어 낼 것</td>
+<td>접수본 동결, 접수증</td>
+</tr>
+<tr>
+<td>⚡ 기한</td>
+<td>해당 없음(보정명령이 오면 그 기한)</td>
+</tr>
+<tr>
+<td>이 단계의 함정</td>
+<td>신청권자는 채무자 또는 채권자다<a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제294조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제294조(파산신청권자) — 채권자 또는 채무자가 파산신청">✓ 채무자회생법 제294조</a>. <strong>채권자가 신청한 파산</strong>에는 간주면책이 적용되지 않으므로 고객이 따로 면책신청을 해야 한다 — 기간을 놓치지 않게 <span class="r r-law">▲ 법무사</span><a class="cite ng" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제556조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제556조(면책신청) — 개인 채무자는 파산신청일부터 파산선고 확정 후 1월 이내 면책신청 가능, 채무자가 파산신청을 한 경우 반대 의사표시가 없으면 파산신청과 동시에 면책신청을 한 것으로 봄(간주면책신청) — 채권자 신청 파산에는 적용되지 않음">◇ 채무자회생법 제556조</a></td>
+</tr>
+<tr>
+<td>완료 기준</td>
+<td>☐ 관할 ☐ 인지·송달료 ☐ 접수·사건번호 (노션: 진행중)</td>
+</tr>
+</tbody>
+</table></div>
+<h3>B5 심리·보정·예납명령</h3>
+<div class="table-wrap"><table class="card">
+<thead>
+<tr>
+<th>칸</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>목적</td>
+<td>보정·심문에 기한 안에 대응하고 예납금을 내 파산선고까지 간다</td>
+</tr>
+<tr>
+<td>할 일</td>
+<td>① [직원] 보정명령 수령 → 기한 등록 → 고객에게 내용 설명·자료 요청 → 보정서 작성 → [법무사] 검토 → 제출 ② [직원] 심문기일 통지 시 <strong>본인 출석</strong> 안내·준비 ③ [직원] <strong>예납명령</strong> 수령 → 금액·기한 등록 → 고객 안내(동시폐지가 아니면 <strong>40만원 원칙</strong>, 사정에 따라 최대 500만원까지 증액, 사유 2개 이상이면 감액 가능)<a class="cite ok" href="https://bsb.scourt.go.kr/bsb/info/info_01/index.html" target="_blank" rel="noopener" title="부산회생법원 실무준칙 제361호 개인파산 예납금 납부기준 제2조~제4조 — 동시폐지하지 않는 개인파산 예납금 40만원 원칙, 증액 사유를 종합해 예규 상한 500만원까지 증액, 감액 사유 2개 이상이면 감액 가능">✓ 부산준칙 제361호 개인파산 예납금 납부기준 제2조~제4조</a> ④ [법무사] 증액 사유가 의심되면 사전 설명, 감액 사유(생계급여 수급, 지급불능 10년 이상 경과, 지속 의료비, 질병·무소득 등)가 2개 이상이면 감액 신청 검토</td>
+</tr>
+<tr>
+<td>받을 것·안내할 것</td>
+<td>보정 자료, 예납금. 안내 <span class="r r-ans">● 답</span>: "법원이 파산관재인 비용으로 ○만원을 ○일까지 내라고 했습니다."</td>
+</tr>
+<tr>
+<td>만들어 낼 것</td>
+<td>보정서, 예납 기록</td>
+</tr>
+<tr>
+<td>⚡ 기한</td>
+<td><strong>보정 기한 · 예납 기한</strong></td>
+</tr>
+<tr class="unv">
+<td>이 단계의 함정</td>
+<td>예납금을 기한 안에 내지 않으면 신청이 기각될 수 있다 <span title="확인 전">◇⚠️</span> (신규) 미납 효과 근거 조문 확인. 최근에 재산이 바뀌었거나 최근 채무가 크면 예납금이 늘 수 있다<a class="cite ok" href="https://bsb.scourt.go.kr/bsb/info/info_01/index.html" target="_blank" rel="noopener" title="부산회생법원 실무준칙 제361호 개인파산 예납금 납부기준 제2조~제4조 — 동시폐지하지 않는 개인파산 예납금 40만원 원칙, 증액 사유를 종합해 예규 상한 500만원까지 증액, 감액 사유 2개 이상이면 감액 가능">✓ 부산준칙 제361호 개인파산 예납금 납부기준 제2조~제4조</a> — 상담 때 미리 알려 둔다</td>
+</tr>
+<tr>
+<td>완료 기준</td>
+<td>☐ 보정 제출 ☐ 심문 출석 ☐ 예납 완료</td>
+</tr>
+</tbody>
+</table></div>
+<h3>B6 파산선고 수령과 인계</h3>
+<div class="table-wrap"><table class="card">
+<thead>
+<tr>
+<th>칸</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>목적</td>
+<td>파산선고 내용을 기록하고 관재인 조사 단계(S-P02)로 넘긴다</td>
+</tr>
+<tr>
+<td>할 일</td>
+<td>① [직원] 파산선고 결정문의 <strong>파산관재인</strong>(이름·연락처), 채권자집회·면책심문 기일, 이의기간 기록 → 기한db ② [직원] 고객에게 관재인 연락에 바로 응하라고 안내 ③ [직원] S-P02로 인계</td>
+</tr>
+<tr>
+<td>받을 것·안내할 것</td>
+<td>안내 <span class="r r-ans">● 답</span>: "파산이 선고되었고 파산관재인이 정해졌습니다. 관재인이 연락하거나 자료를 요청하면 바로 저희에게도 알려 주세요."</td>
+</tr>
+<tr>
+<td>만들어 낼 것</td>
+<td>기한표(노션 기한db 일괄 등록)</td>
+</tr>
+<tr>
+<td>⚡ 기한</td>
+<td>결정문의 각 기일</td>
+</tr>
+<tr>
+<td>이 단계의 함정</td>
+<td>파산선고 뒤 재산의 관리·처분 권한은 관재인에게 있다 — 고객이 임의로 재산을 처분하지 않게 안내한다 <span class="r r-law">▲ 법무사</span></td>
+</tr>
+<tr>
+<td>완료 기준</td>
+<td>☐ 기한 등록 ☐ 고객 안내 ☐ S-P02 인계</td>
+</tr>
+</tbody>
+</table></div>
+<h2>C 참조표</h2>
+<h3>C1 서류</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>행</th>
+<th>서류</th>
+<th>받는 곳</th>
+<th>위험도</th>
+<th>단계</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C1-1</td>
+<td>신청 대리 위임장</td>
+<td>사무소 작성</td>
+<td>🔴</td>
+<td>B1</td>
+</tr>
+<tr>
+<td>C1-2</td>
+<td>가족관계증명서·혼인관계증명서(상세)</td>
+<td>대법원 전자가족관계등록시스템</td>
+<td>🔴</td>
+<td>B2</td>
+</tr>
+<tr>
+<td>C1-3</td>
+<td>주민등록초본(과거 주소 전체·개명·번호 변동 포함), 주민등록등본</td>
+<td>정부24</td>
+<td>🔴</td>
+<td>B2</td>
+</tr>
+<tr>
+<td>C1-4</td>
+<td>지방세 세목별 과세증명(과거 5년, 전국, 모든 세목)</td>
+<td>정부24·시군구</td>
+<td>🔴</td>
+<td>B2</td>
+</tr>
+<tr>
+<td>C1-5</td>
+<td>자동차등록원부(갑·을)·시가 자료 / 부동산 등기사항증명서 (해당 시, 없으면 '없음' 표시)</td>
+<td>정부24·인터넷등기소</td>
+<td>🔴</td>
+<td>B2</td>
+</tr>
+<tr>
+<td>C1-6</td>
+<td>생명보험 가입내역조회, 해약환급금 내역</td>
+<td>생명보험협회·각 보험사</td>
+<td>🔴</td>
+<td>B2</td>
+</tr>
+<tr>
+<td>C1-7</td>
+<td>(영업했던 경우) 세무서 사실증명 8종 — 사업자등록·휴업·폐업·납세및체납·소득금액·부가세 과세표준·면세사업자 수입금액·표준재무제표(과거 3년)</td>
+<td>세무서·홈택스</td>
+<td>🔴</td>
+<td>B2</td>
+</tr>
+<tr>
+<td>C1-8</td>
+<td>과거 1년 은행 통장 거래내역(가족 계좌로 거래했다면 그 내역도)</td>
+<td>각 은행</td>
+<td>🔴</td>
+<td>B2</td>
+</tr>
+<tr class="unv">
+<td>C1-9</td>
+<td>그 밖에 자료제출목록 서식의 나머지 항목 <span title="확인 전">◇⚠️</span> (신규) 현행 예규 서식 대조</td>
+<td>—</td>
+<td>🟡</td>
+<td>B2</td>
+</tr>
+<tr>
+<td>C1-10</td>
+<td>작성 서류 — 파산 및 면책 신청서, 진술서, 채권자목록·채권자 주소, 재산목록, 현재의 생활상황, 수입·지출 목록, 자료제출목록, (해당 시) 면제재산 신청서</td>
+<td>사무소 작성</td>
+<td>🔴</td>
+<td>B3</td>
+</tr>
+</tbody>
+</table></div>
+<h3>C2 비용 (값은 S-R01)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>항목</th>
+<th>산식</th>
+<th>근거</th>
+<th>내는 때</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>인지</td>
+<td>2,000원(파산 1,000 + 면책 1,000) / 전자제출 10분의 9</td>
+<td><a class="cite ok" href="https://korea.legal/wiki/%ec%9e%ac%ed%8c%90%ec%98%88%ea%b7%9c-%ec%a0%9c1916%ed%98%b8-%eb%b3%84%ed%91%9c-%eb%af%bc%ec%82%ac%ec%a0%91%ec%88%98%ec%84%9c%eb%a5%98-%ec%9d%b8%ec%a7%80%ec%95%a1-%ec%9d%bc%eb%9e%8c/" target="_blank" rel="noopener" title="재판예규 제1916호 민사접수서류에 붙일 인지액 일람표 — 도산사건 — 도산사건 인지액: 채무자(법인 포함) 파산신청 1,000원(채권자 신청 30,000원) / 파산절차 면책신청 1,000원 / 조사확정재판 신청 1,000원 / 부인 청구 1,000원 / 보전처분·중지·금지명령 2,000원 · 예규 제3조② 전자문서 제출 시 10분의 9">✓ 재판예규 제1916호 민사접수서류에 붙일 인지액 일람표</a><a class="cite ok" href="https://korea.legal/wiki/%eb%af%bc%ec%82%ac%ec%86%8c%ec%86%a1-%eb%93%b1-%ec%9d%b8%ec%a7%80%eb%b2%95-%ec%a0%9c16%ec%a1%b0/" target="_blank" rel="noopener" title="민사소송 등 인지법 제16조(전자소송에서의 특례) — ①등록사용자로서 전자소송에 동의한 자가 전자문서로 제출하는 소장에는 제2조 인지액의 10분의 9 ②제1항은 제3조부터 제10조까지 준용 → 제9조의 회생·개인회생 개시신청서 등도 전자제출 시 10분의 9(30,000원 → 27,000원)">✓ 민사소송 등 인지법 제16조</a></td>
+<td>접수</td>
+</tr>
+<tr>
+<td>송달료(파산)</td>
+<td>(10회 + 채권자 수 × 4회) × 5,640원</td>
+<td><a class="cite ok" href="https://www.easylaw.go.kr/CSP/CnpClsMain.laf?csmSeq=568&amp;ccfNo=2&amp;cciNo=4&amp;cnpClsNo=3" target="_blank" rel="noopener" title="송달료규칙의 시행에 따른 업무처리요령(재일 87-4) [별표 1] 적용대상사건 및 송달료 예납기준표 — 회생(회합·회단)·간이회생(간회합·간회단)·파산합의 사건: 40회분 + 채권자 수×3회분 / 파산단독: 10회분 + 채권자 수×4회분 / 개인회생: 10회분 + 채권자 수×8회분">✓ 송달료 예규 [별표 1] 적용대상사건 및 송달료 예납기준표</a><a class="cite ok" href="https://www.easylaw.go.kr/CSP/CnpClsMain.laf?csmSeq=568&amp;ccfNo=2&amp;cciNo=4&amp;cnpClsNo=3" target="_blank" rel="noopener" title="1회 송달료 5,640원(국내 통상우편요금 및 우편이용에 관한 수수료 별표) — 찾기쉬운 생활법령정보 — 1회분 송달료 5,640원(2026. 7. 1.부터)">✓ 1회 송달료 5,640원(국내 통상우편요금 및 우편이용에 관한</a></td>
+<td>접수</td>
+</tr>
+<tr>
+<td>송달료(면책)</td>
+<td>(10회 + 채권자 수 × 3회) × 5,640원</td>
+<td><a class="cite ok" href="https://korea.legal/wiki/%ea%b0%9c%ec%9d%b8%ed%8c%8c%ec%82%b0-%eb%b0%8f-%eb%a9%b4%ec%b1%85-%eb%b9%84%ec%9a%a9%c2%b7%ec%88%98%ec%88%98%eb%a3%8c/" target="_blank" rel="noopener" title="송달료 예규(재판예규 제1950호) 별표 1 — 면책사건 — 개인파산 면책사건 송달료: 10회분 + 채권자 수 × 3회분(파산사건 10회분 + 채권자 수 × 4회분과 별도)">✓ 송달료 예규(재판예규 제1950호) 별표 1</a></td>
+<td>접수</td>
+</tr>
+<tr>
+<td>예납금(파산관재인)</td>
+<td>동시폐지가 아니면 40만원 원칙, 증액 최대 500만원, 감액 가능</td>
+<td><a class="cite ok" href="https://bsb.scourt.go.kr/bsb/info/info_01/index.html" target="_blank" rel="noopener" title="부산회생법원 실무준칙 제361호 개인파산 예납금 납부기준 제2조~제4조 — 동시폐지하지 않는 개인파산 예납금 40만원 원칙, 증액 사유를 종합해 예규 상한 500만원까지 증액, 감액 사유 2개 이상이면 감액 가능">✓ 부산준칙 제361호 개인파산 예납금 납부기준 제2조~제4조</a></td>
+<td>예납명령 기한</td>
+</tr>
+<tr class="unv">
+<td>법무사 보수 <span title="확인 전">◇⚠️</span> 잠정</td>
+<td>사건 단위 — 견적서</td>
+<td><a class="cite ok" href="https://kjaar.kabl.kr/mod/page/view.do?MID=kjaa_page_0202" target="_blank" rel="noopener" title="대한법무사협회 법무사 보수기준 제24조의1(개인파산·개인회생 신청사건 기본보수) — 채무금액 기준 사건 단위: 5천만원까지 1,030,000원 / ~3억 1,030,000+초과액 8/10,000 / ~5억 1,230,000+7/10,000 / ~10억 1,370,000+5/10,000 / 10억 초과 1,620,000+4/10,000. <span title="확인 전">◇⚠️</span> 문구(&quot;…기본보수는 다음의 구분에 따라 가산한다&quot;)가 단독 사건보수인지 제23조 서류보수에 더하는 것인지 원문 확인 필요">✓ 법무사 보수기준 제24조의1(개인파산·개인회생 신청사건 기본보</a></td>
+<td>견적서</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>계산 예(가상)</strong> — 채권자 10곳: 2,000 + (50 + 40) × 5,640 = 507,600 → 509,600원 + 예납금 400,000원 = <strong>909,600원</strong> + 법무사 보수.
+즉답 문구 <span class="r r-ans">● 답</span>: "법원에 내는 비용은 채권자 수에 따라 대략 50만원 안팎이고, 파산관재인 비용으로 보통 40만원을 더 냅니다. 법무사 보수는 견적서로 드립니다."</p>
+<h3>C3 단계에 속하지 않는 함정</h3>
+<ul>
+<li><strong>면책되지 않는 채무</strong> — 세금, 벌금·과태료 등, 고의 불법행위 손해배상, 근로자 임금·퇴직금, 악의로 목록에서 뺀 청구권, 양육비 등<a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제566조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제566조(면책의 효력) — 면책돼도 조세, 벌금 등, 고의 불법행위 손해배상, 근로자 임금·퇴직금, 악의로 목록에서 뺀 청구권, 양육비 등은 남음">✓ 채무자회생법 제566조</a>. 보증인 책임과 담보는 그대로<a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제567조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제567조(보증인 등에 대한 효과) — 면책은 보증인 등 공동채무자에 대한 권리와 담보에 영향 없음">✓ 채무자회생법 제567조</a>.</li>
+<li><strong>면책불허가 사유</strong> — 재산 은닉, 허위 목록·진술, 낭비·도박 등으로 인한 과다 채무, 최근 면책 이력<a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제564조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제564조(면책허가) — 불허가 사유(재산 은닉 등 범죄행위, 허위 채권자목록·진술, 파산 면책 후 7년·개인회생 면책 후 5년 미경과, 과다한 낭비·도박 등)가 없으면 면책 허가">✓ 채무자회생법 제564조</a>. 사정이 있어도 재량면책 여지는 <span class="r r-law">▲ 법무사</span>.</li>
+<li><strong>소득이 있는 고객</strong> — 생계비를 넘는 소득이 꾸준하면 개인회생 대상인지 먼저 본다(S-C02).</li>
+<li><strong>업무범위</strong> — 심문·집회·관재인 면담에서의 진술은 본인(S-C01).</li>
+</ul>
+<details>
+<summary>D 근거·갱신</summary>
+<ul>
+<li>근거표: citations.json 자동 생성 — 이번 페이지 새 근거 CHB-556, BSB-374 확인 대기(CHB-383·면제 한도는 고객용 I09에서 확인 완료분 재사용, KJAA-FEE-24-1은 잠정)</li>
+<li>법령 기준일 2026. 10. 27. · 부산회생법원 실무준칙 2026. 8. 28. 판(제361·374호) · next_review 2027-08-31</li>
+<li>확인 대기: 자료제출목록 전체 항목(현행 예규 서식), 예납금 미납 효과 근거, 보수 잠정안(제24조의1 문구)</li>
+<li>연계: 고객 안내문 G-P01</li>
+</ul>
+</details>
+</div><script>
+(function(){var key='adminchk:'+document.body.dataset.page;var st={};
+try{st=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
+var boxes=document.querySelectorAll('.panel input[type=checkbox]');
+function upd(){var n=0;boxes.forEach(function(b){if(b.checked)n++;b.parentNode.classList.toggle('done',b.checked)});
+var p=document.getElementById('prog');if(p)p.textContent='확인 '+n+' / '+boxes.length;}
+boxes.forEach(function(b){b.checked=!!st[b.dataset.k];b.addEventListener('change',function(){st[b.dataset.k]=b.checked;
+try{localStorage.setItem(key,JSON.stringify(st))}catch(e){}upd();});});upd();})();
+</script></body></html>

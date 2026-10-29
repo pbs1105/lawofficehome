@@ -219,17 +219,37 @@ const HELPER_TOPICS = {
   'help-insolvency': [
     { label: '공통 기초', items: [
       { id: 'doc-rh-c01', label: '업무범위와 수임 구조' },
+      { id: 'doc-rh-c02', label: '초회 상담과 절차 선택' },
       { id: 'doc-rh-r01', label: '공통 기준표(비용·기한·생계비)' },
+      { id: 'doc-rh-r04', label: '부산회생법원 서식 바로가기' },
     ]},
     { label: '사업자·법인 회생', items: [
       { id: 'doc-rh-b01', label: '법인 신청 전 진단 — 회생·간이회생·파산' },
       { id: 'doc-rh-b02', label: '법인회생 개시신청 접수' },
       { id: 'doc-rh-b07', label: '신청자료 숫자 대조와 보정 관리' },
+      { id: 'doc-rh-b03', label: '개시결정 후 — 목록·신고·조사·계획안' },
+      { id: 'doc-rh-b04', label: '관계인집회·가결·인가' },
+      { id: 'doc-rh-b05', label: '인가 후 — 수행·종결·폐지' },
+      { id: 'doc-rh-b06', label: '개인사업자·개인의 일반회생' },
     ]},
     { label: '개인회생', items: [
       { id: 'doc-rh-i01', label: '개인회생 신청 접수' },
       { id: 'doc-rh-i02', label: '금지명령·중지명령' },
       { id: 'doc-rh-i03', label: '변제계획안과 월 변제금 계산' },
+      { id: 'doc-rh-i04', label: '개시결정 이후 — 집회·인가·변제·면책' },
+      { id: 'doc-rh-i05', label: '인가 후 관리 — 불수행·변경·면책' },
+    ]},
+    { label: '개인파산', items: [
+      { id: 'doc-rh-p01', label: '개인파산·면책 신청' },
+      { id: 'doc-rh-p02', label: '관재사건 대응과 면책결정' },
+    ]},
+    { label: '법인파산', items: [
+      { id: 'doc-rh-l01', label: '법인파산 신청' },
+      { id: 'doc-rh-l02', label: '파산선고 후 — 관재인 협조와 종결' },
+    ]},
+    { label: '채권자 대응', items: [
+      { id: 'doc-rh-k01', label: '채권신고·추후보완신고 (회생·법인파산)' },
+      { id: 'doc-rh-k02', label: '개인회생·개인파산의 채권자 대응' },
     ]},
   ],
   'help-foreign': [
@@ -922,6 +942,20 @@ const DOC_FILES = {
   'doc-rh-i01': '회생파산/S-I01_individual-rehab-filing.html',
   'doc-rh-i02': '회생파산/S-I02_individual-stay-order.html',
   'doc-rh-i03': '회생파산/S-I03_individual-repayment-plan.html',
+  'doc-rh-c02': '회생파산/S-C02_first-consult-procedure-choice.html',
+  'doc-rh-r04': '회생파산/S-R04_busan-forms.html',
+  'doc-rh-b03': '회생파산/S-B03_corp-post-commencement.html',
+  'doc-rh-b04': '회생파산/S-B04_corp-meeting-confirmation.html',
+  'doc-rh-b05': '회생파산/S-B05_corp-post-confirmation.html',
+  'doc-rh-b06': '회생파산/S-B06_individual-general-rehab.html',
+  'doc-rh-i04': '회생파산/S-I04_individual-after-commencement.html',
+  'doc-rh-i05': '회생파산/S-I05_individual-post-confirmation.html',
+  'doc-rh-p01': '회생파산/S-P01_individual-bankruptcy-filing.html',
+  'doc-rh-p02': '회생파산/S-P02_bankruptcy-trustee-discharge.html',
+  'doc-rh-l01': '회생파산/S-L01_corp-bankruptcy-filing.html',
+  'doc-rh-l02': '회생파산/S-L02_corp-bankruptcy-after-adjudication.html',
+  'doc-rh-k01': '회생파산/S-K01_claim-filing.html',
+  'doc-rh-k02': '회생파산/S-K02_creditor-individual-cases.html',
 };
 
 /** 완결형 업무자료 문서(iframe) 렌더링 */

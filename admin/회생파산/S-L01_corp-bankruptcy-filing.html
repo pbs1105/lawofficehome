@@ -1,0 +1,449 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="topic-id" content="S-L01"><meta name="robots" content="noindex,nofollow"><title>법인파산 신청 · 직원용</title>
+<style>
+:root{--bg:#0f1b2d;--surface:#16263d;--surface2:#1b2e49;--ink:#cfd8e3;--head:#e2cfa3;--muted:#93a2b5;--line:#2c3f5a;
+--gold:#bfa06a;--link:#9fc0ea;--th:#223a5e;--thInk:#dfe6ef;--teal:#3fb6a8;--tealBg:#14322f;--mag:#c862b8;--magBg:#33193a;
+--goldBg:#2c2618;color-scheme:dark}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans KR',system-ui,sans-serif;line-height:1.75;font-size:16px}
+.wrap{max-width:980px;margin:0 auto;padding:18px 16px 80px}
+h1,h2,h3{color:var(--head);line-height:1.4;font-family:'Noto Serif KR',serif}
+h1{font-size:1.6rem;margin:.3em 0 .3em}h2{font-size:1.25rem;margin:2em 0 .6em;padding-bottom:.3em;border-bottom:2px solid var(--gold)}
+h3{font-size:1.06rem;margin:1.6em 0 .4em;padding:6px 10px;background:var(--surface2);border-left:4px solid var(--gold);border-radius:4px}
+strong{color:#e8dcc0}a{color:var(--link)}code{font-family:inherit}
+.topbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:.8rem;color:var(--muted)}
+.badge{display:inline-flex;gap:4px;align-items:center;padding:2px 10px;border-radius:12px;font-size:.78rem;font-weight:600;border:1px solid var(--line)}
+.b-staff{background:var(--surface2);color:var(--head)}
+.b-ok{background:var(--tealBg);color:#9fe0d6;border-color:var(--teal)}
+.b-ng{background:var(--magBg);color:#efc2e8;border-color:var(--mag)}
+blockquote{margin:10px 0;padding:8px 14px;background:var(--surface);border-left:4px solid var(--line);border-radius:4px;color:var(--muted);font-size:.9rem}
+blockquote p{margin:.2em 0}
+.table-wrap{overflow-x:auto;margin:8px 0}
+table{border-collapse:collapse;width:100%;font-size:.92rem;background:var(--surface)}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}th{background:var(--th);color:var(--thInk);font-weight:500}
+.card td:first-child{width:8.5em;color:var(--gold);font-weight:600;white-space:nowrap}
+ul{padding-left:1.3em}li{margin:.2em 0}
+.cite{display:inline-flex;align-items:center;gap:3px;font-size:.72rem;font-weight:600;text-decoration:none;padding:0 7px;border-radius:9px;margin:0 2px;vertical-align:1px;white-space:nowrap}
+.cite.ok{background:var(--tealBg);color:#9fe0d6;border:1px solid var(--teal)}
+.cite.ng{background:var(--magBg);color:#efc2e8;border:1px solid var(--mag)}
+.r{display:inline-block;font-size:.72rem;font-weight:700;padding:0 7px;border-radius:9px;margin-right:3px;vertical-align:1px}
+.r-ans{background:#173149;color:#a9cdf0;border:1px solid #3d6f9e}
+.r-fwd{background:var(--goldBg);color:#e6cf9a;border:1px solid var(--gold)}
+.r-law{background:#2d1f3a;color:#dcc2f0;border:1px solid #8a63b5}
+.unv{border-left:4px solid var(--mag)!important;background:linear-gradient(90deg,rgba(200,98,184,.10),transparent 60%)}
+li.unv,p.unv{padding-left:8px;margin-left:-12px}
+.dec{border-left:4px solid var(--gold)!important;background:linear-gradient(90deg,rgba(191,160,106,.10),transparent 60%)}
+li.dec,p.dec{padding-left:8px;margin-left:-12px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin:12px 0}
+summary{cursor:pointer;color:var(--head);font-weight:600}
+.panel{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--mag);border-radius:8px;padding:12px 16px;margin:14px 0 22px}
+.panel h2{margin:.2em 0 .4em;border:none;font-size:1.08rem}
+.panel .tier{margin:10px 0 4px;font-weight:700;color:var(--head)}
+.panel ol{margin:4px 0 4px 1.2em;padding:0}.panel li{font-size:.9rem}
+.panel label{display:flex;gap:8px;align-items:flex-start;cursor:pointer}
+.panel input{margin-top:5px;accent-color:#3fb6a8;flex:none}
+.panel .done{color:#9fe0d6}.panel .done::after{content:" ✓";}
+.prog{font-size:.82rem;color:var(--muted)}
+.legend{font-size:.8rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:10px;margin:6px 0}
+.idx a{display:block;padding:10px 14px;margin:8px 0;background:var(--surface);border:1px solid var(--line);border-radius:8px;text-decoration:none;color:var(--ink)}
+.idx a:hover{border-color:var(--gold)}
+@media print{body{background:#fff;color:#000}.panel{display:none}details{display:block}}
+@media (max-width:640px){body{font-size:15.5px}.card td:first-child{width:6.5em;white-space:normal}}
+</style></head><body data-page="S-L01"><div class="wrap">
+<div class="topbar"><span class="badge b-staff">직원용 · 내부자료</span><span class="badge b-ng">◇ 검증 전 — 내부 검토용</span><span>회생파산 › 법인파산 · S-L01</span>
+<span>법령 기준일 2026-10-27 · 다음 점검 2027-08-31</span></div>
+<h1>법인파산 신청</h1><div class="legend"><span><span class="cite ok">✓</span> 확인된 근거</span><span><span class="cite ng">◇</span> 확인 전 근거</span><span><span class="r r-ans">● 답</span> 직원 즉답</span><span><span class="r r-fwd">◐ 안내→법무사</span></span><span><span class="r r-law">▲ 법무사</span> 법무사만</span><span style="border-left:4px solid var(--mag);padding-left:6px">자홍 레일 = 확인 전 내용</span><span style="border-left:4px solid var(--gold);padding-left:6px">금색 레일 = 법무사 결정 대기</span></div><section class="panel"><h2>◇ 검증 패널 <span class="prog" id="prog"></span></h2><div class="tier">① 필수 확인 — 고객에게 착오·손해를 줄 수 있는 것 (8)</div><ol><li><label><input type="checkbox" data-k="u0"><span>임금·퇴직금 — 재단채권이지만 재단이 부족하면 비율 변제가 될 수 있다 ◇ 채무자회생법 제477조 . 근로자에게 국가의 대지급금 제도가 있을 수 있음을 안내하되 요건·금액은 단정하지 않는다 ⚠️ (신규) 근거 등록 필요.</span></label></li><li><label><input type="checkbox" data-k="u1"><span>할 일 ① [직원] 신청 주체 확인 — 대표이사(이사회 결의), 소규모 회사(자본금 10억원 미만·이사 1~2명은 결의 불요), 이사 일부 신청(파산 원인 소명 필요) ◇ 채무자회생법 제295조 ② [직원] 파산신청에 관한 이사회 회의록 (해당 시) 작성 지원 ③ [직…</span></label></li><li><label><input type="checkbox" data-k="u2"><span>법무사 보수 서류 단위 ⚠️ 잠정안 S-C01 견적서</span></label></li><li><label><input type="checkbox" data-k="cSC-2018DO17737"><span>근거 확인: <a href="https://www.scourt.go.kr/sjudge/1645082309644_161829.pdf" target="_blank" rel="noopener">대법원 2022. 2. 10. 선고 2018도17737 판결(변호사법위반)</a> — 변호사법 제109조 제1호의 &#x27;대리&#x27;에는 사건 처리를 주도하면서 외형만 본인이 하는 것처럼 하는 실질적 대리도 포함 — 법무사가 개인회생 등 사건의 신청·수행 절차를 실질적으로 대리한 것은 서류 작</span></label></li><li><label><input type="checkbox" data-k="cCHB-295"><span>근거 확인: <a href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제295조" target="_blank" rel="noopener">채무자 회생 및 파산에 관한 법률 제295조(법인의 이사 등의 파산신청)</a> — 주식회사·유한회사의 이사, 합명·합자회사의 무한책임사원, 청산인, 그 밖의 법인 이사·대표자 등도 파산신청 가능 — 전원이 하는 신청이 아니면 파산원인 사실을 소명(제296조)</span></label></li><li><label><input type="checkbox" data-k="cCHB-473"><span>근거 확인: <a href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제473조" target="_blank" rel="noopener">채무자 회생 및 파산에 관한 법률 제473조(재단채권의 범위)</a> — 파산재단 관리·환가 비용, 파산선고 전후 일정 조세, 채무자의 근로자 임금·퇴직금·재해보상금 등은 재단채권</span></label></li><li><label><input type="checkbox" data-k="cCHB-477"><span>근거 확인: <a href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제477조" target="_blank" rel="noopener">채무자 회생 및 파산에 관한 법률 제477조(재단채권의 변제 — 재단 부족)</a> — 파산재단이 재단채권 총액을 변제하기에 부족한 것이 분명해지면 법령상 우선권과 관계없이 아직 변제하지 않은 채권액 비율로 변제(일부 재단채권은 다른 재단채권보다 먼저) — 항별 우선 순서 원문 확인 </span></label></li><li><label><input type="checkbox" data-k="cCHB-302"><span>근거 확인: <a href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제302조" target="_blank" rel="noopener">채무자 회생 및 파산에 관한 법률 제302조(파산신청서의 기재사항 및 첨부서류)</a> — 신청서에 신청인·채무자 표시, 신청 취지·원인, 사업 목적과 업무 상황, 발행주식 총수·자본·자산·부채 상태, 알고 있는 다른 절차 등 기재, ②채권자목록·재산목록·수입지출 목록·대법원규칙 서류(법</span></label></li></ol><div class="tier">② 개략 확인</div><ol><li><label><input type="checkbox" data-k="r1"><span>A 즉답 카드 — 직원이 고객에게 그대로 말해도 되는 내용인가</span></label></li><li><label><input type="checkbox" data-k="r2"><span>B 단계 순서와 할 일이 실제 사무소 흐름과 맞는가</span></label></li><li><label><input type="checkbox" data-k="r3"><span>C 서류표·비용표에 빠진 항목이 없는가</span></label></li><li><label><input type="checkbox" data-k="r4"><span>응답 범위 표시(답·안내→법무사·법무사)가 적절한가</span></label></li></ol><div class="tier">③ 점진 확인</div><p class="prog" style="margin:2px 0">표현·순서·세부 실무는 사용하면서 고친다 — 직원 의견은 제작메모에 남긴다.</p></section>
+<blockquote>
+<p>직원용 · 내부자료 · <strong><span title="확인 전">◇⚠️</span> 검증 전 초안</strong> · 법령 기준일 2026. 10. 27. · 최종 확인 법무사 (검증 후 기재)
+응답 범위 표시: <span class="r r-ans">● 답</span> 바로 답함 · <span class="r r-fwd">◐ 안내→법무사</span> 일반 기준만 안내 · <span class="r r-law">▲ 법무사</span> 법무사만 답함
+회사가 파산을 신청하는 경우(자기파산·이사 등의 신청)의 상담부터 파산선고까지. 선고 뒤 관재인 협조는 S-L02, 회생 가능성 검토는 S-B01.</p>
+</blockquote>
+<h2>A 즉답 카드</h2>
+<ul>
+<li><strong>한 문장</strong> — 법인파산은 <strong>남은 재산을 공평하게 나누고 회사를 끝내는</strong> 절차다. 법인은 갚을 수 없는 상태뿐 아니라 <strong>부채가 자산보다 많기만 해도</strong> 파산 원인이 된다. <span class="r r-ans">● 답</span> <a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제305조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제305조(보통파산원인) — 채무자가 지급할 수 없을 때 신청에 의해 파산선고, 지급정지는 지급불능으로 추정">✓ 채무자회생법 제305조</a><a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제306조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제306조(법인의 파산원인) — 법인은 부채 총액이 자산 총액을 초과할 때에도 파산선고 가능">✓ 채무자회생법 제306조</a></li>
+<li><strong>업무범위</strong> — 사무소는 신청서와 첨부서류의 <strong>작성·제출을 대행</strong>한다(위임 서류 특정). 법원 심문·관재인 면담 등 <strong>기일에서의 진술</strong>과 회사의 결정(이사회 결의)은 대표자·이사가 한다. <span class="r r-ans">● 답</span> <a class="cite ok" href="https://www.law.go.kr/법령/법무사법/제2조" target="_blank" rel="noopener" title="법무사법 제2조(업무) — ①1. 법원·공소청(검찰)에 제출하는 서류 작성 / 6. 개인파산·개인회생 신청 대리(기일 진술 대리 제외) / 7. 작성 서류 제출 대행 / 8. 부수 상담·자문">✓ 법무사법 제2조</a><a class="cite ng" href="https://www.scourt.go.kr/sjudge/1645082309644_161829.pdf" target="_blank" rel="noopener" title="대법원 2022. 2. 10. 선고 2018도17737 판결(변호사법위반) — 변호사법 제109조 제1호의 &#x27;대리&#x27;에는 사건 처리를 주도하면서 외형만 본인이 하는 것처럼 하는 실질적 대리도 포함 — 법무사가 개인회생 등 사건의 신청·수행 절차를 실질적으로 대리한 것은 서류 작성·제출대행의 범위를 넘어 변호사법 위반(원심 수원지법 2018노524 유지)">◇ 대법 2022. 2. 10. 선고 2018도17737</a></li>
+<li><strong>누가 신청하나</strong> — 회사(대표이사, 원칙적으로 <strong>이사회 결의</strong> 필요 — 자본금 10억원 미만·이사 1~2명이면 결의 없이 가능), 이사 등(전원이 아니면 파산 원인 소명), 채권자. <span class="r r-fwd">◐ 안내→법무사</span> <a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제294조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제294조(파산신청권자) — 채권자 또는 채무자가 파산신청">✓ 채무자회생법 제294조</a><a class="cite ng" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제295조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제295조(법인의 이사 등의 파산신청) — 주식회사·유한회사의 이사, 합명·합자회사의 무한책임사원, 청산인, 그 밖의 법인 이사·대표자 등도 파산신청 가능 — 전원이 하는 신청이 아니면 파산원인 사실을 소명(제296조)">◇ 채무자회생법 제295조</a></li>
+<li><strong>처음 필요한 현금(가상 예: 부채 30억원·채권자 20곳)</strong> — 인지 1,000원 + 송달료 (40 + 20 × 3)회 × 5,640원 = 564,000원 + 예납금 <strong>1,000만원</strong>(부채 10억~50억원 기준, 법원이 가감) ≈ <strong>약 1,057만원 + 법무사 보수</strong>. <span class="r r-ans">● 답</span> <a class="cite ok" href="https://korea.legal/wiki/%ec%9e%ac%ed%8c%90%ec%98%88%ea%b7%9c-%ec%a0%9c1916%ed%98%b8-%eb%b3%84%ed%91%9c-%eb%af%bc%ec%82%ac%ec%a0%91%ec%88%98%ec%84%9c%eb%a5%98-%ec%9d%b8%ec%a7%80%ec%95%a1-%ec%9d%bc%eb%9e%8c/" target="_blank" rel="noopener" title="재판예규 제1916호 민사접수서류에 붙일 인지액 일람표 — 도산사건 — 도산사건 인지액: 채무자(법인 포함) 파산신청 1,000원(채권자 신청 30,000원) / 파산절차 면책신청 1,000원 / 조사확정재판 신청 1,000원 / 부인 청구 1,000원 / 보전처분·중지·금지명령 2,000원 · 예규 제3조② 전자문서 제출 시 10분의 9">✓ 재판예규 제1916호 민사접수서류에 붙일 인지액 일람표</a><a class="cite ok" href="https://www.easylaw.go.kr/CSP/CnpClsMain.laf?csmSeq=568&amp;ccfNo=2&amp;cciNo=4&amp;cnpClsNo=3" target="_blank" rel="noopener" title="송달료규칙의 시행에 따른 업무처리요령(재일 87-4) [별표 1] 적용대상사건 및 송달료 예납기준표 — 회생(회합·회단)·간이회생(간회합·간회단)·파산합의 사건: 40회분 + 채권자 수×3회분 / 파산단독: 10회분 + 채권자 수×4회분 / 개인회생: 10회분 + 채권자 수×8회분">✓ 송달료 예규 [별표 1] 적용대상사건 및 송달료 예납기준표</a><a class="cite ok" href="https://bsb.scourt.go.kr/bsb/info/info_01/index.html" target="_blank" rel="noopener" title="부산회생법원 실무준칙 제321호 제2조·[별표 1] 법인파산 예납금 — 부채총액(미발생 구상채무 등 중복 채무 제외) 기준: 동시폐지(인터넷공고 시) 불필요 / 10억 미만 500만 / 10~50억 1,000만 / 50~100억 1,200만 / 100~300억 1,500만 / 300억 이상 2,000만 이상, 재단 규모·기간·난이도·채권자 수로 가감">✓ 부산준칙 제321호 제2조·[별표 1] 법인파산 예납금</a></li>
+<li><strong>고객이 꼭 묻는 세 가지</strong></li>
+<li>"폐업만 하면 끝나지 않나요?" → 폐업은 영업을 그만두는 것일 뿐 법인과 빚은 남는다. 파산선고는 회사의 <strong>해산 사유</strong>이고, 절차를 거쳐 법인이 정리된다. <span class="r r-fwd">◐ 안내→법무사</span> <a class="cite ok" href="https://www.law.go.kr/법령/상법/제227조" target="_blank" rel="noopener" title="상법 제227조(해산원인) — 회사의 해산사유 — 5. 파산 등">✓ 상법 제227조</a><a class="cite ok" href="https://www.law.go.kr/법령/상법/제517조" target="_blank" rel="noopener" title="상법 제517조(해산사유) — 주식회사는 제227조 제1호·제4호~제6호(파산 포함) 등의 사유로 해산">✓ 상법 제517조</a></li>
+<li>"대표 개인 보증은요?" → 회사 파산과 별개로 남는다. 대표 개인은 개인회생·개인파산·일반회생을 따로 검토한다. <span class="r r-law">▲ 법무사</span> <a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제567조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제567조(보증인 등에 대한 효과) — 면책은 보증인 등 공동채무자에 대한 권리와 담보에 영향 없음">✓ 채무자회생법 제567조</a></li>
+<li>"직원 월급이 먼저 나가나요?" → 임금·퇴직금 등은 <strong>재단채권</strong>으로 파산채권보다 먼저 받지만, 재단이 부족하면 재단채권끼리도 비율로 나눌 수 있어 "늘 전액 먼저"는 아니다. <span class="r r-fwd">◐ 안내→법무사</span> <a class="cite ng" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제473조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제473조(재단채권의 범위) — 파산재단 관리·환가 비용, 파산선고 전후 일정 조세, 채무자의 근로자 임금·퇴직금·재해보상금 등은 재단채권">◇ 채무자회생법 제473조</a><a class="cite ng" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제477조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제477조(재단채권의 변제 — 재단 부족) — 파산재단이 재단채권 총액을 변제하기에 부족한 것이 분명해지면 법령상 우선권과 관계없이 아직 변제하지 않은 채권액 비율로 변제(일부 재단채권은 다른 재단채권보다 먼저) — 항별 우선 순서 원문 확인 필요">◇ 채무자회생법 제477조</a></li>
+<li><strong>✖ 말하면 안 되는 말</strong> — ① "폐업 신고만 하시면 됩니다" ② "신청 전에 좋은 거래처부터 갚아 두세요" ③ "직원 임금은 전액 보장됩니다" ④ "대표님 보증도 같이 정리됩니다"</li>
+<li><strong>다음 페이지</strong> — 회생 가능성 진단 S-B01 / 선고 후 관재인 협조 S-L02 / 대표 개인 S-C02·S-P01·S-B06 / 고객 안내문 G-L01</li>
+</ul>
+<h2>B 단계</h2>
+<h3>B0 상담 — 파산이 맞는지, 무엇이 위험한지</h3>
+<div class="table-wrap"><table class="card">
+<thead>
+<tr>
+<th>칸</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>목적</td>
+<td>회생 가능성 검토 여부를 기록하고, 신청 전 위험 행위를 막는다</td>
+</tr>
+<tr>
+<td>할 일</td>
+<td>① [직원] S-B01 진단을 거쳤는지 기록(회생이 낫다는 판단이면 S-B02) — 회생 폐지 뒤의 파산(견련파산)인지 구분 ② [직원] 부채 총액·채권자 수·자산 현황, 임금 체불·4대보험·세금 체납, 진행 중 소송·압류 기록 ③ [직원] <strong>최근 자산 처분·특정 채권자 변제·담보 제공</strong> 여부 기록 ④ [법무사] 신청 방향과 대표 개인 문제 함께 판단</td>
+</tr>
+<tr>
+<td>받을 것·안내할 것</td>
+<td>안내 <span class="r r-ans">● 답</span>: "파산이 결정되면 회사 재산은 법원이 정한 파산관재인이 관리합니다. 그 전이라도 재산을 팔거나 특정 거래처에만 갚지 마세요."</td>
+</tr>
+<tr>
+<td>만들어 낼 것</td>
+<td>상담 기록, S-B01 진단 연결 표시</td>
+</tr>
+<tr>
+<td>⚡ 기한</td>
+<td>해당 없음(임금 체불·압류가 진행 중이면 서두른다)</td>
+</tr>
+<tr>
+<td>이 단계의 함정</td>
+<td>파산을 알면서 특정 채권자에게 갚거나 담보를 주는 행위는 관재인이 되돌릴 수 있고(부인), 파산선고가 확정되면 <strong>이사 등이 형사처벌</strong>될 수 있다<a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제651조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제651조(과태파산죄) — 파산 지연 목적의 신용구입·헐값 처분, 파산원인을 알면서 특정 채권자에게 의무 없는 담보·변제, 상업장부 부실 등을 하고 파산선고가 확정되면 5년 이하 징역 또는 5천만원 이하 벌금">✓ 채무자회생법 제651조</a><a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제652조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제652조(일정한 지위에 있는 자의 사기파산 및 과태파산죄) — 법인인 채무자의 이사 등이 제650조·제651조의 행위를 하고 파산선고가 확정되면 같은 형으로 처벌">✓ 채무자회생법 제652조</a> — 고객 요청이 있어도 따르지 않고 <span class="r r-law">▲ 법무사</span></td>
+</tr>
+<tr>
+<td>완료 기준</td>
+<td>☐ 진단 연결 ☐ 현황 기록 ☐ 위험 행위 확인 ☐ 법무사 결정</td>
+</tr>
+</tbody>
+</table></div>
+<h3>B1 수임과 회사 결정</h3>
+<div class="table-wrap"><table class="card">
+<thead>
+<tr>
+<th>칸</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>목적</td>
+<td>회사의 신청 의사를 적법하게 갖추고 위임 범위를 정한다</td>
+</tr>
+<tr class="unv">
+<td>할 일</td>
+<td>① [직원] 신청 주체 확인 — 대표이사(이사회 결의), 소규모 회사(자본금 10억원 미만·이사 1~2명은 결의 불요), 이사 일부 신청(파산 원인 소명 필요)<a class="cite ng" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제295조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제295조(법인의 이사 등의 파산신청) — 주식회사·유한회사의 이사, 합명·합자회사의 무한책임사원, 청산인, 그 밖의 법인 이사·대표자 등도 파산신청 가능 — 전원이 하는 신청이 아니면 파산원인 사실을 소명(제296조)">◇ 채무자회생법 제295조</a> ② [직원] <strong>파산신청에 관한 이사회 회의록</strong>(해당 시) 작성 지원 ③ [직원] 위임 서류를 특정한 위임장·계약서, 견적(서류 단위 <span title="확인 전">◇⚠️</span> 잠정안, S-C01) ④ [직원] G-L01 안내문 전달</td>
+</tr>
+<tr>
+<td>받을 것·안내할 것</td>
+<td>이사회 의사록 서명·날인(회사). 안내 <span class="r r-ans">● 답</span>: "회사 이름으로 신청하려면 이사회 결의가 먼저 있어야 합니다."</td>
+</tr>
+<tr>
+<td>만들어 낼 것</td>
+<td>이사회 회의록, 위임장·계약서·견적서</td>
+</tr>
+<tr>
+<td>⚡ 기한</td>
+<td>해당 없음</td>
+</tr>
+<tr>
+<td>이 단계의 함정</td>
+<td>이사회 결의 없이 대표 단독으로 신청하면 보정·각하 사유가 된다(소규모 회사 예외 확인) — 등기부로 자본금·이사 수를 먼저 본다</td>
+</tr>
+<tr>
+<td>완료 기준</td>
+<td>☐ 신청 주체 ☐ 이사회 회의록 ☐ 위임·견적 ☐ G-L01</td>
+</tr>
+</tbody>
+</table></div>
+<h3>B2 자료 수집</h3>
+<div class="table-wrap"><table class="card">
+<thead>
+<tr>
+<th>칸</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>목적</td>
+<td>신청서 기재사항과 첨부서류에 필요한 자료를 모은다</td>
+</tr>
+<tr>
+<td>할 일</td>
+<td>① [직원] G-L01 목록대로 요청 — 법인등기부, 정관, 주주명부, 최근 재무제표, 채권자별 채무 자료, 자산 자료(부동산·차량·기계·재고·매출채권·예금), 임금 체불·퇴직금 현황, 세금·4대보험 체납, 소송·압류 서류 ② [직원] <strong>현금·고가품·장부·등기서류·대표자 인감의 소재와 보관 상황</strong> 기록(신청서 기재·관재인 인계 대비) ③ [직원] 원본은 <code>01 접수수집자료</code></td>
+</tr>
+<tr>
+<td>받을 것·안내할 것</td>
+<td>안내 <span class="r r-ans">● 답</span>: "회사 장부와 인감, 통장은 파산관재인에게 넘겨야 하니 지금부터 한곳에 모아 보관해 주세요."</td>
+</tr>
+<tr>
+<td>만들어 낼 것</td>
+<td>자료 수령 체크표, 보관 현황표</td>
+</tr>
+<tr>
+<td>⚡ 기한</td>
+<td>고객과 정한 수령일</td>
+</tr>
+<tr>
+<td>이 단계의 함정</td>
+<td>장부를 없애거나 부실하게 두면 파산범죄 문제가 될 수 있다<a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제651조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제651조(과태파산죄) — 파산 지연 목적의 신용구입·헐값 처분, 파산원인을 알면서 특정 채권자에게 의무 없는 담보·변제, 상업장부 부실 등을 하고 파산선고가 확정되면 5년 이하 징역 또는 5천만원 이하 벌금">✓ 채무자회생법 제651조</a> — 폐업 과정에서 장부·서류를 버리지 않게 한다</td>
+</tr>
+<tr>
+<td>완료 기준</td>
+<td>☐ 자료 수령 ☐ 보관 현황 ☐ 원본 보관</td>
+</tr>
+</tbody>
+</table></div>
+<h3>B3 신청서·목록 작성</h3>
+<div class="table-wrap"><table class="card">
+<thead>
+<tr>
+<th>칸</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>목적</td>
+<td>법이 정한 기재사항과 첨부서류를 갖춘 신청서를 만든다</td>
+</tr>
+<tr>
+<td>할 일</td>
+<td>① [직원] 신청서 — 신청 취지·원인, 사업 목적과 업무 상황, 발행주식 총수·자본·자산·부채 상태, 알고 있는 다른 절차·처분, 부채 정리·자산 처분 상황, 현금·장부·인감 소재, 관재인 보조 가능 임직원<a class="cite ng" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제302조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제302조(파산신청서의 기재사항 및 첨부서류) — 신청서에 신청인·채무자 표시, 신청 취지·원인, 사업 목적과 업무 상황, 발행주식 총수·자본·자산·부채 상태, 알고 있는 다른 절차 등 기재, ②채권자목록·재산목록·수입지출 목록·대법원규칙 서류(법인등기부·정관·이사회 회의록 등) 첨부, 동시 첨부가 불가하면 사유 소명 후 지체 없이 제출">◇ 채무자회생법 제302조</a> ② [직원] 첨부 — <strong>채권자목록, 재산목록, 수입·지출 목록</strong>, 법인등기사항전부증명서, 정관, 이사회 회의록, 그 밖의 소명자료<a class="cite ng" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제302조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제302조(파산신청서의 기재사항 및 첨부서류) — 신청서에 신청인·채무자 표시, 신청 취지·원인, 사업 목적과 업무 상황, 발행주식 총수·자본·자산·부채 상태, 알고 있는 다른 절차 등 기재, ②채권자목록·재산목록·수입지출 목록·대법원규칙 서류(법인등기부·정관·이사회 회의록 등) 첨부, 동시 첨부가 불가하면 사유 소명 후 지체 없이 제출">◇ 채무자회생법 제302조</a> ③ [직원] 임금 채권자(근로자)를 채권자목록에 빠짐없이 — 재단채권 표시 ④ [법무사] 검토</td>
+</tr>
+<tr>
+<td>받을 것·안내할 것</td>
+<td>내용 확인(대표자). 안내 <span class="r r-ans">● 답</span>: "신청서에 적는 회사 상황은 대표님 확인을 받고 내겠습니다."</td>
+</tr>
+<tr>
+<td>만들어 낼 것</td>
+<td>신청서 일체(<code>02 작업자료</code> → <code>03 제출확정자료</code>)</td>
+</tr>
+<tr>
+<td>⚡ 기한</td>
+<td>해당 없음</td>
+</tr>
+<tr>
+<td>이 단계의 함정</td>
+<td>낼 수 없는 첨부서류는 <strong>사유를 소명하고 바로 이어서</strong> 내야 한다<a class="cite ng" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제302조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제302조(파산신청서의 기재사항 및 첨부서류) — 신청서에 신청인·채무자 표시, 신청 취지·원인, 사업 목적과 업무 상황, 발행주식 총수·자본·자산·부채 상태, 알고 있는 다른 절차 등 기재, ②채권자목록·재산목록·수입지출 목록·대법원규칙 서류(법인등기부·정관·이사회 회의록 등) 첨부, 동시 첨부가 불가하면 사유 소명 후 지체 없이 제출">◇ 채무자회생법 제302조</a>. 근로자 개인정보(주민번호·계좌)는 법원 제출본에만 두고 사무소 작업 파일에는 남기지 않는다</td>
+</tr>
+<tr>
+<td>완료 기준</td>
+<td>☐ 기재사항 ☐ 첨부서류 ☐ 근로자 채권 표시 ☐ 법무사 검토</td>
+</tr>
+</tbody>
+</table></div>
+<h3>B4 접수</h3>
+<div class="table-wrap"><table class="card">
+<thead>
+<tr>
+<th>칸</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>목적</td>
+<td>관할 법원(합의부)에 비용을 갖춰 접수한다</td>
+</tr>
+<tr>
+<td>할 일</td>
+<td>① [직원] 관할 — 주된 사무소 소재지 등 회생법원 <strong>합의부</strong>(울산·경남 소재 회사는 부산회생법원에도 가능)<a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제3조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제3조(재판관할) — ①주소·주된 사무소 소재지 등 관할 회생법원 ②회생·파산은 고등법원 소재지 회생법원에도 ⑪울산·경남 소재 채무자는 부산회생법원에도 신청 가능(2022.12.27 신설)">✓ 채무자회생법 제3조</a> ② [직원] 인지 <strong>1,000원</strong>(채무자 신청, 전자제출 10분의 9)<a class="cite ok" href="https://korea.legal/wiki/%ec%9e%ac%ed%8c%90%ec%98%88%ea%b7%9c-%ec%a0%9c1916%ed%98%b8-%eb%b3%84%ed%91%9c-%eb%af%bc%ec%82%ac%ec%a0%91%ec%88%98%ec%84%9c%eb%a5%98-%ec%9d%b8%ec%a7%80%ec%95%a1-%ec%9d%bc%eb%9e%8c/" target="_blank" rel="noopener" title="재판예규 제1916호 민사접수서류에 붙일 인지액 일람표 — 도산사건 — 도산사건 인지액: 채무자(법인 포함) 파산신청 1,000원(채권자 신청 30,000원) / 파산절차 면책신청 1,000원 / 조사확정재판 신청 1,000원 / 부인 청구 1,000원 / 보전처분·중지·금지명령 2,000원 · 예규 제3조② 전자문서 제출 시 10분의 9">✓ 재판예규 제1916호 민사접수서류에 붙일 인지액 일람표</a><a class="cite ok" href="https://korea.legal/wiki/%eb%af%bc%ec%82%ac%ec%86%8c%ec%86%a1-%eb%93%b1-%ec%9d%b8%ec%a7%80%eb%b2%95-%ec%a0%9c16%ec%a1%b0/" target="_blank" rel="noopener" title="민사소송 등 인지법 제16조(전자소송에서의 특례) — ①등록사용자로서 전자소송에 동의한 자가 전자문서로 제출하는 소장에는 제2조 인지액의 10분의 9 ②제1항은 제3조부터 제10조까지 준용 → 제9조의 회생·개인회생 개시신청서 등도 전자제출 시 10분의 9(30,000원 → 27,000원)">✓ 민사소송 등 인지법 제16조</a> ③ [직원] 송달료 — 파산합의 사건 (40회 + 채권자 수 × 3회) × 5,640원<a class="cite ok" href="https://www.easylaw.go.kr/CSP/CnpClsMain.laf?csmSeq=568&amp;ccfNo=2&amp;cciNo=4&amp;cnpClsNo=3" target="_blank" rel="noopener" title="송달료규칙의 시행에 따른 업무처리요령(재일 87-4) [별표 1] 적용대상사건 및 송달료 예납기준표 — 회생(회합·회단)·간이회생(간회합·간회단)·파산합의 사건: 40회분 + 채권자 수×3회분 / 파산단독: 10회분 + 채권자 수×4회분 / 개인회생: 10회분 + 채권자 수×8회분">✓ 송달료 예규 [별표 1] 적용대상사건 및 송달료 예납기준표</a><a class="cite ok" href="https://www.easylaw.go.kr/CSP/CnpClsMain.laf?csmSeq=568&amp;ccfNo=2&amp;cciNo=4&amp;cnpClsNo=3" target="_blank" rel="noopener" title="1회 송달료 5,640원(국내 통상우편요금 및 우편이용에 관한 수수료 별표) — 찾기쉬운 생활법령정보 — 1회분 송달료 5,640원(2026. 7. 1.부터)">✓ 1회 송달료 5,640원(국내 통상우편요금 및 우편이용에 관한</a> ④ [법무사] 최종 확인 → <strong>제출은 사람이</strong> ⑤ [직원] 사건번호·접수증 기록</td>
+</tr>
+<tr>
+<td>받을 것·안내할 것</td>
+<td>안내 <span class="r r-ans">● 답</span>: "오늘 접수했습니다. 법원이 예납금을 정해 알려 오면 바로 안내드리겠습니다."</td>
+</tr>
+<tr>
+<td>만들어 낼 것</td>
+<td>접수본 동결, 접수증</td>
+</tr>
+<tr>
+<td>⚡ 기한</td>
+<td>해당 없음(보정명령 시 그 기한)</td>
+</tr>
+<tr>
+<td>이 단계의 함정</td>
+<td>채권자가 신청한 사건이면 신청 인지가 30,000원이고 채권 존재·파산 원인을 소명해야 한다 — 고객이 채권자 쪽이면 다른 흐름이다 <span class="r r-law">▲ 법무사</span></td>
+</tr>
+<tr>
+<td>완료 기준</td>
+<td>☐ 관할 ☐ 인지·송달료 ☐ 접수</td>
+</tr>
+</tbody>
+</table></div>
+<h3>B5 예납·심문·파산선고</h3>
+<div class="table-wrap"><table class="card">
+<thead>
+<tr>
+<th>칸</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>목적</td>
+<td>예납명령과 대표자 심문에 대응해 파산선고까지 간다</td>
+</tr>
+<tr>
+<td>할 일</td>
+<td>① [직원] 예납명령 수령 → 금액·기한 등록 — 부채총액 기준표(10억 미만 500만원, 10억~50억 1,000만원, 50억~100억 1,200만원, 100억~300억 1,500만원, 300억 이상 2,000만원 이상, 동시폐지·인터넷공고 사건은 불필요), 재단 규모·기간·난이도·채권자 수로 가감<a class="cite ok" href="https://bsb.scourt.go.kr/bsb/info/info_01/index.html" target="_blank" rel="noopener" title="부산회생법원 실무준칙 제321호 제2조·[별표 1] 법인파산 예납금 — 부채총액(미발생 구상채무 등 중복 채무 제외) 기준: 동시폐지(인터넷공고 시) 불필요 / 10억 미만 500만 / 10~50억 1,000만 / 50~100억 1,200만 / 100~300억 1,500만 / 300억 이상 2,000만 이상, 재단 규모·기간·난이도·채권자 수로 가감">✓ 부산준칙 제321호 제2조·[별표 1] 법인파산 예납금</a> ② [직원] 대표자 심문 출석 준비 ③ [직원] 파산선고 결정문 수령 → 관재인·채권신고기간·채권자집회·조사기일 기한db 등록 ④ [직원] S-L02 인계</td>
+</tr>
+<tr>
+<td>받을 것·안내할 것</td>
+<td>예납금(회사·대표). 안내 <span class="r r-ans">● 답</span>: "파산이 선고되었습니다. 지금부터 회사 재산의 관리·처분은 파산관재인이 합니다. 관재인 연락에 바로 응해 주세요."</td>
+</tr>
+<tr>
+<td>만들어 낼 것</td>
+<td>예납 기록, 기한표</td>
+</tr>
+<tr>
+<td>⚡ 기한</td>
+<td>예납 기한 · 심문기일 · 결정문의 각 기일</td>
+</tr>
+<tr>
+<td>이 단계의 함정</td>
+<td>파산선고 뒤 재산의 관리·처분권은 관재인에게 있다<a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제384조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제384조(관리 및 처분권) — 파산재단의 관리·처분 권한은 파산관재인에게 속함">✓ 채무자회생법 제384조</a> — 대표가 회사 통장·재고를 임의로 처리하지 않게 한다. 예납금은 사무소 보수와 별개다</td>
+</tr>
+<tr>
+<td>완료 기준</td>
+<td>☐ 예납 ☐ 심문 출석 ☐ 선고 기록 ☐ S-L02 인계</td>
+</tr>
+</tbody>
+</table></div>
+<h2>C 참조표</h2>
+<h3>C1 서류</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>행</th>
+<th>서류</th>
+<th>받는 곳·만드는 곳</th>
+<th>위험도</th>
+<th>단계</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C1-1</td>
+<td>법인등기사항전부증명서, 정관, 주주명부</td>
+<td>등기소·회사</td>
+<td>🔴</td>
+<td>B2</td>
+</tr>
+<tr>
+<td>C1-2</td>
+<td>파산신청에 관한 이사회 회의록(소규모 회사 예외)</td>
+<td>사무소 작성·이사 서명</td>
+<td>🔴</td>
+<td>B1</td>
+</tr>
+<tr>
+<td>C1-3</td>
+<td>최근 재무제표, 부가세 과세표준증명 등</td>
+<td>회사·세무서</td>
+<td>🔴</td>
+<td>B2</td>
+</tr>
+<tr>
+<td>C1-4</td>
+<td>채권자별 채무 자료(금융·상거래·조세·4대보험·임금)</td>
+<td>회사</td>
+<td>🔴</td>
+<td>B2</td>
+</tr>
+<tr>
+<td>C1-5</td>
+<td>자산 자료(부동산·차량·기계·재고·매출채권·예금·리스)</td>
+<td>회사·등기소</td>
+<td>🔴</td>
+<td>B2</td>
+</tr>
+<tr>
+<td>C1-6</td>
+<td>임금·퇴직금 체불 현황(근로자별)</td>
+<td>회사</td>
+<td>🔴</td>
+<td>B2·B3</td>
+</tr>
+<tr>
+<td>C1-7</td>
+<td>소송·압류·경매 서류</td>
+<td>회사</td>
+<td>🟡</td>
+<td>B2</td>
+</tr>
+<tr>
+<td>C1-8</td>
+<td>현금·장부·등기서류·인감 보관 현황표</td>
+<td>사무소 작성</td>
+<td>🟡</td>
+<td>B2</td>
+</tr>
+<tr>
+<td>C1-9</td>
+<td>작성 — 파산신청서, 채권자목록, 재산목록, 수입·지출 목록</td>
+<td>사무소 작성</td>
+<td>🔴</td>
+<td>B3</td>
+</tr>
+</tbody>
+</table></div>
+<h3>C2 비용 (값은 S-R01)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>항목</th>
+<th>산식</th>
+<th>근거</th>
+<th>내는 때</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>인지</td>
+<td>1,000원(채무자 신청) / 전자제출 10분의 9</td>
+<td><a class="cite ok" href="https://korea.legal/wiki/%ec%9e%ac%ed%8c%90%ec%98%88%ea%b7%9c-%ec%a0%9c1916%ed%98%b8-%eb%b3%84%ed%91%9c-%eb%af%bc%ec%82%ac%ec%a0%91%ec%88%98%ec%84%9c%eb%a5%98-%ec%9d%b8%ec%a7%80%ec%95%a1-%ec%9d%bc%eb%9e%8c/" target="_blank" rel="noopener" title="재판예규 제1916호 민사접수서류에 붙일 인지액 일람표 — 도산사건 — 도산사건 인지액: 채무자(법인 포함) 파산신청 1,000원(채권자 신청 30,000원) / 파산절차 면책신청 1,000원 / 조사확정재판 신청 1,000원 / 부인 청구 1,000원 / 보전처분·중지·금지명령 2,000원 · 예규 제3조② 전자문서 제출 시 10분의 9">✓ 재판예규 제1916호 민사접수서류에 붙일 인지액 일람표</a><a class="cite ok" href="https://korea.legal/wiki/%eb%af%bc%ec%82%ac%ec%86%8c%ec%86%a1-%eb%93%b1-%ec%9d%b8%ec%a7%80%eb%b2%95-%ec%a0%9c16%ec%a1%b0/" target="_blank" rel="noopener" title="민사소송 등 인지법 제16조(전자소송에서의 특례) — ①등록사용자로서 전자소송에 동의한 자가 전자문서로 제출하는 소장에는 제2조 인지액의 10분의 9 ②제1항은 제3조부터 제10조까지 준용 → 제9조의 회생·개인회생 개시신청서 등도 전자제출 시 10분의 9(30,000원 → 27,000원)">✓ 민사소송 등 인지법 제16조</a></td>
+<td>접수</td>
+</tr>
+<tr>
+<td>송달료</td>
+<td>(40회 + 채권자 수 × 3회) × 5,640원</td>
+<td><a class="cite ok" href="https://www.easylaw.go.kr/CSP/CnpClsMain.laf?csmSeq=568&amp;ccfNo=2&amp;cciNo=4&amp;cnpClsNo=3" target="_blank" rel="noopener" title="송달료규칙의 시행에 따른 업무처리요령(재일 87-4) [별표 1] 적용대상사건 및 송달료 예납기준표 — 회생(회합·회단)·간이회생(간회합·간회단)·파산합의 사건: 40회분 + 채권자 수×3회분 / 파산단독: 10회분 + 채권자 수×4회분 / 개인회생: 10회분 + 채권자 수×8회분">✓ 송달료 예규 [별표 1] 적용대상사건 및 송달료 예납기준표</a><a class="cite ok" href="https://www.easylaw.go.kr/CSP/CnpClsMain.laf?csmSeq=568&amp;ccfNo=2&amp;cciNo=4&amp;cnpClsNo=3" target="_blank" rel="noopener" title="1회 송달료 5,640원(국내 통상우편요금 및 우편이용에 관한 수수료 별표) — 찾기쉬운 생활법령정보 — 1회분 송달료 5,640원(2026. 7. 1.부터)">✓ 1회 송달료 5,640원(국내 통상우편요금 및 우편이용에 관한</a></td>
+<td>접수</td>
+</tr>
+<tr>
+<td>예납금</td>
+<td>부채총액 기준표(가감)</td>
+<td><a class="cite ok" href="https://bsb.scourt.go.kr/bsb/info/info_01/index.html" target="_blank" rel="noopener" title="부산회생법원 실무준칙 제321호 제2조·[별표 1] 법인파산 예납금 — 부채총액(미발생 구상채무 등 중복 채무 제외) 기준: 동시폐지(인터넷공고 시) 불필요 / 10억 미만 500만 / 10~50억 1,000만 / 50~100억 1,200만 / 100~300억 1,500만 / 300억 이상 2,000만 이상, 재단 규모·기간·난이도·채권자 수로 가감">✓ 부산준칙 제321호 제2조·[별표 1] 법인파산 예납금</a></td>
+<td>예납명령 기한</td>
+</tr>
+<tr class="unv">
+<td>법무사 보수</td>
+<td>서류 단위 <span title="확인 전">◇⚠️</span> 잠정안</td>
+<td>S-C01</td>
+<td>견적서</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>계산 예(가상)</strong> — 부채 30억원·채권자 20곳: 1,000 + 100 × 5,640 = 565,000원 + 예납금 10,000,000원 = <strong>10,565,000원</strong> + 법무사 보수.</p>
+<h3>C3 단계에 속하지 않는 함정</h3>
+<ul>
+<li><strong>대표 개인은 따로</strong> — 회사가 파산해도 대표 보증은 남는다<a class="cite ok" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제567조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제567조(보증인 등에 대한 효과) — 면책은 보증인 등 공동채무자에 대한 권리와 담보에 영향 없음">✓ 채무자회생법 제567조</a>. 대표 개인 절차를 함께 상담한다(S-C02).</li>
+<li class="unv"><strong>임금·퇴직금</strong> — 재단채권이지만 재단이 부족하면 비율 변제가 될 수 있다<a class="cite ng" href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제477조" target="_blank" rel="noopener" title="채무자 회생 및 파산에 관한 법률 제477조(재단채권의 변제 — 재단 부족) — 파산재단이 재단채권 총액을 변제하기에 부족한 것이 분명해지면 법령상 우선권과 관계없이 아직 변제하지 않은 채권액 비율로 변제(일부 재단채권은 다른 재단채권보다 먼저) — 항별 우선 순서 원문 확인 필요">◇ 채무자회생법 제477조</a>. 근로자에게 국가의 대지급금 제도가 있을 수 있음을 안내하되 요건·금액은 단정하지 않는다 <span title="확인 전">◇⚠️</span> (신규) 근거 등록 필요.</li>
+<li><strong>폐업 ≠ 파산</strong> — 폐업 신고만으로 법인과 채무가 정리되지 않는다<a class="cite ok" href="https://www.law.go.kr/법령/상법/제517조" target="_blank" rel="noopener" title="상법 제517조(해산사유) — 주식회사는 제227조 제1호·제4호~제6호(파산 포함) 등의 사유로 해산">✓ 상법 제517조</a>.</li>
+<li><strong>업무범위</strong> — 서류 작성·제출 대행까지, 일체 처리 약속 금지(S-C01)<a class="cite ng" href="https://www.scourt.go.kr/sjudge/1645082309644_161829.pdf" target="_blank" rel="noopener" title="대법원 2022. 2. 10. 선고 2018도17737 판결(변호사법위반) — 변호사법 제109조 제1호의 &#x27;대리&#x27;에는 사건 처리를 주도하면서 외형만 본인이 하는 것처럼 하는 실질적 대리도 포함 — 법무사가 개인회생 등 사건의 신청·수행 절차를 실질적으로 대리한 것은 서류 작성·제출대행의 범위를 넘어 변호사법 위반(원심 수원지법 2018노524 유지)">◇ 대법 2022. 2. 10. 선고 2018도17737</a>.</li>
+</ul>
+<details>
+<summary>D 근거·갱신</summary>
+<ul>
+<li>근거표: citations.json 자동 생성 — 이번 페이지 새 근거 CHB-295, CHB-302, CHB-473, CHB-477 확인 대기</li>
+<li>법령 기준일 2026. 10. 27. · 부산 준칙 제321호(2024. 11. 13. 개정) · next_review 2027-08-31</li>
+<li>확인 대기: 임금채권 대지급금 제도 근거, 법인파산 보수(서류 단위 잠정안)</li>
+<li>연계: 고객 안내문 G-L01</li>
+</ul>
+</details>
+</div><script>
+(function(){var key='adminchk:'+document.body.dataset.page;var st={};
+try{st=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
+var boxes=document.querySelectorAll('.panel input[type=checkbox]');
+function upd(){var n=0;boxes.forEach(function(b){if(b.checked)n++;b.parentNode.classList.toggle('done',b.checked)});
+var p=document.getElementById('prog');if(p)p.textContent='확인 '+n+' / '+boxes.length;}
+boxes.forEach(function(b){b.checked=!!st[b.dataset.k];b.addEventListener('change',function(){st[b.dataset.k]=b.checked;
+try{localStorage.setItem(key,JSON.stringify(st))}catch(e){}upd();});});upd();})();
+</script></body></html>
