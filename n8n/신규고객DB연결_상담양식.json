@@ -1,0 +1,1490 @@
+{
+  "name": "신규고객DB연결 v1 (통합·AI사건명)",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "신규고객 상담신청",
+        "formDescription": "상담 내용을 6하 원칙에 따라 상세히 작성해 주세요.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "고객유형",
+              "fieldType": "radio",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "자연인"
+                  },
+                  {
+                    "option": "법인"
+                  }
+                ]
+              },
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "이름",
+              "placeholder": "자연인은 성함을, 법인은 대표자명을 기재해 주세요"
+            },
+            {
+              "fieldLabel": "회사유형",
+              "fieldType": "radio",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "주식회사"
+                  },
+                  {
+                    "option": "유한회사"
+                  },
+                  {
+                    "option": "합명회사"
+                  },
+                  {
+                    "option": "합자회사"
+                  },
+                  {
+                    "option": "해당없음"
+                  }
+                ]
+              }
+            },
+            {
+              "fieldLabel": "상호",
+              "placeholder": "법인인 경우 상호를 기재해 주세요"
+            },
+            {
+              "fieldLabel": "휴대폰번호",
+              "placeholder": "상담결과 안내용 연락처",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "이메일",
+              "fieldType": "email",
+              "placeholder": "상담결과 안내용 이메일"
+            },
+            {
+              "fieldLabel": "상담유형",
+              "fieldType": "radio",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "부동산등기"
+                  },
+                  {
+                    "option": "법인등기"
+                  },
+                  {
+                    "option": "민사소송"
+                  },
+                  {
+                    "option": "민사집행"
+                  },
+                  {
+                    "option": "상속"
+                  },
+                  {
+                    "option": "회생파산"
+                  },
+                  {
+                    "option": "기타"
+                  }
+                ]
+              }
+            },
+            {
+              "fieldLabel": "상담내용",
+              "fieldType": "textarea",
+              "placeholder": "상담하실 내용을 6하 원칙에 따라 상세히 기재해 주세요. 부동산 관련이면 소재 지번도 기재",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "첨부파일",
+              "fieldType": "file"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a1f0e7c2-1111-4a01-8aaa-000000000001",
+      "name": "Client Intake Form",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.6,
+      "position": [
+        0,
+        384
+      ],
+      "webhookId": "c1a2b3c4-d5e6-4f70-8a90-111122223333"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f1000000-0000-4000-8000-000000000001",
+              "name": "고객유형",
+              "value": "={{ $json['고객유형'] }}",
+              "type": "string"
+            },
+            {
+              "id": "f1000000-0000-4000-8000-000000000002",
+              "name": "이름",
+              "value": "={{ $json['이름'] }}",
+              "type": "string"
+            },
+            {
+              "id": "f1000000-0000-4000-8000-000000000003",
+              "name": "회사유형",
+              "value": "={{ $json['회사유형'] }}",
+              "type": "string"
+            },
+            {
+              "id": "f1000000-0000-4000-8000-000000000004",
+              "name": "상호",
+              "value": "={{ $json['상호'] }}",
+              "type": "string"
+            },
+            {
+              "id": "f1000000-0000-4000-8000-000000000005",
+              "name": "휴대폰번호",
+              "value": "={{ $json['휴대폰번호'] }}",
+              "type": "string"
+            },
+            {
+              "id": "f1000000-0000-4000-8000-000000000006",
+              "name": "이메일",
+              "value": "={{ $json['이메일'] }}",
+              "type": "string"
+            },
+            {
+              "id": "f1000000-0000-4000-8000-000000000007",
+              "name": "상담유형",
+              "value": "={{ $json['상담유형'] }}",
+              "type": "string"
+            },
+            {
+              "id": "f1000000-0000-4000-8000-000000000008",
+              "name": "상담내용",
+              "value": "={{ $json['상담내용'] }}",
+              "type": "string"
+            },
+            {
+              "id": "f1000000-0000-4000-8000-000000000009",
+              "name": "접수경로",
+              "value": "={{ $json['접수경로'] || '온라인' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "a1f0e7c2-2222-4a02-8aaa-000000000002",
+      "name": "Normalize Input",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        224,
+        256
+      ]
+    },
+    {
+      "parameters": {
+        "text": "={{ $json['상담내용'] }}",
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"사건명\": {\n      \"type\": \"string\",\n      \"description\": \"상담내용에서 도출한 사건 명칭. 반드시 '사건유형(원인)' 형식. 괄호 안에는 등기/소송의 원인을 적는다. 예: 소유권이전(매매), 소유권이전(증여), 법인변경(본점이전), 법인변경(임원변경), 소장(대여금), 채권가압류(공사대금)\"\n    }\n  },\n  \"required\": [\"사건명\"]\n}",
+        "options": {
+          "systemPromptTemplate": "너는 대한민국 법무사 사무소의 상담 접수 도우미다. 아래 상담내용을 읽고 사건명을 산출하라. 사건명은 한국 법무 실무 관행에 맞게 반드시 '사건유형(원인)' 형식으로 만든다(괄호 안=등기/소송의 원인). 예) 소유권이전(매매), 법인변경(본점이전), 소장(대여금), 채권가압류(공사대금). 정보가 부족해도 추론하여 반드시 값을 채운다."
+        }
+      },
+      "id": "a1f0e7c2-3333-4a03-8aaa-000000000003",
+      "name": "Extract Case Name",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "typeVersion": 1.2,
+      "position": [
+        448,
+        256
+      ],
+      "retryOnFail": true,
+      "maxTries": 2,
+      "waitBetweenTries": 3000
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-flash",
+        "options": {}
+      },
+      "id": "a1f0e7c2-4444-4a04-8aaa-000000000004",
+      "name": "Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        528,
+        480
+      ],
+      "credentials": {
+        "googlePalmApi": {
+          "id": "2dYYdhOyNqXvi5ij",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const map = { '주식회사': '(주)', '유한회사': '(유)', '합명회사': '(명)', '합자회사': '(자)' };\nconst src = $('Normalize Input').first().json;\nconst ai = ($input.first().json.output) || {};\nlet baseName;\nif (src['고객유형'] === '법인') {\n  const prefix = map[src['회사유형']] || '';\n  baseName = `${prefix}${src['상호'] || ''}`.trim();\n} else {\n  baseName = (src['이름'] || '').trim();\n}\nreturn [{ json: {\n  고객유형: src['고객유형'] || '',\n  이름: src['이름'] || '',\n  회사유형: src['회사유형'] || '',\n  상호: src['상호'] || '',\n  휴대폰번호: src['휴대폰번호'] || '',\n  이메일: src['이메일'] || '',\n  상담유형: src['상담유형'] || '',\n  상담내용: src['상담내용'] || '',\n  사건명: ai['사건명'] || '',\n  기본고객명: baseName\n} }];"
+      },
+      "id": "a1f0e7c2-5555-4a05-8aaa-000000000005",
+      "name": "Build Base Customer Name",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        256
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "2ea0ce34-50b8-8071-a919-d9b3492ca19a",
+          "mode": "list",
+          "cachedResultName": "고객DB",
+          "cachedResultUrl": "https://www.notion.so/2ea0ce3450b88071a919d9b3492ca19a"
+        },
+        "returnAll": true,
+        "simple": false,
+        "options": {}
+      },
+      "id": "a1f0e7c2-6666-4a06-8aaa-000000000006",
+      "name": "Find Same-Name Customers",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        1024,
+        256
+      ],
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "notionApi": {
+          "id": "OzTSriS6QKYmPSzu",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const ctx = $('Build Base Customer Name').first().json;\nconst base = ctx['기본고객명'] || '';\nfunction pageTitle(p){ const props = (p.json && p.json.properties) || {}; for (const k of Object.keys(props)){ const pr = props[k]; if (pr && pr.type === 'title' && Array.isArray(pr.title)) return pr.title.map(t => t.plain_text).join(''); } return ''; }\nconst esc = base.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');\nconst re = new RegExp('^' + esc + '\\\\d*$');\nconst pages = $input.all().filter(i => i.json && i.json.id);\nconst k = pages.filter(p => re.test(pageTitle(p))).length;\nconst finalName = k === 0 ? base : `${base}${k + 1}`;\nreturn [{ json: { ...ctx, 최종고객명: finalName, 동명수: k } }];"
+      },
+      "id": "a1f0e7c2-7777-4a07-8aaa-000000000007",
+      "name": "Resolve Customer Name Suffix",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1248,
+        256
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "2f70ce34-50b8-8090-a77b-ef2ecdb1d20d",
+          "mode": "list",
+          "cachedResultName": "사건관리부DB",
+          "cachedResultUrl": "https://www.notion.so/2f70ce3450b88090a77bef2ecdb1d20d"
+        },
+        "returnAll": true,
+        "simple": false,
+        "options": {}
+      },
+      "id": "a1f0e7c2-8888-4a08-8aaa-000000000008",
+      "name": "Find Today Cases",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        1472,
+        256
+      ],
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "notionApi": {
+          "id": "OzTSriS6QKYmPSzu",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const ctx = $('Resolve Customer Name Suffix').first().json;\nconst prefix = $now.setZone('Asia/Seoul').toFormat('yyMMdd');\nfunction pageTitle(p){ const props = (p.json && p.json.properties) || {}; for (const k of Object.keys(props)){ const pr = props[k]; if (pr && pr.type === 'title' && Array.isArray(pr.title)) return pr.title.map(t => t.plain_text).join(''); } return ''; }\n// 상담DB와 사건부DB는 같은 번호 공간(YYMMDD_NN)을 공유한다.\n// 두 DB의 오늘자 순번 최댓값 + 1 = 다음 순번 → 수임 확정 시 번호 그대로 사건부DB로 이관 가능.\nconst re = new RegExp('^' + prefix + '_(\\\\d{1,})');\nconst pages = [...$('Find Today Cases').all(), ...$input.all()].filter(i => i.json && i.json.id);\nlet maxSeq = 0;\nfor (const p of pages){ const m = pageTitle(p).trim().match(re); if (m){ const n = parseInt(m[1], 10); if (!isNaN(n) && n > maxSeq) maxSeq = n; } }\nconst seq = String(maxSeq + 1).padStart(2, '0');\nconst caseNo = `${prefix}_${seq}`;\nconst caseId = `${caseNo}-${ctx['최종고객명']}-${ctx['사건명']}`;\nreturn [{ json: { ...ctx, 사건번호: caseNo, 사건고유명: caseId } }];"
+      },
+      "id": "a1f0e7c2-9999-4a09-8aaa-000000000009",
+      "name": "Assign Sequence and Build Case ID",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1696,
+        256
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "2ea0ce34-50b8-8071-a919-d9b3492ca19a",
+          "mode": "list",
+          "cachedResultName": "고객DB",
+          "cachedResultUrl": "https://www.notion.so/2ea0ce3450b88071a919d9b3492ca19a"
+        },
+        "title": "={{ $('Resolve Customer Name Suffix').first().json['최종고객명'] }}",
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "대표휴대폰|rich_text",
+              "textContent": "={{ $('Build Base Customer Name').first().json['휴대폰번호'] }}"
+            },
+            {
+              "key": "이메일|email",
+              "emailValue": "={{ $('Build Base Customer Name').first().json['이메일'] || \"\" }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a1f0e7c2-aaaa-4a10-8aaa-000000000010",
+      "name": "Create Customer Page",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        1920,
+        256
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "notionApi": {
+          "id": "OzTSriS6QKYmPSzu",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const ctx = $('Assign Sequence and Build Case ID').first().json;\n// 위임 미확정 상담은 카테고리를 정하지 않고 모두 '01 법무사건/00 상담사건'에 폴더 생성.\n// 수임 확정 시 직원이 해당 카테고리 폴더로 수동 이동한다.\nconst CONSULT_FOLDER_ID = '1mX-wYdRugaIf21v-xLmg1Q5m9kePzwgj';\nreturn [{ json: { ...ctx, parentFolderId: CONSULT_FOLDER_ID } }];"
+      },
+      "id": "a1f0e7c2-bbbb-4a11-8aaa-000000000011",
+      "name": "Set Consultation Folder",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2144,
+        256
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "={{ $('Assign Sequence and Build Case ID').first().json['사건고유명'] }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive",
+          "cachedResultName": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $json.parentFolderId }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "id": "a1f0e7c2-cccc-4a12-8aaa-000000000012",
+      "name": "Create Case Folder",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        2368,
+        256
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "VR7ouc5RybJlGGUB",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "01 접수수집자료",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive",
+          "cachedResultName": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $('Create Case Folder').first().json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "id": "a1f0e7c2-dddd-4a13-8aaa-000000000013",
+      "name": "Create Intake Subfolder",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        2592,
+        160
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "VR7ouc5RybJlGGUB",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const parent = $('Create Case Folder').first().json.id;\nconst names = ['02 작업자료', '03 제출확정자료', '04 제출결과자료', '05 회계자료'];\nreturn names.map(name => ({ json: { name, parent } }));"
+      },
+      "id": "a1f0e7c2-eeee-4a14-8aaa-000000000014",
+      "name": "Build Remaining Subfolders",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2592,
+        544
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "={{ $json.name }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive",
+          "cachedResultName": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $json.parent }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "id": "a1f0e7c2-ffff-4a15-8aaa-000000000015",
+      "name": "Create Remaining Subfolders",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        2816,
+        768
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "VR7ouc5RybJlGGUB",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "databaseId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "4020ce34-50b8-810b-ba4d-f2a47407a9fa"
+        },
+        "options": {},
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "상태|select",
+              "selectValue": "상담중"
+            },
+            {
+              "key": "상담유형|select",
+              "selectValue": "={{ $('Build Base Customer Name').first().json['상담유형'] }}"
+            },
+            {
+              "key": "접수경로|select",
+              "selectValue": "={{ $('Normalize Input').first().json['접수경로'] || '온라인' }}"
+            },
+            {
+              "date": "={{ $now.setZone('Asia/Seoul').toFormat('yyyy-MM-dd') }}",
+              "includeTime": false,
+              "key": "접수일|date"
+            },
+            {
+              "key": "상담내용|rich_text",
+              "textContent": "={{ $('Build Base Customer Name').first().json['상담내용'] }}"
+            },
+            {
+              "key": "고객DB(고객명)|relation",
+              "relationValue": [
+                "={{ $('Create Customer Page').first().json.id }}"
+              ]
+            },
+            {
+              "key": "관련자료폴더(link)|url",
+              "urlValue": "={{ 'https://drive.google.com/drive/folders/' + $('Create Case Folder').first().json.id + '?usp=drive_link' }}"
+            }
+          ]
+        },
+        "resource": "databasePage",
+        "title": "={{ $('Assign Sequence and Build Case ID').first().json['사건고유명'] }}"
+      },
+      "id": "a1f0e7c2-1010-4a16-8aaa-000000000016",
+      "name": "Create Consultation Entry",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        2816,
+        256
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "notionApi": {
+          "id": "OzTSriS6QKYmPSzu",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "id": "a1f0e7c2-1212-4a17-8aaa-000000000017",
+      "name": "Merge Folder and Files",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2816,
+        576
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const out = [];\nfor (const item of $input.all()) {\n  const bin = item.binary || {};\n  for (const key of Object.keys(bin)) {\n    out.push({ json: { fileName: bin[key].fileName || key, source: key }, binary: { data: bin[key] } });\n  }\n}\nreturn out;"
+      },
+      "id": "a1f0e7c2-1313-4a18-8aaa-000000000018",
+      "name": "Split Binary Files",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3040,
+        576
+      ]
+    },
+    {
+      "parameters": {
+        "name": "={{ $binary.data.fileName }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive",
+          "cachedResultName": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $('Create Intake Subfolder').first().json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "id": "a1f0e7c2-1414-4a19-8aaa-000000000019",
+      "name": "Upload Files to Intake Folder",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        3264,
+        352
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "VR7ouc5RybJlGGUB",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const c = $('Assign Sequence and Build Case ID').first().json;\nconst n = $('Normalize Input').first().json;\nconst intakeFolderId = $input.first().json.id;\n\nconst nowKst = $now.setZone('Asia/Seoul').toFormat('yyyy-MM-dd HH:mm');\nconst 고객명 = c['최종고객명'] || '';\nconst 사건고유명 = c['사건고유명'] || '';\nconst 상담유형 = c['상담유형'] || n['상담유형'] || '';\nconst 상담내용 = c['상담내용'] || n['상담내용'] || '';\nconst 사건명 = c['사건명'] || '';\nconst 고객유형 = n['고객유형'] || '';\nconst 휴대폰 = n['휴대폰번호'] || '';\nconst 이메일 = n['이메일'] || '';\nconst 접수경로 = n['접수경로'] || '온라인';\n\nconst docText = [\n  '상담 접수 내용',\n  '',\n  '사건고유명: ' + 사건고유명,\n  '고객명: ' + 고객명,\n  '고객유형: ' + 고객유형,\n  '연락처: ' + 휴대폰,\n  '이메일: ' + 이메일,\n  '접수경로: ' + 접수경로,\n  '상담유형: ' + 상담유형,\n  '사건명: ' + 사건명,\n  '접수일시: ' + nowKst,\n  '',\n  '──────────────────────────────',\n  '[상담내용]',\n  '──────────────────────────────',\n  '',\n  상담내용,\n  ''\n].join('\\n');\n\nconst fileName = 사건고유명 + ' 상담내용';\n\nreturn [{ json: { docText, fileName, intakeFolderId } }];"
+      },
+      "id": "b2c1d000-0001-4b01-9bbb-000000000101",
+      "name": "Build Consultation Document",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2816,
+        64
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "createFromText",
+        "content": "={{ $json.docText }}",
+        "name": "={{ $json.fileName }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive",
+          "cachedResultName": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "root"
+        },
+        "options": {
+          "convertToGoogleDocument": true
+        }
+      },
+      "id": "b2c1d000-0002-4b02-9bbb-000000000102",
+      "name": "Create Consultation Google Doc",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        3040,
+        64
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "VR7ouc5RybJlGGUB",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $json.id }}"
+        },
+        "options": {
+          "binaryPropertyName": "data",
+          "googleFileConversion": {
+            "conversion": {
+              "docsToFormat": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+            }
+          },
+          "fileName": "={{ $('Build Consultation Document').first().json.fileName }}.docx"
+        }
+      },
+      "id": "b2c1d000-0003-4b03-9bbb-000000000103",
+      "name": "Export Doc as DOCX",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        3264,
+        64
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "VR7ouc5RybJlGGUB",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "={{ $('Build Consultation Document').first().json.fileName }}.docx",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive",
+          "cachedResultName": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Build Consultation Document').first().json.intakeFolderId }}"
+        },
+        "options": {}
+      },
+      "id": "b2c1d000-0004-4b04-9bbb-000000000104",
+      "name": "Upload Consultation DOCX",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        3488,
+        64
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "VR7ouc5RybJlGGUB",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "deleteFile",
+        "fileId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Create Consultation Google Doc').first().json.id }}"
+        },
+        "options": {}
+      },
+      "id": "b2c1d000-0005-4b05-9bbb-000000000105",
+      "name": "Delete Temp Google Doc",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        3712,
+        64
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000,
+      "onError": "continueRegularOutput",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "VR7ouc5RybJlGGUB",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "formTitle": "오프라인 상담 접수 (직원용)",
+        "formDescription": "전화 또는 방문 상담 내용을 입력하세요. 온라인 상담폼과 동일하게 사건번호 채번·폴더 생성·노션 기록이 자동 처리됩니다.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "접수경로",
+              "fieldType": "radio",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "전화"
+                  },
+                  {
+                    "option": "방문"
+                  }
+                ]
+              },
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "고객유형",
+              "fieldType": "radio",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "자연인"
+                  },
+                  {
+                    "option": "법인"
+                  }
+                ]
+              },
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "이름",
+              "placeholder": "자연인은 성함을, 법인은 대표자명을 기재해 주세요"
+            },
+            {
+              "fieldLabel": "회사유형",
+              "fieldType": "radio",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "주식회사"
+                  },
+                  {
+                    "option": "유한회사"
+                  },
+                  {
+                    "option": "합명회사"
+                  },
+                  {
+                    "option": "합자회사"
+                  },
+                  {
+                    "option": "해당없음"
+                  }
+                ]
+              }
+            },
+            {
+              "fieldLabel": "상호",
+              "placeholder": "법인인 경우 상호를 기재해 주세요"
+            },
+            {
+              "fieldLabel": "휴대폰번호",
+              "placeholder": "상담결과 안내용 연락처",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "이메일",
+              "fieldType": "email",
+              "placeholder": "상담결과 안내용 이메일"
+            },
+            {
+              "fieldLabel": "상담유형",
+              "fieldType": "radio",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "부동산등기"
+                  },
+                  {
+                    "option": "법인등기"
+                  },
+                  {
+                    "option": "민사소송"
+                  },
+                  {
+                    "option": "민사집행"
+                  },
+                  {
+                    "option": "상속"
+                  },
+                  {
+                    "option": "회생파산"
+                  },
+                  {
+                    "option": "기타"
+                  }
+                ]
+              }
+            },
+            {
+              "fieldLabel": "상담내용",
+              "fieldType": "textarea",
+              "placeholder": "상담 내용을 6하 원칙에 따라 상세히 기재. 부동산 관련이면 소재 지번도 기재",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "첨부파일",
+              "fieldType": "file"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c3a1e900-0001-4c01-9ccc-000000000201",
+      "name": "Offline Intake Form",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.6,
+      "position": [
+        0,
+        880
+      ],
+      "webhookId": "2a8c595e-215b-439e-b35d-7a62aeacba4c",
+      "notes": "직원용 오프라인(전화/방문) 접수 트리거. Client Intake Form과 동일한 Normalize Input으로 합류 — 채번·폴더생성·노션기록 로직 100% 공유, 중복 없음."
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "정부자료",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive",
+          "cachedResultName": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $('Create Intake Subfolder').first().json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "id": "c3a1e900-0002-4c02-9ccc-000000000202",
+      "name": "Create Gov Docs Subfolder",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        2816,
+        -128
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000,
+      "notes": "01 접수수집자료 하위 정부자료 폴더 자동 생성 (폴더구조_설계서 §5-가 반영). 온라인/오프라인 공통 적용.",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "VR7ouc5RybJlGGUB",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "c1",
+              "leftValue": "={{ $json.fileName }}",
+              "rightValue": "\\.(mp3|m4a|wav|aac|ogg|flac|aiff)$",
+              "operator": {
+                "type": "string",
+                "operation": "regex"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d4b2f100-0001-4d01-9ddd-000000000301",
+      "name": "Filter Audio Files",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        3264,
+        768
+      ],
+      "notes": "업로드 파일 중 오디오 확장자만 통과시킴 (mp3/m4a/wav/aac/ogg/amr/wma/flac). 통화녹음 자동전사 트리거."
+    },
+    {
+      "parameters": {
+        "jsCode": "const out = [];\nconst items = $input.all();\nfor (let i = 0; i < items.length; i++) {\n  const item = items[i];\n  if (!item.binary || !item.binary.data) continue;\n  const buffer = await this.helpers.getBinaryDataBuffer(i, 'data');\n  const ext = (item.json.fileName || '').split('.').pop().toLowerCase();\n  const mimeMap = { mp3:'audio/mp3', m4a:'audio/aac', wav:'audio/wav', aac:'audio/aac', ogg:'audio/ogg', flac:'audio/flac', aiff:'audio/aiff' };\n  out.push({ json: {\n    fileName: item.json.fileName,\n    mimeType: mimeMap[ext] || (item.binary.data.mimeType) || 'audio/aac',\n    base64: buffer.toString('base64')\n  } });\n}\nreturn out;"
+      },
+      "id": "d4b2f100-0002-4d02-9ddd-000000000302",
+      "name": "Get Audio Base64",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3488,
+        768
+      ],
+      "notes": "오디오 바이너리를 base64로 변환 (Gemini 인라인 데이터 전송용)"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ contents: [ { parts: [ { text: '다음은 법무사 사무소의 전화 상담 녹음입니다. 내용을 빠짐없이 정확한 한국어로 전사해줘. 화자 구분 없이 대화 내용을 그대로 텍스트로 옮겨줘. 알아듣기 어려운 부분은 [청취불가]로 표시해줘.' }, { inlineData: { mimeType: $json.mimeType, data: $json.base64 } } ] } ] }) }}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "d4b2f100-0003-4d03-9ddd-000000000303",
+      "name": "Transcribe Audio via Gemini",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        3712,
+        832
+      ],
+      "retryOnFail": true,
+      "maxTries": 2,
+      "waitBetweenTries": 3000,
+      "onError": "continueRegularOutput",
+      "notes": "Gemini 2.5 Flash로 통화녹음 한국어 전사 요청 (Gemini-Api 자격증명 재사용)",
+      "credentials": {
+        "httpQueryAuth": {
+          "id": "AYnHjPdcAy9f9sJX",
+          "name": "Gemini-Api"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "id": "d4b2f100-0004-4d04-9ddd-000000000304",
+      "name": "Merge Transcript Data",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        3936,
+        768
+      ],
+      "notes": "파일명/mimeType(경로1)과 Gemini 응답(경로2)을 위치 기준으로 합침"
+    },
+    {
+      "parameters": {
+        "jsCode": "const out = [];\nconst items = $input.all();\nfor (const item of items) {\n  const d = item.json;\n  let transcript = '';\n  try {\n    transcript = d.candidates[0].content.parts[0].text || '';\n  } catch (e) {\n    transcript = '[전사 실패 - Gemini 응답을 확인해주세요]';\n  }\n  const origName = (d.fileName || 'recording').replace(/\\.[^.]+$/, '');\n  const nowKst = $now.setZone('Asia/Seoul').toFormat('yyyy-MM-dd HH:mm');\n  const header = [\n    '⚠️ AI 자동전사본 — 반드시 원음 대조 후 업무에 사용하세요.',\n    '원본파일: ' + (d.fileName || ''),\n    '전사일시: ' + nowKst,\n    '',\n    '──────────────────────────────',\n    ''\n  ].join('\\n');\n  const fullText = header + transcript;\n  const fileName = '상담내용_전사_' + origName + '.txt';\n  const buffer = Buffer.from(fullText, 'utf-8');\n  out.push({ json: { fileName }, binary: { data: await this.helpers.prepareBinaryData(buffer, fileName, 'text/plain') } });\n}\nreturn out;"
+      },
+      "id": "d4b2f100-0005-4d05-9ddd-000000000305",
+      "name": "Build Transcript File",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4160,
+        768
+      ],
+      "onError": "continueRegularOutput",
+      "notes": "전사 텍스트에 경고문구·메타정보 붙여 텍스트 파일(binary)로 변환"
+    },
+    {
+      "parameters": {
+        "name": "={{ $binary.data.fileName }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive",
+          "cachedResultName": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $('Create Intake Subfolder').first().json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "id": "d4b2f100-0006-4d06-9ddd-000000000306",
+      "name": "Upload Transcript to Intake Folder",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        4384,
+        768
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000,
+      "onError": "continueRegularOutput",
+      "notes": "전사본을 원본 녹음과 같은 01 접수수집자료 폴더에 저장 (원본 불변, 전사본은 신규 파일 추가)",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "VR7ouc5RybJlGGUB",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "id": "0de803c4-8115-43d6-b15a-5bd28bc6d0ab",
+      "name": "Find Today Consultations",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        1584,
+        64
+      ],
+      "parameters": {
+        "databaseId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "4020ce34-50b8-810b-ba4d-f2a47407a9fa"
+        },
+        "operation": "getAll",
+        "options": {},
+        "resource": "databasePage",
+        "returnAll": true,
+        "simple": false
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000,
+      "alwaysOutputData": true,
+      "executeOnce": true,
+      "credentials": {
+        "notionApi": {
+          "id": "OzTSriS6QKYmPSzu",
+          "name": "Notion account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Client Intake Form": {
+      "main": [
+        [
+          {
+            "node": "Normalize Input",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge Folder and Files",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Normalize Input": {
+      "main": [
+        [
+          {
+            "node": "Extract Case Name",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Extract Case Name",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Base Customer Name": {
+      "main": [
+        [
+          {
+            "node": "Find Same-Name Customers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find Same-Name Customers": {
+      "main": [
+        [
+          {
+            "node": "Resolve Customer Name Suffix",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Resolve Customer Name Suffix": {
+      "main": [
+        [
+          {
+            "node": "Find Today Cases",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Assign Sequence and Build Case ID": {
+      "main": [
+        [
+          {
+            "node": "Create Customer Page",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Customer Page": {
+      "main": [
+        [
+          {
+            "node": "Set Consultation Folder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Case Folder": {
+      "main": [
+        [
+          {
+            "node": "Create Intake Subfolder",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Build Remaining Subfolders",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Remaining Subfolders": {
+      "main": [
+        [
+          {
+            "node": "Create Remaining Subfolders",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Intake Subfolder": {
+      "main": [
+        [
+          {
+            "node": "Create Consultation Entry",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge Folder and Files",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Build Consultation Document",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Create Gov Docs Subfolder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge Folder and Files": {
+      "main": [
+        [
+          {
+            "node": "Split Binary Files",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Binary Files": {
+      "main": [
+        [
+          {
+            "node": "Upload Files to Intake Folder",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Filter Audio Files",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Consultation Document": {
+      "main": [
+        [
+          {
+            "node": "Create Consultation Google Doc",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Consultation Google Doc": {
+      "main": [
+        [
+          {
+            "node": "Export Doc as DOCX",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Export Doc as DOCX": {
+      "main": [
+        [
+          {
+            "node": "Upload Consultation DOCX",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload Consultation DOCX": {
+      "main": [
+        [
+          {
+            "node": "Delete Temp Google Doc",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Offline Intake Form": {
+      "main": [
+        [
+          {
+            "node": "Normalize Input",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge Folder and Files",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Filter Audio Files": {
+      "main": [
+        [
+          {
+            "node": "Get Audio Base64",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Audio Base64": {
+      "main": [
+        [
+          {
+            "node": "Transcribe Audio via Gemini",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge Transcript Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transcribe Audio via Gemini": {
+      "main": [
+        [
+          {
+            "node": "Merge Transcript Data",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge Transcript Data": {
+      "main": [
+        [
+          {
+            "node": "Build Transcript File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Transcript File": {
+      "main": [
+        [
+          {
+            "node": "Upload Transcript to Intake Folder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Case Name": {
+      "main": [
+        [
+          {
+            "node": "Build Base Customer Name",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Consultation Folder": {
+      "main": [
+        [
+          {
+            "node": "Create Case Folder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find Today Cases": {
+      "main": [
+        [
+          {
+            "node": "Find Today Consultations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find Today Consultations": {
+      "main": [
+        [
+          {
+            "node": "Assign Sequence and Build Case ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Seoul",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveManualExecutions": true,
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": true
+  },
+  "id": "ab0WPEeBw3QORtNJ",
+  "versionId": "d5421fe5-1e33-4c78-aad5-6f3e84a9385e"
+}
