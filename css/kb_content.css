@@ -36,3 +36,10 @@ details.qa .ans { margin-top: 8px; }
   .table-wrap tr:first-child { display: none; }
   .table-wrap td[data-label]::before { content: attr(data-label) " · "; font-weight: 700; }
 }
+
+/* 다크모드 — --accent(밝은 하늘색)가 그대로 남아 박스만 밝게 보이던 문제 (2026-11-13)
+   dark-style.css는 자동 생성 파일이라 여기서 맡는다. 색은 dark-style.css의 --accent 대체색과 같다. */
+[data-theme="dark"] .kb-summary,
+[data-theme="dark"] .kb-cta { background: #0f1724; }
+[data-theme="dark"] .kb-summary { border-left-color: #4a6a96; }
+[data-theme="dark"] .checklist .chk { color: #d8c48d; }
