@@ -1,279 +1,39 @@
 const INHERITANCE_TOPICS = [
   {
-    id: 'in-01',
-    title: '상속 처음부터 끝까지 한눈에 보기',
-    meta: '상속이 시작됐다면 무엇을, 언제까지, 어떤 순서로 해야 하는지 — 전체 흐름을 한 페이지에서 안내합니다.',
+    id: "in-01",
+    title: "상속이 시작됐을 때 — 해야 할 일과 기한, 상속인과 상속분, 재산 조회",
+    meta: "가족이 돌아가시면 사망신고는 1개월, 상속포기·한정승인은 안 날부터 3개월, 상속 취득세는 사망한 달 말일부터 6개월 안에 해야 합니다. 해야 할 일과 기한, 상속인·상속분, 재산 조회를 한 번에 정리합니다.",
+    reviewed: "2026-11-08",
+    kb: "H-A00",
     sections: [
-      { heading: '이런 분께 필요합니다', content: `<ul class="checklist">
-<li>가족이 최근 사망하여 상속 절차를 처음 시작해야 하는 분</li>
-<li>부동산·예금·자동차 등 고인의 재산이 남아 있는 분</li>
-<li>빚이 있는지 없는지 아직 파악하지 못한 분</li>
-<li>상속인이 여러 명이라 재산을 어떻게 나눌지 막막한 분</li>
-<li>유언장이 있다고 들었으나 내용을 아직 확인하지 못한 분</li>
-<li>상속 절차 전반의 흐름을 미리 파악하고 싶은 분</li>
-</ul>
+      { heading: "이런 분께 필요합니다", content: `<ul class="checklist"><li> 가족이 돌아가셨는데 무엇부터 해야 할지 모르겠다</li><li> 누가 상속인인지, 내 몫이 얼마인지 알고 싶다</li><li> 돌아가신 분의 재산과 빚이 얼마인지 모른다</li><li> 기한을 놓쳐 불이익을 받을까 걱정된다</li></ul>` },
+      { heading: "핵심정리", content: `<div class="kb-box kb-summary"><p>상속은 돌아가신 순간 시작되고, 그때부터 기한이 흐릅니다. 가장 먼저 챙길 것은 <strong>사망신고(1개월)</strong>, <strong>재산과 빚 조회</strong>, 그리고 빚이 더 많을 때를 대비한 <strong>상속포기·한정승인 결정(안 날부터 3개월)</strong>입니다. 부동산이 있으면 <strong>취득세 신고(상속개시일이 속한 달의 말일부터 6개월)</strong>가 뒤따릅니다. 누가 상속인이고 얼마씩 받는지는 민법이 정한 순위와 비율로 정해집니다.</p><details class="refs-mini"><summary>📋 근거 6</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제998조" target="_blank" rel="noopener" class="tag-law">📋 민법 제998조</a><a href="https://www.law.go.kr/법령/가족관계의등록등에관한법률/제84조" target="_blank" rel="noopener" class="tag-law">📋 가족관계등록법 제84조</a><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a><a href="https://www.law.go.kr/법령/지방세법/제20조" target="_blank" rel="noopener" class="tag-law">📋 지방세법 제20조</a><a href="https://www.law.go.kr/법령/민법/제1000조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1000조</a><a href="https://www.law.go.kr/법령/민법/제1009조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1009조</a></div></details></div>` },
+      { heading: "상세설명", content: `<h3>무엇부터 해야 하나요?</h3><p>김해에 사는 U씨의 아버지가 이번 달 돌아가셨습니다. 어머니와 U씨, 여동생이 있고, 아버지 명의 아파트와 예금이 있지만 빚이 얼마인지는 모릅니다(설명을 위한 가상 사례입니다).</p>
+<p>U씨 가족은 먼저 사망신고를 하면서 <strong>안심상속 원스톱서비스</strong>로 재산과 빚을 한 번에 조회합니다. 결과를 보고 빚이 더 많으면 3개월 안에 포기나 한정승인을 정하고, 재산이 더 많으면 가족이 어떻게 나눌지 협의한 뒤 상속등기와 취득세 신고를 진행합니다. 사망신고 다음 날부터 아버지 명의 금융거래는 자동으로 막히므로, 자동이체와 급한 비용은 미리 대비합니다.</p><details class="refs-mini"><summary>📋 근거 4</summary><div class="ref-tags"><a href="https://www.gov.kr/portal/onestopSvc/safeInheritance" target="_blank" rel="noopener" class="tag-law">📋 정부24 안심상속 원스톱서비스(사망자 재산조회 통합처리) 안내</a><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a><a href="https://www.law.go.kr/법령/지방세법/제20조" target="_blank" rel="noopener" class="tag-law">📋 지방세법 제20조</a><a href="https://www.mois.go.kr" target="_blank" rel="noopener" class="tag-law">📋 사망자 명의 금융거래 신속차단(행정안전부·금융위원회, 2026. 9. 11. 시행)</a></div></details>
+<p>3개월은 돌아가신 사실과 자신이 상속인이 된 것을 안 날부터 셉니다. 빚이 있다는 것을 안 날이 아니므로, 재산조회 결과를 기다리느라 기한을 넘기지 않도록 조회를 서두르십시오. 조회 방법은 「상속재산 통합조회」 페이지에 자세히 정리했습니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(86%EC%8A%A410)" target="_blank" rel="noopener" class="tag-law">📋 대법원 1986. 4. 22.자 86스10 결정</a></div></details><h3>사망 후 시간표</h3><div class="table-wrap"><table><tr><th>언제까지</th><th>할 일</th><th>근거</th></tr><tr><td data-label="언제까지">⚡ 사망 사실을 안 날부터 1개월</td><td data-label="할 일">사망신고(진단서·검안서 첨부)</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/가족관계의등록등에관한법률/제84조" target="_blank" rel="noopener" class="tag-law">📋 가족관계등록법 제84조</a></div></td></tr><tr><td data-label="언제까지">사망신고 다음 날부터</td><td data-label="할 일">고인 명의 금융거래 자동 차단 — 치료비·장례비는 금융회사를 통한 예외 인출로 병원·장례식장에 직접 지급</td><td data-label="근거"><div class="ref-tags"><a href="https://www.mois.go.kr" target="_blank" rel="noopener" class="tag-law">📋 사망자 명의 금융거래 신속차단(행정안전부·금융위원회, 2026. 9. 11. 시행)</a></div></td></tr><tr><td data-label="언제까지">사망신고와 함께 또는 사망일이 속한 달의 말일부터 1년 안</td><td data-label="할 일">안심상속 원스톱서비스로 재산·빚 통합 조회</td><td data-label="근거"><div class="ref-tags"><a href="https://www.gov.kr/portal/onestopSvc/safeInheritance" target="_blank" rel="noopener" class="tag-law">📋 정부24 안심상속 원스톱서비스(사망자 재산조회 통합처리) 안내</a></div></td></tr><tr><td data-label="언제까지">⚡ 상속이 시작된 것을 안 날부터 3개월</td><td data-label="할 일">단순승인·한정승인·상속포기 결정</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a></div></td></tr><tr><td data-label="언제까지">⚡ 상속개시일이 속한 달의 말일부터 6개월(외국 주소 상속인이 있으면 9개월)</td><td data-label="할 일">부동산 등의 취득세 신고·납부</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/지방세법/제20조" target="_blank" rel="noopener" class="tag-law">📋 지방세법 제20조</a></div></td></tr><tr><td data-label="언제까지">⚡ 상속개시일이 속한 달의 말일부터 6개월(외국 주소면 9개월)</td><td data-label="할 일">상속세 신고(대상인 경우) — 세무사와 상의</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/상속세및증여세법/제67조" target="_blank" rel="noopener" class="tag-law">📋 상속세 및 증여세법 제67조</a></div></td></tr></table></div>
+<ul class=""><li>안심상속 조회 결과를 기다리느라 <strong>3개월을 넘기는 일이 없도록</strong> 하십시오. 조회 기한(1년)과 결정 기한(3개월)은 다릅니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.gov.kr/portal/onestopSvc/safeInheritance" target="_blank" rel="noopener" class="tag-law">📋 정부24 안심상속 원스톱서비스(사망자 재산조회 통합처리) 안내</a><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a></div></details></li></ul><h3>무엇으로 판단하나요? — 누가 상속인인가요</h3><div class="table-wrap"><table><tr><th>확인할 것</th><th>이런 경우</th><th>상속인</th><th>근거</th></tr><tr><td class="grp" rowspan="2" data-label="확인할 것">자녀(손자녀 포함)가 있나요?</td><td data-label="이런 경우">있다</td><td data-label="상속인">자녀가 1순위, <strong>배우자도 함께</strong> 상속</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1000조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1000조</a><a href="https://www.law.go.kr/법령/민법/제1003조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1003조</a></div></td></tr><tr><td data-label="이런 경우">자녀가 먼저 돌아가셨고 그 자녀(손자녀)가 있다</td><td data-label="상속인">먼저 돌아가신 자녀의 자리를 그 자녀와 배우자가 이어받음(대습상속)</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1001조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1001조</a><a href="https://www.law.go.kr/법령/민법/제1003조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1003조</a></div></td></tr><tr><td data-label="확인할 것">자녀가 없나요?</td><td data-label="이런 경우">부모님(조부모님 포함)이 계신다</td><td data-label="상속인">부모님이 2순위, 배우자도 함께</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1000조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1000조</a><a href="https://www.law.go.kr/법령/민법/제1003조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1003조</a></div></td></tr><tr><td class="grp" rowspan="2" data-label="확인할 것">자녀도 부모님도 없나요?</td><td data-label="이런 경우">배우자가 있다</td><td data-label="상속인"><strong>배우자 혼자</strong> 상속</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1003조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1003조</a></div></td></tr><tr><td data-label="이런 경우">배우자도 없다</td><td data-label="상속인">형제자매(3순위) → 4촌 이내 친척(4순위)</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1000조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1000조</a></div></td></tr><tr><td class="grp" rowspan="2" data-label="확인할 것">상속인이 될 수 없는 사람이 있나요?</td><td data-label="이런 경우">고인 등을 해치거나 유언을 위조하는 등 결격 사유가 있다</td><td data-label="상속인">상속인이 되지 못함</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1004조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1004조</a></div></td></tr><tr><td data-label="이런 경우">고인에 대한 부양의무를 크게 저버리거나 심하게 부당한 대우를 했다</td><td data-label="상속인">가정법원에 상속권 상실을 청구할 수 있음(안 날부터 6개월 안)</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1004조의2" target="_blank" rel="noopener" class="tag-law">📋 민법 제1004조의2</a></div></td></tr></table></div>
+<ul class=""><li>앞 순위가 한 명이라도 있으면 뒤 순위는 상속인이 되지 않습니다. 상속인은 가족이 기억하는 대로가 아니라 가족관계 서류로 확인합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1000조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1000조</a></div></details></li></ul><h3>얼마씩 받나요? — 법정상속분</h3><p>같은 순위의 상속인은 <strong>똑같이</strong> 나누고, 배우자는 <strong>5할을 더</strong> 받습니다(자녀 1 : 배우자 1.5). 아들·딸, 결혼 여부, 장남 여부로 차이가 없습니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1009조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1009조</a></div></details>
+<div class="table-wrap"><table><tr><th>상속인 구성</th><th>비율</th><th>법정상속분</th></tr><tr><td data-label="상속인 구성">배우자 + 자녀 1명</td><td data-label="비율">1.5 : 1</td><td data-label="법정상속분">배우자 3/5, 자녀 2/5</td></tr><tr><td data-label="상속인 구성">배우자 + 자녀 2명</td><td data-label="비율">1.5 : 1 : 1</td><td data-label="법정상속분">배우자 3/7, 자녀 각 2/7</td></tr><tr><td data-label="상속인 구성">배우자 + 자녀 3명</td><td data-label="비율">1.5 : 1 : 1 : 1</td><td data-label="법정상속분">배우자 3/9, 자녀 각 2/9</td></tr><tr><td data-label="상속인 구성">배우자 + 부모님 두 분</td><td data-label="비율">1.5 : 1 : 1</td><td data-label="법정상속분">배우자 3/7, 부모 각 2/7</td></tr><tr><td data-label="상속인 구성">자녀 2명(배우자 없음)</td><td data-label="비율">1 : 1</td><td data-label="법정상속분">각 1/2</td></tr></table></div>
+<ul class=""><li>위 비율은 1991. 1. 1. 이후 돌아가신 경우입니다. 그 전에 돌아가신 분 명의 재산은 당시 법으로 계산합니다(「오래전 돌아가신 분 명의 땅 정리하기」 참고).</li><li>상속인들이 협의하면 법정상속분과 다르게 나눌 수 있습니다.</li></ul><h3>상속이 시작되면 어떤 효과가 생기나요?</h3><ul class=""><li><strong>돌아가신 순간 재산과 빚이 함께 넘어옵니다.</strong> 상속인은 상속이 시작된 때부터 고인의 재산에 관한 권리와 의무를 포괄적으로 물려받습니다. 다만 고인에게만 속하는 권리·의무는 넘어오지 않습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1005조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1005조</a></div></details></li><li><strong>상속인이 여럿이면 일단 함께 가진 상태가 됩니다.</strong> 나누기 전까지 상속재산은 상속인들의 공유입니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1006조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1006조</a></div></details></li><li><strong>등기 전에도 상속인 소유이지만</strong>, 부동산을 팔거나 담보로 잡히려면 먼저 상속등기를 해야 합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제187조" target="_blank" rel="noopener" class="tag-law">📋 민법 제187조</a></div></details></li><li><strong>판례</strong> — 예금처럼 나눌 수 있는 채권은 원칙적으로 상속과 동시에 법정상속분대로 나뉘어 귀속됩니다(<a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2014%EC%8A%A4122)" target="_blank" rel="noopener" class="case-link">대법원 2016. 5. 4.자 2014스122 결정</a>).<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2014%EC%8A%A4122)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2016. 5. 4.자 2014스122 결정</a></div></details></li></ul><h3>상속인은 어떤 서류로 확인하나요?</h3><p>상속인은 가족끼리 정하는 것이 아니라 가족관계 서류로 확인합니다. 돌아가신 분의 기본증명서·가족관계증명서·혼인관계증명서·입양관계증명서·친양자입양관계증명서(상세)를 떼고, 2007년 이전의 신분 변동이 있으면 제적등본까지 확인합니다. 먼저 돌아가신 자녀가 있으면 그 자녀의 가족관계 서류도 필요합니다. 그 자녀의 배우자와 자녀가 대습상속인이 될 수 있기 때문입니다. 상속인을 한 명이라도 빠뜨리면 협의분할이나 상속등기를 다시 해야 하므로, 이 단계를 가장 먼저 꼼꼼히 정리합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1001조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1001조</a></div></details><h3>상속인 중에 미성년자나 해외 거주자가 있으면</h3><p>미성년 자녀와 그 부모가 함께 상속인이면 부모가 자녀를 대리해 재산을 나누는 협의를 할 수 없습니다. 이해가 서로 부딪히기 때문에 가정법원에서 특별대리인을 선임받아야 합니다. 상속인 중 외국에 주소를 둔 사람이 있으면 취득세와 상속세 신고기한이 6개월이 아니라 9개월로 늘어납니다. 해외 거주 상속인은 국내 인감증명 대신 거주 국가에서 준비할 서류가 따로 있으므로, 일정이 오래 걸릴 것을 감안해 일찍 연락을 시작하십시오.</p><details class="refs-mini"><summary>📋 근거 3</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제921조" target="_blank" rel="noopener" class="tag-law">📋 민법 제921조</a><a href="https://www.law.go.kr/법령/지방세법/제20조" target="_blank" rel="noopener" class="tag-law">📋 지방세법 제20조</a><a href="https://www.law.go.kr/법령/상속세및증여세법/제67조" target="_blank" rel="noopener" class="tag-law">📋 상속세 및 증여세법 제67조</a></div></details><h3>상담 전에 준비할 것</h3><ul class="checklist"><li>돌아가신 날짜, 사망진단서(또는 사망 사실이 적힌 서류)</li><li>안심상속 조회 결과(신청했다면)</li><li>고인 명의 부동산 주소, 예금·보험·자동차 자료</li><li>받은 독촉장·채권 통지서</li><li>알고 있는 가족 관계(배우자, 자녀, 먼저 돌아가신 자녀와 그 가족)</li></ul>
+<p>위 목록은 상담 준비용이며 <strong>법원·등기소 제출서류 목록 전체가 아닙니다.</strong></p>` },
+      { heading: "자주 묻는 질문", content: `<details class="qa"><summary>Q. 장남이니까 더 받나요?</summary><div class="ans"><ol class=""><li>1. 1. 이후 돌아가신 경우에는 장남이라고 더 받지 않습니다. 같은 순위 상속인은 똑같이 나누고 배우자만 5할을 더 받습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1009조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1009조</a></div></details></li></ol></div></details><details class="qa"><summary>Q. 사실혼 배우자도 상속받나요?</summary><div class="ans"><p>민법이 상속인으로 정한 배우자는 혼인신고를 한 법률상 배우자입니다. 사실혼 배우자는 상속인이 아니므로 다른 방법이 있는지 따로 살펴야 합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1003조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1003조</a></div></details></div></details><details class="qa"><summary>Q. 아버지가 돌아가신 뒤 어머니도 돌아가셨어요.</summary><div class="ans"><p>아버지 상속과 어머니 상속을 차례로 계산합니다. 어머니가 아버지보다 나중에 돌아가셨다면 어머니가 받은 몫이 다시 어머니의 상속인에게 갑니다. 등기를 한 번에 할 수 있는지는 사건마다 다릅니다.</p></div></details><details class="qa"><summary>Q. 은행에서 고인 예금을 찾을 수 있나요?</summary><div class="ans"><p>사망신고 다음 날부터 고인 명의 거래는 자동으로 막히고, 예금은 상속 절차를 거쳐 받습니다. 치료비·장례비처럼 급한 비용은 금융회사의 예외 인출로 병원·장례식장에 직접 지급할 수 있습니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.mois.go.kr" target="_blank" rel="noopener" class="tag-law">📋 사망자 명의 금융거래 신속차단(행정안전부·금융위원회, 2026. 9. 11. 시행)</a></div></details></div></details><details class="qa"><summary>Q. 태아도 상속인이 되나요?</summary><div class="ans"><p>상속순위에서는 이미 태어난 것으로 봅니다. 살아서 태어나면 다른 자녀와 같은 순위로 상속합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1000조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1000조</a></div></details></div></details><details class="qa"><summary>Q. 이혼한 배우자도 상속받나요?</summary><div class="ans"><p>상속인이 되는 배우자는 돌아가실 때 법률상 혼인 중이던 배우자입니다. 이혼한 배우자는 상속인이 아니지만, 두 사람 사이의 자녀는 1순위 상속인입니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1003조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1003조</a><a href="https://www.law.go.kr/법령/민법/제1000조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1000조</a></div></details></div></details><details class="qa"><summary>Q. 상속세는 어떻게 하나요?</summary><div class="ans"><p>상속세 신고기한은 상속개시일이 속한 달의 말일부터 6개월입니다. 대상 여부와 신고는 세무사와 상의하시고, 상속등기와 취득세 신고·납부는 함께 처리해 드립니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/상속세및증여세법/제67조" target="_blank" rel="noopener" class="tag-law">📋 상속세 및 증여세법 제67조</a></div></details></div></details><details class="qa"><summary>Q. 부모님이 같은 사고로 함께 돌아가셨어요.</summary><div class="ans"><p>두 사람 이상이 같은 위난으로 사망하면 동시에 사망한 것으로 추정되어 서로 상속하지 않습니다. 각자의 상속인을 따로 확인해야 합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제30조" target="_blank" rel="noopener" class="tag-law">📋 민법 제30조</a></div></details></div></details><details class="qa"><summary>Q. 형제자매도 상속인이 되나요?</summary><div class="ans"><p>자녀(손자녀 포함)와 부모가 모두 없을 때 3순위로 상속인이 됩니다. 배우자가 있으면 배우자가 단독으로 상속하므로 형제자매에게는 돌아가지 않습니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1000조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1000조</a><a href="https://www.law.go.kr/법령/민법/제1003조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1003조</a></div></details></div></details><details class="qa"><summary>Q. 상속인 중 한 명이 연락을 끊었어요.</summary><div class="ans"><p>재산을 나누는 협의는 상속인 전원이 해야 합니다. 협의가 되지 않으면 법정상속분대로 정리하거나 가정법원에 분할을 청구하는 방법을 검토합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1013조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1013조</a></div></details></div></details>` },
+      { heading: "주의사항", content: `<section class="box warn"><ul class=""><li>⚡ <strong>3개월 안에는 고인의 재산을 처분하지 마십시오.</strong> 처분하면 단순승인으로 보아 빚까지 물려받게 될 수 있습니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1026조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1026조</a><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a></div></details></li><li>⚡ <strong>취득세는 6개월을 넘기면 가산세가 붙습니다.</strong> 신고기한은 상속개시일이 속한 달의 말일부터 6개월입니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/지방세법/제20조" target="_blank" rel="noopener" class="tag-law">📋 지방세법 제20조</a></div></details></li><li><strong>상속세는 세무사와 상의하십시오.</strong> 신고 대상인지와 공제는 세법 판단이 필요한 일입니다. 신고기한은 상속개시일이 속한 달의 말일부터 6개월입니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/상속세및증여세법/제67조" target="_blank" rel="noopener" class="tag-law">📋 상속세 및 증여세법 제67조</a></div></details></li><li><strong>가족이 아는 상속인과 서류상 상속인이 다를 수 있습니다.</strong> 전 배우자의 자녀, 먼저 돌아가신 자녀의 가족 등이 서류에서 나오면 그분들도 상속인입니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1000조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1000조</a><a href="https://www.law.go.kr/법령/민법/제1001조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1001조</a></div></details></li></ul></section>` },
+      { heading: "다음에 확인할 사항", content: `<ul><li><a href="/guide/inheritance/in-26.html">상속재산 통합조회(안심상속 원스톱서비스)</a></li><li><a href="/guide/inheritance/in-12.html">상속등기</a></li><li><a href="/guide/inheritance/in-25.html">오래전 돌아가신 분 명의의 땅</a></li><li><a href="/guide/inheritance/in-05.html">빚이 더 많을 때</a></li><li><a href="/guide/inheritance/in-10.html">상속재산분할과 기여분</a></li></ul>` },
+      { heading: "이 내용이 해당되시나요?", content: `<div class="kb-box kb-cta"><p>직접 처리하시기 어려운 부분을 법무사가 함께 검토합니다. 이런 경우 상담을 권합니다.</p>
+<ul class=""><li>상속인이 누구인지 서류로 정리해야 할 때</li><li>재산과 빚을 보고 포기·한정승인·상속 중 무엇을 할지 정해야 할 때</li><li>가족이 나눌 비율을 정해 상속등기와 취득세 신고를 함께 하고 싶을 때</li><li>오래전 돌아가신 분 명의 재산이 섞여 있을 때</li></ul>
+<p class="note">법무사는 상속인 확인에 필요한 서류를 갖춰 상속관계를 정리하고, 상속등기 신청을 대리하며 그에 따른 취득세 신고·납부도 함께 처리합니다. 포기·한정승인처럼 가정법원에 내는 서류도 작성해 제출합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/법무사법/제2조" target="_blank" rel="noopener" class="tag-law">📋 법무사법 제2조</a></div></details>
 </div>` },
-      { heading: '핵심 요약', content: `<div class="section-title">
-<span class="num">SECTION 01</span>
-    핵심 요약
-  </div>
-<div class="summary-box">
-<p class="label">핵심 요약</p>
-<p>
-      상속은 사람이 사망하는 순간 자동으로 시작됩니다. 고인(피상속인)의 재산과 채무가 모두 상속인에게 넘어오며, 이를 그대로 받을지 · 제한적으로 받을지 · 아예 포기할지 결정할 수 있는 기간은 <strong>상속이 시작됐음을 안 날로부터 3개월</strong>입니다 <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101900" target="_blank" class="tag-law">📋 민법 제1019조①</a>. 아무런 신청을 하지 않으면 채무까지 모두 떠안는 '단순승인'으로 확정되므로, 빚이 있는지 없는지와 무관하게 이 흐름을 빠르게 파악하는 것이 중요합니다.
-    </p>
-</div>` },
-      { heading: '2-1. 기본 개념과 법적 근거', content: `<p>
-    상속이란 사람이 사망함으로써 그의 재산상 권리와 의무 전부가 일정한 범위의 친족(상속인)에게 포괄적으로 이전되는 것입니다.
-    <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=100500" target="_blank" class="tag-law">📋 민법 제1005조</a>는 "상속인은 상속이 개시된 때로부터 피상속인의 재산에 관한 포괄적 권리의무를 승계한다"고 규정하며, 단 피상속인의 일신에 전속한 것(예: 국민연금 수급권, 부양청구권 등)은 제외됩니다.
-  </p>
-<p>
-    상속은 <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=099700" target="_blank" class="tag-law">📋 민법 제997조</a>에 따라 피상속인의 <strong>사망</strong>으로 개시됩니다. 실종선고(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=002800" target="_blank" class="tag-law">📋 민법 제28조</a>)의 경우 실종기간 만료 시를 사망으로 간주하여 상속이 개시됩니다. 사망과 동시에 상속인은 별도의 신청 없이 법률상 당연히 피상속인의 재산을 취득하나, 부동산은 등기를 마치기 전까지 제3자에게 처분·주장할 수 없습니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=018700" target="_blank" class="tag-law">📋 민법 제187조</a>).
-  </p>
-<!-- 2-2 단계별 -->
-<h3>2-2. 단계별 상세 안내</h3>
-<table>
-<thead>
-<tr>
-<th style="width:9%">단계</th>
-<th style="width:20%">해야 할 일</th>
-<th style="width:40%">주요 내용</th>
-<th style="width:31%">법령 근거</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="td-key">STEP 1</td>
-<td><span class="tag tag-b">상속 개시 확인</span></td>
-<td>피상속인 사망신고 후 기본증명서·가족관계증명서 발급. 상속개시일(사망일) 확정</td>
-<td><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=099700" target="_blank" class="tag-law">📋 민법 제997조</a><br/><a href="https://www.law.go.kr/법령/가족관계의등록등에관한법률" target="_blank" class="tag-law">📋 가족관계등록법 제85조</a></td>
-</tr>
-<tr>
-<td class="td-key">STEP 2</td>
-<td><span class="tag tag-g">상속인 확정</span></td>
-<td>가족관계증명서·제적등본으로 법정 상속인 범위 파악. 결격·대습상속 여부 확인</td>
-<td><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=100000" target="_blank" class="tag-law">📋 민법 제1000조</a> ~ <a href="#" target="_blank" class="tag-law">📋 제1004조</a></td>
-</tr>
-<tr>
-<td class="td-key">STEP 3</td>
-<td><span class="tag tag-g">재산 조사</span></td>
-<td>금감원 상속인 금융거래 조회서비스, 부동산 등기부 열람, 안심상속 원스톱 서비스 활용</td>
-<td><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101900" target="_blank" class="tag-law">📋 민법 제1019조②</a></td>
-</tr>
-<tr>
-<td class="td-key">STEP 4</td>
-<td><span class="tag tag-r">⚡ 승인·포기 결정</span></td>
-<td>단순승인(채무 포함 전부 승계) / 한정승인(재산 한도 내) / 상속포기(전부 거부) 중 선택. <strong>상속개시 있음을 안 날부터 3개월 이내 법원 신고 필수</strong></td>
-<td><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101900" target="_blank" class="tag-law">📋 민법 제1019조①</a><br/><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=103000" target="_blank" class="tag-law">📋 민법 제1030조</a><br/><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=104100" target="_blank" class="tag-law">📋 민법 제1041조</a></td>
-</tr>
-<tr>
-<td class="td-key">STEP 5</td>
-<td><span class="tag tag-y">재산 분할</span></td>
-<td>상속인 전원 협의 후 분할협의서 작성. 협의 불성립 시 가정법원에 조정·심판 신청</td>
-<td><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101300" target="_blank" class="tag-law">📋 민법 제1013조</a></td>
-</tr>
-<tr>
-<td class="td-key">STEP 6</td>
-<td><span class="tag tag-b">상속등기</span></td>
-<td>부동산: 상속을 원인으로 한 소유권이전등기 신청. 미등기 부동산: 상속인 명의 보존등기</td>
-<td><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=018700" target="_blank" class="tag-law">📋 민법 제187조</a><br/><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=59791&joNo=002300" target="_blank" class="tag-law">📋 부동산등기법 제23조</a>③</td>
-</tr>
-</tbody>
-</table>
-<!-- 승인·포기 비교 표 -->
-<h3>승인·포기 세 가지 선택지 비교</h3>
-<table>
-<thead>
-<tr>
-<th>구분</th>
-<th>단순승인</th>
-<th>한정승인</th>
-<th>상속포기</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="td-key">의미</td>
-<td>재산·채무 전부 무제한 승계</td>
-<td>상속받은 재산 한도 내에서만 채무 변제</td>
-<td>상속 자체를 전면 거부</td>
-</tr>
-<tr>
-<td class="td-key">신청 방법</td>
-<td>별도 신청 불필요<br/>(3개월 내 아무것도 안 하면 자동 성립)</td>
-<td>가정법원에 한정승인 신고서 제출</td>
-<td>가정법원에 상속포기 신고서 제출</td>
-</tr>
-<tr>
-<td class="td-key">적합한 경우</td>
-<td>재산이 채무보다 확실히 많을 때</td>
-<td>재산·채무 규모가 불확실할 때</td>
-<td>채무가 재산보다 확실히 많을 때</td>
-</tr>
-<tr>
-<td class="td-key">주의사항</td>
-<td>숨겨진 채무 발견 시 본인 재산으로도 변제 의무</td>
-<td>청산 절차(공고·변제) 이행 의무 발생</td>
-<td>포기자의 다음 순위에 채무가 이전될 수 있음</td>
-</tr>
-</tbody>
-</table>
-<!-- 2-3 사례 -->
-<h3>2-3. 실제 사례</h3>
-<div class="case-box">
-<p class="c-label">📋 사례 1 — 재산과 채무가 모두 있는 경우</p>
-<p><strong>상황:</strong> 아버지가 사망하셨습니다. 아파트(시가 3억 원) 한 채와 금융권 대출 1억 5,000만 원이 있고, 상속인은 어머니·아들·딸 3명입니다.</p>
-<p><strong>판단:</strong> 재산이 채무보다 크므로 단순승인 후 상속 절차를 진행할 수 있습니다. 다만 아버지 명의의 다른 채무(카드론, 연대보증 등)가 없는지 반드시 금융거래 조회를 통해 확인해야 합니다. 재산분할은 어머니 3/7, 아들 2/7, 딸 2/7의 법정상속분 또는 상속인들의 협의로 다르게 정할 수 있습니다.</p>
-</div>
-<div class="case-box">
-<p class="c-label">📋 사례 2 — 채무만 있고 재산이 불분명한 경우</p>
-<p><strong>상황:</strong> 어머니가 갑작스럽게 돌아가셨습니다. 집은 없고 금융 채무가 있다고 들었으나 정확한 규모를 모릅니다. 자녀 2명이 상속인입니다.</p>
-<p><strong>판단:</strong> 채무 규모가 불확실하므로 <strong>3개월 이내에 한정승인 또는 상속포기 신고를 검토</strong>해야 합니다. 아무런 조치 없이 3개월이 지나면 채무까지 전부 상속받는 단순승인이 되어, 자녀의 개인 재산으로도 채무를 변제해야 할 수 있습니다.</p>
-</div>` },
-      { heading: '⚖ 판례 1 — 동시사망 추정과 대습상속', content: `<div class="section-title">
-<span class="num">SECTION 03</span>
-    관련 판례
-  </div>
-<div class="ruling-box">
-<p class="r-label">⚖ 판례 1 — 동시사망 추정과 대습상속</p>
-<p class="case-num"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=99다13157" target="_blank" class="tag-case">⚖️ 대법원 99다13157</a></p>
-<p>항공기 사고로 피상속인과 그 직계비속이 동시에 사망한 것으로 추정되는 경우에도 대습상속이 인정됩니다. 대법원은 <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=100100" target="_blank" class="tag-law">📋 민법 제1001조</a>의 '상속개시 전 사망'에는 '상속개시와 동시에 사망한 것으로 추정되는 경우'도 포함된다고 판시하였습니다.</p>
-<p class="effect">▸ <strong>실무 영향:</strong> 교통사고 등으로 부모·자녀가 함께 사망한 경우, 손자녀 또는 그 배우자에게 대습상속이 인정되어 상속관계가 예상과 달리 설정될 수 있습니다. 상속 절차 시작 전 가족관계를 정확히 파악하는 것이 중요합니다.</p>
-</div>
-<div class="ruling-box">
-<p class="r-label">⚖ 판례 2 — 생전 상속포기 약정의 효력 없음</p>
-<p class="case-num"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=98다9021" target="_blank" class="tag-case">⚖️ 대법원 98다9021</a></p>
-<p>피상속인 생전에 "나는 상속을 포기하겠다"고 약정하거나 각서를 작성하였더라도, 상속 개시 후 가정법원에 정해진 절차에 따라 신고하지 않으면 그 약정은 효력이 없습니다. 민법이 정한 절차와 방식을 따른 경우에만 상속포기의 효력이 발생합니다.</p>
-<p class="effect">▸ <strong>실무 영향:</strong> 부모님 생전에 구두·서면으로 상속을 포기하겠다고 약속한 경우에도, 사망 후 법적 절차를 밟지 않으면 상속권이 유효하게 유지됩니다.</p>
-</div>
-<div class="ruling-box">
-<p class="r-label">⚖ 판례 3 — 상속채무 초과 사실을 뒤늦게 안 경우 특별한정승인</p>
-<p class="case-num"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2004다33865" target="_blank" class="tag-case">⚖️ 대법원 2004다33865</a></p>
-<p>선순위 상속인들이 모두 포기하여 후순위 상속인(손자녀 등)이 상속인이 된 경우, 그 손자녀가 상속인이 되었다는 사실 자체를 알기 어려운 특별한 사정이 있습니다. 이때 3개월 숙려기간의 기산점은 피상속인의 사망일이 아닌, 본인이 상속인이 된 사실을 실제로 안 날입니다.</p>
-<p class="effect">▸ <strong>실무 영향:</strong> 나도 모르는 사이에 상속인이 된 경우(선순위 포기 연쇄), 3개월이 지났어도 한정승인이 가능한 경우가 있습니다. 반드시 전문가 상담으로 가능성을 확인해야 합니다.</p>
-</div>` },
-      { heading: '⚡ 3개월 숙려기간 — 가장 중요한 기간 제한', content: `<div class="section-title">
-<span class="num">SECTION 04</span>
-    주의사항
-  </div>
-<div class="warn-box">
-<p class="wt">⚡ 3개월 숙려기간 — 가장 중요한 기간 제한</p>
-<p>상속 개시가 있었음을 안 날로부터 <strong>3개월 이내</strong>에 단순승인·한정승인·상속포기를 결정해야 합니다 <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101900" target="_blank" class="tag-law">📋 민법 제1019조①</a>. 이 기간을 넘기면 채무를 포함한 모든 것을 그대로 승계하는 단순승인이 됩니다. 가정법원의 허가로 기간 연장이 가능하지만, 신청하지 않으면 자동 연장되지 않습니다.</p>
-</div>
-<div class="warn-box" style="margin-top:14px;">
-<p class="wt">⚠️ 상속재산 처분 행위는 단순승인으로 간주</p>
-<p>상속인이 상속재산을 임의로 처분하거나 소비하면, 한정승인·포기 신청 전이더라도 단순승인으로 법정 간주됩니다 <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=102600" target="_blank" class="tag-law">📋 민법 제1026조①</a>. 예금 해지, 부동산 매각 등의 행위가 이에 해당할 수 있으므로, 승인·포기 결정 전에는 상속재산을 현상 유지해야 합니다.</p>
-</div>
-<div class="info-box" style="margin-top:14px;">
-<p class="it">ℹ️ 채무를 뒤늦게 발견한 경우 — 특별한정승인</p>
-<p>이미 단순승인한 후라도, 상속채무가 상속재산을 초과하는 사실을 <strong>중대한 과실 없이</strong> 숙려기간 내에 알지 못한 경우에는 그 사실을 안 날로부터 3개월 내에 한정승인을 신청할 수 있습니다 <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101900" target="_blank" class="tag-law">📋 민법 제1019조③</a>. 이를 '특별한정승인'이라 합니다.</p>
-</div>
-<div class="info-box" style="margin-top:14px;">
-<p class="it">ℹ️ 상속포기 시 다음 순위 상속인에게 채무 이전 주의</p>
-<p>상속을 포기하면 상속 지분이 다음 순위 상속인에게 이전됩니다. 예를 들어 자녀들이 모두 포기하면 피상속인의 부모나 형제자매가 상속인이 되어 채무를 떠안게 됩니다. 채무를 피하려면 모든 순위의 상속인이 각각 포기 신고를 해야 합니다.</p>
-</div>` },
-      { heading: '위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이', content: `<div class="section-title">
-<span class="num">SECTION 05</span>
-    자주 묻는 질문 (Q&amp;A)
-  </div>
-<div class="qna-item">
-<div class="qna-q"><span class="qm">Q</span> 상속이 개시됐는지 몰랐습니다. 3개월이 지났는데 지금이라도 포기가 가능한가요?</div>
-<div class="qna-a">
-      <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101900" target="_blank" class="tag-law">📋 민법 제1019조 제1항</a>의 3개월 숙려기간은 '상속 개시가 있었음을 안 날'로부터 기산합니다. 단순히 피상속인이 사망한 날이 아니라, 본인이 상속인이 된 사실까지 알게 된 날이 기산점입니다. 먼 친척이 사망하여 선순위 상속인들이 모두 포기한 결과 본인이 상속인이 되었다면, 그 사실을 안 날부터 3개월이 기산됩니다(<a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2004다33865" target="_blank" class="tag-case">⚖️ 대법원 2004다33865</a>). 다만 이를 적용받으려면 자신이 상속인이 된 사실을 알 수 없었던 특별한 사정을 소명해야 하므로, 법무사와의 상담을 통해 가능성을 먼저 확인하시기 바랍니다.
-      <p class="disc">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
-</div>
-</div>
-<div class="qna-item">
-<div class="qna-q"><span class="qm">Q</span> 부동산을 상속받았는데 등기를 꼭 해야 하나요? 하지 않으면 어떻게 되나요?</div>
-<div class="qna-a">
-      <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=018700" target="_blank" class="tag-law">📋 민법 제187조</a>에 따라 상속으로 인한 부동산 취득은 등기 없이도 법률상 당연히 이루어집니다. 그러나 등기를 마치지 않으면 이를 제3자에게 주장할 수 없고, 매각·담보 제공 등 처분 행위도 불가능합니다. 또한 등기 지연 시 취득세 납부기한을 넘겨 가산세가 부과될 수 있습니다(<a href="https://www.law.go.kr/법령/지방세법" target="_blank" class="tag-law">📋 지방세법 제20조</a>). 상속인 중 일부가 추후 사망하거나 분쟁이 발생하면 절차가 훨씬 복잡해지므로, 조속히 처리하는 것이 좋습니다.
-      <p class="disc">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
-</div>
-</div>
-<div class="qna-item">
-<div class="qna-q"><span class="qm">Q</span> ⚡ 상속포기를 하면 나의 자녀에게도 채무가 넘어가나요?</div>
-<div class="qna-a">
-      상속을 포기한 경우 포기자는 처음부터 상속인이 아니었던 것으로 봅니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=104200" target="_blank" class="tag-law">📋 민법 제1042조</a>). 포기자의 직계비속(자녀)은 포기자를 대신하여 대습상속을 하지 않습니다. 따라서 자녀의 조부모가 사망하고 부모(1순위 상속인)가 포기하면, 자녀가 자동으로 상속인이 되지는 않습니다. 다만 피상속인의 직계비속이 모두 포기하면 그 다음 순위인 직계존속이나 형제자매로 채무가 넘어갑니다. 가족 전체가 채무를 피하려면 모든 순위의 상속인이 각각 포기 신고를 해야 합니다.
-      <p class="disc">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
-</div>
-</div>
-<div class="qna-item">
-<div class="qna-q"><span class="qm">Q</span> 유언장이 있으면 법정상속분과 관계없이 유언대로 나눠야 하나요?</div>
-<div class="qna-a">
-      원칙적으로 유효한 유언이 있으면 유언의 내용에 따라 재산이 분배됩니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=107300" target="_blank" class="tag-law">📋 민법 제1073조</a>). 그러나 유언으로도 침해할 수 없는 법정상속인의 최소 몫인 '유류분'이 있습니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=111200" target="_blank" class="tag-law">📋 민법 제1112조</a>). 배우자·직계비속의 유류분은 법정상속분의 2분의 1, 직계존속·형제자매는 3분의 1입니다. 유언이 유류분을 침해하면 해당 상속인은 유류분 반환을 청구할 수 있습니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=111500" target="_blank" class="tag-law">📋 민법 제1115조</a>). 또한 유언의 방식이 민법이 정한 요건을 갖추지 못하면 유언 자체가 무효가 될 수 있으므로, 유언장의 유효성 확인이 먼저입니다.
-      <p class="disc">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
-</div>
-</div>
-<div class="qna-item">
-<div class="qna-q"><span class="qm">Q</span> 상속인들끼리 합의가 되지 않으면 어떻게 하나요?</div>
-<div class="qna-a">
-      공동상속인들이 재산 분할에 합의하지 못하면, 가정법원에 '상속재산 분할 심판'을 청구할 수 있습니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101300" target="_blank" class="tag-law">📋 민법 제1013조 제2항</a>). 법원은 상속재산의 종류·성질, 각 상속인의 생활 상황 등을 고려하여 현물분할·가격보상분할·경매 등의 방법으로 분할합니다. 심판 청구 전에 조정을 먼저 신청하는 방법도 있습니다. 합의가 전혀 되지 않으면 부동산은 공유 상태가 지속되어 처분이 어려워지므로, 가능한 한 빠른 시일 내에 전문가의 도움을 받아 절차를 진행하는 것이 좋습니다.
-      <p class="disc">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
-</div>
-</div>
-<div class="qna-item">
-<div class="qna-q"><span class="qm">Q</span> 상속 절차에 드는 비용은 어떻게 되나요?</div>
-<div class="qna-a">
-      상속 절차의 비용은 크게 세금(취득세, 상속세)과 법원 비용(인지대, 송달료), 등기 비용(등록면허세)으로 나뉩니다. 취득세는 부동산을 상속받을 경우 납부하며, 상속세는 상속재산 전체의 가액이 기준 이상일 때 과세됩니다. 법원에 한정승인·상속포기 신고를 하는 경우에는 인지대와 송달료가 발생합니다. 비용의 구체적인 금액은 상속재산의 종류·규모, 상속인 수에 따라 달라지므로 상담 시 함께 안내받으시기 바랍니다.
-      <p class="disc">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
-</div>
-</div>` },
-      { heading: 'STEP 2 · 상속인', content: `<hr class="divider"/>
-<div class="section-title" style="margin-top:52px;">
-<span class="num">SECTION 06</span>
-    다음으로 확인할 내용
-  </div>
-<div class="next-links">
-<a class="next-link" href="?cat=inheritance&topic=in-02">
-<p class="nl-tag">STEP 2 · 상속인</p>
-<p class="nl-title">상속인 순위 — 누가 얼마나 받는가</p>
-<p class="nl-desc">법정상속분과 상속인 순위를 구체적으로 확인합니다.</p>
-</a>
-<a class="next-link" href="?cat=inheritance&topic=in-05">
-<p class="nl-tag">STEP 4 · 승인·포기</p>
-<p class="nl-title">포기 vs 한정승인 — 내 상황에 맞는 선택은</p>
-<p class="nl-desc">빚이 걱정된다면 여기서 두 선택지를 비교하세요.</p>
-</a>
-<a class="next-link" href="?cat=inheritance&topic=in-12">
-<p class="nl-tag">STEP 6 · 등기</p>
-<p class="nl-title">상속 부동산 등기 — 무엇을 언제까지</p>
-<p class="nl-desc">등기를 해야 하는 시기와 이유를 안내합니다.</p>
-</a>
-</div>` }
     ],
-    laws: [
-      { name: '민법 제1019조①', desc: '' },
-      { name: '민법 제997조', desc: '' },
-      { name: '민법 제1019조②', desc: '' },
-      { name: '민법 제187조', desc: '' },
-      { name: '민법 제1005조', desc: '' },
-      { name: '민법 제28조', desc: '' },
-      { name: '가족관계등록법 제85조', desc: '' },
-      { name: '민법 제1000조', desc: '' },
-      { name: '제1004조', desc: '' },
-      { name: '민법 제1030조', desc: '' },
-      { name: '민법 제1041조', desc: '' },
-      { name: '민법 제1013조', desc: '' },
-      { name: '부동산등기법 제23조', desc: '' },
-      { name: '민법 제1001조', desc: '' },
-      { name: '민법 제1026조①', desc: '' },
-      { name: '민법 제1019조③', desc: '' },
-      { name: '민법 제1019조 제1항', desc: '' },
-      { name: '지방세법 제20조', desc: '' },
-      { name: '민법 제1042조', desc: '' },
-      { name: '민법 제1073조', desc: '' },
-      { name: '민법 제1112조', desc: '' },
-      { name: '민법 제1115조', desc: '' },
-      { name: '민법 제1013조 제2항', desc: '' }
-    ],
-    forms: []
+    laws: [],
+    faq: [{"q":"Q. 장남이니까 더 받나요?","a":"1. 1. 이후 돌아가신 경우에는 장남이라고 더 받지 않습니다. 같은 순위 상속인은 똑같이 나누고 배우자만 5할을 더 받습니다. 📋 근거 1 📋 민법 제1009조"},{"q":"Q. 사실혼 배우자도 상속받나요?","a":"민법이 상속인으로 정한 배우자는 혼인신고를 한 법률상 배우자입니다. 사실혼 배우자는 상속인이 아니므로 다른 방법이 있는지 따로 살펴야 합니다. 📋 근거 1 📋 민법 제1003조"},{"q":"Q. 아버지가 돌아가신 뒤 어머니도 돌아가셨어요.","a":"아버지 상속과 어머니 상속을 차례로 계산합니다. 어머니가 아버지보다 나중에 돌아가셨다면 어머니가 받은 몫이 다시 어머니의 상속인에게 갑니다. 등기를 한 번에 할 수 있는지는 사건마다 다릅니다."},{"q":"Q. 은행에서 고인 예금을 찾을 수 있나요?","a":"사망신고 다음 날부터 고인 명의 거래는 자동으로 막히고, 예금은 상속 절차를 거쳐 받습니다. 치료비·장례비처럼 급한 비용은 금융회사의 예외 인출로 병원·장례식장에 직접 지급할 수 있습니다. 📋 근거 1 📋 사망자 명의 금융거래 신속차단(행정안전부·금융위원회, 2026. 9. 11. 시행)"},{"q":"Q. 태아도 상속인이 되나요?","a":"상속순위에서는 이미 태어난 것으로 봅니다. 살아서 태어나면 다른 자녀와 같은 순위로 상속합니다. 📋 근거 1 📋 민법 제1000조"},{"q":"Q. 이혼한 배우자도 상속받나요?","a":"상속인이 되는 배우자는 돌아가실 때 법률상 혼인 중이던 배우자입니다. 이혼한 배우자는 상속인이 아니지만, 두 사람 사이의 자녀는 1순위 상속인입니다. 📋 근거 2 📋 민법 제1003조 📋 민법 제1000조"},{"q":"Q. 상속세는 어떻게 하나요?","a":"상속세 신고기한은 상속개시일이 속한 달의 말일부터 6개월입니다. 대상 여부와 신고는 세무사와 상의하시고, 상속등기와 취득세 신고·납부는 함께 처리해 드립니다. 📋 근거 1 📋 상속세 및 증여세법 제67조"},{"q":"Q. 부모님이 같은 사고로 함께 돌아가셨어요.","a":"두 사람 이상이 같은 위난으로 사망하면 동시에 사망한 것으로 추정되어 서로 상속하지 않습니다. 각자의 상속인을 따로 확인해야 합니다. 📋 근거 1 📋 민법 제30조"},{"q":"Q. 형제자매도 상속인이 되나요?","a":"자녀(손자녀 포함)와 부모가 모두 없을 때 3순위로 상속인이 됩니다. 배우자가 있으면 배우자가 단독으로 상속하므로 형제자매에게는 돌아가지 않습니다. 📋 근거 2 📋 민법 제1000조 📋 민법 제1003조"},{"q":"Q. 상속인 중 한 명이 연락을 끊었어요.","a":"재산을 나누는 협의는 상속인 전원이 해야 합니다. 협의가 되지 않으면 법정상속분대로 정리하거나 가정법원에 분할을 청구하는 방법을 검토합니다. 📋 근거 1 📋 민법 제1013조"}],
+    forms: [],
   },
   {
-    id: 'in-02',
-    title: '상속인 순위 — 누가 얼마나 받는가',
-    meta: '법정상속인 순위·상속분 · 배우자 특별규정 · 대습상속 완전 정리 STEP 0 이런 분께 필요합니다 가족이 돌아가셨는데 법적으로 누가 상속인인지 확인하고 싶은 분 재혼·이혼 등 복잡한 가족관계에서 상속인 범위가 궁금',
+    id: "in-02",
+    title: "상속인 순위 — 누가 얼마나 받는가",
+    meta: "법정상속인 순위·상속분 · 배우자 특별규정 · 대습상속 완전 정리 STEP 0 이런 분께 필요합니다 가족이 돌아가셨는데 법적으로 누가 상속인인지 확인하고 싶은 분 재혼·이혼 등 복잡한 가족관계에서 상속인 범위가 궁금",
     sections: [
-      { heading: 'STEP 0 이런 분께 필요합니다', content: `<div class="checklist">
+      { heading: "STEP 0 이런 분께 필요합니다", content: `<div class="checklist">
 <ul>
 <li>가족이 돌아가셨는데 법적으로 누가 상속인인지 확인하고 싶은 분</li>
 <li>재혼·이혼 등 복잡한 가족관계에서 상속인 범위가 궁금한 분</li>
@@ -283,7 +43,7 @@ const INHERITANCE_TOPICS = [
 <li>상속인으로서 자신의 권리를 정확히 파악하고 싶은 분</li>
 </ul>
 </div>` },
-      { heading: 'STEP 1 핵심 요약', content: `<div class="summary-box">
+      { heading: "STEP 1 핵심 요약", content: `<div class="summary-box">
 <div class="label">🔑 이것만 기억하세요</div>
 <ul>
 <li>민법은 혈족을 4개 순위로 나누고, 앞 순위가 있으면 뒷 순위는 상속받지 못합니다.</li>
@@ -294,7 +54,7 @@ const INHERITANCE_TOPICS = [
 <li>상속인이 포기하면 그 몫은 뒷 순위 상속인에게 돌아가며, 손자녀에게 대습상속되지 않습니다.</li>
 </ul>
 </div>` },
-      { heading: 'STEP 2 상세 내용', content: `<!-- 2-1 기본 개념 -->
+      { heading: "STEP 2 상세 내용", content: `<!-- 2-1 기본 개념 -->
 <h3>2-1. 법정상속인 순위 <span class="law-tag"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=100000" target="_blank" class="tag-law">📋 민법 제1000조</a>, 제1003조</span></h3>
 <p>민법은 피상속인의 사망 시 당연히 상속이 개시되고(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=099700" target="_blank" class="tag-law">📋 민법 제997조</a>), 상속인의 범위와 순위를 법률로 정합니다. 유언이 있더라도 법정상속인의 유류분은 보장됩니다.</p>
 <div class="rank-diagram">
@@ -501,7 +261,7 @@ const INHERITANCE_TOPICS = [
 <p>아버지가 돌아가셨고, 아들(A)이 빚이 많아 상속을 포기했습니다. A에게는 자녀(손자녀 B)가 있습니다.</p>
 <p><strong>→</strong> 포기는 대습상속 사유가 아닙니다. 손자녀 B는 대습상속인이 되지 않습니다. 대신 다음 순위(아버지의 부모 등)가 상속인이 되거나, 해당 순위도 없으면 다음 순위로 넘어갑니다(<a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=95다27769" target="_blank" class="tag-case">⚖️ 대법원 95다27769</a>).</p>
 </div>` },
-      { heading: 'STEP 3 관련 판례', content: `<div class="ruling-box">
+      { heading: "STEP 3 관련 판례", content: `<div class="ruling-box">
 <div class="ruling-header">대법원 2001.3.9. 선고 99다13157 판결 — 동시사망과 대습상속</div>
 <p>부자(父子)가 동시에 사망한 경우, 아들이 아버지보다 먼저 사망한 것으로 처리되어 아들의 자녀(손자녀)에게 대습상속이 인정됩니다.</p>
 <p>동시사망의 경우 어느 쪽도 타방을 상속하지 못하고, 피대습인(아들)은 상속개시 전에 사망한 것으로 보아 대습상속이 개시됩니다.</p>
@@ -520,7 +280,7 @@ const INHERITANCE_TOPICS = [
 <div class="ruling-header">대법원 1993.2.12. 선고 92다50755 판결 — 상속결격의 효과</div>
 <p>상속결격은 법률 요건의 충족으로 당연히 발생하므로, 별도의 법원 판결을 요하지 않습니다. 결격자가 상속개시 후 상속재산을 취득한 경우에도 소급하여 무효입니다.</p>
 </div>` },
-      { heading: 'STEP 4 꼭 확인하세요', content: `<div class="warn-box">
+      { heading: "STEP 4 꼭 확인하세요", content: `<div class="warn-box">
 <div class="warn-title">⚠ 사실혼 배우자는 법정상속인이 아닙니다</div>
 <p>오랜 사실혼 관계라도 법률혼(혼인신고)을 하지 않았다면 상속권이 없습니다. 생전에 증여 또는 유언을 통해 재산을 이전받는 방법을 검토해야 합니다.</p>
 </div>
@@ -536,7 +296,7 @@ const INHERITANCE_TOPICS = [
 <div class="warn-title">⚠ 상속분은 유언으로 변경할 수 있지만 유류분 한도 내에서</div>
 <p>피상속인은 유언으로 특정인에게 재산을 더 주거나 덜 줄 수 있습니다. 그러나 직계비속·직계존속·배우자 등에게는 법정상속분의 일정 비율(유류분)이 보장되므로, 유류분을 침해하는 유언은 유류분반환청구의 대상이 됩니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=111200" target="_blank" class="tag-law">📋 민법 제1112조 이하</a>).</p>
 </div>` },
-      { heading: 'STEP 5 자주 묻는 질문', content: `<div class="qna-item">
+      { heading: "STEP 5 자주 묻는 질문", content: `<div class="qna-item">
 <div class="qna-q">
 <span class="q-badge">Q1</span>
         아버지가 돌아가셨는데, 어머니·아들·딸이 있습니다. 어머니가 받는 비율은 얼마인가요?
@@ -606,7 +366,7 @@ const INHERITANCE_TOPICS = [
         
 </div>
 </div>` },
-      { heading: 'STEP 6 다음으로 확인할 내용', content: `<p>상속인 순위와 상속분을 파악했다면, 아래 주제들을 순서대로 확인하시면 좋습니다.</p>
+      { heading: "STEP 6 다음으로 확인할 내용", content: `<p>상속인 순위와 상속분을 파악했다면, 아래 주제들을 순서대로 확인하시면 좋습니다.</p>
 <div class="next-links">
 <a class="next-link" href="?cat=inheritance&topic=in-03">
 <span class="arrow">→</span>
@@ -636,31 +396,17 @@ const INHERITANCE_TOPICS = [
 <span class="title">유류분 — 최소한 받을 권리</span>
 </span>
 </a>
-</div>` }
+</div>` },
     ],
-    laws: [
-      { name: '민법 제1000조', desc: '' },
-      { name: '민법 제1009조', desc: '' },
-      { name: '민법 제1004조', desc: '' },
-      { name: '민법 제1001조', desc: '' },
-      { name: '민법 제997조', desc: '' },
-      { name: '민법 제1000조 제3항', desc: '' },
-      { name: '민법 제1003조', desc: '' },
-      { name: '민법 제1058조', desc: '' },
-      { name: '민법 제1004조 5호', desc: '' },
-      { name: '민법 제1112조 이하', desc: '' },
-      { name: '민법 제1000조, 제1003조', desc: '' },
-      { name: '민법 제1019조', desc: '' },
-      { name: '민법 제1057조의2', desc: '' }
-    ],
-    forms: []
+    laws: [{"name":"민법 제1000조","desc":""},{"name":"민법 제1009조","desc":""},{"name":"민법 제1004조","desc":""},{"name":"민법 제1001조","desc":""},{"name":"민법 제997조","desc":""},{"name":"민법 제1000조 제3항","desc":""},{"name":"민법 제1003조","desc":""},{"name":"민법 제1058조","desc":""},{"name":"민법 제1004조 5호","desc":""},{"name":"민법 제1112조 이하","desc":""},{"name":"민법 제1000조, 제1003조","desc":""},{"name":"민법 제1019조","desc":""},{"name":"민법 제1057조의2","desc":""}],
+    forms: [],
   },
   {
-    id: 'in-03',
-    title: '실종된 가족과 상속 — 실종선고 신청',
-    meta: '가족이 오랫동안 연락이 없을 때 상속을 어떻게 처리하는가 STEP 0 이런 분께 필요합니다 가족이 수년째 연락이 끊겨 생사를 알 수 없는 분 실종된 가족 명의의 부동산·예금을 상속받거나 정리해야 하는 분 실종된 가족',
+    id: "in-03",
+    title: "실종된 가족과 상속 — 실종선고 신청",
+    meta: "가족이 오랫동안 연락이 없을 때 상속을 어떻게 처리하는가 STEP 0 이런 분께 필요합니다 가족이 수년째 연락이 끊겨 생사를 알 수 없는 분 실종된 가족 명의의 부동산·예금을 상속받거나 정리해야 하는 분 실종된 가족",
     sections: [
-      { heading: 'STEP 0 이런 분께 필요합니다', content: `<div class="checklist">
+      { heading: "STEP 0 이런 분께 필요합니다", content: `<div class="checklist">
 <ul>
 <li>가족이 수년째 연락이 끊겨 생사를 알 수 없는 분</li>
 <li>실종된 가족 명의의 부동산·예금을 상속받거나 정리해야 하는 분</li>
@@ -670,7 +416,7 @@ const INHERITANCE_TOPICS = [
 <li>실종선고와 인정사망의 차이를 명확히 알고 싶은 분</li>
 </ul>
 </div>` },
-      { heading: 'STEP 1 핵심 요약', content: `<div class="summary-box">
+      { heading: "STEP 1 핵심 요약", content: `<div class="summary-box">
 <div class="label">🔑 이것만 기억하세요</div>
 <ul>
 <li>생사불명 상태가 <strong>보통실종 5년, 특별실종(전쟁·사고 등) 1년</strong> 이상 지속되면 법원에 실종선고를 신청할 수 있습니다.</li>
@@ -681,7 +427,7 @@ const INHERITANCE_TOPICS = [
 <li>인정사망은 관공서가 사망 시기를 인정하는 것으로, 실종선고와 별개의 제도입니다.</li>
 </ul>
 </div>` },
-      { heading: 'STEP 2 상세 내용', content: `<!-- 2-1 기본 개념 -->
+      { heading: "STEP 2 상세 내용", content: `<!-- 2-1 기본 개념 -->
 <h3>2-1. 실종선고란 <span class="law-tag"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=002700" target="_blank" class="tag-law">📋 민법 제27조</a>·제28조</span></h3>
 <p>실종선고는 장기간 생사불명인 부재자를 법률상 사망한 것으로 간주하여, 그 재산·신분 관계를 정리하는 제도입니다. 상속개시 원인인 '사망'에는 자연사망 외에 실종선고와 인정사망이 포함됩니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=099700" target="_blank" class="tag-law">📋 민법 제997조</a>).</p>
 <div class="compare-grid">
@@ -860,7 +606,7 @@ const INHERITANCE_TOPICS = [
 <p>어머니가 실종선고를 받았고, 그 후 자녀들이 상속을 완료하여 부동산 등기도 마쳤습니다. 그런데 수년 후 어머니가 해외에 생존해 있다는 사실이 밝혀졌습니다.</p>
 <p><strong>→</strong> 본인, 이해관계인, 검사가 가정법원에 <strong>실종선고 취소 심판</strong>을 청구할 수 있습니다. 취소 심판이 확정되면 실종선고로 인한 법률관계는 소급 무효가 됩니다. 다만, 선의(사정을 모르고)로 이미 재산을 취득한 제3자에 대해서는 반환 청구가 제한될 수 있습니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=002900" target="_blank" class="tag-law">📋 민법 제29조 제1항 단서</a>).</p>
 </div>` },
-      { heading: 'STEP 3 관련 판례', content: `<div class="ruling-box">
+      { heading: "STEP 3 관련 판례", content: `<div class="ruling-box">
 <div class="ruling-header">대법원 1994.9.27. 선고 94다21542 판결 — 실종선고 취소 전 상속 효력</div>
 <p>실종선고를 받은 자는 실종기간 만료 시에 사망한 것으로 간주됩니다. 따라서 이후 실종선고를 취소해야 할 사유가 발생하더라도, <strong>실제로 실종선고가 취소되지 않는 한</strong>, 임의로 사망 시점을 달리 정하여 이미 개시된 상속 관계를 부정하거나 변경할 수 없습니다.</p>
 </div>
@@ -876,7 +622,7 @@ const INHERITANCE_TOPICS = [
 <div class="ruling-header">대법원 1970.3.10. 선고 69다2103 판결 — 실종선고 효력의 확정성</div>
 <p>실종선고의 심판이 확정되면 선고가 취소되지 않는 한 본인의 생존 기타 반증을 들어서 선고의 효과를 다툴 수 없습니다. 실종선고의 효력을 뒤집으려면 반드시 법원에 실종선고 취소 심판을 청구하여야 합니다.</p>
 </div>` },
-      { heading: 'STEP 4 꼭 확인하세요', content: `<div class="warn-box">
+      { heading: "STEP 4 꼭 확인하세요", content: `<div class="warn-box">
 <div class="warn-title">⚠ 실종기간 기산점을 정확히 파악해야 합니다</div>
 <p>보통실종의 5년은 <strong>'최종 소식이 있었던 날'</strong>부터 기산합니다. 마지막으로 연락했거나 행방이 확인된 날짜를 문자·통화기록·목격자 진술 등으로 소명해야 합니다. 기산점이 불분명하면 청구가 기각될 수 있습니다.</p>
 </div>
@@ -896,7 +642,7 @@ const INHERITANCE_TOPICS = [
 <div class="warn-title">⚠ 실종선고와 무관하게 법원이 사망 사실을 인정할 수도 있습니다</div>
 <p>수난·전란·화재 등에서 사망이 고도로 개연성 있는 경우, 법원은 인정사망이나 실종선고 제도에 의하지 않고 사망사실을 직접 인정하는 판결을 내릴 수 있습니다. 재판 과정에서 사망의 증거가 충분히 확보되어 있다면 이 방법도 고려할 수 있습니다.</p>
 </div>` },
-      { heading: 'STEP 5 자주 묻는 질문', content: `<div class="qna-item">
+      { heading: "STEP 5 자주 묻는 질문", content: `<div class="qna-item">
 <div class="qna-q">
 <span class="q-badge">Q1</span>
         아버지가 7년 전 가출하신 후 연락이 없습니다. 지금 실종선고 신청이 가능한가요?
@@ -956,7 +702,7 @@ const INHERITANCE_TOPICS = [
         
 </div>
 </div>` },
-      { heading: 'STEP 6 다음으로 확인할 내용', content: `<p>실종선고로 상속이 개시되면, 아래 내용을 순서대로 확인하시면 됩니다.</p>
+      { heading: "STEP 6 다음으로 확인할 내용", content: `<p>실종선고로 상속이 개시되면, 아래 내용을 순서대로 확인하시면 됩니다.</p>
 <div class="next-links">
 <a class="next-link" href="?cat=inheritance&topic=in-04">
 <span class="arrow">→</span>
@@ -986,26 +732,17 @@ const INHERITANCE_TOPICS = [
 <span class="title">상속인 순위 다시 보기</span>
 </span>
 </a>
-</div>` }
+</div>` },
     ],
-    laws: [
-      { name: '민법 제27조', desc: '' },
-      { name: '가사소송법 제2조', desc: '' },
-      { name: '민법 제997조', desc: '' },
-      { name: '민법 제27조 제1항', desc: '' },
-      { name: '민법 제27조 제2항', desc: '' },
-      { name: '가족관계등록법 제90조', desc: '' },
-      { name: '민법 제29조 제1항 단서', desc: '' },
-      { name: '민법 제28조', desc: '' }
-    ],
-    forms: []
+    laws: [{"name":"민법 제27조","desc":""},{"name":"가사소송법 제2조","desc":""},{"name":"민법 제997조","desc":""},{"name":"민법 제27조 제1항","desc":""},{"name":"민법 제27조 제2항","desc":""},{"name":"가족관계등록법 제90조","desc":""},{"name":"민법 제29조 제1항 단서","desc":""},{"name":"민법 제28조","desc":""}],
+    forms: [],
   },
   {
-    id: 'in-04',
-    title: '빚도 상속되나요 — 상속재산의 범위',
-    meta: '적극재산·소극재산·상속 제외 항목 · 재산조사 방법 완전 정리 STEP 0 이런 분께 필요합니다 부모님이 돌아가셨는데 빚이 있다는 말을 들어 막막한 분 상속을 받으면 구체적으로 무엇이, 어디까지 승계되는지 알고 싶은',
+    id: "in-04",
+    title: "빚도 상속되나요 — 상속재산의 범위",
+    meta: "적극재산·소극재산·상속 제외 항목 · 재산조사 방법 완전 정리 STEP 0 이런 분께 필요합니다 부모님이 돌아가셨는데 빚이 있다는 말을 들어 막막한 분 상속을 받으면 구체적으로 무엇이, 어디까지 승계되는지 알고 싶은",
     sections: [
-      { heading: 'STEP 0 이런 분께 필요합니다', content: `<div class="checklist">
+      { heading: "STEP 0 이런 분께 필요합니다", content: `<div class="checklist">
 <ul>
 <li>부모님이 돌아가셨는데 빚이 있다는 말을 들어 막막한 분</li>
 <li>상속을 받으면 구체적으로 무엇이, 어디까지 승계되는지 알고 싶은 분</li>
@@ -1015,7 +752,7 @@ const INHERITANCE_TOPICS = [
 <li>상속을 받기 전, 재산과 채무를 먼저 파악하여 포기·한정승인 여부를 결정하려는 분</li>
 </ul>
 </div>` },
-      { heading: 'STEP 1 핵심 요약', content: `<div class="summary-box">
+      { heading: "STEP 1 핵심 요약", content: `<div class="summary-box">
 <div class="label">🔑 이것만 기억하세요</div>
 <ul>
 <li>상속은 피상속인의 재산과 채무를 <strong>포괄적으로 승계</strong>합니다. 재산만 골라 받을 수 없습니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=100500" target="_blank" class="tag-law">📋 민법 제1005조</a>).</li>
@@ -1026,7 +763,7 @@ const INHERITANCE_TOPICS = [
 <li>정부24 '사망자 재산조회 통합처리' 서비스를 이용하면 금융·부동산·세금·자동차를 한 번에 조회할 수 있습니다.</li>
 </ul>
 </div>` },
-      { heading: 'STEP 2 상세 내용', content: `<!-- 2-1 포괄승계 원칙 -->
+      { heading: "STEP 2 상세 내용", content: `<!-- 2-1 포괄승계 원칙 -->
 <h3>2-1. 포괄승계의 원칙 <span class="law-tag"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=100500" target="_blank" class="tag-law">📋 민법 제1005조</a></span></h3>
 <p>상속인은 상속이 개시된 때로부터 피상속인의 재산에 관한 <strong>포괄적 권리의무</strong>를 승계합니다. 상속인이 원하든 원하지 않든, 좋은 재산만 골라 받거나 특정 채무만 거부하는 것은 허용되지 않습니다. 재산을 받으려면 채무도 함께 승계해야 하며, 채무를 피하려면 상속 전부를 포기해야 합니다.</p>
 <p>단, 상속인의 고유재산을 채무 변제에 무한정 사용하고 싶지 않다면 <strong>한정승인</strong>(상속재산 범위 내에서만 채무 변제)을 선택할 수 있습니다.</p>
@@ -1221,7 +958,7 @@ const INHERITANCE_TOPICS = [
 <p>어머니가 돌아가신 후 부동산 등기를 하고 단순승인 처리를 마쳤습니다. 그런데 3개월 후 지인의 3,000만 원 보증인이 어머니였다는 사실이 밝혀졌습니다.</p>
 <p><strong>→</strong> 상속채무가 상속재산을 초과하는 사실을 <strong>중대한 과실 없이 알지 못한 경우</strong>, 그 사실을 안 날부터 3개월 이내에 특별한정승인을 신청할 수 있습니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101900" target="_blank" class="tag-law">📋 민법 제1019조 제3항</a>). 다만 이 기회를 놓치면 보증채무에 대해 무한책임을 질 수 있으므로 빠른 법적 조치가 필요합니다.</p>
 </div>` },
-      { heading: 'STEP 3 관련 판례', content: `<div class="ruling-box">
+      { heading: "STEP 3 관련 판례", content: `<div class="ruling-box">
 <div class="ruling-header">대법원 — 보증채무의 상속 (상속채무 포괄승계)</div>
 <p>상속인은 피상속인의 모든 재산상 권리의무를 포괄적으로 승계하므로(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=100500" target="_blank" class="tag-law">📋 민법 제1005조</a>), 피상속인이 부담한 보증채무도 상속인에게 당연히 이전됩니다. 상속인이 보증채무의 존재를 몰랐다고 하여도 상속의 효력에는 영향이 없습니다.</p>
 </div>
@@ -1238,7 +975,7 @@ const INHERITANCE_TOPICS = [
 <div class="ruling-header">헌법재판소 1998.8.27. 96헌가22 결정 — 특별한정승인 신설 계기</div>
 <p>상속인이 상속채무가 상속재산을 초과하는 사실을 중대한 과실 없이 알지 못하고 3개월의 고려기간이 지난 경우까지 단순승인의 효과를 강제하는 것은 헌법에 위배됩니다. 이 결정을 계기로 <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101900" target="_blank" class="tag-law">📋 민법 제1019조 제3항</a>의 특별한정승인 제도가 신설되었습니다(2002년 민법 개정).</p>
 </div>` },
-      { heading: 'STEP 4 꼭 확인하세요', content: `<div class="warn-box">
+      { heading: "STEP 4 꼭 확인하세요", content: `<div class="warn-box">
 <div class="warn-title">⚠ 3개월의 고려기간은 모두에게 동시에 진행됩니다</div>
 <p>상속 포기·한정승인의 기간은 <strong>상속개시가 있음을 안 날로부터 3개월</strong>입니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101900" target="_blank" class="tag-law">📋 민법 제1019조</a>). 이 기간을 지나치면 단순승인이 되어 채무를 무한으로 책임져야 합니다. 재산 조사에 시간이 걸리더라도 기간 자체는 멈추지 않습니다. 조사가 길어질 것 같다면 우선 <strong>한정승인 또는 포기 신청을 먼저 해두는 것</strong>이 안전합니다.</p>
 </div>
@@ -1254,7 +991,7 @@ const INHERITANCE_TOPICS = [
 <div class="warn-title">⚠ 상속재산과 상속인 고유재산은 혼동 전까지 별도입니다</div>
 <p>단순승인 후에는 상속재산과 상속인의 고유재산이 합쳐져 채권자가 어느 재산에 대해서도 강제집행을 할 수 있습니다. 한정승인을 하면 상속채권자는 상속재산에 대해서만 권리를 주장할 수 있어 상속인의 고유재산이 보호됩니다.</p>
 </div>` },
-      { heading: 'STEP 5 자주 묻는 질문', content: `<div class="qna-item">
+      { heading: "STEP 5 자주 묻는 질문", content: `<div class="qna-item">
 <div class="qna-q">
 <span class="q-badge">Q1</span>
         아버지가 돌아가셨는데 빚이 많다고 합니다. 상속을 포기하면 빚을 안 갚아도 되나요?
@@ -1314,7 +1051,7 @@ const INHERITANCE_TOPICS = [
         
 </div>
 </div>` },
-      { heading: 'STEP 6 다음으로 확인할 내용', content: `<p>상속재산 범위를 파악했다면, 채무 대처 방법을 바로 확인하세요.</p>
+      { heading: "STEP 6 다음으로 확인할 내용", content: `<p>상속재산 범위를 파악했다면, 채무 대처 방법을 바로 확인하세요.</p>
 <div class="next-links">
 <a class="next-link" href="?cat=inheritance&topic=in-05">
 <span class="arrow">→</span>
@@ -1344,1271 +1081,180 @@ const INHERITANCE_TOPICS = [
 <span class="title">상속인 순위 다시 보기</span>
 </span>
 </a>
-</div>` }
+</div>` },
     ],
-    laws: [
-      { name: '민법 제1005조', desc: '' },
-      { name: '민법 제1019조', desc: '' },
-      { name: '민법 제1019조 제3항', desc: '' },
-      { name: '민법 제1019조 제2항', desc: '' },
-      { name: '민법 제1026조 제1호', desc: '' },
-      { name: '민법 제1026조', desc: '' }
-    ],
-    forms: []
+    laws: [{"name":"민법 제1005조","desc":""},{"name":"민법 제1019조","desc":""},{"name":"민법 제1019조 제3항","desc":""},{"name":"민법 제1019조 제2항","desc":""},{"name":"민법 제1026조 제1호","desc":""},{"name":"민법 제1026조","desc":""}],
+    forms: [],
   },
   {
-    id: 'in-05',
-    title: '상속포기·한정승인 — 내 상황에 맞는 선택은',
-    meta: '단순승인·한정승인·상속포기 3가지 선택지 완전 비교 ⏰ 기간 주의 — 상속개시를 안 날로부터 3개월 이내 이 기간을 넘기면 자동으로 단순승인이 됩니다. 채무가 많은 경우 돌이킬 수 없으니 반드시 기간 내에 결정하세요',
+    id: "in-26",
+    title: "상속재산 통합조회(안심상속 원스톱서비스) — 누가, 언제, 어떻게 신청하고 결과는 어디서 보나요?",
+    meta: "안심상속 원스톱서비스로 돌아가신 분의 예금·대출·보험·토지·세금 등을 한 번에 조회할 수 있습니다. 신청할 수 있는 사람과 기한, 준비물, 결과를 확인하는 방법을 안내합니다.",
+    reviewed: "2026-11-08",
+    kb: "H-A03",
     sections: [
-      { heading: 'STEP 0 이런 분께 필요합니다', content: `<div class="checklist">
-<ul>
-<li>가족이 돌아가셨는데 빚이 있어 상속을 받을지 말지 고민 중인 분</li>
-<li>상속포기와 한정승인 중 어느 것이 내 상황에 유리한지 판단하고 싶은 분</li>
-<li>재산도 있고 채무도 있어서 득이 될지 실이 될지 모르는 분</li>
-<li>3개월 기한이 다가오는데 아직 결정을 못 한 분</li>
-<li>포기를 신청했는데 나중에 재산이 더 발견될까 걱정되는 분</li>
-<li>상속포기 후 자녀(손자녀)에게 채무가 이어질까 불안한 분</li>
-</ul>
+      { heading: "이런 분께 필요합니다", content: `<ul class="checklist"><li> 사망신고를 하러 가는데 재산조회도 같이 해야 하는지 궁금하다</li><li> 돌아가신 분에게 어떤 예금과 빚이 있는지 전혀 모른다</li><li> 신청은 했는데 결과를 어디서 확인하는지 모르겠다</li><li> 상속포기·한정승인을 해야 할지 판단하려고 재산 목록이 필요하다</li></ul>` },
+      { heading: "핵심정리", content: `<div class="kb-box kb-summary"><p>가족이 돌아가시면 상속인이 가장 먼저 할 일은 <strong>사망신고</strong>와 <strong>고인의 재산·빚 확인</strong>입니다. 사망신고는 사망 사실을 안 날부터 1개월 안에 해야 하고, 재산·빚은 &#x27;안심상속 원스톱서비스&#x27;로 한 번에 조회할 수 있습니다. 시·구청이나 읍·면·동 주민센터에 한 장의 신청서를 내면 예금·대출·보험·주식, 국세·지방세, 연금, 토지·건축물·자동차 등을 기관별로 찾아 알려 줍니다. 신청은 사망신고와 함께 하거나, <strong>사망일이 속한 달의 말일부터 1년 안에</strong> 해야 하며 수수료는 없습니다.</p><details class="refs-mini"><summary>📋 근거 3</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/가족관계의등록등에관한법률/제84조" target="_blank" rel="noopener" class="tag-law">📋 가족관계등록법 제84조</a><a href="https://www.law.go.kr/행정규칙/사망자및피후견인등재산조회통합처리에관한기준" target="_blank" rel="noopener" class="tag-law">📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)</a><a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=17400000001" target="_blank" rel="noopener" class="tag-law">📋 정부24 민원안내 「사망자 및 피후견인 등 재산조회 통합처리 신청(안심상속)」</a></div></details></div>` },
+      { heading: "상세설명", content: `<h3>상속인이 먼저 할 일 — 순서로 보면</h3><div class="table-wrap"><table><tr><th>순서</th><th>할 일</th><th>기한</th></tr><tr><td data-label="순서">1</td><td data-label="할 일">사망신고</td><td data-label="기한">⚡ 사망 사실을 안 날부터 1개월</td></tr><tr><td data-label="순서">2</td><td data-label="할 일">안심상속 원스톱서비스 신청</td><td data-label="기한">사망신고와 함께, 또는 사망일이 속한 달의 말일부터 1년</td></tr><tr><td data-label="순서">3</td><td data-label="할 일">조회 결과 확인(기관별로 순차 도착)</td><td data-label="기한">접수 후 즉시~20일</td></tr><tr><td data-label="순서">4</td><td data-label="할 일">단순승인·한정승인·상속포기 결정</td><td data-label="기한">⚡ 상속개시를 안 날부터 3개월</td></tr><tr><td data-label="순서">5</td><td data-label="할 일">취득세 신고·상속등기, 상속세 신고(대상인 경우)</td><td data-label="기한">⚡ 상속개시일이 속한 달의 말일부터 6개월</td></tr></table></div><details class="refs-mini"><summary>📋 근거 6</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/가족관계의등록등에관한법률/제84조" target="_blank" rel="noopener" class="tag-law">📋 가족관계등록법 제84조</a><a href="https://www.law.go.kr/행정규칙/사망자및피후견인등재산조회통합처리에관한기준" target="_blank" rel="noopener" class="tag-law">📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)</a><a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=17400000001" target="_blank" rel="noopener" class="tag-law">📋 정부24 민원안내 「사망자 및 피후견인 등 재산조회 통합처리 신청(안심상속)」</a><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a><a href="https://www.law.go.kr/법령/지방세법/제20조" target="_blank" rel="noopener" class="tag-law">📋 지방세법 제20조</a><a href="https://www.law.go.kr/법령/상속세및증여세법/제67조" target="_blank" rel="noopener" class="tag-law">📋 상속세 및 증여세법 제67조</a></div></details>
+<p>사망신고가 접수되면 다음 날부터 고인 명의 금융거래가 자동으로 막힙니다. 입금은 되지만 출금은 막히므로, 치료비·장례비는 금융회사를 통한 예외 지급 절차를 이용합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.mois.go.kr" target="_blank" rel="noopener" class="tag-law">📋 사망자 명의 금융거래 신속차단(행정안전부·금융위원회, 2026. 9. 11. 시행)</a></div></details><h3>왜 사망신고와 함께 신청하나요?</h3><p>통합조회 신청은 사망신고를 받는 주민센터의 가족관계등록 담당 공무원이 접수합니다. 사망신고를 하러 간 김에 한 장의 신청서를 더 쓰면 되므로, 따로 날을 잡아 다시 갈 필요가 없습니다. 또 사망신고가 접수되면 다음 날부터 고인 명의 금융거래가 자동으로 막혀 출금이 되지 않습니다. 예금이 어디에 얼마나 있는지 빨리 알아야 치료비·장례비 예외 지급이나 이후 상속 절차를 준비할 수 있으므로, 사망신고와 통합조회를 같은 날 처리하는 것이 가장 효율적입니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/사망자및피후견인등재산조회통합처리에관한기준" target="_blank" rel="noopener" class="tag-law">📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)</a><a href="https://www.mois.go.kr" target="_blank" rel="noopener" class="tag-law">📋 사망자 명의 금융거래 신속차단(행정안전부·금융위원회, 2026. 9. 11. 시행)</a></div></details><h3>누가 신청할 수 있나요?</h3><div class="table-wrap"><table><tr><th>신청인</th><th>정부24 온라인</th><th>주민센터 방문</th></tr><tr><td data-label="신청인">자녀(1순위)와 배우자</td><td data-label="정부24 온라인">가능</td><td data-label="주민센터 방문">가능</td></tr><tr><td data-label="신청인">부모(2순위)와 배우자 — 자녀가 없을 때</td><td data-label="정부24 온라인">가능</td><td data-label="주민센터 방문">가능</td></tr><tr><td data-label="신청인">자녀의 상속포기로 2순위가 된 부모</td><td data-label="정부24 온라인">불가</td><td data-label="주민센터 방문">가능</td></tr><tr><td data-label="신청인">형제자매(3순위) — 1·2순위와 배우자가 모두 없을 때</td><td data-label="정부24 온라인">불가</td><td data-label="주민센터 방문">가능</td></tr><tr><td data-label="신청인">대습상속인, 상속재산관리인</td><td data-label="정부24 온라인">불가</td><td data-label="주민센터 방문">가능</td></tr><tr><td data-label="신청인">법정대리인(미성년자의 친권자, 성년후견인), 위임받은 대리인</td><td data-label="정부24 온라인">불가</td><td data-label="주민센터 방문">가능(위임장 제출)</td></tr></table></div>
+<p>배우자는 자녀가 있으면 1순위, 자녀 없이 부모만 있으면 2순위와 같은 자격을 갖습니다. 4촌 이내 방계혈족 같은 4순위 상속인은 통합신청을 할 수 없어, 금융감독원 상속인 금융거래조회 등 기관별 조회를 따로 신청해야 합니다.</p><details class="refs-mini"><summary>📋 근거 3</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/사망자및피후견인등재산조회통합처리에관한기준" target="_blank" rel="noopener" class="tag-law">📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)</a><a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=17400000001" target="_blank" rel="noopener" class="tag-law">📋 정부24 민원안내 「사망자 및 피후견인 등 재산조회 통합처리 신청(안심상속)」</a><a href="https://fine.fss.or.kr/fine/main/contents.do?menuNo=900209" target="_blank" rel="noopener" class="tag-law">📋 금융감독원 파인 「상속인금융거래조회 제도안내」</a></div></details><h3>무엇이 조회되나요?</h3><div class="table-wrap"><table><tr><th>구분</th><th>조회 내용</th><th>결과 기한·확인처</th></tr><tr><td data-label="구분">금융</td><td data-label="조회 내용">예금·보험·증권 등 금융자산, 대출·카드대금·보증채무, 대여금고 등 보관금품, 선불식 할부거래(상조) 가입 여부</td><td data-label="결과 기한·확인처">20일 이내 — 금융감독원 누리집</td></tr><tr><td data-label="구분">국세</td><td data-label="조회 내용">체납액·미납액·환급액</td><td data-label="결과 기한·확인처">20일 이내 — 국세청 홈택스</td></tr><tr><td data-label="구분">4대 사회보험료</td><td data-label="조회 내용">체납액, 납부기한이 남은 미납 보험료, 건강보험·국민연금 환급금</td><td data-label="결과 기한·확인처">20일 이내 — 국민건강보험공단 누리집</td></tr><tr><td data-label="구분">연금·공제회</td><td data-label="조회 내용">국민·공무원·사학·군인연금, 퇴직연금, 각종 공제회 가입 여부와 연금 대여금 채무</td><td data-label="결과 기한·확인처">20일 이내 — 기관 누리집 또는 문자</td></tr><tr><td data-label="구분">소상공인 정책자금</td><td data-label="조회 내용">대출 내역</td><td data-label="결과 기한·확인처">20일 이내 — 소상공인정책자금 누리집</td></tr><tr><td data-label="구분">지방세</td><td data-label="조회 내용">체납·고지세액, 환급액</td><td data-label="결과 기한·확인처">7일 이내 — 문자·우편·방문</td></tr><tr><td data-label="구분">토지</td><td data-label="조회 내용">소유 내역</td><td data-label="결과 기한·확인처">7일 이내 — 문자·우편·방문</td></tr><tr><td data-label="구분">건축물·자동차·어선</td><td data-label="조회 내용">소유 여부</td><td data-label="결과 기한·확인처">방문 신청은 즉시(근무시간 내 3시간), 온라인은 7일 이내</td></tr></table></div><details class="refs-mini"><summary>📋 근거 3</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/사망자및피후견인등재산조회통합처리에관한기준" target="_blank" rel="noopener" class="tag-law">📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)</a><a href="https://fine.fss.or.kr/fine/main/contents.do?menuNo=900209" target="_blank" rel="noopener" class="tag-law">📋 금융감독원 파인 「상속인금융거래조회 제도안내」</a><a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=17400000001" target="_blank" rel="noopener" class="tag-law">📋 정부24 민원안내 「사망자 및 피후견인 등 재산조회 통합처리 신청(안심상속)」</a></div></details><h3>결과는 어떻게 받나요? — 바로 받는 것과 문자 뒤 직접 받는 것</h3><p>조회 결과는 한꺼번에 오지 않고, <strong>항목에 따라 받는 방법이 다릅니다.</strong></p>
+<p><strong>바로 또는 문자·우편으로 받는 것</strong></p>
+<ul class=""><li><strong>자동차·건축물·어선</strong> — 주민센터에 방문해 신청하면 담당 공무원이 그 자리에서 조회해 문서나 말로 알려 줍니다. 정부24로 신청했다면 7일 안에 문자나 우편으로 받습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/사망자및피후견인등재산조회통합처리에관한기준" target="_blank" rel="noopener" class="tag-law">📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)</a></div></details></li><li><strong>지방세·토지</strong> — 7일 안에 문자나 우편으로 받거나, 담당 부서를 방문해 받습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/사망자및피후견인등재산조회통합처리에관한기준" target="_blank" rel="noopener" class="tag-law">📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)</a></div></details></li><li><strong>공무원연금·사학연금·군인연금, 각종 공제회, 근로복지공단 대지급금 채무</strong> — 조회 결과가 문자로 통지됩니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/사망자및피후견인등재산조회통합처리에관한기준" target="_blank" rel="noopener" class="tag-law">📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)</a></div></details></li></ul>
+<p><strong>완료 문자를 받은 뒤 해당 누리집에 들어가 직접 확인해야 하는 것</strong></p>
+<ul class=""><li><strong>금융거래(예금·대출·보험·증권, 상조 가입 여부)</strong> — 금융감독원 누리집<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/사망자및피후견인등재산조회통합처리에관한기준" target="_blank" rel="noopener" class="tag-law">📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)</a><a href="https://fine.fss.or.kr/fine/main/contents.do?menuNo=900209" target="_blank" rel="noopener" class="tag-law">📋 금융감독원 파인 「상속인금융거래조회 제도안내」</a></div></details></li><li><strong>국세(체납·미납·환급)</strong> — 국세청 홈택스<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/사망자및피후견인등재산조회통합처리에관한기준" target="_blank" rel="noopener" class="tag-law">📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)</a></div></details></li><li><strong>4대 사회보험료</strong> — 국민건강보험공단 누리집<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/사망자및피후견인등재산조회통합처리에관한기준" target="_blank" rel="noopener" class="tag-law">📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)</a></div></details></li><li><strong>국민연금 가입 여부</strong> — 국민연금공단 누리집<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/사망자및피후견인등재산조회통합처리에관한기준" target="_blank" rel="noopener" class="tag-law">📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)</a></div></details></li><li><strong>근로복지공단 퇴직연금</strong> — 근로복지공단 퇴직연금 누리집<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/사망자및피후견인등재산조회통합처리에관한기준" target="_blank" rel="noopener" class="tag-law">📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)</a></div></details></li><li><strong>소상공인 정책자금 대출</strong> — 소상공인정책자금 누리집<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/사망자및피후견인등재산조회통합처리에관한기준" target="_blank" rel="noopener" class="tag-law">📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)</a></div></details></li></ul>
+<p>이 항목들은 신청일부터 20일 안에 결과가 해당 누리집에 올라오고, 완료되었다는 문자만 옵니다. <strong>문자를 받았다고 끝난 것이 아니므로</strong>, 문자에 안내된 누리집에 신청인이 직접 접속해 본인 확인을 거친 뒤 결과를 열람하고 저장하거나 출력해 두어야 합니다. 특히 금융 결과는 접수일부터 3개월이 지나면 볼 수 없으므로 바로 받아 두십시오. 결과를 받는 대로 저희에게 보내 주시면 재산과 빚을 정리해 다음 절차를 함께 정합니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/사망자및피후견인등재산조회통합처리에관한기준" target="_blank" rel="noopener" class="tag-law">📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)</a><a href="https://fine.fss.or.kr/fine/main/contents.do?menuNo=900209" target="_blank" rel="noopener" class="tag-law">📋 금융감독원 파인 「상속인금융거래조회 제도안내」</a></div></details><h3>절차는 어떻게 진행되나요?</h3><p><strong>방문 신청</strong>: 가까운 시·구청이나 읍·면·동 주민센터에 신분증을 가지고 가서 재산조회 통합처리 신청서를 냅니다. 사망신고 담당 공무원이 접수하고 접수증을 줍니다. 사망신고를 이미 마친 뒤 따로 신청하면 상속관계 증빙서류를 요구받을 수 있습니다. 가족관계증명서(상세)는 행정정보 공동이용에 동의하면 따로 내지 않아도 됩니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/사망자및피후견인등재산조회통합처리에관한기준" target="_blank" rel="noopener" class="tag-law">📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)</a><a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=17400000001" target="_blank" rel="noopener" class="tag-law">📋 정부24 민원안내 「사망자 및 피후견인 등 재산조회 통합처리 신청(안심상속)」</a></div></details>
+<p><strong>온라인 신청</strong>: 정부24에서 간편인증이나 인증서로 로그인해 신청서를 쓰고, 가족관계증명서 교부를 함께 신청합니다. 주민센터가 확인·접수하면 접수증을 출력합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=17400000001" target="_blank" rel="noopener" class="tag-law">📋 정부24 민원안내 「사망자 및 피후견인 등 재산조회 통합처리 신청(안심상속)」</a></div></details>
+<p><strong>대리 신청</strong>: 위임받은 대리인은 방문 신청만 할 수 있고 위임장을 함께 냅니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/사망자및피후견인등재산조회통합처리에관한기준" target="_blank" rel="noopener" class="tag-law">📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)</a></div></details>
+<p><strong>취소·변경</strong>: 신청 내용을 바꾸거나 취소하려면 접수한 다음 날부터 5일(토요일·공휴일 제외) 안에 처음 신청한 접수처에 신청해야 합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/사망자및피후견인등재산조회통합처리에관한기준" target="_blank" rel="noopener" class="tag-law">📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)</a></div></details><h3>무엇을 준비하나요?</h3><div class="table-wrap"><table><tr><th>신청인</th><th>준비물</th></tr><tr><td data-label="신청인">상속인 본인</td><td data-label="준비물">신분증, 상속관계를 증명하는 서류(가족관계증명서 상세 — 행정정보 공동이용에 동의하면 생략)</td></tr><tr><td data-label="신청인">대리인</td><td data-label="준비물">위 서류와 위임장, 대리인 신분증</td></tr><tr><td data-label="신청인">취소·변경 신청</td><td data-label="준비물">신분증, 처음 받은 접수증</td></tr></table></div><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=17400000001" target="_blank" rel="noopener" class="tag-law">📋 정부24 민원안내 「사망자 및 피후견인 등 재산조회 통합처리 신청(안심상속)」</a><a href="https://www.law.go.kr/행정규칙/사망자및피후견인등재산조회통합처리에관한기준" target="_blank" rel="noopener" class="tag-law">📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)</a></div></details>
+<p>결과를 받을 휴대전화 번호를 정확히 적어야 기관별 완료 문자를 놓치지 않습니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/사망자및피후견인등재산조회통합처리에관한기준" target="_blank" rel="noopener" class="tag-law">📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)</a></div></details><h3>비용은 어떻게 되나요?</h3><p>통합조회 신청 자체에는 수수료가 없습니다. 다만 가족관계증명서처럼 따로 발급받는 서류의 발급 수수료는 별도입니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/사망자및피후견인등재산조회통합처리에관한기준" target="_blank" rel="noopener" class="tag-law">📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)</a><a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=17400000001" target="_blank" rel="noopener" class="tag-law">📋 정부24 민원안내 「사망자 및 피후견인 등 재산조회 통합처리 신청(안심상속)」</a></div></details><h3>신청하면 어떤 효과가 생기나요?</h3><ul class=""><li><strong>조회만 하는 절차입니다.</strong> 신청했다고 상속을 받아들이거나 포기한 것이 되지 않고, 3개월의 결정 기간이 늘어나지도 않습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a></div></details></li><li><strong>결과는 신청인에게 갑니다.</strong> 대리 신청이면 대리인에게 제공됩니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/사망자및피후견인등재산조회통합처리에관한기준" target="_blank" rel="noopener" class="tag-law">📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)</a></div></details></li><li><strong>결과는 기관별로 차례로 도착합니다.</strong> 자동차·건축물은 방문하면 바로, 지방세·토지는 7일, 금융·국세·연금은 20일 안에 나옵니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/사망자및피후견인등재산조회통합처리에관한기준" target="_blank" rel="noopener" class="tag-law">📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)</a></div></details></li></ul><h3>조회 결과를 받으면 무엇을 하나요?</h3><p>결과가 모이면 재산과 빚을 한 장에 정리합니다. 금융 결과에는 금융회사별로 예금액과 채무액이 나오고, 지급보증 같은 우발채무도 표시됩니다. 국세·지방세 체납과 환급액, 4대 사회보험료 미납액도 빚과 받을 돈으로 나눠 적습니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://fine.fss.or.kr/fine/main/contents.do?menuNo=900209" target="_blank" rel="noopener" class="tag-law">📋 금융감독원 파인 「상속인금융거래조회 제도안내」</a><a href="https://www.law.go.kr/행정규칙/사망자및피후견인등재산조회통합처리에관한기준" target="_blank" rel="noopener" class="tag-law">📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)</a></div></details>
+<ul class=""><li><strong>재산이 분명히 많으면</strong>: 상속인을 확정하고 협의분할·상속등기와 취득세 신고로 이어집니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/지방세법/제20조" target="_blank" rel="noopener" class="tag-law">📋 지방세법 제20조</a></div></details></li><li><strong>빚이 분명히 많으면</strong>: 3개월 안에 상속포기를 검토합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a></div></details></li><li><strong>어느 쪽이 많은지 모르겠으면</strong>: 한정승인을 검토하고, 조사가 늦어지면 기간 연장을 청구합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a></div></details></li></ul>` },
+      { heading: "자주 묻는 질문", content: `<details class="qa"><summary>Q. Q. 상속인이 여러 명이면 모두 신청해야 하나요?</summary><div class="ans"><p>A. 신청자격이 있는 상속인 한 사람이 신청하면 됩니다. 결과는 신청인(대리 신청이면 대리인)에게 제공됩니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/사망자및피후견인등재산조회통합처리에관한기준" target="_blank" rel="noopener" class="tag-law">📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)</a></div></details></div></details><details class="qa"><summary>Q. Q. 1년이 지났습니다. 이제 조회할 수 없나요?</summary><div class="ans"><p>A. 통합신청은 할 수 없지만, 금융감독원 상속인 금융거래조회는 은행·우체국 등 접수처에서 따로 신청할 수 있습니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://fine.fss.or.kr/fine/main/contents.do?menuNo=900209" target="_blank" rel="noopener" class="tag-law">📋 금융감독원 파인 「상속인금융거래조회 제도안내」</a></div></details></div></details><details class="qa"><summary>Q. Q. 토지 조회에 나온 땅은 모두 등기되어 있나요?</summary><div class="ans"><p>A. 토지 조회는 지적 자료로 소유 현황을 알려 주는 것이므로, 실제 등기 상태는 등기사항증명서로 다시 확인해야 합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/사망자및피후견인등재산조회통합처리에관한기준" target="_blank" rel="noopener" class="tag-law">📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)</a></div></details></div></details><details class="qa"><summary>Q. Q. 4순위 상속인인 조카입니다. 어떻게 조회하나요?</summary><div class="ans"><p>A. 통합신청 대상이 아니므로 금융감독원 상속인 금융거래조회를 은행·우체국 등 접수처에서 따로 신청하고, 세금 등은 기관별로 확인합니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=17400000001" target="_blank" rel="noopener" class="tag-law">📋 정부24 민원안내 「사망자 및 피후견인 등 재산조회 통합처리 신청(안심상속)」</a><a href="https://fine.fss.or.kr/fine/main/contents.do?menuNo=900209" target="_blank" rel="noopener" class="tag-law">📋 금융감독원 파인 「상속인금융거래조회 제도안내」</a></div></details></div></details><details class="qa"><summary>Q. Q. 금융 조회에 예금이 나왔는데 바로 찾을 수 있나요?</summary><div class="ans"><p>A. 조회 결과로 인출할 수는 없고 해당 금융회사에 상속 서류를 내야 합니다. 결정 전에 찾아 쓰면 상속을 받아들인 것으로 볼 수 있으므로, 포기·한정승인 여부를 정한 뒤 처리하십시오.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://fine.fss.or.kr/fine/main/contents.do?menuNo=900209" target="_blank" rel="noopener" class="tag-law">📋 금융감독원 파인 「상속인금융거래조회 제도안내」</a><a href="https://www.law.go.kr/법령/민법/제1026조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1026조</a></div></details></div></details><details class="qa"><summary>Q. Q. 다른 가족이 이미 사망신고를 했습니다. 지금도 신청할 수 있나요?</summary><div class="ans"><p>A. 사망일이 속한 달의 말일부터 1년 안이면 따로 신청할 수 있습니다. 이때는 상속인임을 증명하는 서류를 요구받을 수 있습니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/사망자및피후견인등재산조회통합처리에관한기준" target="_blank" rel="noopener" class="tag-law">📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)</a></div></details></div></details><details class="qa"><summary>Q. Q. 안심상속과 함께 확인할 서비스가 있나요?</summary><div class="ans"><p>A. 정부24 안심상속 안내에서 돌아가신 분의 시민안전보험 보험금과, 고인이 당사자인 공탁금이 있는지도 함께 확인할 수 있습니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.gov.kr/portal/onestopSvc/safeInheritance" target="_blank" rel="noopener" class="tag-law">📋 정부24 안심상속 원스톱서비스(사망자 재산조회 통합처리) 안내</a></div></details></div></details><details class="qa"><summary>Q. Q. 결과 문자를 놓쳤습니다. 어디서 확인하나요?</summary><div class="ans"><p>A. 금융 결과는 접수일부터 3개월까지 금융감독원 누리집에서 볼 수 있고, 국세 결과는 국세청 홈택스, 4대 사회보험료는 국민건강보험공단 누리집에 게재됩니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://fine.fss.or.kr/fine/main/contents.do?menuNo=900209" target="_blank" rel="noopener" class="tag-law">📋 금융감독원 파인 「상속인금융거래조회 제도안내」</a><a href="https://www.law.go.kr/행정규칙/사망자및피후견인등재산조회통합처리에관한기준" target="_blank" rel="noopener" class="tag-law">📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)</a></div></details></div></details><details class="qa"><summary>Q. Q. 돌아가신 분이 외국인입니다.</summary><div class="ans"><p>A. 금융감독원 상속인 금융거래조회는 외국 기관이 발행한 사망·상속관계 서류에 문서인증(아포스티유 또는 영사 확인)과 번역인증을 받아 신청할 수 있습니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://fine.fss.or.kr/fine/main/contents.do?menuNo=900209" target="_blank" rel="noopener" class="tag-law">📋 금융감독원 파인 「상속인금융거래조회 제도안내」</a></div></details></div></details>` },
+      { heading: "주의사항", content: `<section class="box warn"><ul class=""><li><strong>조회해도 3개월은 흐릅니다</strong>: 결과를 기다리는 동안에도 상속포기·한정승인 기간은 진행됩니다. 재산 파악이 늦어질 것 같으면 기간 안에 가정법원에 기간 연장을 청구할 수 있습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a></div></details></li><li><strong>결과는 3개월 뒤 사라집니다</strong>: 금융 조회 결과는 접수일부터 3개월까지만 금융감독원 누리집에서 볼 수 있습니다. 화면을 저장하거나 출력해 두십시오.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://fine.fss.or.kr/fine/main/contents.do?menuNo=900209" target="_blank" rel="noopener" class="tag-law">📋 금융감독원 파인 「상속인금융거래조회 제도안내」</a></div></details></li><li><strong>조회되지 않는 빚이 있습니다</strong>: 조회 대상은 금융회사·공공기관 자료뿐입니다. 개인에게 빌린 돈, 임대차보증금 반환 의무, 개인 사이의 보증처럼 기관 자료에 없는 채무는 나오지 않습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/사망자및피후견인등재산조회통합처리에관한기준" target="_blank" rel="noopener" class="tag-law">📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)</a></div></details></li><li><strong>잔액 확인과 인출은 따로 합니다</strong>: 조회 결과는 거래 여부와 금액을 알려 줄 뿐이고, 예금 인출이나 보험금 청구는 해당 금융회사에 따로 문의해야 합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://fine.fss.or.kr/fine/main/contents.do?menuNo=900209" target="_blank" rel="noopener" class="tag-law">📋 금융감독원 파인 「상속인금융거래조회 제도안내」</a></div></details></li><li><strong>조회 전에 재산을 쓰지 마십시오</strong>: 결과를 보기 전에 고인의 예금을 찾아 쓰거나 재산을 처분하면 상속을 받아들인 것으로 볼 수 있습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1026조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1026조</a></div></details></li></ul></section>` },
+      { heading: "다음에 확인할 사항", content: `<ul><li><a href="/guide/inheritance/in-01.html">상속이 시작됐을 때</a></li><li><a href="/guide/inheritance/in-05.html">빚이 더 많을 때</a></li><li><a href="/guide/inheritance/in-12.html">상속등기</a></li><li><a href="/guide/inheritance/in-10.html">상속재산분할과 기여분</a></li></ul>` },
+      { heading: "이 내용이 해당되시나요?", content: `<div class="kb-box kb-cta"><p>직접 처리하시기 어려운 부분을 법무사가 함께 검토합니다. 이런 경우 상담을 권합니다.</p>
+<ul class=""><li>조회 결과를 보고 상속·한정승인·포기 중 무엇을 할지 정해야 할 때</li><li>3개월 기한이 다가오는데 재산 파악이 끝나지 않았을 때</li><li>조회된 부동산의 상속등기와 취득세 신고를 진행할 때</li></ul>
+<p class="note">법무사는 조회 결과를 바탕으로 상속관계와 재산·채무를 정리하고, 상속등기 신청을 대리하며 그에 따른 취득세 신고·납부도 처리합니다. 상속포기·한정승인 신고서와 기간 연장 청구서처럼 가정법원에 내는 서류도 작성해 제출합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/법무사법/제2조" target="_blank" rel="noopener" class="tag-law">📋 법무사법 제2조</a></div></details>
 </div>` },
-      { heading: 'STEP 1 핵심 요약', content: `<div class="summary-box">
-<div class="label">🔑 이것만 기억하세요</div>
-<ul>
-<li><strong>단순승인</strong>: 아무것도 안 하면 자동. 재산·채무 전부 무한 승계. 채무 초과 시 내 재산까지 변제해야 합니다.</li>
-<li><strong>한정승인</strong>: 상속재산 범위 내에서만 채무 변제. 남은 재산은 상속인에게. 단, 법원 신고와 청산 절차가 필요합니다.</li>
-<li><strong>상속포기</strong>: 처음부터 상속인이 아닌 것으로 처리. 재산도, 채무도 없음. 선순위 전원 포기 시 후순위로 이어집니다.</li>
-<li>3가지 모두 <strong>상속개시를 안 날로부터 3개월 이내</strong>에 결정해야 합니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101900" target="_blank" class="tag-law">📋 민법 제1019조</a>).</li>
-<li>상속재산을 처분하면 선택권을 잃고 <strong>자동 단순승인</strong>이 됩니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=102600" target="_blank" class="tag-law">📋 민법 제1026조 제1호</a>).</li>
-<li>나중에 채무가 추가로 발견된 경우, <strong>특별한정승인</strong>(그 사실을 안 날로부터 3개월)이 가능할 수 있습니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101900" target="_blank" class="tag-law">📋 민법 제1019조 제3항</a>).</li>
-</ul>
-</div>` },
-      { heading: 'STEP 2 상세 내용', content: `<!-- 2-1 세 가지 선택지 -->
-<h3>2-1. 세 가지 선택지 한눈에 비교</h3>
-<div class="choice-grid">
-<div class="choice-card simple">
-<div class="cc-head">단순승인</div>
-<div class="cc-badge">3개월 내 아무 행동 안 하면 자동</div>
-<div class="cc-body">
-<dl>
-<dt>의미</dt>
-<dd>피상속인의 재산·채무를 제한 없이 모두 승계</dd>
-<dt>채무 책임</dt>
-<dd>채무가 재산보다 많아도 본인 고유재산으로 무한 변제</dd>
-<dt>신고 필요?</dt>
-<dd>불필요 (자동 성립)</dd>
-<dt>언제 유리?</dt>
-<dd>적극재산이 소극재산보다 확실히 많을 때</dd>
-</dl>
-</div>
-</div>
-<div class="choice-card limited">
-<div class="cc-head">한정승인</div>
-<div class="cc-badge">재산목록 첨부 후 가정법원 신고</div>
-<div class="cc-body">
-<dl>
-<dt>의미</dt>
-<dd>상속재산 한도 내에서만 채무 변제, 초과분 책임 없음</dd>
-<dt>채무 책임</dt>
-<dd>상속으로 얻은 재산 내에서만 책임, 고유재산 보호</dd>
-<dt>신고 필요?</dt>
-<dd>3개월 내 가정법원 신고 + 재산목록 제출</dd>
-<dt>언제 유리?</dt>
-<dd>재산과 채무 비율이 불확실하거나, 재산 일부라도 남길 때</dd>
-</dl>
-</div>
-</div>
-<div class="choice-card waive">
-<div class="cc-head">상속포기</div>
-<div class="cc-badge">3개월 내 가정법원 신고</div>
-<div class="cc-body">
-<dl>
-<dt>의미</dt>
-<dd>처음부터 상속인이 아니었던 것으로 처리</dd>
-<dt>채무 책임</dt>
-<dd>없음. 단, 후순위 상속인으로 이어질 수 있음</dd>
-<dt>신고 필요?</dt>
-<dd>3개월 내 가정법원 신고 (재산목록 불필요)</dd>
-<dt>언제 유리?</dt>
-<dd>채무가 훨씬 많고 남길 재산이 거의 없을 때</dd>
-</dl>
-</div>
-</div>
-</div>
-<!-- 2-2 선택 판단 기준 -->
-<h3>2-2. 내 상황에 맞는 선택 판단하기</h3>
-<div class="decision-flow">
-<div class="df-title">🧭 상황별 선택 흐름 — 아래 순서대로 확인하세요</div>
-<div class="df-step">
-<div class="df-q">
-<span class="q-num">Q1</span>
-          피상속인의 재산과 채무를 이미 조사했나요?
-        </div>
-<div class="df-ans">
-<span class="ans-tag no">아직 조사 전</span>
-<span style="font-size:13px; color:#666;">→ 우선 정부24·금융감독원으로 조회 후 결정. 기간이 촉박하면 먼저 한정승인 신청 후 조사.</span>
-</div>
-</div>
-<div class="df-step">
-<div class="df-q">
-<span class="q-num">Q2</span>
-          적극재산이 소극재산(채무)보다 <strong>확실히 많고</strong> 은닉채무가 없을 가능성이 높나요?
-        </div>
-<div class="df-ans">
-<span class="ans-tag yes">그렇다</span>
-<span style="font-size:13px; color:#666;">→ 단순승인이 유리. 아무것도 안 해도 자동 성립됩니다.</span>
-<span class="ans-tag no">불확실하다</span>
-<span style="font-size:13px; color:#666;">→ Q3으로</span>
-</div>
-</div>
-<div class="df-step">
-<div class="df-q">
-<span class="q-num">Q3</span>
-          재산이 조금이라도 남아서 받고 싶거나, 채무 규모가 재산과 비슷한가요?
-        </div>
-<div class="df-ans">
-<span class="ans-tag ok">재산 일부라도 남기고 싶다</span>
-<span style="font-size:13px; color:#666;">→ <strong>한정승인</strong>. 청산 후 남는 재산을 받습니다.</span>
-<span class="ans-tag go">재산이 거의 없고 채무만 있다</span>
-<span style="font-size:13px; color:#666;">→ Q4으로</span>
-</div>
-</div>
-<div class="df-step">
-<div class="df-q">
-<span class="q-num">Q4</span>
-          선순위 상속인이 모두 포기할 경우 후순위(부모·형제 등)가 채무 부담을 질 수 있나요?
-        </div>
-<div class="df-ans">
-<span class="ans-tag go">후순위도 채무가 오지 않도록 하고 싶다</span>
-<span style="font-size:13px; color:#666;">→ <strong>전 순위 순차 포기</strong>. 모든 순위가 포기해야 채무 소멸(국가 귀속).</span>
-<span class="ans-tag ok">나만 포기하면 충분하다</span>
-<span style="font-size:13px; color:#666;">→ <strong>상속포기</strong>. 단, 후순위가 채무를 받는 상황 확인 필요.</span>
-</div>
-</div>
-<div class="df-step">
-<div class="df-q">
-<span class="q-num">Q5</span>
-          3개월 기간이 이미 지났거나 임박했나요?
-        </div>
-<div class="df-ans">
-<span class="ans-tag warn">기간 지남·임박</span>
-<span style="font-size:13px; color:#666;">→ 나중에 채무를 알았다면 <strong>특별한정승인</strong>(그 사실을 안 날로부터 3개월) 검토. 즉시 전문가 상담 필요.</span>
-</div>
-</div>
-</div>
-<!-- 2-3 상세 비교표 -->
-<h3>2-3. 항목별 상세 비교표</h3>
-<div class="table-wrap">
-<table>
-<thead>
-<tr>
-<th class="th-item">비교 항목</th>
-<th class="th-simple">단순승인</th>
-<th class="th-limited">한정승인</th>
-<th class="th-waive">상속포기</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="item">근거</td>
-<td><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=102500" target="_blank" class="tag-law">📋 민법 제1025조</a><br/>제1026조</td>
-<td><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=102800" target="_blank" class="tag-law">📋 민법 제1028조</a><br/>제1030조</td>
-<td><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=104100" target="_blank" class="tag-law">📋 민법 제1041조</a><br/>제1042조</td>
-</tr>
-<tr>
-<td class="item">재산 취득</td>
-<td class="good center">전부 취득</td>
-<td class="mid center">청산 후 잔여분</td>
-<td class="bad center">없음</td>
-</tr>
-<tr>
-<td class="item">채무 책임</td>
-<td class="bad">무한책임<br/>(고유재산 포함)</td>
-<td class="mid">상속재산 한도<br/>(고유재산 보호)</td>
-<td class="good center">없음</td>
-</tr>
-<tr>
-<td class="item">법원 신고</td>
-<td class="good center">불필요</td>
-<td class="bad center">필요<br/>(재산목록 첨부)</td>
-<td class="bad center">필요</td>
-</tr>
-<tr>
-<td class="item">청산 절차</td>
-<td class="good center">없음</td>
-<td class="bad">공고·변제·청산 필요<br/>(복잡)</td>
-<td class="good center">없음</td>
-</tr>
-<tr>
-<td class="item">후순위 영향</td>
-<td class="good center">없음</td>
-<td class="good center">없음</td>
-<td class="bad">후순위 상속인에게<br/>채무 이전 가능</td>
-</tr>
-<tr>
-<td class="item">생명보험금</td>
-<td class="good center">수령 가능</td>
-<td class="good center">수령 가능</td>
-<td class="good center">수령 가능</td>
-</tr>
-<tr>
-<td class="item">나중에 채무 발견</td>
-<td class="bad">고유재산으로<br/>무한 변제</td>
-<td class="mid">상속재산 한도로<br/>제한됨</td>
-<td class="good center">관계없음<br/>(이미 포기)</td>
-</tr>
-<tr>
-<td class="item">취소 가능?</td>
-<td class="center" colspan="3" style="color:#666;">수리 후에는 원칙적으로 취소 불가 (사기·강박 등 예외적 사유만 가능)</td>
-</tr>
-</tbody>
-</table>
-</div>
-<!-- 2-4 법정단순승인 위험 -->
-<h3>2-4. 이것을 하면 자동으로 단순승인이 됩니다 <span class="law-tag"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=102600" target="_blank" class="tag-law">📋 민법 제1026조</a></span></h3>
-<p>다음 행위를 하면 법원에 신고를 하기 전이라도 <strong>단순승인이 확정</strong>되어 한정승인·포기를 할 수 없게 됩니다. 반드시 결정 전까지는 피해야 합니다.</p>
-<div class="danger-list">
-<div class="dl-head">⛔ 법정단순승인 사유 — 절대 피해야 할 행위</div>
-<ul>
-<li>
-<span class="num">1</span>
-<span><strong>상속재산 처분행위</strong> — 피상속인 명의 예금 인출, 부동산 매도·증여, 상속재산 소비 등 재산의 현상이나 가치를 변경하는 일체의 행위 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=102600" target="_blank" class="tag-law">📋 민법 제1026조 제1호</a>). 포기 신청 후라도 <u>법원 수리 전</u> 처분하면 단순승인이 됩니다.</span>
-</li>
-<li>
-<span class="num">2</span>
-<span><strong>3개월 기간 내 아무 행동 안 함</strong> — 상속개시를 안 날로부터 3개월이 지나면 자동으로 단순승인됩니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=102600" target="_blank" class="tag-law">📋 민법 제1026조 제2호</a>). 단, 채무 초과 사실을 중대한 과실 없이 몰랐다면 특별한정승인 가능.</span>
-</li>
-<li>
-<span class="num">3</span>
-<span><strong>한정승인·포기 후 재산 은닉·부정소비·허위 재산목록 제출</strong> — 한정승인 또는 포기를 했더라도 이후 재산을 숨기거나 부정하게 소비하거나 재산목록을 허위로 기재하면 단순승인으로 간주됩니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=102600" target="_blank" class="tag-law">📋 민법 제1026조 제3호</a>).</span>
-</li>
-</ul>
-</div>
-<!-- 2-5 특별한정승인 -->
-<h3>2-5. 기간을 놓쳤거나 나중에 채무가 발견된 경우 — 특별한정승인</h3>
-<div class="special-box">
-<div class="sp-title">🛡 특별한정승인 <span style="font-weight:400; font-size:12px; color:#666;">(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101900" target="_blank" class="tag-law">📋 민법 제1019조 제3항</a>)</span></div>
-<p>상속인이 <strong>중대한 과실 없이</strong> 상속채무가 상속재산을 초과하는 사실을 알지 못하고 단순승인(또는 법정단순승인)을 한 경우, <strong>그 사실을 안 날로부터 3개월 이내</strong>에 한정승인을 신청할 수 있습니다.</p>
-<p>'중대한 과실'이란 상속인의 나이·직업·피상속인과의 관계·동거 여부 등을 고려하여 상속재산 관리의무를 현저히 결여한 경우를 말합니다. 단순히 재산조사를 게을리한 것만으로는 중대한 과실로 보기 어렵습니다.</p>
-<p><strong>이 제도를 활용할 수 있는 대표 상황:</strong> 단순승인 후 보증채무·은행 대출이 추가 발견된 경우, 피상속인의 금융거래를 전혀 몰랐던 경우, 후순위 상속인으로서 선순위 포기 이후 비로소 상속인이 된 경우.</p>
-</div>
-<!-- 2-6 사례 -->
-<h3>2-6. 실제 사례로 이해하기</h3>
-<div class="case-box">
-<div class="case-title">📋 사례 ① — 재산이 확실히 많은 경우 (단순승인)</div>
-<p>아버지가 돌아가셨고, 시세 4억 원의 아파트와 1억 원의 예금을 남기셨습니다. 대출은 8,000만 원입니다. 재산 합계 5억, 채무 8,000만 원으로 적극재산이 확실히 많습니다.</p>
-<p><strong>→</strong> 단순승인이 유리합니다. 3개월 내 아무 행동도 하지 않으면 자동 단순승인됩니다. 이후 상속등기 및 예금 해지 절차를 진행하면 됩니다.</p>
-</div>
-<div class="case-box">
-<div class="case-title">📋 사례 ② — 재산과 채무 비율이 불분명한 경우 (한정승인)</div>
-<p>어머니가 남기신 재산은 작은 토지(시세 2,000만 원), 채무는 은행 대출 1,500만 원인데, 보증채무가 있다는 말을 들었습니다. 보증 규모가 얼마인지 확인 중입니다.</p>
-<p><strong>→</strong> 불확실한 상황에서는 한정승인이 안전합니다. 한정승인 신청 후 청산 절차에서 보증채무가 드러나더라도, 상속재산(토지 2,000만 원) 한도 내에서만 책임집니다. 본인 고유재산은 보호됩니다.</p>
-</div>
-<div class="case-box">
-<div class="case-title">📋 사례 ③ — 채무만 남겨진 경우 (상속포기·순차 포기)</div>
-<p>아버지가 재산 없이 3,000만 원의 대출만 남기고 돌아가셨습니다. 상속인은 어머니(배우자), 아들(A), 딸(B), 그리고 친조부모가 있습니다.</p>
-<p><strong>→</strong> 어머니·A·B가 모두 포기하면 채무는 친조부모(2순위)에게 이전됩니다. 조부모도 포기해야 3순위(형제자매)로 이어집니다. 채무를 완전히 소멸시키려면 <strong>모든 순위의 상속인이 순서대로 포기</strong>해야 합니다. 대법원 예규에 따라 선순위 포기 전에 후순위도 미리 포기 신고를 할 수 있습니다.</p>
-</div>` },
-      { heading: 'STEP 3 관련 판례', content: `<div class="ruling-box">
-<div class="ruling-header">대법원 1998.7.24. 선고 98다9021 판결 — 생전 포기 약정의 무효</div>
-<p>유류분을 포함한 상속의 포기는 상속이 개시된 후 일정한 기간 내에만 가능하고 가정법원에 신고하는 등 일정한 절차와 방식을 따라야만 효력이 있습니다. 따라서 <strong>상속개시 전에 한 상속포기 약정은 효력이 없습니다.</strong> 사망 전에 "포기하겠다"는 각서를 작성했더라도 상속개시 후 법원에 신고하지 않으면 유효한 포기가 아닙니다.</p>
-</div>
-<div class="ruling-box">
-<div class="ruling-header">대법원 2010.4.29. 선고 2009다84936 판결 — 처분 후 포기 신고의 효력</div>
-<p>상속인이 가정법원에 상속포기 신고를 하였더라도 이를 수리하는 법원 심판이 고지되기 이전에 상속재산을 처분하였다면, 이는 단순승인 간주 사유(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=102600" target="_blank" class="tag-law">📋 민법 제1026조 제1호</a>)에 해당합니다. 그 후 상속포기 신고가 수리되더라도 상속포기로서의 효력이 없습니다.</p>
-</div>
-<div class="ruling-box">
-<div class="ruling-header">대법원 2006.2.10. 선고 2004다33865 판결 — 3개월 기산점</div>
-<p>상속개시 있음을 안 날이라 함은 상속인이 <strong>피상속인의 사망 사실과 자기가 상속인이 되었음을 안 날</strong>을 말합니다. 상속재산의 유무를 안 날이나 상속포기 제도를 안 날을 의미하지 않습니다. 선순위 상속인의 포기로 본인이 뒤늦게 상속인이 된 경우에는 그 사실을 안 날이 기산점입니다.</p>
-</div>
-<div class="ruling-box">
-<div class="ruling-header">대법원 2002.11.8. 선고 2002다21882 판결 — 특별한정승인의 소급 적용</div>
-<p>헌법재판소의 1998년 96헌가22 결정 이후, 상속채무가 상속재산을 초과하는 사실을 중대한 과실 없이 알지 못하고 단순승인한 경우에 대해 특별한정승인 제도가 소급 적용됩니다. 개정 민법 부칙의 경과조치 범위에 포함되지 않더라도, 위헌성이 제거된 개정 민법 규정이 적용됩니다.</p>
-</div>` },
-      { heading: 'STEP 4 꼭 확인하세요', content: `<div class="warn-box">
-<div class="warn-title">⚠ 한정승인은 신청만 하면 끝이 아닙니다 — 청산 절차 필수</div>
-<p>한정승인이 수리된 후에는 5일 이내 채권자에 대한 공고·최고를 해야 하고, 변제 순서(유치권→질권→저당권→우선변제권→일반채권 순)에 따라 청산해야 합니다. 이 절차를 지키지 않으면 상속채권자에게 손해배상 책임이 생길 수 있습니다. 부동산이 있는 경우 법원경매 절차가 필요할 수 있어 복잡도가 높습니다.</p>
-</div>
-<div class="warn-box">
-<div class="warn-title">⚠ 포기 후 수리 심판 전에는 상속재산에 손대지 마세요</div>
-<p>포기 신고서를 제출했더라도 법원 수리 심판이 고지되기 전까지는 상속재산을 처분하거나 인출하면 안 됩니다. 이 경우 법정단순승인이 성립하여 포기 효력이 소멸합니다(<a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2009다84936" target="_blank" class="tag-case">⚖️ 대법원 2009다84936</a>). 포기 신고 수리 통지를 받은 후에 비로소 재산을 정리하세요.</p>
-</div>
-<div class="warn-box">
-<div class="warn-title">⚠ 미성년 자녀가 있는 경우 법정대리인이 함께 신고해야 합니다</div>
-<p>미성년자 상속인이 있는 경우, 3개월의 숙려기간은 <strong>법정대리인(친권자·후견인)이 상속개시 사실을 안 날</strong>부터 기산합니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=102000" target="_blank" class="tag-law">📋 민법 제1020조</a>). 부모가 포기하더라도 미성년 자녀의 포기는 별도로 법정대리인이 신청해야 합니다. 이때 이해충돌이 있으면 특별대리인 선임이 필요할 수 있습니다.</p>
-</div>
-<div class="warn-box">
-<div class="warn-title">⚠ 한 번 수리된 한정승인·포기는 취소할 수 없습니다</div>
-<p>법원이 한정승인 또는 포기를 수리한 후에는 숙려기간 내라도 취소할 수 없습니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=102400" target="_blank" class="tag-law">📋 민법 제1024조</a>). 단, 사기·강박·제한능력자의 동의 없는 신고 등 의사표시 하자가 있는 경우에는 취소 가능하며, 취소는 추인할 수 있는 날로부터 3개월, 한정승인·포기한 날로부터 1년 내에 해야 합니다.</p>
-</div>` },
-      { heading: 'STEP 5 자주 묻는 질문', content: `<div class="qna-item">
-<div class="qna-q">
-<span class="q-badge">Q1</span>
-        포기와 한정승인 중 어느 것을 선택해야 할지 모르겠습니다. 일단 한정승인을 하면 안전한가요?
-      </div>
-<div class="qna-a">
-        네, 채무 규모가 불확실한 경우 <strong>한정승인이 더 안전한 선택</strong>입니다. 한정승인을 하면 최소한 상속재산 범위 내에서만 책임지므로 고유재산은 보호됩니다. 만약 재산이 채무보다 많다면 청산 후 남은 재산을 받을 수도 있습니다. 단, 법원 신고와 이후 청산 절차가 필요합니다.
-        
-</div>
-</div>
-<div class="qna-item">
-<div class="qna-q">
-<span class="q-badge">Q2</span>
-        아버지 명의 통장에서 장례비용을 인출했는데, 이게 단순승인이 되나요?
-      </div>
-<div class="qna-a">
-        법원 실무상 <strong>장례비·상속세·공과금 납부 등 상속재산 보존을 위한 행위</strong>는 상속재산의 처분행위로 보지 않는 경향이 있습니다. 그러나 이를 초과하여 예금을 인출하거나 피상속인의 채권을 추심하면 처분행위에 해당하여 단순승인으로 간주될 수 있습니다. 판단이 명확하지 않은 경우 반드시 법무사·변호사와 상담 후 결정하세요.
-        
-</div>
-</div>
-<div class="qna-item">
-<div class="qna-q">
-<span class="q-badge">Q3</span>
-        자녀들이 모두 포기하면 빚이 손자녀에게 넘어가나요?
-      </div>
-<div class="qna-a">
-        자녀 전원이 상속포기를 하면 손자녀는 대습상속인이 되지 않습니다(상속포기는 대습상속 원인이 아님). 대신 2순위(조부모)가 새로운 상속인이 됩니다. 따라서 손자녀에게 채무가 직접 이전되지는 않지만, 조부모·형제자매 등 후순위 상속인이 채무를 떠안게 됩니다. 후순위까지 채무를 피하려면 모든 순위의 상속인이 순서대로 포기해야 합니다.
-        
-</div>
-</div>
-<div class="qna-item">
-<div class="qna-q">
-<span class="q-badge">Q4</span>
-        3개월이 지났는데 나중에 큰 빚이 발견되었습니다. 방법이 없나요?
-      </div>
-<div class="qna-a">
-<strong>특별한정승인</strong>(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101900" target="_blank" class="tag-law">📋 민법 제1019조 제3항</a>)을 검토하세요. 상속채무가 상속재산을 초과하는 사실을 중대한 과실 없이 알지 못하고 단순승인한 경우, 그 사실을 안 날로부터 3개월 이내에 한정승인 신청이 가능합니다. '중대한 과실'은 엄격하게 해석되므로, 보증채무처럼 피상속인이 숨긴 경우나 후순위로 뒤늦게 상속인이 된 경우에는 인정 가능성이 높습니다. 즉시 전문가와 상담하시기 바랍니다.
-        
-</div>
-</div>
-<div class="qna-item">
-<div class="qna-q">
-<span class="q-badge">Q5</span>
-        공동상속인 중 일부는 포기, 나머지는 한정승인을 해도 되나요?
-      </div>
-<div class="qna-a">
-        네, 공동상속인 각자가 독립적으로 단순승인·한정승인·포기를 선택할 수 있습니다. 포기한 상속인의 몫은 다른 상속인의 상속분 비율에 따라 귀속됩니다. 일부가 한정승인하면 한정승인한 상속인은 상속재산 범위 내에서만 책임지고, 단순승인한 상속인은 무한책임을 집니다. 혼재된 경우 청산 절차가 복잡해지므로 전문가와 함께 진행하는 것이 좋습니다.
-        
-</div>
-</div>
-<div class="qna-item">
-<div class="qna-q">
-<span class="q-badge">Q6</span>
-        한정승인을 하면 상속세도 내야 하나요?
-      </div>
-<div class="qna-a">
-        한정승인을 하더라도 상속세 과세 대상이 되는 재산이 있으면 원칙적으로 상속세를 신고해야 합니다. 다만, 상속세는 상속받은 재산의 가액을 기준으로 부과되므로 채무가 많아 순재산이 거의 없다면 실제 납부세액이 없거나 적을 수 있습니다. 상속세 신고 기한은 상속개시일이 속하는 달의 말일부터 <strong>6개월 이내</strong>입니다. 한정승인과 상속세 신고를 함께 진행해야 합니다.
-        
-</div>
-</div>` },
-      { heading: 'STEP 6 다음으로 확인할 내용', content: `<p>선택을 결정했다면, 각 절차 페이지에서 구체적인 신청 방법을 확인하세요.</p>
-<div class="next-links">
-<a class="next-link" href="?cat=inheritance&topic=in-06">
-<span class="arrow">→</span>
-<span class="link-text">
-<span class="num">06번째 페이지</span>
-<span class="title">상속포기 절차와 서류</span>
-</span>
-</a>
-<a class="next-link" href="?cat=inheritance&topic=in-07">
-<span class="arrow">→</span>
-<span class="link-text">
-<span class="num">07번째 페이지</span>
-<span class="title">한정승인 절차와 청산</span>
-</span>
-</a>
-<a class="next-link" href="?cat=inheritance&topic=in-04">
-<span class="arrow">←</span>
-<span class="link-text">
-<span class="num">04번째 페이지</span>
-<span class="title">상속재산 범위 다시 보기</span>
-</span>
-</a>
-<a class="next-link" href="?cat=inheritance&topic=in-02">
-<span class="arrow">←</span>
-<span class="link-text">
-<span class="num">02번째 페이지</span>
-<span class="title">상속인 순위 확인</span>
-</span>
-</a>
-</div>` }
     ],
-    laws: [
-      { name: '민법 제1026조', desc: '' },
-      { name: '민법 제1019조', desc: '' },
-      { name: '민법 제1026조 제1호', desc: '' },
-      { name: '민법 제1019조 제3항', desc: '' },
-      { name: '민법 제1025조', desc: '' },
-      { name: '민법 제1028조', desc: '' },
-      { name: '민법 제1041조', desc: '' },
-      { name: '민법 제1026조 제2호', desc: '' },
-      { name: '민법 제1026조 제3호', desc: '' },
-      { name: '민법 제1020조', desc: '' },
-      { name: '민법 제1024조', desc: '' }
-    ],
-    forms: []
+    laws: [],
+    faq: [{"q":"Q. Q. 상속인이 여러 명이면 모두 신청해야 하나요?","a":"A. 신청자격이 있는 상속인 한 사람이 신청하면 됩니다. 결과는 신청인(대리 신청이면 대리인)에게 제공됩니다. 📋 근거 1 📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)"},{"q":"Q. Q. 1년이 지났습니다. 이제 조회할 수 없나요?","a":"A. 통합신청은 할 수 없지만, 금융감독원 상속인 금융거래조회는 은행·우체국 등 접수처에서 따로 신청할 수 있습니다. 📋 근거 1 📋 금융감독원 파인 「상속인금융거래조회 제도안내」"},{"q":"Q. Q. 토지 조회에 나온 땅은 모두 등기되어 있나요?","a":"A. 토지 조회는 지적 자료로 소유 현황을 알려 주는 것이므로, 실제 등기 상태는 등기사항증명서로 다시 확인해야 합니다. 📋 근거 1 📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)"},{"q":"Q. Q. 4순위 상속인인 조카입니다. 어떻게 조회하나요?","a":"A. 통합신청 대상이 아니므로 금융감독원 상속인 금융거래조회를 은행·우체국 등 접수처에서 따로 신청하고, 세금 등은 기관별로 확인합니다. 📋 근거 2 📋 정부24 민원안내 「사망자 및 피후견인 등 재산조회 통합처리 신청(안심상속)」 📋 금융감독원 파인 「상속인금융거래조회 제도안내」"},{"q":"Q. Q. 금융 조회에 예금이 나왔는데 바로 찾을 수 있나요?","a":"A. 조회 결과로 인출할 수는 없고 해당 금융회사에 상속 서류를 내야 합니다. 결정 전에 찾아 쓰면 상속을 받아들인 것으로 볼 수 있으므로, 포기·한정승인 여부를 정한 뒤 처리하십시오. 📋 근거 2 📋 금융감독원 파인 「상속인금융거래조회 제도안내」 📋 민법 제1026조"},{"q":"Q. Q. 다른 가족이 이미 사망신고를 했습니다. 지금도 신청할 수 있나요?","a":"A. 사망일이 속한 달의 말일부터 1년 안이면 따로 신청할 수 있습니다. 이때는 상속인임을 증명하는 서류를 요구받을 수 있습니다. 📋 근거 1 📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)"},{"q":"Q. Q. 안심상속과 함께 확인할 서비스가 있나요?","a":"A. 정부24 안심상속 안내에서 돌아가신 분의 시민안전보험 보험금과, 고인이 당사자인 공탁금이 있는지도 함께 확인할 수 있습니다. 📋 근거 1 📋 정부24 안심상속 원스톱서비스(사망자 재산조회 통합처리) 안내"},{"q":"Q. Q. 결과 문자를 놓쳤습니다. 어디서 확인하나요?","a":"A. 금융 결과는 접수일부터 3개월까지 금융감독원 누리집에서 볼 수 있고, 국세 결과는 국세청 홈택스, 4대 사회보험료는 국민건강보험공단 누리집에 게재됩니다. 📋 근거 2 📋 금융감독원 파인 「상속인금융거래조회 제도안내」 📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)"},{"q":"Q. Q. 돌아가신 분이 외국인입니다.","a":"A. 금융감독원 상속인 금융거래조회는 외국 기관이 발행한 사망·상속관계 서류에 문서인증(아포스티유 또는 영사 확인)과 번역인증을 받아 신청할 수 있습니다. 📋 근거 1 📋 금융감독원 파인 「상속인금융거래조회 제도안내」"}],
+    forms: [],
   },
   {
-    id: 'in-06',
-    title: '상속포기 절차와 준비서류',
-    meta: '가정법원 신고부터 수리 심판까지 — 단계별 완전 안내',
+    id: "in-05",
+    title: "빚이 더 많을 때 — 단순승인·한정승인·상속포기, 무엇을 골라야 하나요?",
+    meta: "돌아가신 분의 빚이 더 많을 때는 상속이 시작된 것을 안 날부터 3개월 안에 단순승인·한정승인·상속포기 중 하나를 고릅니다. 세 가지의 차이와 내 상황에 맞는 선택 기준을 안내합니다.",
+    reviewed: "2026-11-08",
+    kb: "H-B00",
     sections: [
-      { heading: '이런 분께 이 안내가 필요합니다', content: `<ul class="check-list">
-<li>가족이 사망하여 상속이 개시되었으나, 재산보다 빚이 더 많다고 판단하시는 분</li>
-<li>상속포기를 결정했고, 구체적으로 어떤 서류를 준비하고 어디에 내야 하는지 알고 싶으신 분</li>
-<li>본인뿐 아니라 자녀(미성년자 포함)도 함께 포기해야 하는 상황인 분</li>
-<li>차순위 상속인으로서, 선순위 상속인이 이미 포기한 후 나에게 상속이 넘어올 상황인 분</li>
-<li>3개월 기한 내에 어떻게 처리해야 하는지 절차 전반이 궁금하신 분</li>
-</ul>` },
-      { heading: '핵심 요약', content: `<div class="summary-box">
-<div class="summary-title">📋 상속포기 절차 핵심 포인트</div>
-<ul>
-<li><strong>신고 기한:</strong> 상속개시 있음을 안 날로부터 3개월 이내 가정법원에 신고</li>
-<li><strong>관할 법원:</strong> 피상속인(망자)의 마지막 주소지 관할 가정법원</li>
-<li><strong>효과:</strong> 소급하여 처음부터 상속인이 아니었던 것으로 간주 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=104200" target="_blank" class="tag-law">📋 민법 제1042조</a>)</li>
-<li><strong>연쇄 효과 주의:</strong> 포기하면 다음 순위 상속인에게 상속이 이전 → 가족 모두 함께 검토 필요</li>
-<li><strong>미성년자 포함 시:</strong> 법정대리인(부모) 모두의 인감증명서가 필요</li>
-<li><strong>제출 방식:</strong> 청구서 + 첨부서류 → 가정법원 접수 → 심리(서면심리 원칙) → 수리 심판</li>
-</ul>
-</div>
-<div class="effect-grid">
-<div class="effect-card blue">
-<div class="ec-label">포기의 법적 성질</div>
-<div class="ec-title">상속권의 포기</div>
-<div class="ec-body">상속인의 일방적 의사표시로, 상대방의 동의 없이도 유효하게 성립합니다.</div>
-</div>
-<div class="effect-card green">
-<div class="ec-label">소급 효력</div>
-<div class="ec-title">상속개시 시점으로 소급</div>
-<div class="ec-body">포기가 수리되면 처음부터 상속인이 아니었던 것으로 처리됩니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=104200" target="_blank" class="tag-law">📋 민법 제1042조</a>).</div>
-</div>
-<div class="effect-card orange">
-<div class="ec-label">연쇄 이전</div>
-<div class="ec-title">다음 순위로 상속 이전</div>
-<div class="ec-body">단독상속인이 포기하면 다음 순위 상속인이 상속인이 됩니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=104300" target="_blank" class="tag-law">📋 민법 제1043조</a>).</div>
-</div>
-<div class="effect-card purple">
-<div class="ec-label">공동상속인 중 1인 포기</div>
-<div class="ec-title">잔여 상속인 비례 귀속</div>
-<div class="ec-body">1인이 포기한 몫은 나머지 공동상속인의 법정상속분 비율대로 나뉩니다.</div>
-</div>
+      { heading: "이런 분께 필요합니다", content: `<ul class="checklist"><li> 돌아가신 부모님께 대출·카드값·보증 빚이 있다는 것을 알게 되었다</li><li> 상속포기와 한정승인 중 무엇이 나에게 맞는지 모르겠다</li><li> 내가 포기하면 내 자녀나 다른 가족에게 빚이 넘어가는지 걱정된다</li><li> 장례를 치르면서 고인의 예금이나 물건을 이미 정리했다</li></ul>` },
+      { heading: "핵심정리", content: `<div class="kb-box kb-summary"><p>돌아가신 분의 빚도 재산과 함께 상속됩니다. 상속인은 <strong>상속이 시작된 것을 안 날부터 3개월 안에</strong> 세 가지 중 하나를 고를 수 있습니다. <strong>단순승인</strong>은 재산과 빚을 모두 그대로 물려받는 것이고, <strong>한정승인</strong>은 물려받은 재산 범위에서만 빚을 갚는 것이며, <strong>상속포기</strong>는 처음부터 상속인이 아니었던 것이 되는 것입니다. 3개월 안에 아무것도 하지 않으면 단순승인을 한 것으로 봅니다.</p><details class="refs-mini"><summary>📋 근거 5</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a><a href="https://www.law.go.kr/법령/민법/제1025조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1025조</a><a href="https://www.law.go.kr/법령/민법/제1028조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1028조</a><a href="https://www.law.go.kr/법령/민법/제1042조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1042조</a><a href="https://www.law.go.kr/법령/민법/제1026조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1026조</a></div></details></div>` },
+      { heading: "상세설명", content: `<h3>세 가지 선택은 무엇이 다른가요?</h3><p>김해에 사는 P씨의 아버지가 지난달 돌아가셨습니다. 아버지 명의 아파트 1채(시세 2억원 안팎)가 있지만, 사업하며 진 빚이 3억원 가까이 된다는 연락을 받았습니다. 어머니와 P씨, 동생이 상속인입니다(설명을 위한 가상 사례입니다).</p>
+<p>P씨 가족이 그대로 있으면 3개월이 지나 <strong>단순승인</strong>이 되고, 아파트를 팔아도 남는 빚 1억원을 가족이 각자 상속분만큼 자기 돈으로 갚아야 합니다. <strong>한정승인</strong>을 하면 아파트를 처분한 돈으로 빚을 갚고, 모자라는 부분은 갚지 않아도 됩니다. <strong>상속포기</strong>를 하면 아파트도 받지 않고 빚도 갚지 않습니다. 다만 포기한 사람의 몫은 다른 상속인에게 돌아가므로, 가족 전체가 어떻게 할지 함께 정해야 합니다.</p><details class="refs-mini"><summary>📋 근거 5</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1025조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1025조</a><a href="https://www.law.go.kr/법령/민법/제1026조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1026조</a><a href="https://www.law.go.kr/법령/민법/제1028조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1028조</a><a href="https://www.law.go.kr/법령/민법/제1042조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1042조</a><a href="https://www.law.go.kr/법령/민법/제1043조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1043조</a></div></details><h3>무엇으로 판단하나요?</h3><div class="table-wrap"><table><tr><th>확인할 것</th><th>이런 경우</th><th>가까운 길</th><th>근거</th></tr><tr><td class="grp" rowspan="3" data-label="확인할 것">재산과 빚 중 무엇이 더 많은가요?</td><td data-label="이런 경우">재산이 분명히 더 많다</td><td data-label="가까운 길">단순승인 — 따로 신고할 필요 없음</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1025조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1025조</a></div></td></tr><tr><td data-label="이런 경우">빚이 분명히 더 많고, 물려받고 싶은 재산도 없다</td><td data-label="가까운 길">상속포기</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1041조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1041조</a><a href="https://www.law.go.kr/법령/민법/제1042조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1042조</a></div></td></tr><tr><td data-label="이런 경우">어느 쪽이 많은지 확실하지 않다</td><td data-label="가까운 길">한정승인 — 남는 재산이 있으면 상속인이 갖고, 빚이 많으면 재산 범위에서만 갚음</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1028조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1028조</a></div></td></tr><tr><td data-label="확인할 것">꼭 지키고 싶은 재산이 있나요?</td><td data-label="이런 경우">집·농지·가업처럼 가족이 계속 써야 할 재산이 있다</td><td data-label="가까운 길">한정승인을 하고 청산 절차에서 방법을 찾습니다(포기하면 그 재산도 받을 수 없음)</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1028조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1028조</a><a href="https://www.law.go.kr/법령/민법/제1042조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1042조</a></div></td></tr><tr><td class="grp" rowspan="2" data-label="확인할 것">포기하면 누가 상속인이 되나요?</td><td data-label="이런 경우">배우자와 자녀가 있는데 자녀만 모두 포기한다</td><td data-label="가까운 길">배우자 혼자 상속인이 됩니다 — 손자녀는 상속인이 되지 않음</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2020%EA%B7%B842)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2023. 3. 23.자 2020그42 전원합의체 결정(승계집행문부여에대한이의)</a><a href="https://www.law.go.kr/법령/민법/제1043조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1043조</a></div></td></tr><tr><td data-label="이런 경우">배우자와 자녀가 모두 포기한다</td><td data-label="가까운 길">손자녀, 그다음 부모, 형제자매 순으로 상속인이 됩니다 — 그분들도 따로 포기하거나 한정승인해야 함</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1042조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1042조</a></div></td></tr><tr><td data-label="확인할 것">이미 고인의 재산을 정리했나요?</td><td data-label="이런 경우">3개월 안에 고인의 재산을 팔거나 써 버렸다</td><td data-label="가까운 길">단순승인으로 보게 될 수 있습니다 — 신고 전에 먼저 상담</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1026조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1026조</a></div></td></tr><tr><td data-label="확인할 것">3개월이 지났나요?</td><td data-label="이런 경우">빚이 더 많다는 것을 3개월 안에 큰 잘못 없이 몰랐다</td><td data-label="가까운 길">안 날부터 3개월 안에 특별한정승인</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a></div></td></tr></table></div><h3>한눈에 비교</h3><div class="table-wrap"><table><tr><th>구분</th><th>단순승인</th><th>한정승인</th><th>상속포기</th></tr><tr><td data-label="구분">재산</td><td data-label="단순승인">모두 받음</td><td data-label="한정승인">받음(빚을 갚고 남으면 상속인 몫)</td><td data-label="상속포기">받지 않음</td></tr><tr><td data-label="구분">빚</td><td data-label="단순승인">모두 갚아야 함(내 돈으로도)</td><td data-label="한정승인">받은 재산 범위에서만</td><td data-label="상속포기">갚지 않음</td></tr><tr><td data-label="구분">신고</td><td data-label="단순승인">필요 없음</td><td data-label="한정승인">3개월 안에 가정법원에 재산목록을 붙여 신고</td><td data-label="상속포기">3개월 안에 가정법원에 신고</td></tr><tr><td data-label="구분">신고 후 할 일</td><td data-label="단순승인">—</td><td data-label="한정승인">채권자에게 알리고(공고·최고) 재산을 나눠 갚는 <strong>청산 절차</strong></td><td data-label="상속포기">다음 순위 가족에게 알리기</td></tr><tr><td data-label="구분">다른 가족에게 미치는 영향</td><td data-label="단순승인">—</td><td data-label="한정승인">다음 순위로 넘어가지 않음</td><td data-label="상속포기">몫이 다른 상속인 또는 다음 순위로 넘어감</td></tr><tr><td data-label="구분">근거</td><td data-label="단순승인"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1025조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1025조</a></div></td><td data-label="한정승인"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1028조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1028조</a><a href="https://www.law.go.kr/법령/민법/제1030조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1030조</a><a href="https://www.law.go.kr/법령/민법/제1032조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1032조</a></div></td><td data-label="상속포기"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1041조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1041조</a><a href="https://www.law.go.kr/법령/민법/제1042조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1042조</a><a href="https://www.law.go.kr/법령/민법/제1043조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1043조</a></div></td></tr></table></div><h3>선택하면 어떤 효과가 생기나요?</h3><ul class=""><li><strong>단순승인</strong>: 재산과 빚을 제한 없이 물려받아, 모자라는 빚은 상속인 자기 재산으로 갚습니다. 3개월 안에 아무것도 하지 않거나 재산을 처분해도 단순승인이 됩니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1025조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1025조</a><a href="https://www.law.go.kr/법령/민법/제1026조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1026조</a></div></details></li><li><strong>한정승인</strong>: 빚은 물려받되 갚을 책임은 물려받은 재산 범위로 줄고, 다음 순위로 넘어가지 않습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1028조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1028조</a></div></details></li><li><strong>상속포기</strong>: 처음부터 상속인이 아니었던 것이 되어 재산도 빚도 받지 않고, 몫은 다른 상속인이나 다음 순위로 넘어갑니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1042조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1042조</a><a href="https://www.law.go.kr/법령/민법/제1043조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1043조</a></div></details></li><li><strong>한 번 정하면 되돌리기 어렵습니다.</strong> 승인이나 포기는 3개월 안이라도 취소할 수 없고, 착오·사기·강박 같은 사유가 있을 때만 취소할 수 있습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1024조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1024조</a></div></details></li><li><strong>판례</strong> — 한정승인을 재판에서 주장하면 판결에 &quot;상속재산의 범위에서&quot; 지급하라는 제한이 붙습니다(<a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2003%EB%8B%A430968)" target="_blank" rel="noopener" class="case-link">대법원 2003. 11. 14. 선고 2003다30968 판결</a>).<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2003%EB%8B%A430968)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2003. 11. 14. 선고 2003다30968 판결</a></div></details></li></ul><h3>가족마다 다르게 선택할 수 있나요?</h3><p>선택은 상속인마다 따로 합니다. 많이 쓰는 방법은 <strong>배우자는 한정승인, 자녀는 상속포기</strong>입니다. 자녀가 모두 포기하면 배우자 혼자 상속인이 되어 손자녀에게 넘어가지 않고, 배우자는 한정승인으로 물려받은 재산 범위에서만 책임집니다. 여럿이 함께 한정승인하면 각자 자기 상속분 범위에서만 갚습니다. 누가 무엇을 하느냐에 따라 다음 순위 가족의 부담이 달라지므로, 가족 전체를 한 번에 놓고 정하는 것이 안전합니다.</p><details class="refs-mini"><summary>📋 근거 3</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2020%EA%B7%B842)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2023. 3. 23.자 2020그42 전원합의체 결정(승계집행문부여에대한이의)</a><a href="https://www.law.go.kr/법령/민법/제1028조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1028조</a><a href="https://www.law.go.kr/법령/민법/제1029조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1029조</a></div></details><h3>3개월 안에 판단이 어렵다면</h3><p>3개월은 돌아가신 사실과 자신이 상속인이 된 것을 안 날부터 셉니다. 빚을 안 날이 아닙니다. 사망신고 때 안심상속 원스톱서비스로 재산과 빚을 함께 조회하고, 그래도 판단이 서지 않으면 기간이 끝나기 전에 가정법원에 연장을 청구합니다.</p><details class="refs-mini"><summary>📋 근거 3</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(86%EC%8A%A410)" target="_blank" rel="noopener" class="tag-law">📋 대법원 1986. 4. 22.자 86스10 결정</a><a href="https://www.law.go.kr/행정규칙/사망자및피후견인등재산조회통합처리에관한기준" target="_blank" rel="noopener" class="tag-law">📋 행정안전부 재산조회 통합처리 기준(예규 제329호, 안심상속)</a><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a></div></details><h3>어떤 행동이 단순승인으로 이어지나요?</h3><p>단순승인은 신고하지 않아도 일정한 행동만으로 이루어질 수 있어 가장 조심해야 합니다. 고인의 부동산이나 자동차를 팔거나, 예금을 찾아 개인적으로 쓰는 것처럼 상속재산을 처분하면 단순승인으로 봅니다. 3개월 안에 아무 신고도 하지 않아도 마찬가지입니다. 한정승인이나 포기를 한 뒤에도 재산을 숨기거나 써 버리거나 일부러 재산목록에서 빼면 단순승인이 됩니다. 반면 상속인은 결정하기 전까지 상속재산을 자기 재산처럼 관리할 의무가 있으므로, 집이 상하지 않도록 지키는 정도의 관리는 처분과 구별됩니다. 판단이 애매한 행동은 하기 전에 먼저 물어보십시오.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1026조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1026조</a><a href="https://www.law.go.kr/법령/민법/제1022조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1022조</a></div></details><h3>상담 전에 준비할 것</h3><ul class="checklist"><li>돌아가신 날짜, 사망 사실을 안 날짜</li><li>안심상속 원스톱서비스 조회 결과(신청했다면)</li><li>독촉장·채권 통지서·소장 등 받은 서류</li><li>고인 명의 부동산·자동차·예금 자료</li><li>상속인이 될 가족 구성(배우자, 자녀, 손자녀, 부모, 형제자매)</li><li>장례 후 고인의 재산을 쓰거나 정리한 내역</li></ul>
+<p>위 목록은 상담 준비용이며 <strong>법원 제출서류 목록 전체가 아닙니다.</strong></p>` },
+      { heading: "자주 묻는 질문", content: `<details class="qa"><summary>Q. 자녀들이 모두 포기하면 손주에게 빚이 넘어가나요?</summary><div class="ans"><p>배우자가 살아 있고 자녀들만 모두 포기했다면 배우자 혼자 상속인이 되고, 손자녀는 상속인이 되지 않습니다. 배우자까지 포기하면 손자녀가 다음 상속인이 되므로 함께 정리해야 합니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2020%EA%B7%B842)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2023. 3. 23.자 2020그42 전원합의체 결정(승계집행문부여에대한이의)</a><a href="https://www.law.go.kr/법령/민법/제1042조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1042조</a></div></details></div></details><details class="qa"><summary>Q. 장례비를 고인 통장에서 냈는데 괜찮을까요?</summary><div class="ans"><p>상속재산을 처분하면 단순승인으로 보는데, 장례비처럼 사회 통념상 필요한 지출까지 처분으로 보는지는 금액과 사정에 따라 판단이 갈립니다. 지출 내역을 정리해 신고 전에 상담받으십시오.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1026조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1026조</a></div></details></div></details><details class="qa"><summary>Q. 한정승인을 하면 집을 지킬 수 있나요?</summary><div class="ans"><p>한정승인 후에는 상속재산으로 채권자에게 갚아야 하므로, 집을 그대로 지키려면 상속인이 그 가치만큼을 따로 마련하는 등의 방법을 청산 절차 안에서 찾아야 합니다. 재산과 빚의 규모에 따라 가능한 방법이 달라집니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1028조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1028조</a></div></details></div></details><details class="qa"><summary>Q. 신청은 어디에 하나요?</summary><div class="ans"><p>상속포기와 한정승인은 가정법원에 신고합니다. 신고서에는 가족관계 서류 등을 붙이고, 한정승인은 재산목록을 함께 냅니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1030조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1030조</a><a href="https://www.law.go.kr/법령/민법/제1041조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1041조</a></div></details></div></details><details class="qa"><summary>Q. 단순승인이 된 뒤에 빚이 더 나오면요?</summary><div class="ans"><p>큰 잘못 없이 빚이 더 많다는 것을 몰랐다면, 그 사실을 안 날부터 3개월 안에 특별한정승인을 할 수 있습니다. 「석 달이 지나 빚을 알았을 때」 페이지를 보십시오.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a></div></details></div></details><details class="qa"><summary>Q. 상속포기를 하면 사망보험금도 받을 수 없나요?</summary><div class="ans"><p>수익자를 &#x27;상속인&#x27;으로 정한 생명보험의 사망보험금은 상속재산이 아니라 상속인 고유의 재산이라는 것이 대법원 판단입니다(<a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2000%EB%8B%A431502)" target="_blank" rel="noopener" class="case-link">대법원 2001. 12. 28. 선고 2000다31502 판결</a>). 계약마다 수익자가 다르므로 증권으로 확인하십시오.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2000%EB%8B%A431502)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2001. 12. 28. 선고 2000다31502 판결</a></div></details></div></details><details class="qa"><summary>Q. 포기하면 다음 순위 가족에게 알려야 하나요?</summary><div class="ans"><p>같은 순위가 모두 포기하면 다음 순위가 상속인이 되고, 그 가족의 3개월은 앞 순위의 포기를 알고 자신이 상속인이 된 것을 안 날부터 셉니다. 미리 알려 함께 준비하는 것이 좋습니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1043조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1043조</a><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2013%EB%8B%A448852)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2015. 5. 14. 선고 2013다48852 판결</a></div></details></div></details>` },
+      { heading: "주의사항", content: `<section class="box warn"><ul class=""><li>⚡ <strong>3개월은 &quot;안 날&quot;부터 셉니다.</strong> 돌아가신 사실과 내가 상속인이 된 사실을 안 날이 기준입니다. 이 기간은 가정법원에 청구해 늘릴 수도 있습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a></div></details></li><li><strong>고인의 재산을 먼저 처분하지 마십시오.</strong> 3개월 안에 상속재산을 팔거나 처분하면 단순승인을 한 것으로 봅니다. 한정승인이나 포기를 한 뒤에도 재산을 숨기거나 써 버리거나, 일부러 재산목록에서 빼면 단순승인이 됩니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1026조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1026조</a></div></details></li><li><strong>한정승인은 신고로 끝나지 않습니다.</strong> 한정승인을 한 날부터 5일 안에 채권자에게 공고하는 등 청산 절차가 이어집니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1032조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1032조</a></div></details></li><li><strong>포기는 가족 전체의 문제입니다.</strong> 한 사람이 포기하면 그 몫이 다른 상속인에게 돌아가고, 같은 순위가 모두 포기하면 다음 순위 가족이 상속인이 됩니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1043조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1043조</a><a href="https://www.law.go.kr/법령/민법/제1042조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1042조</a></div></details></li></ul></section>` },
+      { heading: "다음에 확인할 사항", content: `<ul><li><a href="/guide/inheritance/in-06.html">상속포기 절차</a></li><li><a href="/guide/inheritance/in-07.html">한정승인 절차와 청산</a></li><li><a href="/guide/inheritance/in-27.html">석 달이 지나 빚을 알았을 때</a></li><li><a href="/guide/inheritance/in-28.html">돌아가신 분의 채권자에게 소송·압류를 당했을 때</a></li><li><a href="/guide/inheritance/in-01.html">상속이 시작됐을 때</a></li></ul>` },
+      { heading: "이 내용이 해당되시나요?", content: `<div class="kb-box kb-cta"><p>직접 처리하시기 어려운 부분을 법무사가 함께 검토합니다. 이런 경우 상담을 권합니다.</p>
+<ul class=""><li>재산과 빚 중 어느 쪽이 많은지 판단이 서지 않을 때</li><li>가족 중 누가 포기하고 누가 한정승인할지 함께 정해야 할 때</li><li>장례 후 고인의 재산을 이미 쓰거나 정리해 단순승인이 걱정될 때</li><li>3개월이 다 되어 가거나 이미 지났을 때</li></ul>
+<p class="note">법무사는 상속포기·한정승인 신고서와 재산목록 등 가정법원에 내는 서류를 작성해 제출하고, 이어지는 청산 절차의 서류도 함께 준비합니다. 법원이 보정이나 심문을 요구하면 그 준비도 함께 합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/법무사법/제2조" target="_blank" rel="noopener" class="tag-law">📋 법무사법 제2조</a></div></details>
 </div>` },
-      { heading: '한눈에 보는 상속포기 절차 흐름도', content: `<div class="flow-wrap">
-<div class="flow-step">
-<div class="flow-left">
-<div class="flow-num">1</div>
-<div class="flow-line"></div>
-</div>
-<div class="flow-content">
-<div class="fc-title">상속 여부 파악 및 결정</div>
-<div class="fc-sub">망인의 재산(적극재산)과 채무(소극재산)를 조회하고, <em>포기·한정승인·단순승인</em> 중 선택합니다.<br/>재산 조회: 금융감독원 상속인 금융거래 조회, 안심상속원스톱서비스(행안부), 국세청 체납세금 조회</div>
-</div>
-</div>
-<div class="flow-gap"></div>
-<div class="flow-step">
-<div class="flow-left">
-<div class="flow-num">2</div>
-<div class="flow-line"></div>
-</div>
-<div class="flow-content">
-<div class="fc-title">청구서 작성</div>
-<div class="fc-sub">「상속포기 신고서」를 작성합니다. 청구취지: <em>"청구인들이 망 ○○○의 재산상속을 포기하는 신고는 이를 수리한다"</em><br/>청구인(상속포기 신고인), 상대방(없음), 사건 본인(피상속인 및 상속인 기재)</div>
-</div>
-</div>
-<div class="flow-gap"></div>
-<div class="flow-step">
-<div class="flow-left">
-<div class="flow-num">3</div>
-<div class="flow-line"></div>
-</div>
-<div class="flow-content">
-<div class="fc-title">첨부서류 준비</div>
-<div class="fc-sub">가족관계증명서·기본증명서·제적등본·인감증명서 등 필요 서류를 수집합니다.<br/>미성년자의 경우 <em>법정대리인(부모 전원)의 인감증명서</em>가 추가로 필요합니다.</div>
-</div>
-</div>
-<div class="flow-gap"></div>
-<div class="flow-step">
-<div class="flow-left">
-<div class="flow-num">4</div>
-<div class="flow-line"></div>
-</div>
-<div class="flow-content">
-<div class="fc-title">관할 가정법원 접수</div>
-<div class="fc-sub"><em>피상속인의 마지막 주소지 관할 가정법원</em>에 청구서와 첨부서류를 제출합니다.<br/>피상속인의 주소가 외국인 경우: 대법원 소재지 가정법원(서울가정법원)에 제출합니다.</div>
-</div>
-</div>
-<div class="flow-gap"></div>
-<div class="flow-step">
-<div class="flow-left">
-<div class="flow-num">5</div>
-<div class="flow-line"></div>
-</div>
-<div class="flow-content">
-<div class="fc-title">법원 심리 (서면 심리 원칙)</div>
-<div class="fc-sub">가정법원은 서류를 검토합니다. 대부분 별도 출석 없이 서면 심리로 진행됩니다.<br/>보정이 필요한 경우 법원에서 보정 명령을 내립니다.</div>
-</div>
-</div>
-<div class="flow-gap"></div>
-<div class="flow-step">
-<div class="flow-left">
-<div class="flow-num">6</div>
-<div class="flow-line"></div>
-</div>
-<div class="flow-content">
-<div class="fc-title">수리 심판 및 확정</div>
-<div class="fc-sub">법원이 상속포기 신고를 수리하는 심판을 내립니다.<br/>심판서 정본 + 확정증명서를 수령합니다. 이후 채권자에게 심판서 등본을 제시할 수 있습니다.</div>
-</div>
-</div>
-<div class="flow-gap"></div>
-<div class="flow-step">
-<div class="flow-left">
-<div class="flow-num">7</div>
-</div>
-<div class="flow-content">
-<div class="fc-title">차순위 상속인 확인 및 고지</div>
-<div class="fc-sub">포기로 인해 다음 순위 상속인에게 상속이 이전됩니다.<br/><em>차순위 상속인도 3개월 기한 내에 포기 여부를 결정</em>해야 하므로, 빠른 고지가 필요합니다.<br/>차순위 상속인은 선순위 포기 심판서 등본 및 확정증명서를 함께 제출합니다.</div>
-</div>
-</div>
-</div>` },
-      { heading: '단계별 상세 설명', content: `<div class="step-detail">
-<div class="step-detail-header">
-<div class="step-num-badge">1</div>
-<div class="step-title">상속 재산 조회 — 포기 전 반드시 확인하세요</div>
-</div>
-<div class="step-detail-body">
-<p>상속포기는 한 번 수리되면 취소할 수 없습니다. 포기를 결정하기 전에 망인의 재산 현황을 정확하게 파악하는 것이 중요합니다.</p>
-<ul>
-<li><strong>금융거래 조회:</strong> 금융감독원 상속인 금융거래 조회 서비스 신청 (은행·보험·증권 등 일괄 조회)</li>
-<li><strong>안심상속 원스톱 서비스:</strong> 주민센터 또는 정부24 → 부동산·금융·채무·국세 등 종합 조회</li>
-<li><strong>부동산 확인:</strong> 망인 명의 토지·건물 등기부 열람 (법원 인터넷등기소)</li>
-<li><strong>채무 확인:</strong> 국세 체납(국세청), 지방세 체납(위택스), 건강보험료(건강보험공단)</li>
-</ul>
-</div>
-</div>
-<div class="step-detail">
-<div class="step-detail-header">
-<div class="step-num-badge">2</div>
-<div class="step-title">청구서 작성 — 기재 방법과 유의사항</div>
-</div>
-<div class="step-detail-body">
-<p>상속포기 신고서는 가정법원 민원실 또는 대한법원 사이트에서 양식을 구할 수 있습니다.</p>
-<ul>
-<li><strong>사건 구분:</strong> 가사비송 라류 사건 (인지액 청구인 1인당 규정 금액)</li>
-<li><strong>청구취지 기재례:</strong> "청구인들이 망 이○화의 재산상속을 포기하는 신고는 이를 수리한다"</li>
-<li><strong>청구인:</strong> 상속포기를 하려는 상속인 전원 또는 일부 기재</li>
-<li><strong>피상속인 표시:</strong> 성명, 주민등록번호, 최후 주소, 사망일 기재</li>
-<li><strong>미성년자인 경우:</strong> 청구인란에 '법정대리인 ○○○'으로 기재</li>
-</ul>
-</div>
-</div>
-<div class="step-detail">
-<div class="step-detail-header">
-<div class="step-num-badge">3</div>
-<div class="step-title">법원 접수 및 심리 — 어디에 어떻게 내나요</div>
-</div>
-<div class="step-detail-body">
-<p>청구서와 첨부서류를 준비했다면, 관할 가정법원 민원접수처에 직접 방문하거나 우편으로 제출할 수 있습니다.</p>
-<ul>
-<li><strong>관할:</strong> 피상속인의 마지막 주소지 관할 가정법원 <span class="law-cite"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=103961&joNo=004400" target="_blank" class="tag-law">📋 가사소송법 제44조</a></span></li>
-<li><strong>해외 주소:</strong> 대법원 소재지 가정법원(서울가정법원)에 제출</li>
-<li><strong>심리 방식:</strong> 서면심리 원칙 — 별도 출석 없이 서류 검토로 진행</li>
-<li><strong>보정 명령:</strong> 서류 누락 시 법원이 보정 명령을 내리며, 보정 기간 내 보완 필요</li>
-</ul>
-</div>
-</div>
-<div class="step-detail">
-<div class="step-detail-header">
-<div class="step-num-badge">4</div>
-<div class="step-title">수리 심판 이후 — 확정 후 처리 사항</div>
-</div>
-<div class="step-detail-body">
-<p>법원이 상속포기 신고를 수리하면 심판서 정본을 교부받습니다. 이후 다음 사항을 처리합니다.</p>
-<ul>
-<li><strong>확정증명서 발급:</strong> 심판 확정 후 확정증명서 신청 → 채권자 대응 시 제시</li>
-<li><strong>채권자 대응:</strong> 상속포기 심판서 등본·확정증명서를 채권자에게 제시하여 청구 차단</li>
-<li><strong>차순위 상속인 고지:</strong> 포기로 인해 다음 순위로 상속이 이전되므로 신속히 통지</li>
-<li><strong>차순위 포기 서류:</strong> 차순위 상속인이 신고 시 선순위 포기 심판서 등본+확정증명서 첨부 <span class="law-cite">예규 제3조</span></li>
-</ul>
-</div>
-</div>` },
-      { heading: '준비 서류 목록', content: `<div class="doc-section">
-<div class="doc-section-title">📁 피상속인(망자) 관련 서류</div>
-<ul class="doc-list">
-<li>가족관계증명서 (피상속인) 1통</li>
-<li>기본증명서 (피상속인) 1통</li>
-<li>말소자 주민등록표등본 (피상속인) 1통</li>
-<li>제적등본 (피상속인) 1통</li>
-</ul>
-</div>
-<div class="doc-section">
-<div class="doc-section-title">📁 상속인(포기 신고인) 관련 서류</div>
-<ul class="doc-list">
-<li>가족관계증명서 (상속인) 각 1통</li>
-<li>기본증명서 (상속인) 각 1통</li>
-<li>주민등록표등본 (상속인) 각 1통</li>
-<li>인감증명서 (상속인) 각 1통</li>
-</ul>
-<div class="doc-note">
-<strong>미성년자 포함 시 추가 서류:</strong> 법정대리인(부모) 전원의 인감증명서 각 1통이 추가로 필요합니다. 부 또는 모 한쪽만의 인감으로는 부족합니다.
-    </div>
-</div>
-<div class="doc-section">
-<div class="doc-section-title">📁 직계비속이 아닌 경우 추가 서류</div>
-<ul class="doc-list">
-<li>가계도 (피상속인과의 관계를 나타내는 도표) 1통</li>
-</ul>
-<div class="doc-note">
-      형제자매, 직계존속 등 직계비속이 아닌 상속인이 신고할 경우, 피상속인과의 친족 관계를 명시한 가계도를 첨부합니다.
-    </div>
-</div>
-<div class="doc-section">
-<div class="doc-section-title">📁 차순위 상속인이 신고하는 경우 추가 서류</div>
-<ul class="doc-list">
-<li>선순위 상속인의 상속포기 심판서 등본</li>
-<li>선순위 상속인의 상속포기 확정증명서</li>
-</ul>
-<div class="doc-note">
-      선순위 상속인 전원이 포기한 후 차순위 상속인이 신고할 경우, 선순위의 포기가 확정되었음을 증명하는 서류를 함께 제출합니다. 선순위와 차순위 상속인은 동시에 신고도 가능합니다(예규 제3조).
-    </div>
-</div>` },
-      { heading: '비용 안내', content: `<p>상속포기 신고는 가사비송 라류 사건으로 처리되며, 법원 수수료가 발생합니다. 아래 항목별로 비용이 산정됩니다. 정확한 금액은 법원 접수 시 확인하거나 법무사에게 문의하시기 바랍니다.</p>
-<table class="cost-table">
-<thead>
-<tr>
-<th>항목</th>
-<th>산정 기준</th>
-<th>비고</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>인지액</strong></td>
-<td>청구인 1인당 일정 금액<br/>(가사비송 라류 기준)</td>
-<td>청구인 수에 비례하여 증가</td>
-</tr>
-<tr>
-<td><strong>송달료</strong></td>
-<td>회당 단가 × 6회 × 청구인 수</td>
-<td>접수 시 납부 (예납금 형식)</td>
-</tr>
-<tr>
-<td><strong>법무사 보수</strong></td>
-<td>법무사 보수 규정에 따름</td>
-<td>청구서 작성·접수 대리 시</td>
-</tr>
-<tr>
-<td><strong>서류 발급 비용</strong></td>
-<td>각 증명서 발급 수수료</td>
-<td>주민센터·법원 민원실 발급 시</td>
-</tr>
-</tbody>
-</table>
-<div class="cost-note">※ 이 안내에는 정확한 금액을 기재하지 않습니다. 법원 수수료는 사건 규모 및 청구인 수에 따라 달라질 수 있으므로, 법원 민원실 또는 법무사 사무실에 문의하여 정확한 금액을 확인하시기 바랍니다.</div>` },
-      { heading: '관련 판례', content: `<div class="ruling-card">
-<div class="ruling-cite"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=98다9021" target="_blank" class="tag-case">⚖️ 대법원 98다9021</a></div>
-<div class="ruling-text">상속포기는 가정법원에 신고하고 그 수리 심판이 있어야 효력이 발생하며, 상속인들 사이의 사적 합의로써 상속을 포기하였다는 약정은 법률상 상속포기의 효력이 없다.</div>
-<div class="ruling-point">실무 포인트: 가족 간 "내가 포기할게"라고 말하거나 서면에 서명한 것만으로는 상속포기의 효력이 없습니다. 반드시 가정법원의 수리 심판이 있어야 합니다.</div>
-</div>
-<div class="ruling-card">
-<div class="ruling-cite"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2003다48524" target="_blank" class="tag-case">⚖️ 대법원 2003다48524</a></div>
-<div class="ruling-text">상속포기의 신고가 수리된 이상 이를 취소하는 것은 원칙적으로 허용되지 않으며, 사기·강박·착오에 의한 경우에 한하여 민법의 의사표시 규정에 따라 취소를 주장할 수 있다.</div>
-<div class="ruling-point">실무 포인트: 수리된 상속포기는 사실상 취소가 불가능합니다. 포기 전에 재산 현황을 충분히 조사하고 신중하게 결정해야 합니다.</div>
-</div>
-<div class="ruling-card">
-<div class="ruling-cite"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2009다84936" target="_blank" class="tag-case">⚖️ 대법원 2009다84936</a></div>
-<div class="ruling-text">상속포기 신고를 하지 않은 채 상속재산에 관한 처분행위를 하였다면 <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=102600" target="_blank" class="tag-law">📋 민법 제1026조</a> 제1호에 따른 법정단순승인이 성립하고, 이후 상속포기 신고를 하더라도 이미 성립한 단순승인의 효력을 번복할 수 없다.</div>
-<div class="ruling-point">실무 포인트: 상속재산을 조금이라도 처분(인출, 사용 등)하면 법정단순승인이 성립합니다. 포기 예정이라면 절대 상속재산에 손대지 마십시오.</div>
-</div>
-<div class="ruling-card">
-<div class="ruling-cite"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=95다27769" target="_blank" class="tag-case">⚖️ 대법원 95다27769</a></div>
-<div class="ruling-text">상속포기는 상속의 개시 있음을 안 날로부터 3개월 이내에 해야 하나, 이 기간을 넘긴 경우에도 상속채무의 존재를 인식하지 못하고 있었던 데에 정당한 이유가 있는 때에는 특별한정승인을 주장할 수 있다.</div>
-<div class="ruling-point">실무 포인트: 3개월 기한을 넘긴 경우에도 특별한정승인(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101900" target="_blank" class="tag-law">📋 민법 제1019조 제3항</a>) 요건 충족 여부를 검토해볼 수 있습니다.</div>
-</div>` },
-      { heading: '주의사항', content: `<div class="warn-card">
-<div class="warn-title">⚠️ 상속재산 처분 절대 금지 — 법정단순승인 위험</div>
-<p>포기를 결정한 경우, 포기 수리 전까지 망인의 재산을 절대 처분하거나 사용해서는 안 됩니다. 상속재산을 처분하면 법정단순승인(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=102600" target="_blank" class="tag-law">📋 민법 제1026조 제1호</a>)이 성립하여 포기 의사가 있어도 모든 채무를 승계하게 됩니다.</p>
-<ul>
-<li>처분 금지 행위 예시: 예금 인출 및 사용, 부동산 처분·점유, 채권 행사, 채무 일부 변제</li>
-<li>장례비 등 필요 비용은 상속재산 관리의 범위 내에서 인정될 수 있으나, 법원 해석에 따라 다를 수 있습니다.</li>
-</ul>
-</div>
-<div class="warn-card">
-<div class="warn-title">⚠️ 3개월 기한 경과 시 소명 필요</div>
-<p>피상속인 사망일로부터 3개월이 지난 후 청구하는 경우, 상속개시 사실을 언제 알았는지를 소명하는 자료가 필요합니다. 단순히 기한이 지났다는 이유만으로 각하될 수 있으므로, 상속 개시 인식 시점을 입증할 수 있는 서류(연락 기록, 사실 확인서 등)를 준비하십시오.</p>
-</div>
-<div class="warn-card">
-<div class="warn-title">⚠️ 차순위 상속인에게 즉시 고지하세요</div>
-<p>상속포기가 확정되면 다음 순위 상속인에게 상속이 이전됩니다. 차순위 상속인도 동일한 3개월 기한 내에 포기 여부를 결정해야 하므로, 포기 수리 후 신속하게 차순위자에게 통보해야 합니다.</p>
-</div>
-<div class="warn-card">
-<div class="warn-title">⚠️ 미성년 자녀의 포기 — 이해충돌 여부 확인</div>
-<p>부모와 미성년 자녀 모두 상속인인 경우, 부 또는 모가 포기하고 자녀만 상속받는 상황이 생기면 이해충돌 문제가 발생할 수 있습니다. 이 경우 자녀를 위한 특별대리인 선임 절차가 필요할 수 있으므로 전문가와 상의하시기 바랍니다.</p>
-</div>
-<div class="warn-card">
-<div class="warn-title">⚠️ 포기 후에도 채권자가 연락하는 경우</div>
-<p>상속포기 수리 심판이 확정되면 채권자에게 심판서 등본과 확정증명서를 제시하여 채권 행사를 차단할 수 있습니다. 채권자가 계속 청구한다면 법률 전문가를 통해 대응하시기 바랍니다.</p>
-</div>` },
-      { heading: '자주 묻는 질문 (Q&amp;A)', content: `<div class="qna-item">
-<div class="qna-q"><span class="q-badge">Q</span>상속포기를 하면 망인의 모든 채무가 없어지는 건가요?</div>
-<div class="qna-a">
-<p>그렇지 않습니다. 상속포기는 포기한 사람에게만 효력이 있고, 채무 자체가 소멸하는 것은 아닙니다. 포기한 상속인에게는 채무 청구를 할 수 없지만, 다음 순위 상속인이 상속을 받게 되면 그 상속인이 채무를 부담하게 됩니다.</p>
-<p>모든 상속인이 최종적으로 포기하는 경우, 상속재산은 국가에 귀속됩니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=105800" target="_blank" class="tag-law">📋 민법 제1058조</a>). 이때는 채권자가 상속재산 청산 절차를 통해 변제를 받게 됩니다.</p>
-<div class="qa-disclaimer">※ 이 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 조언이 아닙니다. 개별 사안에 대해서는 법무사 또는 변호사와 상담하시기 바랍니다.</div>
-</div>
-</div>
-<div class="qna-item">
-<div class="qna-q"><span class="q-badge">Q</span>사망한 사실을 늦게 알았는데, 3개월이 이미 지났습니다. 어떻게 하나요?</div>
-<div class="qna-a">
-<p>기한 계산의 기준은 "상속개시 있음을 안 날"입니다. 사망 사실을 뒤늦게 알았다면, 그 인식 시점으로부터 3개월이 기산됩니다. 다만, 법원에 청구할 때 상속 개시 사실을 알게 된 시점을 소명하는 자료를 반드시 첨부해야 합니다.</p>
-<p>만약 이미 3개월이 경과하여 상속포기가 불가능한 상황이라면, 나중에 채무의 존재를 알게 된 경우 특별한정승인(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101900" target="_blank" class="tag-law">📋 민법 제1019조 제3항</a>)도 검토해볼 수 있습니다.</p>
-<div class="qa-disclaimer">※ 이 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 조언이 아닙니다.</div>
-</div>
-</div>
-<div class="qna-item">
-<div class="qna-q"><span class="q-badge">Q</span>형제 중 저만 포기할 수 있나요? 다른 형제도 같이 해야 하나요?</div>
-<div class="qna-a">
-<p>공동상속인 중 일부만 포기하는 것도 가능합니다. 포기한 상속인의 상속분은 나머지 상속인들의 법정상속분 비율에 따라 귀속됩니다.</p>
-<p>다만, 나머지 형제들이 더 많은 채무를 부담하게 될 수 있으므로, 포기 전에 가족 간에 충분한 협의를 하는 것이 바람직합니다. 각자의 상황에 맞게 포기 또는 한정승인을 선택할 수 있습니다.</p>
-<div class="qa-disclaimer">※ 이 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 조언이 아닙니다.</div>
-</div>
-</div>
-<div class="qna-item">
-<div class="qna-q"><span class="q-badge">Q</span>어린 자녀(미성년)도 상속포기를 할 수 있나요?</div>
-<div class="qna-a">
-<p>미성년 자녀도 상속포기를 할 수 있습니다. 다만 미성년자는 단독으로 법률행위를 할 수 없으므로, 법정대리인인 부모가 대리하여 신고를 해야 합니다. 이때 부모 전원의 인감증명서가 필요합니다.</p>
-<p>단, 부모 중 한 사람이 이미 사망하여 없거나, 부모가 미성년자와 이해관계가 충돌하는 경우(예: 부모는 포기하고 자녀만 상속받는 경우)에는 특별대리인을 선임해야 합니다.</p>
-<div class="qa-disclaimer">※ 이 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 조언이 아닙니다.</div>
-</div>
-</div>
-<div class="qna-item">
-<div class="qna-q"><span class="q-badge">Q</span>부산에 살고 있는데, 망인의 주소는 서울입니다. 어느 법원에 내야 하나요?</div>
-<div class="qna-a">
-<p>상속포기 신고는 신청인(상속인)의 주소지가 아닌, 피상속인(망인)의 마지막 주소지를 관할하는 가정법원에 제출해야 합니다. 망인의 주소가 서울이라면 서울가정법원에 제출합니다.</p>
-<p>직접 방문이 어려운 경우 우편으로 제출하는 것도 가능합니다. 다만 기한이 촉박한 경우 법무사에게 대리를 의뢰하거나, 직접 방문하여 접수 처리가 정확히 이루어지도록 하는 것이 안전합니다.</p>
-<div class="qa-disclaimer">※ 이 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 조언이 아닙니다.</div>
-</div>
-</div>
-<div class="qna-item">
-<div class="qna-q"><span class="q-badge">Q</span>수리 기간은 얼마나 걸리나요?</div>
-<div class="qna-a">
-<p>법원에 따라 다르지만, 서류에 문제가 없다면 통상 2~4주 이내에 수리 심판이 내려집니다. 보정(서류 보완) 명령이 있으면 그만큼 지연될 수 있습니다.</p>
-<p>심판서가 나오면 확정증명서도 별도로 신청하여 발급받습니다. 이 확정증명서가 있어야 채권자에게 공식적으로 포기 사실을 주장할 수 있습니다.</p>
-<div class="qa-disclaimer">※ 이 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 조언이 아닙니다.</div>
-</div>
-</div>` },
-      { heading: '다음으로 확인할 내용', content: `<div class="nav-cards">
-<a class="nav-card prev" href="상속_05_선택기준.html">
-<div class="nc-dir">← 이전 페이지</div>
-<div class="nc-title">상속포기·한정승인<br/>내 상황에 맞는 선택은</div>
-<div class="nc-desc">포기와 한정승인 중 어떤 선택이 유리한지 아직 결정하지 못하셨다면, 이 페이지를 먼저 확인하세요.</div>
-</a>
-<a class="nav-card next" href="상속_07_한정승인.html">
-<div class="nc-dir">다음 페이지 →</div>
-<div class="nc-title">한정승인<br/>절차와 청산 방법</div>
-<div class="nc-desc">상속포기 대신 한정승인을 선택하셨다면, 청구서 작성부터 청산 절차까지 안내합니다.</div>
-</a>
-</div>` },
-      { heading: '상속포기, 혼자 처리하기 어려우신가요?', content: `<p>3개월이라는 짧은 기한 내에 서류 준비와 법원 접수를 모두 처리해야 합니다.<br/>법무사가 청구서 작성부터 접수, 수리 심판 수령까지 신속하게 도와드립니다.</p>
-<a class="cta-btn" href="#contact">무료 상담 예약하기</a>
-<p class="cta-sub">상담은 무료이며, 비밀이 보장됩니다. 기한이 촉박하신 경우 우선 연락 주세요.</p>
-</div>` }
     ],
-    laws: [
-      { name: '민법 제1019조 제1항', desc: '' },
-      { name: '민법 제1042조', desc: '' },
-      { name: '민법 제1043조', desc: '' },
-      { name: '가사소송법 제44조', desc: '' },
-      { name: '민법 제1026조', desc: '' },
-      { name: '민법 제1019조 제3항', desc: '' },
-      { name: '민법 제1026조 제1호', desc: '' },
-      { name: '민법 제1058조', desc: '' }
-    ],
-    forms: []
+    laws: [],
+    faq: [{"q":"Q. 자녀들이 모두 포기하면 손주에게 빚이 넘어가나요?","a":"배우자가 살아 있고 자녀들만 모두 포기했다면 배우자 혼자 상속인이 되고, 손자녀는 상속인이 되지 않습니다. 배우자까지 포기하면 손자녀가 다음 상속인이 되므로 함께 정리해야 합니다. 📋 근거 2 📋 대법원 2023. 3. 23.자 2020그42 전원합의체 결정(승계집행문부여에대한이의) 📋 민법 제1042조"},{"q":"Q. 장례비를 고인 통장에서 냈는데 괜찮을까요?","a":"상속재산을 처분하면 단순승인으로 보는데, 장례비처럼 사회 통념상 필요한 지출까지 처분으로 보는지는 금액과 사정에 따라 판단이 갈립니다. 지출 내역을 정리해 신고 전에 상담받으십시오. 📋 근거 1 📋 민법 제1026조"},{"q":"Q. 한정승인을 하면 집을 지킬 수 있나요?","a":"한정승인 후에는 상속재산으로 채권자에게 갚아야 하므로, 집을 그대로 지키려면 상속인이 그 가치만큼을 따로 마련하는 등의 방법을 청산 절차 안에서 찾아야 합니다. 재산과 빚의 규모에 따라 가능한 방법이 달라집니다. 📋 근거 1 📋 민법 제1028조"},{"q":"Q. 신청은 어디에 하나요?","a":"상속포기와 한정승인은 가정법원에 신고합니다. 신고서에는 가족관계 서류 등을 붙이고, 한정승인은 재산목록을 함께 냅니다. 📋 근거 2 📋 민법 제1030조 📋 민법 제1041조"},{"q":"Q. 단순승인이 된 뒤에 빚이 더 나오면요?","a":"큰 잘못 없이 빚이 더 많다는 것을 몰랐다면, 그 사실을 안 날부터 3개월 안에 특별한정승인을 할 수 있습니다. 「석 달이 지나 빚을 알았을 때」 페이지를 보십시오. 📋 근거 1 📋 민법 제1019조"},{"q":"Q. 상속포기를 하면 사망보험금도 받을 수 없나요?","a":"수익자를 '상속인'으로 정한 생명보험의 사망보험금은 상속재산이 아니라 상속인 고유의 재산이라는 것이 대법원 판단입니다( 대법원 2001. 12. 28. 선고 2000다31502 판결 ). 계약마다 수익자가 다르므로 증권으로 확인하십시오. 📋 근거 1 📋 대법원 2001. 12. 28. 선고 2000다31502 판결"},{"q":"Q. 포기하면 다음 순위 가족에게 알려야 하나요?","a":"같은 순위가 모두 포기하면 다음 순위가 상속인이 되고, 그 가족의 3개월은 앞 순위의 포기를 알고 자신이 상속인이 된 것을 안 날부터 셉니다. 미리 알려 함께 준비하는 것이 좋습니다. 📋 근거 2 📋 민법 제1043조 📋 대법원 2015. 5. 14. 선고 2013다48852 판결"}],
+    forms: [],
   },
   {
-    id: 'in-07',
-    title: '한정승인 절차와 청산 방법',
-    meta: '재산 한도 내 변제 — 신고부터 채권자 청산까지 완전 안내',
+    id: "in-06",
+    title: "상속포기 절차 — 어디에, 무엇을 내고, 가족에게는 무엇이 남나요?",
+    meta: "상속포기는 상속이 시작된 것을 안 날부터 3개월 안에 돌아가신 분의 마지막 주소지 가정법원에 신고합니다. 절차·서류·비용과 다음 순위 가족 문제를 법령·판례 근거와 함께 안내합니다.",
+    reviewed: "2026-11-12",
+    kb: "H-B01",
     sections: [
-      { heading: '이런 분께 이 안내가 필요합니다', content: `<ul class="check-list">
-<li>망인의 재산과 채무 중 어느 쪽이 더 많은지 불확실하여, 일단 재산 한도 내에서만 책임지는 방식을 선택하려는 분</li>
-<li>상속포기 시 다음 순위 상속인에게 채무가 이전되는 것을 원치 않아 한정승인을 선택하려는 분</li>
-<li>한정승인 신고 후 실제 청산 절차(채권자 공고·배당)를 어떻게 진행하는지 궁금하신 분</li>
-<li>3개월 기한이 이미 지났으나 최근 뒤늦게 채무 초과 사실을 알게 된 분 (특별한정승인 검토)</li>
-<li>망인 명의의 부동산이 있어 한정승인 후 등기 및 경매 절차가 필요한 분</li>
-</ul>` },
-      { heading: '핵심 요약', content: `<div class="summary-box">
-<div class="summary-title">📋 한정승인 핵심 포인트</div>
-<ul>
-<li><strong>의의:</strong> 상속으로 취득한 재산의 한도에서만 피상속인의 채무를 변제하는 조건부 상속 승인 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=102800" target="_blank" class="tag-law">📋 민법 제1028조</a>)</li>
-<li><strong>효과:</strong> 채무 초과분은 상속인의 고유재산으로 변제할 의무 없음 — 상속인으로서의 지위는 유지</li>
-<li><strong>신고 기한:</strong> 상속개시 있음을 안 날로부터 3개월 이내 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101900" target="_blank" class="tag-law">📋 민법 제1019조 제1항</a>)</li>
-<li><strong>필수 첨부:</strong> 청구서 + <em>상속재산목록</em> (적극재산·소극재산 모두 기재) → 목록 없으면 각하</li>
-<li><strong>청산 의무:</strong> 수리 후 5일 내에 채권자에게 공고하고, 2개월 이상 채권신고 기간 운영 → 배당변제</li>
-<li><strong>실무 선택:</strong> 공동상속인 중 1인만 한정승인, 나머지는 상속포기 — 연쇄 이전 방지에 효과적</li>
-</ul>
-</div>
-<h3>한정승인 vs 상속포기 — 한눈에 비교</h3>
-<table class="compare-table">
-<thead>
-<tr>
-<th>구분</th>
-<th class="td-limited">한정승인</th>
-<th class="td-waive">상속포기</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>상속인 지위</td>
-<td class="td-limited">유지 (상속인으로 남음)</td>
-<td class="td-waive">소멸 (처음부터 상속인 아님)</td>
-</tr>
-<tr>
-<td>채무 책임</td>
-<td class="td-limited">상속재산 한도 내에서만 부담</td>
-<td class="td-waive">전혀 없음</td>
-</tr>
-<tr>
-<td>재산 취득</td>
-<td class="td-limited">채무 변제 후 잔여분 취득 가능</td>
-<td class="td-waive">없음</td>
-</tr>
-<tr>
-<td>차순위 이전</td>
-<td class="td-limited">없음 (상속인 지위 유지)</td>
-<td class="td-waive">있음 (다음 순위로 이전)</td>
-</tr>
-<tr>
-<td>청산 절차</td>
-<td class="td-limited">필요 (공고·채권자 최고·배당)</td>
-<td class="td-waive">불필요</td>
-</tr>
-<tr>
-<td>재산목록 제출</td>
-<td class="td-limited">필수 (없으면 각하)</td>
-<td class="td-waive">불필요</td>
-</tr>
-</tbody>
-</table>
-<div class="special-box">
-<div class="sp-title">🔮 특별한정승인 — 3개월이 지난 경우의 구제책</div>
-<ul>
-<li><strong>요건:</strong> 상속채무가 상속재산을 초과하는 사실을 <em>중대한 과실 없이</em> 3개월 내에 알지 못하고 단순승인이 된 경우</li>
-<li><strong>기한:</strong> 채무 초과 사실을 안 날로부터 3개월 이내 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101900" target="_blank" class="tag-law">📋 민법 제1019조 제3항</a>)</li>
-<li><strong>소명자료:</strong> 채무 초과 사실을 언제 알았는지 입증할 자료 필요 (소장 사본, 채권자 독촉장, 송달증명서 등)</li>
-<li><strong>주의:</strong> 3개월 기한이 경과한 경우에도 신고 자체를 포기하지 말고 전문가와 상담하시기 바랍니다.</li>
-</ul>
+      { heading: "이런 분께 필요합니다", content: `<ul class="checklist"><li> 빚이 더 많아 상속포기를 하기로 했는데 절차를 모르겠다</li><li> 형제·자녀 여러 명이 함께 포기하려고 한다</li><li> 내가 포기하면 내 자녀나 부모님, 형제에게 빚이 넘어가는지 알고 싶다</li><li> 이미 포기 신고를 했는데 결과가 나오기 전에 무엇을 조심해야 하는지 궁금하다</li><li> 사망보험금이나 유족이 받을 돈이 포기와 어떤 관계인지 궁금하다</li></ul>` },
+      { heading: "핵심정리", content: `<div class="kb-box kb-summary"><p>상속포기는 <strong>상속이 시작된 것을 안 날부터 3개월 안에 가정법원에 신고</strong>해야 합니다. 신고할 곳은 <strong>돌아가신 분의 마지막 주소지를 관할하는 가정법원</strong>입니다. 포기가 받아들여지면 처음부터 상속인이 아니었던 것이 되지만, 그 몫은 다른 상속인이나 다음 순위 가족에게 넘어가므로 가족 전체의 순서를 함께 정리해야 합니다.</p><details class="refs-mini"><summary>📋 근거 6</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a><a href="https://www.law.go.kr/법령/민법/제1041조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1041조</a><a href="https://www.law.go.kr/법령/민법/제998조" target="_blank" rel="noopener" class="tag-law">📋 민법 제998조</a><a href="https://www.law.go.kr/법령/가사소송법/제44조" target="_blank" rel="noopener" class="tag-law">📋 가사소송법 제44조 제1항 제6호</a><a href="https://www.law.go.kr/법령/민법/제1042조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1042조</a><a href="https://www.law.go.kr/법령/민법/제1043조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1043조</a></div></details></div>` },
+      { heading: "상세설명", content: `<h3>포기와 한정승인, 무엇이 다른가요?</h3><div class="table-wrap"><table><tr><th>구분</th><th>상속포기</th><th>한정승인</th></tr><tr><td data-label="구분">상속인 지위</td><td data-label="상속포기">처음부터 상속인이 아니었던 것이 됨</td><td data-label="한정승인">상속인으로 남되 물려받은 재산 범위에서만 갚음</td></tr><tr><td data-label="구분">다음 순위로 넘어가는지</td><td data-label="상속포기">넘어감 — 가족이 이어서 포기해야 할 수 있음</td><td data-label="한정승인">넘어가지 않음</td></tr><tr><td data-label="구분">신고 후 할 일</td><td data-label="상속포기">수리되면 사실상 끝</td><td data-label="한정승인">공고·통지·경매·배당 등 청산을 직접 해야 함</td></tr><tr><td data-label="구분">맞는 경우</td><td data-label="상속포기">빚이 분명히 많고 가족 전원이 차례로 정리할 수 있을 때</td><td data-label="한정승인">재산과 빚 중 어느 쪽이 많은지 모르거나, 다음 순위 가족에게 넘기고 싶지 않을 때</td></tr></table></div><details class="refs-mini"><summary>📋 근거 3</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1042조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1042조</a><a href="https://www.law.go.kr/법령/민법/제1028조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1028조</a><a href="https://www.law.go.kr/법령/민법/제1043조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1043조</a></div></details>
+<p>빚이 더 많다는 것이 분명하고 정리할 재산도 거의 없다면 포기가 간단합니다. 재산이 일부라도 있거나 가족이 여러 순위에 걸쳐 있으면 「한정승인 절차와 청산」 페이지와 함께 비교해 보십시오.</p><h3>3개월은 언제부터 세나요?</h3><p>&#x27;상속이 시작된 것을 안 날&#x27;은 돌아가신 사실을 알고 그로써 <strong>자신이 상속인이 되었다는 것을 안 날</strong>입니다. 빚이 있다는 것을 안 날이나 상속포기 제도를 안 날이 아닙니다. 그래서 재산조회 결과를 기다리느라 기한을 넘기는 일이 없어야 합니다. 조사가 늦어질 것 같으면 3개월이 지나기 전에 가정법원에 기간 연장을 청구할 수 있습니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(86%EC%8A%A410)" target="_blank" rel="noopener" class="tag-law">📋 대법원 1986. 4. 22.자 86스10 결정</a><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a></div></details><h3>상속포기는 어떤 절차인가요?</h3><p>부산에 사는 Q씨의 어머니가 돌아가셨습니다. 아버지는 먼저 돌아가셨고, 상속인은 Q씨와 동생 두 사람입니다. 어머니 앞으로 남은 재산은 거의 없고 카드값과 대출이 5천만원가량 있습니다(설명을 위한 가상 사례입니다).</p>
+<p>Q씨 형제는 각자 가정법원에 포기를 신고합니다. 한 신고서에 여러 명이 함께 청구할 수 있지만, 포기할지 말지는 <strong>사람마다 따로</strong> 정해지고, 법원 비용도 사람마다 냅니다. 형제가 모두 포기하면 1순위인 자녀가 모두 빠지므로, Q씨의 자녀들(손자녀)이 다음 상속인이 됩니다. 손자녀들도 따로 포기하지 않으면 빚을 물려받게 됩니다. 손자녀까지 포기하면 어머니의 부모, 그다음은 어머니의 형제자매 순으로 넘어갑니다. 그래서 Q씨 가족은 처음부터 <strong>누가 어느 순서로 포기할지 명단</strong>을 만들어 한꺼번에 준비하거나, 앞 순위 포기가 받아들여지는 대로 다음 순위 가족에게 알립니다.</p><details class="refs-mini"><summary>📋 근거 3</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/가사소송수수료규칙" target="_blank" rel="noopener" class="tag-law">📋 가사소송수수료규칙 제3조 제1항·제8조</a><a href="https://www.law.go.kr/법령/민법/제1042조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1042조</a><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2013%EB%8B%A448852)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2015. 5. 14. 선고 2013다48852 판결</a></div></details><h3>절차는 어떻게 진행되나요?</h3><ol class=""><li><strong>상속인과 기한 확인</strong> — 사망일과 안 날을 확인하고, 포기할 사람과 그다음 순위 가족을 정리합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a></div></details></li><li><strong>서류 준비</strong> — 돌아가신 분과 신고인의 가족관계 서류, 주민등록 서류, 신고인의 인감증명서 등을 갖춥니다(아래 「무엇을 준비하나요?」).</li><li><strong>신고서 작성·제출</strong> — 상속포기 신고는 서면으로만 합니다. 신고서에는 당사자, 신고의 취지와 원인, 날짜, 가정법원을 적고, 돌아가신 분의 성명과 마지막 주소, 돌아가신 분과의 관계, 상속이 시작된 것을 안 날, 포기한다는 뜻을 함께 적은 뒤 기명날인 또는 서명합니다. 마지막 주소지를 관할하는 가정법원에 냅니다. 상속포기는 재산 전체를 포기하는 것이라 재산목록을 붙일 필요가 없고, 목록에 빠진 재산에도 포기의 효과가 미칩니다.<details class="refs-mini"><summary>📋 근거 4</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/가사소송법/제36조" target="_blank" rel="noopener" class="tag-law">📋 가사소송법 제36조</a><a href="https://www.law.go.kr/법령/가사소송규칙/제75조" target="_blank" rel="noopener" class="tag-law">📋 가사소송규칙 제75조</a><a href="https://www.law.go.kr/법령/가사소송법/제44조" target="_blank" rel="noopener" class="tag-law">📋 가사소송법 제44조 제1항 제6호</a><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(95%EB%8B%A427554)" target="_blank" rel="noopener" class="tag-law">📋 대법원 1995. 11. 14. 선고 95다27554 판결</a></div></details></li><li><strong>법원 심리와 보정</strong> — 법원이 서류를 검토하고 부족한 것이 있으면 보정을 요구합니다.</li><li><strong>수리 심판 고지</strong> — 가정법원이 포기 신고를 받아들이는 심판을 하고 이를 알린 때 포기의 효력이 생깁니다. 효력은 상속이 시작된 때로 거슬러 올라갑니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2021%EB%8B%A4224446)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2021. 9. 15. 선고 2021다224446 판결(배당이의)</a><a href="https://www.law.go.kr/법령/민법/제1042조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1042조</a></div></details></li><li><strong>다음 순위 가족에게 알리기</strong> — 포기한 사람의 몫이 누구에게 가는지 확인하고, 다음 상속인이 될 가족에게 알려 함께 정리합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1043조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1043조</a></div></details></li><li><strong>채권자에게 알리기</strong> — 독촉이 오면 수리 심판이 있었다는 사실을 증명하는 서류를 채권자에게 보내 더 이상 청구하지 않도록 합니다. 소송이 걸리면 재판에서 포기 사실을 주장해야 합니다.</li></ol><h3>포기하면 어떤 효과가 생기나요?</h3><ul class=""><li><strong>처음부터 상속인이 아닌 것이 됩니다.</strong> 재산도 빚도 물려받지 않습니다. 효력은 수리 심판을 고지받은 때 생기고, 상속이 시작된 때로 거슬러 올라갑니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1042조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1042조</a><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2021%EB%8B%A4224446)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2021. 9. 15. 선고 2021다224446 판결(배당이의)</a></div></details></li><li><strong>포기한 몫은 다른 상속인에게 갑니다.</strong> 같은 순위가 모두 포기하면 다음 순위로 넘어가고, 포기한 사람의 자녀가 그 자리를 대신 잇는 대습상속은 생기지 않습니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1043조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1043조</a><a href="https://www.law.go.kr/법령/민법/제1001조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1001조</a></div></details></li><li><strong>상속인이 아니므로</strong> 상속재산분할에 참여하지 않고 유류분도 청구할 수 없습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1112조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1112조</a></div></details></li><li><strong>판례</strong> — 채권자 소송에서 포기 사실을 주장하지 않아 판결이 확정되면, 그 뒤에는 포기를 이유로 집행을 다툴 수 없습니다(<a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2008%EB%8B%A479876)" target="_blank" rel="noopener" class="case-link">대법원 2009. 5. 28. 선고 2008다79876 판결</a>).<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2008%EB%8B%A479876)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2009. 5. 28. 선고 2008다79876 판결(청구이의)</a></div></details></li></ul><h3>포기하면 누가 상속인이 되나요?</h3><div class="table-wrap"><table><tr><th>지금 포기하는 사람</th><th>그 몫이 가는 곳</th><th>근거</th></tr><tr><td data-label="지금 포기하는 사람">자녀 중 일부</td><td data-label="그 몫이 가는 곳">포기하지 않은 다른 자녀와 배우자</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1043조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1043조</a></div></td></tr><tr><td data-label="지금 포기하는 사람">자녀 전부(배우자는 포기하지 않음)</td><td data-label="그 몫이 가는 곳"><strong>배우자 혼자</strong> 상속인이 됨 — 손자녀는 상속인이 되지 않음</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2020%EA%B7%B842)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2023. 3. 23.자 2020그42 전원합의체 결정(승계집행문부여에대한이의)</a></div></td></tr><tr><td data-label="지금 포기하는 사람">배우자와 자녀 전부</td><td data-label="그 몫이 가는 곳">손자녀 → (없으면) 부모 → 형제자매 → 4촌 이내 친척 순</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1042조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1042조</a><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2013%EB%8B%A448852)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2015. 5. 14. 선고 2013다48852 판결</a></div></td></tr><tr><td data-label="지금 포기하는 사람">배우자가 없고 자녀 전부</td><td data-label="그 몫이 가는 곳">손자녀 → (없으면) 부모 → 형제자매 순</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1042조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1042조</a></div></td></tr></table></div>
+<ul class=""><li>다음 순위 가족의 3개월은 <strong>앞 순위의 포기가 받아들여진 것을 알고 자신이 상속인이 된 것을 안 날</strong>부터 셉니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2013%EB%8B%A448852)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2015. 5. 14. 선고 2013다48852 판결</a></div></details></li></ul><h3>얼마나 걸리나요?</h3><div class="table-wrap"><table><tr><th>단계</th><th>기간</th><th>근거</th></tr><tr><td data-label="단계">⚡ 포기 신고</td><td data-label="기간">상속이 시작된 것을 안 날부터 3개월 안(가정법원이 늘려 줄 수 있음)</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a></div></td></tr><tr><td data-label="단계">신고 → 수리 심판</td><td data-label="기간">법이 정한 기간은 없습니다. 보정 여부와 법원 사정에 따라 다릅니다</td><td data-label="근거">—</td></tr><tr><td data-label="단계">⚡ 다음 순위 가족의 신고</td><td data-label="기간">자신이 상속인이 된 것을 안 날부터 3개월 안</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2013%EB%8B%A448852)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2015. 5. 14. 선고 2013다48852 판결</a></div></td></tr></table></div><h3>무엇을 준비하나요?</h3><p>신고서에 붙여야 한다고 규칙이 정한 서류는 <strong>신고인(대리인이 신고하면 대리인)의 인감증명서</strong> 하나입니다. 나머지 서류는 신고서에 적은 돌아가신 분의 사망 사실·마지막 주소와 신고인과의 관계를 확인하기 위해 법원이 안내하는 서류입니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/가사소송규칙/제75조" target="_blank" rel="noopener" class="tag-law">📋 가사소송규칙 제75조</a><a href="https://ecfs.scourt.go.kr/psp/index.on?m=PSP731M04" target="_blank" rel="noopener" class="tag-law">📋 전자소송포털 「가사비송 개요 — 첨부서류 및 소송비용 안내」</a></div></details>
+<div class="table-wrap"><table><tr><th>서류</th><th>누구의 것</th><th>확인하는 사항</th><th>구분</th></tr><tr><td data-label="서류">인감증명서</td><td data-label="누구의 것">신고인 각자(대리인이 신고하면 대리인)</td><td data-label="확인하는 사항">신고인 본인 확인</td><td data-label="구분">규칙이 정한 첨부서류</td></tr><tr><td data-label="서류">주민등록등본</td><td data-label="누구의 것">신고인 각자</td><td data-label="확인하는 사항">신고인 주소</td><td data-label="구분">법원 안내</td></tr><tr><td data-label="서류">가족관계증명서</td><td data-label="누구의 것">돌아가신 분·신고인 각자</td><td data-label="확인하는 사항">상속인 범위, 돌아가신 분과의 관계</td><td data-label="구분">법원 안내</td></tr><tr><td data-label="서류">기본증명서</td><td data-label="누구의 것">신고인 각자</td><td data-label="확인하는 사항">신분</td><td data-label="구분">법원 안내</td></tr><tr><td data-label="서류">말소자 주민등록등본</td><td data-label="누구의 것">돌아가신 분</td><td data-label="확인하는 사항">마지막 주소 → 신고할 가정법원</td><td data-label="구분">법원 안내</td></tr><tr><td data-label="서류">제적등본(2007. 12. 31. 이전 사망신고) 또는 폐쇄 가족관계등록부에 따른 기본증명서(2008. 1. 1. 이후 사망신고)</td><td data-label="누구의 것">돌아가신 분</td><td data-label="확인하는 사항">사망 사실과 날짜</td><td data-label="구분">법원 안내</td></tr><tr><td data-label="서류">법정대리인임을 확인하는 서류</td><td data-label="누구의 것">미성년 신고인</td><td data-label="확인하는 사항">부모 등이 대리하며, 3개월은 법정대리인이 안 날부터 셈</td><td data-label="구분"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1020조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1020조</a></div></td></tr><tr><td data-label="서류">앞 순위 가족의 포기 수리 심판서</td><td data-label="누구의 것">다음 순위로 신고하는 가족</td><td data-label="확인하는 사항">자신이 상속인이 된 것을 안 날</td><td data-label="구분">사무소 안내</td></tr></table></div><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/가사소송규칙/제75조" target="_blank" rel="noopener" class="tag-law">📋 가사소송규칙 제75조</a><a href="https://ecfs.scourt.go.kr/psp/index.on?m=PSP731M04" target="_blank" rel="noopener" class="tag-law">📋 전자소송포털 「가사비송 개요 — 첨부서류 및 소송비용 안내」</a></div></details>
+<p>법원 안내는 바뀔 수 있으니 접수 전에 다시 확인합니다.</p><h3>비용은 어떻게 되나요?</h3><div class="table-wrap"><table><tr><th>항목</th><th>내용</th></tr><tr><td data-label="항목">인지</td><td data-label="내용">신고인 1명마다 서면 5,000원, 전자 4,500원</td></tr><tr><td data-label="항목">송달료</td><td data-label="내용">신고인 1명마다 33,840원(법원 안내 기준)</td></tr><tr><td data-label="항목">서류 발급비</td><td data-label="내용">발급 기관 수수료(실비)</td></tr><tr><td data-label="항목">법무사 보수</td><td data-label="내용">법무사 보수기준에 따라 신고인 수와 사정을 보고 견적을 드립니다</td></tr></table></div><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/가사소송수수료규칙" target="_blank" rel="noopener" class="tag-law">📋 가사소송수수료규칙 제3조 제1항·제8조</a><a href="https://ecfs.scourt.go.kr/psp/index.on?m=PSP731M04" target="_blank" rel="noopener" class="tag-law">📋 전자소송포털 「가사비송 개요 — 첨부서류 및 소송비용 안내」</a></div></details><h3>사망보험금은 어떻게 되나요?</h3><ul class=""><li><strong>보험금</strong>: 돌아가신 분이 자신을 피보험자로 하고 수익자를 &#x27;상속인&#x27;으로 정한 생명보험의 사망보험금은 상속재산이 아니라 상속인 고유의 재산이라는 것이 대법원 판단입니다. 다만 수익자를 누구로 정했는지는 계약마다 다르므로 증권으로 확인해야 합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2000%EB%8B%A431502)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2001. 12. 28. 선고 2000다31502 판결</a></div></details></li><li><strong>국세는 다르게 봅니다</strong>: 상속을 포기한 사람이 그런 사망보험금을 받으면, 돌아가신 분의 국세를 승계하는 범위를 정할 때 받은 보험금 전액을 상속받은 재산으로 봅니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/국세기본법/제24조" target="_blank" rel="noopener" class="tag-law">📋 국세기본법 제24조 제1항·제2항</a></div></details></li><li><strong>포기한 사람의 채권자</strong>: 포기한 상속인 자신에게 빚이 있더라도, 상속포기는 그 채권자가 사해행위라며 취소를 구할 수 있는 대상이 아닙니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2011%EB%8B%A429307)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2011. 6. 9. 선고 2011다29307 판결</a></div></details></li></ul>` },
+      { heading: "자주 묻는 질문", content: `<details class="qa"><summary>Q. 형제 중 한 명만 포기해도 되나요?</summary><div class="ans"><p>됩니다. 포기는 사람마다 따로 하고, 포기한 사람의 몫은 포기하지 않은 상속인들에게 나뉘어 돌아갑니다. 남은 형제가 빚을 더 많이 떠안게 되므로 미리 의논하십시오.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1043조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1043조</a></div></details></div></details><details class="qa"><summary>Q. 손자녀가 미성년자이면 누가 포기하나요?</summary><div class="ans"><p>부모가 법정대리인으로 신고합니다. 부모 자신이 앞 순위로 포기한 경우에도 다음 순위가 된 미성년 자녀를 위해 따로 신고해야 하므로, 가족 구성을 보고 함께 준비합니다.</p></div></details><details class="qa"><summary>Q. 포기하면 사망보험금도 못 받나요?</summary><div class="ans"><p>수익자를 &#x27;상속인&#x27;으로 정한 사망보험금은 상속인 고유의 재산으로 보아 포기와 관계없이 받을 수 있다는 것이 대법원 판단입니다. 다만 국세 승계에서는 따로 계산되므로, 증권과 약관을 가지고 포기 전에 상담받으십시오.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2000%EB%8B%A431502)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2001. 12. 28. 선고 2000다31502 판결</a><a href="https://www.law.go.kr/법령/국세기본법/제24조" target="_blank" rel="noopener" class="tag-law">📋 국세기본법 제24조 제1항·제2항</a></div></details></div></details><details class="qa"><summary>Q. 신고를 한 뒤 결과를 기다리는 동안 고인의 집을 정리해도 되나요?</summary><div class="ans"><p>수리 심판을 고지받기 전에는 상속재산을 관리할 책임이 있고, 처분으로 볼 수 있는 행동은 피해야 합니다. 꼭 필요한 정리라면 먼저 상담하십시오.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2021%EB%8B%A4224446)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2021. 9. 15. 선고 2021다224446 판결(배당이의)</a><a href="https://www.law.go.kr/법령/민법/제1026조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1026조</a></div></details></div></details><details class="qa"><summary>Q. 빚이 있는 줄 모르고 3개월이 지났습니다.</summary><div class="ans"><p>중대한 과실 없이 빚이 더 많다는 것을 몰랐다면, 안 날부터 3개월 안에 특별한정승인을 할 수 있습니다. 「석 달이 지나 빚을 알았을 때 — 특별한정승인」 페이지를 보십시오.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a></div></details></div></details>` },
+      { heading: "주의사항", content: `<section class="box warn"><ul class=""><li>⚡ <strong>3개월을 넘기면 포기할 수 없습니다.</strong> 기간 안에 포기하지 않으면 단순승인을 한 것으로 봅니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1026조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1026조</a></div></details></li><li><strong>결과가 나올 때까지 상속재산을 손대지 마십시오.</strong> 포기의 효력은 수리 심판을 고지받을 때 생기므로, 그때까지는 상속재산을 자기 재산처럼 관리할 책임이 있습니다. 그 사이 재산을 처분하면 단순승인으로 볼 수 있습니다.<details class="refs-mini"><summary>📋 근거 3</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2021%EB%8B%A4224446)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2021. 9. 15. 선고 2021다224446 판결(배당이의)</a><a href="https://www.law.go.kr/법령/민법/제1022조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1022조</a><a href="https://www.law.go.kr/법령/민법/제1026조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1026조</a></div></details></li><li><strong>포기한 뒤에도 다음 상속인이 맡을 때까지 재산을 관리해야 합니다</strong>.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1044조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1044조</a></div></details></li><li><strong>한 번 한 포기는 마음대로 취소할 수 없습니다.</strong> 3개월 안이라도 취소하지 못하고, 착오·사기·강박처럼 민법 총칙의 취소 사유가 있을 때만 정해진 기간 안에 취소할 수 있습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1024조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1024조</a></div></details></li><li><strong>포기 전에 가족 순서부터 확인하십시오.</strong> 배우자가 남아 있는지에 따라 손자녀에게 넘어가는지가 달라집니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2020%EA%B7%B842)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2023. 3. 23.자 2020그42 전원합의체 결정(승계집행문부여에대한이의)</a><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2013%EB%8B%A448852)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2015. 5. 14. 선고 2013다48852 판결</a></div></details></li><li><strong>포기하면서 다른 가족에게 재산을 몰아주는 방법은 되지 않습니다.</strong> 포기한 몫은 법이 정한 대로 남은 상속인에게 나뉠 뿐, 특정인을 정해 넘길 수 없습니다. 특정인에게 몰아주려면 협의분할을 검토해야 하지만, 이때는 빚도 함께 따져야 합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1043조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1043조</a></div></details></li></ul></section>` },
+      { heading: "다음에 확인할 사항", content: `<ul><li><a href="/guide/inheritance/in-05.html">빚이 더 많을 때</a></li><li><a href="/guide/inheritance/in-07.html">한정승인 절차와 청산</a></li><li><a href="/guide/inheritance/in-28.html">돌아가신 분의 채권자에게 소송·압류를 당했을 때</a></li><li><a href="/guide/inheritance/in-01.html">상속이 시작됐을 때</a></li><li><a href="/guide/inheritance/in-26.html">상속재산 통합조회(안심상속 원스톱서비스)</a></li></ul>` },
+      { heading: "이 내용이 해당되시나요?", content: `<div class="kb-box kb-cta"><p>직접 처리하시기 어려운 부분을 법무사가 함께 검토합니다. 이런 경우 상담을 권합니다.</p>
+<ul class=""><li>상속인이 여러 순위에 걸쳐 있어 누가 언제 포기해야 할지 정리가 필요할 때</li><li>미성년 자녀나 해외에 사는 가족이 함께 포기해야 할 때</li><li>3개월이 거의 다 되었거나, 이미 고인의 재산을 일부 정리했을 때</li><li>포기와 한정승인 중 아직 결정하지 못했을 때</li><li>사망보험금·유족급여를 받았거나 받을 예정일 때</li></ul>
+<p class="note">법무사는 상속포기 신고서와 첨부서류를 작성해 가정법원에 제출하고, 다음 순위 가족의 신고서와 기간 연장 청구서도 함께 준비합니다. 법원이 보정을 요구하면 그 서류도 준비합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/법무사법/제2조" target="_blank" rel="noopener" class="tag-law">📋 법무사법 제2조</a></div></details>
 </div>` },
-      { heading: '한눈에 보는 한정승인 절차 흐름도', content: `<div class="flow-wrap">
-<div class="flow-step">
-<div class="flow-left">
-<div class="flow-num">1</div>
-<div class="flow-line"></div>
-</div>
-<div class="flow-content">
-<div class="fc-title">상속재산 조회 및 목록 작성</div>
-<div class="fc-sub">금융거래 조회·부동산 등기·세금 체납 등 망인의 적극재산과 소극재산(채무)을 빠짐없이 조사합니다.<br/><em>재산목록은 적극재산과 소극재산 모두 포함해야 하며, 고의 누락 시 단순승인 간주</em> <span class="law-cite"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=102600" target="_blank" class="tag-law">📋 민법 제1026조</a> 제3호</span></div>
-</div>
-</div>
-<div class="flow-gap"></div>
-<div class="flow-step">
-<div class="flow-left">
-<div class="flow-num">2</div>
-<div class="flow-line"></div>
-</div>
-<div class="flow-content">
-<div class="fc-title">청구서 및 상속재산목록 작성</div>
-<div class="fc-sub">한정승인 심판청구서에 상속재산목록을 첨부합니다.<br/>청구취지 기재례: <em>"청구인이 피상속인 망 ○○○의 재산을 상속함에 있어 별지 상속재산목록을 첨부하여서 한 한정승인 신고는 이를 수리한다"</em></div>
-</div>
-</div>
-<div class="flow-gap"></div>
-<div class="flow-step">
-<div class="flow-left">
-<div class="flow-num">3</div>
-<div class="flow-line"></div>
-</div>
-<div class="flow-content">
-<div class="fc-title">첨부서류 준비</div>
-<div class="fc-sub">가족관계증명서·기본증명서·주민등록표등본·인감증명서·상속재산목록 등 필요 서류를 수집합니다.<br/>미성년자 포함 시 <em>법정대리인(부모 전원) 인감증명서</em> 추가 필요</div>
-</div>
-</div>
-<div class="flow-gap"></div>
-<div class="flow-step">
-<div class="flow-left">
-<div class="flow-num">4</div>
-<div class="flow-line"></div>
-</div>
-<div class="flow-content">
-<div class="fc-title">관할 가정법원 접수</div>
-<div class="fc-sub"><em>피상속인의 마지막 주소지 관할 가정법원</em>에 청구서·첨부서류 제출<br/>피상속인 주소가 외국인 경우: 대법원 소재지 가정법원(서울가정법원)</div>
-</div>
-</div>
-<div class="flow-gap"></div>
-<div class="flow-step">
-<div class="flow-left">
-<div class="flow-num">5</div>
-<div class="flow-line"></div>
-</div>
-<div class="flow-content">
-<div class="fc-title">법원 심리 (서면 심리 원칙)</div>
-<div class="fc-sub">가정법원이 형식적 요건을 검토합니다. 보정 명령이 있으면 기한 내 보완해야 합니다.<br/>상속재산목록 미첨부로 보정 불응 시 → 각하 <span class="law-cite">가사소송규칙 제75조</span></div>
-</div>
-</div>
-<div class="flow-gap"></div>
-<div class="flow-step">
-<div class="flow-left">
-<div class="flow-num">6</div>
-<div class="flow-line"></div>
-</div>
-<div class="flow-content">
-<div class="fc-title">수리 심판 및 확정</div>
-<div class="fc-sub">법원이 한정승인을 수리하는 심판을 내립니다. 심판서 정본·확정증명서 수령<br/>수리심판은 요건 충족 인정 → <em>효력 확정이 아님</em> (최종 효력은 민사소송에서 결정)</div>
-</div>
-</div>
-<div class="flow-gap"></div>
-<div class="flow-step">
-<div class="flow-left">
-<div class="flow-num">7</div>
-</div>
-<div class="flow-content">
-<div class="fc-title">청산 절차 개시</div>
-<div class="fc-sub">수리 후 <em>5일 내</em> 채권자에게 공고, <em>2개월 이상</em> 채권신고 기간 운영, 채권계산서 최고, 배당표 작성, 배당변제 실시 <span class="law-cite"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=103200" target="_blank" class="tag-law">📋 민법 제1032조</a></span></div>
-</div>
-</div>
-</div>` },
-      { heading: '단계별 상세 설명', content: `<div class="step-detail">
-<div class="step-detail-header">
-<div class="step-num-badge">1</div>
-<div class="step-title">상속재산목록 작성 — 한정승인의 핵심 서류</div>
-</div>
-<div class="step-detail-body">
-<p>상속재산목록은 한정승인의 필수 첨부서류입니다. 목록이 없으면 보정 불응 시 각하됩니다. 작성 시 다음 원칙을 지키십시오.</p>
-<ul>
-<li><strong>적극재산(상속재산):</strong> 부동산(등기사항증명서), 예금(잔액증명서), 자동차(등록원부), 주식·유가증권, 보증금 등 교환가치 있는 모든 재산 포함</li>
-<li><strong>소극재산(상속채무):</strong> 대출금, 카드빚, 보증채무, 세금 체납, 개인채무 등 채권자·채무종류·금액 기재</li>
-<li><strong>누락 금지:</strong> 소액 채권이나 추심 가능성이 낮은 채권도 반드시 포함. 고의로 누락하면 단순승인 간주 <span class="law-tag"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=102600" target="_blank" class="tag-law">📋 민법 제1026조</a> 제3호</span></li>
-<li><strong>소명자료:</strong> 적극재산(등기부·통장잔액증명), 소극재산(부채증명서·소장 사본) 함께 제출</li>
-<li><strong>자동차 포함:</strong> 자동차는 적극재산란에 기재하되 해당 채무(할부·근저당)는 소극재산란에 별도 기재</li>
-</ul>
-</div>
-</div>
-<div class="step-detail">
-<div class="step-detail-header">
-<div class="step-num-badge">2</div>
-<div class="step-title">특별한정승인 — 단순승인 후에도 가능한 구제</div>
-</div>
-<div class="step-detail-body">
-<p>3개월 기한 내에 한정승인을 하지 못하여 단순승인이 된 경우라도, 다음 요건을 충족하면 특별한정승인을 할 수 있습니다.</p>
-<ul>
-<li><strong>요건:</strong> 상속채무가 상속재산을 초과하는 사실을 중대한 과실 없이 3개월 기간 내에 알지 못하고 단순승인(법정단순승인 포함)이 된 경우</li>
-<li><strong>기한:</strong> 채무 초과 사실을 <em>안 날로부터 3개월</em> 이내 <span class="law-tag"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101900" target="_blank" class="tag-law">📋 민법 제1019조 제3항</a></span></li>
-<li><strong>소명자료:</strong> 채무 초과 사실을 알게 된 경위를 입증할 자료 (채권자의 소장 접수일, 독촉장 수령일 확인 가능한 송달증명서 등)</li>
-<li><strong>협의분할 후에도 가능:</strong> 이미 상속재산을 협의분할로 처분한 경우에도 특별한정승인이 허용됩니다 (<a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2003다29562" target="_blank" class="tag-case">⚖️ 대법원 2003다29562</a>)</li>
-<li><strong>주의:</strong> 특별한정승인의 3개월 기한은 제척기간으로, 추후 보완이 불가능합니다.</li>
-</ul>
-</div>
-</div>
-<div class="step-detail">
-<div class="step-detail-header">
-<div class="step-num-badge">3</div>
-<div class="step-title">공동상속인 중 1인만 한정승인하는 실무 전략</div>
-</div>
-<div class="step-detail-body">
-<p>실무에서 가장 많이 사용하는 방법입니다. 상속인 중 1인이 한정승인을 하여 상속인 지위를 유지하고, 나머지 상속인은 모두 상속포기를 합니다.</p>
-<ul>
-<li><strong>효과:</strong> 포기한 상속인들은 채무 부담이 없고, 한정승인한 1인이 상속재산 한도 내에서 청산을 담당합니다.</li>
-<li><strong>차순위 이전 방지:</strong> 공동상속인 중 1인이 한정승인을 유지하므로 다음 순위(형제자매, 직계존속 등)로 상속이 이전되지 않습니다.</li>
-<li><strong>하나의 청구서로 가능:</strong> 한정승인과 상속포기를 하나의 청구서에 함께 신청할 수 있습니다.</li>
-</ul>
-</div>
-</div>` },
-      { heading: '한정승인 후 청산 절차', content: `<p>한정승인 심판이 수리된 이후에는 상속재산을 청산하는 절차를 이행해야 합니다. 청산을 이행하지 않으면 채권자에게 책임을 질 수 있습니다.</p>
-<div class="liquidation-flow">
-<div class="liq-step">
-<div class="liq-badge">①</div>
-<div class="liq-body">
-<div class="liq-title">채권자 공고 — 수리 후 5일 이내</div>
-<div class="liq-desc">
-          한정승인이 수리된 날로부터 <em>5일 이내</em>에 일간신문에 1회 이상 공고합니다. 공고에는 채권신고 기간(최소 2개월 이상)을 명시하고, 기간 내 미신고 시 청산에서 제외됨을 표시해야 합니다. <span class="liq-law"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=103200" target="_blank" class="tag-law">📋 민법 제1032조</a></span>
-</div>
-</div>
-</div>
-<div class="liq-arrow">↓</div>
-<div class="liq-step">
-<div class="liq-badge">②</div>
-<div class="liq-body">
-<div class="liq-title">알고 있는 채권자에게 개별 최고</div>
-<div class="liq-desc">
-          공고와 별도로, 알고 있는 채권자에게는 내용증명으로 채권신고 최고를 해야 합니다. 알고 있는 채권자는 신고기간 내 미신고라도 청산에서 제외할 수 없습니다. <em>배당변제 시점</em>에 알게 된 채권자도 포함됩니다. <span class="liq-law"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=008900" target="_blank" class="tag-law">📋 민법 제89조</a> 준용</span>
-</div>
-</div>
-</div>
-<div class="liq-arrow">↓</div>
-<div class="liq-step">
-<div class="liq-badge">③</div>
-<div class="liq-body">
-<div class="liq-title">채권계산서 제출 최고 — 1주 이내</div>
-<div class="liq-desc">
-          채권신고기간 만료 후, 배당에 참가하는 채권자 전원에게 내용증명으로 원금·이자·비용 등 채권계산서를 <em>1주 이내</em>에 제출하도록 최고합니다. 압류채권자, 가압류채권자, 배당요구채권자 모두 포함합니다.
-        </div>
-</div>
-</div>
-<div class="liq-arrow">↓</div>
-<div class="liq-step">
-<div class="liq-badge">④</div>
-<div class="liq-body">
-<div class="liq-title">부동산이 있는 경우 — 상속등기 후 경매 신청</div>
-<div class="liq-desc">
-          망인 명의의 부동산이 있다면 한정승인자 명의로 상속을 원인으로 한 소유권이전등기를 마친 후, 한정승인자가 직접 경매신청을 해야 합니다. 경매 대금이 상속재산에 해당하며 채권자에게 배당됩니다. <span class="liq-law">등기선례 제200612-4호</span>
-</div>
-</div>
-</div>
-<div class="liq-arrow">↓</div>
-<div class="liq-step">
-<div class="liq-badge">⑤</div>
-<div class="liq-body">
-<div class="liq-title">배당표 작성 및 배당변제</div>
-<div class="liq-desc">
-          신고기간 내 신고한 채권자와 알고 있는 채권자를 대상으로 <em>채권액 비율로 배당변제</em>합니다. <span class="liq-law"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=103400" target="_blank" class="tag-law">📋 민법 제1034조 제1항</a></span><br/>
-          신고기간 내 미신고하고 한정승인자가 알지 못한 채권자 → 잔여재산이 있는 경우에만 변제 <span class="liq-law"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=103900" target="_blank" class="tag-law">📋 민법 제1039조</a></span><br/>
-          배당 완료 후 잔여재산이 있으면 상속인이 취득합니다.
-        </div>
-</div>
-</div>
-</div>
-<div class="warn-card" style="margin-top:20px;">
-<div class="warn-title">⚠️ 배분할 재산이 없는 경우에도 절차는 이행해야 합니다</div>
-<p>상속재산이 거의 없거나 채권자에게 배분할 것이 없는 경우에도, 원칙적으로 공고와 채권자 통지 절차를 이행해야 합니다. 이를 생략하면 추후 분쟁 발생 시 불리할 수 있습니다. 다만 현실적으로 재산이 전혀 없다면 이를 통지하는 방식으로 절차를 마무리합니다.</p>
-</div>` },
-      { heading: '상속재산목록 — 항목별 기재 안내', content: `<table style="width:100%;border-collapse:collapse;">
-<thead>
-<tr>
-<th style="background:#e8f5e9;color:#1a5c2e;border:1px solid #c8e6c9;padding:10px 14px;text-align:left;font-size:14px;">적극재산 (상속재산)</th>
-<th style="background:#fdecea;color:#8b1a1a;border:1px solid #f5c6cb;padding:10px 14px;text-align:left;font-size:14px;">소극재산 (상속채무)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="border:1px solid #c8e6c9;background:#f5faf5;padding:10px 14px;font-size:14px;vertical-align:top;">
-<ul style="margin:0;padding-left:1.2em;">
-<li>부동산 (토지·건물, 등기사항증명서 첨부)</li>
-<li>예금·적금 (통장잔액증명서 첨부)</li>
-<li>자동차 (자동차등록원부 첨부)</li>
-<li>주식·유가증권·회원권</li>
-<li>보증금 (임대차계약서 등)</li>
-<li>대여금·보험금 등 금전채권</li>
-</ul>
-</td>
-<td style="border:1px solid #f5c6cb;background:#fef9f9;padding:10px 14px;font-size:14px;vertical-align:top;">
-<ul style="margin:0;padding-left:1.2em;">
-<li>금융기관 대출금 (부채증명서 첨부)</li>
-<li>카드 미결제금 (카드사 채무확인서)</li>
-<li>개인 채무 (차용증, 판결문 등)</li>
-<li>연대보증채무</li>
-<li>자동차 할부금·근저당채무</li>
-<li>세금 체납액 (국세·지방세)</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="doc-note" style="margin-top:12px;">
-<strong>고의 누락 금지:</strong> 재산목록에 고의로 기재하지 않은 재산이 있으면 단순승인을 한 것으로 간주됩니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=102600" target="_blank" class="tag-law">📋 민법 제1026조 제3호</a>). 적극재산과 소극재산 모두 빠짐없이 기재하십시오.
-  </div>` },
-      { heading: '준비 서류 목록', content: `<div class="doc-section">
-<div class="doc-section-title">📁 피상속인(망자) 관련 서류</div>
-<ul class="doc-list">
-<li>가족관계증명서 (피상속인) 1통</li>
-<li>기본증명서 (피상속인) 1통</li>
-<li>말소자 주민등록표등본 (피상속인) 1통</li>
-<li>제적등본 (피상속인) 1통</li>
-</ul>
-</div>
-<div class="doc-section">
-<div class="doc-section-title">📁 상속인 관련 서류</div>
-<ul class="doc-list">
-<li>가족관계증명서 (상속인) 각 1통</li>
-<li>기본증명서 (상속인) 각 1통</li>
-<li>주민등록표등본 (상속인) 각 1통</li>
-<li>인감증명서 (상속인) 각 1통</li>
-</ul>
-<div class="doc-note"><strong>미성년자 포함 시:</strong> 법정대리인(부모) 전원의 인감증명서 각 1통이 추가로 필요합니다.</div>
-</div>
-<div class="doc-section">
-<div class="doc-section-title">📁 직계비속이 아닌 경우 추가</div>
-<ul class="doc-list">
-<li>가계도 1통</li>
-</ul>
-</div>
-<div class="doc-section">
-<div class="doc-section-title">📁 한정승인 필수 첨부 서류</div>
-<ul class="doc-list">
-<li>상속재산목록 (적극재산·소극재산 모두 기재)</li>
-<li>상속재산목록 부본 1통</li>
-<li>소명자료 (등기부·잔액증명·부채증명서 등)</li>
-<li>납부서 (인지·송달료)</li>
-</ul>
-<div class="doc-note"><strong>특별한정승인의 경우 추가:</strong> 채무 초과 사실을 알게 된 시점을 소명하는 자료 (소장 사본, 독촉장, 송달증명서 등)를 첨부해야 합니다.</div>
-</div>` },
-      { heading: '비용 안내', content: `<p>한정승인 신고는 가사비송 라류 사건으로 처리됩니다. 법원 수수료는 청구인 수와 첨부 내용에 따라 달라질 수 있으므로 정확한 금액은 법원 접수 시 확인하시기 바랍니다.</p>
-<table class="cost-table">
-<thead>
-<tr><th>항목</th><th>산정 기준</th><th>비고</th></tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>인지액</strong></td>
-<td>사건본인(상속인) 1인당 일정 금액<br/>(가사비송 라류 기준)</td>
-<td>청구인 수에 비례</td>
-</tr>
-<tr>
-<td><strong>송달료</strong></td>
-<td>당사자 수 × 회당 단가 × 6회분</td>
-<td>접수 시 예납</td>
-</tr>
-<tr>
-<td><strong>재산목록 경정신청 비용</strong></td>
-<td>인지 일정 금액 + 송달료</td>
-<td>목록 수정이 필요한 경우</td>
-</tr>
-<tr>
-<td><strong>신문 공고 비용</strong></td>
-<td>일간신문 공고료</td>
-<td>청산 절차 진행 시</td>
-</tr>
-<tr>
-<td><strong>법무사 보수</strong></td>
-<td>법무사 보수 규정에 따름</td>
-<td>대리 신청 시</td>
-</tr>
-</tbody>
-</table>
-<div class="cost-note">※ 이 안내에는 정확한 금액을 기재하지 않습니다. 사건 규모·청구인 수에 따라 달라질 수 있으므로 법원 민원실 또는 법무사 사무실에 문의하시기 바랍니다.</div>` },
-      { heading: '관련 판례', content: `<div class="ruling-card">
-<div class="ruling-cite"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2015다75308" target="_blank" class="tag-case">⚖️ 대법원 2015다75308</a></div>
-<div class="ruling-text">한정승인자가 배당변제를 받을 수 있는 '알고 있는 채권자' 해당 여부는 채권신고의 최고를 하는 시점이 아니라 <strong>배당변제를 하는 시점</strong>을 기준으로 판단하여야 한다. 따라서 최고 시에는 알지 못했더라도 배당변제 전까지 알게 된 채권자에게는 배당변제를 해야 한다.</div>
-<div class="ruling-point">실무 포인트: 배당 직전에 알게 된 채권자라도 배당 대상에 포함해야 합니다. 채권자 목록을 지속적으로 업데이트하십시오.</div>
-</div>
-<div class="ruling-card">
-<div class="ruling-cite"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2003다29562" target="_blank" class="tag-case">⚖️ 대법원 2003다29562</a></div>
-<div class="ruling-text">상속인들이 상속재산 협의분할을 통해 이미 상속재산을 처분한 경우라도, 상속채무 초과사실을 중대한 과실 없이 알지 못하였다면 <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101900" target="_blank" class="tag-law">📋 민법 제1019조 제3항</a>에 의한 특별한정승인이 허용된다. 협의분할로 인해 한정승인 효력이 없다고 할 수 없다.</div>
-<div class="ruling-point">실무 포인트: 이미 상속재산을 처분(협의분할)했더라도 특별한정승인의 가능성은 열려 있습니다.</div>
-</div>
-<div class="ruling-card">
-<div class="ruling-cite"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2005두9491" target="_blank" class="tag-case">⚖️ 대법원 2005두9491</a></div>
-<div class="ruling-text">한정승인에 의하여 부동산을 상속받은 자에게는 취득세 납부의무가 있다. 부동산취득세는 소유권이전의 형식에 의한 부동산취득의 모든 경우를 포함하므로, 한정승인으로 상속받은 경우에도 취득세를 납부하여야 한다.</div>
-<div class="ruling-point">실무 포인트: 부동산이 있는 경우 한정승인자 명의로 이전등기 시 취득세가 발생합니다. 비용 계획 시 반드시 포함하십시오.</div>
-</div>
-<div class="ruling-card">
-<div class="ruling-cite"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2017다289651" target="_blank" class="tag-case">⚖️ 대법원 2017다289651</a></div>
-<div class="ruling-text">상속인이 단순승인을 하거나 법정단순승인된 후 한정승인신고를 하여 수리심판을 받은 경우, 해당 한정승인이 <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101900" target="_blank" class="tag-law">📋 민법 제1019조 제3항</a>의 요건을 갖춘 특별한정승인으로서 유효한지 여부를 법원이 심리·판단하여야 한다. 수리심판은 효력을 확정하는 것이 아니다.</div>
-<div class="ruling-point">실무 포인트: 수리심판을 받았다고 해서 한정승인의 효력이 완전히 확정되는 것은 아닙니다. 채권자가 소송으로 다툴 수 있으므로 요건을 충실히 갖추어야 합니다.</div>
-</div>` },
-      { heading: '주의사항', content: `<div class="warn-card">
-<div class="warn-title">⚠️ 재산목록 고의 누락 — 단순승인으로 간주됩니다</div>
-<p>한정승인 신고 후에도 재산목록에 고의로 기재하지 않은 재산이 발견되면 단순승인한 것으로 간주됩니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=102600" target="_blank" class="tag-law">📋 민법 제1026조 제3호</a>). 조금이라도 의심스러운 재산과 채무는 모두 목록에 포함하는 것이 안전합니다.</p>
-<p>재산목록에 기재하지 않은 재산을 나중에 발견하면 <strong>재산목록 경정신청</strong>을 통해 보완할 수 있습니다. 이미 수리된 한정승인의 효력이 취소되지는 않습니다.</p>
-</div>
-<div class="warn-card">
-<div class="warn-title">⚠️ 채권자 소송을 받은 경우 반드시 답변서 제출</div>
-<p>한정승인 수리 후 망인의 채권자가 상속채무 이행을 구하는 소송을 제기한 경우, 법원에 한정승인·특별한정승인을 했다는 사실을 담은 <strong>답변서를 반드시 제출</strong>해야 합니다. 답변서를 제출하지 않으면 한정승인의 이익을 주장하지 않은 것으로 처리될 수 있습니다.</p>
-</div>
-<div class="warn-card">
-<div class="warn-title">⚠️ 청산 전 상속재산 처분 금지</div>
-<p>한정승인 수리 후 청산 절차를 거치기 전에 상속재산을 임의로 처분하면, 채권자에 대한 배당이 감소하여 법적 책임을 질 수 있습니다. 청산 절차(공고 → 배당)가 완료되기 전까지 상속재산을 보존·관리해야 합니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=102200" target="_blank" class="tag-law">📋 민법 제1022조</a>).</p>
-</div>
-<div class="warn-card">
-<div class="warn-title">⚠️ 부동산 취득세 및 상속세 납부 의무</div>
-<p>한정승인으로 부동산을 상속받아 이전등기를 하는 경우, 취득세 납부 의무가 발생합니다(<a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2005두9491" target="_blank" class="tag-case">⚖️ 대법원 2005두9491</a>). 또한 상속재산이 상속세 과세기준을 초과하면 상속세도 신고·납부해야 합니다. 청산 비용에 세금을 반드시 포함하여 계획하십시오.</p>
-</div>
-<div class="warn-card">
-<div class="warn-title">⚠️ 보증채무는 한정승인으로 소멸하지 않습니다</div>
-<p>피상속인의 채무에 보증인이 있는 경우, 상속인이 한정승인을 하더라도 보증인의 책임은 그대로 유지됩니다. 보증인이 보증채무를 변제한 경우 구상권을 청산 절차에서 행사할 수 있습니다.</p>
-</div>` },
-      { heading: '자주 묻는 질문 (Q&amp;A)', content: `<div class="qna-item">
-<div class="qna-q"><span class="q-badge">Q</span>한정승인을 하면 채무를 전혀 갚지 않아도 되나요?</div>
-<div class="qna-a">
-<p>그렇지 않습니다. 한정승인을 하면 상속으로 얻은 재산의 한도 내에서 채무를 변제해야 합니다. 상속재산이 1억 원이고 채무가 2억 원이라면, 1억 원 한도 내에서 채무를 이행하면 나머지 1억 원에 대해서는 상속인의 고유재산으로 변제할 의무가 없습니다.</p>
-<p>단, 청산 절차(채권자 공고·배당)를 이행해야 이 한정 책임이 보장됩니다. 청산 절차 없이 임의로 처분하면 문제가 생길 수 있습니다.</p>
-<div class="qa-disclaimer">※ 이 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 조언이 아닙니다. 개별 사안에 대해서는 법무사 또는 변호사와 상담하시기 바랍니다.</div>
-</div>
-</div>
-<div class="qna-item">
-<div class="qna-q"><span class="q-badge">Q</span>3개월이 이미 지났습니다. 방법이 없나요?</div>
-<div class="qna-a">
-<p>3개월이 지났더라도 포기하지 마십시오. 채무 초과 사실을 뒤늦게 알게 된 경우 특별한정승인(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101900" target="_blank" class="tag-law">📋 민법 제1019조 제3항</a>)을 활용할 수 있습니다. 채무 초과 사실을 알게 된 날로부터 3개월 이내에 신고해야 하므로, 신속히 법무사나 변호사에게 상담을 받으시기 바랍니다.</p>
-<p>다만, 채무 초과 사실을 중대한 과실 없이 알지 못하였어야 한다는 요건이 있으므로, 사실관계를 면밀히 검토해야 합니다.</p>
-<div class="qa-disclaimer">※ 이 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 조언이 아닙니다.</div>
-</div>
-</div>
-<div class="qna-item">
-<div class="qna-q"><span class="q-badge">Q</span>상속재산에 부동산이 있는데, 어떻게 처리해야 하나요?</div>
-<div class="qna-a">
-<p>부동산이 있는 경우, 한정승인 수리 후 먼저 한정승인자 명의로 상속등기(소유권이전등기)를 마쳐야 합니다. 그 이후에 경매신청을 하여 부동산을 매각하고, 그 대금으로 채권자에게 배당변제합니다.</p>
-<p>이 과정에서 취득세가 발생합니다. 또한 경매 비용도 상속재산에서 공제되므로 비용 계획을 세워두시기 바랍니다.</p>
-<div class="qa-disclaimer">※ 이 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 조언이 아닙니다.</div>
-</div>
-</div>
-<div class="qna-item">
-<div class="qna-q"><span class="q-badge">Q</span>채권자가 소송을 제기했는데, 한정승인을 하면 소송에서 이길 수 있나요?</div>
-<div class="qna-a">
-<p>한정승인이 수리되었다고 해서 소송이 자동으로 기각되지는 않습니다. 채권자의 소송이 진행 중이라면, 법원에 한정승인 수리 사실을 담은 답변서를 반드시 제출해야 합니다. 한정승인이 유효하게 성립된 경우, 판결 주문에 '상속재산의 한도 내에서 이행하라'는 취지가 명시됩니다.</p>
-<p>이 경우 판결 금액이 상속재산을 초과하더라도, 상속인의 고유재산에는 강제집행을 할 수 없게 됩니다.</p>
-<div class="qa-disclaimer">※ 이 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 조언이 아닙니다.</div>
-</div>
-</div>
-<div class="qna-item">
-<div class="qna-q"><span class="q-badge">Q</span>공동상속인 중 1인만 한정승인하고 나머지가 포기하면, 채무는 그 1인이 다 부담하나요?</div>
-<div class="qna-a">
-<p>한정승인한 1인은 상속재산의 한도 내에서만 채무를 부담합니다. 포기한 상속인들은 처음부터 상속인이 아닌 것으로 간주되므로 채무를 부담하지 않습니다.</p>
-<p>한정승인자는 상속재산 전체를 관리하고 청산 절차를 진행하게 됩니다. 결과적으로 청산 후 잔여재산이 있으면 한정승인자가 이를 취득할 수 있습니다.</p>
-<div class="qa-disclaimer">※ 이 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 조언이 아닙니다.</div>
-</div>
-</div>
-<div class="qna-item">
-<div class="qna-q"><span class="q-badge">Q</span>한정승인 신고 후 목록에서 빠진 재산을 발견했습니다. 어떻게 하나요?</div>
-<div class="qna-a">
-<p>이미 수리된 한정승인의 상속재산목록을 보완할 필요가 있다면 <strong>상속재산목록 경정신청</strong>을 법원에 제출할 수 있습니다. 경정신청서에 수정된 목록을 첨부하면 됩니다.</p>
-<p>단, 고의로 누락한 것이 아닌 경우에는 단순승인으로 간주되지 않습니다. 다만 추후 채권자와의 분쟁에서 고의성을 다투는 상황이 생길 수 있으므로, 경정신청을 통해 목록을 정확하게 유지하는 것이 바람직합니다.</p>
-<div class="qa-disclaimer">※ 이 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 조언이 아닙니다.</div>
-</div>
-</div>` },
-      { heading: '다음으로 확인할 내용', content: `<div class="nav-cards">
-<a class="nav-card prev" href="상속_06_상속포기.html">
-<div class="nc-dir">← 이전 페이지</div>
-<div class="nc-title">상속포기<br/>절차와 준비서류</div>
-<div class="nc-desc">한정승인 대신 상속포기를 선택하려는 경우 이 페이지를 확인하세요.</div>
-</a>
-<a class="nav-card next" href="상속_08_다음페이지.html">
-<div class="nc-dir">다음 페이지 →</div>
-<div class="nc-title">다음 주제로 이어집니다</div>
-<div class="nc-desc">상속등기 절차 및 이후 단계로 이어집니다.</div>
-</a>
-</div>` },
-      { heading: '한정승인과 청산, 혼자 하기 복잡하신가요?', content: `<p>재산목록 작성부터 채권자 공고·배당·부동산 경매까지, 전문 법무사가 전 과정을 도와드립니다.<br/>3개월 기한이 촉박하다면 지금 바로 연락하세요.</p>
-<a class="cta-btn" href="#contact">무료 상담 예약하기</a>
-<p class="cta-sub">상담은 무료이며, 비밀이 보장됩니다.</p>
-</div>` }
     ],
-    laws: [
-      { name: '민법 제1026조', desc: '' },
-      { name: '민법 제1019조 제3항', desc: '' },
-      { name: '민법 제1019조 제1항', desc: '' },
-      { name: '민법 제1028조', desc: '' },
-      { name: '민법 제1032조', desc: '' },
-      { name: '민법 제89조', desc: '' },
-      { name: '민법 제1034조 제1항', desc: '' },
-      { name: '민법 제1039조', desc: '' },
-      { name: '민법 제1026조 제3호', desc: '' },
-      { name: '민법 제1022조', desc: '' }
-    ],
-    forms: []
+    laws: [],
+    faq: [{"q":"Q. 형제 중 한 명만 포기해도 되나요?","a":"됩니다. 포기는 사람마다 따로 하고, 포기한 사람의 몫은 포기하지 않은 상속인들에게 나뉘어 돌아갑니다. 남은 형제가 빚을 더 많이 떠안게 되므로 미리 의논하십시오. 📋 근거 1 📋 민법 제1043조"},{"q":"Q. 손자녀가 미성년자이면 누가 포기하나요?","a":"부모가 법정대리인으로 신고합니다. 부모 자신이 앞 순위로 포기한 경우에도 다음 순위가 된 미성년 자녀를 위해 따로 신고해야 하므로, 가족 구성을 보고 함께 준비합니다."},{"q":"Q. 포기하면 사망보험금도 못 받나요?","a":"수익자를 '상속인'으로 정한 사망보험금은 상속인 고유의 재산으로 보아 포기와 관계없이 받을 수 있다는 것이 대법원 판단입니다. 다만 국세 승계에서는 따로 계산되므로, 증권과 약관을 가지고 포기 전에 상담받으십시오. 📋 근거 2 📋 대법원 2001. 12. 28. 선고 2000다31502 판결 📋 국세기본법 제24조 제1항·제2항"},{"q":"Q. 신고를 한 뒤 결과를 기다리는 동안 고인의 집을 정리해도 되나요?","a":"수리 심판을 고지받기 전에는 상속재산을 관리할 책임이 있고, 처분으로 볼 수 있는 행동은 피해야 합니다. 꼭 필요한 정리라면 먼저 상담하십시오. 📋 근거 2 📋 대법원 2021. 9. 15. 선고 2021다224446 판결(배당이의) 📋 민법 제1026조"},{"q":"Q. 빚이 있는 줄 모르고 3개월이 지났습니다.","a":"중대한 과실 없이 빚이 더 많다는 것을 몰랐다면, 안 날부터 3개월 안에 특별한정승인을 할 수 있습니다. 「석 달이 지나 빚을 알았을 때 — 특별한정승인」 페이지를 보십시오. 📋 근거 1 📋 민법 제1019조"}],
+    forms: [],
   },
   {
-    id: 'in-08',
-    title: '상속분 계산 — 내 상속분은 얼마지?',
-    meta: '법정상속분 공식부터 대습상속까지 한눈에 확인하는 실전 계산 안내',
+    id: "in-07",
+    title: "한정승인 절차와 청산 — 신고부터 채권자 배당까지",
+    meta: "한정승인은 상속이 시작된 것을 안 날부터 3개월 안에 재산목록을 붙여 가정법원에 신고하고, 받아들여지면 상속인이 직접 청산합니다. 신고부터 공고·배당까지 절차와 서류, 비용을 안내합니다.",
+    reviewed: "2026-11-12",
+    kb: "H-B02",
     sections: [
-      { heading: '이런 분께 도움이 됩니다', content: `<ul class="target-list">
+      { heading: "이런 분께 필요합니다", content: `<ul class="checklist"><li> 재산과 빚 중 어느 쪽이 많은지 몰라 한정승인을 하려고 한다</li><li> 한정승인 결정을 받았는데 그다음에 무엇을 해야 하는지 모르겠다</li><li> 상속받은 집이나 땅을 처분해 빚을 갚아야 한다</li><li> 채권자가 여러 곳이라 누구에게 얼마를 갚아야 하는지 막막하다</li><li> 한정승인을 했는데 채권자가 소송을 걸어 왔다</li></ul>` },
+      { heading: "핵심정리", content: `<div class="kb-box kb-summary"><p>한정승인은 <strong>물려받은 재산 범위에서만 빚을 갚는</strong> 상속 방법입니다. 상속이 시작된 것을 안 날부터 3개월 안에 <strong>재산목록을 붙여 법원에 신고</strong>하고, 받아들여진 뒤에는 <strong>채권자에게 알리고 재산을 나눠 갚는 청산</strong>을 상속인이 직접 해야 합니다. 신고만 하고 청산을 하지 않거나 순서를 어겨 갚으면 그 손해를 상속인이 물어낼 수 있습니다.</p><details class="refs-mini"><summary>📋 근거 6</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1028조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1028조</a><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a><a href="https://www.law.go.kr/법령/민법/제1030조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1030조</a><a href="https://www.law.go.kr/법령/민법/제1032조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1032조</a><a href="https://www.law.go.kr/법령/민법/제1034조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1034조</a><a href="https://www.law.go.kr/법령/민법/제1038조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1038조</a></div></details></div>` },
+      { heading: "상세설명", content: `<h3>왜 포기 대신 한정승인을 고르나요?</h3><div class="table-wrap"><table><tr><th>상황</th><th>한정승인이 맞는 이유</th></tr><tr><td data-label="상황">재산과 빚 중 어느 쪽이 많은지 모를 때</td><td data-label="한정승인이 맞는 이유">재산이 남으면 상속인이 갖고, 모자라면 재산 범위에서만 갚기 때문입니다</td></tr><tr><td data-label="상황">다음 순위 가족에게 빚을 넘기고 싶지 않을 때</td><td data-label="한정승인이 맞는 이유">포기는 몫이 다른 상속인이나 다음 순위로 넘어가지만, 한정승인은 상속인으로 남아 순위가 넘어가지 않습니다</td></tr><tr><td data-label="상황">집처럼 지키고 싶은 재산이 있을 때</td><td data-label="한정승인이 맞는 이유">청산 과정에서 그 가치를 마련해 정리하는 방법을 검토할 수 있습니다</td></tr></table></div><details class="refs-mini"><summary>📋 근거 3</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1028조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1028조</a><a href="https://www.law.go.kr/법령/민법/제1042조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1042조</a><a href="https://www.law.go.kr/법령/민법/제1043조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1043조</a></div></details>
+<p>상속인이 여럿이면 <strong>각자 따로</strong> 한정승인을 할 수 있습니다. 이때 각 상속인은 자기 상속분에 따라 받을 재산 한도에서 자기 상속분만큼의 빚을 갚습니다. 예를 들어 배우자는 한정승인, 자녀는 포기처럼 가족마다 다른 선택을 하는 경우가 많으므로, 누가 무엇을 할지 함께 정합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1029조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1029조</a></div></details>
+<p>3개월은 돌아가신 사실과 자신이 상속인이 된 것을 안 날부터 셉니다. 빚이 있는 것을 안 날이 아닙니다. 재산목록 작성이 늦어지면 기간이 끝나기 전에 가정법원에 연장을 청구할 수 있습니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(86%EC%8A%A410)" target="_blank" rel="noopener" class="tag-law">📋 대법원 1986. 4. 22.자 86스10 결정</a><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a></div></details><h3>한정승인하면 어떤 효과가 생기나요?</h3><ul class=""><li><strong>빚은 물려받되, 갚을 책임은 물려받은 재산 범위로 줄어듭니다.</strong> 모자라는 빚을 자기 돈으로 갚지 않아도 되고, 청산 뒤 남는 재산은 상속인이 갖습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1028조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1028조</a></div></details></li><li><strong>상속인으로 남으므로</strong> 다음 순위 가족에게 빚이 넘어가지 않습니다. 공동상속인은 각자 자기 상속분 범위에서 효과를 받습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1029조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1029조</a></div></details></li><li><strong>상속인이 고인에게 받을 돈이나 갚을 돈은</strong> 한정승인을 해도 없어지지 않습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1031조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1031조</a></div></details></li><li><strong>판례</strong></li></ul>
+<p>- 한정승인을 주장하면 판결에 &quot;상속재산의 범위에서&quot; 지급하라는 제한이 붙습니다(<a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2003%EB%8B%A430968)" target="_blank" rel="noopener" class="case-link">대법원 2003. 11. 14. 선고 2003다30968 판결</a>).   - 주장하지 못한 채 판결이 확정되었더라도 청구이의의 소를 낼 수 있습니다(<a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2006%EB%8B%A423138)" target="_blank" rel="noopener" class="case-link">대법원 2006. 10. 13. 선고 2006다23138 판결</a>).   - 제한이 붙은 판결로 상속인 자신의 재산에 집행하면 제3자이의의 소 등으로 다툽니다(<a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2005%EA%B7%B8128)" target="_blank" rel="noopener" class="case-link">대법원 2005. 12. 19.자 2005그128 결정</a>).</p><details class="refs-mini"><summary>📋 근거 3</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2003%EB%8B%A430968)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2003. 11. 14. 선고 2003다30968 판결</a><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2006%EB%8B%A423138)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2006. 10. 13. 선고 2006다23138 판결(청구이의)</a><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2005%EA%B7%B8128)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2005. 12. 19.자 2005그128 결정</a></div></details><h3>한정승인은 어떻게 진행되나요?</h3><p>창원에 사는 R씨의 아버지가 돌아가시며 시가 1억 5천만원쯤 되는 단독주택과 카드사·저축은행·개인 채권자 등 빚 2억원가량을 남겼습니다. 어머니와 R씨 남매가 상속인입니다(설명을 위한 가상 사례입니다).</p>
+<p>R씨 가족은 한정승인을 신고하면서 주택과 예금 등을 재산목록에 적습니다. 법원이 받아들이면 <strong>5일 안에</strong> 채권자들에게 2개월 이상의 기간을 정해 채권을 신고하라고 공고하고, 알고 있는 채권자에게는 따로 알립니다. 신고기간이 끝나면 주택을 경매로 팔아 생긴 돈을 담보권자부터 정리한 뒤, 신고한 채권자와 알고 있던 채권자에게 <strong>빚의 비율대로</strong> 나눠 갚습니다. 모자라는 빚은 R씨 가족이 자기 돈으로 갚지 않아도 됩니다.</p><details class="refs-mini"><summary>📋 근거 6</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1030조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1030조</a><a href="https://www.law.go.kr/법령/민법/제1032조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1032조</a><a href="https://www.law.go.kr/법령/민법/제89조" target="_blank" rel="noopener" class="tag-law">📋 민법 제89조</a><a href="https://www.law.go.kr/법령/민법/제1037조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1037조</a><a href="https://www.law.go.kr/법령/민법/제1034조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1034조</a><a href="https://www.law.go.kr/법령/민법/제1028조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1028조</a></div></details>
+<p><strong>배당을 숫자로 보면</strong>(가상 계산): 주택이 1억 5천만원에 팔리고, 경매 비용을 뺀 뒤 주택에 설정된 근저당 채권 5천만원을 먼저 정리해 1억원이 남았다고 합시다. 일반 채권이 카드사 6천만원·저축은행 6천만원·개인 3천만원으로 모두 1억 5천만원이면, 각자 채권액 비율(40%·40%·20%)로 4천만원·4천만원·2천만원을 받습니다. 나머지 5천만원은 R씨 가족이 갚지 않습니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1034조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1034조</a><a href="https://www.law.go.kr/법령/민법/제1028조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1028조</a></div></details><h3>절차는 어떻게 진행되나요?</h3><ol class=""><li><strong>재산·빚 조사</strong> — 안심상속 조회 결과와 등기부·통장 자료로 재산과 빚을 정리합니다.</li><li><strong>한정승인 신고</strong> — 3개월 안에 재산목록을 붙여 돌아가신 분 마지막 주소지 관할 가정법원에 신고합니다. 재산을 일부러 목록에서 빼면 단순승인이 됩니다.<details class="refs-mini"><summary>📋 근거 3</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1030조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1030조</a><a href="https://www.law.go.kr/법령/가사소송법/제44조" target="_blank" rel="noopener" class="tag-law">📋 가사소송법 제44조 제1항 제6호</a><a href="https://www.law.go.kr/법령/민법/제1026조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1026조</a></div></details></li><li><strong>수리 심판</strong> — 법원이 신고를 받아들이면 그때부터 청산이 시작됩니다.</li><li>⚡ <strong>공고와 개별 통지</strong> — 받아들여진 날부터 5일 안에 채권 신고를 공고하고(신고기간 2개월 이상), 알고 있는 채권자에게는 각각 신고를 요청합니다. 이 기간에는 변제를 거절할 수 있습니다.<details class="refs-mini"><summary>📋 근거 4</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1032조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1032조</a><a href="https://www.law.go.kr/법령/민법/제88조" target="_blank" rel="noopener" class="tag-law">📋 민법 제88조</a><a href="https://www.law.go.kr/법령/민법/제89조" target="_blank" rel="noopener" class="tag-law">📋 민법 제89조</a><a href="https://www.law.go.kr/법령/민법/제1033조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1033조</a></div></details></li><li><strong>재산 현금화</strong> — 갚기 위해 부동산 등을 팔아야 하면 민사집행법에 따른 경매로 팝니다. 경매를 신청하려면 부동산을 먼저 상속인 명의로 상속등기해 둡니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1037조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1037조</a><a href="https://www.law.go.kr/법령/민사집행법/제274조" target="_blank" rel="noopener" class="tag-law">📋 민사집행법 제274조</a></div></details></li><li><strong>배당 변제</strong> — 담보권 등 우선권 있는 채권을 먼저 정리하고, 남은 돈을 신고한 채권자와 알고 있던 채권자에게 채권액 비율로 나눕니다. 아직 갚을 날이 오지 않은 빚도 함께 나눕니다. 유증받은 사람은 채권자에게 다 갚은 뒤에야 받습니다.<details class="refs-mini"><summary>📋 근거 3</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1034조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1034조</a><a href="https://www.law.go.kr/법령/민법/제1035조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1035조</a><a href="https://www.law.go.kr/법령/민법/제1036조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1036조</a></div></details></li><li><strong>마무리</strong> — 신고하지 않았고 상속인도 몰랐던 채권자는 남은 재산이 있을 때만 받을 수 있습니다. 배당 내역과 영수증을 정리해 보관합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1039조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1039조</a></div></details></li></ol><h3>재산목록은 어떻게 쓰나요?</h3><div class="table-wrap"><table><tr><th>구분</th><th>적을 것</th><th>근거 자료</th></tr><tr><td data-label="구분">적극재산</td><td data-label="적을 것">부동산, 예금, 주식, 자동차, 보험 해지환급금, 임대차보증금 반환채권, 받을 돈</td><td data-label="근거 자료">등기사항증명서, 금융 조회 결과, 자동차등록원부</td></tr><tr><td data-label="구분">소극재산</td><td data-label="적을 것">대출, 카드대금, 보증채무, 세금 체납, 개인에게 빌린 돈</td><td data-label="근거 자료">금융 조회 결과, 독촉장, 차용증</td></tr><tr><td data-label="구분">가액</td><td data-label="적을 것">기준 시점(사망일)과 평가 근거</td><td data-label="근거 자료">공시가격·시세 자료, 잔액증명</td></tr></table></div>
+<p>목록은 법원과 채권자가 모두 보는 자료입니다. 모르는 재산은 &quot;확인 중&quot;으로 적더라도 알고 있는 재산을 빼서는 안 됩니다. 돌아가신 분에게 상속인이 받을 돈이나 갚을 돈이 있었다면 한정승인을 해도 사라지지 않으므로 함께 적습니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1026조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1026조</a><a href="https://www.law.go.kr/법령/민법/제1031조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1031조</a></div></details><h3>얼마나 걸리나요?</h3><div class="table-wrap"><table><tr><th>단계</th><th>기간</th><th>근거</th></tr><tr><td data-label="단계">⚡ 한정승인 신고</td><td data-label="기간">상속이 시작된 것을 안 날부터 3개월 안</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a></div></td></tr><tr><td data-label="단계">⚡ 채권 신고 공고</td><td data-label="기간">한정승인한 날부터 5일 안</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1032조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1032조</a></div></td></tr><tr><td data-label="단계">채권 신고기간</td><td data-label="기간">2개월 이상</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1032조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1032조</a></div></td></tr><tr><td data-label="단계">경매·배당</td><td data-label="기간">법이 정한 기간 없음 — 재산 종류와 법원 일정에 따라 다름</td><td data-label="근거">—</td></tr></table></div><h3>무엇을 준비하나요?</h3><p>법이 첨부하라고 정한 것은 <strong>상속재산목록</strong>과 <strong>신고인(대리인이 신고하면 대리인)의 인감증명서</strong>입니다. 그 밖의 가족관계·주소 서류는 신고서 내용을 확인하기 위해 법원이 안내하는 서류입니다.</p><details class="refs-mini"><summary>📋 근거 3</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1030조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1030조</a><a href="https://www.law.go.kr/법령/가사소송규칙/제75조" target="_blank" rel="noopener" class="tag-law">📋 가사소송규칙 제75조</a><a href="https://ecfs.scourt.go.kr/psp/index.on?m=PSP731M04" target="_blank" rel="noopener" class="tag-law">📋 전자소송포털 「가사비송 개요 — 첨부서류 및 소송비용 안내」</a></div></details>
+<div class="table-wrap"><table><tr><th>서류·자료</th><th>누구의 것</th><th>확인하는 사항</th><th>구분</th></tr><tr><td data-label="서류·자료"><strong>상속재산목록</strong></td><td data-label="누구의 것">신고인</td><td data-label="확인하는 사항">부동산·예금·자동차·보험해지환급금 등 재산과 빚을 빠짐없이</td><td data-label="구분">민법이 정한 첨부</td></tr><tr><td data-label="서류·자료">인감증명서</td><td data-label="누구의 것">신고인 각자(대리인이 신고하면 대리인)</td><td data-label="확인하는 사항">신고인 본인 확인</td><td data-label="구분">규칙이 정한 첨부서류</td></tr><tr><td data-label="서류·자료">주민등록등본</td><td data-label="누구의 것">신고인 각자</td><td data-label="확인하는 사항">신고인 주소</td><td data-label="구분">법원 안내</td></tr><tr><td data-label="서류·자료">가족관계증명서</td><td data-label="누구의 것">돌아가신 분·신고인 각자</td><td data-label="확인하는 사항">상속인 범위, 돌아가신 분과의 관계</td><td data-label="구분">법원 안내</td></tr><tr><td data-label="서류·자료">기본증명서</td><td data-label="누구의 것">신고인 각자</td><td data-label="확인하는 사항">신분</td><td data-label="구분">법원 안내</td></tr><tr><td data-label="서류·자료">말소자 주민등록등본</td><td data-label="누구의 것">돌아가신 분</td><td data-label="확인하는 사항">마지막 주소 → 신고할 가정법원</td><td data-label="구분">법원 안내</td></tr><tr><td data-label="서류·자료">제적등본(2007. 12. 31. 이전 사망신고) 또는 폐쇄 가족관계등록부에 따른 기본증명서(2008. 1. 1. 이후 사망신고)</td><td data-label="누구의 것">돌아가신 분</td><td data-label="확인하는 사항">사망 사실과 날짜</td><td data-label="구분">법원 안내</td></tr><tr><td data-label="서류·자료">안심상속 조회 결과, 등기사항증명서, 통장 거래내역</td><td data-label="누구의 것">돌아가신 분</td><td data-label="확인하는 사항">재산목록을 만드는 자료</td><td data-label="구분">사무소 안내</td></tr><tr><td data-label="서류·자료">받은 독촉장·소장·채권 통지서</td><td data-label="누구의 것">돌아가신 분</td><td data-label="확인하는 사항">알고 있는 채권자 목록 작성</td><td data-label="구분">사무소 안내</td></tr></table></div><details class="refs-mini"><summary>📋 근거 3</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1030조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1030조</a><a href="https://www.law.go.kr/법령/가사소송규칙/제75조" target="_blank" rel="noopener" class="tag-law">📋 가사소송규칙 제75조</a><a href="https://ecfs.scourt.go.kr/psp/index.on?m=PSP731M04" target="_blank" rel="noopener" class="tag-law">📋 전자소송포털 「가사비송 개요 — 첨부서류 및 소송비용 안내」</a></div></details>
+<p>법원 안내는 바뀔 수 있으니 접수 직전에 한 번 더 확인합니다.</p><h3>비용은 어떻게 되나요?</h3><div class="table-wrap"><table><tr><th>항목</th><th>내용</th></tr><tr><td data-label="항목">인지</td><td data-label="내용">신고인 1명마다 서면 5,000원, 전자 4,500원</td></tr><tr><td data-label="항목">송달료</td><td data-label="내용">신고인 1명마다 33,840원(법원 안내 기준)</td></tr><tr><td data-label="항목">공고 게재료</td><td data-label="내용">공고 매체에 내는 실비</td></tr><tr><td data-label="항목">경매 비용</td><td data-label="내용">부동산 등을 경매할 때 법원에 미리 내는 비용(매각대금에서 먼저 정산)</td></tr><tr><td data-label="항목">법무사 보수</td><td data-label="내용">신고서 작성과 청산 단계별 서류(공고·통지·경매 신청·배당표 등)를 보고 법무사 보수기준에 따라 견적을 드립니다</td></tr></table></div><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/가사소송수수료규칙" target="_blank" rel="noopener" class="tag-law">📋 가사소송수수료규칙 제3조 제1항·제8조</a><a href="https://ecfs.scourt.go.kr/psp/index.on?m=PSP731M04" target="_blank" rel="noopener" class="tag-law">📋 전자소송포털 「가사비송 개요 — 첨부서류 및 소송비용 안내」</a></div></details>` },
+      { heading: "자주 묻는 질문", content: `<details class="qa"><summary>Q. 한정승인을 하면 빚 독촉이 바로 멈추나요?</summary><div class="ans"><p>신고기간이 끝나기 전에는 변제를 거절할 수 있지만, 채권자가 소송을 걸면 재판에서 한정승인 사실을 주장해야 합니다. 소장을 받았다면 「상속 채권자에게 소송·압류를 당했을 때」를 함께 보십시오.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1033조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1033조</a></div></details></div></details><details class="qa"><summary>Q. 한정승인을 하면 빚이 없어지나요?</summary><div class="ans"><p>없어지지 않습니다. 빚은 그대로이고 갚을 책임만 상속재산 범위로 줄어듭니다. 그래서 채권자가 소송을 할 수 있고, 판결에는 상속재산 범위의 제한이 붙습니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1028조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1028조</a><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2003%EB%8B%A430968)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2003. 11. 14. 선고 2003다30968 판결</a></div></details></div></details><details class="qa"><summary>Q. 집을 꼭 경매로 팔아야 하나요?</summary><div class="ans"><p>갚기 위해 상속재산을 팔아야 할 때 법은 민사집행법에 따른 경매로 하도록 정하고 있습니다. 상속인이 그 집을 계속 갖고 싶다면 그 가치를 따로 마련하는 방법 등을 청산 계획 단계에서 함께 검토합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1037조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1037조</a></div></details></div></details><details class="qa"><summary>Q. 공고는 어디에 하나요?</summary><div class="ans"><p>법원의 등기사항 공고와 같은 방법으로 하도록 정해져 있습니다. 실무에서는 신문에 공고하는 경우가 많고, 매체와 문안은 사건에 맞춰 준비합니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제88조" target="_blank" rel="noopener" class="tag-law">📋 민법 제88조</a><a href="https://www.law.go.kr/법령/민법/제1032조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1032조</a></div></details></div></details><details class="qa"><summary>Q. 청산이 너무 복잡하면 다른 방법이 있나요?</summary><div class="ans"><p>채권자가 많고 재산 처분이 복잡하면 파산관재인이 청산을 맡는 상속재산파산을 검토할 수 있습니다. 한정승인 후 청산과 어느 쪽이 나은지는 재산·빚 구성을 보고 판단합니다.</p></div></details>` },
+      { heading: "주의사항", content: `<section class="box warn"><ul class=""><li>⚡ <strong>5일을 넘기지 마십시오.</strong> 공고를 늦추거나, 공고기간 중에 특정 채권자에게 먼저 갚거나, 순서를 어겨 갚아 다른 채권자에게 손해가 생기면 상속인이 배상해야 합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1038조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1038조</a></div></details></li><li><strong>상속재산에 자기 빚의 담보를 잡히지 마십시오.</strong> 상속인이 자기 채권자에게 상속받은 부동산을 담보로 제공하면, 그 담보권자가 돌아가신 분의 채권자보다 먼저 받습니다. 이 경우 다른 채권자와의 다툼으로 이어집니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2007%EB%8B%A477781)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2010. 3. 18. 선고 2007다77781 전원합의체 판결</a></div></details></li><li><strong>세금이 따라올 수 있습니다.</strong> 한정승인을 해도 상속등기에는 취득세가 들고, 상속받은 부동산이 경매로 팔리면 그 양도소득세를 상속인이 내야 한다는 것이 대법원 입장입니다. 처분 전에 세금을 함께 따져야 합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2010%EB%91%9013630)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2012. 9. 13. 선고 2010두13630 판결</a></div></details></li><li><strong>사망보험금을 받았다면</strong>: 한정승인한 상속인이 돌아가신 분이 든 보험의 사망보험금을 받으면, 돌아가신 분의 국세를 승계하는 범위에서는 그 보험금 전액을 상속받은 재산으로 봅니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/국세기본법/제24조" target="_blank" rel="noopener" class="tag-law">📋 국세기본법 제24조 제1항·제2항</a></div></details></li><li><strong>재산목록은 정직하게 쓰십시오.</strong> 일부러 빼거나, 한정승인 뒤 재산을 숨기거나 써 버리면 단순승인으로 봅니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1026조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1026조</a></div></details></li><li><strong>관리 책임이 있습니다.</strong> 청산이 끝날 때까지 상속재산을 자기 재산과 같은 정도의 주의로 관리해야 합니다. 상속인이 여럿이면 법원은 공동상속인 중에서 상속재산관리인을 선임할 수 있고, 그 사람이 청산을 맡습니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1022조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1022조</a><a href="https://www.law.go.kr/법령/민법/제1040조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1040조</a></div></details></li></ul></section>` },
+      { heading: "다음에 확인할 사항", content: `<ul><li><a href="/guide/inheritance/in-05.html">빚이 더 많을 때</a></li><li><a href="/guide/inheritance/in-06.html">상속포기 절차</a></li><li><a href="/guide/inheritance/in-27.html">석 달이 지나 빚을 알았을 때</a></li><li><a href="/guide/inheritance/in-28.html">돌아가신 분의 채권자에게 소송·압류를 당했을 때</a></li><li><a href="/guide/inheritance/in-26.html">상속재산 통합조회(안심상속 원스톱서비스)</a></li></ul>` },
+      { heading: "이 내용이 해당되시나요?", content: `<div class="kb-box kb-cta"><p>직접 처리하시기 어려운 부분을 법무사가 함께 검토합니다. 이런 경우 상담을 권합니다.</p>
+<ul class=""><li>재산목록에 무엇을 어떻게 적어야 할지 모를 때</li><li>가족마다 포기·한정승인 중 무엇을 할지 정해야 할 때</li><li>한정승인 결정을 받았는데 공고·통지·배당을 어떻게 할지 막막할 때</li><li>상속받은 부동산을 팔아야 하거나 세금 문제가 걱정될 때</li><li>채권자에게 소송이나 압류를 당했을 때</li></ul>
+<p class="note">법무사는 한정승인 신고서와 재산목록을 작성해 가정법원에 제출하고, 이어지는 공고·채권자 통지·상속등기·경매 신청·배당표 등 청산 단계의 서류도 작성해 제출합니다. 채권자의 소송에 대응하는 답변서와 청구이의 소장도 작성해 드립니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/법무사법/제2조" target="_blank" rel="noopener" class="tag-law">📋 법무사법 제2조</a></div></details>
+</div>` },
+    ],
+    laws: [],
+    faq: [{"q":"Q. 한정승인을 하면 빚 독촉이 바로 멈추나요?","a":"신고기간이 끝나기 전에는 변제를 거절할 수 있지만, 채권자가 소송을 걸면 재판에서 한정승인 사실을 주장해야 합니다. 소장을 받았다면 「상속 채권자에게 소송·압류를 당했을 때」를 함께 보십시오. 📋 근거 1 📋 민법 제1033조"},{"q":"Q. 한정승인을 하면 빚이 없어지나요?","a":"없어지지 않습니다. 빚은 그대로이고 갚을 책임만 상속재산 범위로 줄어듭니다. 그래서 채권자가 소송을 할 수 있고, 판결에는 상속재산 범위의 제한이 붙습니다. 📋 근거 2 📋 민법 제1028조 📋 대법원 2003. 11. 14. 선고 2003다30968 판결"},{"q":"Q. 집을 꼭 경매로 팔아야 하나요?","a":"갚기 위해 상속재산을 팔아야 할 때 법은 민사집행법에 따른 경매로 하도록 정하고 있습니다. 상속인이 그 집을 계속 갖고 싶다면 그 가치를 따로 마련하는 방법 등을 청산 계획 단계에서 함께 검토합니다. 📋 근거 1 📋 민법 제1037조"},{"q":"Q. 공고는 어디에 하나요?","a":"법원의 등기사항 공고와 같은 방법으로 하도록 정해져 있습니다. 실무에서는 신문에 공고하는 경우가 많고, 매체와 문안은 사건에 맞춰 준비합니다. 📋 근거 2 📋 민법 제88조 📋 민법 제1032조"},{"q":"Q. 청산이 너무 복잡하면 다른 방법이 있나요?","a":"채권자가 많고 재산 처분이 복잡하면 파산관재인이 청산을 맡는 상속재산파산을 검토할 수 있습니다. 한정승인 후 청산과 어느 쪽이 나은지는 재산·빚 구성을 보고 판단합니다."}],
+    forms: [],
+  },
+  {
+    id: "in-27",
+    title: "석 달이 지나 빚을 알았을 때 — 특별한정승인",
+    meta: "빚이 더 많다는 사실을 큰 잘못 없이 3개월 안에 몰랐다면, 그 사실을 안 날부터 3개월 안에 특별한정승인을 할 수 있습니다. 요건과 증명 방법, 미성년 상속인 특례를 안내합니다.",
+    reviewed: "2026-11-08",
+    kb: "H-B03",
+    sections: [
+      { heading: "이런 분께 필요합니다", content: `<ul class="checklist"><li> 부모님이 돌아가신 지 몇 달, 몇 년이 지나 갑자기 빚 독촉이나 소장을 받았다</li><li> 장례 후 아무 신고도 하지 않아 상속을 받은 것으로 되어 버렸다</li><li> 고인의 보증 빚처럼 조회되지 않던 빚이 뒤늦게 나왔다</li><li> 어릴 때 부모님이 돌아가셨는데 성인이 된 뒤 빚을 알게 되었다</li></ul>` },
+      { heading: "핵심정리", content: `<div class="kb-box kb-summary"><p>상속 빚이 재산보다 많다는 사실을 <strong>큰 잘못 없이 3개월 안에 알지 못했다면</strong>, 그 사실을 안 날부터 3개월 안에 한정승인을 할 수 있습니다. 이를 특별한정승인이라고 합니다. 미성년일 때 상속을 받은 경우에는 <strong>성년이 된 뒤</strong> 빚이 더 많다는 것을 안 날부터 3개월 안에 할 수 있습니다. 이 미성년 특례는 2022. 12. 13.부터 생겼지만, 그 전에 시작된 상속이라도 당시 미성년자였거나, 성년이 되기 전에 단순승인하고 2022. 12. 13. 이후에 빚이 더 많다는 것을 알게 된 경우에는 쓸 수 있습니다. 기한이 이미 지났다고 단정하기 전에 이 길이 남아 있는지 먼저 확인하십시오.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a><a href="https://www.law.go.kr/법령/민법" target="_blank" rel="noopener" class="tag-law">📋 민법 부칙 제1조·제2조</a></div></details></div>` },
+      { heading: "상세설명", content: `<h3>뒤늦게 안 빚, 아직 방법이 있나요?</h3><p>부산에 사는 S씨는 1년 전 아버지를 여의었습니다. 아버지 명의 재산은 오래된 차 한 대뿐이었고 따로 아는 빚이 없어 아무 신고도 하지 않았습니다. 그런데 최근 아버지가 지인의 사업 대출에 보증을 섰다며 1억원을 갚으라는 소장을 받았습니다(설명을 위한 가상 사례입니다).</p>
+<p>S씨는 3개월 안에 아무것도 하지 않아 단순승인을 한 것으로 되었습니다. 하지만 보증 빚은 조회되지 않았고 아버지와 이에 관해 이야기한 적도 없었다면, <strong>빚이 더 많다는 사실을 큰 잘못 없이 몰랐던 것</strong>으로 볼 여지가 있습니다. 그렇다면 소장을 받아 그 사실을 안 날부터 3개월 안에 특별한정승인을 신고해, 물려받은 재산 범위에서만 책임질 수 있습니다.</p><details class="refs-mini"><summary>📋 근거 3</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1026조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1026조</a><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a><a href="https://www.law.go.kr/법령/민법/제1034조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1034조</a></div></details><h3>무엇으로 판단하나요?</h3><div class="table-wrap"><table><tr><th>확인할 것</th><th>이런 경우</th><th>가까운 길</th><th>근거</th></tr><tr><td class="grp" rowspan="2" data-label="확인할 것">지금 어떤 상태인가요?</td><td data-label="이런 경우">3개월 안에 아무 신고도 하지 않았거나, 재산을 처분해 단순승인이 되었다</td><td data-label="가까운 길">특별한정승인을 검토할 수 있습니다</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a><a href="https://www.law.go.kr/법령/민법/제1026조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1026조</a></div></td></tr><tr><td data-label="이런 경우">한정승인·포기 후 재산을 숨기거나 써 버려 단순승인이 되었다</td><td data-label="가까운 길">특별한정승인 대상이 아닙니다</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a><a href="https://www.law.go.kr/법령/민법/제1026조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1026조</a></div></td></tr><tr><td class="grp" rowspan="2" data-label="확인할 것">언제 알았나요?</td><td data-label="이런 경우">빚이 더 많다는 것을 안 날부터 아직 3개월이 지나지 않았다</td><td data-label="가까운 길">바로 신고 준비</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a></div></td></tr><tr><td data-label="이런 경우">안 날부터 3개월이 지났다</td><td data-label="가까운 길">특별한정승인도 어렵습니다 — 소송에서 다툴 방법을 함께 검토</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a></div></td></tr><tr><td class="grp" rowspan="2" data-label="확인할 것">왜 몰랐나요?</td><td data-label="이런 경우">조회되지 않는 보증·개인 빚이었고, 고인과 떨어져 살아 알 길이 없었다</td><td data-label="가까운 길">큰 잘못 없이 몰랐다고 주장할 사정이 됩니다</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2010%EB%8B%A47904)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2010. 6. 10. 선고 2010다7904 판결</a></div></td></tr><tr><td data-label="이런 경우">조금만 확인했으면 알 수 있었다(독촉장을 받고도 넘겼다 등)</td><td data-label="가까운 길">중대한 과실로 볼 수 있어 어렵습니다</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2010%EB%8B%A47904)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2010. 6. 10. 선고 2010다7904 판결</a></div></td></tr><tr><td data-label="확인할 것">미성년이었나요?</td><td data-label="이런 경우">상속 당시 미성년이었다</td><td data-label="가까운 길">성년이 된 뒤 빚이 더 많다는 것을 안 날부터 3개월 안</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a></div></td></tr></table></div><h3>한눈에 비교 — 일반 한정승인과 특별한정승인</h3><div class="table-wrap"><table><tr><th>구분</th><th>일반 한정승인</th><th>특별한정승인</th></tr><tr><td data-label="구분">언제까지</td><td data-label="일반 한정승인">상속이 시작된 것을 안 날부터 3개월</td><td data-label="특별한정승인">빚이 더 많다는 것을 안 날부터 3개월(미성년자는 성년 후 안 날부터)</td></tr><tr><td data-label="구분">요건</td><td data-label="일반 한정승인">기간 안에 신고</td><td data-label="특별한정승인">큰 잘못 없이 몰랐고 그사이 단순승인이 된 경우</td></tr><tr><td data-label="구분">제출</td><td data-label="일반 한정승인">상속재산목록</td><td data-label="특별한정승인">상속재산목록 + <strong>이미 처분한 재산의 목록과 가액</strong></td></tr><tr><td data-label="구분">갚는 범위</td><td data-label="일반 한정승인">남은 상속재산</td><td data-label="특별한정승인">남은 상속재산 + 이미 처분한 재산의 가액(그 전에 상속채권자에게 갚은 금액은 뺌)</td></tr><tr><td data-label="구분">근거</td><td data-label="일반 한정승인"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a><a href="https://www.law.go.kr/법령/민법/제1030조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1030조</a></div></td><td data-label="특별한정승인"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a><a href="https://www.law.go.kr/법령/민법/제1030조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1030조</a><a href="https://www.law.go.kr/법령/민법/제1034조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1034조</a></div></td></tr></table></div><h3>절차는 어떻게 진행되나요?</h3><ol class=""><li><strong>안 날 확정</strong> — 소장·독촉장을 받은 날처럼 빚이 더 많다는 것을 안 날을 자료로 정리합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a></div></details></li><li><strong>몰랐던 사정 정리</strong> — 고인과 떨어져 산 사정, 조회되지 않은 빚이라는 점 등 큰 잘못 없이 몰랐다는 사정을 소명자료로 준비합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2010%EB%8B%A47904)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2010. 6. 10. 선고 2010다7904 판결</a></div></details></li><li><strong>신고</strong> — 돌아가신 분 마지막 주소지 관할 가정법원에 상속재산목록과 이미 처분한 재산의 목록·가액을 붙여 신고합니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/가사소송법/제44조" target="_blank" rel="noopener" class="tag-law">📋 가사소송법 제44조 제1항 제6호</a><a href="https://www.law.go.kr/법령/민법/제1030조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1030조</a></div></details></li><li><strong>수리 심판</strong> — 법원이 신고를 받아들이면 청산이 시작됩니다.</li><li><strong>청산</strong> — 받아들여진 날부터 5일 안에 채권자에게 공고하고, 신고기간이 끝나면 배당합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1032조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1032조</a></div></details></li><li><strong>소송 대응</strong> — 진행 중인 소송에는 수리 심판서를 내고 책임 제한을 주장합니다.</li></ol><h3>받아들여지면 어떤 효과가 생기나요?</h3><ul class=""><li><strong>책임이 물려받은 재산 범위로 줄어듭니다.</strong> 단순승인으로 되어 있던 상태가 한정승인으로 바뀌어, 모자라는 빚을 자기 재산으로 갚지 않아도 됩니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a><a href="https://www.law.go.kr/법령/민법/제1028조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1028조</a></div></details></li><li><strong>이미 처분한 재산의 가액도 갚는 데 씁니다.</strong> 다만 그 전에 상속채권자에게 갚은 금액은 뺍니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1034조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1034조</a></div></details></li><li><strong>판례</strong> — 가정법원은 요건 흠결이 명백한 경우가 아니면 신고를 받아들이고, 요건을 갖췄는지는 채권자와의 소송에서 다시 판단될 수 있습니다(<a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2004%EC%8A%A474)" target="_blank" rel="noopener" class="case-link">대법원 2006. 2. 13.자 2004스74 결정</a>).<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2004%EC%8A%A474)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2006. 2. 13.자 2004스74 결정</a></div></details></li></ul><h3>&#x27;큰 잘못 없이 몰랐다&#x27;는 어떻게 보여 주나요?</h3><p>특별한정승인에서 가장 다툼이 많은 부분입니다. 큰 잘못 없이 몰랐다는 사정은 신고하는 상속인이 증명해야 합니다. 고인과 따로 살았다는 주민등록 자료, 안심상속 조회 결과에 그 빚이 나오지 않았다는 사실, 처음 독촉장이나 소장을 받은 날짜를 보여 주는 봉투와 송달 기록이 대표적인 자료입니다. 반대로 고인 생전에 빚 문제를 들었거나, 사망 직후 독촉장을 받고도 그냥 두었다면 조금만 주의했으면 알 수 있었다고 보아 인정되기 어렵습니다. 기억에만 의존하지 말고 날짜가 찍힌 자료를 모아 두십시오.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2010%EB%8B%A47904)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2010. 6. 10. 선고 2010다7904 판결</a></div></details><h3>상담 전에 준비할 것</h3><ul class="checklist"><li>빚을 처음 알게 된 서류(소장·지급명령·독촉장)와 <strong>받은 날짜</strong>를 알 수 있는 봉투·송달 기록</li><li>돌아가신 날짜와 그동안 고인의 재산을 처분하거나 쓴 내역</li><li>안심상속 조회 결과(했다면), 고인 명의 재산 자료</li><li>고인과 떨어져 살았는지, 평소 연락했는지 등 빚을 알 수 없었던 사정</li></ul>
+<p>위 목록은 상담 준비용이며 <strong>법원 제출서류 목록 전체가 아닙니다.</strong></p>` },
+      { heading: "자주 묻는 질문", content: `<details class="qa"><summary>Q. 돌아가신 지 3년이 지났는데도 가능한가요?</summary><div class="ans"><p>기준은 돌아가신 날이 아니라 빚이 더 많다는 사실을 안 날입니다. 그동안 큰 잘못 없이 몰랐다는 사정을 설명할 수 있다면 검토해 볼 수 있습니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a></div></details></div></details><details class="qa"><summary>Q. 소송이 이미 진행 중인데 신고해도 되나요?</summary><div class="ans"><p>됩니다. 신고가 받아들여지면 그 결정을 소송에 내어 물려받은 재산 범위에서만 책임진다고 주장합니다. 판결이 확정되기 전에 서두르는 것이 좋습니다.</p></div></details><details class="qa"><summary>Q. 고인의 차를 이미 팔았는데 문제가 되나요?</summary><div class="ans"><p>처분으로 단순승인이 된 경우도 특별한정승인 대상이 될 수 있습니다. 다만 판 차의 가액을 목록에 적고, 그 금액만큼은 채권자에게 갚는 계산에 넣어야 합니다.</p><details class="refs-mini"><summary>📋 근거 3</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a><a href="https://www.law.go.kr/법령/민법/제1030조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1030조</a><a href="https://www.law.go.kr/법령/민법/제1034조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1034조</a></div></details></div></details><details class="qa"><summary>Q. 미성년 자녀도 따로 해야 하나요?</summary><div class="ans"><p>미성년 때 상속받은 자녀는 성년이 된 뒤 빚을 안 날부터 3개월 안에 스스로 한정승인할 수 있습니다. 다만 지금 미성년이라면 법정대리인이 기간 안에 정리해 두는 것이 안전합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a></div></details></div></details><details class="qa"><summary>Q. 3개월이 지났는데 상속포기는 할 수 없나요?</summary><div class="ans"><p>상속포기는 상속이 시작된 것을 안 날부터 3개월 안에만 할 수 있어, 그 뒤에는 요건을 갖춘 특별한정승인만 가능합니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a><a href="https://www.law.go.kr/법령/민법/제1041조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1041조</a></div></details></div></details><details class="qa"><summary>Q. 특별한정승인이 받아들여지면 소송은 어떻게 되나요?</summary><div class="ans"><p>소송에서 그 사실을 주장하면 판결에 &quot;상속재산의 범위에서&quot; 지급하라는 제한이 붙어, 상속인 자신의 재산은 집행 대상에서 빠집니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2003%EB%8B%A430968)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2003. 11. 14. 선고 2003다30968 판결</a></div></details></div></details><details class="qa"><summary>Q. 남은 재산이 하나도 없어도 해야 하나요?</summary><div class="ans"><p>재산이 없더라도 신고가 받아들여지면 상속인 자신의 재산으로 갚을 책임이 없어지므로 의미가 있습니다. 재산목록에는 남은 재산과 이미 처분한 재산을 사실대로 적습니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1028조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1028조</a><a href="https://www.law.go.kr/법령/민법/제1030조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1030조</a></div></details></div></details><details class="qa"><summary>Q. 가족 중 한 명만 해도 되나요?</summary><div class="ans"><p>특별한정승인도 상속인마다 따로 하며, 각자 자기 상속분 범위에서 효과가 생깁니다. 다른 가족도 같은 사정이면 함께 준비하십시오.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1029조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1029조</a></div></details></div></details>` },
+      { heading: "주의사항", content: `<section class="box warn"><ul class=""><li>⚡ <strong>&quot;안 날&quot;부터 3개월입니다.</strong> 소장이나 독촉장을 받은 날이 기준이 될 수 있으니 받은 날짜를 남겨 두십시오.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a></div></details></li><li><strong>큰 잘못 없이 몰랐다는 것은 상속인이 증명해야 합니다.</strong> 조금만 주의했으면 알 수 있었는데 게을리했다면 인정되지 않습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2010%EB%8B%A47904)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2010. 6. 10. 선고 2010다7904 판결</a></div></details></li><li><strong>법원이 받아들였다고 끝이 아닙니다.</strong> 가정법원은 요건이 갖춰지지 않은 것이 명백할 때만 신고를 받아들이지 않고, 요건을 갖췄는지는 채권자와의 소송에서 다시 다툴 수 있습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2004%EC%8A%A474)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2006. 2. 13.자 2004스74 결정</a></div></details></li><li><strong>이미 쓴 재산도 계산에 들어갑니다.</strong> 처분한 재산의 목록과 가액을 함께 내고, 그 가액까지 합쳐 채권자에게 나눠 갚아야 합니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1030조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1030조</a><a href="https://www.law.go.kr/법령/민법/제1034조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1034조</a></div></details></li><li><strong>청산 의무는 일반 한정승인과 같습니다.</strong> 신고가 받아들여지면 공고와 배당 절차를 진행해야 하고, 순서를 어기면 배상 책임이 생깁니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1032조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1032조</a><a href="https://www.law.go.kr/법령/민법/제1038조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1038조</a></div></details></li></ul></section>` },
+      { heading: "다음에 확인할 사항", content: `<ul><li><a href="/guide/inheritance/in-05.html">빚이 더 많을 때</a></li><li><a href="/guide/inheritance/in-07.html">한정승인 절차와 청산</a></li><li><a href="/guide/inheritance/in-28.html">돌아가신 분의 채권자에게 소송·압류를 당했을 때</a></li></ul>` },
+      { heading: "이 내용이 해당되시나요?", content: `<div class="kb-box kb-cta"><p>직접 처리하시기 어려운 부분을 법무사가 함께 검토합니다. 이런 경우 상담을 권합니다.</p>
+<ul class=""><li>돌아가신 지 3개월이 훨씬 지나 빚 독촉이나 소장을 받았을 때</li><li>빚을 언제 알았는지, 왜 몰랐는지를 어떻게 설명할지 막막할 때</li><li>이미 고인의 재산을 처분했거나 써 버렸을 때</li><li>소송이 진행 중이라 신고와 재판 대응을 함께 해야 할 때</li></ul>
+<p class="note">법무사는 특별한정승인 신고서와 재산목록·처분재산 목록, 빚을 안 시점을 보여 주는 소명자료를 정리해 가정법원에 제출하고, 소송 중이라면 답변서 등 법원에 내는 서류도 작성해 드립니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/법무사법/제2조" target="_blank" rel="noopener" class="tag-law">📋 법무사법 제2조</a></div></details>
+</div>` },
+    ],
+    laws: [],
+    faq: [{"q":"Q. 돌아가신 지 3년이 지났는데도 가능한가요?","a":"기준은 돌아가신 날이 아니라 빚이 더 많다는 사실을 안 날입니다. 그동안 큰 잘못 없이 몰랐다는 사정을 설명할 수 있다면 검토해 볼 수 있습니다. 📋 근거 1 📋 민법 제1019조"},{"q":"Q. 소송이 이미 진행 중인데 신고해도 되나요?","a":"됩니다. 신고가 받아들여지면 그 결정을 소송에 내어 물려받은 재산 범위에서만 책임진다고 주장합니다. 판결이 확정되기 전에 서두르는 것이 좋습니다."},{"q":"Q. 고인의 차를 이미 팔았는데 문제가 되나요?","a":"처분으로 단순승인이 된 경우도 특별한정승인 대상이 될 수 있습니다. 다만 판 차의 가액을 목록에 적고, 그 금액만큼은 채권자에게 갚는 계산에 넣어야 합니다. 📋 근거 3 📋 민법 제1019조 📋 민법 제1030조 📋 민법 제1034조"},{"q":"Q. 미성년 자녀도 따로 해야 하나요?","a":"미성년 때 상속받은 자녀는 성년이 된 뒤 빚을 안 날부터 3개월 안에 스스로 한정승인할 수 있습니다. 다만 지금 미성년이라면 법정대리인이 기간 안에 정리해 두는 것이 안전합니다. 📋 근거 1 📋 민법 제1019조"},{"q":"Q. 3개월이 지났는데 상속포기는 할 수 없나요?","a":"상속포기는 상속이 시작된 것을 안 날부터 3개월 안에만 할 수 있어, 그 뒤에는 요건을 갖춘 특별한정승인만 가능합니다. 📋 근거 2 📋 민법 제1019조 📋 민법 제1041조"},{"q":"Q. 특별한정승인이 받아들여지면 소송은 어떻게 되나요?","a":"소송에서 그 사실을 주장하면 판결에 \"상속재산의 범위에서\" 지급하라는 제한이 붙어, 상속인 자신의 재산은 집행 대상에서 빠집니다. 📋 근거 1 📋 대법원 2003. 11. 14. 선고 2003다30968 판결"},{"q":"Q. 남은 재산이 하나도 없어도 해야 하나요?","a":"재산이 없더라도 신고가 받아들여지면 상속인 자신의 재산으로 갚을 책임이 없어지므로 의미가 있습니다. 재산목록에는 남은 재산과 이미 처분한 재산을 사실대로 적습니다. 📋 근거 2 📋 민법 제1028조 📋 민법 제1030조"},{"q":"Q. 가족 중 한 명만 해도 되나요?","a":"특별한정승인도 상속인마다 따로 하며, 각자 자기 상속분 범위에서 효과가 생깁니다. 다른 가족도 같은 사정이면 함께 준비하십시오. 📋 근거 1 📋 민법 제1029조"}],
+    forms: [],
+  },
+  {
+    id: "in-28",
+    title: "돌아가신 분의 채권자에게 소송·압류를 당했을 때",
+    meta: "돌아가신 분의 채권자에게 소송이나 지급명령을 받으면, 이미 상속포기·한정승인을 했더라도 재판에서 직접 주장해야 합니다. 소송·압류 단계별 대응 방법을 안내합니다.",
+    reviewed: "2026-11-08",
+    kb: "H-B04",
+    sections: [
+      { heading: "이런 분께 필요합니다", content: `<ul class="checklist"><li> 돌아가신 부모님의 빚을 갚으라는 소장이나 지급명령을 받았다</li><li> 상속포기를 했는데도 법원 서류가 왔다</li><li> 한정승인을 했는데 내 월급이나 통장이 압류되었다</li><li> 아직 포기나 한정승인을 하지 않았는데 소송부터 걸렸다</li></ul>` },
+      { heading: "핵심정리", content: `<div class="kb-box kb-summary"><p>돌아가신 분의 빚을 갚으라는 소장이나 지급명령을 받았다면, <strong>이미 상속포기나 한정승인을 했더라도 그 사실을 재판에서 직접 주장해야</strong> 합니다. 특히 상속포기를 하고도 주장하지 않아 판결이 확정되면, 나중에는 그 판결의 집행을 막기 어렵다는 것이 대법원 입장입니다. 한정승인은 판결 주문에 <strong>&quot;상속재산의 범위에서&quot;</strong>라는 제한이 들어가도록 해야 내 재산을 지킬 수 있습니다.</p><details class="refs-mini"><summary>📋 근거 3</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2008%EB%8B%A479876)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2009. 5. 28. 선고 2008다79876 판결(청구이의)</a><a href="https://www.law.go.kr/법령/민법/제1028조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1028조</a><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2003%EB%8B%A430968)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2003. 11. 14. 선고 2003다30968 판결</a></div></details></div>` },
+      { heading: "상세설명", content: `<h3>지금 어느 단계인가요?</h3><p>울산에 사는 T씨는 상속포기를 마쳤는데, 반년 뒤 아버지의 카드회사가 낸 소장을 받았습니다. &quot;포기했으니 상관없겠지&quot; 하고 답변서를 내지 않으면 재판에서 질 수 있고, 그 판결이 확정되면 T씨 재산에 강제집행이 들어올 수 있습니다(설명을 위한 가상 사례입니다).</p>
+<p>T씨는 소장을 받은 단계이므로 <strong>답변서에 상속포기 사실을 적고 수리 심판서를 증거로 내면</strong> 됩니다. 법원 서류는 단계마다 대응할 수 있는 기한과 방법이 다르므로, 지금 받은 서류가 무엇인지부터 확인하는 것이 먼저입니다.</p><h3>무엇으로 판단하나요?</h3><div class="table-wrap"><table><tr><th>확인할 것</th><th>이런 경우</th><th>가까운 길</th><th>근거</th></tr><tr><td class="grp" rowspan="2" data-label="확인할 것">받은 서류가 무엇인가요?</td><td data-label="이런 경우">지급명령</td><td data-label="가까운 길">⚡ 송달받은 날부터 2주 안에 이의신청 — 넘기면 확정됩니다</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민사소송법/제470조" target="_blank" rel="noopener" class="tag-law">📋 민사소송법 제470조</a></div></td></tr><tr><td data-label="이런 경우">소장</td><td data-label="가까운 길">답변서에 포기·한정승인 사실을 적고 심판서를 제출</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2008%EB%8B%A479876)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2009. 5. 28. 선고 2008다79876 판결(청구이의)</a><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2003%EB%8B%A430968)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2003. 11. 14. 선고 2003다30968 판결</a></div></td></tr><tr><td class="grp" rowspan="2" data-label="확인할 것">포기·한정승인을 했나요?</td><td data-label="이런 경우">아직 안 했고, 상속이 시작된 것을 안 날부터 3개월이 지나지 않았다</td><td data-label="가까운 길">먼저 포기나 한정승인을 신고하고 재판에서 주장</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a></div></td></tr><tr><td data-label="이런 경우">3개월이 지났지만 빚이 더 많다는 것을 이번에 처음 알았다</td><td data-label="가까운 길">안 날부터 3개월 안에 특별한정승인을 검토</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a></div></td></tr><tr><td class="grp" rowspan="2" data-label="확인할 것">이미 판결이 확정되었나요?</td><td data-label="이런 경우">상속포기를 했는데 주장하지 않아 판결이 확정되었다</td><td data-label="가까운 길">원칙적으로 다투기 어렵습니다 — 송달 경위 등 예외 사정을 확인</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2008%EB%8B%A479876)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2009. 5. 28. 선고 2008다79876 판결(청구이의)</a></div></td></tr><tr><td data-label="이런 경우">한정승인을 했는데 주장하지 않아 제한 없는 판결이 확정되었다</td><td data-label="가까운 길">청구이의의 소로 집행을 상속재산 범위로 줄일 수 있습니다</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2006%EB%8B%A423138)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2006. 10. 13. 선고 2006다23138 판결(청구이의)</a></div></td></tr><tr><td data-label="확인할 것">내 재산이 압류되었나요?</td><td data-label="이런 경우">판결에 &quot;상속재산의 범위에서&quot; 제한이 있는데 내 재산이 압류되었다</td><td data-label="가까운 길">제3자이의의 소로 다툽니다(청구이의가 아님)</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2005%EA%B7%B8128)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2005. 12. 19.자 2005그128 결정</a></div></td></tr><tr><td data-label="확인할 것">채권자가 많고 재산 정리가 복잡한가요?</td><td data-label="이런 경우">상속재산으로 모든 빚을 갚을 수 없다</td><td data-label="가까운 길">상속재산파산을 검토 — 파산선고가 있으면 한정승인한 것으로 봄</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제307조" target="_blank" rel="noopener" class="tag-law">📋 채무자회생법 제307조</a><a href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제389조" target="_blank" rel="noopener" class="tag-law">📋 채무자회생법 제389조</a></div></td></tr></table></div><h3>한눈에 비교 — 포기와 한정승인, 재판에서의 차이</h3><div class="table-wrap"><table><tr><th>구분</th><th>상속포기</th><th>한정승인</th></tr><tr><td data-label="구분">재판에서 주장할 내용</td><td data-label="상속포기">처음부터 상속인이 아니므로 갚을 의무가 없다</td><td data-label="한정승인">상속재산의 범위에서만 갚으면 된다</td></tr><tr><td data-label="구분">이기면 판결은</td><td data-label="상속포기">청구 기각</td><td data-label="한정승인">&quot;상속재산의 범위에서 지급하라&quot;는 제한이 붙음</td></tr><tr><td data-label="구분">주장하지 않고 판결이 확정되면</td><td data-label="상속포기">원칙적으로 다투기 어려움</td><td data-label="한정승인">청구이의의 소로 집행 범위를 줄일 수 있음</td></tr><tr><td data-label="구분">근거</td><td data-label="상속포기"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1042조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1042조</a><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2008%EB%8B%A479876)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2009. 5. 28. 선고 2008다79876 판결(청구이의)</a></div></td><td data-label="한정승인"><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1028조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1028조</a><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2003%EB%8B%A430968)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2003. 11. 14. 선고 2003다30968 판결</a><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2006%EB%8B%A423138)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2006. 10. 13. 선고 2006다23138 판결(청구이의)</a></div></td></tr></table></div><h3>대응하면 어떤 효과가 생기나요?</h3><ul class=""><li><strong>지급명령에 이의하면</strong> 지급명령을 신청한 때 소송이 제기된 것으로 보아 정식 재판으로 넘어가고, 그 재판에서 포기·한정승인을 주장합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민사소송법/제472조" target="_blank" rel="noopener" class="tag-law">📋 민사소송법 제472조</a></div></details></li><li><strong>상속포기를 주장하면</strong> 처음부터 상속인이 아니므로 청구가 기각됩니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1042조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1042조</a></div></details></li><li><strong>한정승인을 주장하면</strong> &quot;상속재산의 범위에서&quot; 지급하라는 제한이 붙어 내 재산은 집행 대상에서 빠집니다(<a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2003%EB%8B%A430968)" target="_blank" rel="noopener" class="case-link">대법원 2003. 11. 14. 선고 2003다30968 판결</a>).<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2003%EB%8B%A430968)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2003. 11. 14. 선고 2003다30968 판결</a></div></details></li><li><strong>청구이의·제3자이의의 소를 내도 집행은 저절로 멈추지 않습니다.</strong> 법원에 집행정지를 따로 신청해 결정을 받아야 합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민사집행법/제46조" target="_blank" rel="noopener" class="tag-law">📋 민사집행법 제46조</a></div></details></li><li><strong>상속재산파산이 선고되면</strong> 상속인은 한정승인을 한 것으로 봅니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제389조" target="_blank" rel="noopener" class="tag-law">📋 채무자회생법 제389조</a></div></details></li></ul><h3>단계별로 무엇을 내나요?</h3><ul class=""><li><strong>소장을 받았을 때</strong>: 답변서에 포기·한정승인 사실을 적고 수리 심판서를 증거로 냅니다. 아직 신고 전이고 3개월이 남았다면 먼저 신고하고 그 사실을 주장합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a></div></details></li><li><strong>지급명령을 받았을 때</strong>: 2주 안에 이의신청서를 내고, 이어지는 재판에서 같은 주장을 합니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민사소송법/제470조" target="_blank" rel="noopener" class="tag-law">📋 민사소송법 제470조</a><a href="https://www.law.go.kr/법령/민사소송법/제472조" target="_blank" rel="noopener" class="tag-law">📋 민사소송법 제472조</a></div></details></li><li><strong>판결이 확정되었을 때</strong>: 한정승인을 했다면 청구이의의 소와 집행정지 신청을 함께 냅니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2006%EB%8B%A423138)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2006. 10. 13. 선고 2006다23138 판결(청구이의)</a><a href="https://www.law.go.kr/법령/민사집행법/제46조" target="_blank" rel="noopener" class="tag-law">📋 민사집행법 제46조</a></div></details></li><li><strong>압류가 들어왔을 때</strong>: 판결에 제한이 있으면 제3자이의의 소와 집행정지 신청으로 다툽니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2005%EA%B7%B8128)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2005. 12. 19.자 2005그128 결정</a><a href="https://www.law.go.kr/법령/민사집행법/제46조" target="_blank" rel="noopener" class="tag-law">📋 민사집행법 제46조</a></div></details></li></ul><h3>압류가 들어오면 어떻게 되나요?</h3><p>압류가 들어왔다고 모두 부당한 것은 아닙니다. 한정승인을 한 경우 상속재산 자체에 대한 압류는 정당한 집행이므로, 그 재산으로 빚을 정리하게 됩니다. 문제는 월급이나 개인 예금처럼 상속인 자신의 재산이 압류된 경우입니다. 판결에 &quot;상속재산의 범위에서&quot;라는 제한이 있으면 제3자이의의 소로 다투고, 소를 내는 것만으로 집행이 멈추지 않으므로 집행정지 신청을 함께 해야 합니다. 상속포기를 하고도 재판에서 주장하지 않아 판결이 확정된 경우에는 나중에 포기를 이유로 다투기 어려우므로, 무엇보다 소장을 받은 단계에서 대응하는 것이 중요합니다.</p><details class="refs-mini"><summary>📋 근거 4</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1028조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1028조</a><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2005%EA%B7%B8128)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2005. 12. 19.자 2005그128 결정</a><a href="https://www.law.go.kr/법령/민사집행법/제46조" target="_blank" rel="noopener" class="tag-law">📋 민사집행법 제46조</a><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2008%EB%8B%A479876)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2009. 5. 28. 선고 2008다79876 판결(청구이의)</a></div></details><h3>상담 전에 준비할 것</h3><ul class="checklist"><li>받은 소장·지급명령·압류 결정문과 <strong>받은 날짜</strong>(봉투·송달 안내문)</li><li>상속포기 또는 한정승인 수리 심판서(받았다면)</li><li>돌아가신 날짜와 사망 사실을 안 날짜</li><li>압류된 통장·급여 내역</li><li>다른 상속인 가족의 포기·한정승인 여부</li></ul>
+<p>위 목록은 상담 준비용이며 <strong>법원 제출서류 목록 전체가 아닙니다.</strong></p>` },
+      { heading: "자주 묻는 질문", content: `<details class="qa"><summary>Q. 상속포기를 했는데 왜 소장이 오나요?</summary><div class="ans"><p>채권자는 가족관계 서류만 보고 상속인 전원을 상대로 소송을 내는 경우가 많습니다. 포기 수리 심판서를 답변서와 함께 내면 됩니다. 다만 주장하지 않고 두면 불리한 판결이 확정될 수 있습니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2008%EB%8B%A479876)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2009. 5. 28. 선고 2008다79876 판결(청구이의)</a></div></details></div></details><details class="qa"><summary>Q. 한정승인을 했는데 월급이 압류되었어요.</summary><div class="ans"><p>판결에 &quot;상속재산의 범위에서&quot;라는 제한이 있다면 월급 같은 고유재산은 집행 대상이 아니므로 제3자이의의 소로 다툽니다. 제한이 없는 판결이라면 먼저 청구이의의 소로 집행 범위를 줄여야 합니다. 소송을 낸다고 집행이 바로 멈추지는 않으므로 집행정지 신청을 함께 검토합니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2005%EA%B7%B8128)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2005. 12. 19.자 2005그128 결정</a><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2006%EB%8B%A423138)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2006. 10. 13. 선고 2006다23138 판결(청구이의)</a></div></details></div></details><details class="qa"><summary>Q. 상속재산파산은 누가 신청하나요?</summary><div class="ans"><p>상속채권자, 유증받은 사람, 상속인, 상속재산관리인, 유언집행자가 신청할 수 있습니다. 파산선고가 있으면 상속인은 한정승인을 한 것으로 봅니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제299조" target="_blank" rel="noopener" class="tag-law">📋 채무자회생법 제299조</a><a href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제389조" target="_blank" rel="noopener" class="tag-law">📋 채무자회생법 제389조</a></div></details></div></details><details class="qa"><summary>Q. 다른 형제는 아무것도 안 했는데 저만 한정승인했어요.</summary><div class="ans"><p>한정승인은 한 사람에게만 효과가 있습니다. 다른 상속인은 각자 포기나 한정승인을 하지 않으면 자기 상속분만큼 책임질 수 있으므로 가족과 함께 정리하십시오.</p></div></details><details class="qa"><summary>Q. 소송 중인데 아직 3개월이 지나지 않았어요.</summary><div class="ans"><p>소송이 걸려도 3개월 안이면 포기나 한정승인을 신고할 수 있습니다. 포기는 수리 심판을 고지받은 때 효력이 생기므로, 심판서를 받는 대로 재판에 내십시오.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1019조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1019조</a><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2021%EB%8B%A4224446)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2021. 9. 15. 선고 2021다224446 판결(배당이의)</a></div></details></div></details><details class="qa"><summary>Q. 형제 몫까지 제가 갚아야 하나요?</summary><div class="ans"><p>상속 빚은 상속인마다 법정상속분만큼 나뉘어 책임지므로, 다른 형제의 몫까지 대신 갚을 책임은 없습니다. 다만 형제가 아무 신고도 하지 않았다면 그 형제는 자기 몫을 책임지게 됩니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1009조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1009조</a><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(97%EB%8B%A48809)" target="_blank" rel="noopener" class="tag-law">📋 대법원 1997. 6. 24. 선고 97다8809 판결</a></div></details></div></details><details class="qa"><summary>Q. 집행정지에는 담보가 필요한가요?</summary><div class="ans"><p>법원은 담보를 내게 하거나 담보 없이 집행정지를 명할 수 있습니다. 사정에 따라 정해지므로 신청할 때 이유와 자료를 충분히 갖춥니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민사집행법/제46조" target="_blank" rel="noopener" class="tag-law">📋 민사집행법 제46조</a></div></details></div></details>` },
+      { heading: "주의사항", content: `<section class="box warn"><ul class=""><li>⚡ <strong>지급명령은 2주입니다.</strong> 송달받은 날부터 2주 안에 이의신청을 하지 않으면 확정되어 판결과 같은 효력이 생깁니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민사소송법/제470조" target="_blank" rel="noopener" class="tag-law">📋 민사소송법 제470조</a></div></details></li><li><strong>포기했다고 법원 서류를 무시하지 마십시오.</strong> 포기 사실을 재판에서 주장하지 않아 판결이 확정되면, 나중에 그 사실로 집행을 막기 어렵습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2008%EB%8B%A479876)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2009. 5. 28. 선고 2008다79876 판결(청구이의)</a></div></details></li><li><strong>한정승인은 판결 주문을 확인하십시오.</strong> &quot;상속재산의 범위에서&quot;라는 제한이 있어야 내 재산에 대한 집행을 막을 수 있습니다. 제한 없이 확정되었다면 청구이의의 소가 필요합니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2003%EB%8B%A430968)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2003. 11. 14. 선고 2003다30968 판결</a><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2006%EB%8B%A423138)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2006. 10. 13. 선고 2006다23138 판결(청구이의)</a></div></details></li><li><strong>압류에 대응하는 방법은 판결 내용에 따라 다릅니다.</strong> 제한이 있는 판결인데 내 재산이 압류되었다면 청구이의가 아니라 제3자이의의 소로 다툽니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2005%EA%B7%B8128)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2005. 12. 19.자 2005그128 결정</a></div></details></li><li><strong>상속재산파산에는 신청 기간이 있습니다.</strong> 원칙적으로 상속이 시작된 날부터 3개월 안(재산분리 청구 기간)이고, 그사이 한정승인을 했다면 채권자 변제가 끝나기 전까지 신청할 수 있습니다. 한정승인을 한 상속인은 상속재산으로 빚을 다 갚을 수 없다는 것을 알면 지체 없이 신청해야 합니다.<details class="refs-mini"><summary>📋 근거 3</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제300조" target="_blank" rel="noopener" class="tag-law">📋 채무자회생법 제300조</a><a href="https://www.law.go.kr/법령/민법/제1045조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1045조</a><a href="https://www.law.go.kr/법령/채무자회생및파산에관한법률/제299조" target="_blank" rel="noopener" class="tag-law">📋 채무자회생법 제299조</a></div></details></li></ul></section>` },
+      { heading: "다음에 확인할 사항", content: `<ul><li><a href="/guide/inheritance/in-05.html">빚이 더 많을 때</a></li><li><a href="/guide/inheritance/in-06.html">상속포기 절차</a></li><li><a href="/guide/inheritance/in-07.html">한정승인 절차와 청산</a></li><li><a href="/guide/inheritance/in-27.html">석 달이 지나 빚을 알았을 때</a></li></ul>` },
+      { heading: "이 내용이 해당되시나요?", content: `<div class="kb-box kb-cta"><p>직접 처리하시기 어려운 부분을 법무사가 함께 검토합니다. 이런 경우 상담을 권합니다.</p>
+<ul class=""><li>소장이나 지급명령을 받았는데 대응 기한이 얼마 남지 않았을 때</li><li>포기·한정승인을 했는데도 소송이나 압류가 들어왔을 때</li><li>이미 판결이 확정되어 집행이 진행 중일 때</li><li>채권자가 많아 한정승인 청산과 상속재산파산 중 무엇이 나은지 판단이 필요할 때</li></ul>
+<p class="note">법무사는 답변서·지급명령 이의신청서, 청구이의·제3자이의의 소장, 집행정지 신청서, 상속재산파산 신청서 등 법원에 내는 서류를 작성해 제출해 드립니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/법무사법/제2조" target="_blank" rel="noopener" class="tag-law">📋 법무사법 제2조</a></div></details>
+</div>` },
+    ],
+    laws: [],
+    faq: [{"q":"Q. 상속포기를 했는데 왜 소장이 오나요?","a":"채권자는 가족관계 서류만 보고 상속인 전원을 상대로 소송을 내는 경우가 많습니다. 포기 수리 심판서를 답변서와 함께 내면 됩니다. 다만 주장하지 않고 두면 불리한 판결이 확정될 수 있습니다. 📋 근거 1 📋 대법원 2009. 5. 28. 선고 2008다79876 판결(청구이의)"},{"q":"Q. 한정승인을 했는데 월급이 압류되었어요.","a":"판결에 \"상속재산의 범위에서\"라는 제한이 있다면 월급 같은 고유재산은 집행 대상이 아니므로 제3자이의의 소로 다툽니다. 제한이 없는 판결이라면 먼저 청구이의의 소로 집행 범위를 줄여야 합니다. 소송을 낸다고 집행이 바로 멈추지는 않으므로 집행정지 신청을 함께 검토합니다. 📋 근거 2 📋 대법원 2005. 12. 19.자 2005그128 결정 📋 대법원 2006. 10. 13. 선고 2006다23138 판결(청구이의)"},{"q":"Q. 상속재산파산은 누가 신청하나요?","a":"상속채권자, 유증받은 사람, 상속인, 상속재산관리인, 유언집행자가 신청할 수 있습니다. 파산선고가 있으면 상속인은 한정승인을 한 것으로 봅니다. 📋 근거 2 📋 채무자회생법 제299조 📋 채무자회생법 제389조"},{"q":"Q. 다른 형제는 아무것도 안 했는데 저만 한정승인했어요.","a":"한정승인은 한 사람에게만 효과가 있습니다. 다른 상속인은 각자 포기나 한정승인을 하지 않으면 자기 상속분만큼 책임질 수 있으므로 가족과 함께 정리하십시오."},{"q":"Q. 소송 중인데 아직 3개월이 지나지 않았어요.","a":"소송이 걸려도 3개월 안이면 포기나 한정승인을 신고할 수 있습니다. 포기는 수리 심판을 고지받은 때 효력이 생기므로, 심판서를 받는 대로 재판에 내십시오. 📋 근거 2 📋 민법 제1019조 📋 대법원 2021. 9. 15. 선고 2021다224446 판결(배당이의)"},{"q":"Q. 형제 몫까지 제가 갚아야 하나요?","a":"상속 빚은 상속인마다 법정상속분만큼 나뉘어 책임지므로, 다른 형제의 몫까지 대신 갚을 책임은 없습니다. 다만 형제가 아무 신고도 하지 않았다면 그 형제는 자기 몫을 책임지게 됩니다. 📋 근거 2 📋 민법 제1009조 📋 대법원 1997. 6. 24. 선고 97다8809 판결"},{"q":"Q. 집행정지에는 담보가 필요한가요?","a":"법원은 담보를 내게 하거나 담보 없이 집행정지를 명할 수 있습니다. 사정에 따라 정해지므로 신청할 때 이유와 자료를 충분히 갖춥니다. 📋 근거 1 📋 민사집행법 제46조"}],
+    forms: [],
+  },
+  {
+    id: "in-08",
+    title: "상속분 계산 — 내 상속분은 얼마지?",
+    meta: "법정상속분 공식부터 대습상속까지 한눈에 확인하는 실전 계산 안내",
+    sections: [
+      { heading: "이런 분께 도움이 됩니다", content: `<ul class="target-list">
 <li>피상속인이 사망하여 내가 얼마를 상속받는지 궁금한 분</li>
 <li>배우자·자녀·부모 등 여러 상속인이 있어 계산이 복잡한 분</li>
 <li>대습상속(손자녀·조카)이 발생하여 비율 계산이 어려운 분</li>
@@ -2616,7 +1262,7 @@ const INHERITANCE_TOPICS = [
 <li>협의 분할 전에 법적 기준 상속분을 미리 파악하고 싶은 분</li>
 <li>상속분을 두고 다른 상속인과 분쟁 중인 분</li>
 </ul>` },
-      { heading: '핵심 요약', content: `<div class="summary-box">
+      { heading: "핵심 요약", content: `<div class="summary-box">
 <h3>📌 법정상속분 3가지 핵심 원칙</h3>
 <p><strong>① 동순위 균분 원칙</strong> — 같은 순위의 상속인(예: 자녀들)은 <strong>모두 동등하게</strong> 나눕니다. 성별·기혼 여부와 무관합니다.</p>
 <p><strong>② 배우자 5할 가산 원칙</strong> — 배우자는 자녀(직계비속) 또는 부모(직계존속)와 함께 상속받을 때 그 상속분의 <strong>1.5배</strong>를 받습니다.</p>
@@ -2629,7 +1275,7 @@ const INHERITANCE_TOPICS = [
 </div>
 <div class="formula-note">근거 법령: <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=100900" target="_blank" class="tag-law">📋 민법 제1009조</a>(법정상속분), 제1010조(대습상속분)</div>
 </div>` },
-      { heading: '상세 내용', content: `<!-- 상속분의 의의 -->
+      { heading: "상세 내용", content: `<!-- 상속분의 의의 -->
 <h3 class="sub-title">상속분의 의의와 종류</h3>
 <p class="detail-text">상속분이란 공동상속인 각각이 상속재산 전체에 대해 갖는 배당 비율을 말합니다. 크게 두 가지로 나뉩니다.</p>
 <div class="type-grid">
@@ -2738,7 +1384,7 @@ const INHERITANCE_TOPICS = [
 <div class="hist-desc">성별·기혼 여부 불문 동순위 균분 / 배우자 5할 가산 유지 / <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=100900" target="_blank" class="tag-law">📋 민법 제1009조</a></div>
 </div>
 </div>` },
-      { heading: '관련 판례', content: `<div class="ruling-card">
+      { heading: "관련 판례", content: `<div class="ruling-card">
 <div class="ruling-id"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=94다16571" target="_blank" class="tag-case">⚖️ 대법원 94다16571</a></div>
 <div class="ruling-summary">배우자의 법정상속분 5할 가산에 관한 기준 판결로, 직계비속과 공동 상속 시 배우자 상속분은 직계비속 1인의 상속분의 1.5배가 된다는 점을 명확히 확인하였습니다.</div>
 <div class="ruling-point">실무 포인트: 배우자 가산은 동순위 상속인이 1명이든 5명이든 동일하게 '다른 1인 몫의 1.5배'로 계산됩니다.</div>
@@ -2758,7 +1404,7 @@ const INHERITANCE_TOPICS = [
 <div class="ruling-summary">유언으로 특정 상속인에게 전 재산을 유증한 경우에도 다른 상속인의 유류분(법정상속분의 1/2 또는 1/3)은 침해할 수 없다고 판시하여, 지정상속분과 유류분의 관계를 명확히 하였습니다.</div>
 <div class="ruling-point">실무 포인트: 지정상속분(유언)이 있어도 다른 상속인의 유류분 반환청구를 고려해야 합니다.</div>
 </div>` },
-      { heading: '주의사항', content: `<div class="warn-box">
+      { heading: "주의사항", content: `<div class="warn-box">
 <div class="warn-icon">⚠️</div>
 <div class="warn-content">
 <div class="warn-title">법정상속분 ≠ 실제 취득 금액</div>
@@ -2786,7 +1432,7 @@ const INHERITANCE_TOPICS = [
 <div class="warn-desc">비혼 자녀(혼외자)는 인지 또는 친생자 확인 판결이 있어야 상속인 지위를 가집니다. 사망 후 친자 분쟁이 발생하면 상속분 계산 자체가 달라질 수 있으므로, 사전에 가족관계 확인이 필요합니다.</div>
 </div>
 </div>` },
-      { heading: '자주 묻는 질문 (Q&amp;A)', content: `<div class="qna-item">
+      { heading: "자주 묻는 질문 (Q&amp;A)", content: `<div class="qna-item">
 <div class="qna-q">
 <span class="q-label">Q1</span>
       배우자와 자녀 3명이 있을 때 내 상속분은 어떻게 되나요?
@@ -2846,7 +1492,7 @@ const INHERITANCE_TOPICS = [
       <div class="qa-disclaimer">※ 위 내용은 일반적인 법률 정보 안내입니다. 협의분할의 효력 및 세금 관련 사항은 전문가와 상담하시기 바랍니다.</div>
 </div>
 </div>` },
-      { heading: '다음으로 확인할 내용', content: `<div class="nav-grid">
+      { heading: "다음으로 확인할 내용", content: `<div class="nav-grid">
 <a class="nav-card" href="상속_07_한정승인.html">
 <div class="nav-dir">◀ 이전</div>
 <div class="nav-title">한정승인 — 절차와 청산방법</div>
@@ -2858,30 +1504,20 @@ const INHERITANCE_TOPICS = [
 <div class="nav-desc">유언이나 증여로 상속에서 배제되었을 때, 법이 보장하는 최소 상속분 반환청구 방법</div>
 </a>
 </div>` },
-      { heading: '상속분 계산이 복잡하거나 분쟁이 예상되신다면', content: `<p>특별수익·기여분·대습상속이 얽힌 경우 계산이 매우 복잡해질 수 있습니다.<br/>
+      { heading: "상속분 계산이 복잡하거나 분쟁이 예상되신다면", content: `<p>특별수익·기여분·대습상속이 얽힌 경우 계산이 매우 복잡해질 수 있습니다.<br/>
     법무사와 함께 정확한 상속분을 산정하고, 협의분할 또는 조정 방법을 미리 준비하세요.</p>
 <a class="cta-btn" href="#">무료 상담 신청하기</a>
-</div>` }
+</div>` },
     ],
-    laws: [
-      { name: '민법 제1009조', desc: '' },
-      { name: '민법 제1012조', desc: '' },
-      { name: '민법 제1010조', desc: '' },
-      { name: '민법 제1008조', desc: '' },
-      { name: '민법 제1008조의2', desc: '' },
-      { name: '민법 제1009조 제2항', desc: '' },
-      { name: '민법 제1009조 제1항', desc: '' },
-      { name: '민법 제1001조, 제1010조', desc: '' },
-      { name: '민법 제1001조', desc: '' }
-    ],
-    forms: []
+    laws: [{"name":"민법 제1009조","desc":""},{"name":"민법 제1012조","desc":""},{"name":"민법 제1010조","desc":""},{"name":"민법 제1008조","desc":""},{"name":"민법 제1008조의2","desc":""},{"name":"민법 제1009조 제2항","desc":""},{"name":"민법 제1009조 제1항","desc":""},{"name":"민법 제1001조, 제1010조","desc":""},{"name":"민법 제1001조","desc":""}],
+    forms: [],
   },
   {
-    id: 'in-09',
-    title: '생전증여와 상속분 — 특별수익·기여분',
-    meta: '사전 증여·유증이 내 상속분에 어떻게 반영되는지, 간병과 기여는 어떻게 보호받는지 안내합니다',
+    id: "in-09",
+    title: "생전증여와 상속분 — 특별수익·기여분",
+    meta: "사전 증여·유증이 내 상속분에 어떻게 반영되는지, 간병과 기여는 어떻게 보호받는지 안내합니다",
     sections: [
-      { heading: '이런 분께 도움이 됩니다', content: `<ul class="target-list">
+      { heading: "이런 분께 도움이 됩니다", content: `<ul class="target-list">
 <li>다른 형제자매가 생전에 부모로부터 많은 증여를 받아 불공평하다고 느끼는 분</li>
 <li>피상속인이 사망 전에 특정 상속인에게 유증(유언 증여)을 한 경우</li>
 <li>부모를 오랫동안 직접 모시며 부양·간병한 상속인이 더 받을 수 있는지 궁금한 분</li>
@@ -2889,7 +1525,7 @@ const INHERITANCE_TOPICS = [
 <li>협의분할 전 구체적 상속분을 정확히 계산하고 싶은 분</li>
 <li>상속 분쟁 중 특별수익 또는 기여분 인정 여부를 확인해야 하는 분</li>
 </ul>` },
-      { heading: '핵심 요약', content: `<div class="summary-box">
+      { heading: "핵심 요약", content: `<div class="summary-box">
 <h3>📌 두 가지 상속분 조정 제도</h3>
 <p><strong>특별수익</strong> — 피상속인이 특정 상속인에게 생전에 준 증여·유증은 <strong>상속분의 선급(先給)</strong>으로 취급합니다. 이미 받은 만큼을 제하고 상속받습니다. <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=100800" target="_blank" class="tag-law">📋 민법 제1008조</a></p>
 <p><strong>기여분</strong> — 피상속인을 특별히 부양하거나 재산 유지·증가에 기여한 상속인은 <strong>법정상속분보다 추가</strong>로 받을 수 있습니다. <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=100800" target="_blank" class="tag-law">📋 민법 제1008조의2</a></p>
@@ -2922,7 +1558,7 @@ const INHERITANCE_TOPICS = [
 </ul>
 </div>
 </div>` },
-      { heading: '상세 내용', content: `<!-- ─ 특별수익 ─ -->
+      { heading: "상세 내용", content: `<!-- ─ 특별수익 ─ -->
 <h3 class="sub-title">① 특별수익 — 생전증여·유증의 처리 <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=100800" target="_blank" class="tag-law">📋 민법 제1008조</a></h3>
 <p class="detail-text">
     공동상속인 중에 피상속인으로부터 <strong>재산의 증여 또는 유증</strong>을 받은 사람이 있는 경우, 그 수증재산이 자기의 상속분에 달하지 못한 때에는 그 부족한 부분의 한도에서만 상속분이 있습니다. 이를 <strong>특별수익자의 상속분</strong>이라 합니다.
@@ -3094,7 +1730,7 @@ const INHERITANCE_TOPICS = [
 </table>
 <div class="calc-result">기여분 공제 상속재산 1,200 − 300 = 900만원 → 장남 상속이익 500만원 (기여분이 없었다면 267만원)</div>
 </div>` },
-      { heading: '관련 판례', content: `<div class="ruling-card">
+      { heading: "관련 판례", content: `<div class="ruling-card">
 <div class="ruling-id">대법원 1998. 12. 8. 선고 97므513, 520, 97스12 판결</div>
 <div class="ruling-summary">특별수익 해당 여부의 판단기준을 제시한 기준 판결입니다. 어떤 생전증여가 특별수익인지는 피상속인의 생전 자산·수입·생활수준·가정상황을 참작하고, 해당 증여가 장차 상속인에게 돌아갈 상속재산 중 그 몫의 일부를 미리 주는 것으로 볼 수 있는지에 따라 결정한다고 판시하였습니다.</div>
 <div class="ruling-point">실무 포인트: 단순한 생활비 지원·교육비는 특별수익이 아닐 수 있지만, 주택 구입 자금·사업 자금 등은 특별수익으로 볼 가능성이 높습니다.</div>
@@ -3114,7 +1750,7 @@ const INHERITANCE_TOPICS = [
 <div class="ruling-summary">기여분 인정 요건에 관하여, 공동상속인 사이의 공평을 위해 상속분을 조정해야 할 필요가 있을 만큼 피상속인을 특별히 부양하였거나, 상속재산의 유지 또는 증가에 특별히 기여하였다는 사실이 인정되어야 한다고 판시하였습니다.</div>
 <div class="ruling-point">실무 포인트: 통상적인 가족 간 공양이나 일반적 부양의무 이행만으로는 기여분이 인정되지 않습니다. 특별성 입증이 핵심입니다.</div>
 </div>` },
-      { heading: '주의사항', content: `<div class="warn-box">
+      { heading: "주의사항", content: `<div class="warn-box">
 <div class="warn-icon">⚠️</div>
 <div class="warn-content">
 <div class="warn-title">특별수익은 자동 공제되지 않습니다</div>
@@ -3142,7 +1778,7 @@ const INHERITANCE_TOPICS = [
 <div class="warn-desc">상속을 포기하면 처음부터 상속인이 아니었던 것과 같이 되므로, 포기자에게는 특별수익 공제 규정이 적용되지 않습니다. 따라서 특별수익을 많이 받은 상속인이 상속을 포기하면, 그 포기자의 특별수익이 유류분 계산에서 달리 취급될 수 있습니다.</div>
 </div>
 </div>` },
-      { heading: '자주 묻는 질문 (Q&amp;A)', content: `<div class="qna-item">
+      { heading: "자주 묻는 질문 (Q&amp;A)", content: `<div class="qna-item">
 <div class="qna-q">
 <span class="q-label">Q1</span>
       오빠가 결혼할 때 부모님께 3억 원짜리 아파트를 받았습니다. 이게 특별수익이 되나요?
@@ -3202,7 +1838,7 @@ const INHERITANCE_TOPICS = [
 <div class="qa-disclaimer">※ 위 내용은 일반적인 법률 정보 안내입니다. 기여분 심판 청구 절차는 법무사·변호사와 상담하시기 바랍니다.</div>
 </div>
 </div>` },
-      { heading: '다음으로 확인할 내용', content: `<div class="nav-grid">
+      { heading: "다음으로 확인할 내용", content: `<div class="nav-grid">
 <a class="nav-card" href="상속_08_상속분.html">
 <div class="nav-dir">◀ 이전</div>
 <div class="nav-title">상속분 계산 — 내 상속분은 얼마지</div>
@@ -3214,351 +1850,44 @@ const INHERITANCE_TOPICS = [
 <div class="nav-desc">유언이나 증여로 상속에서 배제되었을 때 법이 보장하는 최소 상속분과 반환청구 방법</div>
 </a>
 </div>` },
-      { heading: '특별수익·기여분 분쟁, 혼자 해결하기 어려우시다면', content: `<p>증거 수집 방법, 가정법원 심판 청구 절차,<br/>
+      { heading: "특별수익·기여분 분쟁, 혼자 해결하기 어려우시다면", content: `<p>증거 수집 방법, 가정법원 심판 청구 절차,<br/>
     협의분할서 작성까지 법무사가 함께합니다.</p>
 <a class="cta-btn" href="#">무료 상담 신청하기</a>
-</div>` }
+</div>` },
     ],
-    laws: [
-      { name: '민법 제1008조', desc: '' },
-      { name: '민법 제1008조의2', desc: '' },
-      { name: '민법 제1008조의2 제3항', desc: '' },
-      { name: '민법 제1008조의2 제2항', desc: '' }
-    ],
-    forms: []
+    laws: [{"name":"민법 제1008조","desc":""},{"name":"민법 제1008조의2","desc":""},{"name":"민법 제1008조의2 제3항","desc":""},{"name":"민법 제1008조의2 제2항","desc":""}],
+    forms: [],
   },
   {
-    id: 'in-10',
-    title: '상속재산분할 — 협의·조정·심판',
-    meta: '공동상속인들이 재산을 나누는 세 가지 방법과 각 절차 실무 안내',
+    id: "in-10",
+    title: "상속재산분할과 기여분 — 협의로 나눌지, 법원에 맡길지",
+    meta: "상속재산은 유언이 없으면 공동상속인이 협의해 나누고, 협의가 안 되면 가정법원에 분할을 청구하며 먼저 조정을 거칩니다. 특별수익·기여분 반영과 협의분할·심판 절차를 안내합니다.",
+    reviewed: "2026-11-08",
+    kb: "H-C00",
     sections: [
-      { heading: '이런 분께 도움이 됩니다', content: `<ul class="target-list">
-<li>상속이 개시된 후 다른 상속인들과 재산을 어떻게 나눌지 모르는 분</li>
-<li>협의분할서를 작성해야 하는데 어떤 내용이 들어가야 하는지 궁금한 분</li>
-<li>형제자매 간에 분할 방법에 대한 의견이 달라 협의가 어려운 분</li>
-<li>상속인 중 한 명이 연락이 되지 않거나 협의를 거부하는 분</li>
-<li>부동산·예금·주식 등 재산 종류에 따라 어떻게 분할할지 모르는 분</li>
-<li>이미 분할된 상속재산에 문제가 생겨 재분할을 검토 중인 분</li>
-</ul>` },
-      { heading: '핵심 요약', content: `<div class="summary-box">
-<h3>📌 상속재산분할의 세 가지 경로</h3>
-<p><strong>① 협의분할</strong> — 공동상속인 전원의 합의로 원하는 방식대로 나눕니다. 가장 빠르고 유연합니다.</p>
-<p><strong>② 조정</strong> — 협의가 안 될 때 가정법원에 조정을 신청합니다. 중립적인 조정위원이 도와 합의를 이끌어냅니다.</p>
-<p><strong>③ 심판</strong> — 조정에서도 합의가 안 되면 법원이 분할 방법을 직접 결정합니다.</p>
-</div>
-<div class="path-grid">
-<div class="path-card step1">
-<div class="path-num">1</div>
-<div class="path-title">협의분할</div>
-<div class="path-desc">상속인 전원의 동의로 자유롭게 분할. 법정상속분과 달리 정해도 됨.</div>
-<div class="path-law"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101300" target="_blank" class="tag-law">📋 민법 제1013조</a></div>
-</div>
-<div class="path-card step2">
-<div class="path-num">2</div>
-<div class="path-title">가정법원 조정</div>
-<div class="path-desc">협의 실패 시 가정법원 조정 신청. 조정 성립 시 심판과 동일 효력.</div>
-<div class="path-law"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=103961&joNo=004900" target="_blank" class="tag-law">📋 가사소송법 제49조</a></div>
-</div>
-<div class="path-card step3">
-<div class="path-num">3</div>
-<div class="path-title">가정법원 심판</div>
-<div class="path-desc">조정 불성립 시 법원이 분할 방법 결정. 최후의 수단.</div>
-<div class="path-law"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=103961&joNo=000200" target="_blank" class="tag-law">📋 가사소송법 제2조</a></div>
-</div>
+      { heading: "이런 분께 필요합니다", content: `<ul class="checklist"><li> 형제들 사이에 누가 무엇을 가질지 의견이 갈린다</li><li> 한 형제가 생전에 집이나 사업자금을 받아 갔다</li><li> 오랫동안 부모님을 모시고 간병한 몫을 인정받고 싶다</li><li> 협의가 안 돼 법원 절차를 생각하고 있다</li></ul>` },
+      { heading: "핵심정리", content: `<div class="kb-box kb-summary"><p>상속재산은 돌아가신 분이 유언으로 나누는 방법을 정해 두었으면 그에 따르고, 그렇지 않으면 공동상속인이 협의해 나눕니다. 협의가 되지 않으면 가정법원에 분할을 청구합니다. 이 사건은 먼저 조정을 거치게 되어 있습니다. 생전에 많이 받은 상속인(특별수익)이나 부모를 특별히 부양한 상속인(기여분)이 있으면 법정상속분을 그대로 쓰지 않고 몫을 조정합니다.</p><details class="refs-mini"><summary>📋 근거 6</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1012조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1012조</a><a href="https://www.law.go.kr/법령/민법/제1013조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1013조</a><a href="https://www.law.go.kr/법령/가사소송법/제2조" target="_blank" rel="noopener" class="tag-law">📋 가사소송법 제2조 제1항 제2호 나목 마류 9)·10)</a><a href="https://www.law.go.kr/법령/가사소송법/제50조" target="_blank" rel="noopener" class="tag-law">📋 가사소송법 제50조</a><a href="https://www.law.go.kr/법령/민법/제1008조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1008조</a><a href="https://www.law.go.kr/법령/민법/제1008조의2" target="_blank" rel="noopener" class="tag-law">📋 민법 제1008조의2</a></div></details></div>` },
+      { heading: "상세설명", content: `<h3>무엇으로 판단하나요?</h3><div class="table-wrap"><table><tr><th>상황</th><th>방법</th><th>결과물</th></tr><tr><td data-label="상황">유언에 분할 방법이 있다</td><td data-label="방법">유언에 따름(5년 이내 분할 금지도 가능)</td><td data-label="결과물">유언 집행</td></tr><tr><td data-label="상황">상속인 전원이 합의한다</td><td data-label="방법">협의분할</td><td data-label="결과물">상속재산분할협의서</td></tr><tr><td data-label="상황">합의가 안 되거나 일부가 협의를 거부한다</td><td data-label="방법">가정법원 조정 → 심판</td><td data-label="결과물">조정조서·심판</td></tr><tr><td data-label="상황">특별히 부양·기여한 상속인이 있다</td><td data-label="방법">협의로 기여분을 정하고, 안 되면 분할 청구와 함께 기여분 청구</td><td data-label="결과물">기여분 결정</td></tr></table></div><details class="refs-mini"><summary>📋 근거 5</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1012조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1012조</a><a href="https://www.law.go.kr/법령/민법/제1013조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1013조</a><a href="https://www.law.go.kr/법령/가사소송법/제2조" target="_blank" rel="noopener" class="tag-law">📋 가사소송법 제2조 제1항 제2호 나목 마류 9)·10)</a><a href="https://www.law.go.kr/법령/가사소송법/제50조" target="_blank" rel="noopener" class="tag-law">📋 가사소송법 제50조</a><a href="https://www.law.go.kr/법령/민법/제1008조의2" target="_blank" rel="noopener" class="tag-law">📋 민법 제1008조의2</a></div></details><h3>생전 증여와 기여분은 어떻게 반영되나요?</h3><p><strong>특별수익</strong>: 상속인 중 돌아가신 분에게서 증여나 유증을 받은 사람은 그만큼 이미 받은 것으로 보고, 자기 몫에 모자라는 부분만 상속받습니다. 2026년 개정으로, 그 증여가 오랜 동거·간호처럼 특별한 부양이나 재산 기여에 대한 보상이었다면 기여에 상응하는 범위에서는 특별수익으로 보지 않습니다. 이 단서는 2024. 4. 25. 이후 시작된 상속에도 적용됩니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1008조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1008조</a><a href="https://www.law.go.kr/법령/민법" target="_blank" rel="noopener" class="tag-law">📋 민법 부칙 제1조~제4조</a></div></details>
+<p><strong>기여분</strong>: 상당한 기간 동거·간호 등으로 특별히 부양하거나 재산 유지·증가에 특별히 기여한 상속인은, 상속재산에서 기여분을 먼저 떼어 받고 나머지를 법정상속분으로 나눕니다. 기여분은 유증을 뺀 재산가액을 넘을 수 없고, 법원에 청구할 때는 상속재산분할 청구가 있는 경우에만 함께 낼 수 있습니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1008조의2" target="_blank" rel="noopener" class="tag-law">📋 민법 제1008조의2</a></div></details>
+<p>진주에 사는 X씨는 10년 동안 어머니를 모시며 병원비를 부담했고, 형은 결혼할 때 어머니에게서 아파트 구입자금을 받았습니다(설명을 위한 가상 사례입니다). X씨는 기여분을, 형의 자금은 특별수익을 주장할 수 있어, 이 둘을 반영한 &#x27;구체적 상속분&#x27;으로 나누게 됩니다.</p><h3>예금은 따로 나누지 않아도 되나요?</h3><p>예금처럼 나눌 수 있는 채권은 원칙적으로 상속과 동시에 법정상속분대로 각 상속인에게 나뉩니다. 다만 특별수익이나 기여분이 있어 그대로 두면 불공평해지는 경우에는 예금도 분할 대상에 넣을 수 있다는 것이 대법원 판단입니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2014%EC%8A%A4122)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2016. 5. 4.자 2014스122 결정</a></div></details><h3>법원 절차는 어떻게 진행되나요?</h3><ol class=""><li><strong>조정 신청</strong> — 상속재산분할은 먼저 가정법원 조정을 거칩니다. 조정 없이 심판을 청구해도 법원이 조정에 회부하는 것이 원칙입니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/가사소송법/제50조" target="_blank" rel="noopener" class="tag-law">📋 가사소송법 제50조</a></div></details></li><li><strong>기여분 함께 청구</strong> — 기여분을 주장할 상속인은 분할 사건과 함께 기여분 결정을 청구합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1008조의2" target="_blank" rel="noopener" class="tag-law">📋 민법 제1008조의2</a></div></details></li><li><strong>재산 목록과 자료 정리</strong> — 부동산·예금·주식 같은 상속재산, 생전 증여 내역, 부양·간병 기간과 비용을 자료로 정리합니다.</li><li><strong>조정 성립 또는 심판</strong> — 조정이 성립하면 그 내용대로, 성립하지 않으면 법원이 심판으로 분할 방법을 정합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/가사소송법/제2조" target="_blank" rel="noopener" class="tag-law">📋 가사소송법 제2조 제1항 제2호 나목 마류 9)·10)</a></div></details></li><li><strong>등기·명의 이전</strong> — 조정조서나 심판에 따라 상속등기와 예금 명의 이전을 마칩니다.</li></ol><h3>협의서는 어떻게 쓰나요?</h3><ul class=""><li>상속인 <strong>전원</strong>이 기명날인하고 인감증명서를 붙입니다. 한 사람이라도 빠지면 등기에 쓸 수 없습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/부동산등기규칙/제60조" target="_blank" rel="noopener" class="tag-law">📋 부동산등기규칙 제60조 제1항 제6호</a></div></details></li><li>부동산은 등기부대로 소재지·지번·면적을 적고, 예금은 금융회사와 계좌를 특정합니다.</li><li>미성년 상속인이 있고 부모도 상속인이면 특별대리인이 대신 날인합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제921조" target="_blank" rel="noopener" class="tag-law">📋 민법 제921조</a></div></details></li><li>상속세 신고기한 안에 정해 두어야 나중의 재분할 증여세 문제를 피할 수 있습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/상속세및증여세법/제4조" target="_blank" rel="noopener" class="tag-law">📋 상속세 및 증여세법 제4조 제3항</a></div></details></li></ul><h3>분할하면 어떤 효과가 생기나요?</h3><ul class=""><li><strong>상속이 시작된 때로 거슬러 효력이 생깁니다.</strong> 분할로 재산을 받은 사람은 처음부터 돌아가신 분에게서 직접 상속받은 것이 됩니다. 그 사이 권리를 얻은 제3자는 보호됩니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1015조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1015조</a></div></details></li><li><strong>나누기 전까지는 공유입니다.</strong> 분할 전에는 상속인 모두가 상속재산을 함께 가진 상태입니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1006조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1006조</a></div></details></li><li><strong>빚은 분할로 정리되지 않습니다.</strong> 협의서에 한 사람이 빚을 떠안기로 적어도 상속인들 사이의 약속일 뿐이므로, 채권자와의 관계는 따로 정리해야 합니다.</li><li><strong>판례</strong> — 금전채무는 상속과 동시에 법정상속분대로 나뉘어 귀속되므로 상속재산분할의 대상이 아닙니다(<a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(97%EB%8B%A48809)" target="_blank" rel="noopener" class="case-link">대법원 1997. 6. 24. 선고 97다8809 판결</a>).<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(97%EB%8B%A48809)" target="_blank" rel="noopener" class="tag-law">📋 대법원 1997. 6. 24. 선고 97다8809 판결</a></div></details></li></ul><h3>분할과 세금은 어떻게 연결되나요?</h3><p>협의분할로 부동산을 받은 사람은 그 결과대로 취득세를 신고·납부하고 상속등기를 합니다. 신고기한은 상속개시일이 속한 달의 말일부터 6개월입니다. 상속세 신고기한도 같은 6개월이므로, 그 안에 분할을 마치면 등기 후 재분할로 인한 증여세 문제를 피하기 쉽습니다. 상속세 대상 여부와 신고는 세무사와 상의하시고, 협의서 작성과 상속등기, 취득세 신고·납부는 함께 처리해 드립니다.</p><details class="refs-mini"><summary>📋 근거 3</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/지방세법/제20조" target="_blank" rel="noopener" class="tag-law">📋 지방세법 제20조</a><a href="https://www.law.go.kr/법령/상속세및증여세법/제67조" target="_blank" rel="noopener" class="tag-law">📋 상속세 및 증여세법 제67조</a><a href="https://www.law.go.kr/법령/상속세및증여세법/제4조" target="_blank" rel="noopener" class="tag-law">📋 상속세 및 증여세법 제4조 제3항</a></div></details>` },
+      { heading: "자주 묻는 질문", content: `<details class="qa"><summary>Q. Q. 협의분할에 기한이 있나요?</summary><div class="ans"><p>A. 협의는 언제든 할 수 있습니다. 다만 취득세 신고기한과 상속세 신고기한이 따로 흐르므로 그 안에 정하는 것이 유리합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1013조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1013조</a></div></details></div></details><details class="qa"><summary>Q. Q. 기여분만 따로 법원에 청구할 수 있나요?</summary><div class="ans"><p>A. 기여분 청구는 상속재산분할 청구가 있거나 분할 후 새 상속인이 가액을 청구하는 경우에 할 수 있습니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1008조의2" target="_blank" rel="noopener" class="tag-law">📋 민법 제1008조의2</a></div></details></div></details><details class="qa"><summary>Q. Q. 부모님을 모신 것만으로 기여분이 인정되나요?</summary><div class="ans"><p>A. 법은 &#x27;특별한&#x27; 부양이나 기여를 요구합니다. 기간, 방법, 비용 부담 등 구체적 사정을 자료로 갖추어야 합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1008조의2" target="_blank" rel="noopener" class="tag-law">📋 민법 제1008조의2</a></div></details></div></details><details class="qa"><summary>Q. Q. 한 번 협의서에 도장을 찍으면 되돌릴 수 없나요?</summary><div class="ans"><p>A. 협의분할은 상속인 전원의 합의로 이루어진 것이라 한 사람이 일방적으로 뒤집을 수 없습니다. 상속인 전원이 다시 합의하는 것은 가능하지만, 등기 후 재분할에는 증여세 문제가 따를 수 있습니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/상속세및증여세법/제4조" target="_blank" rel="noopener" class="tag-law">📋 상속세 및 증여세법 제4조 제3항</a></div></details></div></details><details class="qa"><summary>Q. Q. 아버지 빚을 형이 모두 갚기로 하면 저는 책임이 없나요?</summary><div class="ans"><p>A. 빚은 법정상속분대로 이미 나뉘어 있어 상속인들끼리의 약속만으로 채권자에게 대항하기 어렵습니다. 빚이 많다면 협의분할보다 포기·한정승인을 먼저 검토하십시오.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(97%EB%8B%A48809)" target="_blank" rel="noopener" class="tag-law">📋 대법원 1997. 6. 24. 선고 97다8809 판결</a></div></details></div></details><details class="qa"><summary>Q. Q. 기여분은 얼마까지 인정되나요?</summary><div class="ans"><p>A. 협의가 되지 않으면 법원이 기여의 시기·방법·정도와 상속재산 규모를 보고 정하며, 상속재산에서 유증을 뺀 액수를 넘을 수 없습니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1008조의2" target="_blank" rel="noopener" class="tag-law">📋 민법 제1008조의2</a></div></details></div></details><details class="qa"><summary>Q. Q. 협의하는 도중에 상속인 한 분이 돌아가셨어요.</summary><div class="ans"><p>A. 그분의 몫은 그분의 상속인이 물려받으므로, 그 상속인들이 협의에 참여합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1005조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1005조</a></div></details></div></details>` },
+      { heading: "주의사항", content: `<section class="box warn"><ul class=""><li><strong>분할은 상속개시 때로 소급</strong>합니다. 다만 그 사이 권리를 얻은 제3자는 보호됩니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1015조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1015조</a></div></details></li><li><strong>분할 뒤 새 상속인이 생기면</strong>: 상속개시 후 인지 등으로 상속인이 된 사람은 이미 끝난 분할을 되돌리는 대신 자기 몫의 가액을 청구합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1014조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1014조</a></div></details></li><li><strong>미성년 상속인</strong>: 부모와 자녀가 함께 상속인이면 특별대리인을 선임받아야 협의할 수 있습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제921조" target="_blank" rel="noopener" class="tag-law">📋 민법 제921조</a></div></details></li><li><strong>등기 후 다시 나누면 증여세</strong>: 상속분이 등기로 확정된 뒤 재분할로 당초 몫보다 더 가져가면 증여세가 나올 수 있습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/상속세및증여세법/제4조" target="_blank" rel="noopener" class="tag-law">📋 상속세 및 증여세법 제4조 제3항</a></div></details></li></ul></section>` },
+      { heading: "다음에 확인할 사항", content: `<ul><li><a href="/guide/inheritance/in-12.html">상속등기</a></li><li><a href="/guide/inheritance/in-20.html">유류분</a></li><li><a href="/guide/inheritance/in-17.html">유언</a></li><li><a href="/guide/inheritance/in-01.html">상속이 시작됐을 때</a></li></ul>` },
+      { heading: "이 내용이 해당되시나요?", content: `<div class="kb-box kb-cta"><p>직접 처리하시기 어려운 부분을 법무사가 함께 검토합니다. 이런 경우 상담을 권합니다.</p>
+<ul class=""><li>협의분할 내용을 정리해 협의서와 상속등기까지 마무리하고 싶을 때</li><li>생전 증여·기여분을 반영한 몫을 계산해야 할 때</li><li>협의가 안 돼 가정법원 조정이나 심판을 준비할 때</li></ul>
+<p class="note">법무사는 상속재산분할협의서를 작성하고 그에 따른 상속등기 신청을 대리하며, 취득세 신고·납부도 함께 처리합니다. 상속재산분할·기여분 심판청구서처럼 가정법원에 내는 서류도 작성해 제출합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/법무사법/제2조" target="_blank" rel="noopener" class="tag-law">📋 법무사법 제2조</a></div></details>
 </div>` },
-      { heading: '상세 내용', content: `<!-- 분할의 의의 -->
-<h3 class="sub-title">상속재산분할이란?</h3>
-<p class="detail-text">
-    상속이 개시되면 공동상속인들은 상속재산 전체를 공유하는 상태가 됩니다. 상속재산분할이란 이 <strong>공유 상태를 해소하여 각 상속인에게 구체적인 재산을 귀속시키는 절차</strong>입니다. 분할은 상속개시 즉시 청구할 수 있으며, 분할을 완료해야 비로소 부동산 등기 이전, 예금 해지, 주식 명의 변경 등이 가능해집니다.
-  </p>
-<p class="detail-text">
-    분할의 대상은 상속재산 중 <strong>적극재산</strong>(부동산·예금·주식 등)입니다. 채무(소극재산)는 별도의 분할 절차 없이 법정상속분에 따라 당연히 분할됩니다. 유언으로 분할 방법이 정해진 경우에는 유언이 우선하며, 피상속인은 유언으로 <strong>5년 이내</strong>의 분할 금지를 정할 수도 있습니다. <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101200" target="_blank" class="tag-law">📋 민법 제1012조</a>
-</p>
-<!-- 협의분할 -->
-<h3 class="sub-title">① 협의분할 <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101300" target="_blank" class="tag-law">📋 민법 제1013조</a></h3>
-<p class="detail-text">
-    공동상속인 전원이 합의하면 법정상속분이나 유언의 내용과 무관하게 어떤 방식으로든 분할할 수 있습니다. <strong>전원의 동의가 반드시 필요</strong>하며, 한 명이라도 빠지면 협의분할이 성립하지 않습니다. 협의 내용을 서면(협의분할서·분할협의서)으로 작성하여 부동산 등기·금융기관 제출 등에 활용합니다.
-  </p>
-<h4 class="sub-sub">협의분할서 필수 기재 사항</h4>
-<div class="checklist">
-<div class="cl-title">📝 협의분할서 체크리스트</div>
-<ul>
-<li>피상속인의 성명, 주민등록번호, 사망일, 최후 주소<span class="note">가족관계증명서·기본증명서로 확인</span></li>
-<li>공동상속인 전원의 성명, 주민등록번호, 주소<span class="note">일부라도 빠지면 무효</span></li>
-<li>분할 대상 재산의 목록 (부동산은 소재지·지번·면적, 예금은 계좌번호·금액 등)<span class="note">분할 후 등기·이전에 기재된 내용이 그대로 사용됨</span></li>
-<li>각 상속인별 취득 재산 내역 (누가 무엇을 어느 지분으로 취득하는지)<span class="note">법정상속분과 달리 정해도 무방</span></li>
-<li>상속인 전원의 서명 또는 기명날인<span class="note">부동산 등기 신청 시 인감도장 + 인감증명서 필요</span></li>
-</ul>
-</div>
-<h4 class="sub-sub">미성년자 또는 부재 상속인이 있는 경우</h4>
-<p class="detail-text">
-    상속인 중 미성년자가 있고 법정대리인(친권자)도 공동상속인인 경우, 이해충돌이 발생하므로 법정대리인이 미성년 자녀를 대리할 수 없습니다. 이 경우 가정법원에 <strong>특별대리인 선임</strong>을 신청해야 합니다. 행방불명 상속인이 있다면 가정법원의 <strong>부재자 재산관리인 선임</strong> 또는 실종선고 후 분할을 진행할 수 있습니다.
-  </p>
-<!-- 분할의 방법 -->
-<h3 class="sub-title">분할의 방법 — 현물·대상·경매</h3>
-<div class="method-grid">
-<div class="method-card">
-<div class="method-name">현물분할</div>
-<p>재산을 실물 그대로 나누는 방법. 토지·건물을 분할하거나 각 상속인이 특정 재산을 단독 취득.</p>
-</div>
-<div class="method-card">
-<div class="method-name">대상분할 (가액분할)</div>
-<p>특정 상속인이 재산을 전부 취득하고, 나머지 상속인에게는 상속분 해당 금액을 현금으로 지급.</p>
-</div>
-<div class="method-card">
-<div class="method-name">경매분할</div>
-<p>현물분할이 불가능하거나 현저히 불이익한 경우, 재산을 경매하여 그 대금을 상속분 비율로 분배.</p>
-</div>
-</div>
-<table class="method-table">
-<thead>
-<tr>
-<th>분할 방법</th>
-<th>적합한 재산</th>
-<th>장점</th>
-<th>단점</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>현물분할</td>
-<td>토지, 여러 부동산, 예금·주식 복수</td>
-<td>신속, 비용 절감</td>
-<td>지분 불균형 발생 가능</td>
-</tr>
-<tr>
-<td>대상분할</td>
-<td>단독 부동산, 사업체</td>
-<td>분쟁 최소화</td>
-<td>취득자 현금 준비 필요</td>
-</tr>
-<tr>
-<td>경매분할</td>
-<td>협의 불가 시 모든 재산</td>
-<td>강제 실현 가능</td>
-<td>시가보다 낮은 낙찰가 위험</td>
-</tr>
-</tbody>
-</table>
-<!-- 조정·심판 절차 -->
-<h3 class="sub-title">② 가정법원 조정 &amp; ③ 심판 절차</h3>
-<div class="compare-2col">
-<div class="col-card mediation">
-<span class="cc-badge">조정</span>
-<div class="cc-title">가정법원 조정</div>
-<ul>
-<li>협의 결렬 시 가정법원에 <strong>조정신청</strong></li>
-<li>조정전치주의 적용 — 심판 전 조정이 원칙</li>
-<li>조정위원(판사·전문가)이 합의를 중재</li>
-<li>성립 시: 재판상 화해와 동일한 효력</li>
-<li>불성립 시: 자동으로 심판으로 이행</li>
-<li>비용: 심판보다 상대적으로 저렴</li>
-</ul>
-</div>
-<div class="col-card trial">
-<span class="cc-badge">심판</span>
-<div class="cc-title">가정법원 심판</div>
-<ul>
-<li>조정 불성립 시 법원이 <strong>직권으로 분할</strong> 결정</li>
-<li>특별수익·기여분 함께 심판 가능</li>
-<li>법원이 현물·대상·경매 방법 선택 결정</li>
-<li>심판 확정 시 등기신청에 직접 사용 가능</li>
-<li>항고 → 재항고 가능 (즉시항고 2주)</li>
-<li>마류 가사비송사건 <span style="font-size:12px;color:#666;">(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=103961&joNo=000200" target="_blank" class="tag-law">📋 가사소송법 제2조</a>)</span></li>
-</ul>
-</div>
-</div>
-<h4 class="sub-sub">심판 청구 절차 개요</h4>
-<div class="proc-flow">
-<div class="proc-step">
-<div class="proc-circle">1</div>
-<div class="proc-content">
-<div class="ps-title">관할 가정법원 확인</div>
-<p>피상속인의 마지막 주소지 가정법원(또는 상속 부동산 소재지)에 신청합니다.</p>
-</div>
-</div>
-<div class="proc-step">
-<div class="proc-circle">2</div>
-<div class="proc-content">
-<div class="ps-title">조정 신청 또는 심판 청구서 작성</div>
-<p>청구인·상대방(피고) 목록, 분할 대상 재산 목록, 희망 분할 방법을 기재합니다. 기여분·특별수익 청구를 병합할 수 있습니다.</p>
-</div>
-</div>
-<div class="proc-step">
-<div class="proc-circle">3</div>
-<div class="proc-content">
-<div class="ps-title">인지·송달료 납부 및 접수</div>
-<p>재산 가액에 따른 인지대와 당사자 수 기준 송달료를 납부합니다. 가족관계증명서·기본증명서·재산 관련 서류를 첨부합니다.</p>
-</div>
-</div>
-<div class="proc-step">
-<div class="proc-circle">4</div>
-<div class="proc-content">
-<div class="ps-title">심문·조정 기일 진행</div>
-<p>법원은 당사자를 심문하고 재산 조사(금융정보조회·감정)를 실시합니다. 조정이 성립하면 종료됩니다.</p>
-</div>
-</div>
-<div class="proc-step">
-<div class="proc-circle">5</div>
-<div class="proc-content">
-<div class="ps-title">심판 확정 → 등기 신청</div>
-<p>심판 확정 후 심판서 정본을 첨부하여 부동산 등기·금융기관 이전 등을 진행합니다. 항고 기간(2주)이 지나면 확정됩니다.</p>
-</div>
-</div>
-</div>
-<!-- 분할의 효과 -->
-<h3 class="sub-title">분할의 효과 — 소급효와 등기</h3>
-<div class="effect-box">
-<div class="eb-title">✅ 분할의 소급효</div>
-<p>상속재산분할의 효력은 <strong>상속 개시 시(피상속인 사망 시)로 소급</strong>합니다. 따라서 협의분할 후 부동산 등기의 원인은 협의분할일이지만, 효력은 피상속인 사망일부터 발생한 것으로 봅니다. <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=101500" target="_blank" class="tag-law">📋 민법 제1015조</a></p>
-<p>단, 분할 전에 제3자가 이해관계를 취득한 경우(상속인이 지분을 담보로 제공하는 등)에는 소급효로써 제3자에게 대항할 수 없습니다. 그러므로 상속등기 후 신속하게 협의분할을 진행해야 합니다.</p>
-</div>
-<div class="effect-box">
-<div class="eb-title">📋 분할 후 등기 원인 기재</div>
-<p><strong>협의분할의 경우:</strong> 등기원인 = "협의분할로 인한 상속" / 원인일자 = 협의분할일</p>
-<p><strong>심판·조정의 경우:</strong> 등기원인 = "○○법원 확정판결(또는 조정)에 의한 상속" / 원인일자 = 심판 확정일</p>
-<p>상속등기 후 협의분할로 변경하는 경우에는 <strong>소유권경정등기</strong>를 신청합니다. 단, 가압류 등 이해관계인이 생긴 경우 별도 조치가 필요합니다.</p>
-</div>` },
-      { heading: '관련 판례', content: `<div class="ruling-card">
-<div class="ruling-id"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2001다28299" target="_blank" class="tag-case">⚖️ 대법원 2001다28299</a></div>
-<div class="ruling-summary">상속재산 분할협의는 공동상속인 전원이 참가하여야 하며, 일부 상속인이 빠진 분할협의는 무효라고 판시하였습니다. 또한 분할협의 후 다른 상속인이 출현한 경우 기존 협의가 소급 무효가 됩니다.</div>
-<div class="ruling-point">실무 포인트: 상속인 조사를 철저히 한 후 협의분할에 착수해야 합니다. 특히 혼외자·입양자 등의 존재 여부를 반드시 확인하세요.</div>
-</div>
-<div class="ruling-card">
-<div class="ruling-id"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2002다73203" target="_blank" class="tag-case">⚖️ 대법원 2002다73203</a></div>
-<div class="ruling-summary">분할협의 후 협의 내용이 사기나 강박에 의한 것이었다면 취소할 수 있으나, 단순히 법정상속분보다 불리하게 합의했다는 사정만으로는 취소 사유가 되지 않는다고 판시하였습니다.</div>
-<div class="ruling-point">실무 포인트: 분할협의서에 서명하기 전 반드시 내용을 충분히 이해한 후 서명하세요. 서명 후에는 단순 불만으로는 취소가 어렵습니다.</div>
-</div>
-<div class="ruling-card">
-<div class="ruling-id"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2008다89712" target="_blank" class="tag-case">⚖️ 대법원 2008다89712</a></div>
-<div class="ruling-summary">상속재산분할 협의 후 합의한 내용대로 등기가 이루어졌다면, 나중에 특별수익이나 기여분 주장을 이유로 분할 협의의 효력을 다시 다툴 수 없다고 판시하였습니다. 협의분할은 기여분·특별수익을 전제로 한 구체적 상속분을 반영한 최종 합의이기 때문입니다.</div>
-<div class="ruling-point">실무 포인트: 기여분·특별수익 주장은 협의분할 합의 전에 반드시 정리하고, 이를 협의서에 반영해야 합니다.</div>
-</div>
-<div class="ruling-card">
-<div class="ruling-id"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=94다11835" target="_blank" class="tag-case">⚖️ 대법원 94다11835</a></div>
-<div class="ruling-summary">상속재산 협의분할은 피상속인의 사망으로 공동 상속된 재산에 대해 공동상속인들이 합의로 그 귀속을 정하는 것이고, 그 효력은 상속개시 시에 소급하여 발생한다고 판시하였습니다. 또한 협의분할에 의한 등기 후 재분할하는 경우에도 최초 상속등기에 소급하여 효력이 미침을 확인하였습니다.</div>
-<div class="ruling-point">실무 포인트: 협의분할서 작성 후 등기까지의 기간이 길어지면 그 사이에 상속인의 채무로 가압류 등이 들어올 수 있으므로 신속한 등기가 중요합니다.</div>
-</div>` },
-      { heading: '주의사항', content: `<div class="warn-box">
-<div class="warn-icon">⚠️</div>
-<div class="warn-content">
-<div class="warn-title">상속인 전원의 동의 없이는 협의 무효</div>
-<div class="warn-desc">상속인 중 한 명이라도 동의하지 않으면 협의분할은 성립하지 않습니다. 사전에 상속인 범위를 정확히 파악하는 것이 중요합니다. 이미 사망한 상속인의 경우 그 상속인의 상속인도 참여해야 합니다.</div>
-</div>
-</div>
-<div class="warn-box">
-<div class="warn-icon">⚠️</div>
-<div class="warn-content">
-<div class="warn-title">협의분할 후 재분할 시 세금 주의</div>
-<div class="warn-desc">일단 협의분할로 상속등기가 완료된 후 재분할(소유권경정등기)을 하는 경우, 취득세 등 세금이 추가로 부과될 수 있습니다. 특히 가압류·근저당 등 이해관계인이 생긴 후에는 재분할이 어려워지므로 처음부터 신중하게 협의해야 합니다.</div>
-</div>
-</div>
-<div class="warn-box">
-<div class="warn-icon">⚠️</div>
-<div class="warn-content">
-<div class="warn-title">심판 청구 전 조정 신청이 원칙</div>
-<div class="warn-desc">상속재산분할 심판은 조정전치주의가 적용됩니다. 즉, 먼저 가정법원에 조정을 신청해야 하고, 조정이 불성립된 경우에 심판으로 이행됩니다. 조정 없이 바로 심판을 청구하는 것은 원칙적으로 허용되지 않습니다.</div>
-</div>
-</div>
-<div class="warn-box">
-<div class="warn-icon">⚠️</div>
-<div class="warn-content">
-<div class="warn-title">상속채무(빚)는 분할 대상이 아닙니다</div>
-<div class="warn-desc">상속채무는 협의분할의 대상이 아니며, 법정상속분에 따라 당연히 분할됩니다. 상속인들이 내부적으로 특정인이 채무를 부담하기로 합의해도 채권자에게는 대항할 수 없습니다. 채무 문제는 한정승인·상속포기(개시 후 3개월 이내)로 해결해야 합니다.</div>
-</div>
-</div>` },
-      { heading: '자주 묻는 질문 (Q&amp;A)', content: `<div class="qna-item">
-<div class="qna-q">
-<span class="q-label">Q1</span>
-      형이 협의분할에 협조하지 않습니다. 어떻게 해야 하나요?
-    </div>
-<div class="qna-a">
-      상속인 중 한 명이 협의를 거부하거나 연락이 되지 않으면 협의분할이 성립하지 않습니다. 이 경우 가정법원에 <strong>상속재산분할 조정을 신청</strong>할 수 있습니다. 조정에서도 합의가 되지 않으면 법원이 심판을 통해 분할 방법을 결정합니다. 조정·심판 절차에는 통상 수개월이 소요됩니다.
-      <div class="qa-disclaimer">※ 위 내용은 일반적인 법률 정보 안내입니다. 구체적인 절차는 법무사·변호사와 상담하시기 바랍니다.</div>
-</div>
-</div>
-<div class="qna-item">
-<div class="qna-q">
-<span class="q-label">Q2</span>
-      법정상속분보다 많이 가져가는 협의분할도 유효한가요?
-    </div>
-<div class="qna-a">
-      네, 유효합니다. 협의분할에서는 상속인 전원이 동의한다면 <strong>법정상속분과 전혀 다르게 나눌 수 있습니다</strong>. 예를 들어 배우자에게 모든 재산을 주거나, 특정 자녀가 부동산을 전부 취득하는 것도 가능합니다. 다만 다른 상속인의 유류분을 침해하는 경우 유류분 반환청구 문제가 발생할 수 있습니다.
-      <div class="qa-disclaimer">※ 위 내용은 일반적인 법률 정보 안내입니다. 유류분 관련 문제는 전문가와 상담하시기 바랍니다.</div>
-</div>
-</div>
-<div class="qna-item">
-<div class="qna-q">
-<span class="q-label">Q3</span>
-      미성년 자녀가 있을 때 협의분할은 어떻게 하나요?
-    </div>
-<div class="qna-a">
-      친권자(예: 어머니)와 미성년 자녀가 모두 상속인인 경우, 친권자가 자녀를 대리하면 이해충돌이 발생합니다. 이때는 가정법원에 <strong>특별대리인 선임을 신청</strong>해야 하며, 특별대리인이 미성년 자녀를 대리하여 협의분할에 참여합니다. 신청 후 결정까지 통상 수 주가 소요됩니다.
-      <div class="qa-disclaimer">※ 위 내용은 일반적인 법률 정보 안내입니다. 구체적인 절차는 전문가와 상담하시기 바랍니다.</div>
-</div>
-</div>
-<div class="qna-item">
-<div class="qna-q">
-<span class="q-label">Q4</span>
-      협의분할이 완료된 후에 숨겨진 상속재산이 발견되었습니다. 어떻게 해야 하나요?
-    </div>
-<div class="qna-a">
-      기존 협의분할에 포함되지 않은 새로운 상속재산이 발견된 경우, 해당 재산에 대해 <strong>다시 협의분할</strong>을 할 수 있습니다. 기존 분할 협의가 전체 재산을 포괄하여 효력이 있다고 볼 수 있는 특별한 사정이 없는 한, 미포함 재산은 다시 공유 상태에 있으므로 별도 분할 절차가 필요합니다.
-      <div class="qa-disclaimer">※ 위 내용은 일반적인 법률 정보 안내입니다. 개별 사안은 법무사·변호사와 상담하시기 바랍니다.</div>
-</div>
-</div>
-<div class="qna-item">
-<div class="qna-q">
-<span class="q-label">Q5</span>
-      상속재산분할 심판을 신청하면 비용이 얼마나 드나요?
-    </div>
-<div class="qna-a">
-      심판 청구 시 비용은 크게 ① 인지대(재산 가액 기준), ② 송달료(당사자 수 × 5,200원 × 15회), ③ 감정료(부동산 감정 시)로 구성됩니다. 인지대는 공유물분할청구 기준(목적물 가액 × 공유지분 비율 × 1/3)에 준하여 산정됩니다. 전문가(법무사·변호사) 보수는 별도입니다. 사건이 복잡할수록 비용과 기간이 증가합니다.
-      <div class="qa-disclaimer">※ 위 내용은 일반적인 법률 정보 안내입니다. 정확한 비용은 법원 또는 전문가에게 문의하시기 바랍니다.</div>
-</div>
-</div>
-<div class="qna-item">
-<div class="qna-q">
-<span class="q-label">Q6</span>
-      협의분할서에 서명했는데 나중에 취소할 수 있나요?
-    </div>
-<div class="qna-a">
-      원칙적으로 협의분할은 계약이므로 일방적인 취소가 어렵습니다. 다만, ① 사기·강박에 의한 의사표시는 취소할 수 있고, ② 착오에 의한 경우에도 중요 부분의 착오라면 취소 가능성이 있습니다. 단순히 불리하게 합의했다는 사정이나 후회만으로는 취소가 인정되지 않습니다. 협의서 서명 전 내용을 충분히 이해하는 것이 중요합니다.
-      <div class="qa-disclaimer">※ 위 내용은 일반적인 법률 정보 안내입니다. 취소 가능 여부는 구체적 사안에 따라 달라지므로 법무사·변호사와 상담하시기 바랍니다.</div>
-</div>
-</div>` },
-      { heading: '다음으로 확인할 내용', content: `<div class="nav-grid">
-<a class="nav-card" href="상속_09_특별수익.html">
-<div class="nav-dir">◀ 이전</div>
-<div class="nav-title">생전증여와 상속분 — 특별수익·기여분</div>
-<div class="nav-desc">사전 증여가 내 상속분에 어떻게 반영되는지, 간병 기여는 어떻게 인정받는지 안내</div>
-</a>
-<a class="nav-card" href="상속_11_유류분.html">
-<div class="nav-dir">다음 ▶</div>
-<div class="nav-title">유류분 — 최소 보장 상속분</div>
-<div class="nav-desc">유언이나 증여로 상속에서 배제되었을 때 법이 보장하는 최소 상속분 반환청구 방법</div>
-</a>
-</div>` },
-      { heading: '상속재산분할, 합의가 어려우시다면', content: `<p>협의분할서 작성, 특별대리인 선임 신청,<br/>
-    가정법원 조정·심판 청구까지 법무사가 함께합니다.</p>
-<a class="cta-btn" href="#">무료 상담 신청하기</a>
-</div>` }
     ],
-    laws: [
-      { name: '민법 제1013조', desc: '' },
-      { name: '가사소송법 제49조', desc: '' },
-      { name: '가사소송법 제2조', desc: '' },
-      { name: '민법 제1012조', desc: '' },
-      { name: '민법 제1015조', desc: '' }
-    ],
-    forms: []
+    laws: [],
+    faq: [{"q":"Q. Q. 협의분할에 기한이 있나요?","a":"A. 협의는 언제든 할 수 있습니다. 다만 취득세 신고기한과 상속세 신고기한이 따로 흐르므로 그 안에 정하는 것이 유리합니다. 📋 근거 1 📋 민법 제1013조"},{"q":"Q. Q. 기여분만 따로 법원에 청구할 수 있나요?","a":"A. 기여분 청구는 상속재산분할 청구가 있거나 분할 후 새 상속인이 가액을 청구하는 경우에 할 수 있습니다. 📋 근거 1 📋 민법 제1008조의2"},{"q":"Q. Q. 부모님을 모신 것만으로 기여분이 인정되나요?","a":"A. 법은 '특별한' 부양이나 기여를 요구합니다. 기간, 방법, 비용 부담 등 구체적 사정을 자료로 갖추어야 합니다. 📋 근거 1 📋 민법 제1008조의2"},{"q":"Q. Q. 한 번 협의서에 도장을 찍으면 되돌릴 수 없나요?","a":"A. 협의분할은 상속인 전원의 합의로 이루어진 것이라 한 사람이 일방적으로 뒤집을 수 없습니다. 상속인 전원이 다시 합의하는 것은 가능하지만, 등기 후 재분할에는 증여세 문제가 따를 수 있습니다. 📋 근거 1 📋 상속세 및 증여세법 제4조 제3항"},{"q":"Q. Q. 아버지 빚을 형이 모두 갚기로 하면 저는 책임이 없나요?","a":"A. 빚은 법정상속분대로 이미 나뉘어 있어 상속인들끼리의 약속만으로 채권자에게 대항하기 어렵습니다. 빚이 많다면 협의분할보다 포기·한정승인을 먼저 검토하십시오. 📋 근거 1 📋 대법원 1997. 6. 24. 선고 97다8809 판결"},{"q":"Q. Q. 기여분은 얼마까지 인정되나요?","a":"A. 협의가 되지 않으면 법원이 기여의 시기·방법·정도와 상속재산 규모를 보고 정하며, 상속재산에서 유증을 뺀 액수를 넘을 수 없습니다. 📋 근거 1 📋 민법 제1008조의2"},{"q":"Q. Q. 협의하는 도중에 상속인 한 분이 돌아가셨어요.","a":"A. 그분의 몫은 그분의 상속인이 물려받으므로, 그 상속인들이 협의에 참여합니다. 📋 근거 1 📋 민법 제1005조"}],
+    forms: [],
   },
   {
-    id: 'in-11',
-    title: '상속재산분할 협의협의서 작성과 절차',
-    meta: '상속인들이 합의로 재산을 나누는 가장 빠른 방법입니다.협의서 한 장을 제대로 작성해야 등기까지 한 번에 마칩니다. 이런 분께 도움이 됩니다 해당 상황을 확인하세요 🏠 상속인 여러 명이 부동산을 공동으로 상속받았는데,',
+    id: "in-11",
+    title: "상속재산분할 협의협의서 작성과 절차",
+    meta: "상속인들이 합의로 재산을 나누는 가장 빠른 방법입니다.협의서 한 장을 제대로 작성해야 등기까지 한 번에 마칩니다. 이런 분께 도움이 됩니다 해당 상황을 확인하세요 🏠 상속인 여러 명이 부동산을 공동으로 상속받았는데,",
     sections: [
-      { heading: '이런 분께 도움이 됩니다 해당 상황을 확인하세요', content: `<div class="target-grid">
+      { heading: "이런 분께 도움이 됩니다 해당 상황을 확인하세요", content: `<div class="target-grid">
 <div class="target-item">
 <div class="target-icon">🏠</div>
 <div class="target-text">상속인 여러 명이 부동산을 공동으로 상속받았는데, 한 사람 명의로 등기하고 싶은 분</div>
@@ -3584,7 +1913,7 @@ const INHERITANCE_TOPICS = [
 <div class="target-text">해외거주 상속인이 있어 절차가 복잡할 것 같아 걱정되는 분</div>
 </div>
 </div>` },
-      { heading: '핵심 요약 꼭 알아야 할 3가지 원칙', content: `<div class="summary-box">
+      { heading: "핵심 요약 꼭 알아야 할 3가지 원칙", content: `<div class="summary-box">
 <h3>🔑 협의분할의 3원칙</h3>
 <ul class="summary-points">
 <li>
@@ -3604,7 +1933,7 @@ const INHERITANCE_TOPICS = [
       📌 <strong>핵심 한 줄 요약:</strong> 상속인 전원이 도장 찍고, 인감증명서 가져오면, 사망일 기준으로 등기 신청 가능합니다.
     </div>
 </div>` },
-      { heading: '절차 흐름도 협의분할 등기까지 7단계', content: `<div class="proc-flow">
+      { heading: "절차 흐름도 협의분할 등기까지 7단계", content: `<div class="proc-flow">
 <div class="proc-step">
 <div class="proc-step-left">
 <div class="step-circle">1</div>
@@ -3683,7 +2012,7 @@ const INHERITANCE_TOPICS = [
 </div>
 </div>
 </div>` },
-      { heading: '단계별 상세 안내 각 단계에서 꼭 확인해야 할 내용', content: `<div class="detail-accordion">
+      { heading: "단계별 상세 안내 각 단계에서 꼭 확인해야 할 내용", content: `<div class="detail-accordion">
 <div class="detail-item">
 <div class="detail-head">
 <div class="detail-num">1</div>
@@ -3809,7 +2138,7 @@ const INHERITANCE_TOPICS = [
 </div>
 </div>
 </div>` },
-      { heading: '준비 서류 협의분할에 의한 상속등기 신청 시', content: `<div class="docs-grid">
+      { heading: "준비 서류 협의분할에 의한 상속등기 신청 시", content: `<div class="docs-grid">
 <div class="docs-card">
 <div class="docs-card-head">① 신분관계 서류</div>
 <div class="docs-card-body">
@@ -3859,7 +2188,7 @@ const INHERITANCE_TOPICS = [
 <strong>⚠️ 인감증명서 발급 시 주의사항:</strong> 상속인의 인감증명서는 부동산 거래 등 특정 목적으로 발급받아야 하며, 발급 후 3개월 이내에 사용하는 것을 권장합니다. 협의분할서의 주소와 인감증명서의 주소가 다를 경우 주민등록초본 등 동일인 확인 서면을 별도로 준비해야 합니다.
     </div>
 </div>` },
-      { heading: '비용 안내 대략적인 비용 항목 (금액은 개별 상담 필요)', content: `<div class="cost-table-wrap">
+      { heading: "비용 안내 대략적인 비용 항목 (금액은 개별 상담 필요)", content: `<div class="cost-table-wrap">
 <table class="cost-table">
 <thead>
 <tr>
@@ -3910,7 +2239,7 @@ const INHERITANCE_TOPICS = [
 <div class="cost-note">
     💡 <strong>상속 취득세 감면:</strong> 1가구 1주택자로 소형 주택(공시가격 기준)을 상속받는 경우 취득세 감면 혜택이 있을 수 있습니다. 지방세특례제한법 요건을 확인하세요. 정확한 비용은 법무사 상담을 통해 견적을 받으시기 바랍니다.
   </div>` },
-      { heading: '관련 판례 협의분할에 관한 주요 대법원 판례', content: `<div class="rulings">
+      { heading: "관련 판례 협의분할에 관한 주요 대법원 판례", content: `<div class="rulings">
 <div class="ruling-card">
 <div class="ruling-meta">
 <span class="ruling-no"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2001다28299" target="_blank" class="tag-case">⚖️ 대법원 2001다28299</a></span>
@@ -3964,7 +2293,7 @@ const INHERITANCE_TOPICS = [
       </div>
 </div>
 </div>` },
-      { heading: '주의사항 협의분할 시 반드시 확인하세요', content: `<div class="warns">
+      { heading: "주의사항 협의분할 시 반드시 확인하세요", content: `<div class="warns">
 <div class="warn-item">
 <div class="warn-icon">⚠️</div>
 <div class="warn-content">
@@ -4001,7 +2330,7 @@ const INHERITANCE_TOPICS = [
 </div>
 </div>
 </div>` },
-      { heading: '자주 묻는 질문 (Q&amp;A)', content: `<div class="qna">
+      { heading: "자주 묻는 질문 (Q&amp;A)", content: `<div class="qna">
 <div class="qna-item">
 <div class="qna-q">
 <span class="q-badge">Q</span>
@@ -4063,7 +2392,7 @@ const INHERITANCE_TOPICS = [
 </div>
 </div>
 </div>` },
-      { heading: '다음으로 확인할 내용', content: `<div class="next-cards">
+      { heading: "다음으로 확인할 내용", content: `<div class="next-cards">
 <a class="next-card" href="상속_10_상속재산분할.html">
 <div class="nc-num">◀ PAGE 10</div>
 <h4>상속재산분할 협의·조정·심판</h4>
@@ -4085,7 +2414,7 @@ const INHERITANCE_TOPICS = [
 <p>생전증여가 있었다면 협의 전 특별수익·기여분 계산이 필요합니다.</p>
 </a>
 </div>` },
-      { heading: '협의분할, 혼자 하기 어렵다면전문 법무사에게 맡기세요', content: `<p>상속인 확정부터 협의분할서 작성, 등기 신청까지<br/>
+      { heading: "협의분할, 혼자 하기 어렵다면전문 법무사에게 맡기세요", content: `<p>상속인 확정부터 협의분할서 작성, 등기 신청까지<br/>
        한 번에 처리해 드립니다.</p>
 <div class="cta-points">
 <div class="cta-point">
@@ -4107,481 +2436,67 @@ const INHERITANCE_TOPICS = [
 </div>
 <a class="cta-btn" href="tel:0000000000">☎ 무료 상담 신청하기</a>
 <p class="cta-sub">전화·방문·이메일 상담 가능 · 평일 9:00 – 18:00</p>
-</div>` }
+</div>` },
     ],
-    laws: [
-      { name: '민법 제1015조', desc: '' },
-      { name: '민법 제1015조 단서', desc: '' },
-      { name: '부동산등기규칙 제60조제1항', desc: '' },
-      { name: '민법 제1013조', desc: '' }
-    ],
-    forms: []
+    laws: [{"name":"민법 제1015조","desc":""},{"name":"민법 제1015조 단서","desc":""},{"name":"부동산등기규칙 제60조제1항","desc":""},{"name":"민법 제1013조","desc":""}],
+    forms: [],
   },
   {
-    id: 'in-12',
-    title: '상속 부동산등기 무엇을 언제까지',
-    meta: '취득세 신고 · 상속등기 · 협의분할 — 3가지 핵심 절차 완전 안내 STEP 12 · 판단 안내 상속 부동산등기무엇을, 언제까지 해야 할까 상속인은 사망과 동시에 소유권을 취득하지만, 처분·담보 제공 등을 하려면 ',
+    id: "in-12",
+    title: "상속등기 — 절차와 서류, 비용, 상속재산 협의분할까지",
+    meta: "상속등기는 상속인이 단독으로 신청할 수 있고, 취득세는 상속개시일이 속한 달의 말일부터 6개월 안에 신고합니다. 법정상속분 등기와 협의분할, 준비서류와 비용을 법령 근거와 함께 안내합니다.",
+    reviewed: "2026-11-08",
+    kb: "H-A01",
     sections: [
-      { heading: '이런 분께 도움이 됩니다 해당 상황을 확인하세요', content: `<div class="target-grid">
-<div class="target-item">
-<div class="target-icon">🏠</div>
-<div class="target-text">부모님이 돌아가셨는데 부동산 명의를 어떻게 바꿔야 하는지 모르는 분</div>
-</div>
-<div class="target-item">
-<div class="target-icon">📋</div>
-<div class="target-text">상속등기를 언제까지 해야 하는지, 안 하면 어떻게 되는지 걱정되는 분</div>
-</div>
-<div class="target-item">
-<div class="target-icon">👥</div>
-<div class="target-text">상속인이 여러 명인데 공동등기를 해야 하는지, 1인 명의로 할 수 있는지 알고 싶은 분</div>
-</div>
-<div class="target-item">
-<div class="target-icon">🔍</div>
-<div class="target-text">법정상속등기와 협의분할 등기의 차이가 무엇인지 궁금한 분</div>
-</div>
-<div class="target-item">
-<div class="target-icon">📜</div>
-<div class="target-text">등기 신청에 어떤 서류가 필요한지 전체적인 그림을 먼저 파악하고 싶은 분</div>
-</div>
-<div class="target-item">
-<div class="target-icon">🏗️</div>
-<div class="target-text">아직 등기가 없는(미등기) 부동산을 상속받아 처음으로 등기해야 하는 분</div>
-</div>
+      { heading: "이런 분께 필요합니다", content: `<ul class="checklist"><li> 부모님이 돌아가셔서 집이나 땅을 상속인 명의로 바꿔야 한다</li><li> 가족끼리 누가 부동산을 가질지 정했는데 서류를 어떻게 만드는지 모르겠다</li><li> 상속등기에 드는 세금과 비용이 궁금하다</li><li> 상속인 중에 미성년자나 해외에 사는 사람이 있다</li></ul>` },
+      { heading: "핵심정리", content: `<div class="kb-box kb-summary"><p>돌아가신 분 명의의 부동산을 상속인 명의로 옮기는 것이 상속등기입니다. 상속등기는 상속인이 단독으로 신청할 수 있어, 매매처럼 상대방과 함께 신청할 필요가 없습니다. 상속인들이 법정상속분대로 나눌 수도 있고, 협의로 누가 얼마를 가질지 정할 수도 있습니다. 등기와 함께 <strong>취득세를 상속개시일이 속한 달의 말일부터 6개월 안에</strong> 신고·납부해야 합니다.</p><details class="refs-mini"><summary>📋 근거 4</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/부동산등기법/제23조" target="_blank" rel="noopener" class="tag-law">📋 부동산등기법 제23조 제3항</a><a href="https://www.law.go.kr/법령/민법/제1009조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1009조</a><a href="https://www.law.go.kr/법령/민법/제1013조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1013조</a><a href="https://www.law.go.kr/법령/지방세법/제20조" target="_blank" rel="noopener" class="tag-law">📋 지방세법 제20조</a></div></details></div>` },
+      { heading: "상세설명", content: `<h3>어떤 방식으로 등기하나요?</h3><div class="table-wrap"><table><tr><th>방식</th><th>내용</th><th>필요한 합의</th></tr><tr><td data-label="방식">법정상속분대로</td><td data-label="내용">민법이 정한 비율대로 상속인 전원 공유로 등기</td><td data-label="필요한 합의">합의 불필요</td></tr><tr><td data-label="방식">협의분할</td><td data-label="내용">상속인 전원이 협의해 특정인이 갖거나 비율을 달리 정함</td><td data-label="필요한 합의">상속인 <strong>전원</strong>의 합의와 인감증명</td></tr></table></div><details class="refs-mini"><summary>📋 근거 3</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1009조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1009조</a><a href="https://www.law.go.kr/법령/민법/제1013조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1013조</a><a href="https://www.law.go.kr/법령/부동산등기규칙/제60조" target="_blank" rel="noopener" class="tag-law">📋 부동산등기규칙 제60조 제1항 제6호</a></div></details>
+<p>협의분할은 상속이 시작된 때로 거슬러 올라가 효력이 생깁니다. 그래서 협의로 집을 받은 사람은 처음부터 돌아가신 분에게서 직접 상속받은 것으로 봅니다. 상속인 중 한 사람이라도 빠진 협의로는 등기를 할 수 없습니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1015조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1015조</a></div></details>
+<p>양산에 사는 V씨의 어머니가 돌아가셨습니다. 아버지는 먼저 돌아가셨고 자녀는 V씨와 남동생 둘입니다. 세 남매는 어머니 명의 아파트를 V씨가 갖기로 정했습니다(설명을 위한 가상 사례입니다). 이때는 세 사람이 상속재산분할협의서에 인감을 찍고 인감증명서를 붙여 V씨 단독 명의로 등기합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/부동산등기규칙/제60조" target="_blank" rel="noopener" class="tag-law">📋 부동산등기규칙 제60조 제1항 제6호</a></div></details><h3>절차는 어떻게 진행되나요?</h3><ol class=""><li><strong>상속인 확정</strong> — 돌아가신 분의 가족관계 서류로 상속인 전원을 확인합니다.</li><li><strong>분할 방식 결정</strong> — 법정상속분대로 할지, 협의분할로 할지 정합니다.</li><li><strong>협의서 작성</strong> — 협의분할이면 상속인 전원이 협의서에 날인하고 인감증명서를 준비합니다.</li><li><strong>취득세 신고·납부</strong> — 부동산 소재지 시·군·구에 신고하고 납부합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/지방세법/제20조" target="_blank" rel="noopener" class="tag-law">📋 지방세법 제20조</a></div></details></li><li><strong>등기 신청</strong> — 상속인이 단독으로 신청합니다. 2025. 1. 31.부터는 부동산 소재지 관할이 아닌 가까운 등기소에도 신청할 수 있습니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/부동산등기법/제23조" target="_blank" rel="noopener" class="tag-law">📋 부동산등기법 제23조 제3항</a><a href="https://www.law.go.kr/법령/부동산등기법/제7조의3" target="_blank" rel="noopener" class="tag-law">📋 부동산등기법 제7조의3</a></div></details></li><li><strong>등기 완료</strong> — 등기필정보를 받아 보관합니다.</li></ol><h3>무엇을 준비하나요?</h3><p>등기소에 내는 서류는 등기규칙이 정한 첨부정보를 갖추기 위한 것입니다. 상속인임을 증명하는 가족관계 서류, 등기를 받는 사람의 주소 증명과 대장이 기본이고, 협의분할이면 상속인 전원의 인감증명서가 더 필요합니다.</p><details class="refs-mini"><summary>📋 근거 3</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/부동산등기규칙/제49조" target="_blank" rel="noopener" class="tag-law">📋 부동산등기규칙 제49조</a><a href="https://www.law.go.kr/법령/부동산등기규칙/제46조" target="_blank" rel="noopener" class="tag-law">📋 부동산등기규칙 제46조</a><a href="https://www.law.go.kr/법령/부동산등기규칙/제60조" target="_blank" rel="noopener" class="tag-law">📋 부동산등기규칙 제60조 제1항 제6호</a></div></details>
+<div class="table-wrap"><table><tr><th>구분</th><th>서류</th><th>근거</th></tr><tr><td data-label="구분">돌아가신 분</td><td data-label="서류">기본증명서, 가족관계증명서, 혼인관계증명서, 입양관계증명서, 친양자입양관계증명서(모두 상세), 필요하면 제적등본</td><td data-label="근거">상속 사실을 증명하는 정보</td></tr><tr><td data-label="구분">돌아가신 분</td><td data-label="서류">주민등록 말소자 초본</td><td data-label="근거">등기기록상 주소와 같은 사람인지 확인(사무소 안내)</td></tr><tr><td data-label="구분">상속인</td><td data-label="서류">가족관계증명서, 기본증명서</td><td data-label="근거">상속인임을 증명하는 정보</td></tr><tr><td data-label="구분">상속인</td><td data-label="서류">주민등록초본</td><td data-label="근거">등기를 받는 사람의 주소 증명</td></tr><tr><td data-label="구분">협의분할 시</td><td data-label="서류">상속재산분할협의서</td><td data-label="근거">등기원인을 증명하는 정보</td></tr><tr><td data-label="구분">협의분할 시</td><td data-label="서류">상속인 전원의 인감증명서</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/부동산등기규칙/제60조" target="_blank" rel="noopener" class="tag-law">📋 부동산등기규칙 제60조 제1항 제6호</a></div></td></tr><tr><td data-label="구분">부동산</td><td data-label="서류">토지·건축물대장</td><td data-label="근거">소유권이전 시 대장 정보</td></tr><tr><td data-label="구분">납부 증빙</td><td data-label="서류">취득세 영수증, 등기신청수수료 영수증</td><td data-label="근거"><div class="ref-tags"><a href="https://www.law.go.kr/법령/지방세법/제20조" target="_blank" rel="noopener" class="tag-law">📋 지방세법 제20조</a><a href="https://www.law.go.kr/법령/등기사항증명서등수수료규칙/제5조의2" target="_blank" rel="noopener" class="tag-law">📋 등기사항증명서 등 수수료규칙 제5조의2 제2항·제5조의5 제2항(상속등기 신청수수료)</a></div></td></tr></table></div><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/부동산등기규칙/제49조" target="_blank" rel="noopener" class="tag-law">📋 부동산등기규칙 제49조</a><a href="https://www.law.go.kr/법령/부동산등기규칙/제46조" target="_blank" rel="noopener" class="tag-law">📋 부동산등기규칙 제46조</a></div></details>
+<p>상속인 중 <strong>미성년자</strong>가 있고 그 부모도 함께 상속인이면, 부모가 자녀를 대리해 협의하면 이해가 충돌합니다. 이때는 가정법원에서 미성년자를 위한 특별대리인을 먼저 선임받아야 합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제921조" target="_blank" rel="noopener" class="tag-law">📋 민법 제921조</a></div></details><h3>법정상속분 등기와 협의분할, 어느 쪽이 나을까요?</h3><p>법정상속분대로 등기하면 상속인 전원의 협의서와 인감증명이 필요 없어, 협의가 어려울 때 빠르게 정리할 수 있습니다. 그러나 상속인 모두가 지분을 나눠 가진 공유가 되므로, 나중에 팔거나 담보를 잡을 때 다시 전원이 함께해야 합니다. 협의분할은 상속인 전원이 참여해야 하는 대신, 한 사람 명의로 정리할 수 있어 이후 관리와 처분이 간편합니다. 고인에게 빚이 있을 수 있다면 등기 방식보다 먼저 포기·한정승인 여부를 정하는 것이 순서입니다.</p><details class="refs-mini"><summary>📋 근거 4</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1009조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1009조</a><a href="https://www.law.go.kr/법령/민법/제1006조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1006조</a><a href="https://www.law.go.kr/법령/민법/제1013조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1013조</a><a href="https://www.law.go.kr/법령/부동산등기규칙/제60조" target="_blank" rel="noopener" class="tag-law">📋 부동산등기규칙 제60조 제1항 제6호</a></div></details><h3>비용은 어떻게 되나요?</h3><div class="table-wrap"><table><tr><th>항목</th><th>기준</th></tr><tr><td data-label="항목">취득세</td><td data-label="기준">상속 취득은 일반 부동산 1천분의 28, 농지 1천분의 23</td></tr><tr><td data-label="항목">세율 특례</td><td data-label="기준">무주택 가구의 1가구 1주택 상속 등은 낮은 세율 적용</td></tr><tr><td data-label="항목">지방교육세 등</td><td data-label="기준">취득세에 덧붙어 함께 납부</td></tr><tr><td data-label="항목">국민주택채권</td><td data-label="기준">부동산 가액에 따라 매입하거나 면제</td></tr><tr><td data-label="항목">등기신청수수료</td><td data-label="기준">상속등기 1부동산마다 서면 20,000원, 전자표준양식 17,000원</td></tr><tr><td data-label="항목">법무사 보수</td><td data-label="기준">대한법무사협회 법무사 보수기준에 따름, 취득세 신고 대행료 포함</td></tr></table></div><details class="refs-mini"><summary>📋 근거 5</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/지방세법/제11조" target="_blank" rel="noopener" class="tag-law">📋 지방세법 제11조 제1항 제1호</a><a href="https://www.law.go.kr/법령/지방세법/제15조" target="_blank" rel="noopener" class="tag-law">📋 지방세법 제15조 제1항 제2호</a><a href="https://www.law.go.kr/법령/등기사항증명서등수수료규칙/제5조의2" target="_blank" rel="noopener" class="tag-law">📋 등기사항증명서 등 수수료규칙 제5조의2 제2항·제5조의5 제2항(상속등기 신청수수료)</a><a href="https://kjaar.kabl.kr/mod/page/view.do?MID=kjaa_page_0202" target="_blank" rel="noopener" class="tag-law">📋 법무사 보수기준 제9조 제1항(소유권 보존·이전 등 등기 기본보수)</a><a href="https://kjaar.kabl.kr/mod/page/view.do?MID=kjaa_page_0202" target="_blank" rel="noopener" class="tag-law">📋 법무사 보수기준 제25조</a></div></details>
+<p>부동산 수, 공시가격, 주택 수에 따라 금액이 달라지므로 상담 때 부동산별로 산출해 드립니다.</p><h3>상속등기를 하면 어떤 효과가 생기나요?</h3><ul class=""><li><strong>처분할 수 있게 됩니다.</strong> 상속받은 부동산은 등기 없이도 상속인 소유가 되지만, 팔거나 담보로 잡히려면 상속등기를 먼저 해야 합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제187조" target="_blank" rel="noopener" class="tag-law">📋 민법 제187조</a></div></details></li><li><strong>협의분할 등기는 처음부터 상속받은 것으로 봅니다.</strong> 협의로 정한 사람이 돌아가신 분에게서 직접 상속받은 것이 되고, 그 사이 권리를 얻은 제3자는 보호됩니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1015조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1015조</a></div></details></li><li><strong>등기 뒤 다시 나누면 증여가 됩니다.</strong> 상속분이 등기로 확정된 뒤 재분할로 늘어난 몫은 증여세 대상이 될 수 있습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/상속세및증여세법/제4조" target="_blank" rel="noopener" class="tag-law">📋 상속세 및 증여세법 제4조 제3항</a></div></details></li></ul><h3>취득세는 어떻게 정해지나요?</h3><p>상속으로 부동산을 취득하면 일반 부동산은 1천분의 28, 농지는 1천분의 23의 세율로 취득세를 냅니다. 무주택 가구가 1가구 1주택을 상속받는 경우처럼 법이 정한 경우에는 세율 특례로 부담이 크게 줄어듭니다. 신고·납부 기한은 상속개시일이 속한 달의 말일부터 6개월이고, 외국에 주소를 둔 상속인이 있으면 9개월입니다. 기한을 넘기면 가산세가 붙으므로, 상속인 사이 협의가 늦어질 때는 법정상속분으로 먼저 신고하는 방법도 함께 검토합니다. 취득세 신고·납부는 상속등기와 함께 처리해 드립니다.</p><details class="refs-mini"><summary>📋 근거 4</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/지방세법/제11조" target="_blank" rel="noopener" class="tag-law">📋 지방세법 제11조 제1항 제1호</a><a href="https://www.law.go.kr/법령/지방세법/제15조" target="_blank" rel="noopener" class="tag-law">📋 지방세법 제15조 제1항 제2호</a><a href="https://www.law.go.kr/법령/지방세법/제20조" target="_blank" rel="noopener" class="tag-law">📋 지방세법 제20조</a><a href="https://kjaar.kabl.kr/mod/page/view.do?MID=kjaa_page_0202" target="_blank" rel="noopener" class="tag-law">📋 법무사 보수기준 제25조</a></div></details>` },
+      { heading: "자주 묻는 질문", content: `<details class="qa"><summary>Q. Q. 상속등기는 언제까지 해야 하나요?</summary><div class="ans"><p>A. 등기 자체의 기한보다 취득세 신고기한(상속개시일이 속한 달의 말일부터 6개월)이 먼저 문제됩니다. 등기를 미루면 상속인이 또 돌아가시는 경우 서류와 당사자가 늘어납니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/지방세법/제20조" target="_blank" rel="noopener" class="tag-law">📋 지방세법 제20조</a></div></details></div></details><details class="qa"><summary>Q. Q. 상속인 한 명이 연락이 안 됩니다.</summary><div class="ans"><p>A. 협의분할은 상속인 전원이 참여해야 합니다. 협의가 어려우면 법정상속분대로 등기하거나 가정법원에 분할을 청구하는 방법을 검토합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1013조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1013조</a></div></details></div></details><details class="qa"><summary>Q. Q. 해외에 사는 상속인도 인감증명서가 필요한가요?</summary><div class="ans"><p>A. 국내 인감이 없으면 재외공관 확인을 거친 서명 관련 서류 등으로 대신하는 방법이 있습니다. 거주 국가에 따라 준비 서류가 달라 미리 확인이 필요합니다.</p></div></details><details class="qa"><summary>Q. Q. 부모님 집을 팔려고 하는데 상속등기를 먼저 해야 하나요?</summary><div class="ans"><p>A. 그렇습니다. 상속등기를 하지 않으면 처분할 수 없으므로, 상속등기를 마친 뒤 매매로 인한 이전등기를 합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제187조" target="_blank" rel="noopener" class="tag-law">📋 민법 제187조</a></div></details></div></details><details class="qa"><summary>Q. Q. 비용은 언제 내나요?</summary><div class="ans"><p>A. 취득세는 등기 신청 전에 신고·납부하고, 국민주택채권 매입과 등기신청수수료 납부는 신청할 때 함께 처리합니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/지방세법/제20조" target="_blank" rel="noopener" class="tag-law">📋 지방세법 제20조</a><a href="https://www.law.go.kr/법령/등기사항증명서등수수료규칙/제5조의2" target="_blank" rel="noopener" class="tag-law">📋 등기사항증명서 등 수수료규칙 제5조의2 제2항·제5조의5 제2항(상속등기 신청수수료)</a></div></details></div></details><details class="qa"><summary>Q. Q. 법정상속분으로 등기한 뒤 협의분할로 바꿀 수 있나요?</summary><div class="ans"><p>A. 상속인 전원이 합의하면 다시 정리할 수 있습니다. 다만 등기로 상속분이 확정된 뒤 몫이 늘어난 부분은 증여세 대상이 될 수 있고, 상속세 신고기한 안에 다시 나누는 경우 등은 예외입니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/상속세및증여세법/제4조" target="_blank" rel="noopener" class="tag-law">📋 상속세 및 증여세법 제4조 제3항</a></div></details></div></details><details class="qa"><summary>Q. Q. 상속인 중에 미성년자가 있으면 어떻게 하나요?</summary><div class="ans"><p>A. 부모와 미성년 자녀가 함께 상속인이면 가정법원에서 특별대리인을 먼저 선임받아 그 대리인이 협의분할에 참여합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제921조" target="_blank" rel="noopener" class="tag-law">📋 민법 제921조</a></div></details></div></details><details class="qa"><summary>Q. Q. 상속등기는 어디에 신청하나요?</summary><div class="ans"><p>A. 상속인이 단독으로 신청할 수 있습니다. 예전에는 부동산 소재지를 관할하는 등기소에만 낼 수 있었지만, 2025. 1. 31.부터는 상속으로 인한 소유권이전등기를 관할이 아닌 등기소에도 신청할 수 있습니다. 부모님 땅이 멀리 있어도 가까운 등기소에서 처리할 수 있고, 신청서에 이 특례에 따른 신청임을 표시합니다. 다만 취득세는 지금도 부동산 소재지 시·군·구에 신고합니다.</p><details class="refs-mini"><summary>📋 근거 4</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/부동산등기법/제23조" target="_blank" rel="noopener" class="tag-law">📋 부동산등기법 제23조 제3항</a><a href="https://www.law.go.kr/법령/부동산등기법/제7조의3" target="_blank" rel="noopener" class="tag-law">📋 부동산등기법 제7조의3</a><a href="https://www.law.go.kr/법령/부동산등기규칙/제164조" target="_blank" rel="noopener" class="tag-law">📋 부동산등기규칙 제164조·제164조의2 · 등기예규 제1795호</a><a href="https://www.law.go.kr/법령/지방세법/제20조" target="_blank" rel="noopener" class="tag-law">📋 지방세법 제20조</a></div></details></div></details>` },
+      { heading: "주의사항", content: `<section class="box warn"><ul class=""><li><strong>취득세 기한</strong>: 6개월이 지나면 가산세가 붙습니다. 상속인 사이 협의가 늦어지면 기한부터 확인하십시오.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/지방세법/제20조" target="_blank" rel="noopener" class="tag-law">📋 지방세법 제20조</a></div></details></li><li><strong>등기 후 다시 나누는 경우</strong>: 상속분대로 등기한 뒤 다시 협의해 한 사람이 당초 몫보다 많이 가져가면, 그 초과분은 증여로 보아 증여세가 나올 수 있습니다. 다만 상속세 신고기한 안에 다시 나누는 경우 등은 예외입니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/상속세및증여세법/제4조" target="_blank" rel="noopener" class="tag-law">📋 상속세 및 증여세법 제4조 제3항</a><a href="https://www.law.go.kr/법령/상속세및증여세법/제67조" target="_blank" rel="noopener" class="tag-law">📋 상속세 및 증여세법 제67조</a></div></details></li><li><strong>빚이 많을 수 있다면</strong>: 상속재산을 처분하면 상속을 그대로 받아들인 것으로 보게 됩니다. 빚 규모를 먼저 확인하고 포기·한정승인 여부를 정한 뒤 등기와 분할을 진행하십시오.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1026조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1026조</a></div></details></li><li><strong>상속세는 별도</strong>: 상속세 신고는 세무사와 상의하십시오.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/상속세및증여세법/제67조" target="_blank" rel="noopener" class="tag-law">📋 상속세 및 증여세법 제67조</a></div></details></li></ul></section>` },
+      { heading: "다음에 확인할 사항", content: `<ul><li><a href="/guide/inheritance/in-01.html">상속이 시작됐을 때</a></li><li><a href="/guide/inheritance/in-25.html">오래전 돌아가신 분 명의의 땅</a></li><li><a href="/guide/inheritance/in-10.html">상속재산분할과 기여분</a></li><li><a href="/guide/inheritance/in-05.html">빚이 더 많을 때</a></li></ul>` },
+      { heading: "이 내용이 해당되시나요?", content: `<div class="kb-box kb-cta"><p>직접 처리하시기 어려운 부분을 법무사가 함께 검토합니다. 이런 경우 상담을 권합니다.</p>
+<ul class=""><li>상속인이 누구인지 서류로 정리해야 할 때</li><li>협의분할 내용을 정해 협의서를 만들어야 할 때</li><li>상속인 중 미성년자·해외 거주자가 있을 때</li><li>취득세 기한이 얼마 남지 않았을 때</li></ul>
+<p class="note">법무사는 상속인 확인에 필요한 서류를 갖춰 상속재산분할협의서를 작성하고, 상속등기 신청을 대리하며, 상속등기와 함께 취득세 신고·납부도 처리합니다. 특별대리인 선임처럼 가정법원에 내는 서류도 작성해 제출합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/법무사법/제2조" target="_blank" rel="noopener" class="tag-law">📋 법무사법 제2조</a></div></details>
 </div>` },
-      { heading: '핵심 요약 상속등기의 3가지 원칙', content: `<div class="summary-box">
-<h3>🔑 상속등기, 이것만 기억하세요</h3>
-<ul class="summary-points">
-<li>
-<div class="pt-num">1</div>
-<div><strong>등기 없이도 소유권은 취득됩니다</strong> — 피상속인이 사망하는 순간 법률상 당연히 상속인에게 소유권이 이전됩니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=018700" target="_blank" class="tag-law">📋 민법 제187조</a>). 그러나 그 부동산을 팔거나 담보로 제공하려면 반드시 상속등기를 먼저 마쳐야 합니다.</div>
-</li>
-<li>
-<div class="pt-num">2</div>
-<div><strong>상속인 단독으로 신청합니다</strong> — 매매나 증여 등기와 달리 상속등기는 등기권리자(상속인)가 혼자 신청할 수 있습니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=59791&joNo=002300" target="_blank" class="tag-law">📋 부동산등기법 제23조 제3항</a>). 협력해 줄 사람이 없어도 됩니다.</div>
-</li>
-<li>
-<div class="pt-num">3</div>
-<div><strong>법정 기한은 없지만, 미루면 불이익이 생깁니다</strong> — 상속등기를 하지 않아도 벌칙은 없습니다. 그러나 등기를 미루는 동안 다른 상속인의 채권자가 법정상속분에 강제집행할 수 있습니다. 가능한 한 빨리 등기하는 것이 안전합니다.</div>
-</li>
-</ul>
-<div class="summary-note">
-      📌 <strong>핵심 한 줄 요약:</strong> 사망과 동시에 소유권은 내 것, 하지만 팔거나 담보 잡으려면 등기부터 먼저.
-    </div>
-</div>` },
-      { heading: '상세 내용 상속등기의 종류 · 신청인 · 등기원인 · 첨부서류', content: `<div class="detail-prose">
-<!-- 상속등기의 종류 -->
-<div class="detail-block">
-<div class="detail-block-head">① 상속등기의 종류</div>
-<div class="detail-block-body">
-<div class="type-grid">
-<div class="type-card">
-<div class="type-card-head">
-<span class="type-badge">가장 일반적</span>
-</div>
-<h4>법정상속등기</h4>
-<p>상속인 전원이 법정상속분에 따라 공동으로 등기. 협의 없이 가장 빠르게 처리 가능. 추후 협의분할로 경정등기 가능.</p>
-<p class="law-ref">등기원인: "상속"</p>
-</div>
-<div class="type-card">
-<div class="type-card-head">
-<span class="type-badge">상속인 합의 시</span>
-</div>
-<h4>협의분할에 의한 상속등기</h4>
-<p>상속인 전원이 협의하여 특정인 단독 취득 또는 다른 비율로 취득. 협의분할서 + 인감증명서 필요.</p>
-<p class="law-ref">등기원인: "협의분할에 의한 상속"</p>
-</div>
-<div class="type-card">
-<div class="type-card-head">
-<span class="type-badge">유언이 있을 때</span>
-</div>
-<h4>유언에 의한 상속등기 / 유증등기</h4>
-<p>피상속인이 유언으로 특정 재산을 지정한 경우. 유언장(공정증서 또는 검인) 첨부 필요. 포괄유증은 상속인이, 특정유증은 수증자가 신청.</p>
-<p class="law-ref">등기원인: "유증" 또는 "상속"</p>
-</div>
-<div class="type-card">
-<div class="type-card-head">
-<span class="type-badge">미등기 부동산</span>
-</div>
-<h4>상속인에 의한 소유권보존등기</h4>
-<p>아직 등기부가 없는 부동산(대장에만 있는)을 처음으로 등기. 토지대장·건축물대장에 피상속인이 최초 소유자로 등록된 경우.</p>
-<p class="law-ref">근거: <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=59791&joNo=006500" target="_blank" class="tag-law">📋 부동산등기법 제65조</a> 제1호</p>
-</div>
-</div>
-<div class="highlight-box" style="margin-top:14px;">
-          💡 <strong>어떤 등기를 선택할지 모르겠다면:</strong> 상속인 간 협의가 완료되어 있으면 협의분할에 의한 상속등기를, 협의가 안 됐으면 일단 법정상속등기를 먼저 마친 후 나중에 경정등기를 하는 방법도 있습니다.
-        </div>
-</div>
-</div>
-<!-- 신청인 -->
-<div class="detail-block">
-<div class="detail-block-head">② 신청인 — 누가 신청하나요?</div>
-<div class="detail-block-body">
-<div class="applicant-diagram">
-<div class="app-row">
-<div class="app-label">원칙: 단독 신청</div>
-<div class="app-content">상속인(등기권리자)이 혼자 신청 가능. 등기의무자(피상속인)가 이미 사망하여 현존하지 않기 때문.</div>
-<div class="app-law">법 제23조 제3항</div>
-</div>
-<div class="app-row">
-<div class="app-label">공동상속: 1인 가능</div>
-<div class="app-content">공동상속인 중 1인이 '보존행위'로서 나머지 상속인 전원을 포함하여 신청 가능. 단, 신청서에 공동상속인 전원을 표시해야 함.</div>
-<div class="app-law"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=026500" target="_blank" class="tag-law">📋 민법 제265조</a> 단서</div>
-</div>
-<div class="app-row">
-<div class="app-label">일부만의 등기: 불허</div>
-<div class="app-content">공동상속인 중 일부가 협력하지 않더라도 나머지 일부만의 상속지분에 대한 등기는 신청할 수 없음. 전원의 지분을 신청해야 함.</div>
-<div class="app-law">예규 제535호</div>
-</div>
-<div class="app-row">
-<div class="app-label">협의분할·포기 후</div>
-<div class="app-content">상속재산 분할협의 또는 상속포기에 의해 특정 상속인만 취득한 경우, 그 취득자만이 신청인이 됨. 포기자는 신청인이 될 수 없음.</div>
-<div class="app-law">선례 2-246</div>
-</div>
-</div>
-</div>
-</div>
-<!-- 등기원인 및 등기원인일자 -->
-<div class="detail-block">
-<div class="detail-block-head">③ 등기원인 및 등기원인일자</div>
-<div class="detail-block-body">
-<p style="margin-bottom:14px;">등기원인은 상속이 <strong>언제 개시되었느냐</strong>에 따라 달라집니다. 구민법·신민법·현행 민법으로 법이 바뀌면서 용어도 달라졌습니다.</p>
-<div class="history-bar">
-<div class="history-row">
-<div class="history-period">구민법 시행 당시<br/>(1960. 1. 1. 이전)</div>
-<div class="history-content"><code>"호주상속"</code> 또는 <code>"유산상속"</code> (호주 아닌 가족의 재산인 경우)</div>
-</div>
-<div class="history-row">
-<div class="history-period">신민법 시행 후<br/>1991. 1. 1. 이전</div>
-<div class="history-content"><code>"재산상속"</code></div>
-</div>
-<div class="history-row">
-<div class="history-period">1991. 1. 1. 이후<br/>(현행)</div>
-<div class="history-content"><code>"상속"</code></div>
-</div>
-<div class="history-row">
-<div class="history-period">협의분할 시<br/>(현행)</div>
-<div class="history-content"><code>"협의분할에 의한 상속"</code></div>
-</div>
-<div class="history-row">
-<div class="history-period">절가(絶家) 재산 귀속</div>
-<div class="history-content"><code>"권리귀속"</code></div>
-</div>
-</div>
-<div class="highlight-box">
-          📌 <strong>등기원인일자:</strong> 협의분할을 하더라도 등기원인일자는 항상 <strong>피상속인의 사망일</strong>입니다(예규 제438호). 협의서를 언제 작성했는지는 무관합니다. 단, 대습상속의 경우도 피상속인(피대습자가 아닌 최종 피상속인)의 사망일이 기준입니다.
-        </div>
-</div>
-</div>
-<!-- 첨부서류 -->
-<div class="detail-block">
-<div class="detail-block-head">④ 주요 첨부서류 개요</div>
-<div class="detail-block-body">
-<div class="checklist-group">
-<div class="checklist-section">
-<h4>공통 서류 (모든 상속등기 공통)</h4>
-<ul class="checklist-items">
-<li>피상속인의 기본증명서 (사망 기재) <span class="req-badge">필수</span></li>
-<li>피상속인의 가족관계증명서 <span class="req-badge">필수</span></li>
-<li>피상속인의 친양자입양관계증명서 <span class="req-badge">필수</span></li>
-<li>피상속인의 제적등·초본 (2007. 12. 31. 이전 사망 시) <span class="req-badge">필수</span></li>
-<li>상속인의 주민등록등·초본 (등기명의인이 되는 상속인만) <span class="req-badge">필수</span></li>
-<li>등기사항전부증명서, 토지대장·건축물대장 <span class="req-badge">필수</span></li>
-</ul>
-</div>
-<div class="checklist-section">
-<h4>협의분할 시 추가 서류</h4>
-<ul class="checklist-items">
-<li>상속인 전원이 날인한 협의분할서 <span class="req-badge">필수</span></li>
-<li>상속인 전원의 인감증명서 <span class="req-badge">필수</span></li>
-<li>특별대리인 선임 시: 선임 심판서 사본 + 특별대리인 인감증명 <span class="cond-badge">해당 시</span></li>
-</ul>
-</div>
-<div class="checklist-section">
-<h4>상속포기자가 있는 경우</h4>
-<ul class="checklist-items">
-<li>상속포기 심판서 정본 <span class="req-badge">필수</span></li>
-</ul>
-</div>
-<div class="checklist-section">
-<h4>동일인 확인이 필요한 경우</h4>
-<ul class="checklist-items">
-<li>피상속인의 등기기록 표시 ≠ 기본증명서 표시 시: 동일인임을 증명하는 서면 <span class="cond-badge">해당 시</span></li>
-<li>협의분할서 주소 ≠ 인감증명 주소 시: 주민등록초본 등 동일인 확인 서면 <span class="cond-badge">해당 시</span></li>
-</ul>
-</div>
-</div>
-<div class="highlight-box">
-          ⏱️ <strong>서류 유효기간:</strong> 가족관계등록사항별증명서(기본증명서, 가족관계증명서 등) 및 제적등·초본은 발행일부터 <strong>3개월 이내</strong>의 것을 사용해야 합니다(<a href="https://www.law.go.kr/법령/부동산등기규칙" target="_blank" class="tag-law">📋 부동산등기규칙 제62조</a>).
-        </div>
-</div>
-</div>
-<!-- 상속등기 vs 법정상속 vs 협의분할 비교 -->
-<div class="detail-block">
-<div class="detail-block-head">⑤ 상속등기 유형별 비교</div>
-<div class="detail-block-body">
-<div class="compare-table-wrap">
-<table class="compare-table">
-<thead>
-<tr>
-<th>항목</th>
-<th>법정상속등기</th>
-<th>협의분할<br/>상속등기</th>
-<th>소유권보존등기<br/>(미등기 부동산)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>등기원인</td>
-<td>"상속"</td>
-<td>"협의분할에 의한 상속"</td>
-<td>등기원인 불필요</td>
-</tr>
-<tr>
-<td>신청인</td>
-<td>상속인 중 1인 가능</td>
-<td>취득 상속인</td>
-<td>상속인 (단독)</td>
-</tr>
-<tr>
-<td>협의서 필요</td>
-<td><span class="cross">✗</span></td>
-<td><span class="check">✓ (전원 인감)</span></td>
-<td><span class="cross">✗</span></td>
-</tr>
-<tr>
-<td>결과</td>
-<td>공동상속인 공유</td>
-<td>협의대로 취득</td>
-<td>상속지분대로 최초 등기</td>
-</tr>
-<tr>
-<td>추후 경정등기</td>
-<td><span class="check">✓ 가능</span></td>
-<td><span class="check">✓ 가능 (재협의)</span></td>
-<td><span class="check">✓ 가능</span></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>` },
-      { heading: '관련 판례 상속등기에 관한 주요 대법원 판례', content: `<div class="rulings">
-<div class="ruling-card">
-<div class="ruling-meta">
-<span class="ruling-no"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=94마2116" target="_blank" class="tag-case">⚖️ 대법원 94마2116</a></span>
-<span class="ruling-court">민사3부</span>
-</div>
-<div class="ruling-title">등기관의 형식적 심사권 — 확정판결과 다른 상속분 신청 각하</div>
-<div class="ruling-body">
-        등기신청인이 산정한 상속분이 관련 소송의 확정판결에서도 인정되었더라도, 그 판결의 기판력은 등기관의 형식적 심사권에는 미치지 않는다. 따라서 상속을 증명하는 정보와 관계 법령에 의해 인정되는 상속지분과 다른 내용으로 상속등기를 신청하면, 등기관은 그 신청을 각하하여야 한다.
-      </div>
-<div class="ruling-point">
-        ▶ 실무 포인트: 상속등기에서 지분 계산이 법령상 상속분과 다르면 등기관이 각하합니다. 법정상속분과 다른 비율로 등기하려면 반드시 협의분할서 등 증명 서면을 첨부해야 합니다.
-      </div>
-</div>
-<div class="ruling-card">
-<div class="ruling-meta">
-<span class="ruling-no"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=90마772" target="_blank" class="tag-case">⚖️ 대법원 90마772</a></span>
-<span class="ruling-court">특별부</span>
-</div>
-<div class="ruling-title">법정상속분과 다른 지분 신청 시 각하</div>
-<div class="ruling-body">
-        법정상속분과 다른 비율로 상속등기를 신청하는 경우에는 그 지분이 법정상속분과 다르게 변동된 사실을 증명하는 정보(분할협의서, 분할심판서 정본 등)를 제공하여야 하고, 이를 제공하지 않는 경우 등기관은 그 등기신청을 각하한다.
-      </div>
-<div class="ruling-point">
-        ▶ 실무 포인트: 협의분할서 없이 단순히 "○분의 ○으로 등기해달라"고 신청하면 각하됩니다. 지분 변동의 근거 서류가 반드시 있어야 합니다.
-      </div>
-</div>
-<div class="ruling-card">
-<div class="ruling-meta">
-<span class="ruling-no"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2005다75910" target="_blank" class="tag-case">⚖️ 대법원 2005다75910</a></span>
-<span class="ruling-court">전원합의체</span>
-</div>
-<div class="ruling-title">상속등기 미경료 상태에서 제3자 강제집행의 효력</div>
-<div class="ruling-body">
-        상속을 원인으로 한 소유권이전등기를 경료하지 않은 상태에서도, 피상속인의 채권자가 아닌 상속인의 고유 채권자가 상속인의 법정상속분에 대해 강제집행을 신청하는 것은 허용된다. 상속은 등기 없이도 소유권을 취득하게 하므로(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=018700" target="_blank" class="tag-law">📋 민법 제187조</a>), 상속인의 지분에 대한 강제집행도 가능하다.
-      </div>
-<div class="ruling-point">
-        ▶ 실무 포인트: 상속등기를 미루면, 그 사이에 상속인의 채권자가 법정상속분에 강제집행(가압류, 압류 등)을 신청할 수 있습니다. 빠른 상속등기가 중요한 이유입니다.
-      </div>
-</div>
-<div class="ruling-card">
-<div class="ruling-meta">
-<span class="ruling-no"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2008다45828" target="_blank" class="tag-case">⚖️ 대법원 2008다45828</a></span>
-<span class="ruling-court">전원합의체</span>
-</div>
-<div class="ruling-title">부동산 이중상속등기와 우선순위</div>
-<div class="ruling-body">
-        상속에 의한 소유권 취득은 등기 없이도 효력이 생기므로(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=018700" target="_blank" class="tag-law">📋 민법 제187조</a>), 상속인은 상속등기를 경료하지 않고도 그 부동산의 소유자이다. 그러나 부동산등기법에 따른 공시원칙상, 등기를 경료한 자가 제3자에 대한 관계에서 권리를 주장할 수 있다.
-      </div>
-<div class="ruling-point">
-        ▶ 실무 포인트: 내부적으로는 소유권자이지만, 등기를 하지 않으면 제3자에게 완전한 권리를 주장하기 어려운 상황이 생길 수 있습니다. 등기는 빠를수록 안전합니다.
-      </div>
-</div>
-</div>` },
-      { heading: '주의사항 상속등기 신청 전 반드시 확인하세요', content: `<div class="warns">
-<div class="warn-item">
-<div class="warn-icon">⚠️</div>
-<div class="warn-content">
-<h4>등기를 미루면 채권자가 강제집행할 수 있습니다</h4>
-<p>상속등기를 하지 않아도 법적 벌칙은 없습니다. 그러나 등기를 미루는 사이에 상속인의 채권자가 그 상속인의 법정상속분에 대해 가압류·압류 등 강제집행을 신청할 수 있습니다. 그렇게 되면 나중에 협의분할을 해도 그 채권자에게는 대항하기 어렵습니다. 가능한 한 빨리 상속등기를 마치는 것이 안전합니다.</p>
-</div>
-</div>
-<div class="warn-item">
-<div class="warn-icon">🔍</div>
-<div class="warn-content">
-<h4>상속인 전원을 빠뜨리지 마세요</h4>
-<p>공동상속의 경우 신청서에 공동상속인 전원을 표시해야 합니다. 전혼 자녀, 인지된 혼외자, 친양자 등을 놓치지 않도록 피상속인의 기본증명서, 가족관계증명서, 친양자입양관계증명서, 제적등본을 모두 확인해야 합니다. 상속인 일부를 빠뜨린 채 신청하면 등기관이 각하하거나, 나중에 분쟁의 원인이 됩니다.</p>
-</div>
-</div>
-<div class="warn-item">
-<div class="warn-icon">📅</div>
-<div class="warn-content">
-<h4>서류 유효기간을 확인하세요 (3개월)</h4>
-<p>가족관계등록사항별증명서(기본증명서, 가족관계증명서 등) 및 제적등·초본은 발급일로부터 3개월 이내의 것을 사용해야 합니다(<a href="https://www.law.go.kr/법령/부동산등기규칙" target="_blank" class="tag-law">📋 부동산등기규칙 제62조</a>). 등기 신청 직전에 서류를 발급받거나, 발급일을 꼭 확인하세요. 기간이 지난 서류는 다시 발급받아야 합니다.</p>
-</div>
-</div>
-<div class="warn-item">
-<div class="warn-icon">📝</div>
-<div class="warn-content">
-<h4>피상속인 표시 불일치 시 별도 증명 서면 필요</h4>
-<p>등기부상 피상속인의 성명·주소 등 표시가 기본증명서 등 가족관계등록 서류와 다른 경우(성명 상이, 창씨명 기재, 주소 번지 누락 등), 두 서류의 명의인이 동일인임을 증명하는 서면을 별도로 첨부해야 합니다. 이 경우 표시변경·경정등기 없이 곧바로 상속등기 신청이 가능합니다(선례 2-259).</p>
-</div>
-</div>
-<div class="warn-item">
-<div class="warn-icon">💰</div>
-<div class="warn-content">
-<h4>상속세·취득세 신고 기한도 함께 챙기세요</h4>
-<p>상속등기와 별도로 상속세 신고(상속개시일부터 6개월, 해외 거주 시 9개월)와 부동산 취득에 따른 취득세 신고(취득일부터 60일) 기한이 있습니다. 상속등기를 늦게 한다고 해서 세금 신고 기한이 미뤄지지 않으니, 세무사·법무사와 함께 일정을 조율하세요.</p>
-</div>
-</div>
-</div>` },
-      { heading: '자주 묻는 질문 (Q&amp;A)', content: `<div class="qna">
-<div class="qna-item">
-<div class="qna-q">
-<span class="q-badge">Q</span>
-<span class="q-text">상속등기를 안 하면 어떻게 되나요? 법적 제재가 있나요?</span>
-</div>
-<div class="qna-a">
-<p>법적으로 상속등기를 반드시 해야 하는 기간이나 이를 어겼을 때의 과태료 등 제재 규정은 현재 없습니다. 그러나 등기를 하지 않으면 그 부동산을 팔거나 담보로 제공할 수 없습니다. 또한 등기를 미루는 동안 다른 상속인의 채권자가 법정상속분에 가압류·압류를 할 수 있어, 나중에 협의분할을 해도 그 채권자에게는 대항하기 어려워집니다. 실무상으로는 가능한 한 빨리 등기하는 것을 강력히 권장합니다.</p>
-<div class="qa-disclaimer">※ 위 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 따라 결과가 달라질 수 있습니다. 개별 상황에 대해서는 법무사 또는 변호사와 상담하시기 바랍니다.</div>
-</div>
-</div>
-<div class="qna-item">
-<div class="qna-q">
-<span class="q-badge">Q</span>
-<span class="q-text">상속인이 저 혼자인데, 어떤 등기를 신청해야 하나요?</span>
-</div>
-<div class="qna-a">
-<p>상속인이 단 한 명인 경우에는 협의분할이나 법정상속분 문제가 없으므로 단순히 "상속"을 원인으로 하는 소유권이전등기를 신청하면 됩니다. 이때 등기원인일자는 피상속인의 사망일입니다. 필요한 서류는 피상속인의 기본증명서, 가족관계증명서, 친양자입양관계증명서, 제적등본(해당 시)과 신청인(상속인)의 주민등록등·초본 등입니다. 상속인이 혼자임을 확인할 수 있는 서류들이 핵심입니다.</p>
-<div class="qa-disclaimer">※ 위 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 따라 결과가 달라질 수 있습니다. 개별 상황에 대해서는 법무사 또는 변호사와 상담하시기 바랍니다.</div>
-</div>
-</div>
-<div class="qna-item">
-<div class="qna-q">
-<span class="q-badge">Q</span>
-<span class="q-text">상속인 중 한 명이 협조를 안 합니다. 그 사람 몫은 제외하고 제 지분만 먼저 등기할 수 없나요?</span>
-</div>
-<div class="qna-a">
-<p>아니요, 불가능합니다. 공동상속의 경우 일부 상속인의 지분만을 별도로 신청하는 '일부 상속등기'는 허용되지 않습니다(예규 제535호). 협조하지 않는 상속인의 지분까지 포함한 전체 공동상속 등기를 신청해야 합니다. 다른 상속인의 협조가 없더라도 공동상속인 중 1인이 전원의 지분을 포함한 법정상속분 등기를 신청할 수 있습니다(보존행위, <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=026500" target="_blank" class="tag-law">📋 민법 제265조</a> 단서). 다만 협의분할을 위해서는 전원의 협의가 필요하므로, 협조하지 않는 상속인이 있다면 법원에 조정·심판을 청구하는 방법을 검토하세요.</p>
-<div class="qa-disclaimer">※ 위 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 따라 결과가 달라질 수 있습니다. 개별 상황에 대해서는 법무사 또는 변호사와 상담하시기 바랍니다.</div>
-</div>
-</div>
-<div class="qna-item">
-<div class="qna-q">
-<span class="q-badge">Q</span>
-<span class="q-text">피상속인의 등기부 주소와 제적등본의 주소가 달라서 동일인 확인이 어렵습니다.</span>
-</div>
-<div class="qna-a">
-<p>등기부상 피상속인과 제적등본·기본증명서상 피상속인의 성명, 주소 등이 달라도(성명 상이, 창씨명 기재, 번지 누락 등의 경우), 별도로 표시변경등기나 경정등기를 먼저 하지 않아도 됩니다. 대신 두 공부상 명의인이 동일인임을 증명하는 서면(시·구·읍·면장의 서면 또는 이를 인정함에 충분한 서면)을 첨부하면 곧바로 상속등기를 신청할 수 있습니다(선례 2-259, 3-396). 실무상으로는 말소된 주민등록표초본, 인감증명이 있는 보증서 등이 사용되기도 합니다.</p>
-<div class="qa-disclaimer">※ 위 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 따라 결과가 달라질 수 있습니다. 개별 상황에 대해서는 법무사 또는 변호사와 상담하시기 바랍니다.</div>
-</div>
-</div>
-<div class="qna-item">
-<div class="qna-q">
-<span class="q-badge">Q</span>
-<span class="q-text">아직 등기가 없는 부동산(대장에만 있는 미등기 부동산)을 상속받았는데 어떻게 해야 하나요?</span>
-</div>
-<div class="qna-a">
-<p>미등기 부동산은 소유권이전등기가 아닌 소유권보존등기를 신청해야 합니다. 토지대장·건축물대장에 피상속인이 최초 소유자로 등록되어 있으면, 그 상속인이 직접 자기 명의로 소유권보존등기를 신청할 수 있습니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=59791&joNo=006500" target="_blank" class="tag-law">📋 부동산등기법 제65조 제1호</a>). 이때는 등기원인과 등기원인일자를 기재할 필요가 없고, 대신 대장 정보와 상속을 증명하는 서면을 첨부합니다. 여러 대(代)에 걸쳐 상속된 경우에도 최후 상속인이 직접 자기 명의로 보존등기를 신청할 수 있습니다.</p>
-<div class="qa-disclaimer">※ 위 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 따라 결과가 달라질 수 있습니다. 개별 상황에 대해서는 법무사 또는 변호사와 상담하시기 바랍니다.</div>
-</div>
-</div>
-<div class="qna-item">
-<div class="qna-q">
-<span class="q-badge">Q</span>
-<span class="q-text">대습상속인이 등기를 신청할 때 등기원인일자는 언제로 해야 하나요?</span>
-</div>
-<div class="qna-a">
-<p>대습상속에서 등기원인일자는 피대습자(먼저 사망한 부·모 등)의 사망일이 아니라, <strong>피상속인(조부·조모 등 최종 상속 원인이 된 분)의 사망일</strong>을 기재합니다. 대습상속은 대습상속인이 피대습자의 권리를 승계하는 것이 아니라, 자기 고유의 권리로서 직접 피상속인의 재산을 취득하기 때문입니다. 재대습상속(손이 사망하여 증손이 대습상속하는 경우)의 경우에도 마찬가지로 최종 피상속인의 사망일이 기준이 됩니다.</p>
-<div class="qa-disclaimer">※ 위 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 따라 결과가 달라질 수 있습니다. 개별 상황에 대해서는 법무사 또는 변호사와 상담하시기 바랍니다.</div>
-</div>
-</div>
-</div>` },
-      { heading: '다음으로 확인할 내용', content: `<div class="next-cards">
-<a class="next-card" href="상속_11_분할협의.html">
-<div class="nc-num">◀ PAGE 11</div>
-<h4>협의분할서 작성과 절차</h4>
-<p>협의분할 등기를 위한 협의서 작성 방법과 준비 서류를 확인하세요.</p>
-</a>
-<a class="next-card" href="상속_13_등기신청.html">
-<div class="nc-num">PAGE 13 ▶</div>
-<h4>상속등기 신청 실무</h4>
-<p>등기소에 실제로 신청하는 구체적인 방법과 순서를 확인하세요.</p>
-</a>
-<a class="next-card" href="상속_10_상속재산분할.html">
-<div class="nc-num">◀ PAGE 10</div>
-<h4>상속재산분할 협의·조정·심판</h4>
-<p>상속인 간 협의가 안 될 때 법원을 통한 해결 방법을 확인하세요.</p>
-</a>
-<a class="next-card" href="상속_08_상속분.html">
-<div class="nc-num">◀ PAGE 08</div>
-<h4>상속분 계산</h4>
-<p>법정상속분이 얼마인지, 공동등기 시 지분 표시를 어떻게 하는지 확인하세요.</p>
-</a>
-</div>` },
-      { heading: '상속등기, 처음이라 막막하다면전문 법무사에게 맡기세요', content: `<p>서류 준비부터 등기 신청까지<br/>
-       한 번에 처리해 드립니다.</p>
-<div class="cta-points">
-<div class="cta-point">
-<span class="cp-icon">📋</span>
-<span class="cp-text">서류 준비 대행</span>
-</div>
-<div class="cta-point">
-<span class="cp-icon">🏛️</span>
-<span class="cp-text">등기 신청 대리</span>
-</div>
-<div class="cta-point">
-<span class="cp-icon">🔍</span>
-<span class="cp-text">상속인 조사</span>
-</div>
-<div class="cta-point">
-<span class="cp-icon">💬</span>
-<span class="cp-text">무료 초기 상담</span>
-</div>
-</div>
-<a class="cta-btn" href="tel:0000000000">☎ 무료 상담 신청하기</a>
-<p class="cta-sub">전화·방문·이메일 상담 가능 · 평일 9:00 – 18:00</p>
-</div>` }
     ],
-    laws: [
-      { name: '민법 제187조', desc: '' },
-      { name: '부동산등기법 제23조', desc: '' },
-      { name: '부동산등기법 제23조 제3항', desc: '' },
-      { name: '부동산등기법 제65조', desc: '' },
-      { name: '민법 제265조', desc: '' },
-      { name: '부동산등기규칙 제62조', desc: '' },
-      { name: '부동산등기법 제65조 제1호', desc: '' }
-    ],
-    forms: []
+    laws: [],
+    faq: [{"q":"Q. Q. 상속등기는 언제까지 해야 하나요?","a":"A. 등기 자체의 기한보다 취득세 신고기한(상속개시일이 속한 달의 말일부터 6개월)이 먼저 문제됩니다. 등기를 미루면 상속인이 또 돌아가시는 경우 서류와 당사자가 늘어납니다. 📋 근거 1 📋 지방세법 제20조"},{"q":"Q. Q. 상속인 한 명이 연락이 안 됩니다.","a":"A. 협의분할은 상속인 전원이 참여해야 합니다. 협의가 어려우면 법정상속분대로 등기하거나 가정법원에 분할을 청구하는 방법을 검토합니다. 📋 근거 1 📋 민법 제1013조"},{"q":"Q. Q. 해외에 사는 상속인도 인감증명서가 필요한가요?","a":"A. 국내 인감이 없으면 재외공관 확인을 거친 서명 관련 서류 등으로 대신하는 방법이 있습니다. 거주 국가에 따라 준비 서류가 달라 미리 확인이 필요합니다."},{"q":"Q. Q. 부모님 집을 팔려고 하는데 상속등기를 먼저 해야 하나요?","a":"A. 그렇습니다. 상속등기를 하지 않으면 처분할 수 없으므로, 상속등기를 마친 뒤 매매로 인한 이전등기를 합니다. 📋 근거 1 📋 민법 제187조"},{"q":"Q. Q. 비용은 언제 내나요?","a":"A. 취득세는 등기 신청 전에 신고·납부하고, 국민주택채권 매입과 등기신청수수료 납부는 신청할 때 함께 처리합니다. 📋 근거 2 📋 지방세법 제20조 📋 등기사항증명서 등 수수료규칙 제5조의2 제2항·제5조의5 제2항(상속등기 신청수수료)"},{"q":"Q. Q. 법정상속분으로 등기한 뒤 협의분할로 바꿀 수 있나요?","a":"A. 상속인 전원이 합의하면 다시 정리할 수 있습니다. 다만 등기로 상속분이 확정된 뒤 몫이 늘어난 부분은 증여세 대상이 될 수 있고, 상속세 신고기한 안에 다시 나누는 경우 등은 예외입니다. 📋 근거 1 📋 상속세 및 증여세법 제4조 제3항"},{"q":"Q. Q. 상속인 중에 미성년자가 있으면 어떻게 하나요?","a":"A. 부모와 미성년 자녀가 함께 상속인이면 가정법원에서 특별대리인을 먼저 선임받아 그 대리인이 협의분할에 참여합니다. 📋 근거 1 📋 민법 제921조"},{"q":"Q. Q. 상속등기는 어디에 신청하나요?","a":"A. 상속인이 단독으로 신청할 수 있습니다. 예전에는 부동산 소재지를 관할하는 등기소에만 낼 수 있었지만, 2025. 1. 31.부터는 상속으로 인한 소유권이전등기를 관할이 아닌 등기소에도 신청할 수 있습니다. 부모님 땅이 멀리 있어도 가까운 등기소에서 처리할 수 있고, 신청서에 이 특례에 따른 신청임을 표시합니다. 다만 취득세는 지금도 부동산 소재지 시·군·구에 신고합니다. 📋 근거 4 📋 부동산등기법 제23조 제3항 📋 부동산등기법 제7조의3 📋 부동산등기규칙 제164조·제164조의2 · 등기예규 제1795호 📋 지방세법 제20조"}],
+    forms: [],
   },
   {
-    id: 'in-13',
-    title: '상속을 원인으로 하는소유권이전등기',
-    meta: '가장 자주 처리하는 상속등기의 전 과정입니다.신청인 확정부터 등기 완료까지 단계별로 안내합니다. 이런 분께 도움이 됩니다 해당 상황을 확인하세요 🏠 이미 등기된 부동산을 상속받아 명의를 변경해야 하는 분 📋 법정상속',
+    id: "in-25",
+    title: "오래전 돌아가신 분 명의의 땅 — 어느 법으로, 누가, 어떻게 정리하나요?",
+    meta: "할아버지·증조할아버지 명의로 남은 땅은 그분이 돌아가신 때의 민법으로 상속인과 상속분을 정합니다. 옛 민법을 적용하는 방법과 누가 어떻게 등기를 정리하는지 안내합니다.",
+    reviewed: "2026-11-08",
+    kb: "H-A02",
     sections: [
-      { heading: '이런 분께 도움이 됩니다 해당 상황을 확인하세요', content: `<div class="target-grid">
+      { heading: "이런 분께 필요합니다", content: `<ul class="checklist"><li> 할아버지 명의 땅이 아직 그대로 있다</li><li> 어느 땅이 조상 명의로 남아 있는지조차 모른다</li><li> 상속인이 수십 명으로 늘었고 연락이 안 되는 사람도 있다</li><li> 등기부가 없는 땅이라 대장에만 이름이 올라 있다</li></ul>` },
+      { heading: "핵심정리", content: `<div class="kb-box kb-summary"><p>할아버지나 증조할아버지 명의로 남아 있는 땅은 지금 민법이 아니라 <strong>그분이 돌아가신 때의 법</strong>으로 상속인과 상속분을 정합니다. 민법이 바뀔 때마다 부칙에서 시행 전에 시작된 상속에는 종전 규정을 그대로 적용하도록 정했기 때문입니다. 여기에 그 뒤 돌아가신 상속인들의 상속이 차례로 겹치므로, 사망 시점마다 상속관계를 따로 정리해야 합니다.</p><details class="refs-mini"><summary>📋 근거 3</summary><div class="ref-tags"><a href="https://www.law.go.kr/lsInfoP.do?lsiSeq=58431" target="_blank" rel="noopener" class="tag-law">📋 제정 민법 부칙 제25조(상속에 관한 경과규정)</a><a href="https://www.law.go.kr/법령/민법" target="_blank" rel="noopener" class="tag-law">📋 민법 부칙 제1항·제5항</a><a href="https://www.law.go.kr/법령/민법" target="_blank" rel="noopener" class="tag-law">📋 민법 부칙 제12조(상속에 관한 경과조치)</a></div></details></div>` },
+      { heading: "상세설명", content: `<h3>무엇으로 판단하나요? — 돌아가신 날짜</h3><div class="table-wrap"><table><tr><th>돌아가신 날</th><th>적용 법</th><th>상속분의 특징</th></tr><tr><td data-label="돌아가신 날">1959. 12. 31.까지</td><td data-label="적용 법">당시 관습</td><td data-label="상속분의 특징">호주 승계를 중심으로 한 관습 — 사안별 검토</td></tr><tr><td data-label="돌아가신 날">1960. 1. 1.~1978. 12. 31.</td><td data-label="적용 법">제정 민법</td><td data-label="상속분의 특징">호주상속인은 5할 가산, 여자는 남자의 2분의 1, 다른 가적에 있는 여자는 4분의 1, 처는 직계비속과 함께면 남자의 2분의 1</td></tr><tr><td data-label="돌아가신 날">1979. 1. 1.~1990. 12. 31.</td><td data-label="적용 법">1977년 개정 민법</td><td data-label="상속분의 특징">같은 가적의 여자는 남자와 같음, 다른 가적 여자는 4분의 1, 처는 같은 가적 직계비속 몫에 5할 가산, 호주상속인 5할 가산 유지</td></tr><tr><td data-label="돌아가신 날">1991. 1. 1. 이후</td><td data-label="적용 법">1990년 개정 이후 민법</td><td data-label="상속분의 특징">자녀는 성별·혼인 여부와 관계없이 균분, 배우자는 5할 가산</td></tr></table></div><details class="refs-mini"><summary>📋 근거 6</summary><div class="ref-tags"><a href="https://www.law.go.kr/lsInfoP.do?lsiSeq=58431" target="_blank" rel="noopener" class="tag-law">📋 제정 민법 부칙 제25조(상속에 관한 경과규정)</a><a href="https://www.law.go.kr/lsInfoP.do?lsiSeq=58431" target="_blank" rel="noopener" class="tag-law">📋 제정 민법 제1009조</a><a href="https://www.law.go.kr/법령/민법" target="_blank" rel="noopener" class="tag-law">📋 민법 부칙 제1항·제5항</a><a href="https://www.law.go.kr/lsInfoP.do?lsiSeq=58436" target="_blank" rel="noopener" class="tag-law">📋 민법 제1009조</a><a href="https://www.law.go.kr/법령/민법" target="_blank" rel="noopener" class="tag-law">📋 민법 부칙 제12조(상속에 관한 경과조치)</a><a href="https://www.law.go.kr/법령/민법/제1009조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1009조</a></div></details>
+<p>여러 대가 겹치면 시점마다 표가 달라집니다. 예를 들어 1975년에 돌아가신 할아버지의 상속은 제정 민법으로 나누고, 그 상속인 중 2000년에 돌아가신 아버지 몫은 현행 비율로 다시 나눕니다. 상속개시 전에 이미 돌아가신 자녀가 있으면 그 자녀의 직계비속이 그 자리를 이어받습니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1001조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1001조</a><a href="https://www.law.go.kr/법령/민법/제1010조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1010조</a></div></details><h3>사례로 보면</h3><p>창원에 사는 W씨는 1970년대에 돌아가신 할아버지 명의의 밭이 있다는 사실을 최근 알았습니다. 할아버지의 자녀는 다섯이었고, 그중 둘은 이미 돌아가셔서 그 자녀들까지 상속인이 되었습니다(설명을 위한 가상 사례입니다). W씨 가족은 먼저 할아버지 사망 당시 법으로 몫을 계산하고, 이후 돌아가신 분들의 몫을 각각의 사망 시점 법으로 다시 나눈 뒤, 협의가 되면 협의분할로, 안 되면 법정상속분대로 등기하는 방법을 검토합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1013조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1013조</a></div></details><h3>정리 순서</h3><ol class=""><li><strong>땅 찾기</strong> — 상속인은 돌아가신 분 명의 토지의 지적전산자료를 신청할 수 있고, 이때는 중앙행정기관의 사전 심사를 거치지 않아도 됩니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/공간정보의구축및관리등에관한법률/제76조" target="_blank" rel="noopener" class="tag-law">📋 공간정보의 구축 및 관리 등에 관한 법률 제76조 제3항 제2호</a></div></details></li><li><strong>상속인 확정</strong> — 제적등본과 가족관계 서류로 사망 시점별 상속인을 확인합니다.</li><li><strong>상속분 계산</strong> — 위 표에 따라 시점별로 계산해 최종 지분을 확정합니다.</li><li><strong>등기 방식 결정</strong> — 등기부가 있으면 상속등기, 대장에만 최초 소유자로 올라 있으면 그 상속인이 소유권보존등기를 신청합니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/부동산등기법/제23조" target="_blank" rel="noopener" class="tag-law">📋 부동산등기법 제23조 제3항</a><a href="https://www.law.go.kr/법령/부동산등기법/제65조" target="_blank" rel="noopener" class="tag-law">📋 부동산등기법 제65조</a></div></details></li><li><strong>취득세 신고·납부 후 등기 신청</strong><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/지방세법/제20조" target="_blank" rel="noopener" class="tag-law">📋 지방세법 제20조</a></div></details></li></ol><h3>행방불명 상속인이 있으면 어떻게 진행하나요?</h3><ol class=""><li><strong>부재자 재산관리인 선임</strong> — 주소를 떠나 재산관리인을 두지 않았으면, 다른 상속인이 이해관계인으로서 가정법원에 재산관리인 선임을 청구합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제22조" target="_blank" rel="noopener" class="tag-law">📋 민법 제22조</a></div></details></li><li><strong>법원 허가</strong> — 선임된 관리인이 협의분할에 참여하려면 법원의 허가를 받아야 합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제25조" target="_blank" rel="noopener" class="tag-law">📋 민법 제25조</a></div></details></li><li><strong>실종선고 검토</strong> — 생사가 5년 이상 분명하지 않으면 실종선고를 청구할 수 있습니다. 선고가 확정되면 실종기간이 끝난 때 사망한 것으로 보아 상속관계를 다시 정리합니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제27조" target="_blank" rel="noopener" class="tag-law">📋 민법 제27조</a><a href="https://www.law.go.kr/법령/민법/제28조" target="_blank" rel="noopener" class="tag-law">📋 민법 제28조</a></div></details></li></ol><h3>정리하면 어떤 효과가 생기나요?</h3><ul class=""><li><strong>팔거나 활용할 수 있게 됩니다.</strong> 조상 명의 땅도 상속인 소유이지만, 상속등기를 해야 처분할 수 있습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제187조" target="_blank" rel="noopener" class="tag-law">📋 민법 제187조</a></div></details></li><li><strong>대장에만 있던 땅은</strong> 보존등기로 처음 등기부가 만들어집니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/부동산등기법/제65조" target="_blank" rel="noopener" class="tag-law">📋 부동산등기법 제65조</a></div></details></li><li><strong>미룰수록 상속인이 늘어납니다.</strong> 상속인 중 누가 또 돌아가시면 그 몫이 다시 상속되어 서류와 당사자가 늘어나므로, 지금 정리하는 것이 비용을 줄이는 길입니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1005조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1005조</a></div></details></li></ul><h3>서류는 어떻게 모으나요?</h3><p>오래된 상속은 서류를 모으는 데 가장 많은 시간이 듭니다. 먼저 땅의 등기부와 토지대장·임야대장으로 명의자와 최초 소유자를 확인합니다. 등기부가 없고 대장에만 이름이 있으면 보존등기로 진행해야 하기 때문입니다. 어느 땅이 남아 있는지 모르면 지적전산자료 조회로 찾습니다. 그다음 명의자의 제적등본에서 사망일을 확인하고, 그 사망 시점의 법에 따라 상속인을 정한 뒤, 그 상속인들이 다시 돌아가셨다면 각자의 제적등본과 가족관계 서류를 차례로 이어 붙입니다. 이렇게 사망 시점마다 상속인 표를 만들어 두면 지분 계산과 협의가 훨씬 수월해집니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/부동산등기법/제65조" target="_blank" rel="noopener" class="tag-law">📋 부동산등기법 제65조</a><a href="https://www.law.go.kr/법령/공간정보의구축및관리등에관한법률/제76조" target="_blank" rel="noopener" class="tag-law">📋 공간정보의 구축 및 관리 등에 관한 법률 제76조 제3항 제2호</a></div></details>` },
+      { heading: "자주 묻는 질문", content: `<details class="qa"><summary>Q. Q. 출가한 고모도 상속인인가요?</summary><div class="ans"><p>A. 상속인입니다. 다만 1990년 이전에 개시된 상속이라면 다른 가적에 있는 여자의 몫이 남자의 4분의 1로 정해져 있었습니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/lsInfoP.do?lsiSeq=58431" target="_blank" rel="noopener" class="tag-law">📋 제정 민법 제1009조</a><a href="https://www.law.go.kr/lsInfoP.do?lsiSeq=58436" target="_blank" rel="noopener" class="tag-law">📋 민법 제1009조</a></div></details></div></details><details class="qa"><summary>Q. Q. 1960년 이전에 돌아가셨으면 어떻게 되나요?</summary><div class="ans"><p>A. 당시 관습이 적용됩니다. 호주 승계와 재산 상속이 얽혀 있어 가족관계를 하나씩 확인해야 합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/lsInfoP.do?lsiSeq=58431" target="_blank" rel="noopener" class="tag-law">📋 제정 민법 부칙 제25조(상속에 관한 경과규정)</a></div></details></div></details><details class="qa"><summary>Q. Q. 상속인이 너무 많아 서류를 다 받기 어렵습니다.</summary><div class="ans"><p>A. 협의분할에는 전원의 인감증명이 필요하므로, 받기 어려우면 법정상속분 등기나 법원 절차를 함께 검토합니다.</p></div></details><details class="qa"><summary>Q. Q. 할아버지 땅인데 아버지 형제분들도 모두 돌아가셨습니다.</summary><div class="ans"><p>A. 그분들이 할아버지보다 먼저 돌아가셨으면 그 자녀들이 대습상속인이 되고, 나중에 돌아가셨으면 그분들의 상속인이 몫을 다시 물려받습니다. 어느 경우든 사촌들까지 상속인이 될 수 있어 시점별로 지분을 계산합니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1001조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1001조</a><a href="https://www.law.go.kr/법령/민법/제1005조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1005조</a></div></details></div></details><details class="qa"><summary>Q. Q. 오래전 상속인데 취득세도 내야 하나요?</summary><div class="ans"><p>A. 상속 취득세는 상속개시 시점을 기준으로 신고기한이 정해져 있습니다. 신고하지 않은 상속 취득은 부과제척기간이 10년이므로, 사망 시점에 따라 부담이 달라져 미리 확인합니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/지방세법/제20조" target="_blank" rel="noopener" class="tag-law">📋 지방세법 제20조</a><a href="https://www.law.go.kr/법령/지방세기본법/제38조" target="_blank" rel="noopener" class="tag-law">📋 지방세기본법 제38조 제1항 제2호 가목</a></div></details></div></details><details class="qa"><summary>Q. Q. 실종선고를 받으면 언제 돌아가신 것으로 보나요?</summary><div class="ans"><p>A. 실종기간이 끝난 때 사망한 것으로 봅니다. 그 시점을 기준으로 적용할 법과 상속인을 다시 정합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제28조" target="_blank" rel="noopener" class="tag-law">📋 민법 제28조</a></div></details></div></details><details class="qa"><summary>Q. Q. 상속인 중 해외에 사는 사람이 있습니다.</summary><div class="ans"><p>A. 국내 인감증명 대신 거주 국가에서 준비할 서류가 따로 필요하므로, 다른 상속인보다 먼저 연락해 일정을 맞추는 것이 좋습니다.</p></div></details>` },
+      { heading: "주의사항", content: `<section class="box warn"><ul class=""><li><strong>협의가 안 될 때</strong>: 상속인 전원의 협의가 어려우면 법정상속분대로 전원 공유 등기를 하는 방법이 있습니다. 공유물 보존행위는 공유자 각자가 할 수 있어, 상속인 한 사람이 전원 명의로 신청하는 방식이 쓰입니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제265조" target="_blank" rel="noopener" class="tag-law">📋 민법 제265조</a></div></details></li><li><strong>취득세</strong>: 상속 취득세는 원래 상속개시 시점 기준으로 신고기한이 정해져 있습니다. 신고하지 않은 상속 취득은 부과제척기간이 10년이므로, 사망 시점에 따라 세액·가산세 부담이 달라집니다. 시점별로 확인한 뒤 신고합니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/지방세법/제20조" target="_blank" rel="noopener" class="tag-law">📋 지방세법 제20조</a><a href="https://www.law.go.kr/법령/지방세기본법/제38조" target="_blank" rel="noopener" class="tag-law">📋 지방세기본법 제38조 제1항 제2호 가목</a></div></details></li></ul></section>` },
+      { heading: "다음에 확인할 사항", content: `<ul><li><a href="/guide/inheritance/in-12.html">상속등기</a></li><li><a href="/guide/inheritance/in-01.html">상속이 시작됐을 때</a></li><li><a href="/guide/inheritance/in-10.html">상속재산분할과 기여분</a></li></ul>` },
+      { heading: "이 내용이 해당되시나요?", content: `<div class="kb-box kb-cta"><p>직접 처리하시기 어려운 부분을 법무사가 함께 검토합니다. 이런 경우 상담을 권합니다.</p>
+<ul class=""><li>조상 명의 땅이 있는데 상속관계가 여러 대에 걸쳐 있을 때</li><li>상속인 중 행방불명자·해외 거주자가 있을 때</li><li>등기부가 없고 대장에만 이름이 남아 있을 때</li></ul>
+<p class="note">법무사는 제적등본부터 현재 가족관계까지 서류를 갖춰 시점별 상속관계와 상속분을 정리하고, 상속등기·소유권보존등기 신청을 대리하며 그에 따른 취득세 신고·납부도 처리합니다. 부재자 재산관리인 선임·허가, 실종선고 청구처럼 법원에 내는 서류도 작성해 제출합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/법무사법/제2조" target="_blank" rel="noopener" class="tag-law">📋 법무사법 제2조</a></div></details>
+</div>` },
+    ],
+    laws: [],
+    faq: [{"q":"Q. Q. 출가한 고모도 상속인인가요?","a":"A. 상속인입니다. 다만 1990년 이전에 개시된 상속이라면 다른 가적에 있는 여자의 몫이 남자의 4분의 1로 정해져 있었습니다. 📋 근거 2 📋 제정 민법 제1009조 📋 민법 제1009조"},{"q":"Q. Q. 1960년 이전에 돌아가셨으면 어떻게 되나요?","a":"A. 당시 관습이 적용됩니다. 호주 승계와 재산 상속이 얽혀 있어 가족관계를 하나씩 확인해야 합니다. 📋 근거 1 📋 제정 민법 부칙 제25조(상속에 관한 경과규정)"},{"q":"Q. Q. 상속인이 너무 많아 서류를 다 받기 어렵습니다.","a":"A. 협의분할에는 전원의 인감증명이 필요하므로, 받기 어려우면 법정상속분 등기나 법원 절차를 함께 검토합니다."},{"q":"Q. Q. 할아버지 땅인데 아버지 형제분들도 모두 돌아가셨습니다.","a":"A. 그분들이 할아버지보다 먼저 돌아가셨으면 그 자녀들이 대습상속인이 되고, 나중에 돌아가셨으면 그분들의 상속인이 몫을 다시 물려받습니다. 어느 경우든 사촌들까지 상속인이 될 수 있어 시점별로 지분을 계산합니다. 📋 근거 2 📋 민법 제1001조 📋 민법 제1005조"},{"q":"Q. Q. 오래전 상속인데 취득세도 내야 하나요?","a":"A. 상속 취득세는 상속개시 시점을 기준으로 신고기한이 정해져 있습니다. 신고하지 않은 상속 취득은 부과제척기간이 10년이므로, 사망 시점에 따라 부담이 달라져 미리 확인합니다. 📋 근거 2 📋 지방세법 제20조 📋 지방세기본법 제38조 제1항 제2호 가목"},{"q":"Q. Q. 실종선고를 받으면 언제 돌아가신 것으로 보나요?","a":"A. 실종기간이 끝난 때 사망한 것으로 봅니다. 그 시점을 기준으로 적용할 법과 상속인을 다시 정합니다. 📋 근거 1 📋 민법 제28조"},{"q":"Q. Q. 상속인 중 해외에 사는 사람이 있습니다.","a":"A. 국내 인감증명 대신 거주 국가에서 준비할 서류가 따로 필요하므로, 다른 상속인보다 먼저 연락해 일정을 맞추는 것이 좋습니다."}],
+    forms: [],
+  },
+  {
+    id: "in-13",
+    title: "상속을 원인으로 하는소유권이전등기",
+    meta: "가장 자주 처리하는 상속등기의 전 과정입니다.신청인 확정부터 등기 완료까지 단계별로 안내합니다. 이런 분께 도움이 됩니다 해당 상황을 확인하세요 🏠 이미 등기된 부동산을 상속받아 명의를 변경해야 하는 분 📋 법정상속",
+    sections: [
+      { heading: "이런 분께 도움이 됩니다 해당 상황을 확인하세요", content: `<div class="target-grid">
 <div class="target-item">
 <div class="target-icon">🏠</div>
 <div class="target-text">이미 등기된 부동산을 상속받아 명의를 변경해야 하는 분</div>
@@ -4607,7 +2522,7 @@ const INHERITANCE_TOPICS = [
 <div class="target-text">등기 신청 후 처리 기간과 이후 확인 방법을 알고 싶은 분</div>
 </div>
 </div>` },
-      { heading: '핵심 요약 소유권이전등기 3가지 핵심 포인트', content: `<div class="summary-box">
+      { heading: "핵심 요약 소유권이전등기 3가지 핵심 포인트", content: `<div class="summary-box">
 <h3>🔑 반드시 기억할 3가지</h3>
 <ul class="summary-points">
 <li>
@@ -4627,7 +2542,7 @@ const INHERITANCE_TOPICS = [
       📌 <strong>핵심 한 줄 요약:</strong> 상속인 혼자 신청, 사망일이 원인일자, 법정상속분대로 지분 기재 — 이 세 가지만 지키면 됩니다.
     </div>
 </div>` },
-      { heading: '절차 흐름도 상속 소유권이전등기 8단계', content: `<div class="proc-flow">
+      { heading: "절차 흐름도 상속 소유권이전등기 8단계", content: `<div class="proc-flow">
 <div class="proc-step">
 <div class="proc-step-left">
 <div class="step-circle">1</div>
@@ -4721,7 +2636,7 @@ const INHERITANCE_TOPICS = [
 </div>
 </div>
 </div>` },
-      { heading: '단계별 상세 안내 각 단계에서 꼭 확인할 내용', content: `<div class="detail-accordion">
+      { heading: "단계별 상세 안내 각 단계에서 꼭 확인할 내용", content: `<div class="detail-accordion">
 <div class="detail-item">
 <div class="detail-head">
 <div class="detail-num">1</div>
@@ -4892,7 +2807,7 @@ const INHERITANCE_TOPICS = [
 </div>
 </div>
 </div>` },
-      { heading: '준비 서류 상속 소유권이전등기 신청 시 첨부서류', content: `<div class="docs-grid">
+      { heading: "준비 서류 상속 소유권이전등기 신청 시 첨부서류", content: `<div class="docs-grid">
 <div class="docs-card">
 <div class="docs-card-head">① 신분관계 서류 (피상속인)</div>
 <div class="docs-card-body">
@@ -4960,7 +2875,7 @@ const INHERITANCE_TOPICS = [
 <strong>⏱️ 서류 유효기간:</strong> 가족관계등록사항별증명서(기본증명서·가족관계증명서·친양자입양관계증명서) 및 제적등·초본은 발급일로부터 <strong>3개월 이내</strong>의 것만 유효합니다(<a href="https://www.law.go.kr/법령/부동산등기규칙" target="_blank" class="tag-law">📋 부동산등기규칙 제62조</a>). 등기 신청 직전에 발급받거나 발급일을 반드시 확인하세요.
     </div>
 </div>` },
-      { heading: '비용 안내 상속 소유권이전등기 주요 비용 항목', content: `<div class="cost-table-wrap">
+      { heading: "비용 안내 상속 소유권이전등기 주요 비용 항목", content: `<div class="cost-table-wrap">
 <table class="cost-table">
 <thead>
 <tr>
@@ -5011,7 +2926,7 @@ const INHERITANCE_TOPICS = [
 <div class="cost-note">
     💡 <strong>취득세 신고 기한 주의:</strong> 상속 취득에 따른 취득세 신고 기한은 상속개시일(사망일)로부터 6개월(해외 거주 시 9개월)입니다. 기한 내 신고·납부하지 않으면 가산세가 부과됩니다. 정확한 세금은 세무사 또는 법무사와 상담하여 산출하시기 바랍니다.
   </div>` },
-      { heading: '관련 판례 상속 소유권이전등기 관련 주요 대법원 판례', content: `<div class="rulings">
+      { heading: "관련 판례 상속 소유권이전등기 관련 주요 대법원 판례", content: `<div class="rulings">
 <div class="ruling-card">
 <div class="ruling-meta">
 <span class="ruling-no"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=90마772" target="_blank" class="tag-case">⚖️ 대법원 90마772</a></span>
@@ -5065,7 +2980,7 @@ const INHERITANCE_TOPICS = [
       </div>
 </div>
 </div>` },
-      { heading: '주의사항 신청 전 반드시 확인하세요', content: `<div class="warns">
+      { heading: "주의사항 신청 전 반드시 확인하세요", content: `<div class="warns">
 <div class="warn-item">
 <div class="warn-icon">⚠️</div>
 <div class="warn-content">
@@ -5102,7 +3017,7 @@ const INHERITANCE_TOPICS = [
 </div>
 </div>
 </div>` },
-      { heading: '자주 묻는 질문 (Q&amp;A)', content: `<div class="qna">
+      { heading: "자주 묻는 질문 (Q&amp;A)", content: `<div class="qna">
 <div class="qna-item">
 <div class="qna-q">
 <span class="q-badge">Q</span>
@@ -5164,7 +3079,7 @@ const INHERITANCE_TOPICS = [
 </div>
 </div>
 </div>` },
-      { heading: '다음으로 확인할 내용', content: `<div class="next-cards">
+      { heading: "다음으로 확인할 내용", content: `<div class="next-cards">
 <a class="next-card" href="상속_12_등기개관.html">
 <div class="nc-num">◀ PAGE 12</div>
 <h4>상속등기 개관</h4>
@@ -5186,7 +3101,7 @@ const INHERITANCE_TOPICS = [
 <p>공동등기 시 지분 계산의 기준이 되는 법정상속분을 확인하세요.</p>
 </a>
 </div>` },
-      { heading: '상속등기, 복잡하게 느껴진다면전문 법무사에게 맡기세요', content: `<p>상속인 조사부터 서류 준비, 취득세 신고, 등기 신청까지<br/>
+      { heading: "상속등기, 복잡하게 느껴진다면전문 법무사에게 맡기세요", content: `<p>상속인 조사부터 서류 준비, 취득세 신고, 등기 신청까지<br/>
        원스톱으로 처리해 드립니다.</p>
 <div class="cta-points">
 <div class="cta-point">
@@ -5208,25 +3123,17 @@ const INHERITANCE_TOPICS = [
 </div>
 <a class="cta-btn" href="tel:0000000000">☎ 무료 상담 신청하기</a>
 <p class="cta-sub">전화·방문·이메일 상담 가능 · 평일 9:00 – 18:00</p>
-</div>` }
+</div>` },
     ],
-    laws: [
-      { name: '민법 제265조 단서', desc: '' },
-      { name: '부동산등기규칙 제62조', desc: '' },
-      { name: '민법 제265조', desc: '' },
-      { name: '부동산등기법 제65조', desc: '' },
-      { name: '민법 제28조', desc: '' },
-      { name: '민법 제1001조', desc: '' },
-      { name: '부동산등기법 제23조 제3항', desc: '' }
-    ],
-    forms: []
+    laws: [{"name":"민법 제265조 단서","desc":""},{"name":"부동산등기규칙 제62조","desc":""},{"name":"민법 제265조","desc":""},{"name":"부동산등기법 제65조","desc":""},{"name":"민법 제28조","desc":""},{"name":"민법 제1001조","desc":""},{"name":"부동산등기법 제23조 제3항","desc":""}],
+    forms: [],
   },
   {
-    id: 'in-14',
-    title: '미등기부동산의상속인 보존등기',
-    meta: '등기부가 아직 없는 부동산을 상속받았다면 소유권이전등기가 아닌소유권보존등기가 필요합니다. 대장에서 등기부 개설까지 안내합니다. 이런 분께 도움이 됩니다 해당 상황을 확인하세요 🗺️ 토지대장·건축물대장에는 피상속인 명',
+    id: "in-14",
+    title: "미등기부동산의상속인 보존등기",
+    meta: "등기부가 아직 없는 부동산을 상속받았다면 소유권이전등기가 아닌소유권보존등기가 필요합니다. 대장에서 등기부 개설까지 안내합니다. 이런 분께 도움이 됩니다 해당 상황을 확인하세요 🗺️ 토지대장·건축물대장에는 피상속인 명",
     sections: [
-      { heading: '이런 분께 도움이 됩니다 해당 상황을 확인하세요', content: `<div class="target-grid">
+      { heading: "이런 분께 도움이 됩니다 해당 상황을 확인하세요", content: `<div class="target-grid">
 <div class="target-item">
 <div class="target-icon">🗺️</div>
 <div class="target-text">토지대장·건축물대장에는 피상속인 명의로 되어 있는데 등기부가 없는 부동산을 상속받은 분</div>
@@ -5252,7 +3159,7 @@ const INHERITANCE_TOPICS = [
 <div class="target-text">미등기 부동산을 팔거나 담보로 제공하려면 어떻게 해야 하는지 알고 싶은 분</div>
 </div>
 </div>` },
-      { heading: '핵심 요약 소유권보존등기 3가지 핵심 원칙', content: `<!-- 이전등기 vs 보존등기 비교 -->
+      { heading: "핵심 요약 소유권보존등기 3가지 핵심 원칙", content: `<!-- 이전등기 vs 보존등기 비교 -->
 <div style="margin-bottom:20px;">
 <div style="background:#f0f4fb;border-radius:8px;padding:12px 16px;font-size:0.85rem;color:#2d4a7a;font-weight:700;margin-bottom:10px;">
       ⚠️ 먼저 확인하세요 — 이미 등기부가 있는 부동산이라면 이 페이지가 아닌 <a href="상속_13_이전등기.html">소유권이전등기(PAGE 13)</a>를 참고하세요.
@@ -5303,7 +3210,7 @@ const INHERITANCE_TOPICS = [
       📌 <strong>핵심 한 줄 요약:</strong> 대장에서 내 이름 확인 → 상속 증명 서류 준비 → 단독 신청으로 등기부 개설.
     </div>
 </div>` },
-      { heading: '절차 흐름도 미등기 부동산 보존등기 7단계', content: `<div class="proc-flow">
+      { heading: "절차 흐름도 미등기 부동산 보존등기 7단계", content: `<div class="proc-flow">
 <div class="proc-step">
 <div class="proc-step-left">
 <div class="step-circle">1</div>
@@ -5382,7 +3289,7 @@ const INHERITANCE_TOPICS = [
 </div>
 </div>
 </div>` },
-      { heading: '단계별 상세 안내 각 단계에서 꼭 확인할 내용', content: `<div class="detail-accordion">
+      { heading: "단계별 상세 안내 각 단계에서 꼭 확인할 내용", content: `<div class="detail-accordion">
 <div class="detail-item">
 <div class="detail-head">
 <div class="detail-num">1</div>
@@ -5537,7 +3444,7 @@ const INHERITANCE_TOPICS = [
 </div>
 </div>
 </div>` },
-      { heading: '준비 서류 소유권보존등기 신청 시 첨부서류 목록', content: `<div class="docs-grid">
+      { heading: "준비 서류 소유권보존등기 신청 시 첨부서류 목록", content: `<div class="docs-grid">
 <div class="docs-card">
 <div class="docs-card-head">① 대장 서류 (소유자·부동산 표시 증명)</div>
 <div class="docs-card-body">
@@ -5604,7 +3511,7 @@ const INHERITANCE_TOPICS = [
 <strong>⏱️ 서류 유효기간:</strong> 가족관계등록사항별증명서(기본증명서·가족관계증명서·친양자입양관계증명서) 및 제적등·초본은 발급일로부터 <strong>3개월 이내</strong>의 것을 사용해야 합니다(<a href="https://www.law.go.kr/법령/부동산등기규칙" target="_blank" class="tag-law">📋 부동산등기규칙 제62조</a>). 여러 세대에 걸친 상속이라면 각 세대별 서류를 모두 3개월 이내에 발급받아야 하므로, 등기 신청 일정에 맞춰 한꺼번에 수집하는 것이 좋습니다.
     </div>
 </div>` },
-      { heading: '비용 안내 소유권보존등기 주요 비용 항목', content: `<div class="cost-table-wrap">
+      { heading: "비용 안내 소유권보존등기 주요 비용 항목", content: `<div class="cost-table-wrap">
 <table class="cost-table">
 <thead>
 <tr>
@@ -5655,7 +3562,7 @@ const INHERITANCE_TOPICS = [
 <div class="cost-note">
     💡 <strong>오래된 미등기 부동산 주의:</strong> 수십 년간 방치된 미등기 농지·임야는 토지 시가표준액이 낮아 세금 부담이 크지 않은 경우도 있습니다. 그러나 상속인 확정과 동일인 증명 등 서류 준비 과정이 복잡하므로 법무사와 함께 처음부터 진행하는 것을 권장합니다.
   </div>` },
-      { heading: '관련 판례 및 선례 상속인 보존등기 관련 주요 등기선례', content: `<div class="rulings">
+      { heading: "관련 판례 및 선례 상속인 보존등기 관련 주요 등기선례", content: `<div class="rulings">
 <div class="ruling-card">
 <div class="ruling-meta">
 <span class="ruling-no">등기선례 3-351</span>
@@ -5709,7 +3616,7 @@ const INHERITANCE_TOPICS = [
       </div>
 </div>
 </div>` },
-      { heading: '주의사항 보존등기 신청 전 반드시 확인하세요', content: `<div class="warns">
+      { heading: "주의사항 보존등기 신청 전 반드시 확인하세요", content: `<div class="warns">
 <div class="warn-item">
 <div class="warn-icon">🔍</div>
 <div class="warn-content">
@@ -5746,7 +3653,7 @@ const INHERITANCE_TOPICS = [
 </div>
 </div>
 </div>` },
-      { heading: '자주 묻는 질문 (Q&amp;A)', content: `<div class="qna">
+      { heading: "자주 묻는 질문 (Q&amp;A)", content: `<div class="qna">
 <div class="qna-item">
 <div class="qna-q">
 <span class="q-badge">Q</span>
@@ -5808,7 +3715,7 @@ const INHERITANCE_TOPICS = [
 </div>
 </div>
 </div>` },
-      { heading: '다음으로 확인할 내용', content: `<div class="next-cards">
+      { heading: "다음으로 확인할 내용", content: `<div class="next-cards">
 <a class="next-card" href="상속_13_이전등기.html">
 <div class="nc-num">◀ PAGE 13</div>
 <h4>상속 소유권이전등기</h4>
@@ -5830,7 +3737,7 @@ const INHERITANCE_TOPICS = [
 <p>보존등기를 협의분할 방식으로 신청하려면 협의서 작성 방법을 먼저 확인하세요.</p>
 </a>
 </div>` },
-      { heading: '수십 년 묵은 미등기 부동산,법무사가 한 번에 해결해 드립니다', content: `<p>대장 확인부터 상속관계 증명, 동일인 확인, 등기 신청까지<br/>
+      { heading: "수십 년 묵은 미등기 부동산,법무사가 한 번에 해결해 드립니다", content: `<p>대장 확인부터 상속관계 증명, 동일인 확인, 등기 신청까지<br/>
        복잡한 미등기 보존등기를 전문적으로 처리합니다.</p>
 <div class="cta-points">
 <div class="cta-point">
@@ -5852,21 +3759,17 @@ const INHERITANCE_TOPICS = [
 </div>
 <a class="cta-btn" href="tel:0000000000">☎ 무료 상담 신청하기</a>
 <p class="cta-sub">전화·방문·이메일 상담 가능 · 평일 9:00 – 18:00</p>
-</div>` }
+</div>` },
     ],
-    laws: [
-      { name: '부동산등기법 제65조', desc: '' },
-      { name: '민법 제265조 단서', desc: '' },
-      { name: '부동산등기규칙 제62조', desc: '' }
-    ],
-    forms: []
+    laws: [{"name":"부동산등기법 제65조","desc":""},{"name":"민법 제265조 단서","desc":""},{"name":"부동산등기규칙 제62조","desc":""}],
+    forms: [],
   },
   {
-    id: 'in-15',
-    title: '상속등기 후 소유권경정등기',
-    meta: '이미 마쳐진 상속등기를 협의분할·재판 등으로 바로잡는 절차',
+    id: "in-15",
+    title: "상속등기 후 소유권경정등기",
+    meta: "이미 마쳐진 상속등기를 협의분할·재판 등으로 바로잡는 절차",
     sections: [
-      { heading: '이런 경우에 경정등기가 필요합니다', content: `<div class="target-grid">
+      { heading: "이런 경우에 경정등기가 필요합니다", content: `<div class="target-grid">
 <div class="target-card">
 <div class="icon">📋</div>
 <strong>법정상속분 등기 후 협의분할</strong>
@@ -5888,7 +3791,7 @@ const INHERITANCE_TOPICS = [
       협의 대신 가정법원의 조정·심판·판결로 상속재산 분할이 확정되어 기존 등기를 바로잡아야 하는 분
     </div>
 </div>` },
-      { heading: '경정등기 핵심 정보 한눈에', content: `<div class="summary-box">
+      { heading: "경정등기 핵심 정보 한눈에", content: `<div class="summary-box">
 <h3>📌 반드시 기억할 3가지</h3>
 <div class="sum-row"><span class="sum-key">등기 성격</span><span class="sum-val">소유권경정등기 (부기등기 방식으로 기록) — 이전등기가 아닙니다</span></div>
 <div class="sum-row"><span class="sum-key">등기원인</span><span class="sum-val">"협의분할로 인한 <em>(재산)상속</em>" 또는 "○○법원 확정판결(화해·인낙)에 의한 <em>(재산)상속</em>"</span></div>
@@ -5901,7 +3804,7 @@ const INHERITANCE_TOPICS = [
     협의분할 후 바로잡는 등기는 <strong>소유권이전등기가 아니라 소유권경정등기</strong>입니다.
     경정등기는 기존 상속등기를 소급하여 수정하는 것이므로, 취득세 등 과세 방식도 다릅니다.
   </div>` },
-      { heading: '소유권경정등기 절차 흐름', content: `<div class="flow-wrap">
+      { heading: "소유권경정등기 절차 흐름", content: `<div class="flow-wrap">
 <div class="flow-steps">
 <div class="flow-step">
 <div class="snum">1</div>
@@ -5947,7 +3850,7 @@ const INHERITANCE_TOPICS = [
 </div>
 </div>
 </div>` },
-      { heading: '경정등기 절차 상세 안내', content: `<!-- 블록 1: 경정등기 허용 사례 -->
+      { heading: "경정등기 절차 상세 안내", content: `<!-- 블록 1: 경정등기 허용 사례 -->
 <div class="step-block">
 <h3><span class="step-num-badge">①</span>경정등기가 허용되는 구체적 사례</h3>
 <p style="font-size:14px;color:#555;margin-bottom:4px;">상속등기에서의 경정등기는 예규 제1421호에 따라 다음 경우에 폭넓게 허용됩니다.</p>
@@ -6065,7 +3968,7 @@ const INHERITANCE_TOPICS = [
 </ul>
 </div>
 </div>` },
-      { heading: '경정등기 신청에 필요한 서류', content: `<div class="doc-grid">
+      { heading: "경정등기 신청에 필요한 서류", content: `<div class="doc-grid">
 <div class="doc-card">
 <div class="dc-icon">📄</div>
 <div class="dc-title">상속재산분할협의서</div>
@@ -6109,7 +4012,7 @@ const INHERITANCE_TOPICS = [
       <div class="dc-note">초과 취득분에 대해서만 과세</div>
 </div>
 </div>` },
-      { heading: '경정등기 관련 비용', content: `<table class="cost-table">
+      { heading: "경정등기 관련 비용", content: `<table class="cost-table">
 <thead>
 <tr><th>항목</th><th>기준 및 세율</th><th>비고</th></tr>
 </thead>
@@ -6154,7 +4057,7 @@ const INHERITANCE_TOPICS = [
 <div class="cost-note">
     ⚠️ <strong>취득세 주의:</strong> 경정등기로 법정상속분을 <strong>초과하여 취득</strong>하는 부분은 상속 특례세율(0.8%)이 아닌 일반 취득세율(3.5%)이 적용될 수 있습니다. 반드시 관할 시·군·구청 세무과에 확인하세요.
   </div>` },
-      { heading: '실무에서 중요한 판례와 선례', content: `<div class="ruling-card">
+      { heading: "실무에서 중요한 판례와 선례", content: `<div class="ruling-card">
 <div class="rc-meta">
 <span class="rc-badge">선례 5-542</span>
 <span class="rc-title">지분 이전 후 경정등기 방법</span>
@@ -6194,7 +4097,7 @@ const INHERITANCE_TOPICS = [
     </div>
 <div class="rc-result">💡 상속등기 후 상속인 사망 시, 사망자의 상속인과 나머지 상속인 사이에 지분이전등기로 처리</div>
 </div>` },
-      { heading: '경정등기 시 반드시 확인할 사항', content: `<ul class="warn-list">
+      { heading: "경정등기 시 반드시 확인할 사항", content: `<ul class="warn-list">
 <li>
 <strong>⚠️ 등기원인일자는 협의분할일입니다</strong>
       소유권경정등기의 등기원인일자는 반드시 <strong>협의분할일</strong>로 기재해야 합니다. 피상속인의 사망일로 잘못 기재하면 등기관이 각하합니다. 재판의 경우에는 판결 확정일(또는 화해·인낙 성립일)이 원인일자입니다.
@@ -6216,7 +4119,7 @@ const INHERITANCE_TOPICS = [
       경정등기로 법정상속분을 초과하여 취득하는 부분에 대해서는 상속 특례세율(0.8%)이 아닌 다른 세율이 적용될 수 있습니다. 반드시 관할 세무부서에 사전 문의하여 과세 방식을 확인한 후 취득세를 납부하세요.
     </li>
 </ul>` },
-      { heading: 'Q &amp; A', content: `<div class="qna-item">
+      { heading: "Q &amp; A", content: `<div class="qna-item">
 <div class="qna-q">Q. 경정등기와 소유권이전등기는 어떻게 다른가요?</div>
 <div class="qna-a">경정등기는 기존 상속등기의 내용(권리자 지분 등)이 처음부터 잘못됐다는 전제 하에 이를 소급하여 수정하는 등기입니다. 반면 소유권이전등기는 새로운 원인(매매·증여 등)으로 소유권이 이전되는 것입니다. 협의분할은 상속 당시로 소급하는 효력이 있으므로, 이미 마쳐진 상속등기를 분할 내용대로 바로잡는 것은 경정등기를 사용합니다. 부기등기 방식으로 기록되어 기존 등기 순위를 유지한다는 점도 다릅니다.</div>
 </div>
@@ -6240,27 +4143,24 @@ const INHERITANCE_TOPICS = [
 <div class="qna-q">Q. 경정등기를 하면 기존 상속등기의 순위는 어떻게 되나요?</div>
 <div class="qna-a">소유권경정등기는 부기등기 방식으로 기록됩니다. 예를 들어 기존 상속등기가 순위 1번이면, 경정등기는 "1-1번"으로 기재됩니다. 이렇게 되면 경정된 내용은 원래 상속등기(순위 1번)의 순위를 그대로 유지하게 됩니다. 즉, 경정등기의 효력은 소급하여 최초 상속등기 시점에 미칩니다.</div>
 </div>` },
-      { heading: '이어서 알아볼 내용', content: `<div class="next-card">
+      { heading: "이어서 알아볼 내용", content: `<div class="next-card">
 <div class="nc-icon">🌏</div>
 <div class="nc-text">
 <strong>PAGE 16 · 외국인·재외국민 상속등기</strong>
 <span>외국국적 상속인 또는 재외국민이 포함된 경우의 상속등기 절차와 특수한 서류 준비 방법을 안내합니다.</span>
 </div>
 <div class="nc-arrow">›</div>
-</div>` }
+</div>` },
     ],
-    laws: [
-      { name: '민법 제1013조', desc: '' },
-      { name: '부동산등기규칙 제60조', desc: '' }
-    ],
-    forms: []
+    laws: [{"name":"민법 제1013조","desc":""},{"name":"부동산등기규칙 제60조","desc":""}],
+    forms: [],
   },
   {
-    id: 'in-16',
-    title: '피상속인 미처리 등기 상속인에 의한 등기신청',
-    meta: '계약 후 등기 전 피상속인이 사망한 경우 — 상속등기 없이 바로 처리하는 특례 (📋 부동산등기법 제27조)',
+    id: "in-16",
+    title: "피상속인 미처리 등기 상속인에 의한 등기신청",
+    meta: "계약 후 등기 전 피상속인이 사망한 경우 — 상속등기 없이 바로 처리하는 특례 (📋 부동산등기법 제27조)",
     sections: [
-      { heading: '이런 상황이라면 이 페이지를 확인하세요', content: `<div class="target-grid">
+      { heading: "이런 상황이라면 이 페이지를 확인하세요", content: `<div class="target-grid">
 <div class="target-card">
 <div class="icon">🏠</div>
 <strong>매도인이 사망한 경우</strong>
@@ -6282,7 +4182,7 @@ const INHERITANCE_TOPICS = [
       매매 외에도 증여, 교환, 제한물권 설정 등 피상속인 생전에 원인행위가 발생하고 등기 전에 사망한 모든 경우
     </div>
 </div>` },
-      { heading: '상속인에 의한 등기 — 핵심 포인트', content: `<div class="summary-box">
+      { heading: "상속인에 의한 등기 — 핵심 포인트", content: `<div class="summary-box">
 <h3>📌 3가지 핵심</h3>
 <div class="sum-row"><span class="sum-key">근거 조항</span><span class="sum-val"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=59791&joNo=002700" target="_blank" class="tag-law">📋 부동산등기법 제27조</a> — 포괄승계인에 의한 등기신청 특례</span></div>
 <div class="sum-row"><span class="sum-key">가장 큰 장점</span><span class="sum-val"><em>상속등기 생략 가능</em> — 피상속인 명의에서 최종 취득자 명의로 직접 이전</span></div>
@@ -6294,7 +4194,7 @@ const INHERITANCE_TOPICS = [
 <strong>📖 <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=59791&joNo=002700" target="_blank" class="tag-law">📋 부동산등기법 제27조</a> (포괄승계인에 의한 등기신청)</strong>
     등기원인이 발생한 후에 등기권리자나 등기의무자에 관하여 상속이나 그 밖의 포괄승계가 있는 경우 상속인이나 그 밖의 포괄승계인이 그 등기를 신청할 수 있다.
   </div>` },
-      { heading: '상속등기 vs 상속인에 의한 등기', content: `<p style="font-size:14px;color:#555;">두 제도는 이름이 비슷하지만 성격·절차·첨부서류가 전혀 다릅니다. 혼동에 주의하세요.</p>
+      { heading: "상속등기 vs 상속인에 의한 등기", content: `<p style="font-size:14px;color:#555;">두 제도는 이름이 비슷하지만 성격·절차·첨부서류가 전혀 다릅니다. 혼동에 주의하세요.</p>
 <div style="overflow-x:auto;">
 <table class="compare-table">
 <thead>
@@ -6338,7 +4238,7 @@ const INHERITANCE_TOPICS = [
 </tbody>
 </table>
 </div>` },
-      { heading: '상속인에 의한 등기 절차 흐름', content: `<div class="flow-wrap">
+      { heading: "상속인에 의한 등기 절차 흐름", content: `<div class="flow-wrap">
 <div class="flow-steps">
 <div class="flow-step">
 <div class="snum">1</div>
@@ -6384,7 +4284,7 @@ const INHERITANCE_TOPICS = [
 </div>
 </div>
 </div>` },
-      { heading: '신청 요건·신청인·첨부정보 상세 안내', content: `<!-- 블록 1: 적용 요건 -->
+      { heading: "신청 요건·신청인·첨부정보 상세 안내", content: `<!-- 블록 1: 적용 요건 -->
 <div class="step-block">
 <h3><span class="step-num-badge">①</span>법 제27조가 적용되는 요건</h3>
 <ul class="req-list">
@@ -6544,7 +4444,7 @@ const INHERITANCE_TOPICS = [
       상속인이 등기신청에 협력하지 않을 경우, <strong>상속인 전원을 피고로 하여</strong> 소유권이전등기 소송을 제기해야 합니다. 상속인 3인 중 2인만을 피고로 하여 승소한 경우에는 그 판결만으로 피상속인 명의에서 직접 이전등기를 신청할 수 없습니다 (선례 1-194).
     </div>
 </div>` },
-      { heading: '신청에 필요한 주요 서류', content: `<div class="doc-grid">
+      { heading: "신청에 필요한 주요 서류", content: `<div class="doc-grid">
 <div class="doc-card">
 <div class="dc-icon">📋</div>
 <div class="dc-title">등기원인증명서</div>
@@ -6588,7 +4488,7 @@ const INHERITANCE_TOPICS = [
       <div class="dc-note">농지인 경우 농지취득자격증명 추가</div>
 </div>
 </div>` },
-      { heading: '주요 비용 항목', content: `<table class="cost-table">
+      { heading: "주요 비용 항목", content: `<table class="cost-table">
 <thead>
 <tr><th>항목</th><th>기준 및 세율</th><th>비고</th></tr>
 </thead>
@@ -6630,7 +4530,7 @@ const INHERITANCE_TOPICS = [
 </tr>
 </tbody>
 </table>` },
-      { heading: '실무에서 중요한 판례와 선례', content: `<div class="ruling-card">
+      { heading: "실무에서 중요한 판례와 선례", content: `<div class="ruling-card">
 <div class="rc-meta">
 <span class="rc-badge">대법원 1997. 11. 28.</span>
 <span class="rc-title">상속인에 의한 등기의 유효성 확인</span>
@@ -6670,7 +4570,7 @@ const INHERITANCE_TOPICS = [
     </div>
 <div class="rc-result">💡 농지를 상속인에 의한 등기로 처리할 때 농지취득자격증명 발급 여부를 미리 확인할 것</div>
 </div>` },
-      { heading: '반드시 확인해야 할 사항', content: `<ul class="warn-list">
+      { heading: "반드시 확인해야 할 사항", content: `<ul class="warn-list">
 <li>
 <strong>⚠️ 등기원인이 피상속인 사망 전에 발생해야 합니다</strong>
       매매계약 등의 원인행위가 반드시 피상속인 생존 중에 이루어져야 합니다. 사망 이후에 원인이 발생한 경우(예: 사망 후 시효취득 완성)에는 법 제27조를 적용할 수 없고, 먼저 상속등기를 마친 후 별도 등기를 진행해야 합니다.
@@ -6692,7 +4592,7 @@ const INHERITANCE_TOPICS = [
       상대방 상속인이 협력을 거부하여 소송을 제기하는 경우, 반드시 그 상속인 전원을 피고로 하여야 합니다. 일부 상속인만을 피고로 하여 받은 판결로는 법 제27조에 의한 등기를 신청할 수 없습니다 (선례 1-194).
     </li>
 </ul>` },
-      { heading: 'Q &amp; A', content: `<div class="qna-item">
+      { heading: "Q &amp; A", content: `<div class="qna-item">
 <div class="qna-q">Q. 상속인에 의한 등기와 일반 상속등기를 함께 할 수 없나요?</div>
 <div class="qna-a">법 제27조에 의한 상속인에 의한 등기의 핵심 장점이 바로 상속등기를 생략할 수 있다는 것입니다. 피상속인 명의에서 최종 취득자(매수인 또는 그 상속인) 명의로 직접 이전등기가 이루어집니다. 불필요하게 상속등기를 먼저 하고 이전등기를 별도로 진행할 필요가 없어 비용과 시간을 절약할 수 있습니다.</div>
 </div>
@@ -6716,377 +4616,57 @@ const INHERITANCE_TOPICS = [
 <div class="qna-q">Q. 회사가 합병된 경우에도 법 제27조가 적용되나요?</div>
 <div class="qna-a">네, 법 제27조는 "상속이나 그 밖의 포괄승계"를 포함합니다. 합병으로 소멸한 회사가 합병 전에 매수한 부동산에 대해서는 합병 후 존속하는 회사와 매도인의 공동신청으로 직접 존속 회사 명의로 소유권이전등기를 신청할 수 있습니다 (선례 4-374). 이때 합병을 증명하는 서류(합병등기사항증명서 등)를 첨부해야 합니다.</div>
 </div>` },
-      { heading: '이어서 알아볼 내용', content: `<div class="next-card">
+      { heading: "이어서 알아볼 내용", content: `<div class="next-card">
 <div class="nc-icon">📜</div>
 <div class="nc-text">
 <strong>PAGE 17 · 유언 및 유증으로 인한 소유권이전등기</strong>
 <span>피상속인이 유언을 남긴 경우 — 유증을 원인으로 한 소유권이전등기의 절차와 요건을 안내합니다.</span>
 </div>
 <div class="nc-arrow">›</div>
-</div>` }
+</div>` },
     ],
-    laws: [
-      { name: '부동산등기법 제27조', desc: '' },
-      { name: '부동산등기규칙 제43조', desc: '' }
-    ],
-    forms: []
+    laws: [{"name":"부동산등기법 제27조","desc":""},{"name":"부동산등기규칙 제43조","desc":""}],
+    forms: [],
   },
   {
-    id: 'in-17',
-    title: '이 유언장이 유효한가 유언의 방식과 효력',
-    meta: '민법이 정한 5가지 방식 중 하나를 갖추지 못하면 유언은 무효 — 방식별 요건을 정확히 확인하세요',
+    id: "in-17",
+    title: "유언 — 다섯 가지 방식과 돌아가신 뒤의 절차",
+    meta: "유언은 자필증서·녹음·공정증서·비밀증서·구수증서 다섯 가지 방식 중 하나를 지켜야 효력이 생기고, 17세부터 할 수 있습니다. 방식별 요건과 돌아가신 뒤 검인·유언집행 절차를 안내합니다.",
+    reviewed: "2026-11-08",
+    kb: "H-E00",
     sections: [
-      { heading: '이런 경우에 꼭 확인하세요', content: `<div class="target-grid">
-<div class="target-card">
-<div class="icon">📝</div>
-<strong>손수 쓴 유언장이 있는 분</strong>
-      자필로 유언장을 작성했는데 연월일·주소·날인이 모두 갖춰져 있는지 확신이 없는 분
-    </div>
-<div class="target-card">
-<div class="icon">🏥</div>
-<strong>입원 중 유언을 남긴 경우</strong>
-      병상에서 급하게 작성된 유언장 — 구수증서 또는 공정증서 방식 요건이 충족됐는지 검토 필요
-    </div>
-<div class="target-card">
-<div class="icon">📜</div>
-<strong>유언장을 발견한 상속인</strong>
-      피상속인이 남긴 유언장의 효력을 먼저 확인해야 유증 등기 등 후속 절차를 진행할 수 있는 분
-    </div>
-<div class="target-card">
-<div class="icon">🔄</div>
-<strong>유언을 새로 작성하거나 변경할 분</strong>
-      기존 유언의 내용을 바꾸거나 철회하려는 분 — 방식과 철회 방법을 사전에 파악해야 하는 분
-    </div>
+      { heading: "이런 분께 필요합니다", content: `<ul class="checklist"><li> 재산을 누구에게 줄지 미리 정해 두고 싶다</li><li> 직접 쓴 유언장이 효력이 있는지 걱정된다</li><li> 돌아가신 분의 유언장을 발견했는데 어떻게 해야 할지 모른다</li><li> 유언대로 부동산 명의를 옮겨야 한다</li></ul>` },
+      { heading: "핵심정리", content: `<div class="kb-box kb-summary"><p>유언은 민법이 정한 방식을 지켜야만 효력이 생깁니다. 방식은 자필증서, 녹음, 공정증서, 비밀증서, 구수증서의 다섯 가지이고, 17세가 되면 유언할 수 있습니다. 진심이 담긴 유언이라도 주소 한 줄, 도장 하나가 빠지면 무효가 될 수 있으므로, 어떤 방식을 고를지가 가장 중요한 판단입니다.</p><details class="refs-mini"><summary>📋 근거 3</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1060조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1060조</a><a href="https://www.law.go.kr/법령/민법/제1065조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1065조</a><a href="https://www.law.go.kr/법령/민법/제1061조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1061조</a></div></details></div>` },
+      { heading: "상세설명", content: `<h3>무엇으로 판단하나요? — 방식별 요건</h3><div class="table-wrap"><table><tr><th>방식</th><th>요건</th><th>돌아가신 뒤</th></tr><tr><td data-label="방식">자필증서</td><td data-label="요건">전문·연월일·주소·성명을 직접 쓰고 날인, 고칠 때도 자서·날인</td><td data-label="돌아가신 뒤">법원 검인 필요</td></tr><tr><td data-label="방식">녹음</td><td data-label="요건">유언 취지·성명·연월일을 말하고 증인이 정확함과 자기 성명을 말함</td><td data-label="돌아가신 뒤">법원 검인 필요</td></tr><tr><td data-label="방식">공정증서</td><td data-label="요건">증인 2명 참여, 공증인 앞에서 구술 → 공증인 필기·낭독 → 서명 또는 기명날인</td><td data-label="돌아가신 뒤">검인 불필요</td></tr><tr><td data-label="방식">비밀증서</td><td data-label="요건">봉한 증서를 증인 2명 이상에게 제출, 5일 안에 확정일자</td><td data-label="돌아가신 뒤">법원 검인 필요</td></tr><tr><td data-label="방식">구수증서</td><td data-label="요건">질병 등 급박한 때만, 증인 2명 이상, 급박한 사유가 끝난 날부터 7일 안에 검인 신청</td><td data-label="돌아가신 뒤">7일 안의 검인으로 갈음, 사망 후 검인 불필요</td></tr></table></div><details class="refs-mini"><summary>📋 근거 6</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1066조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1066조</a><a href="https://www.law.go.kr/법령/민법/제1091조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1091조</a><a href="https://www.law.go.kr/법령/민법/제1067조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1067조</a><a href="https://www.law.go.kr/법령/민법/제1068조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1068조</a><a href="https://www.law.go.kr/법령/민법/제1069조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1069조</a><a href="https://www.law.go.kr/법령/민법/제1070조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1070조</a></div></details>
+<p>자필증서는 비용이 들지 않지만 요건을 하나라도 빠뜨리면 무효입니다. 대법원은 주소를 직접 쓰지 않은 자필유언은 유언자가 누구인지 분명해도 효력이 없다고 보았습니다. 공정증서는 비용과 절차가 들지만 방식 흠결 위험이 작고 검인이 필요 없습니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2012%EB%8B%A471688)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2014. 9. 26. 선고 2012다71688 판결</a></div></details>
+<p>미성년자, 피성년후견인·피한정후견인, 유언으로 이익을 받을 사람과 그 배우자·직계혈족은 증인이 될 수 없습니다. 재산을 받을 자녀를 증인으로 세우면 유언 전체가 문제될 수 있습니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1072조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1072조</a></div></details><h3>어떤 방식을 고를까요?</h3><ul class=""><li><strong>다툼이 예상되면 공정증서</strong>: 가족 사이에 분쟁 소지가 있거나 부동산처럼 큰 재산을 정할 때는 공증인이 방식을 갖추어 주는 공정증서가 안전합니다. 돌아가신 뒤 검인 절차도 필요 없어 유언 집행이 빠릅니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1068조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1068조</a><a href="https://www.law.go.kr/법령/민법/제1091조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1091조</a></div></details></li><li><strong>간단히 남기려면 자필증서</strong>: 혼자 쓸 수 있지만 요건을 모두 지켜야 하고, 돌아가신 뒤 검인을 거쳐야 합니다. 원본을 잃어버리거나 누군가 숨기면 집행이 어려워집니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1066조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1066조</a></div></details></li><li><strong>위급할 때만 구수증서</strong>: 질병 등으로 다른 방식을 쓸 수 없을 때에 한하고, 증인과 기간 요건이 엄격합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1070조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1070조</a></div></details></li><li><strong>증인 고르기</strong>: 증인이 필요한 방식이라면 재산을 받지 않는 성인으로 정합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1072조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1072조</a></div></details></li></ul><h3>유언하면 어떤 효과가 생기나요?</h3><p>유언은 유언자가 돌아가신 때부터 효력이 생깁니다. 그 전에는 언제든지 유언이나 생전 행위로 전부 또는 일부를 철회할 수 있고, 철회할 권리를 미리 포기할 수도 없습니다. 앞뒤 유언이 서로 어긋나거나, 유언 뒤에 그 재산을 팔아 버리면 어긋나는 부분의 앞 유언은 철회한 것으로 봅니다.</p><details class="refs-mini"><summary>📋 근거 3</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1073조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1073조</a><a href="https://www.law.go.kr/법령/민법/제1108조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1108조</a><a href="https://www.law.go.kr/법령/민법/제1109조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1109조</a></div></details>
+<ul class=""><li><strong>유증받은 사람은 받을지 정할 수 있습니다.</strong> 유언자가 돌아가신 뒤 언제든 유증을 승인하거나 포기할 수 있고, 그 효과는 사망 때로 거슬러 생깁니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1074조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1074조</a></div></details></li><li><strong>재산 전부나 일정 비율을 받는 포괄유증</strong>을 받은 사람은 상속인과 같은 권리와 의무를 가집니다. 빚도 그 비율만큼 물려받는다는 뜻입니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1078조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1078조</a></div></details></li><li><strong>판례</strong> — 방식을 하나라도 어기면 진정한 뜻이 담겼어도 효력이 없습니다(<a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2012%EB%8B%A471688)" target="_blank" rel="noopener" class="case-link">대법원 2014. 9. 26. 선고 2012다71688 판결</a>).<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2012%EB%8B%A471688)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2014. 9. 26. 선고 2012다71688 판결</a></div></details></li></ul><h3>돌아가신 뒤에는 어떻게 하나요?</h3><ol class=""><li><strong>검인 청구</strong> — 자필·녹음·비밀증서 유언을 보관하거나 발견한 사람은 지체 없이 법원에 제출해 검인을 청구합니다. 봉인된 유언서는 상속인 등이 참여한 가운데 법원이 개봉합니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1091조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1091조</a><a href="https://www.law.go.kr/법령/민법/제1092조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1092조</a></div></details></li><li><strong>검인의 의미 이해</strong> — 검인은 증서의 상태를 확인하는 절차일 뿐 유언의 유효·무효를 정하지 않습니다. 검인을 받았더라도 무효를 다툴 수 있습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(97%EB%8B%A438510)" target="_blank" rel="noopener" class="tag-law">📋 대법원 1998. 6. 12. 선고 97다38510 판결</a></div></details></li><li><strong>유언집행자 확인</strong> — 유언으로 지정된 집행자가 있으면 그가, 없으면 상속인이 유언을 집행합니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1093조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1093조</a><a href="https://www.law.go.kr/법령/민법/제1095조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1095조</a></div></details></li><li><strong>유증 등기</strong> — 부동산을 유증받았으면 유언 내용에 따라 명의를 옮깁니다. 등기신청수수료는 상속등기와 같은 기준입니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/등기사항증명서등수수료규칙/제5조의2" target="_blank" rel="noopener" class="tag-law">📋 등기사항증명서 등 수수료규칙 제5조의2 제2항·제5조의5 제2항(상속등기 신청수수료)</a></div></details></li></ol>
+<p>김해에 사는 Z씨는 아버지가 남긴 자필 유언장을 서랍에서 찾았습니다. 둘째인 Z씨에게 집을 준다는 내용이었습니다(설명을 위한 가상 사례입니다). Z씨는 봉투를 함부로 뜯지 않고 가정법원에 검인을 청구한 뒤, 검인조서와 유언장으로 유증 등기를 진행합니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1091조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1091조</a><a href="https://www.law.go.kr/법령/민법/제1092조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1092조</a></div></details><h3>유언집행자는 무엇을 하나요?</h3><ul class=""><li>유언이 재산에 관한 것이면 지체 없이 재산목록을 만들어 상속인에게 줍니다. 상속인이 요구하면 목록 작성에 참여시켜야 합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1100조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1100조</a></div></details></li><li>유언 내용대로 유증 등기, 예금 이전 등을 진행합니다. 유언으로 집행자를 정하거나 그 지정을 제3자에게 맡길 수 있습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1093조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1093조</a></div></details></li><li>지정된 집행자가 없으면 상속인이 집행자가 되므로, 상속인들이 함께 유언을 실행합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1095조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1095조</a></div></details></li></ul><h3>유언장은 어떻게 보관하나요?</h3><p>자필증서 유언은 쓰기 쉬운 대신 잃어버리거나 누군가 숨기면 집행할 수 없습니다. 믿을 수 있는 사람이나 유언집행자에게 보관 장소를 알려 두는 것이 좋습니다. 유언서를 발견한 사람은 지체 없이 법원에 검인을 청구해야 하고, 상속에 유리하게 하려고 유언서를 위조·변조·파기하거나 숨긴 사람은 상속인 자격을 잃습니다. 공정증서 유언은 공증 절차를 거쳐 방식 흠결 위험이 작고 검인도 필요 없어, 다툼이 예상되는 가족이라면 더 안전한 선택입니다.</p><details class="refs-mini"><summary>📋 근거 3</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1091조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1091조</a><a href="https://www.law.go.kr/법령/민법/제1004조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1004조</a><a href="https://www.law.go.kr/법령/민법/제1068조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1068조</a></div></details>` },
+      { heading: "자주 묻는 질문", content: `<details class="qa"><summary>Q. Q. 컴퓨터로 쓰고 서명만 한 유언장은 유효한가요?</summary><div class="ans"><p>A. 자필증서 유언은 전문을 직접 손으로 써야 하므로 인쇄한 유언장은 자필증서로 효력이 없습니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1066조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1066조</a></div></details></div></details><details class="qa"><summary>Q. Q. 유언장을 여러 번 썼습니다. 어느 것이 효력이 있나요?</summary><div class="ans"><p>A. 서로 어긋나는 부분은 나중 유언이 우선합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1109조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1109조</a></div></details></div></details><details class="qa"><summary>Q. Q. 공정증서 유언도 검인이 필요한가요?</summary><div class="ans"><p>A. 필요하지 않습니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1091조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1091조</a></div></details></div></details><details class="qa"><summary>Q. Q. 유증받은 재산이 부담스러우면 거절할 수 있나요?</summary><div class="ans"><p>A. 유언자가 돌아가신 뒤 언제든 포기할 수 있습니다. 다만 포괄유증은 상속인과 같은 권리의무를 가지므로 포기 방법과 기한을 따로 확인해야 합니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1074조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1074조</a><a href="https://www.law.go.kr/법령/민법/제1078조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1078조</a></div></details></div></details><details class="qa"><summary>Q. Q. 상속인이 아닌 사람에게도 유언으로 재산을 줄 수 있나요?</summary><div class="ans"><p>A. 유증으로 줄 수 있고, 받는 사람은 승인하거나 포기할 수 있습니다. 다만 자녀·배우자·부모의 유류분을 침해하면 반환 청구를 받을 수 있습니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1074조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1074조</a><a href="https://www.law.go.kr/법령/민법/제1112조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1112조</a></div></details></div></details><details class="qa"><summary>Q. Q. 유언으로 특정 자녀를 상속에서 아예 뺄 수 있나요?</summary><div class="ans"><p>A. 유증으로 다른 자녀에게 재산을 줄 수는 있지만, 빠진 자녀는 유류분을 청구할 수 있습니다. 그 자녀가 부양의무를 중대하게 위반하는 등 법이 정한 사유가 있으면 공정증서 유언으로 상속권 상실 의사를 남겨, 유언집행자가 가정법원에 청구하게 할 수 있습니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1112조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1112조</a><a href="https://www.law.go.kr/법령/민법/제1004조의2" target="_blank" rel="noopener" class="tag-law">📋 민법 제1004조의2</a></div></details></div></details>` },
+      { heading: "주의사항", content: `<section class="box warn"><ul class=""><li><strong>유류분</strong>: 유언으로 한 사람에게 몰아주어도 다른 자녀·배우자·부모는 유류분을 청구할 수 있습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1112조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1112조</a></div></details></li><li><strong>방식 흠결</strong>: 날짜를 &#x27;○월 길일&#x27;처럼 쓰거나 날인을 빠뜨리면 효력이 다투어집니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1066조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1066조</a></div></details></li><li><strong>유언대용신탁</strong>: 생전에 재산을 신탁하고 사망 후 수익자를 정해 두는 방법도 있습니다. 위탁자는 원칙적으로 수익자를 바꿀 수 있습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/신탁법/제59조" target="_blank" rel="noopener" class="tag-law">📋 신탁법 제59조</a></div></details></li></ul></section>` },
+      { heading: "다음에 확인할 사항", content: `<ul><li><a href="/guide/inheritance/in-20.html">유류분</a></li><li><a href="/guide/inheritance/in-10.html">상속재산분할과 기여분</a></li><li><a href="/guide/inheritance/in-12.html">상속등기</a></li></ul>` },
+      { heading: "이 내용이 해당되시나요?", content: `<div class="kb-box kb-cta"><p>직접 처리하시기 어려운 부분을 법무사가 함께 검토합니다. 이런 경우 상담을 권합니다.</p>
+<ul class=""><li>유언 방식을 정하고 문안을 정리하고 싶을 때</li><li>발견한 유언장의 검인을 청구해야 할 때</li><li>유언대로 유증 등기를 해야 할 때</li></ul>
+<p class="note">법무사는 유언 문안과 방식 요건을 함께 점검하고, 유언 검인 청구서처럼 가정법원에 내는 서류를 작성해 제출하며, 유증 등기 신청을 대리하고 그에 따른 취득세 신고·납부도 처리합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/법무사법/제2조" target="_blank" rel="noopener" class="tag-law">📋 법무사법 제2조</a></div></details>
 </div>` },
-      { heading: '유언 효력의 핵심 3원칙', content: `<div class="summary-box">
-<div class="sum-row"><span class="sum-key">요식행위</span><span class="sum-val">민법이 정한 <em>5가지 방식 중 하나</em>를 엄격히 갖추지 않으면 무효 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=106000" target="_blank" class="tag-law">📋 민법 제1060조</a>)</span></div>
-<div class="sum-row"><span class="sum-key">효력발생</span><span class="sum-val">유언자 <em>사망 시부터</em> 효력 발생 — 유언장 작성 시점부터가 아님 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=107300" target="_blank" class="tag-law">📋 민법 제1073조</a>)</span></div>
-<div class="sum-row"><span class="sum-key">유언능력</span><span class="sum-val">만 <em>17세 이상</em>이고 유언 당시 <em>의사능력</em>이 있어야 유효 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=106100" target="_blank" class="tag-law">📋 민법 제1061조</a>)</span></div>
-<div class="sum-row"><span class="sum-key">철회 자유</span><span class="sum-val">유언자는 언제든지 <em>자유롭게 철회</em> 가능 — 철회 포기 약정은 무효 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=110800" target="_blank" class="tag-law">📋 민법 제1108조</a>)</span></div>
-<div class="sum-row"><span class="sum-key">대리 불가</span><span class="sum-val">유언은 본인의 일신전속적 행위 — <em>대리인을 통한 유언은 무효</em></span></div>
-</div>
-<div class="info-box">
-<strong>📌 유언방식은 5가지</strong>: 자필증서 · 녹음 · 공정증서 · 비밀증서 · 구수증서<br/>
-    방식 불비 → <strong style="color:#c05000;">전부 무효</strong>. 아래에서 각 방식의 요건을 꼼꼼히 확인하세요.
-  </div>` },
-      { heading: '5가지 유언 방식별 요건 상세', content: `<!-- ① 자필증서 -->
-<h3>① 자필증서에 의한 유언 — 가장 많이 사용, 가장 많이 무효</h3>
-<div class="method-grid">
-<div class="method-card">
-<div class="mc-head">
-<div class="mc-num">1</div>
-<div>
-<div class="mc-title">자필증서 유언</div>
-<div class="mc-sub"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=106600" target="_blank" class="tag-law">📋 민법 제1066조</a> · 증인 불필요</div>
-</div>
-</div>
-<div class="mc-body">
-<div class="req-row"><span class="req-icon">✓</span><span><strong>전문(全文) 자서</strong> — 컴퓨터·타자기·대필 전부 무효. 외국어·약자 사용은 가능</span></div>
-<div class="req-row"><span class="req-icon warn">!</span><span><strong class="warn-text">작성 연월일 자서</strong> — 연·월만 쓰고 일 누락 시 무효 (<a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2009다9768" target="_blank" class="tag-case">⚖️ 대법원 2009다9768</a>)</span></div>
-<div class="req-row"><span class="req-icon">✓</span><span><strong>주소 자서</strong> — 주민등록상 주소 아니어도 무방, 봉투에 기재해도 유효</span></div>
-<div class="req-row"><span class="req-icon">✓</span><span><strong>성명 자서</strong> — 호·예명도 가능, 동일인 식별 가능하면 이름만도 유효</span></div>
-<div class="req-row"><span class="req-icon">✓</span><span><strong>날인</strong> — 타인 대신 날인 가능, 무인(지장)도 유효</span></div>
-<div class="req-row"><span class="req-icon warn">!</span><span><strong class="warn-text">변경 시</strong>: 삽입·삭제 부분을 자서하고 날인해야 유효</span></div>
-<span class="badge">사후 검인 신청 필요</span>
-</div>
-</div>
-<div class="method-card">
-<div class="mc-head">
-<div class="mc-num">2</div>
-<div>
-<div class="mc-title">녹음에 의한 유언</div>
-<div class="mc-sub"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=106700" target="_blank" class="tag-law">📋 민법 제1067조</a> · 증인 1인 이상</div>
-</div>
-</div>
-<div class="mc-body">
-<div class="req-row"><span class="req-icon">✓</span><span><strong>유언자 구술</strong> — 유언의 취지·성명·연월일을 직접 구술</span></div>
-<div class="req-row"><span class="req-icon warn">!</span><span><strong class="warn-text">증인 참여·구술</strong> — 유언이 유언자 것임과 자신의 성명을 구술하여 녹음. 증인 없으면 무효</span></div>
-<div class="req-row"><span class="req-icon">✓</span><span>증인은 1인 이상이면 충분 (다수견해)</span></div>
-<span class="badge">사후 검인 신청 필요</span>
-</div>
-</div>
-<div class="method-card">
-<div class="mc-head">
-<div class="mc-num">3</div>
-<div>
-<div class="mc-title">공정증서에 의한 유언</div>
-<div class="mc-sub"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=106800" target="_blank" class="tag-law">📋 민법 제1068조</a> · 증인 2인 이상 · 가장 안전</div>
-</div>
-</div>
-<div class="mc-body">
-<div class="req-row"><span class="req-icon warn">!</span><span><strong class="warn-text">증인 2인 이상</strong> 참여 — 1인만 참여하면 무효 (<a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=94다13695" target="_blank" class="tag-case">⚖️ 대법원 94다13695</a>)</span></div>
-<div class="req-row"><span class="req-icon warn">!</span><span><strong class="warn-text">유언자가 공증인 면전에서 구수</strong> — 말로써 표현해야 함. 손짓·고개 끄덕임만으로는 구수 인정 불가 (<a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2002다35386" target="_blank" class="tag-case">⚖️ 대법원 2002다35386</a>)</span></div>
-<div class="req-row"><span class="req-icon">✓</span><span><strong>공증인 필기·낭독</strong> — 사무원 대리 집필 무방</span></div>
-<div class="req-row"><span class="req-icon">✓</span><span><strong>유언자·증인 승인 후 서명 또는 기명날인</strong></span></div>
-<div class="req-row"><span class="req-icon">✓</span><span>출장 공증 가능, 원본은 공증인사무소에 20년 보관</span></div>
-<span class="badge nogold">✅ 검인 절차 불필요 — 바로 집행 가능</span>
-</div>
-</div>
-<div class="method-card">
-<div class="mc-head">
-<div class="mc-num">4</div>
-<div>
-<div class="mc-title">비밀증서에 의한 유언</div>
-<div class="mc-sub"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=106900" target="_blank" class="tag-law">📋 민법 제1069조</a> · 증인 2인 이상</div>
-</div>
-</div>
-<div class="mc-body">
-<div class="req-row"><span class="req-icon">✓</span><span><strong>증서에 필자 성명 기재</strong> — 내용 자필 불필요, 대필 가능</span></div>
-<div class="req-row"><span class="req-icon">✓</span><span><strong>엄봉(봉인)·날인</strong> — 유언자 본인이 봉인</span></div>
-<div class="req-row"><span class="req-icon warn">!</span><span><strong class="warn-text">2인 이상 증인 면전</strong>에서 유언서임을 표시</span></div>
-<div class="req-row"><span class="req-icon">✓</span><span><strong>봉서 표면에 제출연월일</strong> 기재 + 유언자·증인 서명·기명날인</span></div>
-<div class="req-row"><span class="req-icon warn">!</span><span><strong class="warn-text">5일 이내</strong> 공증인 또는 법원서기에게 제출하여 <strong class="warn-text">확정일자</strong> 받을 것</span></div>
-<span class="badge">사후 검인 신청 필요</span>
-</div>
-</div>
-<div class="method-card full">
-<div class="mc-head">
-<div class="mc-num">5</div>
-<div>
-<div class="mc-title">구수증서에 의한 유언 — 급박한 상황 전용</div>
-<div class="mc-sub"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=107000" target="_blank" class="tag-law">📋 민법 제1070조</a> · 증인 2인 이상 · 보충적 방식</div>
-</div>
-</div>
-<div class="mc-body" style="display:grid;grid-template-columns:1fr 1fr;gap:0 24px;">
-<div>
-<div class="req-row"><span class="req-icon warn">!</span><span><strong class="warn-text">질병·급박한 사유</strong>로 보통방식 불가한 경우에만 사용 가능 (부상·전염병·조난 등)</span></div>
-<div class="req-row"><span class="req-icon warn">!</span><span><strong class="warn-text">2인 이상 증인</strong> 참여 — 1인이면 무효</span></div>
-<div class="req-row"><span class="req-icon">✓</span><span><strong>증인 중 1인에게 유언 취지 구수</strong></span></div>
-</div>
-<div>
-<div class="req-row"><span class="req-icon">✓</span><span><strong>구수받은 자가 필기·낭독</strong> 후 유언자와 증인이 정확함 승인·서명날인</span></div>
-<div class="req-row"><span class="req-icon warn">!</span><span><strong class="warn-text">급박한 사유 종료 후 7일 이내</strong> 가정법원에 검인 신청 — 기간 도과 시 무효 (<a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=94스16" target="_blank" class="tag-case">⚖️ 대법원 94스16</a>)</span></div>
-</div>
-</div>
-</div>
-</div>
-<!-- 5방식 비교표 -->
-<h3>5가지 방식 한눈에 비교</h3>
-<div style="overflow-x:auto;">
-<table class="method-compare">
-<thead>
-<tr>
-<th style="text-align:left;">요건 항목</th>
-<th>①자필증서</th>
-<th>②녹음</th>
-<th>③공정증서</th>
-<th>④비밀증서</th>
-<th>⑤구수증서</th>
-</tr>
-</thead>
-<tbody>
-<tr><td>전문 자서</td><td class="ok">●</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
-<tr><td>연월일 기재</td><td class="ok">●</td><td class="ok">●</td><td class="ok">●</td><td class="opt">봉서표면</td><td class="ok">●</td></tr>
-<tr><td>주소 자서</td><td class="ok">●</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
-<tr><td>성명 기재</td><td class="ok">●</td><td class="ok">●</td><td class="ok">●</td><td class="ok">●</td><td class="ok">●</td></tr>
-<tr><td>날인</td><td class="ok">●</td><td class="no">—</td><td class="opt">서명가능</td><td class="ok">●</td><td class="opt">서명가능</td></tr>
-<tr><td>증인 수</td><td class="opt">불필요</td><td class="num">1인 이상</td><td class="num">2인 이상</td><td class="num">2인 이상</td><td class="num">2인 이상</td></tr>
-<tr><td>공증인 참여</td><td class="no">—</td><td class="no">—</td><td class="ok">●</td><td class="opt">확정일자</td><td class="no">—</td></tr>
-<tr><td>검인 필요</td><td class="ok">필요</td><td class="ok">필요</td><td class="no">불필요</td><td class="ok">필요</td><td class="ok">필요</td></tr>
-<tr><td>사용 조건</td><td class="opt">자유</td><td class="opt">자유</td><td class="opt">자유</td><td class="opt">자유</td><td style="color:#c05000;font-weight:700;font-size:12px;">급박한 경우만</td></tr>
-</tbody>
-</table>
-</div>
-<!-- 유효성 자가진단 체크리스트 -->
-<h3>내 유언장의 유효성 자가진단</h3>
-<p style="font-size:14px;color:#555;">작성한 유언장의 방식을 선택하고 아래 항목을 모두 충족하는지 확인하세요. <strong>하나라도 빠지면 전체 무효</strong>가 될 수 있습니다.</p>
-<div class="checklist-wrap">
-<div class="checklist-box">
-<div class="cl-head"><span class="cl-badge">자필증서</span> 유언장 체크리스트</div>
-<div class="check-item must"><div class="ci-box"></div><div class="ci-text">처음부터 끝까지 내 손으로 직접 씀<span class="fatal">컴퓨터·타자기·대필 → 무효</span></div></div>
-<div class="check-item must"><div class="ci-box"></div><div class="ci-text">작성 연·월·일을 모두 자서<span class="fatal">연월만 쓰고 일 누락 → 무효</span></div></div>
-<div class="check-item must"><div class="ci-box"></div><div class="ci-text">주소를 직접 씀 (봉투 기재도 가능)</div></div>
-<div class="check-item must"><div class="ci-box"></div><div class="ci-text">성명을 직접 씀 (호·예명 가능)</div></div>
-<div class="check-item must"><div class="ci-box"></div><div class="ci-text">날인 (무인·타인 대신 날인 가능)</div></div>
-<div class="check-item must"><div class="ci-box"></div><div class="ci-text">수정 시 수정 부분에도 자서·날인</div></div>
-</div>
-<div class="checklist-box">
-<div class="cl-head"><span class="cl-badge">공정증서</span> 유언장 체크리스트</div>
-<div class="check-item must"><div class="ci-box"></div><div class="ci-text">공증인 면전에서 <strong>말로</strong> 유언 취지 구수<span class="fatal">손짓·고개만 → 무효</span></div></div>
-<div class="check-item must"><div class="ci-box"></div><div class="ci-text">증인 2인 이상 참여<span class="fatal">1인만 → 무효</span></div></div>
-<div class="check-item must"><div class="ci-box"></div><div class="ci-text">공증인이 필기하고 낭독함</div></div>
-<div class="check-item must"><div class="ci-box"></div><div class="ci-text">유언자·증인이 정확함 승인 후 서명 또는 기명날인</div></div>
-<div class="check-item must"><div class="ci-box"></div><div class="ci-text">공증인이 부기·서명날인</div></div>
-<div class="check-item must"><div class="ci-box"></div><div class="ci-text">증인은 결격자가 아님</div></div>
-</div>
-</div>
-<!-- 증인 결격자 -->
-<h3>증인 결격자 — 이 사람이 증인이면 유언 전체가 무효</h3>
-<div class="disqual-grid">
-<div class="disqual-card">
-<div class="dc-icon">👦</div>
-<div class="dc-name">미성년자</div>
-<div class="dc-desc">법정대리인 동의가 있어도 절대 불가</div>
-</div>
-<div class="disqual-card">
-<div class="dc-icon">⚖️</div>
-<div class="dc-name">금치산자·한정치산자</div>
-<div class="dc-desc">의사능력 회복·동의가 있어도 절대 불가</div>
-</div>
-<div class="disqual-card">
-<div class="dc-icon">💰</div>
-<div class="dc-name">유언으로 이익 받는 자</div>
-<div class="dc-desc">수유자(수증자) 본인</div>
-</div>
-<div class="disqual-card">
-<div class="dc-icon">💑</div>
-<div class="dc-name">수유자의 배우자</div>
-<div class="dc-desc">이익을 받는 자의 배우자</div>
-</div>
-<div class="disqual-card">
-<div class="dc-icon">👪</div>
-<div class="dc-name">수유자의 직계혈족</div>
-<div class="dc-desc">부모·자녀·조부모 등</div>
-</div>
-<div class="disqual-card disqual-ok">
-<div class="dc-icon">✅</div>
-<div class="dc-name">결격 아닌 자</div>
-<div class="dc-desc">후순위상속인, 유언집행자, 유언으로 이익을 잃는 자 — 증인 가능 (<a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=97다57733" target="_blank" class="tag-case">⚖️ 대법원 97다57733</a>)</div>
-</div>
-</div>
-<!-- 유언의 철회 -->
-<h3>유언의 철회 — 마지막 의사가 항상 우선합니다</h3>
-<div class="revoke-grid">
-<div class="revoke-card">
-<strong>임의철회</strong>
-      유언자는 언제든지 이전 유언과 다른 방식으로도 유언을 철회할 수 있습니다. 유언증서를 고의로 파기해도 철회로 봅니다. <em style="color:#888;font-size:12px;">단, 공정증서 유언은 원본이 남아 있으므로 정본 파기만으로는 철회되지 않음</em>
-</div>
-<div class="revoke-card">
-<strong>전후 유언의 저촉 (법정철회)</strong>
-      두 개의 유언이 저촉될 경우 뒤의 유언이 앞의 유언을 철회한 것으로 봅니다 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=110900" target="_blank" class="tag-law">📋 민법 제1109조</a>). 즉 가장 나중에 작성된 유언이 우선합니다.
-    </div>
-<div class="revoke-card">
-<strong>생전행위와의 저촉 (법정철회)</strong>
-      유언 후 유언자가 그 목적물을 생전에 처분(매매·증여 등)한 경우, 저촉 범위 내에서 유언은 철회된 것으로 봅니다.
-    </div>
-<div class="revoke-card">
-<strong>유언증서 파훼 (법정철회)</strong>
-      유언자가 고의로 유언증서를 파기한 경우 파기된 부분의 유언은 철회된 것으로 봅니다. 단, 분실·멸실로는 철회되지 않습니다 (<a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=96다21119" target="_blank" class="tag-case">⚖️ 대법원 96다21119</a>).
-    </div>
-</div>` },
-      { heading: '유언 효력에 관한 중요 판례', content: `<div class="ruling-card">
-<div class="rc-meta">
-<span class="rc-badge">대법원 2009. 5. 14.</span>
-<span class="rc-title">일자 누락 자필유언 무효</span>
-</div>
-<div class="rc-body">
-      (선고 2009다9768 판결) 자필유언증서의 연월일은 유언능력의 유무를 판단하거나 다른 유언증서와 유언 성립의 선후를 결정하는 기준일이 되므로 작성일을 특정할 수 있게 기재하여야 한다. 따라서 연·월만 기재하고 <strong>일(日)의 기재가 없는 자필유언증서는 효력이 없다.</strong>
-</div>
-<div class="rc-result">💡 실무에서 가장 많이 발생하는 무효 사유 — "2024년 3월"만 쓰고 날짜를 쓰지 않으면 무효</div>
-</div>
-<div class="ruling-card">
-<div class="rc-meta">
-<span class="rc-badge">대법원 1994. 12. 22.</span>
-<span class="rc-title">공정증서 유언 — 증인 1인은 무효</span>
-</div>
-<div class="rc-body">
-      (선고 94다13695 판결) 공증사무실에서 유언장에 인증을 받았으나 증인 2명의 참여가 없고 자서된 것도 아니라면, 그 유언장은 공정증서에 의한 유언도 될 수 없고 자필증서 유언도 될 수 없다.
-    </div>
-<div class="rc-result">💡 공정증서 유언의 증인은 반드시 2인 이상 — 공증인 사무직원은 증인으로 카운트되지 않을 수 있으므로 반드시 외부 증인 2인 확보</div>
-</div>
-<div class="ruling-card">
-<div class="rc-meta">
-<span class="rc-badge">대법원 2002. 9. 24.</span>
-<span class="rc-title">손짓·고개만으로는 구수 인정 안 됨</span>
-</div>
-<div class="rc-body">
-      (선고 2002다35386 판결) 공정증서 유언에서 '구수'는 말로써 유언 내용을 전달하는 것을 뜻한다. 뇌질환 등으로 대화할 수 없어 공증인이 친족으로부터 내용을 전해 듣고 유언자에게 '그렇소?'라고 물어 단순히 <strong>손짓·발짓·고개만 끄덕였다면 구수로 볼 수 없다.</strong>
-</div>
-<div class="rc-result">💡 의식이 불명확한 상태에서 작성된 공정증서 유언은 효력이 없을 수 있음 — 녹음유언 또는 사전에 건강할 때 공정증서 유언을 작성해야</div>
-</div>
-<div class="ruling-card">
-<div class="rc-meta">
-<span class="rc-badge">대법원 1999. 11. 26.</span>
-<span class="rc-title">후순위상속인은 증인 결격자 아님</span>
-</div>
-<div class="rc-body">
-      (선고 97다57733 판결) 유언증인의 결격사유는 <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=107200" target="_blank" class="tag-law">📋 민법 제1072조</a>에서 정한 바에 한하며, 후순위상속인·유언으로 이익을 잃는 자·유언집행자 등은 증인 결격자가 아니므로 증인이 될 수 있다.
-    </div>
-<div class="rc-result">💡 결격자의 범위는 법이 명시한 자로 한정 — 수유자(이익 받는 자)의 배우자·직계혈족은 결격, 나머지 상속인은 가능</div>
-</div>` },
-      { heading: '유언 작성 시 반드시 확인할 사항', content: `<ul class="warn-list">
-<li>
-<strong>⚠️ 날짜에서 '일(日)'을 빠뜨리면 무효입니다</strong>
-      자필증서 유언에서 "2024년 3월"처럼 월까지만 쓰고 날짜를 기재하지 않으면 작성일을 특정할 수 없어 무효입니다. 반드시 연·월·일을 모두 직접 기재하세요. "만 70세 생일", "조부 기일" 처럼 날짜를 특정할 수 있는 표현도 유효합니다.
-    </li>
-<li>
-<strong>⚠️ 컴퓨터로 작성한 유언장은 자필증서로 인정되지 않습니다</strong>
-      한글, MS Word 등으로 출력한 문서는 자필증서 유언의 요건을 갖추지 못합니다. 타자기·컴퓨터·대필이 포함된 경우 전부 무효입니다. 컴퓨터로 작성하려면 반드시 공정증서 또는 비밀증서 방식을 이용하세요.
-    </li>
-<li>
-<strong>⚠️ 유언으로 이익 받는 자의 가족이 증인이면 무효입니다</strong>
-      재산을 받게 되는 사람(수유자)은 물론 그의 배우자와 직계혈족도 증인이 될 수 없습니다. 공정증서 작성 시 "친한 가족 지인"을 증인으로 삼았다가 나중에 무효 주장을 받는 사례가 많습니다. 수유자와 무관한 독립적인 증인 2인을 확보하세요.
-    </li>
-<li>
-<strong>⚠️ 구수증서는 7일 이내에 검인을 신청해야 합니다</strong>
-      급박한 사유가 종료된 날로부터 7일 이내에 가정법원에 검인을 신청해야 하며, 이 기간을 넘기면 무효입니다. 급박한 상황이 종료된 직후 즉시 조치해야 합니다.
-    </li>
-<li>
-<strong>⚠️ 유언장이 여러 개라면 가장 나중 것이 우선합니다</strong>
-      내용이 저촉되는 복수의 유언이 있는 경우, 나중에 작성된 유언이 앞의 유언을 철회한 것으로 봅니다. 이전 유언을 명시적으로 철회하지 않아도 됩니다. 유언장 작성일자가 유언 우선순위를 결정하므로 날짜가 더욱 중요합니다.
-    </li>
-</ul>` },
-      { heading: 'Q &amp; A', content: `<div class="qna-item">
-<div class="qna-q">Q. 컴퓨터로 내용을 작성하고 서명·날인만 손으로 했는데 유효한가요?</div>
-<div class="qna-a">자필증서 유언으로는 무효입니다. 자필증서 유언은 유언의 전문(全文)을 유언자가 직접 손으로 써야 하므로, 컴퓨터로 내용을 작성하고 서명만 손으로 한 경우에는 방식 불비로 무효입니다. 단, 이 경우에도 작성된 서면을 봉인하여 비밀증서 유언의 요건(증인 2인, 5일 내 확정일자 등)을 갖추면 비밀증서 유언으로는 유효할 수 있습니다.</div>
-</div>
-<div class="qna-item">
-<div class="qna-q">Q. 자필유언장에 날짜를 "2024년 봄"이라고 써도 되나요?</div>
-<div class="qna-a">판례는 날짜가 특정 가능하면 된다고 봅니다. "만 70세 생일", "조부 기일" 등 날짜를 특정할 수 있는 표현은 유효합니다. 그러나 "2024년 봄"과 같이 날짜를 특정하기 어려운 표현은 무효가 될 가능성이 높습니다. 분쟁을 막으려면 반드시 "○○○○년 ○○월 ○○일"로 명확하게 기재하는 것이 안전합니다.</div>
-</div>
-<div class="qna-item">
-<div class="qna-q">Q. 공정증서 유언에서 증인은 누구나 될 수 있나요?</div>
-<div class="qna-a"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=107200" target="_blank" class="tag-law">📋 민법 제1072조</a>에서 정한 결격자(미성년자, 금치산자·한정치산자, 유언으로 이익 받는 자·그 배우자·직계혈족)가 아닌 한 누구나 증인이 될 수 있습니다. 나머지 상속인, 유언집행자, 후순위상속인도 증인이 될 수 있습니다. 다만 공증인법에 의한 결격자(공증인의 친족·피고용인 등)도 주의해야 합니다. 가장 안전한 방법은 수유자와 완전히 무관한 성인 2인을 확보하는 것입니다.</div>
-</div>
-<div class="qna-item">
-<div class="qna-q">Q. 이미 작성한 유언을 나중에 바꾸고 싶은데 어떻게 해야 하나요?</div>
-<div class="qna-a">유언자는 언제든지 자유롭게 유언을 철회하거나 새 유언을 작성할 수 있습니다. 방법은 두 가지입니다. ① 새 유언장을 작성하면서 "이전 유언을 모두 철회한다"고 명시하거나, ② 저촉 내용을 담은 새 유언을 작성하면 저촉 부분의 이전 유언은 자동 철회됩니다. 이전 유언장 원본을 고의로 파기하는 것도 철회가 됩니다(단, 공정증서 유언의 정본 파기는 철회 효력 없음).</div>
-</div>
-<div class="qna-item">
-<div class="qna-q">Q. 공정증서 유언은 나중에 검인 받을 필요 없나요?</div>
-<div class="qna-a">네, 맞습니다. 공정증서에 의한 유언은 공정력이 인정되므로 사후에 별도의 검인 절차 없이 바로 집행할 수 있습니다. 반면 자필증서·녹음·비밀증서·구수증서에 의한 유언은 유언자 사망 후 지체 없이 가정법원에 검인 신청을 해야 합니다. 이것이 공정증서 유언의 가장 큰 실무적 장점입니다.</div>
-</div>
-<div class="qna-item">
-<div class="qna-q">Q. 유언장 내용대로 부동산 등기를 하려면 어떤 절차가 필요한가요?</div>
-<div class="qna-a">유증을 원인으로 한 소유권이전등기를 진행해야 합니다. 공정증서 유언은 검인 없이 바로 진행 가능하고, 자필증서 등 기타 방식은 가정법원의 검인을 먼저 받아야 합니다. 유언집행자가 지정된 경우에는 유언집행자가 등기신청을 하고, 그렇지 않은 경우에는 상속인이 합의하여 진행합니다. 자세한 절차는 다음 페이지(유증 등기)에서 안내합니다.</div>
-</div>` },
-      { heading: '이어서 알아볼 내용', content: `<div class="next-card">
-<div class="nc-icon">🏠</div>
-<div class="nc-text">
-<strong>PAGE 18 · 유증을 원인으로 하는 소유권이전등기</strong>
-<span>유언장이 유효하다면 다음 단계 — 유증을 원인으로 부동산 소유권이전등기를 신청하는 절차와 서류를 안내합니다.</span>
-</div>
-<div class="nc-arrow">›</div>
-</div>` }
     ],
-    laws: [
-      { name: '민법 제1060조', desc: '' },
-      { name: '민법 제1073조', desc: '' },
-      { name: '민법 제1061조', desc: '' },
-      { name: '민법 제1108조', desc: '' },
-      { name: '민법 제1066조', desc: '' },
-      { name: '민법 제1067조', desc: '' },
-      { name: '민법 제1068조', desc: '' },
-      { name: '민법 제1069조', desc: '' },
-      { name: '민법 제1070조', desc: '' },
-      { name: '민법 제1109조', desc: '' },
-      { name: '민법 제1072조', desc: '' }
-    ],
-    forms: []
+    laws: [],
+    faq: [{"q":"Q. Q. 컴퓨터로 쓰고 서명만 한 유언장은 유효한가요?","a":"A. 자필증서 유언은 전문을 직접 손으로 써야 하므로 인쇄한 유언장은 자필증서로 효력이 없습니다. 📋 근거 1 📋 민법 제1066조"},{"q":"Q. Q. 유언장을 여러 번 썼습니다. 어느 것이 효력이 있나요?","a":"A. 서로 어긋나는 부분은 나중 유언이 우선합니다. 📋 근거 1 📋 민법 제1109조"},{"q":"Q. Q. 공정증서 유언도 검인이 필요한가요?","a":"A. 필요하지 않습니다. 📋 근거 1 📋 민법 제1091조"},{"q":"Q. Q. 유증받은 재산이 부담스러우면 거절할 수 있나요?","a":"A. 유언자가 돌아가신 뒤 언제든 포기할 수 있습니다. 다만 포괄유증은 상속인과 같은 권리의무를 가지므로 포기 방법과 기한을 따로 확인해야 합니다. 📋 근거 2 📋 민법 제1074조 📋 민법 제1078조"},{"q":"Q. Q. 상속인이 아닌 사람에게도 유언으로 재산을 줄 수 있나요?","a":"A. 유증으로 줄 수 있고, 받는 사람은 승인하거나 포기할 수 있습니다. 다만 자녀·배우자·부모의 유류분을 침해하면 반환 청구를 받을 수 있습니다. 📋 근거 2 📋 민법 제1074조 📋 민법 제1112조"},{"q":"Q. Q. 유언으로 특정 자녀를 상속에서 아예 뺄 수 있나요?","a":"A. 유증으로 다른 자녀에게 재산을 줄 수는 있지만, 빠진 자녀는 유류분을 청구할 수 있습니다. 그 자녀가 부양의무를 중대하게 위반하는 등 법이 정한 사유가 있으면 공정증서 유언으로 상속권 상실 의사를 남겨, 유언집행자가 가정법원에 청구하게 할 수 있습니다. 📋 근거 2 📋 민법 제1112조 📋 민법 제1004조의2"}],
+    forms: [],
   },
   {
-    id: 'in-18',
-    title: '유증으로 인한 소유권이전등기',
-    meta: '유언장으로 부동산을 받았다면? — 유증 등기의 절차와 핵심 쟁점 Section 01',
+    id: "in-18",
+    title: "유증으로 인한 소유권이전등기",
+    meta: "유언장으로 부동산을 받았다면? — 유증 등기의 절차와 핵심 쟁점 Section 01",
     sections: [
-      { heading: '이런 분께 필요한 안내입니다', content: `<div class="target-grid">
+      { heading: "이런 분께 필요한 안내입니다", content: `<div class="target-grid">
 <div class="target-card"><strong>유언장에서 부동산을 받은 분</strong>돌아가신 분(유증자)이 남긴 유언장에 부동산 상속을 받도록 지정되었으나, 등기 절차를 모르는 수증자</div>
 <div class="target-card"><strong>상속인이 유증 이행을 거부하는 경우</strong>수증자인데 상속인들이 등기에 협조하지 않아 단독으로 진행하고 싶은 분</div>
 <div class="target-card"><strong>유언집행자로 지정된 분</strong>유언장에서 유언집행자로 지정되어 유증 등기를 처리해야 하는 분</div>
 <div class="target-card"><strong>포괄유증과 특정유증을 구분하고 싶은 분</strong>"재산 전부를 준다"와 "특정 아파트를 준다"는 등기 방법이 다릅니다</div>
 </div>
 </div>` },
-      { heading: '핵심 요약 — 한눈에 보기', content: `<div class="summary-box">
+      { heading: "핵심 요약 — 한눈에 보기", content: `<div class="summary-box">
 <h3>유증 등기의 핵심 원칙</h3>
 <div class="summary-row"><span class="s-key">등기원인</span><span class="s-val">"○년 ○월 ○일 유증" — 원인일자는 유증자(유언자)의 <strong>사망일</strong></span></div>
 <div class="summary-row"><span class="s-key">신청방법</span><span class="s-val">수증자(등기권리자) + 유언집행자 또는 상속인(등기의무자) <strong>공동신청 원칙</strong></span></div>
@@ -7110,7 +4690,7 @@ const INHERITANCE_TOPICS = [
 </tbody>
 </table>
 </div>` },
-      { heading: '절차 흐름도', content: `<div class="flow-wrap">
+      { heading: "절차 흐름도", content: `<div class="flow-wrap">
 <div class="flow-step">
 <div class="flow-node">
 <div class="flow-circle">1</div>
@@ -7182,7 +4762,7 @@ const INHERITANCE_TOPICS = [
 </div>
 </div>
 </div>` },
-      { heading: '단계별 상세 안내', content: `<!-- STEP 1: 유언집행자 -->
+      { heading: "단계별 상세 안내", content: `<!-- STEP 1: 유언집행자 -->
 <div class="step-block">
 <div class="step-block-head">
 <div class="step-num">1</div>
@@ -7297,7 +4877,7 @@ const INHERITANCE_TOPICS = [
 </div>
 </div>
 </div>` },
-      { heading: '준비 서류', content: `<div class="doc-category">
+      { heading: "준비 서류", content: `<div class="doc-category">
 <div class="doc-cat-title">공통 필수 서류</div>
 <div class="doc-grid">
 <div class="doc-card">
@@ -7361,7 +4941,7 @@ const INHERITANCE_TOPICS = [
 </div>
 </div>
 </div>` },
-      { heading: '비용 안내', content: `<table class="fee-table">
+      { heading: "비용 안내", content: `<table class="fee-table">
 <thead><tr><th>항목</th><th>기준</th><th>비고</th></tr></thead>
 <tbody>
 <tr><td>취득세</td><td>과세표준의 3.5% (증여세율)</td><td>유증은 증여세율 적용; 1주택 이하 비조정지역 기준. 중과 주의</td></tr>
@@ -7378,7 +4958,7 @@ const INHERITANCE_TOPICS = [
 <p class="fee-note">※ 취득세율은 취득 시점과 주택 보유 수, 조정대상지역 여부에 따라 달라질 수 있습니다.<br/>
     ※ 유증을 받는 수증자가 상속인이 아닌 제3자인 경우, 상속이 아닌 일반 취득으로 간주되어 별도 세율이 적용될 수 있습니다.</p>
 </div>` },
-      { heading: '관련 판례 및 선례', content: `<div class="ruling-card">
+      { heading: "관련 판례 및 선례", content: `<div class="ruling-card">
 <div class="ruling-cite">등기선례 제5-327호</div>
 <div class="ruling-summary">유증을 원인으로 하는 소유권이전등기를 신청할 때는 수증자와 유언집행자(유언집행자가 없는 때에는 상속인)가 공동신청하여야 하며, 수증자가 단독으로 신청할 수 없다. 등기원인은 "유증"이고, 등기원인일자는 유증자의 사망일이다.</div>
 <span class="ruling-point">공동신청 원칙 · 원인일자</span>
@@ -7399,7 +4979,7 @@ const INHERITANCE_TOPICS = [
 <span class="ruling-point">유류분 침해와 등기수리</span>
 </div>
 </div>` },
-      { heading: '반드시 확인할 주의사항', content: `<div class="warn-list">
+      { heading: "반드시 확인할 주의사항", content: `<div class="warn-list">
 <div class="warn-item">
 <div class="warn-icon">⚠️</div>
 <div class="warn-text">
@@ -7437,7 +5017,7 @@ const INHERITANCE_TOPICS = [
 </div>
 </div>
 </div>` },
-      { heading: '자주 묻는 질문', content: `<div class="qna-item">
+      { heading: "자주 묻는 질문", content: `<div class="qna-item">
 <div class="qna-q">유언장에 "내 재산 전부를 ○○에게 준다"고 했는데, 어떻게 다른가요?</div>
 <div class="qna-a">이는 <strong>포괄적 유증</strong>으로, 수증자는 유언자 사망과 동시에 상속인과 동일한 권리와 의무를 취득합니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=107800" target="_blank" class="tag-law">📋 민법 제1078조</a>). 특정 부동산이 아닌 재산 전부나 일정 비율을 받는 것입니다. 반면 "특정 아파트만 준다"고 하면 특정적 유증으로, 별도의 이전 절차가 필요한 채권적 청구권을 취득합니다.</div>
 </div>
@@ -7462,7 +5042,7 @@ const INHERITANCE_TOPICS = [
 <div class="qna-a">유증은 유언자 사망 당시 상태 그대로 이전됩니다. 근저당권이 설정된 부동산을 유증받으면 해당 채무도 같이 인수하는 것과 마찬가지이므로, 유증을 받기 전에 부동산등기사항증명서를 발급받아 담보 설정 현황을 꼭 확인하십시오. 채무 부담이 크다면 유증 포기도 고려해야 합니다.</div>
 </div>
 </div>` },
-      { heading: '다음으로 확인할 내용', content: `<div class="next-links">
+      { heading: "다음으로 확인할 내용", content: `<div class="next-links">
 <a class="next-card" href="상속_17_유언효력.html">
 <div class="next-dir">← 이전 페이지</div>
 <div class="next-title">유언의 방식과 효력</div>
@@ -7475,32 +5055,28 @@ const INHERITANCE_TOPICS = [
 </a>
 </div>
 </div>` },
-      { heading: '유증 등기, 직접 하기 어려우신가요?', content: `<p>유언집행자 확정, 검인 절차, 등기 신청까지 전 과정을<br/>법무사가 정확하고 빠르게 처리해 드립니다.</p>
+      { heading: "유증 등기, 직접 하기 어려우신가요?", content: `<p>유언집행자 확정, 검인 절차, 등기 신청까지 전 과정을<br/>법무사가 정확하고 빠르게 처리해 드립니다.</p>
 <a class="cta-btn" href="tel:00000000000">📞 전화 상담 예약</a>
 <a class="cta-btn outline" href="#">온라인 문의하기</a>
 </div>
-</div>` }
+</div>` },
     ],
-    laws: [
-      { name: '부동산등기법 제65조 1호', desc: '' },
-      { name: '민법 제1078조', desc: '' },
-      { name: '민법 제1074조', desc: '' }
-    ],
-    forms: []
+    laws: [{"name":"부동산등기법 제65조 1호","desc":""},{"name":"민법 제1078조","desc":""},{"name":"민법 제1074조","desc":""}],
+    forms: [],
   },
   {
-    id: 'in-19',
-    title: '실종선고 후 소유권이전등기',
-    meta: '오랫동안 연락이 끊긴 가족의 재산 — 실종선고와 상속등기의 모든 것 Section 01',
+    id: "in-19",
+    title: "실종선고 후 소유권이전등기",
+    meta: "오랫동안 연락이 끊긴 가족의 재산 — 실종선고와 상속등기의 모든 것 Section 01",
     sections: [
-      { heading: '이런 분께 필요한 안내입니다', content: `<div class="target-grid">
+      { heading: "이런 분께 필요한 안내입니다", content: `<div class="target-grid">
 <div class="target-card"><strong>수십 년째 연락이 끊긴 가족의 부동산이 있는 경우</strong>부재자가 실종선고를 받아 사망으로 간주되었고, 그 명의의 부동산에 대해 상속등기를 해야 하는 분</div>
 <div class="target-card"><strong>실종선고심판을 받았거나 진행 중인 경우</strong>가정법원에서 실종선고심판을 받은 뒤 등기 절차를 어떻게 진행해야 하는지 모르는 분</div>
 <div class="target-card"><strong>이미 상속등기가 완료된 후 실종선고가 난 경우</strong>공동상속인 중 1인이 나중에 실종선고심판을 받아 등기를 경정해야 하는 상황의 상속인</div>
 <div class="target-card"><strong>실종선고 취소 후 등기 문제가 생긴 경우</strong>실종선고를 받은 사람이 살아 있는 것으로 밝혀져 실종선고가 취소된 경우 등기 처리가 궁금한 분</div>
 </div>
 </div>` },
-      { heading: '핵심 요약 — 한눈에 보기', content: `<div class="summary-box">
+      { heading: "핵심 요약 — 한눈에 보기", content: `<div class="summary-box">
 <h3>실종선고 등기의 핵심 원칙</h3>
 <div class="summary-row"><span class="s-key">등기원인</span><span class="s-val">"상속" — 등기원인은 실종선고가 아닌 <strong>상속</strong>으로 기재</span></div>
 <div class="summary-row"><span class="s-key">원인일자</span><span class="s-val"><strong>실종기간 만료일</strong> (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=002800" target="_blank" class="tag-law">📋 민법 제28조 — 실종기간 만료 시 사망으로 간주</a>)</span></div>
@@ -7529,7 +5105,7 @@ const INHERITANCE_TOPICS = [
 </div>
 </div>
 </div>` },
-      { heading: '절차 흐름도', content: `<div class="flow-wrap">
+      { heading: "절차 흐름도", content: `<div class="flow-wrap">
 <div class="flow-step">
 <div class="flow-node">
 <div class="flow-circle">1</div>
@@ -7601,7 +5177,7 @@ const INHERITANCE_TOPICS = [
 </div>
 </div>
 </div>` },
-      { heading: '단계별 상세 안내', content: `<!-- STEP 1: 실종선고 절차 -->
+      { heading: "단계별 상세 안내", content: `<!-- STEP 1: 실종선고 절차 -->
 <div class="step-block">
 <div class="step-block-head">
 <div class="step-num">1</div>
@@ -7709,7 +5285,7 @@ const INHERITANCE_TOPICS = [
       </div>
 </div>
 </div>` },
-      { heading: '준비 서류', content: `<div class="doc-category">
+      { heading: "준비 서류", content: `<div class="doc-category">
 <div class="doc-cat-title">일반 상속등기 공통 서류</div>
 <div class="doc-grid">
 <div class="doc-card">
@@ -7760,7 +5336,7 @@ const INHERITANCE_TOPICS = [
 </div>
 </div>
 </div>` },
-      { heading: '비용 안내', content: `<table class="fee-table">
+      { heading: "비용 안내", content: `<table class="fee-table">
 <thead><tr><th>항목</th><th>기준</th><th>비고</th></tr></thead>
 <tbody>
 <tr><td>취득세</td><td>공시가격 기준 0.8~2.8%</td><td>상속 취득세율 적용 — 유증과 달리 상속세율 적용. 1주택 이하·무주택 등에 따라 감면 가능</td></tr>
@@ -7775,7 +5351,7 @@ const INHERITANCE_TOPICS = [
 <p class="fee-note">※ 실종선고 신청은 가정법원 가사비송 사건으로 처리되며, 공시최고 기간(6개월 이상)이 필요하므로 전체 절차에 상당한 시간이 소요됩니다.<br/>
     ※ 취득세 감면 요건(1세대 1주택 등) 충족 여부에 따라 실제 세액이 크게 달라질 수 있으므로, 신고 전 세무사 확인을 권장합니다.</p>
 </div>` },
-      { heading: '관련 판례 및 선례', content: `<div class="ruling-card">
+      { heading: "관련 판례 및 선례", content: `<div class="ruling-card">
 <div class="ruling-cite">등기선례 제5-302호</div>
 <div class="ruling-summary">실종선고에 따라 가족관계등록부(구 호적부)가 정리되어 있는 경우에는 그 실종선고에 따른 상속등기 신청 시 실종선고심판정본을 첨부정보로 제공할 필요가 없다.</div>
 <span class="ruling-point">심판정본 불필요 요건</span>
@@ -7796,7 +5372,7 @@ const INHERITANCE_TOPICS = [
 <span class="ruling-point">이북 상속인 전원 부재선고 특례</span>
 </div>
 </div>` },
-      { heading: '반드시 확인할 주의사항', content: `<div class="warn-list">
+      { heading: "반드시 확인할 주의사항", content: `<div class="warn-list">
 <div class="warn-item">
 <div class="warn-icon">⚠️</div>
 <div class="warn-text">
@@ -7834,7 +5410,7 @@ const INHERITANCE_TOPICS = [
 </div>
 </div>
 </div>` },
-      { heading: '자주 묻는 질문', content: `<div class="qna-item">
+      { heading: "자주 묻는 질문", content: `<div class="qna-item">
 <div class="qna-q">실종선고를 받은 사람 명의의 부동산이 있습니다. 상속인이 여럿인데 어떻게 등기하나요?</div>
 <div class="qna-a">일반 상속등기와 동일하게 처리합니다. 법정상속분대로 등기하거나, 상속인 전원이 협의분할 후 협의분할서를 첨부하여 특정 상속인 명의로 등기할 수 있습니다. 추가로 실종선고심판정본(가족관계등록부 미정리 시)을 첨부하면 됩니다.</div>
 </div>
@@ -7859,7 +5435,7 @@ const INHERITANCE_TOPICS = [
 <div class="qna-a">군사분계선 이북지역에 주소를 둔 경우 일반 실종선고 대신 「부재선고 등에 관한 특별조치법」에 따른 부재선고를 받을 수 있습니다. 상속인 전원이 이북 지역에 있어 부재선고 심판이 확정된 경우에는 이를 기반으로 다른 방법에 의한 상속등기가 허용됩니다(선례 7-191).</div>
 </div>
 </div>` },
-      { heading: '다음으로 확인할 내용', content: `<div class="next-links">
+      { heading: "다음으로 확인할 내용", content: `<div class="next-links">
 <a class="next-card" href="상속_18_유증등기.html">
 <div class="next-dir">← 이전 페이지</div>
 <div class="next-title">유증으로 인한 소유권이전등기</div>
@@ -7872,336 +5448,53 @@ const INHERITANCE_TOPICS = [
 </a>
 </div>
 </div>` },
-      { heading: '실종선고부터 등기까지 한 번에 해결하세요', content: `<p>가정법원 실종선고 신청 대리부터<br/>상속등기 완료까지 전 과정을 법무사가 처리해 드립니다.</p>
+      { heading: "실종선고부터 등기까지 한 번에 해결하세요", content: `<p>가정법원 실종선고 신청 대리부터<br/>상속등기 완료까지 전 과정을 법무사가 처리해 드립니다.</p>
 <a class="cta-btn" href="tel:00000000000">📞 전화 상담 예약</a>
 <a class="cta-btn outline" href="#">온라인 문의하기</a>
 </div>
-</div>` }
+</div>` },
     ],
-    laws: [
-      { name: '민법 제28조 — 실종기간 만료 시 사망으로 간주', desc: '' },
-      { name: '민법 제27조 제1항', desc: '' },
-      { name: '민법 제27조 제2항', desc: '' },
-      { name: '민법 제28조', desc: '' },
-      { name: '민법 제29조', desc: '' }
-    ],
-    forms: []
+    laws: [{"name":"민법 제28조 — 실종기간 만료 시 사망으로 간주","desc":""},{"name":"민법 제27조 제1항","desc":""},{"name":"민법 제27조 제2항","desc":""},{"name":"민법 제28조","desc":""},{"name":"민법 제29조","desc":""}],
+    forms: [],
   },
   {
-    id: 'in-20',
-    title: '유언장이 있어도 내 최소 몫은 보장된다',
-    meta: '유류분 — 피상속인이 마음대로 처분해도 상속인이 돌려받을 수 있는 법정 최소 상속분 Section 01',
+    id: "in-20",
+    title: "유류분 — 2026년 개정 후 누가, 얼마를, 언제까지 청구하나요?",
+    meta: "유류분은 자녀·배우자는 법정상속분의 2분의 1, 부모는 3분의 1이며 형제자매 유류분은 없어졌습니다. 2026. 3. 17. 개정 민법 이후 누가, 얼마를, 언제까지 청구할 수 있는지 안내합니다.",
+    reviewed: "2026-11-08",
+    kb: "H-C01",
     sections: [
-      { heading: '이런 분께 필요한 안내입니다', content: `<div class="target-grid">
-<div class="target-card"><strong>유언으로 재산을 거의 못 받은 상속인</strong>돌아가신 분이 유언장으로 재산 대부분을 특정인에게 주었고, 나는 아무것도 또는 너무 조금 받은 경우</div>
-<div class="target-card"><strong>생전 증여로 상속재산이 남아 있지 않은 경우</strong>피상속인이 생전에 특정 상속인이나 제3자에게 모든 재산을 증여하여 상속받을 재산이 없는 경우</div>
-<div class="target-card"><strong>내 유류분이 얼마인지 계산하고 싶은 분</strong>법정상속분과 유류분의 차이, 정확한 유류분 비율이 얼마인지 확인하고 싶은 분</div>
-<div class="target-card"><strong>유류분 반환 등기를 해야 하는 상속인·수증자</strong>유류분 반환 합의 또는 소송 판결 후 소유권이전등기 절차를 진행해야 하는 분</div>
-</div>
+      { heading: "이런 분께 필요합니다", content: `<ul class="checklist"><li> 부모님이 재산을 한 형제에게만 증여하거나 유언으로 남겼다</li><li> 부모님을 모신 대가로 받은 재산인데 유류분 청구를 받았다</li><li> 부모를 돌보지 않은 형제가 유류분을 주장한다</li><li> 청구 기한이 얼마나 남았는지 모르겠다</li></ul>` },
+      { heading: "핵심정리", content: `<div class="kb-box kb-summary"><p>유류분은 돌아가신 분이 유언이나 생전 증여로 재산을 한쪽에 몰아주었더라도, 자녀·배우자·부모에게 법이 남겨 두는 최소한의 몫입니다. 자녀와 배우자는 법정상속분의 2분의 1, 부모는 3분의 1이고, <strong>형제자매의 유류분은 2024년 위헌 결정으로 없어졌습니다</strong>. 2026. 3. 17. 개정 민법으로 기여에 대한 보상으로 받은 증여, 패륜 상속인의 권리, 반환 방법이 달라졌고, 적용 시점은 상속이 시작된 날에 따라 다릅니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1112조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1112조</a><a href="https://www.law.go.kr/법령/민법" target="_blank" rel="noopener" class="tag-law">📋 민법 부칙 제1조~제4조</a></div></details></div>` },
+      { heading: "상세설명", content: `<h3>무엇으로 판단하나요?</h3><div class="table-wrap"><table><tr><th>판단 항목</th><th>기준</th></tr><tr><td data-label="판단 항목">청구할 수 있는 사람</td><td data-label="기준">자녀·배우자(법정상속분의 2분의 1), 부모(3분의 1) — 형제자매는 없음</td></tr><tr><td data-label="판단 항목">계산의 바탕</td><td data-label="기준">상속개시 때 재산 + 산입되는 증여 − 채무 전액</td></tr><tr><td data-label="판단 항목">산입되는 증여</td><td data-label="기준">상속인 아닌 사람에게 한 증여는 개시 전 1년 안의 것(양쪽이 손해를 알았으면 그 전 것도), 공동상속인에게 한 증여는 시기와 관계없이 산입</td></tr><tr><td data-label="판단 항목">기여 보상 증여</td><td data-label="기준">특별한 부양·기여의 보상이면 그 범위에서 제외</td></tr><tr><td data-label="판단 항목">반환 방법</td><td data-label="기준">2026. 3. 17. 이후 시작된 상속: 가액(돈) 지급 + 청구일부터 이자</td></tr><tr><td data-label="판단 항목">기한</td><td data-label="기준">안 날부터 1년, 상속개시부터 10년</td></tr></table></div><details class="refs-mini"><summary>📋 근거 9</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1112조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1112조</a><a href="https://www.law.go.kr/법령/민법/제1113조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1113조</a><a href="https://www.law.go.kr/법령/민법/제1114조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1114조</a><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(95%EB%8B%A417885)" target="_blank" rel="noopener" class="tag-law">📋 대법원 1996. 2. 9. 선고 95다17885 판결</a><a href="https://www.law.go.kr/법령/민법/제1008조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1008조</a><a href="https://www.law.go.kr/법령/민법/제1118조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1118조</a><a href="https://www.law.go.kr/법령/민법/제1115조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1115조</a><a href="https://www.law.go.kr/법령/민법" target="_blank" rel="noopener" class="tag-law">📋 민법 부칙 제1조~제4조</a><a href="https://www.law.go.kr/법령/민법/제1117조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1117조</a></div></details><h3>2026년 개정으로 무엇이 바뀌었나요?</h3><p><strong>기여 보상 증여 제외</strong>: 상당한 기간 동거·간호 등으로 특별히 부양했거나 재산을 늘린 데 대한 보상으로 받은 증여·유증은 기여에 상응하는 범위에서 특별수익으로 보지 않습니다. 유류분에는 이 규정이 준용되므로 유류분 계산의 바탕에서도 빠집니다. 이 부분은 2024. 4. 25. 이후 시작된 상속에도 적용됩니다.</p><details class="refs-mini"><summary>📋 근거 3</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1008조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1008조</a><a href="https://www.law.go.kr/법령/민법/제1118조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1118조</a><a href="https://www.law.go.kr/법령/민법" target="_blank" rel="noopener" class="tag-law">📋 민법 부칙 제1조~제4조</a></div></details>
+<p><strong>패륜 상속인 배제</strong>: 부양의무를 중대하게 위반하거나 심히 부당한 대우를 한 상속인은 가정법원의 상속권 상실 선고로 상속인 자격을 잃고, 그 결과 유류분도 주장할 수 없게 됩니다. 2026년 개정으로 대상이 부모뿐 아니라 자녀·배우자 등 모든 상속인으로 넓어졌습니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1004조의2" target="_blank" rel="noopener" class="tag-law">📋 민법 제1004조의2</a><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2025%EB%8B%A4219693)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2026. 6. 25. 선고 2025다219693 판결(유언무효확인등)</a></div></details>
+<p><strong>반환 방법</strong>: 2026. 3. 17. 이후 시작된 상속은 부족분을 돈으로 청구하고, 청구한 날부터 이자가 붙습니다. 그 전에 시작된 상속은 종전 규정을 따릅니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1115조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1115조</a><a href="https://www.law.go.kr/법령/민법" target="_blank" rel="noopener" class="tag-law">📋 민법 부칙 제1조~제4조</a></div></details>
+<p>대법원은 2026년 판결에서, 헌법불합치 결정 당시 이미 법원에 계속 중이던 사건에도 개정된 규정이 적용된다고 보았습니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2025%EB%8B%A4219693)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2026. 6. 25. 선고 2025다219693 판결(유언무효확인등)</a></div></details><h3>부족액은 어떤 순서로 계산하나요?</h3><ol class=""><li><strong>기초재산 확정</strong> — 상속개시 때 남은 재산에 산입되는 증여를 더하고 채무 전부를 뺍니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1113조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1113조</a></div></details></li><li><strong>내 유류분액</strong> — 기초재산에 내 법정상속분과 유류분 비율(자녀·배우자 2분의 1, 부모 3분의 1)을 곱합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1112조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1112조</a></div></details></li><li><strong>이미 받은 것 공제</strong> — 내가 받은 특별수익과 상속으로 실제 받는 순재산을 뺍니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1118조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1118조</a></div></details></li><li><strong>부족액 청구</strong> — 남는 부족분을 유증받은 사람부터, 그래도 모자라면 증여받은 사람에게 청구합니다. 여러 사람이면 각자 받은 가액에 비례해 나눕니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1115조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1115조</a><a href="https://www.law.go.kr/법령/민법/제1116조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1116조</a></div></details></li></ol><h3>사례로 보면</h3><p>울산에 사는 Y씨의 아버지가 2025년에 돌아가셨습니다. 아버지는 15년 전 장남에게 상가를, 돌아가시기 직전 간병한 막내에게 아파트를 증여했습니다(설명을 위한 가상 사례입니다). 장남·막내는 공동상속인이므로 두 증여 모두 시기와 관계없이 계산에 들어갑니다. 다만 막내가 받은 아파트가 간병에 대한 보상이라면 기여에 상응하는 범위에서는 빠질 수 있습니다. Y씨는 유증이 있으면 유증부터, 그다음 증여 순서로 부족분을 청구합니다.</p><details class="refs-mini"><summary>📋 근거 4</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(95%EB%8B%A417885)" target="_blank" rel="noopener" class="tag-law">📋 대법원 1996. 2. 9. 선고 95다17885 판결</a><a href="https://www.law.go.kr/법령/민법/제1008조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1008조</a><a href="https://www.law.go.kr/법령/민법" target="_blank" rel="noopener" class="tag-law">📋 민법 부칙 제1조~제4조</a><a href="https://www.law.go.kr/법령/민법/제1116조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1116조</a></div></details><h3>청구는 어떻게 진행하나요?</h3><ol class=""><li><strong>증여·유증 내역 정리</strong> — 등기부와 금융거래 내역으로 생전 증여와 유증을 확인합니다.</li><li><strong>부족액 계산</strong> — 기초재산과 내 유류분액, 이미 받은 것을 계산합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1113조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1113조</a></div></details></li><li><strong>내용증명 발송</strong> — 유증·증여받은 사람에게 반환을 청구한다는 뜻을 문서로 남깁니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2000%EB%8B%A48878)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2002. 4. 26. 선고 2000다8878 판결</a></div></details></li><li><strong>협의 또는 소송</strong> — 협의가 되지 않으면 민사소송으로 청구합니다. 유증받은 사람에게 먼저, 그다음 증여받은 사람에게 청구합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1116조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1116조</a></div></details></li></ol><h3>청구하면 어떤 효과가 생기나요?</h3><ul class=""><li><strong>돈으로 돌려받습니다.</strong> 2026. 3. 17. 이후 시작된 상속은 부족분의 가액 지급을 청구하고, 청구한 날부터 이자가 붙습니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1115조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1115조</a><a href="https://www.law.go.kr/법령/민법" target="_blank" rel="noopener" class="tag-law">📋 민법 부칙 제1조~제4조</a></div></details></li><li><strong>청구 의사를 밝히는 것만으로 권리를 행사한 것이 됩니다.</strong> 재판 밖에서 의사표시로도 할 수 있어, 1년 기한 안에 내용증명을 보내 두는 것이 중요합니다(<a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2000%EB%8B%A48878)" target="_blank" rel="noopener" class="case-link">대법원 2002. 4. 26. 선고 2000다8878 판결</a>).<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2000%EB%8B%A48878)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2002. 4. 26. 선고 2000다8878 판결</a></div></details></li><li><strong>기한이 지나면 사라집니다.</strong> 안 날부터 1년, 상속개시부터 10년이 지나면 시효로 소멸합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1117조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1117조</a></div></details></li><li><strong>판례</strong> — 상속이 시작되기 전에 미리 한 유류분 포기는 효력이 없습니다(<a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(94%EB%8B%A48334)" target="_blank" rel="noopener" class="case-link">대법원 1994. 10. 14. 선고 94다8334 판결</a>).<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(94%EB%8B%A48334)" target="_blank" rel="noopener" class="tag-law">📋 대법원 1994. 10. 14. 선고 94다8334 판결</a></div></details></li></ul><h3>부모를 돌보지 않은 상속인도 유류분을 받나요?</h3><p>2026년 개정으로 부양의무를 중대하게 위반하거나 심히 부당한 대우를 한 상속인은 가정법원의 상속권 상실 선고로 상속인 자격을 잃고, 그 결과 유류분도 주장할 수 없게 되었습니다. 피상속인이 공정증서 유언으로 상실 의사를 남겼다면 유언집행자가 청구하고, 유언이 없으면 공동상속인이 그 사람이 상속인이 된 것을 안 날부터 6개월 안에 청구합니다. 2024. 4. 25.부터 2026. 3. 16. 사이에 시작된 상속의 특례 청구기간은 2026. 9. 17.에 끝났습니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1004조의2" target="_blank" rel="noopener" class="tag-law">📋 민법 제1004조의2</a><a href="https://www.law.go.kr/법령/민법" target="_blank" rel="noopener" class="tag-law">📋 민법 부칙 제1조~제4조</a></div></details>` },
+      { heading: "자주 묻는 질문", content: `<details class="qa"><summary>Q. Q. 부모님이 30년 전에 형에게 준 땅도 계산에 들어가나요?</summary><div class="ans"><p>A. 형이 공동상속인이라면 시기와 관계없이 들어갑니다. 상속인 아닌 사람에게 준 것이라면 원칙적으로 1년 안의 증여만 들어갑니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(95%EB%8B%A417885)" target="_blank" rel="noopener" class="tag-law">📋 대법원 1996. 2. 9. 선고 95다17885 판결</a><a href="https://www.law.go.kr/법령/민법/제1114조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1114조</a></div></details></div></details><details class="qa"><summary>Q. Q. 2025년에 돌아가셨는데 개정법이 적용되나요?</summary><div class="ans"><p>A. 기여 보상 증여 제외와 상속권 상실은 2024. 4. 25. 이후 개시 상속에 적용되지만, 가액 반환 규정은 2026. 3. 17. 이후 개시 상속부터 적용됩니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법" target="_blank" rel="noopener" class="tag-law">📋 민법 부칙 제1조~제4조</a></div></details></div></details><details class="qa"><summary>Q. Q. 아버지가 살아 계실 때 유류분을 포기한다는 각서를 썼습니다.</summary><div class="ans"><p>A. 상속개시 전의 유류분 포기는 효력이 없으므로, 그 각서만으로 청구권을 잃지 않습니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(94%EB%8B%A48334)" target="_blank" rel="noopener" class="tag-law">📋 대법원 1994. 10. 14. 선고 94다8334 판결</a></div></details></div></details><details class="qa"><summary>Q. Q. 형제자매는 유류분을 청구할 수 없나요?</summary><div class="ans"><p>A. 형제자매의 유류분 규정은 2024년 위헌 결정으로 효력을 잃고 삭제되었습니다. 지금은 자녀·배우자·부모만 청구할 수 있습니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1112조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1112조</a></div></details></div></details><details class="qa"><summary>Q. Q. 증여받은 사람이 그 재산을 이미 팔았다면요?</summary><div class="ans"><p>A. 2026. 3. 17. 이후 시작된 상속은 처음부터 가액 지급을 청구하므로, 재산을 팔았더라도 부족분을 돈으로 청구합니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1115조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1115조</a><a href="https://www.law.go.kr/법령/민법" target="_blank" rel="noopener" class="tag-law">📋 민법 부칙 제1조~제4조</a></div></details></div></details>` },
+      { heading: "주의사항", content: `<section class="box warn"><ul class=""><li><strong>1년은 짧습니다</strong>: 상속개시와 반환할 증여·유증을 안 날부터 1년이 지나면 청구권이 소멸합니다. 반환청구는 재판 밖에서 의사표시로도 할 수 있으므로, 우선 내용증명 등으로 청구 의사를 분명히 남겨 두십시오.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1117조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1117조</a><a href="https://www.law.go.kr/%ED%8C%90%EB%A1%80/(2000%EB%8B%A48878)" target="_blank" rel="noopener" class="tag-law">📋 대법원 2002. 4. 26. 선고 2000다8878 판결</a></div></details></li><li><strong>기여 보상은 증명이 필요</strong>: 간병 기간, 생활비·병원비 부담 같은 자료를 갖추어야 합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1008조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1008조</a></div></details></li><li><strong>형제자매 사이</strong>: 돌아가신 분의 형제자매는 더 이상 유류분을 청구할 수 없습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1112조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1112조</a></div></details></li></ul></section>` },
+      { heading: "다음에 확인할 사항", content: `<ul><li><a href="/guide/inheritance/in-10.html">상속재산분할과 기여분</a></li><li><a href="/guide/inheritance/in-17.html">유언</a></li><li><a href="/guide/inheritance/in-01.html">상속이 시작됐을 때</a></li></ul>` },
+      { heading: "이 내용이 해당되시나요?", content: `<div class="kb-box kb-cta"><p>직접 처리하시기 어려운 부분을 법무사가 함께 검토합니다. 이런 경우 상담을 권합니다.</p>
+<ul class=""><li>유류분 부족액을 계산해 보고 싶을 때</li><li>청구 의사를 기한 안에 문서로 남겨야 할 때</li><li>기여 보상 증여라는 점을 자료로 정리해야 할 때</li></ul>
+<p class="note">법무사는 상속관계와 증여 내역을 정리해 유류분 부족액 산정을 돕고, 반환청구 내용증명과 법원에 내는 소장 등 서류를 작성해 제출합니다. 상속권 상실 청구처럼 가정법원에 내는 서류도 작성해 제출합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/법무사법/제2조" target="_blank" rel="noopener" class="tag-law">📋 법무사법 제2조</a></div></details>
 </div>` },
-      { heading: '핵심 요약 — 한눈에 보기', content: `<div class="deadline-banner">
-<div class="icon">⏰</div>
-<div>
-<h4>유류분반환청구권 — 기간을 놓치면 영구 소멸</h4>
-<p><strong>단기:</strong> 상속 개시 및 유류분 침해 사실을 안 날로부터 <strong style="color:#c0392b;">1년</strong> 이내 행사해야 합니다.<br/>
-<strong>장기:</strong> 그 사실을 몰랐더라도 상속 개시일(사망일)로부터 <strong style="color:#c0392b;">10년</strong>이 지나면 소멸합니다 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=111700" target="_blank" class="tag-law">📋 민법 제1117조</a>).</p>
-</div>
-</div>
-<div class="summary-box">
-<h3>유류분의 핵심 원칙</h3>
-<div class="summary-row"><span class="s-key">의의</span><span class="s-val">상속인에게 법이 보장하는 최소한의 상속분. 피상속인이 유언·증여로 침해해도 반환 청구 가능</span></div>
-<div class="summary-row"><span class="s-key">근거</span><span class="s-val"><a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=111200" target="_blank" class="tag-law">📋 민법 제1112조</a>~제1118조</span></div>
-<div class="summary-row"><span class="s-key">반환 상대방</span><span class="s-val">유증받은 자, 증여받은 자 및 그 상속인 (유류분 침해한 공동상속인 포함)</span></div>
-<div class="summary-row"><span class="s-key">등기원인</span><span class="s-val">"유류분반환" / 원인일자: 반환청구 의사표시일 (소 제기 시: 소장 송달일)</span></div>
-<div class="summary-row"><span class="s-key">농지취득자격증명</span><span class="s-val">불필요 (선례 5-741)</span></div>
-</div>
-<!-- 유류분 비율 카드 -->
-<p style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:12px;">유류분 비율 — 상속인 유형별 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=111200" target="_blank" class="tag-law">📋 민법 제1112조</a>)</p>
-<div class="ratio-grid">
-<div class="ratio-card">
-<div class="ratio-who">1순위 · 공동상속</div>
-<div class="ratio-name">직계비속</div>
-<div class="ratio-value">1/2</div>
-<div class="ratio-base">법정상속분의 1/2</div>
-</div>
-<div class="ratio-card">
-<div class="ratio-who">1순위 · 공동상속</div>
-<div class="ratio-name">배우자</div>
-<div class="ratio-value">1/2</div>
-<div class="ratio-base">법정상속분의 1/2</div>
-</div>
-<div class="ratio-card">
-<div class="ratio-who">2순위 (직계비속 없을 때)</div>
-<div class="ratio-name">직계존속</div>
-<div class="ratio-value">1/3</div>
-<div class="ratio-base">법정상속분의 1/3</div>
-</div>
-<div class="ratio-card">
-<div class="ratio-who">3순위</div>
-<div class="ratio-name">형제자매</div>
-<div class="ratio-value">1/3</div>
-<div class="ratio-base">법정상속분의 1/3</div>
-<div class="ratio-no">* 실무상 거의 침해 인정 어려움</div>
-</div>
-</div>
-<div style="background:#f5f5f5;border-radius:6px;padding:12px 16px;font-size:13px;color:#666;margin-top:8px;">
-      ⚠️ 4촌 이내 방계혈족(3·4촌)은 유류분권 없음 / 상속결격자·상속포기자도 유류분권 소멸
-    </div>
-</div>` },
-      { heading: '상세 내용', content: `<!-- ① 유류분 산정 -->
-<h3 style="font-family:'Noto Serif KR',serif;font-size:17px;color:var(--navy);margin-bottom:14px;">① 유류분액 계산 방법 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=111300" target="_blank" class="tag-law">📋 민법 제1113조</a>)</h3>
-<div class="formula-box">
-<h4>유류분 산정 기초재산과 나의 유류분액</h4>
-<div class="formula-wrap">
-<div class="f-line" style="margin-bottom:12px;">
-<span style="font-weight:700;color:var(--navy);min-width:80px;">기초재산</span>
-<span class="f-op">=</span>
-<span class="f-item">적극상속재산</span>
-<span class="f-op">+</span>
-<span class="f-item">1년 내 증여액</span>
-<span class="f-op">+</span>
-<span class="f-item">악의적 1년 이전 증여</span>
-<span class="f-op">+</span>
-<span class="f-item">상속인 특별수익액</span>
-<span class="f-op">−</span>
-<span class="f-item minus">상속채무</span>
-</div>
-<div style="border-top:1px dashed #c8d4ea;margin:10px 0;"></div>
-<div class="f-line">
-<span style="font-weight:700;color:#1b5e20;min-width:80px;">나의 유류분액</span>
-<span class="f-op">=</span>
-<span style="color:#555;font-size:13px;">(기초재산</span>
-<span class="f-op">×</span>
-<span class="f-item">나의 유류분율</span>
-<span class="f-op">)</span>
-<span class="f-op">−</span>
-<span class="f-item minus">내가 받은 수증액·특별수익</span>
-<span class="f-op">=</span>
-<span class="f-item result">청구 가능한 유류분 부족액</span>
-</div>
-</div>
-<div class="formula-note">
-        ※ 증여재산 산입 범위: 상속개시 전 1년 내 증여는 원칙 포함. 1년 이전이더라도 당사자 쌍방이 유류분권리자에게 손해를 가할 것을 알고 한 증여(악의)는 포함됩니다 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=111400" target="_blank" class="tag-law">📋 민법 제1114조</a>).<br/>
-        ※ 상속인의 특별수익(생전 증여받은 것)은 1년 이전 것이라도 모두 산입됩니다 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=111800" target="_blank" class="tag-law">📋 민법 제1118조, 제1008조</a>).
-      </div>
-</div>
-<!-- ② 반환청구 순서 -->
-<h3 style="font-family:'Noto Serif KR',serif;font-size:17px;color:var(--navy);margin:28px 0 14px;">② 반환청구 순서 — 유증 먼저, 증여는 후순위 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=111600" target="_blank" class="tag-law">📋 민법 제1116조</a>)</h3>
-<p style="font-size:14px;color:#444;margin-bottom:14px;">반환받아야 할 대상이 여럿인 경우, 반드시 유증부터 반환을 받고 그래도 부족한 경우에만 증여에 대해 반환청구를 할 수 있습니다.</p>
-<div class="order-flow">
-<div class="order-item first">
-<div class="order-num">먼저 청구</div>
-<div class="order-name">유증</div>
-<div class="order-desc">유언으로 특정인에게 준 재산<br/>(사인증여도 이에 준함)</div>
-</div>
-<div class="order-arrow">→</div>
-<div class="order-item">
-<div class="order-num">부족 시 추가 청구</div>
-<div class="order-name">증여</div>
-<div class="order-desc">생전에 무상으로 준 재산<br/>최근 것부터 소급하여 청구</div>
-</div>
-<div class="order-arrow">→</div>
-<div class="order-item" style="background:var(--case-bg);border-color:var(--case-bd);">
-<div class="order-num">결과</div>
-<div class="order-name">유류분 충족</div>
-<div class="order-desc">법정 최소 몫 보장<br/>초과분은 청구 불가</div>
-</div>
-</div>
-<div style="background:#e8f5e9;border-left:4px solid var(--case-bd);border-radius:6px;padding:12px 16px;font-size:13px;color:#333;margin-top:8px;">
-      📌 사인증여(사망을 조건으로 한 증여)는 유증에 준하여 취급합니다 (<a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2000다6947" target="_blank" class="tag-case">⚖️ 대법원 2000다6947</a>).
-    </div>
-<!-- ③ 소멸시효 타임라인 -->
-<h3 style="font-family:'Noto Serif KR',serif;font-size:17px;color:var(--navy);margin:28px 0 14px;">③ 소멸시효 — 절대 놓치면 안 됩니다 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=111700" target="_blank" class="tag-law">📋 민법 제1117조</a>)</h3>
-<div class="timeline-wrap">
-<div style="position:relative;height:60px;">
-<div class="timeline-bar" style="top:24px;">
-<div class="tl-seg-10yr"></div>
-<span class="tl-marker m1">1년 시효</span>
-<span class="tl-marker m10">10년 시효</span>
-<span class="tl-label l0">상속개시(사망)</span>
-<span class="tl-label l1" style="bottom:-22px;left:9.09%;transform:translateX(-50%);">안 날부터 1년</span>
-<span class="tl-label l10">상속개시 후 10년</span>
-</div>
-</div>
-<div class="timeline-legend" style="margin-top:36px;">
-<div class="tl-leg-card short">
-<strong>단기소멸시효 — 1년</strong>
-          상속 개시 사실과 반환해야 할 증여·유증을 <strong>안 날</strong>로부터 1년 이내 행사하지 않으면 소멸.<br/>
-<span style="font-size:11px;color:#7a0000;margin-top:4px;display:block;">"알았다"는 단순히 사망 사실을 아는 것이 아닌, 유류분이 침해되었다는 사실까지 인식한 때.</span>
-</div>
-<div class="tl-leg-card long">
-<strong>장기소멸시효 — 10년</strong>
-          침해 사실을 몰랐더라도 상속 개시일(사망일)로부터 10년이 경과하면 절대적으로 소멸.<br/>
-<span style="font-size:11px;color:#7a4000;margin-top:4px;display:block;">판례는 1년, 10년 모두 소멸시효로 봄 (<a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=93다3595" target="_blank" class="tag-case">⚖️ 대법원 93다3595</a>). 소멸시효 중단 가능.</span>
-</div>
-</div>
-</div>
-<!-- ④ 자가진단 체크리스트 -->
-<h3 style="font-family:'Noto Serif KR',serif;font-size:17px;color:var(--navy);margin:28px 0 14px;">④ 내 유류분이 침해되었는지 자가진단</h3>
-<div class="checklist-wrap">
-<h4>다음 항목 중 해당되는 것이 있으신가요?</h4>
-<div class="check-item"><div class="check-box"></div><span class="check-text">나는 피상속인의 직계비속(자녀·손자녀), 배우자, 직계존속, 또는 형제자매다</span></div>
-<div class="check-item"><div class="check-box"></div><span class="check-text">피상속인이 유언으로 특정인에게 재산의 상당 부분을 유증했다</span></div>
-<div class="check-item"><div class="check-box"></div><span class="check-text">피상속인이 생전에 특정인에게 재산을 증여하여 남은 재산이 거의 없다</span></div>
-<div class="check-item"><div class="check-box"></div><span class="check-text">내가 상속받은 재산이 법정상속분의 1/2(직계비속·배우자) 또는 1/3(직계존속·형제자매)에 미치지 못한다</span></div>
-<div class="check-item"><div class="check-box"></div><span class="check-text">피상속인의 사망(상속개시)을 안 날로부터 아직 1년이 경과하지 않았다</span></div>
-<div class="check-result">
-        ✅ 위 항목 <strong>전체 해당</strong>: 유류분 반환 청구를 검토할 수 있습니다. 법무사·변호사와 구체적인 계산 및 전략을 상담하십시오.<br/>
-        ⚠️ <strong>5번 항목만 미해당</strong>: 단기소멸시효(1년)가 지났더라도, 상속개시 후 10년이 지나지 않았다면 아직 청구 가능 여부를 점검해야 합니다.
-      </div>
-</div>
-<!-- ⑤ 등기절차 -->
-<h3 style="font-family:'Noto Serif KR',serif;font-size:17px;color:var(--navy);margin:28px 0 14px;">⑤ 유류분반환으로 인한 소유권이전등기 절차</h3>
-<p style="font-size:14px;color:#444;margin-bottom:12px;">유류분 반환에 합의하거나 소송으로 판결을 받은 후 등기를 신청합니다.</p>
-<div class="mini-flow">
-<div class="mini-step">반환청구 의사표시<br/>(협의 또는 소 제기)</div>
-<div class="mini-arrow">→</div>
-<div class="mini-step">합의서 작성<br/>또는 판결 확정</div>
-<div class="mini-arrow">→</div>
-<div class="mini-step">취득세 납부</div>
-<div class="mini-arrow">→</div>
-<div class="mini-step">등기 신청<br/>(공동신청)</div>
-</div>
-<div class="record-box">
-<h4>등기 기재 사항</h4>
-<div class="record-row"><span class="r-label">등기원인</span><span>"유류분반환"</span></div>
-<div class="record-row"><span class="r-label">원인일자</span><span>반환청구 의사표시일 / 소장 송달일 (소 제기한 경우)</span></div>
-<div class="record-row"><span class="r-label">등기목적</span><span>소유권일부이전 또는 소유권이전 (반환 범위에 따라)</span></div>
-<div class="record-row"><span class="r-label">신청방법</span><span>유류분권리자(권리자) + 유증·증여받은 자(의무자) 공동신청</span></div>
-<div class="record-row"><span class="r-label">첨부서류</span><span>유증인 경우: 유언증서 + 유류분반환협의서 / 증여인 경우: 증여계약서 + 유류분반환계약서 / 판결인 경우: 판결문</span></div>
-<div class="record-row"><span class="r-label">농지</span><span>농지취득자격증명 불필요 (선례 5-741, 5-199)</span></div>
-</div>
-<div style="background:#f0f8f0;border-left:4px solid var(--case-bd);border-radius:6px;padding:14px 16px;font-size:13px;color:#333;margin-top:4px;">
-      📌 등기기록례: [갑구] 소유권일부이전 / 2010년 2월 5일 유류분반환 / 공유자 지분 3분의 1 이도령 500124-XXXXXXX
-    </div>
-</div>` },
-      { heading: '관련 판례', content: `<div class="ruling-card">
-<div class="ruling-cite"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=92다3595" target="_blank" class="tag-case">⚖️ 대법원 92다3595</a></div>
-<div class="ruling-summary">유류분반환청구권의 단기(1년) 소멸시효는 소멸시효이며, 장기(10년) 기간도 소멸시효기간이다. 따라서 그 권리행사의 의사표시로 소멸시효의 진행이 중단될 수 있다. (단, 다수설은 10년을 제척기간으로 봄)</div>
-<span class="ruling-point">소멸시효 성격</span>
-</div>
-<div class="ruling-card">
-<div class="ruling-cite"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2006다46346" target="_blank" class="tag-case">⚖️ 대법원 2006다46346</a></div>
-<div class="ruling-summary">유류분반환청구권을 행사할 때 증여 또는 유증을 받은 공동상속인이 수인인 때에는, 각자가 자기 고유의 유류분액을 초과한 가액의 비율에 따라 반환청구를 할 수 있다. 공동상속인 아닌 제3자에 대하여는 그 증여 또는 유증받은 재산 가액을 기준으로 비율에 따라 반환청구 가능.</div>
-<span class="ruling-point">복수의 반환의무자 처리</span>
-</div>
-<div class="ruling-card">
-<div class="ruling-cite"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2000다8878" target="_blank" class="tag-case">⚖️ 대법원 2000다8878</a></div>
-<div class="ruling-summary">유류분반환청구권의 행사로 반환해야 할 재산이 타인에게 양도된 경우, 그 양수인이 양도 당시 유류분권리자를 해함을 알았던 때에는 양수인에 대하여도 그 재산의 반환을 청구할 수 있다.</div>
-<span class="ruling-point">제3 양수인에 대한 반환청구</span>
-</div>
-<div class="ruling-card">
-<div class="ruling-cite"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2009다93992" target="_blank" class="tag-case">⚖️ 대법원 2009다93992</a></div>
-<div class="ruling-summary">유류분반환청구권은 그 행사 여부가 유류분권리자의 인격적 이익을 위하여 자유로운 의사결정에 맡겨진 일신전속권이므로, 유류분권리자에게 권리행사의 확정적 의사가 있다고 인정되지 않는 한 원칙적으로 채권자대위권의 목적이 될 수 없다.</div>
-<span class="ruling-point">일신전속성 · 채권자대위 불가</span>
-</div>
-</div>` },
-      { heading: '반드시 확인할 주의사항', content: `<div class="warn-list">
-<div class="warn-item">
-<div class="warn-icon">⏰</div>
-<div class="warn-text">
-<strong>기간 제한이 가장 중요합니다 — 1년/10년</strong>
-<p>유류분 침해 사실을 안 날로부터 1년, 상속 개시일로부터 10년이 경과하면 청구권이 영구 소멸합니다. 시효 중단을 위해서는 내용증명 발송 또는 소 제기를 서둘러야 합니다. 기간이 임박한 경우 즉시 법률 전문가의 도움을 받으시기 바랍니다.</p>
-</div>
-</div>
-<div class="warn-item">
-<div class="warn-icon">⚠️</div>
-<div class="warn-text">
-<strong>상속을 포기하면 유류분권도 함께 소멸합니다</strong>
-<p>상속포기를 한 상속인은 상속권 자체를 잃으므로 유류분권도 동시에 소멸합니다. 유류분 반환 청구를 하고 싶다면 상속을 포기하면 안 됩니다. 한정승인은 상속을 수용한 것이므로 유류분권이 유지됩니다.</p>
-</div>
-</div>
-<div class="warn-item">
-<div class="warn-icon">⚠️</div>
-<div class="warn-text">
-<strong>형제자매의 유류분은 2025년 이후 폐지 결정</strong>
-<p>헌법재판소는 2024년 형제자매의 유류분 조항(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=111200" target="_blank" class="tag-law">📋 민법 제1112조 제4호</a>)을 헌법불합치 결정하였습니다. 해당 조항은 2025년 말까지 입법 개정이 예정되어 있으며, 개정 후에는 형제자매는 유류분권을 행사할 수 없게 됩니다. 현재 진행 중인 청구는 변경된 법 적용 시점을 반드시 확인하십시오.</p>
-</div>
-</div>
-<div class="warn-item">
-<div class="warn-icon">⚠️</div>
-<div class="warn-text">
-<strong>유류분 침해 여부는 등기관이 심사하지 않습니다</strong>
-<p>등기관은 유류분 침해 여부를 형식적으로 심사하지 않으므로, 유류분을 침해하는 유증·증여에 의한 등기라도 일단 수리됩니다. 그러나 나중에 유류분 소송에서 패소하면 등기가 말소될 수 있으니 유류분 침해 여부를 사전에 꼼꼼히 검토하십시오.</p>
-</div>
-</div>
-<div class="warn-item">
-<div class="warn-icon">⚠️</div>
-<div class="warn-text">
-<strong>유류분 계산은 전문가 도움이 필수적입니다</strong>
-<p>기초재산 산정 시 생전 증여 기간(1년 규정 예외 포함), 특별수익 인정 범위, 채무 공제 방법 등이 복잡하게 얽혀 있습니다. 정확한 계산 없이 청구하면 과소 또는 과다 청구로 불이익이 생길 수 있으므로 법무사 또는 변호사와 함께 진행하는 것이 안전합니다.</p>
-</div>
-</div>
-</div>
-</div>` },
-      { heading: '자주 묻는 질문', content: `<div class="qna-item">
-<div class="qna-q">아버지가 돌아가시기 2년 전에 형에게 아파트를 증여했습니다. 유류분 청구가 가능한가요?</div>
-<div class="qna-a">원칙적으로 상속개시 전 1년 이전의 증여는 유류분 산정에 포함되지 않습니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=111400" target="_blank" class="tag-law">📋 민법 제1114조</a>). 그러나 증여 당사자 쌍방이 유류분권리자에게 손해를 가할 것을 알고 증여한 경우(악의)에는 1년 이전 증여도 포함됩니다. 또한, 상속인에 대한 특별수익(생전 증여)은 기간 제한 없이 모두 산입됩니다. 구체적인 상황을 전문가와 확인해보시기 바랍니다.</div>
-</div>
-<div class="qna-item">
-<div class="qna-q">유류분 반환은 반드시 소송을 해야 하나요?</div>
-<div class="qna-a">반드시 소송을 해야 하는 것은 아닙니다. 유류분 침해를 한 상대방이 협의에 응한다면 협의로 해결하고 유류분반환협의서(또는 계약서)를 작성하여 등기할 수 있습니다. 다만 협의가 이루어지지 않는 경우 소를 제기해야 하며, 이때 소장 송달일이 등기원인일자가 됩니다.</div>
-</div>
-<div class="qna-item">
-<div class="qna-q">유류분을 반환받으면 부동산 전체를 돌려받을 수 있나요?</div>
-<div class="qna-a">반드시 그런 것은 아닙니다. 유류분은 "부족한 한도"에서만 반환을 청구할 수 있습니다. 따라서 부동산 전체가 아니라 부족한 유류분만큼의 지분을 반환받는 것이 원칙입니다. 예를 들어 유류분 부족액이 부동산 가치의 3분의 1이라면 3분의 1 지분만 이전등기됩니다. 원물 반환이 어려운 경우 가액(금전)으로 반환받는 방법도 있습니다.</div>
-</div>
-<div class="qna-item">
-<div class="qna-q">유언장이 없고 오빠가 사전에 집을 증여받아 나는 아무것도 못 받았습니다.</div>
-<div class="qna-a">유류분 제도는 유언이 있는 경우뿐만 아니라 생전 증여로 인해 유류분이 침해된 경우에도 적용됩니다. 오빠에게 생전 증여된 재산이 상속개시 전 1년 내의 것이라면(또는 악의적 증여이거나 특별수익이라면) 유류분 산정에 포함됩니다. 기간 제한(1년/10년)을 확인하고 빠르게 전문가와 상담하십시오.</div>
-</div>
-<div class="qna-item">
-<div class="qna-q">유류분반환청구 소송에서 이겼습니다. 등기는 어떻게 하나요?</div>
-<div class="qna-a">판결이 확정되면 판결문(확정증명서 포함)을 첨부하여 유류분권리자(원고)가 단독으로 등기 신청할 수 있습니다. 등기원인은 "유류분반환", 원인일자는 소장 송달일입니다. 판결 주문에 소유권이전등기 절차 이행 명령이 포함된 경우 그 판결문으로 등기 신청이 가능합니다.</div>
-</div>
-<div class="qna-item">
-<div class="qna-q">내용증명을 보내면 소멸시효가 멈추나요?</div>
-<div class="qna-a">내용증명(유류분반환청구 의사표시)을 발송하면 소멸시효 중단 효과가 있습니다(민법상 최고). 다만 최고 후 6개월 이내에 소 제기 등 법적 절차를 취하지 않으면 소멸시효 중단 효과가 상실됩니다. 따라서 내용증명 발송 후 반드시 6개월 이내에 소 제기나 조정 신청 등 확실한 조치를 취해야 합니다.</div>
-</div>
-</div>` },
-      { heading: '다음으로 확인할 내용', content: `<div class="next-links">
-<a class="next-card" href="상속_19_실종후등기.html">
-<div class="next-dir">← 이전 페이지</div>
-<div class="next-title">실종선고 후 소유권이전등기</div>
-<div class="next-desc">오랫동안 연락이 끊긴 가족의 부동산 처리</div>
-</a>
-<a class="next-card" href="#">
-<div class="next-dir">다음 페이지 →</div>
-<div class="next-title">상속재산의 분리</div>
-<div class="next-desc">상속재산과 상속인 고유재산을 분리하는 절차</div>
-</a>
-</div>
-</div>` },
-      { heading: '유류분, 기간을 놓치기 전에 지금 확인하세요', content: `<p>유류분 계산부터 내용증명 발송, 등기 신청까지<br/>법무사가 정확하고 빠르게 도와드립니다.</p>
-<a class="cta-btn" href="tel:00000000000">📞 전화 상담 예약</a>
-<a class="cta-btn outline" href="#">온라인 문의하기</a>
-</div>
-</div>` }
     ],
-    laws: [
-      { name: '민법 제1117조', desc: '' },
-      { name: '민법 제1112조', desc: '' },
-      { name: '민법 제1113조', desc: '' },
-      { name: '민법 제1114조', desc: '' },
-      { name: '민법 제1118조, 제1008조', desc: '' },
-      { name: '민법 제1116조', desc: '' },
-      { name: '민법 제1112조 제4호', desc: '' }
-    ],
-    forms: []
+    laws: [],
+    faq: [{"q":"Q. Q. 부모님이 30년 전에 형에게 준 땅도 계산에 들어가나요?","a":"A. 형이 공동상속인이라면 시기와 관계없이 들어갑니다. 상속인 아닌 사람에게 준 것이라면 원칙적으로 1년 안의 증여만 들어갑니다. 📋 근거 2 📋 대법원 1996. 2. 9. 선고 95다17885 판결 📋 민법 제1114조"},{"q":"Q. Q. 2025년에 돌아가셨는데 개정법이 적용되나요?","a":"A. 기여 보상 증여 제외와 상속권 상실은 2024. 4. 25. 이후 개시 상속에 적용되지만, 가액 반환 규정은 2026. 3. 17. 이후 개시 상속부터 적용됩니다. 📋 근거 1 📋 민법 부칙 제1조~제4조"},{"q":"Q. Q. 아버지가 살아 계실 때 유류분을 포기한다는 각서를 썼습니다.","a":"A. 상속개시 전의 유류분 포기는 효력이 없으므로, 그 각서만으로 청구권을 잃지 않습니다. 📋 근거 1 📋 대법원 1994. 10. 14. 선고 94다8334 판결"},{"q":"Q. Q. 형제자매는 유류분을 청구할 수 없나요?","a":"A. 형제자매의 유류분 규정은 2024년 위헌 결정으로 효력을 잃고 삭제되었습니다. 지금은 자녀·배우자·부모만 청구할 수 있습니다. 📋 근거 1 📋 민법 제1112조"},{"q":"Q. Q. 증여받은 사람이 그 재산을 이미 팔았다면요?","a":"A. 2026. 3. 17. 이후 시작된 상속은 처음부터 가액 지급을 청구하므로, 재산을 팔았더라도 부족분을 돈으로 청구합니다. 📋 근거 2 📋 민법 제1115조 📋 민법 부칙 제1조~제4조"}],
+    forms: [],
   },
   {
-    id: 'in-21',
-    title: '상속회복청구 — 빼앗긴 상속재산 되찾기',
-    meta: '정당한 상속인임에도 상속재산을 침해당했다면 — 상속회복청구권으로 권리를 되찾을 수 있습니다 Section 01',
+    id: "in-21",
+    title: "상속회복청구 — 빼앗긴 상속재산 되찾기",
+    meta: "정당한 상속인임에도 상속재산을 침해당했다면 — 상속회복청구권으로 권리를 되찾을 수 있습니다 Section 01",
     sections: [
-      { heading: '이런 분께 필요한 안내입니다', content: `<div class="target-grid">
+      { heading: "이런 분께 필요한 안내입니다", content: `<div class="target-grid">
 <div class="target-card"><strong>다른 사람이 내 상속지분을 차지한 경우</strong>정당한 상속인임에도 불구하고 다른 상속인 또는 제3자가 상속재산을 점유하고 있는 상황의 상속인</div>
 <div class="target-card"><strong>호적 위조 등으로 상속에서 배제된 경우</strong>허위 호적이나 위조 문서에 의해 상속인으로 인정받지 못하고 상속에서 배제된 분</div>
 <div class="target-card"><strong>상속결격자가 상속재산을 취득한 경우</strong>민법상 상속결격 사유에 해당하는 자가 상속재산을 취득하여, 진정 상속인이 권리를 빼앗긴 상황</div>
 <div class="target-card"><strong>유언 위조 등으로 수증자가 부동산을 가져간 경우</strong>위조된 유언장 등에 의해 제3자가 상속재산을 가져갔고, 진정한 상속인이 이를 되찾고 싶은 경우</div>
 </div>
 </div>` },
-      { heading: '핵심 요약 — 한눈에 보기', content: `<div class="deadline-banner">
+      { heading: "핵심 요약 — 한눈에 보기", content: `<div class="deadline-banner">
 <div class="icon">⏰</div>
 <div>
 <h4>상속회복청구권 — 제척기간을 놓치면 영구 소멸 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=099900" target="_blank" class="tag-law">📋 민법 제999조 제2항</a>)</h4>
@@ -8243,7 +5536,7 @@ const INHERITANCE_TOPICS = [
 </div>
 </div>
 </div>` },
-      { heading: '상세 내용', content: `<!-- ① 성립 요건 -->
+      { heading: "상세 내용", content: `<!-- ① 성립 요건 -->
 <h3 style="font-family:'Noto Serif KR',serif;font-size:17px;color:var(--navy);margin-bottom:14px;">① 상속회복청구권의 성립 요건</h3>
 <div class="req-grid">
 <div class="req-card">
@@ -8340,7 +5633,7 @@ const INHERITANCE_TOPICS = [
 <div class="record-row"><span class="r-label">관할법원</span><span>상속회복청구 소 → 가정법원 합의부 전속관할</span></div>
 </div>
 </div>` },
-      { heading: '관련 판례', content: `<div class="ruling-card">
+      { heading: "관련 판례", content: `<div class="ruling-card">
 <div class="ruling-cite"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=90다5740" target="_blank" class="tag-case">⚖️ 대법원 90다5740</a></div>
 <div class="ruling-summary">공동상속인 사이에서도 상속회복청구권이 적용된다. 공동상속인 중 1인이 다른 공동상속인의 상속지분을 침해한 경우에도 <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=099900" target="_blank" class="tag-law">📋 민법 제999조</a>의 상속회복청구권이 성립하며, 이 경우 일반 소유권에 기한 청구를 하더라도 상속회복청구권의 제척기간이 적용된다.</div>
 <span class="ruling-point">공동상속인 간 적용 · 제척기간 적용 범위</span>
@@ -8361,7 +5654,7 @@ const INHERITANCE_TOPICS = [
 <span class="ruling-point">포괄수증자에 대한 제척기간 유추 적용</span>
 </div>
 </div>` },
-      { heading: '반드시 확인할 주의사항', content: `<div class="warn-list">
+      { heading: "반드시 확인할 주의사항", content: `<div class="warn-list">
 <div class="warn-item">
 <div class="warn-icon">⏰</div>
 <div class="warn-text">
@@ -8399,7 +5692,7 @@ const INHERITANCE_TOPICS = [
 </div>
 </div>
 </div>` },
-      { heading: '자주 묻는 질문', content: `<div class="qna-item">
+      { heading: "자주 묻는 질문", content: `<div class="qna-item">
 <div class="qna-q">오빠가 혼자 상속등기를 해버렸습니다. 내 지분을 돌려받을 수 있나요?</div>
 <div class="qna-a">공동상속인 중 1인이 다른 상속인의 동의 없이 단독으로 상속등기를 한 경우, 다른 상속인은 상속회복청구권을 행사하여 자신의 지분에 해당하는 소유권이전등기를 청구할 수 있습니다. 다만 침해를 안 날로부터 3년, 침해행위(등기일)로부터 10년 이내에 소를 제기해야 합니다.</div>
 </div>
@@ -8424,7 +5717,7 @@ const INHERITANCE_TOPICS = [
 <div class="qna-a">상속회복청구 소송에서 승소 판결이 확정되면 확정판결문(확정증명서 포함)을 첨부하여 진정상속인이 단독으로 등기를 신청할 수 있습니다. 등기원인은 "상속회복", 원인일자는 상속개시일(사망일)입니다. 취득세를 납부한 후 해당 부동산 소재지 관할 등기소에 신청합니다.</div>
 </div>
 </div>` },
-      { heading: '다음으로 확인할 내용', content: `<div class="next-links">
+      { heading: "다음으로 확인할 내용", content: `<div class="next-links">
 <a class="next-card" href="상속_20_유류분.html">
 <div class="next-dir">← 이전 페이지</div>
 <div class="next-title">유류분 — 최소 상속 몫 보장</div>
@@ -8437,25 +5730,21 @@ const INHERITANCE_TOPICS = [
 </a>
 </div>
 </div>` },
-      { heading: '빼앗긴 상속재산, 지금 바로 확인하세요', content: `<p>3년·10년 제척기간이 도과하기 전에<br/>상속권 침해 여부와 청구 가능성을 법무사가 검토해 드립니다.</p>
+      { heading: "빼앗긴 상속재산, 지금 바로 확인하세요", content: `<p>3년·10년 제척기간이 도과하기 전에<br/>상속권 침해 여부와 청구 가능성을 법무사가 검토해 드립니다.</p>
 <a class="cta-btn" href="tel:00000000000">📞 전화 상담 예약</a>
 <a class="cta-btn outline" href="#">온라인 문의하기</a>
 </div>
-</div>` }
+</div>` },
     ],
-    laws: [
-      { name: '민법 제999조 제2항', desc: '' },
-      { name: '민법 제999조', desc: '' },
-      { name: '민법 제213조', desc: '' }
-    ],
-    forms: []
+    laws: [{"name":"민법 제999조 제2항","desc":""},{"name":"민법 제999조","desc":""},{"name":"민법 제213조","desc":""}],
+    forms: [],
   },
   {
-    id: 'in-22',
-    title: '외국인의 상속등기 준비서류와 절차',
-    meta: '국적별 준거법 · 증명서류 · 부동산등기용등록번호까지 한눈에',
+    id: "in-22",
+    title: "외국인의 상속등기 준비서류와 절차",
+    meta: "국적별 준거법 · 증명서류 · 부동산등기용등록번호까지 한눈에",
     sections: [
-      { heading: 'SECTION 01이런 분께 필요한 정보입니다', content: `<div class="target-cards">
+      { heading: "SECTION 01이런 분께 필요한 정보입니다", content: `<div class="target-cards">
 <div class="target-card">
 <div class="icon">🌏</div>
 <p>외국인이 한국의 부동산을 상속받아 등기를 해야 하는 경우</p>
@@ -8473,7 +5762,7 @@ const INHERITANCE_TOPICS = [
 <p>외국인 등기명의인으로서 부동산등기용등록번호 발급이 필요한 경우</p>
 </div>
 </div>` },
-      { heading: 'SECTION 02핵심요약', content: `<div class="summary-box">
+      { heading: "SECTION 02핵심요약", content: `<div class="summary-box">
 <ul>
 <li><strong>준거법 원칙</strong> — <a href="https://www.law.go.kr/법령/국제사법" target="_blank" class="tag-law">📋 국제사법 제49조</a>에 따라 <strong>피상속인의 본국법(사망 당시 국적국 법)</strong>이 적용됩니다(상속통일주의).</li>
 <li><strong>반정(反定)에 의한 한국법 적용</strong> — 미국·영국·프랑스·중국 등은 부동산 소재지법주의를 채택하므로, 한국 소재 부동산 상속에는 <strong>반정으로 한국법이 적용</strong>됩니다.</li>
@@ -8482,7 +5771,7 @@ const INHERITANCE_TOPICS = [
 <li><strong>기간 제한 없음</strong> — 외국인 상속등기 자체에 별도의 청구기간 제한은 없으나, 상속받을 권리(상속회복청구권 등)는 별개로 기간 제한이 있을 수 있습니다.</li>
 </ul>
 </div>` },
-      { heading: 'SECTION 03상세내용', content: `<!-- 3-1. 준거법 결정 흐름도 -->
+      { heading: "SECTION 03상세내용", content: `<!-- 3-1. 준거법 결정 흐름도 -->
 <div class="flow-chart">
 <h3>⚖️ 상속 준거법 결정 흐름</h3>
 <div class="flow-row">
@@ -8782,7 +6071,7 @@ const INHERITANCE_TOPICS = [
 </tbody>
 </table>
 </div>` },
-      { heading: 'SECTION 04관련 판례 · 선례', content: `<div class="ruling-card">
+      { heading: "SECTION 04관련 판례 · 선례", content: `<div class="ruling-card">
 <div class="r-label">선례 5-116</div>
 <div class="r-title">외국국적동포의 국내거소신고번호로 등록번호 대체</div>
 <div class="r-body">
@@ -8835,7 +6124,7 @@ const INHERITANCE_TOPICS = [
       등기신청서의 주소 기재와 일치해야 한다.
     </div>
 </div>` },
-      { heading: 'SECTION 05주의사항', content: `<div class="warn-box">
+      { heading: "SECTION 05주의사항", content: `<div class="warn-box">
 <div class="w-title">⚠️ 이중국적자 — 한국법 우선 적용</div>
 <p>
       피상속인이 한국 국적을 포함한 이중국적자인 경우, <a href="https://www.law.go.kr/법령/국제사법" target="_blank" class="tag-law">📋 국제사법 제16조</a>에 따라
@@ -8876,7 +6165,7 @@ const INHERITANCE_TOPICS = [
       해당 법령을 반드시 확인하십시오.
     </p>
 </div>` },
-      { heading: 'SECTION 06자주 묻는 질문 (Q&amp;A)', content: `<div class="qna-item">
+      { heading: "SECTION 06자주 묻는 질문 (Q&amp;A)", content: `<div class="qna-item">
 <div class="qna-q">Q. 외국인이 한국 부동산을 상속받으면 반드시 등기해야 하나요?</div>
 <div class="qna-a">
       상속등기는 의무 사항은 아니지만, 등기하지 않으면 제3자에게 상속으로 인한 권리 취득을 대항할 수 없습니다.
@@ -8917,7 +6206,7 @@ const INHERITANCE_TOPICS = [
       등기 신청 전에 미리 발급받아 두는 것이 좋으며, 발급이 지연되면 전체 등기 일정에 영향을 줍니다.
     </div>
 </div>` },
-      { heading: 'SECTION 07다음으로 확인할 내용', content: `<div class="next-box">
+      { heading: "SECTION 07다음으로 확인할 내용", content: `<div class="next-box">
 <h3>관련 페이지</h3>
 <div class="next-links">
 <a class="next-link" href="?cat=inheritance&topic=in-01">
@@ -8938,34 +6227,28 @@ const INHERITANCE_TOPICS = [
       </a>
 </div>
 </div>` },
-      { heading: '외국인 상속등기, 직접 준비하기 복잡하게 느껴지신다면', content: `<p>
+      { heading: "외국인 상속등기, 직접 준비하기 복잡하게 느껴지신다면", content: `<p>
       국적별 준거법 판단, 외국어 서류 번역 및 인증, 부동산등기용등록번호 발급까지 —<br/>
       복잡한 외국인 상속등기 절차를 법무사가 처음부터 끝까지 도와드립니다.
     </p>
 <a class="cta-btn" href="tel:0000000000">무료 전화 상담하기</a>
 </div>` },
-      { heading: '본 페이지의 내용은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인', content: `<p class="disclaimer">
+      { heading: "본 페이지의 내용은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인", content: `<p class="disclaimer">
     본 페이지의 내용은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 조언이 아닙니다.
     외국인 상속등기는 국적, 피상속인의 본국법 내용, 관련 조약 등 개별 사정에 따라 결론이 달라질 수 있습니다.
     구체적인 사안에 대해서는 반드시 자격 있는 법무사 또는 변호사의 상담을 받으시기 바랍니다.
     법령 및 선례는 개정·변경될 수 있으므로, 최신 정보를 확인하시기 바랍니다.
-  </p>` }
+  </p>` },
     ],
-    laws: [
-      { name: '국제사법 제49조', desc: '' },
-      { name: '부동산등기규칙 제46조 제8항', desc: '' },
-      { name: '국제사법 제49조 제1항', desc: '' },
-      { name: '국제사법 제16조', desc: '' },
-      { name: '국제사법 제50조', desc: '' }
-    ],
-    forms: []
+    laws: [{"name":"국제사법 제49조","desc":""},{"name":"부동산등기규칙 제46조 제8항","desc":""},{"name":"국제사법 제49조 제1항","desc":""},{"name":"국제사법 제16조","desc":""},{"name":"국제사법 제50조","desc":""}],
+    forms: [],
   },
   {
-    id: 'in-23',
-    title: '상속인 없을 때 특별연고자 재산분여',
-    meta: '법률상 상속인이 없어도 — 사실혼 배우자·요양간호인이 재산을 받는 방법',
+    id: "in-23",
+    title: "상속인 없을 때 특별연고자 재산분여",
+    meta: "법률상 상속인이 없어도 — 사실혼 배우자·요양간호인이 재산을 받는 방법",
     sections: [
-      { heading: 'SECTION 01이런 분께 필요한 정보입니다', content: `<div class="target-cards">
+      { heading: "SECTION 01이런 분께 필요한 정보입니다", content: `<div class="target-cards">
 <div class="target-card">
 <div class="icon">💑</div>
 <p>사망한 분과 수년간 함께 살았지만 혼인신고를 하지 못한 사실혼 배우자</p>
@@ -8983,7 +6266,7 @@ const INHERITANCE_TOPICS = [
 <p>상속인 없이 사망한 분의 재산이 국가에 귀속되기 전에 권리를 주장하고 싶은 경우</p>
 </div>
 </div>` },
-      { heading: 'SECTION 02핵심요약', content: `<div class="summary-box">
+      { heading: "SECTION 02핵심요약", content: `<div class="summary-box">
 <ul>
 <li><strong>상속인 부존재</strong> — 법률상 상속인이 전혀 없거나 상속인의 존부가 불분명할 때, 법원이 상속재산관리인을 선임하고 청산 절차를 진행합니다.</li>
 <li><strong>특별연고자 재산분여</strong> — 사실혼배우자, 요양·간호인 등 피상속인과 특별한 연고가 있던 자는 법원에 재산분여를 청구할 수 있습니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=105700" target="_blank" class="tag-law">📋 민법 제1057조의2</a>).</li>
@@ -8992,7 +6275,7 @@ const INHERITANCE_TOPICS = [
 <li><strong>잔여재산 국가귀속</strong> — 특별연고자가 없거나 분여 후 남은 재산은 국가에 귀속됩니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=105800" target="_blank" class="tag-law">📋 민법 제1058조</a>).</li>
 </ul>
 </div>` },
-      { heading: 'SECTION 03상세내용', content: `<!-- 청구기한 배너 -->
+      { heading: "SECTION 03상세내용", content: `<!-- 청구기한 배너 -->
 <div class="deadline-banner">
 <div class="icon">⏳</div>
 <div class="text">
@@ -9291,7 +6574,7 @@ const INHERITANCE_TOPICS = [
 </tbody>
 </table>
 </div>` },
-      { heading: 'SECTION 04관련 판례 · 선례', content: `<div class="ruling-card">
+      { heading: "SECTION 04관련 판례 · 선례", content: `<div class="ruling-card">
 <div class="r-label">대법원 1977. 1. 11. 선고 76다184·185 판결</div>
 <div class="r-title">상속재산관리인은 반드시 친족일 필요 없음</div>
 <div class="r-body">
@@ -9335,7 +6618,7 @@ const INHERITANCE_TOPICS = [
       국가는 적극재산만을 원시취득하는 것이지, 채무를 승계하는 것이 아니기 때문이다.
     </div>
 </div>` },
-      { heading: 'SECTION 05주의사항', content: `<div class="warn-box">
+      { heading: "SECTION 05주의사항", content: `<div class="warn-box">
 <div class="w-title">⚠️ 2개월 청구 기한 — 절대적 제한</div>
 <p>
       특별연고자의 재산분여 청구는 <strong>상속인 수색공고 기간 만료 후 2개월 이내</strong>에만 할 수 있습니다(<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=105700" target="_blank" class="tag-law">📋 민법 제1057조의2 제1항</a>). 이 기간은 불변기간에 준하여 해석되므로, 기간이 지나면 어떠한 사유가 있더라도 청구가 허용되지 않습니다. 실제로 수색공고 기간이 언제 만료되는지 미리 확인해 두어야 합니다.
@@ -9365,7 +6648,7 @@ const INHERITANCE_TOPICS = [
       특별연고자의 재산분여는 상속이 아닌 원시취득이지만, 세법상 취급이 다를 수 있습니다. 분여받는 재산에 대한 취득세 및 증여세·상속세 적용 여부를 반드시 사전에 세무사 등 전문가와 확인하시기 바랍니다.
     </p>
 </div>` },
-      { heading: 'SECTION 06자주 묻는 질문 (Q&amp;A)', content: `<div class="qna-item">
+      { heading: "SECTION 06자주 묻는 질문 (Q&amp;A)", content: `<div class="qna-item">
 <div class="qna-q">Q. 사실혼 배우자인데 상속인이 없어요. 재산을 받을 수 있나요?</div>
 <div class="qna-a">
       네, 가능성이 있습니다. 사실혼 배우자는 <a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=122983&joNo=105700" target="_blank" class="tag-law">📋 민법 제1057조의2</a>에서 말하는 "피상속인과 생계를 같이 하고 있던 자"에 해당하여 특별연고자로 인정될 수 있습니다. 다만 법원이 연고 사실과 상당성을 인정해야 하므로, 동거 기간, 생계 공동체 여부, 혼인 의사 등을 뒷받침하는 증거를 충분히 준비해야 합니다. 상속인 수색공고 기간 만료 후 2개월 이내에 가정법원에 재산분여 심판을 청구하세요.
@@ -9395,7 +6678,7 @@ const INHERITANCE_TOPICS = [
       맞습니다. 특별연고자에 대한 재산분여 제도는 법률상 상속인이 전혀 없거나 상속인의 존부가 불분명한 경우에만 적용됩니다. 법률상 상속인이 한 명이라도 상속을 승인하면 상속재산 전부가 그 상속인에게 귀속되므로, 이 제도를 이용할 수 없습니다. 상속인 전원이 상속을 포기한 경우에는 활용 가능합니다.
     </div>
 </div>` },
-      { heading: 'SECTION 07다음으로 확인할 내용', content: `<div class="next-box">
+      { heading: "SECTION 07다음으로 확인할 내용", content: `<div class="next-box">
 <h3>관련 페이지</h3>
 <div class="next-links">
 <a class="next-link" href="?cat=inheritance&topic=in-02">
@@ -9416,44 +6699,35 @@ const INHERITANCE_TOPICS = [
       </a>
 </div>
 </div>` },
-      { heading: '특별연고자 재산분여, 혼자 진행하기 어려우신가요?', content: `<p>
+      { heading: "특별연고자 재산분여, 혼자 진행하기 어려우신가요?", content: `<p>
       수색공고 기간 확인부터 심판 청구, 확정 후 등기 신청까지 —<br/>
       복잡한 절차를 법무사가 처음부터 끝까지 안내해 드립니다.
     </p>
 <a class="cta-btn" href="tel:0000000000">무료 전화 상담하기</a>
 </div>` },
-      { heading: '본 페이지의 내용은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인', content: `<p class="disclaimer">
+      { heading: "본 페이지의 내용은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인", content: `<p class="disclaimer">
     본 페이지의 내용은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 조언이 아닙니다.
     특별연고자 해당 여부와 재산분여 가능성은 구체적 사실관계에 따라 달라질 수 있으므로,
     반드시 자격 있는 법무사 또는 변호사의 상담을 받으시기 바랍니다.
     법령 및 판례·선례는 개정·변경될 수 있으므로 최신 정보를 확인하시기 바랍니다.
-  </p>` }
+  </p>` },
     ],
-    laws: [
-      { name: '민법 제1057조의2', desc: '' },
-      { name: '민법 제1058조', desc: '' },
-      { name: '민법 제1057조의2 제1항', desc: '' },
-      { name: '민법 제1057조', desc: '' },
-      { name: '민법 제267조', desc: '' },
-      { name: '민법 제1053조', desc: '' },
-      { name: '민법 제1059조', desc: '' },
-      { name: '민법 제1057조의2 제2항 취지', desc: '' }
-    ],
-    forms: []
+    laws: [{"name":"민법 제1057조의2","desc":""},{"name":"민법 제1058조","desc":""},{"name":"민법 제1057조의2 제1항","desc":""},{"name":"민법 제1057조","desc":""},{"name":"민법 제267조","desc":""},{"name":"민법 제1053조","desc":""},{"name":"민법 제1059조","desc":""},{"name":"민법 제1057조의2 제2항 취지","desc":""}],
+    forms: [],
   },
   {
-    id: 'in-24',
-    title: '상속재산 파산절차',
-    meta: '파산관재인을 통한 공정한 법정 청산 — 회생법원 절차 완전 안내',
+    id: "in-24",
+    title: "상속재산 파산절차",
+    meta: "파산관재인을 통한 공정한 법정 청산 — 회생법원 절차 완전 안내",
     sections: [
-      { heading: '이런 분께 이 안내가 필요합니다', content: `<ul class="check-list">
+      { heading: "이런 분께 이 안내가 필요합니다", content: `<ul class="check-list">
 <li>망인의 채무가 재산을 크게 초과하고, 채권자 수도 많아 상속인이 직접 청산하기 부담스러운 분</li>
 <li>한정승인을 받았으나 상속재산에 부동산이 많거나 청산 절차가 지나치게 복잡한 분</li>
 <li>법원이 선임한 파산관재인에게 청산 전반을 맡겨 공정하고 안전하게 마무리하고 싶은 분</li>
 <li>상속재산 파산을 통해 상속채권자와 상속인의 채권자를 법적으로 분리하고 싶은 분</li>
 <li>한정승인·상속포기 외의 세 번째 청산 선택지가 있다는 것을 처음 알게 된 분</li>
 </ul>` },
-      { heading: '핵심 요약', content: `<div class="summary-box">
+      { heading: "핵심 요약", content: `<div class="summary-box">
 <div class="summary-title">📋 상속재산 파산 핵심 포인트</div>
 <ul>
 <li><strong>의의:</strong> 채무초과 망인의 상속재산에 대해 법원이 선임한 파산관재인이 청산하는 절차 (<a href="https://www.law.go.kr/lsInfoP.do?docType=JO&lsiSeq=267359&joNo=029900" target="_blank" class="tag-law">📋 채무자회생법 제299조</a>)</li>
@@ -9528,7 +6802,7 @@ const INHERITANCE_TOPICS = [
 <li>신속하게 청산을 마무리하고 싶고 절차 간소화를 원하는 경우</li>
 </ul>
 </div>` },
-      { heading: '한눈에 보는 상속재산 파산 절차 흐름도', content: `<div class="flow-wrap">
+      { heading: "한눈에 보는 상속재산 파산 절차 흐름도", content: `<div class="flow-wrap">
 <div class="flow-step">
 <div class="flow-left">
 <div class="flow-num">1</div>
@@ -9605,7 +6879,7 @@ const INHERITANCE_TOPICS = [
 </div>
 </div>
 </div>` },
-      { heading: '단계별 상세 설명', content: `<div class="step-detail">
+      { heading: "단계별 상세 설명", content: `<div class="step-detail">
 <div class="step-detail-header">
 <div class="step-badge">1</div>
 <div class="step-title">파산신청 자격 — 누가 신청할 수 있나</div>
@@ -9707,7 +6981,7 @@ const INHERITANCE_TOPICS = [
 <p>배당 후 잔여재산이 있으면 상속인에게 귀속됩니다. 재산이 부족하면 하위 순위 채권자는 변제를 받지 못할 수 있습니다.</p>
 </div>
 </div>` },
-      { heading: '준비 서류 목록', content: `<p>파산신청서에는 상속관계 증빙서류와 재산·채무 현황 서류를 첨부합니다. 한정승인 서류와 일부 겹치지만, 채권자 목록과 재산목록이 특히 중요합니다.</p>
+      { heading: "준비 서류 목록", content: `<p>파산신청서에는 상속관계 증빙서류와 재산·채무 현황 서류를 첨부합니다. 한정승인 서류와 일부 겹치지만, 채권자 목록과 재산목록이 특히 중요합니다.</p>
 <div class="doc-section">
 <div class="doc-section-title">📁 상속관계 증빙서류</div>
 <ul class="doc-list">
@@ -9747,7 +7021,7 @@ const INHERITANCE_TOPICS = [
 <li>한정승인 확정증명서 (동)</li>
 </ul>
 </div>` },
-      { heading: '비용 안내', content: `<p>상속재산 파산은 한정승인보다 절차가 복잡하여 비용이 더 많이 발생합니다. 주요 비용 항목은 아래와 같습니다.</p>
+      { heading: "비용 안내", content: `<p>상속재산 파산은 한정승인보다 절차가 복잡하여 비용이 더 많이 발생합니다. 주요 비용 항목은 아래와 같습니다.</p>
 <table class="cost-table">
 <thead>
 <tr><th>항목</th><th>내용</th><th>비고</th></tr>
@@ -9783,7 +7057,7 @@ const INHERITANCE_TOPICS = [
 <div class="cost-note">
     ※ 파산 비용은 파산재단(상속재산)에서 먼저 공제됩니다. 상속재산이 파산 비용에도 미치지 못할 경우에는 파산 절차 자체가 진행되기 어려울 수 있습니다. 신청 전에 비용 대비 실익을 전문가와 면밀히 검토하시기 바랍니다.
   </div>` },
-      { heading: '관련 판례', content: `<div class="ruling-card">
+      { heading: "관련 판례", content: `<div class="ruling-card">
 <div class="ruling-cite"><a href="https://glaw.scourt.go.kr/wsjo/panre/sjo060.do?q=2003다30968" target="_blank" class="tag-case">⚖️ 대법원 2003다30968</a></div>
 <div class="ruling-text">한정승인에 의하여 상속재산이 한정상속인의 고유재산으로부터 분리·독립되고 일종의 파산적 청산절차를 밟게 되는 점을 종합하면, 한정상속인의 채권자는 상속재산에 대하여 집행할 수 없고, 상속채권자는 한정상속인의 채권자들의 상속재산에 대한 집행에 대하여 제3자 이의의 소로써 이를 저지할 수 있다.</div>
 <div class="ruling-point">실무 포인트: 한정승인과 파산 모두 상속채권자와 상속인의 채권자를 분리하는 효과가 있습니다. 상속채권자는 상속인의 채권자가 상속재산에 집행하려 할 때 이의를 제기할 수 있습니다.</div>
@@ -9803,7 +7077,7 @@ const INHERITANCE_TOPICS = [
 <div class="ruling-text">한정승인자가 알고 있는 채권자에 해당하는지 여부는 배당변제를 하는 시점을 기준으로 판단한다. 파산 절차에서도 이 원칙이 준용되어, 파산관재인이 알게 된 채권자에게는 배당을 해야 한다.</div>
 <div class="ruling-point">실무 포인트: 파산 절차에서도 나중에 알게 된 채권자를 배당에서 임의로 제외할 수 없습니다. 채권자 파악을 소홀히 하면 추후 분쟁이 생길 수 있습니다.</div>
 </div>` },
-      { heading: '주의사항', content: `<div class="warn-card">
+      { heading: "주의사항", content: `<div class="warn-card">
 <div class="warn-title">⚠️ 가정법원이 아닌 회생법원에 신청해야 합니다</div>
 <p>상속재산 파산은 가정법원(한정승인·상속포기)이 아닌 회생법원에 신청합니다. 서울의 경우 서울회생법원, 지방의 경우 해당 지방법원 파산부에 접수해야 합니다. 신청 법원을 혼동하면 각하 처분을 받을 수 있습니다.</p>
 </div>
@@ -9823,7 +7097,7 @@ const INHERITANCE_TOPICS = [
 <div class="warn-title">⚠️ 전문가 조력이 반드시 필요한 절차입니다</div>
 <p>상속재산 파산은 채무자 회생 및 파산에 관한 법률에 따른 복잡한 법원 절차입니다. 한정승인보다 훨씬 전문적인 지식이 요구되므로, 변호사 또는 규모 있는 법무사사무소의 도움을 받아 진행하는 것이 필수적입니다.</p>
 </div>` },
-      { heading: '자주 묻는 질문 (Q&amp;A)', content: `<div class="qna-item">
+      { heading: "자주 묻는 질문 (Q&amp;A)", content: `<div class="qna-item">
 <div class="qna-q"><span class="q-badge">Q</span>한정승인과 상속재산 파산 중 어느 것을 선택해야 하나요?</div>
 <div class="qna-a">
 <p>채무 규모가 작고 채권자가 적은 경우 한정승인이 비용·절차 면에서 유리합니다. 반면 채권자가 많거나 부동산 등 복잡한 재산이 있고 변제 순서에 분쟁이 예상된다면 파산을 통해 파산관재인에게 맡기는 것이 더 안전합니다.</p>
@@ -9869,7 +7143,7 @@ const INHERITANCE_TOPICS = [
 <div class="qa-disclaimer">※ 이 답변은 일반적인 법률 정보 제공을 목적으로 하며, 구체적인 사안에 대한 법률 조언이 아닙니다.</div>
 </div>
 </div>` },
-      { heading: '다음으로 확인할 내용', content: `<div class="nav-cards">
+      { heading: "다음으로 확인할 내용", content: `<div class="nav-cards">
 <a class="nav-card prev" href="상속_07_한정승인.html">
 <div class="nc-dir">← 관련 페이지</div>
 <div class="nc-title">한정승인<br/>절차와 청산 방법</div>
@@ -9881,25 +7155,12 @@ const INHERITANCE_TOPICS = [
 <div class="nc-desc">파산·한정승인 대신 상속 자체를 포기하는 방법을 알고 싶다면 이 페이지를 참고하세요.</div>
 </a>
 </div>` },
-      { heading: '상속재산 파산, 어느 방법이 맞는지 모르겠으신가요?', content: `<p>한정승인·상속포기·파산 중 어떤 선택이 유리한지는 재산 규모, 채권자 수, 비용을 종합해야 합니다.<br/>전문 법무사가 상황을 분석하고 최선의 방법을 안내해 드립니다.</p>
+      { heading: "상속재산 파산, 어느 방법이 맞는지 모르겠으신가요?", content: `<p>한정승인·상속포기·파산 중 어떤 선택이 유리한지는 재산 규모, 채권자 수, 비용을 종합해야 합니다.<br/>전문 법무사가 상황을 분석하고 최선의 방법을 안내해 드립니다.</p>
 <a class="cta-btn" href="#contact">무료 상담 예약하기</a>
 <p class="cta-sub">상담은 무료이며, 비밀이 보장됩니다.</p>
-</div>` }
+</div>` },
     ],
-    laws: [
-      { name: '채무자회생법 제299조', desc: '' },
-      { name: '채무자회생법 제300조', desc: '' },
-      { name: '채무자회생법 제309조', desc: '' },
-      { name: '채무자회생법 제382조', desc: '' },
-      { name: '채무자회생법 제447조~제464조', desc: '' },
-      { name: '채무자회생법 제476조~제500조', desc: '' },
-      { name: '채무자회생법 제538조', desc: '' },
-      { name: '채무자회생법 제3조 제8항·제9항', desc: '' },
-      { name: '채무자회생법 제438조', desc: '' },
-      { name: '채무자회생법 제473조', desc: '' },
-      { name: '민법 제1026조', desc: '' },
-      { name: '민법 제1019조 제3항', desc: '' }
-    ],
-    forms: []
+    laws: [{"name":"채무자회생법 제299조","desc":""},{"name":"채무자회생법 제300조","desc":""},{"name":"채무자회생법 제309조","desc":""},{"name":"채무자회생법 제382조","desc":""},{"name":"채무자회생법 제447조~제464조","desc":""},{"name":"채무자회생법 제476조~제500조","desc":""},{"name":"채무자회생법 제538조","desc":""},{"name":"채무자회생법 제3조 제8항·제9항","desc":""},{"name":"채무자회생법 제438조","desc":""},{"name":"채무자회생법 제473조","desc":""},{"name":"민법 제1026조","desc":""},{"name":"민법 제1019조 제3항","desc":""}],
+    forms: [],
   }
 ];

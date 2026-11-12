@@ -1,0 +1,38 @@
+/* kb_content.css — 지식베이스(KB)에서 가져온 주제의 본문 스타일 (2026-11-12)
+   KB 원고 html의 클래스(box·refs-mini·qa·table-wrap 등)를 홈페이지 공통 색 변수로 표시한다.
+   content.html(목차형 화면)과 /guide/ 정적 페이지가 함께 쓴다. */
+
+.kb-box { border-radius: var(--radius, 10px); padding: 18px 20px; margin: 4px 0 8px; border: 1px solid rgba(127,127,127,.25); }
+.kb-summary { border-left: 4px solid var(--primary, #1a2e4a); background: var(--accent, rgba(127,127,127,.08)); }
+.kb-for { background: rgba(127,127,127,.06); }
+.kb-cta { background: var(--accent, rgba(127,127,127,.08)); }
+.kb-box p:first-child { margin-top: 0; }
+
+.checklist { list-style: none; padding-left: 0; }
+.checklist li { padding: 6px 0; border-bottom: 1px dashed rgba(127,127,127,.25); }
+.checklist .chk { display: inline-block; width: 1.4em; color: var(--primary, #1a2e4a); }
+
+.ref-tags { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
+.ref-tags .tag-law, .ref-tags .tag-case {
+  display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: .78rem; font-weight: 600;
+  text-decoration: none; border: 1px solid currentColor; opacity: .9;
+}
+details.refs-mini { margin: 4px 0 12px; font-size: .85rem; }
+details.refs-mini > summary { cursor: pointer; color: var(--text-light, #6b7280); list-style: none; }
+details.refs-mini > summary::-webkit-details-marker { display: none; }
+
+details.qa { border: 1px solid rgba(127,127,127,.25); border-radius: 8px; margin: 10px 0; padding: 10px 14px; }
+details.qa > summary { cursor: pointer; font-weight: 600; }
+details.qa .ans { margin-top: 8px; }
+
+.table-wrap { overflow-x: auto; margin: 12px 0; }
+.table-wrap table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.table-wrap th, .table-wrap td { padding: 8px 10px; border-bottom: 1px solid rgba(127,127,127,.25); text-align: left; vertical-align: top; }
+.table-wrap th { font-weight: 700; }
+.note { font-size: .85rem; color: var(--text-light, #6b7280); }
+
+@media (max-width: 640px) {
+  .table-wrap table, .table-wrap tr, .table-wrap td { display: block; width: 100%; }
+  .table-wrap tr:first-child { display: none; }
+  .table-wrap td[data-label]::before { content: attr(data-label) " · "; font-weight: 700; }
+}

@@ -1,0 +1,6 @@
+# 박배선법무사 사무소
+User-agent: *
+Allow: /
+Disallow: /admin/
+
+Sitemap: https://lawofficehome.vercel.app/sitemap.xml
