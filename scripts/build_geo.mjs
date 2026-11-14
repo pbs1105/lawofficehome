@@ -40,7 +40,7 @@ const OFFICE = {
 
 /* ---------- 1. 데이터 읽기 ---------- */
 const DATA_FILES = [
-  'foreign_topics_data.js', 'preservation_topics_data.js', 'inheritance_topics_data.js',
+  'corporation_topics_data.js', 'foreign_topics_data.js', 'preservation_topics_data.js', 'inheritance_topics_data.js',
   'enforcement_topics_data.js', 'civil_topics_data.js', 'insolvency_topics_data.js', 'main.js',
 ];
 const noop = () => {};
@@ -119,11 +119,11 @@ function collectSources(html, laws) {
     if (!label || label.length > 80) return;
     if (!out.has(label)) out.set(label, { label, url: url || null, kind });
   };
-  const kindOf = (cls, url) => {
+  const kindOf = (cls, url, label) => {
     let u = url || '';
     try { u = decodeURI(u); } catch (e) { /* 그대로 */ }
     if (/case|prec|panre/i.test(cls) || /casenote|glaw\.scourt|\/판례\//.test(u)) return '판례';
-    if (/예규|선례/.test(cls)) return '예규·선례';
+    if (/예규|선례/.test(cls) || /\/행정규칙\/|admRul/.test(u) || /예규|선례/.test(label || '')) return '예규·선례';
     if (/law\.go\.kr\/(법령|lsInfoP|lsSc)|law\.go\.kr\/LSW/.test(u) || /law-tag/.test(cls) || !u) return '법령';
     return '기관 안내';
   };
@@ -132,7 +132,7 @@ function collectSources(html, laws) {
     const href = (attrs.match(/href="([^"]*)"/) || [])[1] || '';
     const cls = (attrs.match(/class="([^"]*)"/) || [])[1] || '';
     if (/\b(tag-law|law-tag|tag-case|case-tag)\b/.test(cls) || /law\.go\.kr|glaw\.scourt\.go\.kr|casenote\.kr/.test(href)) {
-      add(m[2], href.replace(/&amp;/g, '&'), kindOf(cls, href));
+      add(m[2], href.replace(/&amp;/g, '&'), kindOf(cls, href, cleanLabel(m[2])));
     }
   }
   for (const m of html.matchAll(/data-ref-type="([^"]*)"[^>]*?data-ref-title="([^"]*)"(?:[^>]*?data-ref-url="([^"]*)")?/g)) {
