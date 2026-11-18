@@ -1,0 +1,28 @@
+{
+  "_설명": [
+    "옛 주제 주소를 새 주제로 영구 이동(308)시키는 넘김 표 — 관리는 이 파일 한 곳에서만 한다.",
+    "build_geo.mjs 가 active: true 인 줄만 읽어 ① vercel.json 넘김 설정 ② 옛 정적 페이지 삭제 ③ 목차·sitemap·llms.txt 제외를 자동으로 한다.",
+    "켜는 시점: 받는 주제(to)가 KB 검증본으로 게시된 뒤. 켤 때는 데이터 파일(js/*_topics_data.js)에서 옛 주제(from)도 함께 뺀다(content.html 목록에서도 사라지게).",
+    "to 에 주제 ID 대신 \"index\" 를 쓰면 그 분야 목차(/guide/<cat>/)로 보낸다.",
+    "필드: from(옛 주제 ID) · cat(분야, 예: etc) · to(새 주제 ID 또는 index) · toCat(다른 분야로 보낼 때만) · active · note"
+  ],
+  "redirects": [
+    { "from": "fi-10", "cat": "etc", "to": "fi-11", "active": false, "note": "외국인 협의분할 → F-C00 — F-C00 보강분 법무사 검토 뒤" },
+    { "from": "fi-18", "cat": "etc", "to": "fi-11", "active": false, "note": "재외국민 단독상속 → F-C00 — F-C00 보강분 검토 뒤" },
+    { "from": "fi-19", "cat": "etc", "to": "fi-11", "active": false, "note": "재외국민 공동상속 → F-C00 — F-C00 보강분 검토 뒤" },
+    { "from": "fi-20", "cat": "etc", "to": "fi-11", "active": false, "note": "재외국민 협의분할 → F-C00 — F-C00 보강분 검토 뒤" },
+    { "from": "fi-22", "cat": "etc", "to": "fi-11", "active": false, "note": "경정등기 → F-C00 FAQ 흡수 — 흡수 원고 작성 뒤" },
+    { "from": "fi-14", "cat": "etc", "to": "fi-01", "active": false, "note": "재외국민 개념 → F-A00 — F-A00 검증 뒤" },
+    { "from": "fi-15", "cat": "etc", "to": "fi-01", "active": false, "note": "재외국민등록 → F-A00 — F-A00 검증 뒤" },
+    { "from": "fi-03", "cat": "etc", "to": "fi-02", "active": false, "note": "토지취득허가 → F-E00 — F-E00 검증 뒤" },
+    { "from": "fi-04", "cat": "etc", "to": "fi-02", "active": false, "note": "취득·보유 신고 → F-E00 — F-E00 검증 뒤" },
+    { "from": "fi-05", "cat": "etc", "to": "fi-02", "active": false, "note": "등록번호 → F-E00 — F-E00 검증 뒤" },
+    { "from": "fi-16", "cat": "etc", "to": "fi-02", "active": false, "note": "재외국민 매수 → F-E00 — F-E00 검증 뒤" },
+    { "from": "fi-08", "cat": "etc", "to": "fi-07", "active": false, "note": "인감 대체 → F-B00 — F-B00 검증 뒤" },
+    { "from": "fi-17", "cat": "etc", "to": "fi-07", "active": false, "note": "재외국민 미귀국 처분 → F-B00 — F-B00 검증 뒤" },
+    { "from": "fi-06", "cat": "etc", "to": "fi-25", "active": false, "note": "국적별 서류 → F-S00(나라별 표) — F-S00 검증 뒤 (2026-11-18 F-B00에서 변경)" },
+    { "from": "fi-26", "cat": "etc", "to": "fi-25", "active": false, "note": "번역·공증 → F-S00 — F-S00 검증 뒤" },
+    { "from": "fi-21", "cat": "etc", "to": "fi-12", "active": false, "note": "재외국민 증여 → F-D00 — F-D00 검증 뒤" },
+    { "from": "fi-27", "cat": "etc", "to": "index", "active": false, "note": "투자이민 — 비노출 결정 뒤 외국인등기 목차로" }
+  ]
+}

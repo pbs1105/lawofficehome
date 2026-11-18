@@ -13,6 +13,7 @@
  *  4. sitemap.xml · robots.txt · llms.txt
  *  5. 근거 점검표  admin/geo-report.html (직원 포털 안, 비공개)
  *  6. index.html 의 <head> 에 사무소 스키마·공유태그를, 푸터에 전체 목차 링크를 넣는다 (GEO 표시 구간만 교체)
+ *  7. scripts/redirects.json 의 active 넘김 → vercel.json 308 이동 · 옛 페이지 삭제 · 목차/sitemap 제외 (2026-11-18)
  *
  * 콘텐츠를 고친 뒤에는 이 스크립트를 다시 실행하고 함께 커밋하면 된다.
  */
@@ -244,6 +245,37 @@ for (const cat of CATEGORIES) {
     }
   }
   catalog.push(entry);
+}
+
+/* ---------- 2-1. 넘김 표(scripts/redirects.json) — 2026-11-18 ----------
+ * active: true 인 줄만 적용: 옛 주제는 정적 페이지·목차·sitemap·llms 에서 빼고, 옛 페이지 파일을 지우고,
+ * vercel.json 에 영구 이동(308)을 만든다. 데이터 파일(원본)은 고치지 않는다 — 옛 주제가 데이터에 남아 있으면 경고만 한다.
+ */
+const RD_PATH = path.join(ROOT, 'scripts', 'redirects.json');
+const redirectWarn = [];
+const activeRedirects = [];
+{
+  const rd = fs.existsSync(RD_PATH) ? JSON.parse(fs.readFileSync(RD_PATH, 'utf8')).redirects || [] : [];
+  const findTopic = (catId, id) => (catalog.find(e => e.cat.id === catId)?.topics || []).find(t => t.id === id);
+  const fromSet = new Set(rd.filter(r => r.active).map(r => `${r.cat}/${r.from}`));
+  for (const r of rd.filter(r => r.active)) {
+    const toCat = r.toCat || r.cat;
+    if (!r.from || !r.cat || !r.to) { redirectWarn.push(`넘김 표 줄 형식 오류: ${JSON.stringify(r)}`); continue; }
+    if (r.to !== 'index') {
+      const target = findTopic(toCat, r.to);
+      if (!target) { redirectWarn.push(`${r.from} → ${r.to}: 받는 주제가 데이터에 없어 넘기지 않음`); continue; }
+      if (fromSet.has(`${toCat}/${r.to}`)) { redirectWarn.push(`${r.from} → ${r.to}: 받는 주제도 넘김 대상(연쇄) — 표를 고치세요`); continue; }
+      if (!target.reviewed) redirectWarn.push(`${r.from} → ${r.to}: 받는 주제에 reviewed(KB 검토일)가 없음 — 게시본인지 확인`);
+    } else if (!catalog.find(e => e.cat.id === toCat)) {
+      redirectWarn.push(`${r.from} → ${toCat} 목차: 분야가 없어 넘기지 않음`); continue;
+    }
+    if (findTopic(r.cat, r.from)) redirectWarn.push(`${r.from}: 데이터 파일에 아직 남아 있음 — content.html 목록에서도 빼려면 데이터에서 삭제`);
+    activeRedirects.push({ ...r, toCat, dest: r.to === 'index' ? `/guide/${toCat}/` : `/guide/${toCat}/${safeId(r.to)}.html` });
+  }
+  for (const r of activeRedirects) {      // 정적 출력에서 제외
+    const e = catalog.find(x => x.cat.id === r.cat);
+    if (e) e.topics = e.topics.filter(t => t.id !== r.from);
+  }
 }
 
 for (const entry of catalog) {
@@ -484,9 +516,39 @@ ${rows}
   fs.writeFileSync(idxPath, html, 'utf8');
 }
 
+/* ---------- 7. 넘김 적용: 옛 페이지 삭제 · vercel.json ---------- */
+const removedPages = [];
+{
+  for (const r of activeRedirects) {
+    const old = path.join(ROOT, 'guide', r.cat, `${safeId(r.from)}.html`);
+    if (fs.existsSync(old)) { fs.rmSync(old); removedPages.push(`guide/${r.cat}/${safeId(r.from)}.html`); }
+  }
+  const vPath = path.join(ROOT, 'vercel.json');
+  const hasV = fs.existsSync(vPath);
+  if (activeRedirects.length || hasV) {   // 넘길 것이 없고 vercel.json 도 없으면 만들지 않는다(배포 설정 불변)
+    const v = hasV ? JSON.parse(fs.readFileSync(vPath, 'utf8')) : {};
+    const list = [];
+    for (const r of activeRedirects) {
+      list.push({ source: `/guide/${r.cat}/${safeId(r.from)}.html`, destination: r.dest, permanent: true });
+      list.push({ source: '/content.html', has: [{ type: 'query', key: 'topic', value: r.from }], destination: r.dest, permanent: true });
+    }
+    if (list.length) v.redirects = list; else delete v.redirects;
+    fs.writeFileSync(vPath, JSON.stringify(v, null, 2) + '\n', 'utf8');
+  }
+  // 데이터에 없고 넘김 표에도 없는 남은 정적 페이지 — 지우지 않고 알리기만 한다
+  for (const e of catalog) {
+    const dir = path.join(ROOT, 'guide', e.cat.id);
+    if (!fs.existsSync(dir)) continue;
+    const live = new Set(e.topics.map(t => `${safeId(t.id)}.html`).concat('index.html'));
+    for (const f of fs.readdirSync(dir)) if (f.endsWith('.html') && !live.has(f)) redirectWarn.push(`guide/${e.cat.id}/${f}: 데이터에 없는 옛 페이지가 남아 있음 — 넘김 표에 올릴지 확인`);
+  }
+}
+
 const total = report.length;
 const noSrc = report.filter(r => r.sources === 0).length;
 console.log(`GEO 빌드 완료 (${TODAY})`);
 console.log(`  주제 페이지 ${total}개 → /guide/`);
 console.log(`  근거 표기 있음 ${total - noSrc} / 없음 ${noSrc}`);
 console.log(`  sitemap.xml · robots.txt · llms.txt · admin/geo-report.html · index.html 보강`);
+console.log(`  넘김 적용 ${activeRedirects.length}건${activeRedirects.length ? ' → vercel.json' : ''}${removedPages.length ? ` · 옛 페이지 삭제 ${removedPages.length}개` : ''}`);
+for (const w of redirectWarn) console.log(`  ⚠ ${w}`);
