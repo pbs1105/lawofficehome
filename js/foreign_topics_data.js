@@ -1,10 +1,10 @@
 const FOREIGN_TOPICS = [
   {
-    id: 'fi-01',
+    id: "fi-01",
     title: "외국인·재외국민·외국국적동포법적 지위 완벽 구분",
     meta: "한국 부동산 등기에서 내 법적 지위가 어디에 해당하는지에 따라준비 서류와 절차가 완전히 달라집니다.",
     sections: [
-      { heading: `이런 분께 필요합니다`, content: `<div class="checklist-box">
+      { heading: "이런 분께 필요합니다", content: `<div class="checklist-box">
     <div class="box-title">이런 분께 필요합니다</div>
     <ul>
       <li>미국·캐나다·일본 등 외국 시민권을 취득하여 한국 국적을 상실한 분</li>
@@ -15,13 +15,13 @@ const FOREIGN_TOPICS = [
       <li>'외국인'인지 '재외국민'인지 헷갈려서 어떤 서류를 준비해야 할지 모르는 분</li>
     </ul>
   </div>` },
-      { heading: `핵심 요약`, content: `<div class="summary-box">
+      { heading: "핵심 요약", content: `<div class="summary-box">
       <div class="summary-title">📌 한눈에 보는 핵심</div>
       <p>한국 부동산 등기에서는 <strong>외국인, 재외국민, 외국국적동포</strong> 세 가지 법적 지위를 엄격히 구분합니다. 이 구분이 곧 "어떤 서류를 준비해야 하는가", "토지취득 허가가 필요한가", "취득 신고 의무가 있는가"를 결정짓습니다.</p>
       <p><strong>재외국민</strong>은 한국 국적을 가진 대한민국 국민이므로 부동산 취득·보유 신고 의무가 없고, 내국인과 거의 동일하게 등기를 신청할 수 있습니다. 반면 <strong>외국인</strong>과 <strong>외국국적동포</strong>는 '외국인 등'으로 분류되어 취득 신고, 경우에 따라 토지취득 허가가 필요하며, 부동산등기용 등록번호를 별도로 부여받아야 합니다.</p>
       <p>시민권(nationality)과 영주권(permanent residency)을 혼동하는 분이 많습니다. <strong>시민권을 취득하면 한국 국적이 상실되어 외국인</strong>이 되고, <strong>영주권만 취득한 경우에는 한국 국적이 유지되어 재외국민</strong>으로 분류됩니다.</p>
     </div>` },
-      { heading: `상세 내용`, content: `<!-- 2-1. 기본 개념과 법적 근거 -->
+      { heading: "상세 내용", content: `<!-- 2-1. 기본 개념과 법적 근거 -->
     <h3>2-1. 기본 개념과 법적 근거</h3>
 
     <div class="def-grid">
@@ -144,7 +144,7 @@ const FOREIGN_TOPICS = [
       <div class="case-title">📋 사례 ③ — 재외동포(F-4) 비자로 국내에 체류 중인 C씨</div>
       <p>C씨는 부모님이 한국 출신으로 미국에서 태어나 미국 국적을 가지고 있으며, 현재 F-4(재외동포) 비자로 한국에 체류하며 국내거소신고를 하였습니다. C씨는 한국 국적이 없으므로 <strong>외국국적동포</strong>이자 부동산 등기 실무상 <strong>외국인</strong>으로 분류됩니다. 부동산 취득 신고 의무가 있으며, 국내거소신고번호 또는 부동산등기용 등록번호를 사용하여 등기 신청을 할 수 있습니다.</p>
     </div>` },
-      { heading: `관련 판례·예규`, content: `<div class="law-box">
+      { heading: "관련 판례·예규", content: `<div class="law-box">
       <div class="law-label">📜 등기예규 제1778호 (재외국민 및 외국인의 부동산등기신청절차에 관한 예규)</div>
       <p>재외국민과 외국인의 등기 신청 절차를 통합 규율하는 핵심 예규입니다. "재외국민"과 "외국인 등"의 정의를 별도로 규정하고, 각각 달리 적용되는 인감 증명, 주소 증명, 첨부서류 기준을 구체적으로 정하고 있습니다. 이 예규에 따르면 재외국민은 재외공관의 공증을 통해 인감증명을 대체할 수 있고, 재외국민등록부등본을 주소증명 서류로 제출할 수 있습니다.</p>
     </div>
@@ -156,7 +156,7 @@ const FOREIGN_TOPICS = [
       <div class="law-label">📜 등기예규 제99호 — 외국으로 귀화한 직계비속의 재산상속권</div>
       <p>부의 사망 전·후를 불문하고, 귀화한 직계비속도 민법 제1004조의 결격 사유가 없는 한 상속인이 됩니다. 즉, 외국 국적 취득(귀화)이 상속권을 박탈하지 않습니다. 이는 외국인 신분으로 한국 부동산을 상속받을 수 있는 근거가 됩니다.</p>
     </div>` },
-      { heading: `주의사항`, content: `<div class="warn-box">
+      { heading: "주의사항", content: `<div class="warn-box">
       <div class="warn-title">⚡ 시민권 취득 후 국적 상실 — 즉시 외국인으로 전환</div>
       외국 시민권을 취득하는 즉시 한국 국적이 상실됩니다. 이후 한국 부동산을 취득하거나 보유하게 되면 <strong>취득일 또는 외국인으로 변경된 날부터 6개월 이내</strong>에 부동산 취득·보유 신고를 하여야 합니다(부동산거래신고법 제6조). 신고 의무를 위반하면 100만 원 이하의 과태료가 부과될 수 있습니다.
     </div>
@@ -175,7 +175,7 @@ const FOREIGN_TOPICS = [
       <div class="country-title">🌏 이중국적자 특이사항</div>
       대한민국과 외국 국적을 동시에 보유하는 경우(이중국적자), 한국 국적을 유지하고 있으므로 부동산 등기에서는 <strong>내국인 또는 재외국민</strong>으로 처리됩니다. 다만, 한국 국적 이탈 신고를 한 경우에는 그 시점부터 외국인으로 전환됩니다.
     </div>` },
-      { heading: `자주 묻는 질문 (Q&A)`, content: `<div class="qa-list">
+      { heading: "자주 묻는 질문 (Q&A)", content: `<div class="qa-list">
 
       <div class="qa-item">
         <div class="qa-question">
@@ -245,19 +245,15 @@ const FOREIGN_TOPICS = [
 
     </div>` },
     ],
-    laws: [
-      { name: `등기예규 제1778호 (재외국민 및 외국인의 부동산등기신청절차에 관한 예규)`, desc: `재외국민과 외국인의 등기 신청 절차를 통합 규율하는 핵심 예규입니다. "재외국민"과 "외국인 등"의 정의를 별도로 규정하고, 각각 달리 적용되는 인감 증명, 주소 증명, 첨부서류 기준을 구체적으로 정하고 있습니다. 이 예규에 따르면 재외국민은 재외공관의 공증을 통해 인감증명을 대체할 수 있고, 재외국민등록부등본을 주소증명 서류로 제출할 수 있습니다.` },
-      { name: `국적법 제15조 — 외국 국적 취득에 따른 국적 상실`, desc: `대한민국 국민이 자진하여 외국 국적을 취득한 경우, 그 취득 시점에 대한민국 국적을 상실합니다. 다만 혼인·입양 등으로 외국 국적을 취득한 경우에는 6개월 이내에 국적 보유 의사를 신고하지 않으면 소급하여 국적을 상실한 것으로 봅니다. 이에 따라 외국 국적 취득 시점을 정확히 파악하는 것이 등기 신청에서 중요합니다.` },
-      { name: `등기예규 제99호 — 외국으로 귀화한 직계비속의 재산상속권`, desc: `부의 사망 전·후를 불문하고, 귀화한 직계비속도 민법 제1004조의 결격 사유가 없는 한 상속인이 됩니다. 즉, 외국 국적 취득(귀화)이 상속권을 박탈하지 않습니다. 이는 외국인 신분으로 한국 부동산을 상속받을 수 있는 근거가 됩니다.` },
-    ],
+    laws: [{"name":"등기예규 제1778호 (재외국민 및 외국인의 부동산등기신청절차에 관한 예규)","desc":"재외국민과 외국인의 등기 신청 절차를 통합 규율하는 핵심 예규입니다. \"재외국민\"과 \"외국인 등\"의 정의를 별도로 규정하고, 각각 달리 적용되는 인감 증명, 주소 증명, 첨부서류 기준을 구체적으로 정하고 있습니다. 이 예규에 따르면 재외국민은 재외공관의 공증을 통해 인감증명을 대체할 수 있고, 재외국민등록부등본을 주소증명 서류로 제출할 수 있습니다."},{"name":"국적법 제15조 — 외국 국적 취득에 따른 국적 상실","desc":"대한민국 국민이 자진하여 외국 국적을 취득한 경우, 그 취득 시점에 대한민국 국적을 상실합니다. 다만 혼인·입양 등으로 외국 국적을 취득한 경우에는 6개월 이내에 국적 보유 의사를 신고하지 않으면 소급하여 국적을 상실한 것으로 봅니다. 이에 따라 외국 국적 취득 시점을 정확히 파악하는 것이 등기 신청에서 중요합니다."},{"name":"등기예규 제99호 — 외국으로 귀화한 직계비속의 재산상속권","desc":"부의 사망 전·후를 불문하고, 귀화한 직계비속도 민법 제1004조의 결격 사유가 없는 한 상속인이 됩니다. 즉, 외국 국적 취득(귀화)이 상속권을 박탈하지 않습니다. 이는 외국인 신분으로 한국 부동산을 상속받을 수 있는 근거가 됩니다."}],
     forms: [],
   },
   {
-    id: 'fi-02',
+    id: "fi-02",
     title: "외국인의 한국 부동산 취득 절차완벽 가이드",
     meta: "매수 계약부터 소유권이전등기 완료까지 — 국내 체류 여부에 따른 절차와 서류를 한눈에 정리합니다.",
     sections: [
-      { heading: `이런 분께 필요합니다`, content: `<div class="checklist-box">
+      { heading: "이런 분께 필요합니다", content: `<div class="checklist-box">
     <div class="box-title">이런 분께 필요합니다</div>
     <ul>
       <li>외국 시민권 또는 영주권을 보유한 상태에서 한국 아파트·토지·상가를 매수하려는 분</li>
@@ -268,7 +264,7 @@ const FOREIGN_TOPICS = [
       <li>취득 후 신고 의무가 있는지, 기한이 언제인지 확인하고 싶은 분</li>
     </ul>
   </div>` },
-      { heading: `이 절차가 왜 필요한가`, content: `<div class="summary-box">
+      { heading: "이 절차가 왜 필요한가", content: `<div class="summary-box">
       <div class="summary-title">📌 외국인 부동산 취득의 핵심</div>
       <p>외국인도 원칙적으로 한국 부동산을 자유롭게 취득할 수 있습니다. 다만 내국인과 달리 <strong>①부동산등기용 등록번호 발급, ②취득·보유 신고, ③경우에 따른 토지취득 허가</strong>의 세 가지 추가 절차가 필요합니다.</p>
       <p>재외국민(영주권자)은 한국 국적을 유지하므로 이 세 가지가 모두 <strong>불필요</strong>합니다. 반면 시민권자, 외국국적동포 등 한국 국적이 없는 외국인은 모두 해당됩니다.</p>
@@ -288,7 +284,7 @@ const FOREIGN_TOPICS = [
       <div class="warn-title">⚠️ 토지취득 허가 없이 계약하면 무효</div>
       군사기지·문화재보호구역·생태경관보전지역 등 허가 대상 토지를 <strong>허가 없이 취득하는 계약은 효력이 발생하지 않습니다</strong>(부동산거래신고법 제9조 제3항). 무허가 계약은 2년 이하 징역 또는 2천만 원 이하 벌금에 처합니다.
     </div>` },
-      { heading: `전체 절차 흐름 요약`, content: `<h3>🏠 국내 체류 외국인 (외국인등록증 소지)</h3>
+      { heading: "전체 절차 흐름 요약", content: `<h3>🏠 국내 체류 외국인 (외국인등록증 소지)</h3>
     <div class="flow-grid">
       <div class="flow-card highlight-step">
         <div class="step-num">1</div>
@@ -361,7 +357,7 @@ const FOREIGN_TOPICS = [
       <p>토지취득 허가 신청 시 신고관청은 <strong>15일 이내</strong> 처리. 부동산등기용 등록번호는 신청 후 통상 수일 이내 발급. 등기 신청 후 등기관 처리는 통상 3~5 영업일 소요.</p>
       <p>해외 공증 + 아포스티유 취득에는 국가별로 2~4주 소요될 수 있으므로 계약 전부터 서류 준비를 시작하는 것을 권장합니다.</p>
     </div>` },
-      { heading: `단계별 상세 절차`, content: `<!-- STEP 1 -->
+      { heading: "단계별 상세 절차", content: `<!-- STEP 1 -->
     <div class="step-block">
       <div class="step-header">
         <div class="step-number">1</div>
@@ -490,7 +486,7 @@ const FOREIGN_TOPICS = [
         </div>
       </div>
     </div>` },
-      { heading: `첨부서류 목록`, content: `<p style="font-size:14px; color:var(--text-lt); margin-bottom:16px;">아래 서류는 소유권이전등기 신청 시 필요한 주요 서류입니다. 국적·체류 자격에 따라 달라질 수 있으므로 상담을 통해 확인하세요.</p>
+      { heading: "첨부서류 목록", content: `<p style="font-size:14px; color:var(--text-lt); margin-bottom:16px;">아래 서류는 소유권이전등기 신청 시 필요한 주요 서류입니다. 국적·체류 자격에 따라 달라질 수 있으므로 상담을 통해 확인하세요.</p>
 
     <!-- 입국한 경우 -->
     <div class="doc-section">
@@ -588,7 +584,7 @@ const FOREIGN_TOPICS = [
       <div class="country-title">🌏 아포스티유 협약 비가입국의 경우</div>
       미국·일본·프랑스 등 헤이그 협약 가입국 국민은 공문서에 아포스티유(Apostille)를 첨부하면 별도의 영사 인증 없이 한국에서 효력이 인정됩니다. 그러나 <strong>아포스티유 미가입국</strong>의 경우 해당 국가 주재 한국 재외공관에서 영사 인증을 받아야 합니다. 미국인의 경우 주소 공증 서면(거주사실증명서)에, 일본인의 경우 주민표에 아포스티유를 부착하는 방식이 일반적입니다.
     </div>` },
-      { heading: `비용 안내`, content: `<p>구체적인 금액은 취득 금액·물건 종류·지역에 따라 다르므로 <strong>정확한 금액은 표시하지 않습니다.</strong> 아래 항목과 납부 횟수를 참고하시고, 위텍스(www.wetax.go.kr) 또는 법무사를 통해 정확한 세액을 확인하시기 바랍니다.</p>
+      { heading: "비용 안내", content: `<p>구체적인 금액은 취득 금액·물건 종류·지역에 따라 다르므로 <strong>정확한 금액은 표시하지 않습니다.</strong> 아래 항목과 납부 횟수를 참고하시고, 위텍스(www.wetax.go.kr) 또는 법무사를 통해 정확한 세액을 확인하시기 바랍니다.</p>
     <div class="cost-grid">
       <div class="cost-card">
         <div class="cost-name">취득세</div>
@@ -619,7 +615,7 @@ const FOREIGN_TOPICS = [
       <div class="law-label">💡 세액 조회 방법</div>
       위텍스(www.wetax.go.kr) → 취득세 → 부동산 취득세 간편 계산기에서 계약금액·건물 종류 입력 후 세액 조회 가능
     </div>` },
-      { heading: `관련 판례·예규`, content: `<div class="law-box">
+      { heading: "관련 판례·예규", content: `<div class="law-box">
       <div class="law-label">📜 등기선례 3-932 (1992. 9. 21.) — 잔금 지급일 기준</div>
       부동산등기특별조치법 제2조 제1항의 "반대급부의 이행이 완료된 날"이란, 계약서상의 잔금지급 기일이 아닌 <strong>실제 잔금이 지급된 날</strong>을 의미한다. 따라서 실제 잔금지급일로부터 60일 내에 소유권이전등기를 신청하면 된다.
     </div>
@@ -639,7 +635,7 @@ const FOREIGN_TOPICS = [
       <div class="law-label">📜 등기선례 제200604-8호 (2006. 4. 20.) — 외국 법인의 농지 취득 불가</div>
       현행 농지법에 따라 농지는 원칙적으로 자기 농업경영에 이용하는 자만 취득 가능하므로, <strong>외국 법인이 농지에 대해 소유권이전등기를 신청할 수 없다.</strong>
     </div>` },
-      { heading: `자주 발생하는 문제와 해결책`, content: `<div class="trouble-item">
+      { heading: "자주 발생하는 문제와 해결책", content: `<div class="trouble-item">
       <div class="trouble-q">⚠️ 허가 대상 토지 여부를 확인하지 않고 계약부터 체결한 경우</div>
       <div class="trouble-a">허가 대상 토지에 대해 허가 없이 체결한 계약은 효력이 없습니다. 계약 전에 반드시 토지이용계획확인서를 통해 군사시설보호구역·문화재보호구역·생태보전지역 여부를 확인하고, 해당 시에는 사전에 토지취득 허가를 받아야 합니다.</div>
     </div>
@@ -663,7 +659,7 @@ const FOREIGN_TOPICS = [
       <div class="trouble-q">⚠️ 번역문 제출 시 번역인 날인이 누락된 경우</div>
       <div class="trouble-a">번역문에는 번역인이 원문과 다름없다는 뜻, 번역인의 성명·주소를 기재하고 날인 또는 서명해야 합니다. 또한 번역인의 신분증 사본을 제공해야 합니다. 번역문을 인증받아 제출하는 경우에는 날인이 불필요합니다(등기예규 제1778호 제4조 제2항). 번역인의 자격에는 제한이 없습니다(등기선례 1-22).</div>
     </div>` },
-      { heading: `자주 묻는 질문 (Q&A)`, content: `<div class="qa-item">
+      { heading: "자주 묻는 질문 (Q&A)", content: `<div class="qa-item">
       <div class="qa-question">
         <span class="q-mark">Q</span>
         미국 시민권자인데 한국 아파트를 살 수 있나요? 토지취득 허가가 필요한가요?
@@ -729,21 +725,15 @@ const FOREIGN_TOPICS = [
       </div>
     </div>` },
     ],
-    laws: [
-      { name: `등기선례 3-932 (1992. 9. 21.) — 잔금 지급일 기준`, desc: `` },
-      { name: `등기선례 4-377 (1994. 6. 20.) — 초일 불산입`, desc: `` },
-      { name: `등기선례 7-31 (2004. 4. 29.) — 계약서 원본만 가능`, desc: `` },
-      { name: `등기선례 7-182 — 외국인등록사실증명 활용`, desc: `` },
-      { name: `등기선례 제200604-8호 (2006. 4. 20.) — 외국 법인의 농지 취득 불가`, desc: `` },
-    ],
+    laws: [{"name":"등기선례 3-932 (1992. 9. 21.) — 잔금 지급일 기준","desc":""},{"name":"등기선례 4-377 (1994. 6. 20.) — 초일 불산입","desc":""},{"name":"등기선례 7-31 (2004. 4. 29.) — 계약서 원본만 가능","desc":""},{"name":"등기선례 7-182 — 외국인등록사실증명 활용","desc":""},{"name":"등기선례 제200604-8호 (2006. 4. 20.) — 외국 법인의 농지 취득 불가","desc":""}],
     forms: [],
   },
   {
-    id: 'fi-03',
+    id: "fi-03",
     title: "외국인 토지취득 허가— 허가 대상 지역과 신청 방법",
     meta: "한국에서 토지를 취득하려는 외국인이라면 반드시 확인해야 할 허가 절차",
     sections: [
-      { heading: `이런 분께 필요합니다`, content: `<div class="checklist-item">
+      { heading: "이런 분께 필요합니다", content: `<div class="checklist-item">
       <span class="icon">✓</span>
       <span>외국 국적을 보유한 개인·법인으로 한국의 토지(임야, 농지, 나대지 등)를 매수하려 하는 분</span>
     </div>
@@ -767,7 +757,7 @@ const FOREIGN_TOPICS = [
 
   <!-- 1. 핵심 요약 -->
   <div class="section">` },
-      { heading: `핵심 요약`, content: `<div class="summary-box">
+      { heading: "핵심 요약", content: `<div class="summary-box">
       <div class="box-title">📌 이 상황에서 법은 이렇게 정하고 있습니다</div>
       <p>외국인이 한국의 <strong>일반 토지</strong>를 취득할 때는 취득신고만으로 가능하지만, <strong>군사시설·문화재·생태 보호구역 등 4가지 허가 대상 지역</strong>의 토지를 취득하려면 <strong>계약 체결 전에 반드시 시장·군수·구청장의 사전 허가</strong>를 받아야 합니다.</p>
       <p>허가 없이 체결한 계약은 <strong>무효</strong>가 되며(부동산 거래신고 등에 관한 법률 제9조 제3항), 2년 이하의 징역 또는 2천만 원 이하의 벌금에 처해질 수 있습니다. 재외국민(영주권자)은 대한민국 국적을 보유하고 있으므로 이 규정이 적용되지 않습니다.</p>
@@ -776,7 +766,7 @@ const FOREIGN_TOPICS = [
 
   <!-- 2. 상세 내용 -->
   <div class="section">` },
-      { heading: `상세 내용`, content: `<!-- 2-1. 기본 개념과 법적 근거 -->
+      { heading: "상세 내용", content: `<!-- 2-1. 기본 개념과 법적 근거 -->
     <h3 style="font-family:'Noto Serif KR',serif; font-size:16px; color:var(--navy); margin-bottom:14px;">2-1. 기본 개념과 법적 근거</h3>
 
     <div class="law-box">
@@ -927,7 +917,7 @@ const FOREIGN_TOPICS = [
 
   <!-- 3. 관련 판례·예규 -->
   <div class="section">` },
-      { heading: `관련 판례·예규`, content: `<div class="law-box">
+      { heading: "관련 판례·예규", content: `<div class="law-box">
       <span class="law-tag">등기예규 제1778호 제15조 (첨부서류 — 토지취득허가증)</span>
       <p>외국인등이 허가 대상 토지를 취득하는 계약을 체결하고 소유권이전등기를 신청할 때 반드시 외국인 토지취득허가증을 첨부정보로 제공해야 함을 규정. 외국국적동포의 국내거소신고 여부에 따른 적용 제외도 명시.</p>
     </div>
@@ -945,7 +935,7 @@ const FOREIGN_TOPICS = [
 
   <!-- 4. 주의사항 -->
   <div class="section">` },
-      { heading: `주의사항`, content: `<div class="warn-box">
+      { heading: "주의사항", content: `<div class="warn-box">
       <div class="warn-title">⚡ 허가 신청 시점 — 계약 전 필수</div>
       토지취득 허가 신청은 <strong>계약 체결 전(계약서 작성 전)</strong>에 해야 합니다. 계약 후 허가를 신청하는 구조는 인정되지 않습니다. 허가 여부 불명 상태에서는 <strong>조건부 합의서</strong>(허가를 받을 경우 계약을 체결한다는 내용)를 작성하여 허가 신청 시 함께 제출합니다.
     </div>
@@ -968,7 +958,7 @@ const FOREIGN_TOPICS = [
 
   <!-- 5. Q&A -->
   <div class="section">` },
-      { heading: `자주 묻는 질문 (Q&A)`, content: `<div class="qa-item">
+      { heading: "자주 묻는 질문 (Q&A)", content: `<div class="qa-item">
       <div class="qa-q">한국 아파트를 매수하는 외국인도 토지취득 허가가 필요한가요?</div>
       <div class="qa-a">
         일반적으로 아파트 등 건물의 경우 허가 대상이 아니라 신고만으로 취득이 가능합니다. 그러나 아파트 단지 부지가 군사기지 보호구역 등 허가 대상 지역에 위치한 경우에는 그 대지권(건물과 함께 이전되는 토지 지분)에 대해서도 허가가 필요합니다(등기예규 제1778호 제15조제1항 — "대지권 포함" 명시). 실무상 아파트 대지권이 허가 대상 지역에 해당하는 경우는 드물지만, 취득 전 확인이 필요합니다.
@@ -1020,19 +1010,15 @@ const FOREIGN_TOPICS = [
   <!-- 6. 다음으로 확인할 내용 -->
   <div class="section">` },
     ],
-    laws: [
-      { name: `등기예규 제1778호 제15조 (첨부서류 — 토지취득허가증)`, desc: `외국인등이 허가 대상 토지를 취득하는 계약을 체결하고 소유권이전등기를 신청할 때 반드시 외국인 토지취득허가증을 첨부정보로 제공해야 함을 규정. 외국국적동포의 국내거소신고 여부에 따른 적용 제외도 명시.` },
-      { name: `등기예규 제1778호 제16조 (무허가 등기의 처리)`, desc: `허가 대상 토지에 대해 허가를 받지 않은 채 소유권이전등기가 마쳐졌더라도, 이는 부동산등기법 제29조제2호에 해당하지 않으므로 등기관이 직권으로 말소할 수 없다고 규정. 허가 없이 등기가 마쳐진 경우라도 등기 자체는 유효하나, 계약의 효력은 별도로 다투어야 함.` },
-      { name: `재외동포의 출입국과 법적 지위에 관한 법률 제11조 제1항`, desc: `국내거소신고를 한 외국국적동포는 부동산 취득·보유·이용 및 처분에서 대한민국 국민과 동등한 권리를 가진다. 다만 군사기지 및 군사시설 보호구역(부동산거래법 제9조제1항제1호)은 이 특례에서 제외되어 외국국적동포도 허가를 받아야 한다.` },
-    ],
+    laws: [{"name":"등기예규 제1778호 제15조 (첨부서류 — 토지취득허가증)","desc":"외국인등이 허가 대상 토지를 취득하는 계약을 체결하고 소유권이전등기를 신청할 때 반드시 외국인 토지취득허가증을 첨부정보로 제공해야 함을 규정. 외국국적동포의 국내거소신고 여부에 따른 적용 제외도 명시."},{"name":"등기예규 제1778호 제16조 (무허가 등기의 처리)","desc":"허가 대상 토지에 대해 허가를 받지 않은 채 소유권이전등기가 마쳐졌더라도, 이는 부동산등기법 제29조제2호에 해당하지 않으므로 등기관이 직권으로 말소할 수 없다고 규정. 허가 없이 등기가 마쳐진 경우라도 등기 자체는 유효하나, 계약의 효력은 별도로 다투어야 함."},{"name":"재외동포의 출입국과 법적 지위에 관한 법률 제11조 제1항","desc":"국내거소신고를 한 외국국적동포는 부동산 취득·보유·이용 및 처분에서 대한민국 국민과 동등한 권리를 가진다. 다만 군사기지 및 군사시설 보호구역(부동산거래법 제9조제1항제1호)은 이 특례에서 제외되어 외국국적동포도 허가를 받아야 한다."}],
     forms: [],
   },
   {
-    id: 'fi-04',
+    id: "fi-04",
     title: "외국인 부동산 취득·보유 신고의무와 방법",
     meta: "계약 체결일부터 60일 — 기한 안에 신고하지 않으면 과태료가 부과됩니다",
     sections: [
-      { heading: `이런 분께 필요합니다`, content: `<div class="checklist-item">
+      { heading: "이런 분께 필요합니다", content: `<div class="checklist-item">
       <span class="icon">✓</span>
       <span>외국 국적을 보유한 개인·법인으로 한국의 부동산(아파트·토지·상가 등)을 매수 또는 증여받은 분</span>
     </div>
@@ -1056,7 +1042,7 @@ const FOREIGN_TOPICS = [
 
   <!-- 1. 이 절차가 왜 필요한가 -->
   <div class="section">` },
-      { heading: `1. 이 절차가 왜 필요한가`, content: `<div class="summary-box">
+      { heading: "1. 이 절차가 왜 필요한가", content: `<div class="summary-box">
       <div class="box-title">📌 외국인의 취득 신고는 법적 의무입니다</div>
       <p>외국인(외국인등)이 대한민국 안의 부동산을 취득하면 <strong>부동산 거래신고 등에 관한 법률 제8조</strong>에 따라 반드시 신고관청(시·군·구청)에 취득신고를 해야 합니다. 이 신고는 부동산등기와 별개로 이루어지는 행정신고로, <strong>등기를 마쳤다고 해서 자동으로 이루어지지 않습니다.</strong></p>
       <p>신고를 기한 내에 하지 않거나 거짓으로 신고하면 <strong>과태료</strong>가 부과됩니다. 또한 등기신청 시 신고확인증이 필요한 경우도 있으므로, 신고를 먼저 완료하고 신고확인증을 받아 두는 것이 중요합니다.</p>
@@ -1077,7 +1063,7 @@ const FOREIGN_TOPICS = [
 
   <!-- 2. 전체 절차 흐름 요약 -->
   <div class="section">` },
-      { heading: `2. 전체 절차 흐름 요약`, content: `<div class="flow-section">
+      { heading: "2. 전체 절차 흐름 요약", content: `<div class="flow-section">
       <h4>🏠 계약(매매·증여)으로 취득한 경우 — 60일 이내</h4>
       <div class="flow-steps">
         <div class="flow-step">
@@ -1167,7 +1153,7 @@ const FOREIGN_TOPICS = [
 
   <!-- 3. 단계별 상세 절차 -->
   <div class="section">` },
-      { heading: `3. 신고 유형별 상세 절차`, content: `<div class="type-grid">
+      { heading: "3. 신고 유형별 상세 절차", content: `<div class="type-grid">
       <div class="type-card">
         <div class="type-label">신고 유형 ①</div>
         <h4>계약에 의한 취득 신고</h4>
@@ -1240,7 +1226,7 @@ const FOREIGN_TOPICS = [
 
   <!-- 4. 첨부서류 목록 -->
   <div class="section">` },
-      { heading: `4. 첨부서류 목록`, content: `<!-- 입국한 경우 -->
+      { heading: "4. 첨부서류 목록", content: `<!-- 입국한 경우 -->
     <div class="sub-title">🟢 국내 체류 중인 외국인 (입국한 경우)</div>
     <table class="doc-table">
       <thead>
@@ -1341,7 +1327,7 @@ const FOREIGN_TOPICS = [
 
   <!-- 5. 비용 안내 -->
   <div class="section">` },
-      { heading: `5. 비용 안내`, content: `<div class="summary-box">
+      { heading: "5. 비용 안내", content: `<div class="summary-box">
       <div class="box-title">💰 취득·보유 신고 자체는 수수료 없음</div>
       <p>부동산 취득·계속보유 신고는 <strong>수수료가 없습니다</strong>. 다만 관련 등기 절차(소유권이전등기 등)를 함께 진행하는 경우 별도의 등기 비용이 발생합니다.</p>
     </div>
@@ -1370,7 +1356,7 @@ const FOREIGN_TOPICS = [
 
   <!-- 6. 관련 법령 및 예규 -->
   <div class="section">` },
-      { heading: `6. 관련 법령 및 예규`, content: `<div class="law-box">
+      { heading: "6. 관련 법령 및 예규", content: `<div class="law-box">
       <span class="law-tag">부동산 거래신고 등에 관한 법률 제8조 (외국인등의 부동산 취득·계속보유 신고)</span>
       <p>① 외국인등이 계약으로 부동산을 취득하면 계약체결일부터 60일 이내 신고관청에 신고(제1항). ② 상속·경매 등 계약 외 원인으로 취득하면 취득한 날부터 6개월 이내 신고(제2항). ③ 한국인·국내법인이 외국인등으로 변경되어 토지를 계속 보유하려는 경우 변경된 날부터 6개월 이내 신고(제3항).</p>
     </div>
@@ -1388,7 +1374,7 @@ const FOREIGN_TOPICS = [
 
   <!-- 7. 자주 발생하는 문제와 해결책 -->
   <div class="section">` },
-      { heading: `7. 자주 발생하는 문제와 해결책`, content: `<div class="problem-card">
+      { heading: "7. 자주 발생하는 문제와 해결책", content: `<div class="problem-card">
       <div class="problem-q">⚠️ "등기를 마쳤으면 신고가 된 것 아닌가요?"</div>
       <div class="problem-a">
         아닙니다. 소유권이전등기와 외국인 취득신고는 <strong>별개의 절차</strong>입니다. 등기는 등기소(법원)에서 처리되고, 취득신고는 시·군·구청(신고관청)에서 별도로 이루어집니다. 등기 후에도 60일 기한 내에 별도로 시·군·구청에 취득신고를 해야 하며, 이를 놓치면 과태료 처분을 받을 수 있습니다.
@@ -1426,7 +1412,7 @@ const FOREIGN_TOPICS = [
 
   <!-- 8. Q&A -->
   <div class="section">` },
-      { heading: `8. 자주 묻는 질문 (Q&A)`, content: `<div class="qa-item">
+      { heading: "8. 자주 묻는 질문 (Q&A)", content: `<div class="qa-item">
       <div class="qa-q">취득신고와 부동산거래신고(매도인·매수인 공동 신고)는 같은 건가요?</div>
       <div class="qa-a">
         다릅니다. <strong>부동산거래신고</strong>(부동산거래신고법 제3조)는 매도인·매수인이 계약 체결 후 30일 이내에 공동으로 신고하는 것으로, 한국인 간의 거래에도 공통 적용됩니다. 반면 <strong>외국인 취득신고</strong>(제8조)는 외국인이 추가로 해야 하는 신고로, 신고관청은 동일(시·군·구청)하지만 절차와 서류가 다릅니다. 단, 부동산거래신고 대상인 계약(매매 등)으로 취득한 경우, 그 계약에 대한 거래신고를 이미 한 경우에는 외국인 취득신고(제8조 제1항)의 신고 의무가 면제됩니다(부동산거래신고법 제8조 제1항 괄호 조항). 구체적인 면제 여부는 법무사에게 확인하세요.
@@ -1478,19 +1464,15 @@ const FOREIGN_TOPICS = [
   <!-- 9. 다음으로 확인할 내용 -->
   <div class="section">` },
     ],
-    laws: [
-      { name: `부동산 거래신고 등에 관한 법률 제8조 (외국인등의 부동산 취득·계속보유 신고)`, desc: `① 외국인등이 계약으로 부동산을 취득하면 계약체결일부터 60일 이내 신고관청에 신고(제1항). ② 상속·경매 등 계약 외 원인으로 취득하면 취득한 날부터 6개월 이내 신고(제2항). ③ 한국인·국내법인이 외국인등으로 변경되어 토지를 계속 보유하려는 경우 변경된 날부터 6개월 이내 신고(제3항).` },
-      { name: `부동산 거래신고 등에 관한 법률 시행령 제5조 제2항 (계약 외 원인의 범위)`, desc: `계약 외 원인으로서 신고 의무가 발생하는 사유: ①공익사업을 위한 토지 취득법 등에 따른 환매권 행사, ②법원의 확정판결, ③법인의 합병, ④건축물의 신축·증축·개축·재축.` },
-      { name: `부동산 거래신고 등에 관한 법률 시행규칙 제7조 제4항 (대리인 신고)`, desc: `외국인등의 위임을 받은 사람은 취득·계속보유 신고서의 작성 및 제출을 대행할 수 있다. 이 경우 외국인의 서명·날인이 있는 위임장과 외국인의 신분증명서 사본을 함께 제출해야 한다.` },
-    ],
+    laws: [{"name":"부동산 거래신고 등에 관한 법률 제8조 (외국인등의 부동산 취득·계속보유 신고)","desc":"① 외국인등이 계약으로 부동산을 취득하면 계약체결일부터 60일 이내 신고관청에 신고(제1항). ② 상속·경매 등 계약 외 원인으로 취득하면 취득한 날부터 6개월 이내 신고(제2항). ③ 한국인·국내법인이 외국인등으로 변경되어 토지를 계속 보유하려는 경우 변경된 날부터 6개월 이내 신고(제3항)."},{"name":"부동산 거래신고 등에 관한 법률 시행령 제5조 제2항 (계약 외 원인의 범위)","desc":"계약 외 원인으로서 신고 의무가 발생하는 사유: ①공익사업을 위한 토지 취득법 등에 따른 환매권 행사, ②법원의 확정판결, ③법인의 합병, ④건축물의 신축·증축·개축·재축."},{"name":"부동산 거래신고 등에 관한 법률 시행규칙 제7조 제4항 (대리인 신고)","desc":"외국인등의 위임을 받은 사람은 취득·계속보유 신고서의 작성 및 제출을 대행할 수 있다. 이 경우 외국인의 서명·날인이 있는 위임장과 외국인의 신분증명서 사본을 함께 제출해야 한다."}],
     forms: [],
   },
   {
-    id: 'fi-05',
+    id: "fi-05",
     title: "외국인 부동산등기용 등록번호 신청 방법",
     meta: "",
     sections: [
-      { heading: `1개요`, content: `<p>외국인이 국내에서 부동산을 소유하거나 담보로 제공하려면, 부동산등기부에 기입등기를 신청할 때 주민등록번호 또는 부동산등기용등록번호를 병기해야 합니다. 외국인은 국내에 주민등록번호가 없으므로, 부동산등기용등록번호를 미리 부여받아야 합니다.</p>
+      { heading: "1개요", content: `<p>외국인이 국내에서 부동산을 소유하거나 담보로 제공하려면, 부동산등기부에 기입등기를 신청할 때 주민등록번호 또는 부동산등기용등록번호를 병기해야 합니다. 외국인은 국내에 주민등록번호가 없으므로, 부동산등기용등록번호를 미리 부여받아야 합니다.</p>
             <div class="info-box blue">
                 <h4>핵심 내용</h4>
                 <ul>
@@ -1503,7 +1485,7 @@ const FOREIGN_TOPICS = [
 
         <!-- Section 2: 법적 근거 -->
         <div class="section">` },
-      { heading: `2법적 근거`, content: `<div class="info-box law">
+      { heading: "2법적 근거", content: `<div class="info-box law">
                 <h4>핵심 법령</h4>
                 <ul>
                     <li><strong>등기예규 제1778호 제14조</strong>: 기입등기(소유권이전·저당권설정 등)를 신청하는 경우 등기부에 등기권리자의 주민등록번호 또는 부동산등기용등록번호를 병기해야 함</li>
@@ -1516,7 +1498,7 @@ const FOREIGN_TOPICS = [
 
         <!-- Section 3: 등록번호의 종류 -->
         <div class="section">` },
-      { heading: `3등록번호의 종류`, content: `<p>외국인의 신원 확인을 위해 사용되는 등록번호는 다음 3가지입니다:</p>
+      { heading: "3등록번호의 종류", content: `<p>외국인의 신원 확인을 위해 사용되는 등록번호는 다음 3가지입니다:</p>
 
             <div style="margin: 1.5rem 0;">
                 <h3>① 외국인등록번호</h3>
@@ -1554,7 +1536,7 @@ const FOREIGN_TOPICS = [
 
         <!-- Section 4: 신청 대상 및 신청 필요성 -->
         <div class="section">` },
-      { heading: `4신청 대상 및 신청 필요성`, content: `<h3>신청이 필요한 경우</h3>
+      { heading: "4신청 대상 및 신청 필요성", content: `<h3>신청이 필요한 경우</h3>
             <div class="info-box blue">
                 <ul>
                     <li>외국인이 국내 부동산의 소유권이전등기를 신청할 때</li>
@@ -1573,7 +1555,7 @@ const FOREIGN_TOPICS = [
 
         <!-- Section 5: 신청 절차 -->
         <div class="section">` },
-      { heading: `5신청 절차`, content: `<h3>기본 신청 절차</h3>
+      { heading: "5신청 절차", content: `<h3>기본 신청 절차</h3>
             <div class="step-list">
                 <div class="step-item">
                     <div class="step-number">1</div>
@@ -1615,7 +1597,7 @@ const FOREIGN_TOPICS = [
 
         <!-- Section 6: 신청 서류 -->
         <div class="section">` },
-      { heading: `6신청 서류`, content: `<h3>국내 입국한 외국인의 경우</h3>
+      { heading: "6신청 서류", content: `<h3>국내 입국한 외국인의 경우</h3>
             <p>국내에 입국하여 거주지가 있는 외국인이 신청할 때 필요한 서류입니다:</p>
             <table>
                 <thead>
@@ -1693,7 +1675,7 @@ const FOREIGN_TOPICS = [
 
         <!-- Section 7: 제출처 -->
         <div class="section">` },
-      { heading: `7제출처`, content: `<h3>체류 상황별 제출처</h3>
+      { heading: "7제출처", content: `<h3>체류 상황별 제출처</h3>
             <div class="info-box blue">
                 <ul>
                     <li><strong>국내 체류 중</strong>: 체류지를 관할하는 지방출입국·외국인관서 (해당 지역의 출입국관리사무소)</li>
@@ -1706,7 +1688,7 @@ const FOREIGN_TOPICS = [
 
         <!-- Section 8: 우편 신청 절차 -->
         <div class="section">` },
-      { heading: `8우편 신청 절차`, content: `<p>국내에 입국하지 않은 외국인은 우편으로 신청할 수 있습니다:</p>
+      { heading: "8우편 신청 절차", content: `<p>국내에 입국하지 않은 외국인은 우편으로 신청할 수 있습니다:</p>
 
             <div class="step-list">
                 <div class="step-item">
@@ -1765,7 +1747,7 @@ const FOREIGN_TOPICS = [
 
         <!-- Section 9: 대리인 신청 -->
         <div class="section">` },
-      { heading: `9대리인을 통한 신청`, content: `<p>국내에 입국하지 않은 외국인은 대리인을 통해 신청할 수 있습니다:</p>
+      { heading: "9대리인을 통한 신청", content: `<p>국내에 입국하지 않은 외국인은 대리인을 통해 신청할 수 있습니다:</p>
 
             <h3>대리인 신청 시 필요 서류</h3>
             <div class="info-box blue">
@@ -1788,7 +1770,7 @@ const FOREIGN_TOPICS = [
 
         <!-- Section 10: 수수료 -->
         <div class="section">` },
-      { heading: `10수수료`, content: `<div class="info-box country">
+      { heading: "10수수료", content: `<div class="info-box country">
                 <h4>부동산등기용등록번호 관련 수수료</h4>
                 <ul>
                     <li><strong>등록번호 부여</strong>: 없음 (무료)</li>
@@ -1801,7 +1783,7 @@ const FOREIGN_TOPICS = [
 
         <!-- Section 11: Q&A -->
         <div class="section">` },
-      { heading: `11자주 묻는 질문`, content: `<div class="qa-section">
+      { heading: "11자주 묻는 질문", content: `<div class="qa-section">
                 <div class="qa-item">
                     <div class="qa-q">Q. 말소등기를 신청할 때도 등록번호가 필요한가요?</div>
                     <div class="qa-a">
@@ -1866,7 +1848,7 @@ const FOREIGN_TOPICS = [
 
         <!-- Section 12: 마무리 -->
         <div class="section">` },
-      { heading: `12마무리`, content: `<p>부동산등기용등록번호는 외국인이 국내에서 부동산 소유권을 등기하기 위한 필수 요소입니다. 국내에 체류하지 않는 외국인도 우편이나 대리인을 통해 신청할 수 있으므로, 부동산 거래 계획이 있다면 미리 등록번호를 신청하여 거래를 원활히 진행할 수 있습니다.</p>
+      { heading: "12마무리", content: `<p>부동산등기용등록번호는 외국인이 국내에서 부동산 소유권을 등기하기 위한 필수 요소입니다. 국내에 체류하지 않는 외국인도 우편이나 대리인을 통해 신청할 수 있으므로, 부동산 거래 계획이 있다면 미리 등록번호를 신청하여 거래를 원활히 진행할 수 있습니다.</p>
 
             <p style="margin-top: 1rem;">신청 절차 중 불명확한 사항이 있으면 아래 연락처로 전문가의 도움을 받으시기 바랍니다.</p>
         </div>
@@ -1891,16 +1873,15 @@ const FOREIGN_TOPICS = [
 </body>
 </html>` },
     ],
-    laws: [
-    ],
+    laws: [],
     forms: [],
   },
   {
-    id: 'fi-06',
+    id: "fi-06",
     title: "국적별 외국인 부동산 취득 등기 첨부서류 가이드",
     meta: "미국인·일본인 사례 포함",
     sections: [
-      { heading: `첨부서류 차이의 핵심 기준 2가지`, content: `<h3>1. 국내 입국(체류) 여부에 따른 차이</h3>
+      { heading: "첨부서류 차이의 핵심 기준 2가지", content: `<h3>1. 국내 입국(체류) 여부에 따른 차이</h3>
 
             <div class="info-box blue">
                 <h4>입국한 경우 (국내 거주 외국인)</h4>
@@ -1936,7 +1917,7 @@ const FOREIGN_TOPICS = [
                     <li>재외공관 인증도 가능 (등기예규 제1778호 제12조 제2항)</li>
                 </ul>
             </div>` },
-      { heading: `주소를 증명하는 서면`, content: `<p><em>(등기예규 제1778호 제13조 규정)</em></p>
+      { heading: "주소를 증명하는 서면", content: `<p><em>(등기예규 제1778호 제13조 규정)</em></p>
 
             <h3>국내 체류 외국인</h3>
             <div class="info-box blue">
@@ -1955,7 +1936,7 @@ const FOREIGN_TOPICS = [
                 <p><strong>주민표</strong> (일본 주민등록과 동일한 역할)</p>
                 <p>일본 관공서 발행 증명서. 아포스티유 필수, 한글 번역문 필수</p>
             </div>` },
-      { heading: `번역문 처리`, content: `<div class="info-box law">
+      { heading: "번역문 처리", content: `<div class="info-box law">
                 <h4>번역문 작성 방법</h4>
                 <ul>
                     <li>외국어로 작성된 서류에는 <strong>번역문 필수</strong></li>
@@ -1981,7 +1962,7 @@ const FOREIGN_TOPICS = [
                 <h4>인증을 받은 경우</h4>
                 <p>번역문을 공증인으로부터 인증받아 제출하는 경우, 번역인 서명은 불필요합니다.</p>
             </div>` },
-      { heading: `아포스티유(Apostille)`, content: `<div class="info-box law">
+      { heading: "아포스티유(Apostille)", content: `<div class="info-box law">
                 <p><strong>아포스티유란:</strong> 외국에서 공증받은 사문서나 외국 발행 공문서의 진정성을 증명하는 국제 인증서</p>
                 <h4 style="margin-top: 15px;">적용 범위</h4>
                 <ul>
@@ -1990,7 +1971,7 @@ const FOREIGN_TOPICS = [
                 </ul>
                 <p><em>(등기예규 제1778호 제4조 제1항)</em></p>
             </div>` },
-      { heading: `첨부서류 비교표 (미국인 매수인)`, content: `<p>외국인이 매수인으로 부동산을 취득할 때 준비해야 할 서류 목록입니다.</p>
+      { heading: "첨부서류 비교표 (미국인 매수인)", content: `<p>외국인이 매수인으로 부동산을 취득할 때 준비해야 할 서류 목록입니다.</p>
 
             <table>
                 <thead>
@@ -2070,7 +2051,7 @@ const FOREIGN_TOPICS = [
                     </tr>
                 </tbody>
             </table>` },
-      { heading: `첨부서류 비교표 (일본인 매수인)`, content: `<p>일본은 인감증명제도가 있어 미국과 달리 준비 절차가 다릅니다.</p>
+      { heading: "첨부서류 비교표 (일본인 매수인)", content: `<p>일본은 인감증명제도가 있어 미국과 달리 준비 절차가 다릅니다.</p>
 
             <table>
                 <thead>
@@ -2108,7 +2089,7 @@ const FOREIGN_TOPICS = [
                     </tr>
                 </tbody>
             </table>` },
-      { heading: `관련 등기예규·등기선례`, content: `<div class="info-box law">
+      { heading: "관련 등기예규·등기선례", content: `<div class="info-box law">
                 <h4>등기예규 제1778호</h4>
                 <ul>
                     <li>제4조: 아포스티유·번역문</li>
@@ -2130,7 +2111,7 @@ const FOREIGN_TOPICS = [
                     <li>등기예규 제1419호: 인지세</li>
                 </ul>
             </div>` },
-      { heading: `자주 묻는 질문 (Q&A)`, content: `<div class="qa-item">
+      { heading: "자주 묻는 질문 (Q&A)", content: `<div class="qa-item">
                 <div class="qa-question">Q1. 미국인은 인감증명서가 없는데 어떻게 하나요?</div>
                 <div class="qa-answer">
                     <p><strong>A:</strong> 미국은 인감증명제도가 없으므로, <strong>서명공증으로 인감증명을 대체</strong>합니다. 부동산 매매 계약서나 처분위임장에 서명한 후, 본국 공증인(Notary Public) 또는 재외공관(대사관·영사관)에서 서명 및 인지 진정을 받으면 됩니다. 서명공증은 아포스티유가 붙으면 더욱 강력한 증명력을 갖습니다.</p>
@@ -2210,17 +2191,15 @@ const FOREIGN_TOPICS = [
 </body>
 </html>` },
     ],
-    laws: [
-      { name: `등기예규 제1778호`, desc: `` },
-    ],
+    laws: [{"name":"등기예규 제1778호","desc":""}],
     forms: [],
   },
   {
-    id: 'fi-07',
+    id: "fi-07",
     title: "외국인이 입국하지 않고 한국 부동산을 파는 방법처분 위임장 공증 완벽 가이드",
     meta: "",
     sections: [
-      { heading: `1처분위임장이란?`, content: `<div class="info-box blue">
+      { heading: "1처분위임장이란?", content: `<div class="info-box blue">
                 <h4>처분위임장의 정의</h4>
                 <p>처분위임장은 외국시민권을 취득한 자가 <strong>한국에 입국하지 않고</strong> 국내에 있는 대리인에게 한국 내 부동산 처분권과 소유권이전등기신청 권한을 위임한다는 내용의 서류입니다.</p>
                 <p style="margin-top: 0.8rem; font-size: 0.9rem;">출처: 등기예규 제1778호 제5조</p>
@@ -2240,7 +2219,7 @@ const FOREIGN_TOPICS = [
 
         <!-- 처분위임장 공증 방법 -->
         <div class="section">` },
-      { heading: `2처분위임장 공증 방법`, content: `<h3>인감증명 제도에 따른 구분</h3>
+      { heading: "2처분위임장 공증 방법", content: `<h3>인감증명 제도에 따른 구분</h3>
 
             <h4 style="color: var(--orange-box-text); margin-top: 1.5rem;">A. 인감증명 제도가 없는 국가 (미국, 캐나다, 호주 등)</h4>
 
@@ -2314,7 +2293,7 @@ const FOREIGN_TOPICS = [
 
         <!-- 아포스티유 -->
         <div class="section">` },
-      { heading: `3아포스티유 요건`, content: `<div class="info-box country">
+      { heading: "3아포스티유 요건", content: `<div class="info-box country">
                 <h4>아포스티유 필수 대상</h4>
                 <p><strong>외국에서 공증받은 사문서나 외국 발행 공문서</strong>에 대해, 아포스티유 협약 가입국이면 아포스티유를 붙여야 합니다(등기예규 제1778호 제4조 제1항).</p>
             </div>
@@ -2332,7 +2311,7 @@ const FOREIGN_TOPICS = [
 
         <!-- 대리인의 권한 -->
         <div class="section">` },
-      { heading: `4대리인이 해야 할 일`, content: `<h3>대리인의 증명서류</h3>
+      { heading: "4대리인이 해야 할 일", content: `<h3>대리인의 증명서류</h3>
             <p>처분권한을 위임받은 대리인이 등기신청을 할 때는:</p>
 
             <div class="info-box green">
@@ -2359,7 +2338,7 @@ const FOREIGN_TOPICS = [
 
         <!-- 등기필증 없는 경우 -->
         <div class="section">` },
-      { heading: `5등기필증이 없는 경우`, content: `<div class="info-box law">
+      { heading: "5등기필증이 없는 경우", content: `<div class="info-box law">
                 <h4>처분위임장에 기재할 사항</h4>
                 <p>등기필증을 잃어버린 경우, 처분위임장에 <strong>"등기필정보가 없다"</strong>는 내용을 명시해야 합니다.</p>
             </div>
@@ -2383,7 +2362,7 @@ const FOREIGN_TOPICS = [
 
         <!-- 전체 절차 흐름 -->
         <div class="section">` },
-      { heading: `6미입국 외국인 처분 전체 절차`, content: `<div class="step-list">
+      { heading: "6미입국 외국인 처분 전체 절차", content: `<div class="step-list">
                 <div class="step-item">
                     <div class="step-number">1</div>
                     <div class="step-content">
@@ -2452,7 +2431,7 @@ const FOREIGN_TOPICS = [
 
         <!-- 첨부서류 표 -->
         <div class="section">` },
-      { heading: `7미입국 외국인의 필수 첨부서류`, content: `<table class="comparison-table">
+      { heading: "7미입국 외국인의 필수 첨부서류", content: `<table class="comparison-table">
                 <thead>
                     <tr>
                         <th style="width: 20%;">서류</th>
@@ -2497,7 +2476,7 @@ const FOREIGN_TOPICS = [
 
         <!-- Q&A -->
         <div class="section">` },
-      { heading: `8자주하는 질문`, content: `<div class="qa-section">
+      { heading: "8자주하는 질문", content: `<div class="qa-section">
                 <div class="qa-item">
                     <div class="qa-q">입국 없이 한국 부동산을 팔 수 있나요?</div>
                     <div class="qa-a">
@@ -2573,16 +2552,15 @@ const FOREIGN_TOPICS = [
 </body>
 </html>` },
     ],
-    laws: [
-    ],
+    laws: [],
     forms: [],
   },
   {
-    id: 'fi-08',
+    id: "fi-08",
     title: "인감증명 없는 나라 외국인의 부동산 매도",
     meta: "본인서명사실확인서 활용법",
     sections: [
-      { heading: `이런 분께 필요합니다`, content: `<ul class="checklist">
+      { heading: "이런 분께 필요합니다", content: `<ul class="checklist">
                 <li>미국, 영국, 캐나다, 호주 등 인감증명제도가 없는 나라의 국적을 가진 외국인</li>
                 <li>한국 부동산을 처분(매도)하려는 외국인</li>
                 <li>본국의 인감증명제도가 없어 부동산 처분 서류 작성이 어려운 경우</li>
@@ -2594,7 +2572,7 @@ const FOREIGN_TOPICS = [
 
         <!-- 섹션 1: 핵심 판단 -->
         <div class="section">` },
-      { heading: `핵심 판단`, content: `<div class="summary-box">
+      { heading: "핵심 판단", content: `<div class="summary-box">
                 <h3>인감증명제도 유무로 준비 방법이 달라집니다</h3>
                 <p><strong>인감증명제도가 있는 나라:</strong> 일본, 대만 등</p>
                 <ul>
@@ -2611,7 +2589,7 @@ const FOREIGN_TOPICS = [
 
         <!-- 섹션 2: 인감증명제도가 있는 나라의 외국인 -->
         <div class="section">` },
-      { heading: `인감증명제도가 있는 나라의 외국인(일본·대만)`, content: `<h3>본국 관공서 발행 인감증명 제출</h3>
+      { heading: "인감증명제도가 있는 나라의 외국인(일본·대만)", content: `<h3>본국 관공서 발행 인감증명 제출</h3>
             <div class="content-text">
                 일본, 대만 등 인감증명의 날인제도가 있는 나라 국적의 외국인이 한국 부동산을 처분할 때는 본국 관공서가 발행한 인감증명을 제출하면 됩니다.
             </div>
@@ -2645,7 +2623,7 @@ const FOREIGN_TOPICS = [
 
         <!-- 섹션 3: 인감증명제도가 없는 나라의 외국인 -->
         <div class="section">` },
-      { heading: `인감증명제도가 없는 나라의 외국인(미국·영국·캐나다 등)`, content: `<div class="content-text">
+      { heading: "인감증명제도가 없는 나라의 외국인(미국·영국·캐나다 등)", content: `<div class="content-text">
                 미국, 영국, 캐나다, 호주 등 인감증명의 날인제도가 없는 나라의 외국인은 본국 관공서의 증명이나 공증인의 인증으로 인감증명을 갈음할 수 있습니다.
             </div>
 
@@ -2688,7 +2666,7 @@ const FOREIGN_TOPICS = [
 
         <!-- 섹션 4: 본인서명사실확인서 — 국내 거주 외국인의 특례 -->
         <div class="section">` },
-      { heading: `본인서명사실확인서국내 거주 외국인의 특례`, content: `<div class="content-text">
+      { heading: "본인서명사실확인서국내 거주 외국인의 특례", content: `<div class="content-text">
                 국내에 거주하는 외국인이 외국인등록을 한 경우, 본인서명사실확인서를 발급받아 인감증명을 대신할 수 있습니다. 이는 공증이나 아포스티유 같은 복잡한 국제 절차를 거치지 않아도 되므로 매우 편리합니다.
             </div>
 
@@ -2786,7 +2764,7 @@ const FOREIGN_TOPICS = [
 
         <!-- 섹션 5: 비교표 -->
         <div class="section">` },
-      { heading: `상황별 대응 방법 비교`, content: `<table>
+      { heading: "상황별 대응 방법 비교", content: `<table>
                 <thead>
                     <tr>
                         <th>국적 / 상황</th>
@@ -2832,7 +2810,7 @@ const FOREIGN_TOPICS = [
 
         <!-- 섹션 6: 관련 판례 및 예규 -->
         <div class="section">` },
-      { heading: `관련 판례 및 예규`, content: `<div class="precedent-box">
+      { heading: "관련 판례 및 예규", content: `<div class="precedent-box">
                 <h4>등기예규 제1609호</h4>
                 <p><strong>제목:</strong> 본인서명사실확인서에 관한 사항</p>
                 <p><strong>주요 내용:</strong> 등기소에 제출하는 신청서 등에 인감증명을 첨부해야 하는 경우, 서명을 하고 본인서명사실확인서(또는 전자본인서명확인서 발급증)를 첨부할 수 있습니다. 서명 문자는 본인서명사실확인서와 등기신청서에서 일치해야 하며, 유효기간은 3개월입니다.</p>
@@ -2871,7 +2849,7 @@ const FOREIGN_TOPICS = [
 
         <!-- 섹션 7: Q&A -->
         <div class="section">` },
-      { heading: `자주 하는 질문 (Q&A)`, content: `<div class="faq-item">
+      { heading: "자주 하는 질문 (Q&A)", content: `<div class="faq-item">
                 <strong>Q. 미국 국적자가 한국 부동산을 매도할 때 인감증명은 어떻게 준비하나요?</strong>
                 <p><strong>A.</strong> 미국은 인감증명제도가 없으므로 다음 중 하나의 방법으로 대체할 수 있습니다:</p>
                 <ul>
@@ -2948,7 +2926,7 @@ const FOREIGN_TOPICS = [
 
         <!-- 섹션 9: 상담 CTA 박스 -->
         <div class="cta-box">` },
-      { heading: `이 내용이 해당되시나요?`, content: `<p>외국인·재외국민 등기는 국적·체류 자격·입국 여부에 따라 준비 서류가 달라집니다.<br>서류 준비부터 신청까지 법무사가 함께합니다.</p>
+      { heading: "이 내용이 해당되시나요?", content: `<p>외국인·재외국민 등기는 국적·체류 자격·입국 여부에 따라 준비 서류가 달라집니다.<br>서류 준비부터 신청까지 법무사가 함께합니다.</p>
             <p style="font-size: 16px; color: #c8a96e; font-weight: 700; margin: 15px 0;">첫 상담은 무료입니다.</p>
             <div class="button-group">
                 <button class="btn btn-phone">☎️ 전화 상담</button>
@@ -2966,21 +2944,15 @@ const FOREIGN_TOPICS = [
 </body>
 </html>` },
     ],
-    laws: [
-      { name: `등기예규 제1609호`, desc: `제목: 본인서명사실확인서에 관한 사항` },
-      { name: `등기예규 제1778호 제12조 제2항`, desc: `주요 내용: 외국인등록이나 국내거소신고를 하지 않아 인감증명법에 따른 인감증명을 발급받을 수 없고 본국에 인감증명제도가 없는 외국인은:` },
-      { name: `등기예규 제1778호 제9조 제3항`, desc: `주요 내용: 공증은 서명해야 하는 서면 그 자체에 받아야 하며, 별도 문서에 서명 후 공증하는 것은 불가능합니다.` },
-      { name: `등기선례 제200610-12호(2006. 10. 31. 부동산등기과-3230 질의회답)`, desc: `주요 내용: 일본·대만 외국인이 국내 부동산을 처분할 때 첨부하는 본국 관공서 발행 인감증명은 부동산매도용(매수인 인적사항 기재)을 요하지 않습니다. 일반 인감증명으로 충분합니다.` },
-      { name: `부동산등기선례 제201907-8호(2019. 7. 30.)`, desc: `주요 내용: 귀화허가 취소로 무국적자가 되어 인감증명법에 따른 인감증명을 발급받을 수 없을 때는 대한민국 공증인의 인증으로 인감증명을 갈음할 수 있습니다.` },
-    ],
+    laws: [{"name":"등기예규 제1609호","desc":"제목: 본인서명사실확인서에 관한 사항"},{"name":"등기예규 제1778호 제12조 제2항","desc":"주요 내용: 외국인등록이나 국내거소신고를 하지 않아 인감증명법에 따른 인감증명을 발급받을 수 없고 본국에 인감증명제도가 없는 외국인은:"},{"name":"등기예규 제1778호 제9조 제3항","desc":"주요 내용: 공증은 서명해야 하는 서면 그 자체에 받아야 하며, 별도 문서에 서명 후 공증하는 것은 불가능합니다."},{"name":"등기선례 제200610-12호(2006. 10. 31. 부동산등기과-3230 질의회답)","desc":"주요 내용: 일본·대만 외국인이 국내 부동산을 처분할 때 첨부하는 본국 관공서 발행 인감증명은 부동산매도용(매수인 인적사항 기재)을 요하지 않습니다. 일반 인감증명으로 충분합니다."},{"name":"부동산등기선례 제201907-8호(2019. 7. 30.)","desc":"주요 내용: 귀화허가 취소로 무국적자가 되어 인감증명법에 따른 인감증명을 발급받을 수 없을 때는 대한민국 공증인의 인증으로 인감증명을 갈음할 수 있습니다."}],
     forms: [],
   },
   {
-    id: 'fi-09',
+    id: "fi-09",
     title: "외국인의 한국 부동산 법정상속등기",
     meta: "준거법부터 신청 절차까지",
     sections: [
-      { heading: `이런 분께 필요합니다`, content: `<div class="checklist">
+      { heading: "이런 분께 필요합니다", content: `<div class="checklist">
                     <h4>다음 중 하나에 해당하신다면 이 내용을 읽어보세요</h4>
                     <ul>
                         <li>외국 국적을 취득했거나 외국에 거주하면서 한국 부동산을 상속받는 경우</li>
@@ -2991,7 +2963,7 @@ const FOREIGN_TOPICS = [
                         <li>외국 발급 서류(아포스티유, 번역공증)를 첨부하여 등기를 신청하는 경우</li>
                     </ul>
                 </div>` },
-      { heading: `1. 이 절차가 왜 필요한가`, content: `<div class="why-box">
+      { heading: "1. 이 절차가 왜 필요한가", content: `<div class="why-box">
                     <h3>상속등기는 필수입니다</h3>
                     <h4>등기 없이는 처분 불가</h4>
                     <p>민법 제187조는 "부동산의 처분은 등기가 있어야만 그 효력이 생긴다"고 규정합니다. 상속받은 부동산을 매도하거나, 근저당권을 설정하거나, 자녀에게 증여하려면 반드시 상속등기를 마쳐야 합니다.</p>
@@ -3006,7 +2978,7 @@ const FOREIGN_TOPICS = [
                         <li><strong>반정(상호존중주의):</strong> 외국법이 한국 부동산에 대해 한국법을 적용하도록 하면, 한국법 적용 가능</li>
                     </ul>
                 </div>` },
-      { heading: `2. 전체 절차 흐름 요약`, content: `<div class="process-flow">
+      { heading: "2. 전체 절차 흐름 요약", content: `<div class="process-flow">
                     <h3>5단계로 진행되는 상속등기 절차</h3>
                     <div class="flow-step">
                         <div class="step-num">1</div>
@@ -3052,7 +3024,7 @@ const FOREIGN_TOPICS = [
                         </tr>
                     </tbody>
                 </table>` },
-      { heading: `3. 단계별 상세 절차`, content: `<div class="steps-detail">
+      { heading: "3. 단계별 상세 절차", content: `<div class="steps-detail">
                     <h3>단계 1: 피상속인 국적 및 준거법 확인</h3>
                     <h4>한국인 피상속인</h4>
                     <p>한국 민법 제1000조 이하의 상속 규정이 그대로 적용됩니다. 한국 발급 기본증명서, 가족관계증명서, 제적등본 등으로 상속인을 확정합니다.</p>
@@ -3133,7 +3105,7 @@ const FOREIGN_TOPICS = [
                     <h4>아포스티유 가입국의 서류</h4>
                     <p>미국, 일본, 중국, 독일 등 헤이그 아포스티유 협약 가입국에서 발급한 서류는 반드시 아포스티유를 첨부해야 합니다. 만약 아포스티유 없이 공증만 받으면 등기소에서 보정명령을 통해 아포스티유를 다시 받도록 요구합니다.</p>
                 </div>` },
-      { heading: `4. 첨부서류 목록`, content: `<h3>한국 내 입국한 상속인의 경우</h3>
+      { heading: "4. 첨부서류 목록", content: `<h3>한국 내 입국한 상속인의 경우</h3>
                 <table>
                     <thead>
                         <tr>
@@ -3208,7 +3180,7 @@ const FOREIGN_TOPICS = [
                         </tr>
                     </tbody>
                 </table>` },
-      { heading: `5. 비용 안내`, content: `<div class="warning-box">
+      { heading: "5. 비용 안내", content: `<div class="warning-box">
                     <h4>등기신청 시 납부할 세금 및 수수료</h4>
                     <p>상속등기를 신청할 때 납부하는 비용은 다음과 같습니다. 정확한 금액은 부동산 가격에 따라 달라지므로 위텍스(www.wetax.go.kr)에서 조회하거나 담당 법무사와 상담하세요.</p>
                 </div>
@@ -3226,7 +3198,7 @@ const FOREIGN_TOPICS = [
 
                 <h4>비용 조회</h4>
                 <p>위텍스(www.wetax.go.kr)에 접속하여 부동산 가격, 취득 원인, 소재지를 입력하면 납부할 세금과 수수료를 미리 계산할 수 있습니다.</p>` },
-      { heading: `6. 관련 판례 및 예규`, content: `<div class="precedent-box">
+      { heading: "6. 관련 판례 및 예규", content: `<div class="precedent-box">
                     <h4>국제사법 제49조</h4>
                     <p>"상속은 사망 당시 피상속인의 본국법에 의한다"</p>
                     <p><strong>의미:</strong> 상속 준거법을 결정하는 가장 기본이 되는 법규입니다. 피상속인의 국적이 상속인 범위, 상속분, 유류분 등을 결정합니다.</p>
@@ -3261,7 +3233,7 @@ const FOREIGN_TOPICS = [
                     <p><strong>사안:</strong> 미합중국 시민권자 거주증명서 생년월일 불일치</p>
                     <p><strong>선례:</strong> 미국 시민권자의 거주증명서상 생년월일이 한국 호적상 생년월일과 불일치하는 경우, 생년월일을 일치시킨 후 거주증명서를 다시 발급받아야 등기신청이 가능하다.</p>
                 </div>` },
-      { heading: `7. 자주 발생하는 문제와 해결책`, content: `<div class="warning-box">
+      { heading: "7. 자주 발생하는 문제와 해결책", content: `<div class="warning-box">
                     <h4>⚠️ 서류 번역문 누락</h4>
                     <p><strong>문제:</strong> 외국 발급 서류(사망증명서, 상속인증명서 등)를 아포스티유만 받고 한글 번역문을 첨부하지 않음</p>
                     <p><strong>해결:</strong> 공인된 외국어번역사에게 전문 분야(법률) 번역을 의뢰하고, 번역사 인장과 서명이 있는 번역문을 첨부해야 합니다. 등기소에서 번역문이 없으면 보정명령을 통해 요구합니다.</p>
@@ -3298,7 +3270,7 @@ const FOREIGN_TOPICS = [
                     </ul>
                     <p><strong>대처:</strong> 등기소의 보정명령을 받으면 지정 기간 내에 보정서류를 제출해야 합니다. 기한을 넘기면 신청이 각하될 수 있습니다.</p>
                 </div>` },
-      { heading: `8. 자주 묻는 질문 (Q&A)`, content: `<div class="qna-item">
+      { heading: "8. 자주 묻는 질문 (Q&A)", content: `<div class="qna-item">
                     <h4>Q. 미국 국적 아버지가 한국 부동산을 남기고 사망했습니다. 어떤 법이 적용되나요?</h4>
                     <div class="qna-answer">
                         <p>A. 국제사법 제49조에 따라 피상속인(아버지)의 본국법인 미국 법이 준거법입니다. 다만, 미국 법이 한국 부동산에 대해 한국 민법을 적용하도록 규정하면(Restatement §249), 한국 민법을 적용할 수 있습니다(반정). 미국은 주(State)별로 상속법이 다르므로, 아버지가 사망 당시 거주하던 주의 상속법을 확인해야 합니다. 일반적으로 미국에서는 상속인 범위와 상속분이 한국 민법과 유사하지만, 배우자의 상속분이 다를 수 있습니다. 미국 변호사 또는 법무사의 확인이 필요합니다.</p>
@@ -3346,22 +3318,15 @@ const FOREIGN_TOPICS = [
                     </div>
                 </div>` },
     ],
-    laws: [
-      { name: `국제사법 제49조`, desc: `"상속은 사망 당시 피상속인의 본국법에 의한다"` },
-      { name: `등기예규 제99호 (1967. 1. 16.)`, desc: `사안: 귀화한 직계비속의 재산상속권` },
-      { name: `등기선례 6-219 (1999. 5. 20.)`, desc: `사안: 외국에 입양되어 국적상실로 제적된 자의 상속권` },
-      { name: `등기선례 제7-175호 (2003. 4. 22.)`, desc: `사안: 국적회복허가신청 후 허가 전 사망` },
-      { name: `등기선례 제5-306호 (1998. 7. 1.)`, desc: `사안: 혼인을 통해 한국국적 취득 후 국적 상실 시 상속권` },
-      { name: `등기선례 제5-302호 (1998. 1. 17.)`, desc: `사안: 미합중국 시민권자 거주증명서 생년월일 불일치` },
-    ],
+    laws: [{"name":"국제사법 제49조","desc":"\"상속은 사망 당시 피상속인의 본국법에 의한다\""},{"name":"등기예규 제99호 (1967. 1. 16.)","desc":"사안: 귀화한 직계비속의 재산상속권"},{"name":"등기선례 6-219 (1999. 5. 20.)","desc":"사안: 외국에 입양되어 국적상실로 제적된 자의 상속권"},{"name":"등기선례 제7-175호 (2003. 4. 22.)","desc":"사안: 국적회복허가신청 후 허가 전 사망"},{"name":"등기선례 제5-306호 (1998. 7. 1.)","desc":"사안: 혼인을 통해 한국국적 취득 후 국적 상실 시 상속권"},{"name":"등기선례 제5-302호 (1998. 1. 17.)","desc":"사안: 미합중국 시민권자 거주증명서 생년월일 불일치"}],
     forms: [],
   },
   {
-    id: 'fi-10',
+    id: "fi-10",
     title: "외국인이 포함된 상속재산 협의분할 등기 절차",
     meta: "",
     sections: [
-      { heading: `이런 분께 필요합니다`, content: `<ul class="checklist">
+      { heading: "이런 분께 필요합니다", content: `<ul class="checklist">
                 <li>공동상속인 중에 외국인 또는 해외거주자가 포함된 경우</li>
                 <li>외국에서 거주하는 외국인 상속인이 입국하지 않고도 협의분할에 참가해야 하는 경우</li>
                 <li>상속재산을 법정상속분과 다르게 특정 상속인이 단독으로 취득하기로 협의한 경우</li>
@@ -3373,7 +3338,7 @@ const FOREIGN_TOPICS = [
 
         <!-- 1. 이 절차가 왜 필요한가 -->
         <div class="section">` },
-      { heading: `이 절차가 왜 필요한가`, content: `<div class="box box-summary">
+      { heading: "이 절차가 왜 필요한가", content: `<div class="box box-summary">
                 <h3>상속재산의 협의분할이란</h3>
                 <p>
                     공동상속인들이 법정상속분과 다르게 상속재산을 분할하기로 하는 <span class="highlight">재산권을 목적으로 하는 법률행위</span>입니다.
@@ -3388,7 +3353,7 @@ const FOREIGN_TOPICS = [
 
         <!-- 2. 전체 절차 흐름 요약 -->
         <div class="section">` },
-      { heading: `전체 절차 흐름 요약`, content: `<h3>입국한 외국인 상속인의 경우</h3>
+      { heading: "전체 절차 흐름 요약", content: `<h3>입국한 외국인 상속인의 경우</h3>
             <div class="flow">
                 <div class="flow-step">
                     <div class="flow-step-num">1</div>
@@ -3447,7 +3412,7 @@ const FOREIGN_TOPICS = [
 
         <!-- 3. 단계별 상세 절차 -->
         <div class="section">` },
-      { heading: `단계별 상세 절차`, content: `<h3><span class="step-title">단계 1</span> 공동상속인 전원 확인</h3>
+      { heading: "단계별 상세 절차", content: `<h3><span class="step-title">단계 1</span> 공동상속인 전원 확인</h3>
             <p>상속재산 협의분할은 <span class="text-highlight">공동상속인 전원의 참가</span>가 반드시 필요합니다. 외국에 거주하는 상속인도 포함해야 합니다.</p>
             <ul style="margin: 15px 0; padding-left: 20px;">
                 <li>가족관계증명서, 기본증명서, 제적등본 등으로 상속인 확인</li>
@@ -3510,7 +3475,7 @@ const FOREIGN_TOPICS = [
 
         <!-- 4. 첨부서류 목록 -->
         <div class="section">` },
-      { heading: `첨부서류 목록`, content: `<h3>입국한 외국인 상속인의 경우</h3>
+      { heading: "첨부서류 목록", content: `<h3>입국한 외국인 상속인의 경우</h3>
             <table>
                 <thead>
                     <tr>
@@ -3594,7 +3559,7 @@ const FOREIGN_TOPICS = [
 
         <!-- 5. 비용 안내 -->
         <div class="section">` },
-      { heading: `비용 안내`, content: `<div class="box box-summary">
+      { heading: "비용 안내", content: `<div class="box box-summary">
                 <p>
                     상속재산 협의분할 등기신청에는 다음과 같은 세금과 수수료가 발생합니다:
                 </p>
@@ -3612,7 +3577,7 @@ const FOREIGN_TOPICS = [
 
         <!-- 6. 관련 판례 및 예규 -->
         <div class="section">` },
-      { heading: `관련 판례 및 예규`, content: `<div class="box box-precedent">
+      { heading: "관련 판례 및 예규", content: `<div class="box box-precedent">
                 <h3 style="margin-top: 0;">대법원 판결</h3>
                 <p>
                     <strong>대법원 2001. 2. 9. 선고 2000다51797 판결</strong><br>
@@ -3667,7 +3632,7 @@ const FOREIGN_TOPICS = [
 
         <!-- 7. 자주 발생하는 문제와 해결책 -->
         <div class="section">` },
-      { heading: `자주 발생하는 문제와 해결책`, content: `<h3><span class="icon">⚠️</span> 공동상속인 중 1인의 동의 누락</h3>
+      { heading: "자주 발생하는 문제와 해결책", content: `<h3><span class="icon">⚠️</span> 공동상속인 중 1인의 동의 누락</h3>
             <div class="box box-warning">
                 <p><strong>문제:</strong> 공동상속인 중 1인이 협의분할에 참가하지 않거나 서명을 거부한 경우</p>
                 <p style="margin-top: 10px;"><strong>결과:</strong> 협의분할이 무효가 되며 등기신청이 반려됩니다.</p>
@@ -3709,7 +3674,7 @@ const FOREIGN_TOPICS = [
 
         <!-- 8. Q&A -->
         <div class="section">` },
-      { heading: `자주 묻는 질문`, content: `<div class="qna-item">
+      { heading: "자주 묻는 질문", content: `<div class="qna-item">
                 <div class="qna-q">Q. 미국에 사는 형이 공동상속인인데 입국이 어렵습니다. 형 없이 협의분할을 진행할 수 있나요?</div>
                 <div class="qna-a">
                     아니요, 협의분할은 공동상속인 전원의 참가가 필수입니다. 다만 입국하지 않은 형을 위해 두 가지 방법이 있습니다:
@@ -3794,575 +3759,48 @@ const FOREIGN_TOPICS = [
         <!-- 9. 다음으로 확인할 내용 -->
         <div class="section">` },
     ],
-    laws: [
-      { name: `대법원 판결`, desc: `대법원 2001. 2. 9. 선고 2000다51797 판결 상속재산의 협의분할은 공동상속인 간 계약으로서 전원의 참가가 필수적이며, 재산권을 목적으로 하는 법률행위입니다.` },
-      { name: `부동산등기선례 (2018년 선례 변경)`, desc: `부동산등기선례 제201805-9호 (2018. 05. 28.) 공동상속인 중 외국에 거주하는 상속인이 협의분할에 참가하지 못할 때, 공동상속인 중 1인을 포함하여 누구에게나 대리위임이 가능합니다. (이전 선례 제4-342호(1993. 11. 29.)는 폐지)` },
-      { name: `등기선례`, desc: `등기선례 제202303-2호 (2023. 03. 20.) 재외공관의 인증은 대한민국 공증인의 인증과 동일하게 인정됩니다.` },
-      { name: `등기예규`, desc: `등기예규 제1778호 제6조 제3항 인감증명제도가 없는 나라의 외국인은 ① 본국 관공서의 증명, ② 본국 공증인의 인증, 또는 ③ 대한민국 공증인의 인증으로 인감증명을 대체할 수 있습니다.` },
-    ],
+    laws: [{"name":"대법원 판결","desc":"대법원 2001. 2. 9. 선고 2000다51797 판결 상속재산의 협의분할은 공동상속인 간 계약으로서 전원의 참가가 필수적이며, 재산권을 목적으로 하는 법률행위입니다."},{"name":"부동산등기선례 (2018년 선례 변경)","desc":"부동산등기선례 제201805-9호 (2018. 05. 28.) 공동상속인 중 외국에 거주하는 상속인이 협의분할에 참가하지 못할 때, 공동상속인 중 1인을 포함하여 누구에게나 대리위임이 가능합니다. (이전 선례 제4-342호(1993. 11. 29.)는 폐지)"},{"name":"등기선례","desc":"등기선례 제202303-2호 (2023. 03. 20.) 재외공관의 인증은 대한민국 공증인의 인증과 동일하게 인정됩니다."},{"name":"등기예규","desc":"등기예규 제1778호 제6조 제3항 인감증명제도가 없는 나라의 외국인은 ① 본국 관공서의 증명, ② 본국 공증인의 인증, 또는 ③ 대한민국 공증인의 인증으로 인감증명을 대체할 수 있습니다."}],
     forms: [],
   },
   {
-    id: 'fi-11',
-    title: "해외 거주 외국인이 입국 없이 상속 협의분할에 참가하는 방법",
-    meta: "대리위임장 작성부터 협의분할서 우편 발송까지 완벽 가이드",
+    id: "fi-11",
+    title: "상속인 중 해외에 사는 가족이 있을 때 — 상속등기, 한국에 오지 않고 끝내는 방법",
+    meta: "상속인 중 해외에 사는 가족이 있어도 상속인과 상속분은 같고 달라지는 것은 서류입니다. 인감증명 대신 공증, 외국 서류의 아포스티유·번역, 9개월 취득세 기한까지 한국에 오지 않고 끝내는 방법을 안내합니다.",
+    reviewed: "2026-11-13",
+    kb: "F-C00",
     sections: [
-      { heading: `이런 분께 필요합니다`, content: `<div class="checklist">
-            <h3>이런 분께 필요합니다</h3>
-            <ul>
-                <li>한국 부동산을 상속받았는데 해외에 거주하여 입국하지 않는 경우</li>
-                <li>다른 상속인들과 상속재산 협의분할을 해야 하는데 본인서명이 필요한 경우</li>
-                <li>인감증명 제도가 없는 나라에 거주하고 있는 외국인</li>
-                <li>대리인을 선임하지 않고 스스로 협의분할에 참가하고 싶은 경우</li>
-                <li>공동상속인 중 1인이 협의분할서에 날인하고 공증받는 절차를 알고 싶은 경우</li>
-                <li>아포스티유나 재외공관 공증이 필요한지 확인하고 싶은 경우</li>
-            </ul>
-        </div>` },
-      { heading: `2. 미입국 협의분할의 의미와 선택 기준`, content: `<p>해외 거주 외국인이 상속재산 협의분할에 참가하는 방식은 <strong>입국 여부, 대리인 선임 여부, 본인의 선호도</strong>에 따라 달라집니다.</p>
-
-            <h3>방법 선택 기준</h3>
-            <div style="margin-left: 20px;">
-                <p><strong>방법1 (대리위임장)을 선택하면:</strong></p>
-                <ul>
-                    <li>본인이 대리인을 선임하고 대리위임장만 작성하면 됨</li>
-                    <li>대리인(보통 공동상속인)이 본인 대신 협의분할에 참가</li>
-                    <li>절차가 더 간단하고 빠름</li>
-                    <li>대리인이 신뢰할 수 있는 사람일 때 추천</li>
-                </ul>
-
-                <p><strong>방법2 (협의분할서 우편 발송)을 선택하면:</strong></p>
-                <ul>
-                    <li>본인이 직접 협의분할서에 서명</li>
-                    <li>대리인이 필요 없음</li>
-                    <li>본인의 의사가 직접 반영됨</li>
-                    <li>절차가 다소 복잡하고 시간이 소요됨</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- 섹션 3: 절차 흐름도 -->
-        <div class="timeline-box">
-            <h4>절차 흐름 요약</h4>
-
-            <h3 style="margin-top: 20px; margin-bottom: 15px;">방법1: 대리위임장 방식</h3>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-item-number">1</div>
-                    <div class="timeline-item-content">
-                        <h4>대리위임장 작성</h4>
-                        <p>본인이 대리인을 지정하고 위임장 작성 (서명 필요)</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-item-number">2</div>
-                    <div class="timeline-item-content">
-                        <h4>공증/인증 (국가에 따라 다름)</h4>
-                        <p>인감증명 있는 국가: 본국 공증인 인증 / 인감증명 없는 국가: 재외공관 공증</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-item-number">3</div>
-                    <div class="timeline-item-content">
-                        <h4>위임장 한국 송부</h4>
-                        <p>공증받은 위임장을 대리인(또는 법무사)에게 전달</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-item-number">4</div>
-                    <div class="timeline-item-content">
-                        <h4>협의분할 진행</h4>
-                        <p>대리인이 본인 대신 다른 공동상속인들과 협의분할 협의</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-item-number">5</div>
-                    <div class="timeline-item-content">
-                        <h4>협의분할서 작성</h4>
-                        <p>전원이 서명한 협의분할계약서</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-item-number">6</div>
-                    <div class="timeline-item-content">
-                        <h4>등기 신청</h4>
-                        <p>공동상속인이 함께 또는 각각 등기 신청 가능</p>
-                    </div>
-                </div>
-            </div>
-
-            <h3 style="margin-top: 30px; margin-bottom: 15px;">방법2: 협의분할서 우편 발송 방식</h3>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-item-number">1</div>
-                    <div class="timeline-item-content">
-                        <h4>협의분할서 초안 수신</h4>
-                        <p>한국 내 법무사 또는 다른 상속인으로부터 협의분할서 초안</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-item-number">2</div>
-                    <div class="timeline-item-content">
-                        <h4>서명 및 공증</h4>
-                        <p>재외공관 또는 본국 공증인 인증 받기</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-item-number">3</div>
-                    <div class="timeline-item-content">
-                        <h4>협의분할서 한국 송부</h4>
-                        <p>공증받은 협의분할서를 한국의 다른 상속인들에게 송부</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-item-number">4</div>
-                    <div class="timeline-item-content">
-                        <h4>다른 상속인 서명</h4>
-                        <p>나머지 상속인들이 서명하고 공증받음</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-item-number">5</div>
-                    <div class="timeline-item-content">
-                        <h4>등기 신청</h4>
-                        <p>전 상속인의 서명을 받은 협의분할서로 등기 신청</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 섹션 4: 방법1 상세 절차 -->
-        <div class="content-section">` },
-      { heading: `3. 방법1: 대리위임장 작성 방법`, content: `<h3>가. 대리위임장이란</h3>
-            <p>상속재산분할협의 대리위임장은 <strong>등기예규 제1778호 제6조</strong>에 정해진 문서입니다. 공동상속인이 다른 사람(공동상속인 포함)을 대리인으로 지정하여 협의분할협의에 참가하도록 하는 서면입니다.</p>
-
-            <h3>나. 국가별 위임장 작성 및 공증 방법</h3>
-
-            <div class="country-diff-box">
-                <h4>인감증명제도가 있는 국가 (일본, 대만 등)</h4>
-                <p><strong>작성 방법:</strong></p>
-                <ul style="margin-left: 20px;">
-                    <li>대리위임장에 본인의 인감도장으로 날인</li>
-                    <li>본국의 관공서로부터 인감증명서 발급받기</li>
-                    <li>인감증명서는 한국 공증인 공증 또는 아포스티유 첨부</li>
-                </ul>
-            </div>
-
-            <div class="country-diff-box">
-                <h4>인감증명제도가 없는 국가 (미국, 유럽 등)</h4>
-                <p><strong>작성 방법 (3가지 중 선택):</strong></p>
-                <ul style="margin-left: 20px;">
-                    <li><strong>①본국 관공서 증명:</strong> 본인이 본국 관공서에서 서명 확인 증명 발급</li>
-                    <li><strong>②본국 공증인 인증:</strong> 본국의 공증인(Notary Public 등)으로부터 인증 받기</li>
-                    <li><strong>③대한민국 공증인 인증:</strong> 대한민국 공증인으로부터 공증 (서명 사실 확인)</li>
-                </ul>
-                <p style="margin-top: 15px;"><span class="emphasis">핵심</span> <strong>대한민국 재외공관의 인증 = 대한민국 공증인의 인증에 해당합니다</strong>(등기선례 제202303-2호, 2023년 3월 20일). 따라서 한국 대사관이나 영사관에서 공증받으면 충분합니다.</p>
-            </div>
-
-            <h3>다. 대리인이 해야 할 일</h3>
-            <p>공동상속인을 대리인으로 선임한 경우, 대리인은 <strong>협의분할협의서에 자신의 인감도장으로 날인하고 인감증명서를 첨부</strong>해야 합니다(등기예규 제1778호 제6조 제4항).</p>
-
-            <div class="warning-box">
-                <h4>대리인 인감증명 면제 요건</h4>
-                <p>대리인이 협의분할서를 작성한 공증을 받은 경우, 대리인의 인감증명서는 불필요합니다. 즉, 공증인이 "이 서면은 대리인(○○○)이 작성하였음을 확인합니다"라는 공증을 받으면 인감증명 대신 가능합니다.</p>
-            </div>
-        </div>
-
-        <!-- 섹션 5: 방법2 상세 절차 -->
-        <div class="content-section">` },
-      { heading: `4. 방법2: 협의분할서 우편 발송 방법`, content: `<h3>가. 협의분할서 작성 및 서명</h3>
-            <p>협의분할계약서는 공동상속인 전원이 간인(署名)하는 것이 원칙입니다(등기선례 제201807-1호, 2018년 7월 5일). 각 상속인이 개별적으로 서명하고 공증을 받는 방식입니다.</p>
-
-            <h3>나. 다중 장(page)에 걸친 간인 방법</h3>
-            <p>협의분할서가 여러 장인 경우, 공증인이 각 장에 걸쳐 직인으로 간인해야 합니다(등기선례 제202001-1호, 2020년 1월 9일).</p>
-            <div class="warning-box">
-                <h4>공증 위치 주의</h4>
-                <p>공증의 경우 <strong>인감을 날인해야 하는 서면 그 자체에 받아야 합니다</strong>(등기예규 제1778호 제9조 제3항). 즉, 협의분할서가 10장이면 10장 모두에 공증인 직인이 있어야 합니다.</p>
-            </div>
-
-            <h3>다. 절차 순서</h3>
-            <div style="margin-left: 20px;">
-                <div class="step-item">
-                    <strong>1단계: 협의분할서 초안 작성</strong>
-                    <p>한국 내에서 협의분할 내용을 정리하여 초안 작성</p>
-                </div>
-                <div class="step-item">
-                    <strong>2단계: 해외 거주 상속인에게 송부</strong>
-                    <p>협의분할서 초안을 해외로 우편 또는 이메일 발송</p>
-                </div>
-                <div class="step-item">
-                    <strong>3단계: 해외 거주 상속인 서명 및 공증</strong>
-                    <p>해외 거주 상속인이 협의분할서에 서명하고 재외공관 또는 본국 공증인 공증 받기</p>
-                </div>
-                <div class="step-item">
-                    <strong>4단계: 공증받은 협의분할서 한국 송부</strong>
-                    <p>공증받은 협의분할서를 한국의 다른 상속인들에게 우편 송부</p>
-                </div>
-                <div class="step-item">
-                    <strong>5단계: 한국 내 상속인 서명 및 공증</strong>
-                    <p>한국 내 상속인이 협의분할서에 서명하고 한국 공증인 공증 받기</p>
-                </div>
-                <div class="step-item">
-                    <strong>6단계: 등기 신청</strong>
-                    <p>전원이 서명한 협의분할서로 등기청에 신청</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 섹션 6: 첨부서류 표 -->
-        <div class="content-section">` },
-      { heading: `5. 첨부서류 목록`, content: `<p>미입국 협의분할에 필요한 서류는 선택한 방법과 상속인의 국가에 따라 달라집니다.</p>
-
-            <h3>방법1: 대리위임장 방식 첨부서류</h3>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>서류명</th>
-                        <th>입국한 경우</th>
-                        <th>미입국인 경우</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>대리위임장</strong></td>
-                        <td>
-                            <ul style="margin: 0; padding-left: 20px;">
-                                <li>인감도장 날인</li>
-                                <li>인감증명서</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul style="margin: 0; padding-left: 20px;">
-                                <li><strong>인감증명제도 있는 국가:</strong> 위임장 인감도장 날인 + 본국 인감증명 + 아포스티유 또는 한국 공증인 공증</li>
-                                <li><strong>인감증명제도 없는 국가:</strong> 본인 서명 + 재외공관 공증 또는 본국 공증인 인증</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>위임자 신분증</strong></td>
-                        <td>외국인등록증 또는 여권</td>
-                        <td>여권 사본 (재외공관에서 확인한 사본)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>상속재산분할협의서</strong></td>
-                        <td>
-                            <ul style="margin: 0; padding-left: 20px;">
-                                <li>인감도장 날인 (위임장 있는 경우 위임인 서명 면제 가능)</li>
-                                <li>인감증명서</li>
-                            </ul>
-                        </td>
-                        <td>위임장 있으면 위임인 서명 불필요 (대리인만 서명)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>상속관계 증명서</strong></td>
-                        <td>기본증명서, 가족관계증명서 등</td>
-                        <td>동일 (아포스티유 협약 가입국이면 아포스티유 첨부)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>주소증명</strong></td>
-                        <td>외국인등록증 또는 외국인등록사항증명서</td>
-                        <td>재외공관 발급 거주증명서, 여권 등</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3 style="margin-top: 35px;">방법2: 협의분할서 우편 발송 방식 첨부서류</h3>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>서류명</th>
-                        <th>입국한 경우</th>
-                        <th>미입국인 경우</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>상속재산분할협의서</strong></td>
-                        <td>
-                            <ul style="margin: 0; padding-left: 20px;">
-                                <li>전원 인감도장 날인</li>
-                                <li>공증 불필요</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul style="margin: 0; padding-left: 20px;">
-                                <li>미입국 상속인: 각 장에 공증인 직인 (재외공관 공증)</li>
-                                <li>한국 내 상속인: 각 장에 인감도장 날인 + 인감증명서</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>공증서</strong></td>
-                        <td>불필요</td>
-                        <td>미입국 상속인 부분에만 필요 (재외공관 또는 본국 공증인)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>상속관계 증명서</strong></td>
-                        <td>기본증명서, 가족관계증명서 등</td>
-                        <td>동일 (아포스티유 필요)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>신분증</strong></td>
-                        <td>외국인등록증 또는 여권</td>
-                        <td>여권 사본 (재외공관 확인)</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="notice-header" style="margin-top: 25px;">
-                <p>각 장(page)에 공증인 직인이 있어야 합니다</p>
-            </div>
-        </div>
-
-        <!-- 섹션 7: 주의사항 -->
-        <div class="content-section">` },
-      { heading: `6. 주의사항`, content: `<div class="warning-box">
-                <h4>전원 참가 원칙</h4>
-                <p>공동상속인 중 1인이라도 협의분할에 참가하지 않으면 그 협의분할은 <span class="emphasis">무효</span>가 됩니다. 생사불명인 상속인이 있거나 연락이 닿지 않는 상속인이 있으면 협의분할이 불가능하므로 공동상속등기를 신청해야 합니다(등기선례 제6-203호).</p>
-            </div>
-
-            <div class="warning-box">
-                <h4>아포스티유 협약 가입국 확인</h4>
-                <p>해당 국가가 헤이그협약(아포스티유 협약)에 가입했다면 한국 공증인 공증 대신 본국 정부 기관의 아포스티유로 대체할 수 있습니다. 협약 가입국 목록은 사전에 확인하시기 바랍니다.</p>
-            </div>
-
-            <div class="warning-box">
-                <h4>공증 위치 (방법2 중요)</h4>
-                <p>협의분할서가 여러 장인 경우, 각 장에 공증인 직인이 있어야 합니다. 첫 장에만 있으면 안 됩니다.</p>
-            </div>
-
-            <div class="warning-box">
-                <h4>번역문 필요 여부</h4>
-                <p>외국 기관이 발급한 서류(거주증명서, 인감증명 등)는 한국어 번역문이 필요할 수 있습니다. 번역문은 공증인 또는 법무사로부터 공증받아야 합니다.</p>
-            </div>
-
-            <div class="warning-box">
-                <h4>우편 송부 시 시간 계획</h4>
-                <p>국제 우편은 1~3주 소요될 수 있습니다. 절차별로 2~3개월의 시간 여유를 갖고 진행하시기 바랍니다.</p>
-            </div>
-        </div>
-
-        <!-- 섹션 8: 판례·예규 -->
-        <div class="content-section">` },
-      { heading: `7. 관련 법령 및 예규`, content: `<div class="precedent-box">
-                <h4>협의분할 전원 참가 원칙</h4>
-                <p><strong>대법원 2001. 2. 9. 선고 2000다51797 판결</strong></p>
-                <p style="margin-top: 8px;">상속재산의 협의분할은 공동상속인 전원의 합의가 있어야 유효하다. 1인이라도 참가하지 않으면 무효이다.</p>
-            </div>
-
-            <div class="precedent-box">
-                <h4>공동상속인을 대리인으로 선임 가능</h4>
-                <p><strong>등기선례 제201805-9호 (2018. 5. 28.)</strong></p>
-                <p style="margin-top: 8px;">상속재산분할협의의 대리인으로 다른 공동상속인을 선임할 수 있다. (종전 선례 변경)</p>
-            </div>
-
-            <div class="precedent-box">
-                <h4>재외공관 공증의 효력</h4>
-                <p><strong>등기선례 제202303-2호 (2023. 3. 20.)</strong></p>
-                <p style="margin-top: 8px;">대한민국 재외공관의 인증은 대한민국 공증인의 인증에 해당한다.</p>
-            </div>
-
-            <div class="precedent-box">
-                <h4>간인 방법</h4>
-                <p><strong>등기선례 제201807-1호 (2018. 7. 5.)</strong></p>
-                <p style="margin-top: 8px;">협의분할서는 공동상속인 전원이 간인해야 한다.</p>
-            </div>
-
-            <div class="precedent-box">
-                <h4>다중 장 공증</h4>
-                <p><strong>등기선례 제202001-1호 (2020. 1. 9.)</strong></p>
-                <p style="margin-top: 8px;">협의분할서가 여러 장인 경우, 각 장에 공증인 직인으로 간인해야 한다.</p>
-            </div>
-
-            <div class="precedent-box">
-                <h4>대리인 인감증명 요건</h4>
-                <p><strong>등기예규 제1778호 제6조 제4항</strong></p>
-                <p style="margin-top: 8px;">대리인이 협의분할서에 날인한 경우, 대리인의 인감증명서 첨부 필요. 단, 대리인이 작성했다는 공증을 받은 경우 인감증명 불필요.</p>
-            </div>
-
-            <div class="precedent-box">
-                <h4>생사불명 상속인이 있는 경우</h4>
-                <p><strong>등기선례 제6-203호</strong></p>
-                <p style="margin-top: 8px;">공동상속인 중 1인이 생사불명인 경우, 나머지 상속인들만으로 협의분할할 수 없다. 공동상속등기를 신청해야 한다.</p>
-            </div>
-        </div>
-
-        <!-- 섹션 9: 자주 발생하는 문제 -->
-        <div class="content-section">` },
-      { heading: `8. 자주 발생하는 문제와 해결책`, content: `<div class="case-box">
-                <h4>문제 1: 공증 위치가 잘못되는 경우</h4>
-                <p style="margin-top: 10px;"><strong>문제:</strong> 협의분할서 10장 중 첫 장에만 공증인 직인이 있는 경우</p>
-                <p><strong>결과:</strong> 보정명령 (각 장에 공증인 직인 필요)</p>
-                <p><strong>해결책:</strong> 공증 신청 시 "모든 장에 간인해 달라"고 명시적으로 요청</p>
-            </div>
-
-            <div class="case-box">
-                <h4>문제 2: 인감증명 없는 국가의 상속인</h4>
-                <p style="margin-top: 10px;"><strong>상황:</strong> 미국 거주 외국인이 대리위임장을 작성했는데 어떻게 공증받아야 하나?</p>
-                <p><strong>해결책:</strong> 다음 3가지 중 선택:</p>
-                <ul style="margin-left: 20px; margin-top: 8px;">
-                    <li>한국 대사관(재외공관)에서 공증</li>
-                    <li>본국(미국) Notary Public의 인증</li>
-                    <li>본국 관공서의 서명 확인 증명</li>
-                </ul>
-                <p style="margin-top: 10px;"><strong>추천:</strong> 재외공관 공증이 가장 안전함</p>
-            </div>
-
-            <div class="case-box">
-                <h4>문제 3: 아포스티유와 공증 혼동</h4>
-                <p style="margin-top: 10px;"><strong>혼동:</strong> 아포스티유를 받아야 하는지, 공증을 받아야 하는지 불명확</p>
-                <p><strong>기준:</strong></p>
-                <ul style="margin-left: 20px; margin-top: 8px;">
-                    <li>상속인의 서명/인감: <strong>공증</strong> (또는 아포스티유)</li>
-                    <li>외국 관공서 발급 서류(거주증명 등): <strong>아포스티유</strong></li>
-                </ul>
-            </div>
-
-            <div class="case-box">
-                <h4>문제 4: 대리인이 상속인인 경우</h4>
-                <p style="margin-top: 10px;"><strong>상황:</strong> 공동상속인인 형이 해외 거주하는 동생의 대리인이 되려면?</p>
-                <p><strong>필요 서류:</strong></p>
-                <ul style="margin-left: 20px; margin-top: 8px;">
-                    <li>동생(위임인)의 대리위임장 (공증)</li>
-                    <li>형(대리인)의 협의분할서 서명 + 인감증명</li>
-                </ul>
-                <p style="margin-top: 10px;"><strong>주의:</strong> 형도 협의분할서에 서명해야 함</p>
-            </div>
-
-            <div class="case-box">
-                <h4>문제 5: 공동상속인이 연락이 안 되는 경우</h4>
-                <p style="margin-top: 10px;"><strong>상황:</strong> 공동상속인이 해외에 있으나 연락이 닿지 않음</p>
-                <p><strong>해결책:</strong> 협의분할 불가 → 공동상속등기 신청</p>
-                <p><strong>다음 단계:</strong> 나중에 그 상속인을 특정하여 별도 경정등기</p>
-            </div>
-        </div>
-
-        <!-- 섹션 10: Q&A -->
-        <div class="content-section">` },
-      { heading: `9. 자주 묻는 질문`, content: `<div class="faq">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>방법1(대리위임장)과 방법2(협의분할서 우편)의 차이는 무엇인가요?</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>방법1은 본인이 대리인을 지정하여 그 대리인이 본인 대신 협의분할에 참가하는 방식입니다. 절차가 간단하고 빠르지만, 대리인이 신뢰할 수 있는 사람이어야 합니다. 방법2는 본인이 직접 협의분할서에 서명하는 방식으로, 본인의 의사가 직접 반영되지만 절차가 복잡하고 시간이 더 소요됩니다. 국제 우편 왕복으로 2~3개월이 걸릴 수 있습니다.</p>
-                        <p style="margin-top: 10px; color: #999; font-size: 0.9em;">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>인감증명 없는 나라(미국, 유럽)에서는 대리위임장을 어떻게 공증받나요?</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>3가지 방법 중 선택할 수 있습니다: ① 한국 대사관(재외공관)에 가서 공증받기 ② 본국의 Notary Public(공증인)의 인증 받기 ③ 본국 관공서의 서명 확인 증명 받기. 가장 간단한 방법은 ①번으로, 재외공관에서 직접 공증받는 방식입니다. 이 경우 대한민국 공증인의 공증에 해당하므로(등기선례 제202303-2호) 추가로 한국 공증인 공증을 받을 필요가 없습니다.</p>
-                        <p style="margin-top: 10px; color: #999; font-size: 0.9em;">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>협의분할서가 10장이면 10장 모두에 공증인 직인이 있어야 하나요?</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>네, 맞습니다. 협의분할서가 여러 장인 경우, 각 장에 공증인의 직인(간인)으로 연결되어야 합니다(등기선례 제202001-1호, 2020. 1. 9.). 첫 장에만 있으면 안 됩니다. 이를 위반하면 등기청에서 보정명령을 내립니다. 공증 신청 시 "각 장에 간인해 달라"고 명시적으로 요청하세요.</p>
-                        <p style="margin-top: 10px; color: #999; font-size: 0.9em;">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>공동상속인 중 1인이 해외에서 연락이 안 되면 어떻게 하나요?</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>협의분할은 공동상속인 전원의 합의가 필수이므로, 1인이라도 연락이 닿지 않으면 협의분할을 진행할 수 없습니다. 이 경우 <span class="emphasis">공동상속등기</span>를 신청해야 합니다. 공동상속등기 신청 후, 나중에 연락이 된 상속인과 협의분할을 하게 되면 경정등기로 수정합니다(등기선례 제6-203호).</p>
-                        <p style="margin-top: 10px; color: #999; font-size: 0.9em;">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>대리인이 다른 공동상속인이면 대리인도 협의분할서에 서명해야 하나요?</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>네, 맞습니다. 대리인이 다른 공동상속인인 경우, 그 대리인도 자신의 상속 몫을 정하기 위해 협의분할서에 서명해야 합니다. 즉, 대리인은 두 가지 자격으로 서명합니다: ① 위임인(피위임인)의 대리인으로서 ② 자신의 상속인으로서. 따라서 대리인의 인감도장 날인과 인감증명서가 필요합니다(등기예규 제1778호 제6조 제4항).</p>
-                        <p style="margin-top: 10px; color: #999; font-size: 0.9em;">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>아포스티유와 공증, 어느 것을 받아야 하나요?</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p><strong>상속인의 서명/인감:</strong> 공증을 받아야 합니다(아포스티유도 가능하지만 공증이 기본). <strong>외국 관공서 발급 서류:</strong> 아포스티유를 받아야 합니다(예: 거주증명서, 인감증명 등). 즉, 협의분할서에 본인이 서명하는 부분은 공증이나 재외공관 인증을 받고, 외국 정부 기관이 발급한 서류(거주증명 등)는 아포스티유를 받으면 됩니다. 해당 국가가 아포스티유 협약 가입국인지 확인하는 것이 중요합니다.</p>
-                        <p style="margin-top: 10px; color: #999; font-size: 0.9em;">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>협의분할서 우편 발송 시 얼마나 시간이 걸리나요?</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p><span class="emphasis">⚡ 국제 우편은 왕복 2~3주</span>가 소요됩니다. 따라서 절차 전체로는 2~3개월을 예상하셔야 합니다. 구체적으로는: ① 협의분할서 송부(1주) ② 해외 거주 상속인 서명 및 공증(1~2주) ③ 한국 송부(1주) ④ 한국 내 상속인 서명 및 공증(1~2주) ⑤ 등기 신청(2~3주). 이 중에서 공증 대기 시간이 가장 길 수 있습니다. 미리 계획을 세우시기 바랍니다.</p>
-                        <p style="margin-top: 10px; color: #999; font-size: 0.9em;">위 내용은 일반적인 경우를 기준으로 한 것이며, 국적·체류 자격·개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 섹션 11: 관련 주제 링크 -->
-        <div class="related-links">
-            <h3>다음으로 확인할 내용</h3>
-            <ul>
-                <li><a href="외등_10_외국인협의분할.html">외국인이 포함된 상속재산 협의분할 등기 절차</a> — 외국인의 협의분할 전체 절차</li>
-                <li><a href="외등_09_외국인법정상속.html">외국인의 한국 부동산 법정상속등기</a> — 협의분할이 불가능할 때 법정상속 신청</li>
-                <li><a href="외등_25_아포스티유.html">아포스티유(Apostille) 완벽 가이드</a> — 아포스티유가 필요한 서류와 신청 방법</li>
-                <li><a href="외등_08_인감대체.html">인감증명 없는 나라 외국인의 부동산 매도</a> — 인감 대신 본인서명사실확인서 활용법</li>
-            </ul>
-        </div>
-
-        <!-- 섹션 12: 상담 CTA -->
-        <div class="consultation-box">
-            <h3>이 절차가 필요하신가요?</h3>
-            <p><strong>첫 상담은 무료입니다.</strong></p>
-            <p>외국인·재외국민 등기는 국적·체류 자격·입국 여부에 따라 준비 서류가 달라집니다. 서류 준비부터 신청까지 법무사가 함께합니다.</p>
-            <p style="margin-top: 15px; color: #666; font-size: 0.95em;">대리위임장 공증, 협의분할서 우편 발송, 등기 신청까지 모든 과정을 지원해드립니다.</p>
-            <div class="button-group">
-                <button class="btn btn-phone" onclick="alert('상담 전화 번호로 연결됩니다.')">📞 전화 상담</button>
-                <button class="btn btn-kakao" onclick="alert('카카오톡 상담이 연결됩니다.')">💬 카카오톡 상담</button>
-            </div>
-        </div>
-
-        <!-- 면책 문구 -->
-        <div class="disclaimer">
-            <p><strong>법률 정보 공시</strong></p>
-            <p>본 페이지는 일반적인 법률 정보 제공을 목적으로 하며, 개별 사안에 대한 법률 조언이 아닙니다. 이 페이지는 2025년 현행 법령과 등기선례를 기준으로 작성되었습니다. 구체적인 상황이나 예외 사항에 대해서는 반드시 법무사와 상담하시기 바랍니다.</p>
-            <p>등기선례와 예규는 예고 없이 변경될 수 있으므로, 신청 전에 최신 정보 확인을 권장합니다.</p>
-        </div>
-    </div>
-</body>
-</html>` },
+      { heading: "이런 분께 필요합니다", content: `<ul class="checklist"><li> 상속인 중에 외국 영주권자나 외국에 오래 사는 가족이 있다</li><li> 형제 중 한 명이 외국 시민권을 따서 한국 국적이 없다</li><li> 해외 가족이 한국에 들어오지 않고 상속등기를 마치고 싶다</li><li> 해외 가족이 부동산을 받지 않기로 했는데 그래도 서류가 필요한지 궁금하다</li><li> 상속재산분할협의서에 외국에서 서명받는 방법을 모르겠다</li></ul>` },
+      { heading: "핵심정리", content: `<div class="kb-box kb-summary"><p>부모님이 돌아가셨는데 형제 한 명은 미국 시민권자이고, 다른 한 명은 캐나다 영주권자라면 상속등기는 어떻게 할까요? 해외에 사는 가족도 국내 가족과 똑같이 상속인입니다. 돌아가신 분이 한국 사람이면 상속인과 상속분은 한국 민법으로 정해지고, 상속인의 국적은 여기에 영향을 주지 않습니다. 달라지는 것은 <strong>서류</strong>입니다. 해외 상속인은 국내 인감증명 대신 <strong>서명한 서면에 공증이나 재외공관 확인</strong>을 받고, 외국 서류에는 <strong>아포스티유나 영사확인과 번역문</strong>을 붙입니다. 대신 취득세 신고 기한은 <strong>9개월</strong>로 국내만 있을 때보다 석 달 깁니다.</p><details class="refs-mini"><summary>📋 근거 6</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/국제사법/제77조" target="_blank" rel="noopener" class="tag-law">📋 국제사법 제77조</a><a href="https://www.law.go.kr/법령/민법/제1000조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1000조</a><a href="https://www.law.go.kr/행정규칙/재외국민및외국인의부동산등기신청절차에관한예규" target="_blank" rel="noopener" class="tag-law">📋 등기예규 제1778호 제9조</a><a href="https://www.law.go.kr/행정규칙/재외국민및외국인의부동산등기신청절차에관한예규" target="_blank" rel="noopener" class="tag-law">📋 등기예규 제1778호 제12조</a><a href="https://www.law.go.kr/행정규칙/재외국민및외국인의부동산등기신청절차에관한예규" target="_blank" rel="noopener" class="tag-law">📋 등기예규 제1778호 제3조</a><a href="https://www.law.go.kr/법령/지방세법/제20조" target="_blank" rel="noopener" class="tag-law">📋 지방세법 제20조</a></div></details></div>` },
+      { heading: "상세설명", content: `<h3>해외 가족도 똑같이 상속인입니다</h3><p>상속인이 누구인지는 <strong>돌아가신 분의 국적</strong>으로 정해지는 법에 따릅니다. 우리 국제사법은 상속을 사망 당시 피상속인의 본국법에 맡기므로, 부모님이 한국 국적이었다면 상속인의 국적과 관계없이 한국 민법이 적용됩니다. 자녀와 배우자가 1순위로 함께 상속하고, 같은 순위 자녀끼리는 똑같이, 배우자는 자녀 몫에 5할을 더해 받습니다.</p><details class="refs-mini"><summary>📋 근거 4</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/국제사법/제77조" target="_blank" rel="noopener" class="tag-law">📋 국제사법 제77조</a><a href="https://www.law.go.kr/법령/민법/제1000조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1000조</a><a href="https://www.law.go.kr/법령/민법/제1003조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1003조</a><a href="https://www.law.go.kr/법령/민법/제1009조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1009조</a></div></details>
+<p>따라서 이민 가서 시민권을 딴 자녀도 자녀이고, 결혼 후 외국에 사는 딸도 같은 몫의 상속인입니다. 반대로 돌아가신 분이 외국 국적이었다면 출발점이 그 나라 법이 되므로 사정이 완전히 다릅니다. 이 경우는 별도 페이지(F-C01)에서 설명합니다.</p>
+<p>해외 상속인은 등기 서류상 두 갈래로 나뉩니다.</p>
+<div class="table-wrap"><table><tr><th>구분</th><th>누구인가</th><th>서류의 특징</th></tr><tr><td data-label="구분">재외국민</td><td data-label="누구인가">한국 국적을 가진 채 외국 영주권을 얻었거나 영주할 목적으로 외국에 사는 사람</td><td data-label="서류의 특징">한국 재외공관(대사관·영사관)에서 확인을 받는다</td></tr><tr><td data-label="구분">외국인</td><td data-label="누구인가">한국 국적이 없는 사람(외국 국적 취득으로 국적을 잃은 사람 포함)</td><td data-label="서류의 특징">거주국 공증인 공증 + 아포스티유, 또는 한국 재외공관 인증 등 선택지가 넓다</td></tr></table></div>
+<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/재외국민및외국인의부동산등기신청절차에관한예규" target="_blank" rel="noopener" class="tag-law">📋 등기예규 제1778호 제2조</a></div></details><h3>등기 방식 두 가지 — 해외 상속인이 있으면 무엇이 다른가</h3><p><strong>법정상속분대로 등기</strong>하면 상속인 한 사람이 전원 명의로 단독 신청할 수 있습니다. 해외 상속인의 서명이 필요 없어 빠르지만, 해외 가족 이름으로도 지분이 올라갑니다. 그러면 그 지분에 맞는 주소 증명과 부동산등기용등록번호를 갖춰야 하고, 나중에 부동산을 팔 때 해외 가족이 매도 서류를 다시 갖춰야 합니다.</p><details class="refs-mini"><summary>📋 근거 4</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/부동산등기법/제23조" target="_blank" rel="noopener" class="tag-law">📋 부동산등기법 제23조 제3항</a><a href="https://www.law.go.kr/법령/민법/제1009조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1009조</a><a href="https://www.law.go.kr/행정규칙/재외국민및외국인의부동산등기신청절차에관한예규" target="_blank" rel="noopener" class="tag-law">📋 등기예규 제1778호 제10조</a><a href="https://www.law.go.kr/행정규칙/재외국민및외국인의부동산등기신청절차에관한예규" target="_blank" rel="noopener" class="tag-law">📋 등기예규 제1778호 제13조</a></div></details>
+<p><strong>협의분할로 등기</strong>하면 국내 가족 한 명에게 몰아주는 것처럼 원하는 대로 나눌 수 있습니다. 다만 상속인 <strong>전원</strong>이 협의에 참여해야 하고, 협의서에 날인한 상속인 모두의 인감증명이 원칙입니다. 해외 상속인은 이 인감증명을 아래의 대체 서류로 갖춥니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1013조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1013조</a><a href="https://www.law.go.kr/법령/부동산등기규칙/제60조" target="_blank" rel="noopener" class="tag-law">📋 부동산등기규칙 제60조 제1항 제6호</a></div></details>
+<div class="table-wrap"><table><tr><th>상황</th><th>대체로 맞는 방식</th></tr><tr><td data-label="상황">해외 가족이 연락되고 협조적이며, 부동산을 국내 가족이 갖기로 했다</td><td data-label="대체로 맞는 방식">협의분할 — 해외 가족은 서명 인증만 하면 되고 주소 증명은 필요 없다</td></tr><tr><td data-label="상황">해외 가족도 지분을 갖고 싶어 한다</td><td data-label="대체로 맞는 방식">협의분할 또는 법정상속분 — 받는 사람은 주소 증명·등록번호까지 필요</td></tr><tr><td data-label="상황">해외 가족과 연락이 닿지 않거나 협조하지 않는다</td><td data-label="대체로 맞는 방식">우선 법정상속분 등기, 이후 분할심판 등 검토(아래 &quot;주의할 점&quot;)</td></tr></table></div><h3>해외 상속인이 준비할 서류</h3><p>협의분할을 기준으로 정리하면 다음과 같습니다. 가족관계 서류(돌아가신 분의 기본증명서·가족관계증명서·제적등본 등)는 국내에서 함께 준비합니다.</p>
+<div class="table-wrap"><table><tr><th>서류</th><th>재외국민</th><th>외국 국적 상속인</th></tr><tr><td data-label="서류">인감증명을 대신하는 것</td><td data-label="재외국민">체류국 관할 한국 재외공관에서 협의서 자체에 공증(확인)을 받음. 국내에 인감을 신고해 둔 경우 국내 인감증명도 가능</td><td data-label="외국 국적 상속인">① 외국인등록·국내거소신고를 하고 국내 인감증명, ② 본국 인감증명(일본·대만 등), ③ 둘 다 안 되면 협의서 자체에 본국 관공서 증명이나 본국·한국 공증인(한국 재외공관 포함)의 인증</td></tr><tr><td data-label="서류">주소 증명 (부동산을 받는 경우만)</td><td data-label="재외국민">재외국민등록부등본, 주민등록표 등·초본, 체류국 관공서 주소증명, 그것도 안 되면 체류국 공증인의 주소 공증</td><td data-label="외국 국적 상속인">외국인등록사실증명, 국내거소신고사실증명, 본국 주소증명(일본·독일 등). 미국·영국처럼 제도가 없으면 공증인의 주소 공증 또는 주소가 적힌 신분증 대조 등</td></tr><tr><td data-label="서류">부동산등기용등록번호 (받는 경우만)</td><td data-label="재외국민">예전 주민등록번호(말소돼도 사용). 없으면 서울중앙지법 등기국에서 부여</td><td data-label="외국 국적 상속인">외국인등록번호 또는 국내거소신고번호. 국내 체류지가 없으면 출입국·외국인관서에서 부여</td></tr><tr><td data-label="서류">같은 사람임을 보여 주는 서류</td><td data-label="재외국민">가족관계 서류와 협의서의 표시가 다를 때</td><td data-label="외국 국적 상속인">한국 이름에서 외국 이름으로 바뀌었다면 국적상실이 기재된 기본증명서와 함께 본국 관공서가 발행한 동일인 증명</td></tr><tr><td data-label="서류">외국 서류의 확인</td><td data-label="재외국민">—</td><td data-label="외국 국적 상속인">외국 공증인이 공증한 문서는 아포스티유(협약국) 또는 그 나라 주재 한국 영사의 확인(비협약국)</td></tr><tr><td data-label="서류">번역문</td><td data-label="재외국민">—</td><td data-label="외국 국적 상속인">외국어 서류마다 번역문 — 번역인이 원문과 같다는 뜻·성명·주소를 적고 서명, 신분증 사본 첨부</td></tr></table></div><details class="refs-mini"><summary>📋 근거 9</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/재외국민및외국인의부동산등기신청절차에관한예규" target="_blank" rel="noopener" class="tag-law">📋 등기예규 제1778호 제9조</a><a href="https://www.law.go.kr/행정규칙/재외국민및외국인의부동산등기신청절차에관한예규" target="_blank" rel="noopener" class="tag-law">📋 등기예규 제1778호 제12조</a><a href="https://www.law.go.kr/행정규칙/재외국민및외국인의부동산등기신청절차에관한예규" target="_blank" rel="noopener" class="tag-law">📋 등기예규 제1778호 제10조</a><a href="https://www.law.go.kr/행정규칙/재외국민및외국인의부동산등기신청절차에관한예규" target="_blank" rel="noopener" class="tag-law">📋 등기예규 제1778호 제13조</a><a href="https://www.law.go.kr/행정규칙/재외국민및외국인의부동산등기신청절차에관한예규" target="_blank" rel="noopener" class="tag-law">📋 등기예규 제1778호 제11조</a><a href="https://www.law.go.kr/행정규칙/재외국민및외국인의부동산등기신청절차에관한예규" target="_blank" rel="noopener" class="tag-law">📋 등기예규 제1778호 제14조</a><span class="tag-law">📋 등기선례 제5-107호(1996. 12. 11.)</span><a href="https://www.law.go.kr/행정규칙/재외국민및외국인의부동산등기신청절차에관한예규" target="_blank" rel="noopener" class="tag-law">📋 등기예규 제1778호 제3조</a><a href="https://www.law.go.kr/행정규칙/재외국민및외국인의부동산등기신청절차에관한예규" target="_blank" rel="noopener" class="tag-law">📋 등기예규 제1778호 제4조</a></div></details>
+<p>부동산을 받지 않는 상속인은 협의에 참여하고 서명 인증만 하면 되며, 주소 증명은 내지 않아도 됩니다. 상속인 전원의 협의 내용을 담은 서면에 공증인 인증을 받은 경우에도 인감증명을 따로 첨부하지 않습니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><span class="tag-law">📋 등기선례 제7-76호(2003. 4. 30.)</span><span class="tag-law">📋 등기선례 제201611-1호(2016. 11. 11.)</span></div></details>
+<p>해외 상속인이 직접 서명하기 어렵다면 국내 가족 등에게 <strong>분할협의 권한을 위임</strong>할 수도 있습니다. 이때는 대상 부동산과 대리인을 구체적으로 적은 위임장에 위와 같은 서명 인증을 받아야 합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/재외국민및외국인의부동산등기신청절차에관한예규" target="_blank" rel="noopener" class="tag-law">📋 등기예규 제1778호 제6조</a></div></details><h3>한국에 오지 않고 협의분할하는 순서</h3><ol class=""><li><strong>상속관계 정리</strong> — 국내에서 가족관계 서류를 발급해 상속인 전원과 상속분을 확정합니다.</li><li><strong>협의서 작성</strong> — 부동산 표시와 분할 내용을 모두 채운 협의서를 만듭니다. 해외 상속인의 서명란만 비워 둡니다. 영문 번역본을 함께 보내면 현지 공증 절차가 수월합니다.</li><li><strong>해외로 발송</strong> — 협의서와 함께 받아 올 서류 목록(주소 증명 등)을 보냅니다.</li><li><strong>공증인·영사 앞에서 서명</strong> — 서명은 공증인이나 영사 앞에서 직접 합니다. 미리 서명해 가면 다시 해야 할 수 있습니다. 인증은 서명한 협의서 그 자체에 받아야 하며, 별도 종이에 서명을 확인받으면 등기에 쓸 수 없습니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/재외국민및외국인의부동산등기신청절차에관한예규" target="_blank" rel="noopener" class="tag-law">📋 등기예규 제1778호 제9조</a><span class="tag-law">📋 등기선례 제201304-1호</span></div></details></li><li><strong>아포스티유</strong> — 현지 공증인에게 인증받았다면 그 나라 권한기관에서 아포스티유를 붙입니다. 한국 재외공관에서 확인받았다면 따로 필요 없습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/재외국민및외국인의부동산등기신청절차에관한예규" target="_blank" rel="noopener" class="tag-law">📋 등기예규 제1778호 제3조</a></div></details></li><li><strong>국내로 반송·번역</strong> — 원본을 국제우편으로 받아 외국어 부분을 번역합니다. 번역인의 자격에는 제한이 없습니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/재외국민및외국인의부동산등기신청절차에관한예규" target="_blank" rel="noopener" class="tag-law">📋 등기예규 제1778호 제4조</a><span class="tag-law">📋 등기선례 제1-22호(1997. 11. 5.) — 교재 표기 그대로</span></div></details></li><li><strong>취득세 신고·등기 신청</strong> — 부동산을 받는 사람이 취득세를 신고·납부하고 상속등기를 신청합니다.</li></ol>
+<p>해외 서류가 오가는 데 보통 몇 주가 걸리고, 거주국의 공증·아포스티유 처리 기간에 따라 더 길어집니다. 서류 하나가 빠지면 국제우편을 다시 오가야 하므로, 2번 단계에서 받아 올 서류를 한 번에 정리하는 것이 시간을 가장 많이 줄입니다.</p><h3>⚡ 기한 — 해외 상속인이 있으면 9개월</h3><ul class=""><li><strong>취득세</strong>: 상속개시일이 속한 달의 말일부터 6개월이 원칙이지만, <strong>외국에 주소를 둔 상속인이 있으면 9개월</strong> 안에 신고·납부합니다. 기한을 넘기면 가산세가 붙습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/지방세법/제20조" target="_blank" rel="noopener" class="tag-law">📋 지방세법 제20조</a></div></details></li><li><strong>상속세(대상인 경우)</strong>: 피상속인이나 상속인이 외국에 주소를 두었다면 신고 기한이 9개월입니다. 상속세 신고는 세무사와 함께 준비합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/상속세및증여세법/제67조" target="_blank" rel="noopener" class="tag-law">📋 상속세 및 증여세법 제67조</a></div></details></li><li><strong>외국 국적 상속인의 부동산 취득 신고</strong>: 외국 국적 상속인이 부동산(지분 포함)을 받으면 상속으로 취득한 날부터 <strong>6개월</strong> 안에 부동산 소재지 시·군·구에 외국인 부동산 취득 신고를 해야 합니다. 취득세 9개월과 별개이고 더 짧으니 먼저 챙기십시오.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/부동산거래신고등에관한법률/제8조" target="_blank" rel="noopener" class="tag-law">📋 부동산 거래신고 등에 관한 법률 제8조</a></div></details></li></ul>
+<p>해외 서류는 생각보다 오래 걸립니다. 9개월이라고 여유를 두지 말고 사망신고 직후부터 준비를 시작하십시오.</p><h3>2025년부터 달라진 점 — 가까운 등기소에 신청</h3><ol class=""><li>1. 31.부터 상속으로 인한 소유권이전등기는 부동산 소재지 관할이 아닌 등기소에도 신청할 수 있습니다. 지방에 있는 부모님 땅이라도 가까운 등기소에서 처리할 수 있고, 신청서에 이 특례에 따른 신청임을 표시합니다. 다만 취득세는 여전히 부동산 소재지 시·군·구에 신고합니다.<details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/부동산등기법/제7조의3" target="_blank" rel="noopener" class="tag-law">📋 부동산등기법 제7조의3</a><a href="https://www.law.go.kr/법령/부동산등기규칙/제164조" target="_blank" rel="noopener" class="tag-law">📋 부동산등기규칙 제164조·제164조의2 · 등기예규 제1795호</a></div></details></li></ol><h3>상속등기를 마치면</h3><p>협의분할 등기를 마치면 부동산은 협의에서 정한 사람의 단독 명의가 됩니다. 해외 가족은 이후 그 부동산에 관해 서류를 낼 일이 없습니다. 반면 법정상속분으로 등기했다면 해외 가족이 공유자로 남으므로, 매도·담보 설정 때마다 해외 가족의 서명 인증과 매도 서류가 다시 필요합니다. 처음 등기할 때 방식을 신중히 고르는 이유입니다.</p>` },
+      { heading: "자주 묻는 질문", content: `<details class="qa"><summary>Q. Q. 미국 시민권자인데 한국에 있는 부모님 부동산을 상속받을 수 있나요?</summary><div class="ans"><p>A. 받을 수 있습니다. 부모님이 한국 국적이었다면 한국 민법에 따라 자녀로서 똑같은 순위와 몫을 갖습니다. 국적이 바뀌었다고 상속권이 없어지지 않습니다. 다만 외국인으로서 부동산등기용등록번호와 주소 증명을 갖추어야 합니다.</p><details class="refs-mini"><summary>📋 근거 4</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/국제사법/제77조" target="_blank" rel="noopener" class="tag-law">📋 국제사법 제77조</a><a href="https://www.law.go.kr/법령/민법/제1000조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1000조</a><a href="https://www.law.go.kr/행정규칙/재외국민및외국인의부동산등기신청절차에관한예규" target="_blank" rel="noopener" class="tag-law">📋 등기예규 제1778호 제13조</a><a href="https://www.law.go.kr/행정규칙/재외국민및외국인의부동산등기신청절차에관한예규" target="_blank" rel="noopener" class="tag-law">📋 등기예규 제1778호 제14조</a></div></details></div></details><details class="qa"><summary>Q. Q. 해외 형제가 부동산을 받지 않겠다고 하면 서류가 필요 없나요?</summary><div class="ans"><p>A. 협의분할에는 받지 않는 상속인도 참여해야 하므로, 협의서에 서명하고 그 서명에 공증이나 재외공관 확인을 받아야 합니다. 다만 주소 증명과 등록번호는 필요 없습니다. 상속을 아예 받지 않겠다면 상속포기를 검토할 수도 있지만, 상속개시를 안 날부터 석 달 안에 가정법원에 해야 하는 별도 절차입니다.</p><details class="refs-mini"><summary>📋 근거 4</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1013조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1013조</a><a href="https://www.law.go.kr/행정규칙/재외국민및외국인의부동산등기신청절차에관한예규" target="_blank" rel="noopener" class="tag-law">📋 등기예규 제1778호 제9조</a><a href="https://www.law.go.kr/행정규칙/재외국민및외국인의부동산등기신청절차에관한예규" target="_blank" rel="noopener" class="tag-law">📋 등기예규 제1778호 제12조</a><span class="tag-law">📋 등기선례 제7-76호(2003. 4. 30.)</span></div></details></div></details><details class="qa"><summary>Q. Q. 해외 상속인이 잠시 귀국한다면 그때 처리하는 것이 나은가요?</summary><div class="ans"><p>A. 귀국 중에 서명하면 국내 공증인에게 인증을 받을 수 있어 아포스티유가 필요 없습니다. 외국인등록이나 국내거소신고를 하고 국내 인감증명을 발급받는 방법도 있습니다. 체류 기간이 짧다면 귀국 전에 서류를 미리 준비해 두어야 합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/재외국민및외국인의부동산등기신청절차에관한예규" target="_blank" rel="noopener" class="tag-law">📋 등기예규 제1778호 제12조</a></div></details></div></details><details class="qa"><summary>Q. Q. 아포스티유는 어디서 받나요?</summary><div class="ans"><p>A. 공증 문서를 발행한 나라의 권한기관(나라마다 외교부·국무부·주정부·법원 등으로 다름)에서 받습니다. 협약에 가입하지 않은 나라라면 그 나라에 있는 한국 영사의 확인을 받습니다. 거주 국가별 방법은 위임장·아포스티유 페이지(F-S00)에서 정리합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/재외국민및외국인의부동산등기신청절차에관한예규" target="_blank" rel="noopener" class="tag-law">📋 등기예규 제1778호 제3조</a></div></details></div></details><details class="qa"><summary>Q. Q. 번역은 누가 해야 하나요?</summary><div class="ans"><p>A. 번역인의 자격에는 제한이 없어 가족이 번역해도 됩니다. 번역인이 원문과 같다는 뜻과 성명·주소를 적고 서명하며 신분증 사본을 붙입니다.</p><details class="refs-mini"><summary>📋 근거 2</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/재외국민및외국인의부동산등기신청절차에관한예규" target="_blank" rel="noopener" class="tag-law">📋 등기예규 제1778호 제4조</a><span class="tag-law">📋 등기선례 제1-22호(1997. 11. 5.) — 교재 표기 그대로</span></div></details></div></details><details class="qa"><summary>Q. Q. 서류가 오가는 동안 9개월이 지나면 어떻게 되나요?</summary><div class="ans"><p>A. 취득세 신고 기한을 넘기면 가산세가 붙습니다. 해외 서류가 늦어질 것 같으면 기한 안에 취득세를 먼저 신고·납부하고 등기는 서류가 갖춰진 뒤에 하는 방법도 검토할 수 있습니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/지방세법/제20조" target="_blank" rel="noopener" class="tag-law">📋 지방세법 제20조</a></div></details></div></details>` },
+      { heading: "주의사항", content: `<section class="box warn"><ul class=""><li><strong>해외 가족을 빼고 한 협의는 효력이 없습니다</strong>: 협의분할은 상속인 전원이 참여해야 합니다. 연락이 어렵다고 해외 가족을 빼고 협의서를 만들면 등기를 할 수 없습니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/민법/제1013조" target="_blank" rel="noopener" class="tag-law">📋 민법 제1013조</a></div></details></li><li><strong>연락이 끊긴 해외 상속인</strong>: 우선 법정상속분대로 등기할 수 있습니다. 협의분할이 꼭 필요하면 가정법원에 부재자 재산관리인 선임을 청구하고, 그 관리인이 법원 허가를 받아 협의에 참여하는 방법이 있습니다.<details class="refs-mini"><summary>📋 근거 3</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/부동산등기법/제23조" target="_blank" rel="noopener" class="tag-law">📋 부동산등기법 제23조 제3항</a><a href="https://www.law.go.kr/법령/민법/제22조" target="_blank" rel="noopener" class="tag-law">📋 민법 제22조</a><a href="https://www.law.go.kr/법령/민법/제25조" target="_blank" rel="noopener" class="tag-law">📋 민법 제25조</a></div></details></li><li><strong>협조하지 않는 해외 상속인</strong>: 협의가 되지 않으면 가정법원의 상속재산분할 심판으로 정합니다. 상속재산분할과 기여분 페이지(H-C00)를 함께 보십시오.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/가사소송법/제2조" target="_blank" rel="noopener" class="tag-law">📋 가사소송법 제2조 제1항 제2호 나목 마류 9)·10)</a></div></details></li><li><strong>한국 재외공관 발행 동일인 증명은 안 됩니다</strong>: 외국 국적을 얻으며 이름이 바뀐 경우, 같은 사람이라는 증명은 국적을 취득한 나라의 관공서에서 받아야 합니다.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><span class="tag-law">📋 등기선례 제5-107호(1996. 12. 11.)</span></div></details></li><li><strong>재외국민은 재외공관 확인이 원칙</strong>: 재외국민의 인감증명 대체는 한국 재외공관의 공증으로 합니다. 거주국 현지 공증만으로 충분한지는 서류 종류에 따라 다르므로 보내기 전에 확인하십시오.<details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/행정규칙/재외국민및외국인의부동산등기신청절차에관한예규" target="_blank" rel="noopener" class="tag-law">📋 등기예규 제1778호 제9조</a></div></details></li></ul></section>` },
+      { heading: "다음에 확인할 사항", content: `<ul><li><a href="/guide/etc/fi-09.html">외국 국적 부모가 한국 부동산을 남겼을 때</a></li><li><a href="/guide/etc/fi-25.html">해외에서 쓰는 위임장·서명인증·아포스티유</a></li><li><a href="/guide/inheritance/in-12.html">상속등기</a></li><li><a href="/guide/inheritance/in-10.html">상속재산분할과 기여분</a></li></ul>` },
+      { heading: "이 내용이 해당되시나요?", content: `<div class="kb-box kb-cta"><p>직접 처리하시기 어려운 부분을 법무사가 함께 검토합니다. 이런 경우 상담을 권합니다.</p>
+<ul class=""><li>해외 상속인의 국적·체류 상태에 따라 어떤 서류가 필요한지 정리해야 할 때</li><li>해외로 보낼 협의서와 영문 번역본, 서류 목록을 한 번에 준비하고 싶을 때</li><li>해외 가족과 연락이 어렵거나 협의가 되지 않을 때</li><li>9개월 기한이 얼마 남지 않았을 때</li></ul>
+<p class="note">법무사는 상속관계를 정리해 상속재산분할협의서와 해외 발송용 서류 안내문을 작성하고, 반송된 서류를 검토해 상속등기 신청을 대리하며, 그에 따른 취득세 신고·납부도 처리합니다. 부재자 재산관리인 선임 청구처럼 가정법원에 내는 서류도 작성해 제출합니다. 상속세 신고는 세무사와 연계합니다.</p><details class="refs-mini"><summary>📋 근거 1</summary><div class="ref-tags"><a href="https://www.law.go.kr/법령/법무사법/제2조" target="_blank" rel="noopener" class="tag-law">📋 법무사법 제2조</a></div></details>
+</div>` },
     ],
-    laws: [
-      { name: `협의분할 전원 참가 원칙`, desc: `대법원 2001. 2. 9. 선고 2000다51797 판결` },
-      { name: `공동상속인을 대리인으로 선임 가능`, desc: `등기선례 제201805-9호 (2018. 5. 28.)` },
-      { name: `재외공관 공증의 효력`, desc: `등기선례 제202303-2호 (2023. 3. 20.)` },
-      { name: `간인 방법`, desc: `등기선례 제201807-1호 (2018. 7. 5.)` },
-      { name: `다중 장 공증`, desc: `등기선례 제202001-1호 (2020. 1. 9.)` },
-      { name: `대리인 인감증명 요건`, desc: `등기예규 제1778호 제6조 제4항` },
-      { name: `생사불명 상속인이 있는 경우`, desc: `등기선례 제6-203호` },
-    ],
+    laws: [],
+    faq: [{"q":"Q. Q. 미국 시민권자인데 한국에 있는 부모님 부동산을 상속받을 수 있나요?","a":"A. 받을 수 있습니다. 부모님이 한국 국적이었다면 한국 민법에 따라 자녀로서 똑같은 순위와 몫을 갖습니다. 국적이 바뀌었다고 상속권이 없어지지 않습니다. 다만 외국인으로서 부동산등기용등록번호와 주소 증명을 갖추어야 합니다. 📋 근거 4 📋 국제사법 제77조 📋 민법 제1000조 📋 등기예규 제1778호 제13조 📋 등기예규 제1778호 제14조"},{"q":"Q. Q. 해외 형제가 부동산을 받지 않겠다고 하면 서류가 필요 없나요?","a":"A. 협의분할에는 받지 않는 상속인도 참여해야 하므로, 협의서에 서명하고 그 서명에 공증이나 재외공관 확인을 받아야 합니다. 다만 주소 증명과 등록번호는 필요 없습니다. 상속을 아예 받지 않겠다면 상속포기를 검토할 수도 있지만, 상속개시를 안 날부터 석 달 안에 가정법원에 해야 하는 별도 절차입니다. 📋 근거 4 📋 민법 제1013조 📋 등기예규 제1778호 제9조 📋 등기예규 제1778호 제12조 📋 등기선례 제7-76호(2003. 4. 30.)"},{"q":"Q. Q. 해외 상속인이 잠시 귀국한다면 그때 처리하는 것이 나은가요?","a":"A. 귀국 중에 서명하면 국내 공증인에게 인증을 받을 수 있어 아포스티유가 필요 없습니다. 외국인등록이나 국내거소신고를 하고 국내 인감증명을 발급받는 방법도 있습니다. 체류 기간이 짧다면 귀국 전에 서류를 미리 준비해 두어야 합니다. 📋 근거 1 📋 등기예규 제1778호 제12조"},{"q":"Q. Q. 아포스티유는 어디서 받나요?","a":"A. 공증 문서를 발행한 나라의 권한기관(나라마다 외교부·국무부·주정부·법원 등으로 다름)에서 받습니다. 협약에 가입하지 않은 나라라면 그 나라에 있는 한국 영사의 확인을 받습니다. 거주 국가별 방법은 위임장·아포스티유 페이지(F-S00)에서 정리합니다. 📋 근거 1 📋 등기예규 제1778호 제3조"},{"q":"Q. Q. 번역은 누가 해야 하나요?","a":"A. 번역인의 자격에는 제한이 없어 가족이 번역해도 됩니다. 번역인이 원문과 같다는 뜻과 성명·주소를 적고 서명하며 신분증 사본을 붙입니다. 📋 근거 2 📋 등기예규 제1778호 제4조 📋 등기선례 제1-22호(1997. 11. 5.) — 교재 표기 그대로"},{"q":"Q. Q. 서류가 오가는 동안 9개월이 지나면 어떻게 되나요?","a":"A. 취득세 신고 기한을 넘기면 가산세가 붙습니다. 해외 서류가 늦어질 것 같으면 기한 안에 취득세를 먼저 신고·납부하고 등기는 서류가 갖춰진 뒤에 하는 방법도 검토할 수 있습니다. 📋 근거 1 📋 지방세법 제20조"}],
     forms: [],
   },
   {
-    id: 'fi-12',
+    id: "fi-12",
     title: "외국인의 부동산 증여",
     meta: "",
     sections: [
-      { heading: `이런 분께 필요합니다`, content: `<div class="checklist">
+      { heading: "이런 분께 필요합니다", content: `<div class="checklist">
                 <div class="checklist-item">
                     <div class="checklist-checkbox"></div>
                     <div class="checklist-text">외국인이 한국 부동산을 증여받으려고 합니다</div>
@@ -4402,7 +3840,7 @@ const FOREIGN_TOPICS = [
                     <li><strong>첨부서류 이원화</strong>: 증여자 또는 수증자의 입국 여부에 따라 필요 서류가 상이</li>
                 </ul>
             </div>` },
-      { heading: `증여등기의 개요`, content: `<h3>증여의 법적 개념</h3>
+      { heading: "증여등기의 개요", content: `<h3>증여의 법적 개념</h3>
             <p><strong>증여</strong>는 민법 제554조에 따라 "당사자 일방이 무상으로 재산을 상대방에 수여하는 의사를 표시하고 상대방이 이를 승낙함으로써 성립하는 계약"입니다. 부동산 증여의 경우, 증여자와 수증자 간 증여 계약이 성립된 후 소유권이전등기를 신청할 수 있습니다.</p>
 
             <h3>외국인 증여의 특수성</h3>
@@ -4415,7 +3853,7 @@ const FOREIGN_TOPICS = [
             <div class="cta-box">
                 <p>외국인·재외국민 등기는 국적·체류 자격·입국 여부에 따라 준비 서류가 달라집니다. 정확한 안내가 필요하신가요?</p>
             </div>` },
-      { heading: `증여등기 절차 흐름도`, content: `<div class="flowchart">
+      { heading: "증여등기 절차 흐름도", content: `<div class="flowchart">
                 <div style="margin-bottom: 20px;">
                     <div class="flowchart-step">증여 계약 체결</div>
                     <div class="flowchart-arrow">↓</div>
@@ -4445,7 +3883,7 @@ const FOREIGN_TOPICS = [
                     <div class="flowchart-step">토지 취득 신고/허가 (해당 시)</div>
                 </div>
             </div>` },
-      { heading: `증여자가 외국인인 경우 (양도)`, content: `<h3>처분 위임장 작성</h3>
+      { heading: "증여자가 외국인인 경우 (양도)", content: `<h3>처분 위임장 작성</h3>
             <p>외국인 증여자가 부동산을 처분할 때는 <strong>처분 위임장</strong>(위임장)이 필수입니다. 등기예규 제1778호 제5조에 따라 처분 위임장의 인증 방식이 달라집니다.</p>
 
             <h3>입국한 외국인 증여자</h3>
@@ -4477,7 +3915,7 @@ const FOREIGN_TOPICS = [
                 <li>등기예규 제1778호 제8조의2 적용</li>
             </ul>
             <p><strong>신고 방법</strong>: 관할 시·군·구청 외국인토지신고담당부서에서 발급받음</p>` },
-      { heading: `수증자가 외국인인 경우 (취득)`, content: `<h3>외국인 수증자의 특수성</h3>
+      { heading: "수증자가 외국인인 경우 (취득)", content: `<h3>외국인 수증자의 특수성</h3>
             <p>외국인이 부동산을 증여받아 취득하는 경우, 다음 점들이 중요합니다:</p>
             <ul>
                 <li><strong>부동산양도신고확인서 불필요</strong>: 증여는 유상거래가 아니므로 양도신고 확인이 불필요</li>
@@ -4510,7 +3948,7 @@ const FOREIGN_TOPICS = [
                 <h4>등기선례 5-59</h4>
                 <p>외국인이 부동산을 취득할 때 외국인등록번호 또는 등기용 등록번호가 필요하며, 등기 신청 시 반드시 첨부해야 합니다.</p>
             </div>` },
-      { heading: `첨부서류`, content: `<h3>증여자(양도인)가 외국인인 경우</h3>
+      { heading: "첨부서류", content: `<h3>증여자(양도인)가 외국인인 경우</h3>
             <table>
                 <thead>
                     <tr>
@@ -4592,7 +4030,7 @@ const FOREIGN_TOPICS = [
                 <li><strong>증여 계약서</strong>: 당사자 쌍방이 서명한 증여 계약서 (필요 시)</li>
                 <li><strong>소유권이전등기신청서</strong>: 등기소 양식 작성</li>
             </ul>` },
-      { heading: `주의사항`, content: `<h3>처분 위임장 관련</h3>
+      { heading: "주의사항", content: `<h3>처분 위임장 관련</h3>
             <div class="warning-box">
                 <h4>① 아포스티유 생략 불가</h4>
                 <p>미입국 외국인 증여자의 처분 위임장은 아포스티유 또는 재외공관 공증이 <strong>반드시</strong> 필요합니다. 한국의 공증인 인증만으로는 등기 수리 불가능</p>
@@ -4633,7 +4071,7 @@ const FOREIGN_TOPICS = [
                 <h4>사례</h4>
                 <p>미국 거주 중국인이 한국의 아파트를 자녀(한국 거주 외국인)에게 증여하는 경우: 증여자는 미입국이므로 처분 위임장에 아포스티유 필요, 수증자는 입국했으므로 외국인등록번호로 등기용 등록번호 확보 후 등기 신청 가능</p>
             </div>` },
-      { heading: `판례·예규`, content: `<div class="precedent-box">
+      { heading: "판례·예규", content: `<div class="precedent-box">
                 <h4>등기예규 제1778호 제5조</h4>
                 <p><strong>외국인의 처분 위임장</strong>: 미입국 외국인이 부동산을 처분할 때 처분 위임장은 재외공관 공증 또는 아포스티유 필수. 입국한 외국인은 한국 공증인 인증 가능</p>
             </div>
@@ -4663,22 +4101,15 @@ const FOREIGN_TOPICS = [
                 <p><strong>토지 취득 신고</strong>: 외국인이 토지를 취득한 경우 취득일로부터 90일 이내 신고하거나 허가를 받아야 함</p>
             </div>` },
     ],
-    laws: [
-      { name: `등기예규 제1778호 제5조`, desc: `외국인의 처분 위임장: 미입국 외국인이 부동산을 처분할 때 처분 위임장은 재외공관 공증 또는 아포스티유 필수. 입국한 외국인은 한국 공증인 인증 가능` },
-      { name: `등기예규 제1778호 제8조의2`, desc: `외국인의 부동산양도신고확인서: 외국인이 토지를 취득할 당시 신고 의무가 있었던 토지를 처분하는 경우, 부동산양도신고확인서 첨부 필수` },
-      { name: `등기선례 7-38`, desc: `외국인 부동산 증여 등기: 외국인이 증여인 또는 수증인인 경우 등기용 등록번호 또는 외국인등록번호를 반드시 기재하여야 등기 가능` },
-      { name: `등기선례 5-59`, desc: `외국인 부동산 소유권이전 등기: 외국인의 신원 확인을 위해 외국인등록번호 또는 등기용 등록번호의 첨부가 필수. 이들 번호 없이는 등기 신청 거절` },
-      { name: `부동산거래신고법 제3조`, desc: `취득 신고 의무: 부동산을 취득한 자는 취득일로부터 60일 이내 시·군·구청에 신고해야 하며, 증여도 취득에 포함됨` },
-      { name: `외국인토지법 제5조`, desc: `토지 취득 신고: 외국인이 토지를 취득한 경우 취득일로부터 90일 이내 신고하거나 허가를 받아야 함` },
-    ],
+    laws: [{"name":"등기예규 제1778호 제5조","desc":"외국인의 처분 위임장: 미입국 외국인이 부동산을 처분할 때 처분 위임장은 재외공관 공증 또는 아포스티유 필수. 입국한 외국인은 한국 공증인 인증 가능"},{"name":"등기예규 제1778호 제8조의2","desc":"외국인의 부동산양도신고확인서: 외국인이 토지를 취득할 당시 신고 의무가 있었던 토지를 처분하는 경우, 부동산양도신고확인서 첨부 필수"},{"name":"등기선례 7-38","desc":"외국인 부동산 증여 등기: 외국인이 증여인 또는 수증인인 경우 등기용 등록번호 또는 외국인등록번호를 반드시 기재하여야 등기 가능"},{"name":"등기선례 5-59","desc":"외국인 부동산 소유권이전 등기: 외국인의 신원 확인을 위해 외국인등록번호 또는 등기용 등록번호의 첨부가 필수. 이들 번호 없이는 등기 신청 거절"},{"name":"부동산거래신고법 제3조","desc":"취득 신고 의무: 부동산을 취득한 자는 취득일로부터 60일 이내 시·군·구청에 신고해야 하며, 증여도 취득에 포함됨"},{"name":"외국인토지법 제5조","desc":"토지 취득 신고: 외국인이 토지를 취득한 경우 취득일로부터 90일 이내 신고하거나 허가를 받아야 함"}],
     forms: [],
   },
   {
-    id: 'fi-13',
+    id: "fi-13",
     title: "외국인의 근저당권 설정·이전·말소 등기 절차",
     meta: "",
     sections: [
-      { heading: `이런 분께 필요합니다`, content: `<div class="box checklist-box">
+      { heading: "이런 분께 필요합니다", content: `<div class="box checklist-box">
                     <div class="checklist-item">
                         <input type="checkbox">
                         <span>한국에 부동산을 소유한 외국인이며, 금융기관으로부터 담보대출을 받으려고 합니다</span>
@@ -4708,7 +4139,7 @@ const FOREIGN_TOPICS = [
 
             <!-- 섹션 2: 핵심 요약 -->
             <div class="section">` },
-      { heading: `핵심 요약`, content: `<div class="box summary-box">
+      { heading: "핵심 요약", content: `<div class="box summary-box">
                     <h4>5분 만에 알아보는 외국인 근저당권 등기</h4>
                     <ul>
                         <li><strong>근저당권의 정의:</strong> 민법 제357조에 따른 채권최고액 이상의 채권을 담보하는 저당권으로, 채무 확정 전에 생기는 채권도 담보합니다</li>
@@ -4722,7 +4153,7 @@ const FOREIGN_TOPICS = [
 
             <!-- 섹션 3: 개요 -->
             <div class="section">` },
-      { heading: `근저당권이란?`, content: `<p>근저당권(根抵當權)은 <strong>민법 제357조</strong>에서 규정하는 담보물권으로, 일반 저당권과 달리 <strong>채권의 최고액을 정하고 그 범위 내에서 채무의 확정 전에 발생하는 모든 채권을 담보</strong>합니다. 은행 대출이나 신용거래 등 장기간에 걸쳐 여러 차례 거래가 이루어지는 경우에 주로 사용됩니다.</p>
+      { heading: "근저당권이란?", content: `<p>근저당권(根抵當權)은 <strong>민법 제357조</strong>에서 규정하는 담보물권으로, 일반 저당권과 달리 <strong>채권의 최고액을 정하고 그 범위 내에서 채무의 확정 전에 발생하는 모든 채권을 담보</strong>합니다. 은행 대출이나 신용거래 등 장기간에 걸쳐 여러 차례 거래가 이루어지는 경우에 주로 사용됩니다.</p>
 
                 <h3>외국인이 근저당권을 설정·이전·말소할 때의 특수사항</h3>
                 <p>외국인이 한국 부동산에 근저당권을 설정하거나 변경하는 경우, 다음과 같은 특수사항을 고려해야 합니다:</p>
@@ -4737,7 +4168,7 @@ const FOREIGN_TOPICS = [
 
             <!-- 섹션 4: 근저당권 설정등기 -->
             <div class="section">` },
-      { heading: `근저당권 설정등기 절차 및 서류`, content: `<p>근저당권 설정등기는 <strong>채권자(근저당권자)와 채무자(또는 물상보증인)의 합의</strong> 또는 법원의 판결에 기초하여 신청합니다.</p>
+      { heading: "근저당권 설정등기 절차 및 서류", content: `<p>근저당권 설정등기는 <strong>채권자(근저당권자)와 채무자(또는 물상보증인)의 합의</strong> 또는 법원의 판결에 기초하여 신청합니다.</p>
 
                 <h3>절차 단계</h3>
                 <div class="procedure-flow">
@@ -4820,7 +4251,7 @@ const FOREIGN_TOPICS = [
 
             <!-- 섹션 5: 근저당권 이전등기 -->
             <div class="section">` },
-      { heading: `근저당권 이전등기 절차 및 서류`, content: `<p>근저당권은 <strong>민법 제361조</strong>에 따라 피담보채권과 함께만 이전이 가능합니다. 근저당권자의 변경을 의미합니다.</p>
+      { heading: "근저당권 이전등기 절차 및 서류", content: `<p>근저당권은 <strong>민법 제361조</strong>에 따라 피담보채권과 함께만 이전이 가능합니다. 근저당권자의 변경을 의미합니다.</p>
 
                 <h3>절차 단계</h3>
                 <div class="procedure-flow">
@@ -4895,7 +4326,7 @@ const FOREIGN_TOPICS = [
 
             <!-- 섹션 6: 근저당권 말소등기 -->
             <div class="section">` },
-      { heading: `근저당권 말소등기 절차 및 서류`, content: `<p>근저당권 말소등기는 채권자의 동의 또는 해지증서에 기초하여 신청합니다. <strong>말소등기는 권리의 소멸이므로 취득신고가 불필요</strong>합니다.</p>
+      { heading: "근저당권 말소등기 절차 및 서류", content: `<p>근저당권 말소등기는 채권자의 동의 또는 해지증서에 기초하여 신청합니다. <strong>말소등기는 권리의 소멸이므로 취득신고가 불필요</strong>합니다.</p>
 
                 <h3>절차 단계</h3>
                 <div class="procedure-flow">
@@ -4968,7 +4399,7 @@ const FOREIGN_TOPICS = [
 
             <!-- 섹션 7: 첨부서류 종합 비교표 -->
             <div class="section">` },
-      { heading: `첨부서류 종합 비교표`, content: `<p>외국인이 근저당권설정자(채무자 또는 물상보증인)인 경우의 입국 여부별 첨부서류 비교:</p>
+      { heading: "첨부서류 종합 비교표", content: `<p>외국인이 근저당권설정자(채무자 또는 물상보증인)인 경우의 입국 여부별 첨부서류 비교:</p>
 
                 <div class="table-wrapper">
                     <table>
@@ -5040,7 +4471,7 @@ const FOREIGN_TOPICS = [
 
             <!-- 섹션 8: 외화 채권최고액 표시 -->
             <div class="section">` },
-      { heading: `외화로 채권최고액을 표시하는 방법`, content: `<p>외국인이 근저당권을 설정할 때, <strong>채권최고액을 외국 통화로 표시</strong>할 수 있습니다. 이는 국제 금융거래나 외화 차입금을 담보할 때 매우 유용합니다.</p>
+      { heading: "외화로 채권최고액을 표시하는 방법", content: `<p>외국인이 근저당권을 설정할 때, <strong>채권최고액을 외국 통화로 표시</strong>할 수 있습니다. 이는 국제 금융거래나 외화 차입금을 담보할 때 매우 유용합니다.</p>
 
                 <h3>법적 근거</h3>
                 <div class="box reference-box">
@@ -5093,7 +4524,7 @@ const FOREIGN_TOPICS = [
 
             <!-- 섹션 9: 판례·예규 -->
             <div class="section">` },
-      { heading: `관련 판례·예규`, content: `<div class="box reference-box">
+      { heading: "관련 판례·예규", content: `<div class="box reference-box">
                     <h4>1. 등기예규 제1816호 (채권최고액 외화 표시)</h4>
                     <p><strong>내용:</strong> 근저당권설정등기의 채권최고액을 외국통화로 표시하는 것을 허용합니다. 이는 국제거래와 외화 채권을 담보할 때 필수적인 규정입니다.</p>
                     <p><strong>적용:</strong> 미화, 유로, 엔 등 주요 국제 통화뿐만 아니라 다양한 외국 통화 사용 가능</p>
@@ -5121,20 +4552,15 @@ const FOREIGN_TOPICS = [
             <!-- 섹션 10: 다음으로 확인할 내용 -->
             <div class="section">` },
     ],
-    laws: [
-      { name: `1. 등기예규 제1816호 (채권최고액 외화 표시)`, desc: `내용: 근저당권설정등기의 채권최고액을 외국통화로 표시하는 것을 허용합니다. 이는 국제거래와 외화 채권을 담보할 때 필수적인 규정입니다.` },
-      { name: `2. 등기선례 제6-81호 (외국인 설정자의 말소등기)`, desc: `내용: 근저당권설정자가 외국인인 경우, 말소등기 신청 시 외국인등록번호를 새로 제시할 필요가 없습니다. 설정 당시 등기된 등록번호로 확인합니다.` },
-      { name: `3. 등기예규 제1778호 제5조 (외국인의 위임장)`, desc: `내용: 외국인이 부동산 등기를 위임하는 경우, 위임장은 입국 시 인감증명서, 미입국 시 재외공관 공증 또는 아포스티유로 인증해야 합니다.` },
-      { name: `4. 부동산등기규칙 제93조의2 (외국인등록번호)`, desc: `내용: 외국인이 부동산 등기를 신청할 때는 외국인등록번호 또는 등기소 부여 번호를 제시해야 합니다.` },
-    ],
+    laws: [{"name":"1. 등기예규 제1816호 (채권최고액 외화 표시)","desc":"내용: 근저당권설정등기의 채권최고액을 외국통화로 표시하는 것을 허용합니다. 이는 국제거래와 외화 채권을 담보할 때 필수적인 규정입니다."},{"name":"2. 등기선례 제6-81호 (외국인 설정자의 말소등기)","desc":"내용: 근저당권설정자가 외국인인 경우, 말소등기 신청 시 외국인등록번호를 새로 제시할 필요가 없습니다. 설정 당시 등기된 등록번호로 확인합니다."},{"name":"3. 등기예규 제1778호 제5조 (외국인의 위임장)","desc":"내용: 외국인이 부동산 등기를 위임하는 경우, 위임장은 입국 시 인감증명서, 미입국 시 재외공관 공증 또는 아포스티유로 인증해야 합니다."},{"name":"4. 부동산등기규칙 제93조의2 (외국인등록번호)","desc":"내용: 외국인이 부동산 등기를 신청할 때는 외국인등록번호 또는 등기소 부여 번호를 제시해야 합니다."}],
     forms: [],
   },
   {
-    id: 'fi-14',
+    id: "fi-14",
     title: "재외국민이란?",
     meta: "",
     sections: [
-      { heading: `이런 분께 필요합니다`, content: `<div class="checklist-item">
+      { heading: "이런 분께 필요합니다", content: `<div class="checklist-item">
                 <input type="checkbox" id="check1">
                 <label for="check1">미국, 캐나다, 호주 등 외국에 영주권을 가지고 있는데 한국 국적도 유지하고 있는 경우</label>
             </div>
@@ -5161,7 +4587,7 @@ const FOREIGN_TOPICS = [
             <h3>핵심 요약</h3>
             <p><strong>재외국민</strong>은 <strong>대한민국의 국적을 유지하면서 외국의 영주권을 가진 사람</strong>을 말합니다. 외국에 거주하고 있어도 한국 국적이 있으므로, 부동산 등기에서는 내국인과 거의 동일하게 대우받습니다. 외국인이나 외국국적동포(한국 국적을 포기한 사람)와는 완전히 다르며, 등기에 필요한 서류도 다릅니다.</p>
         </div>` },
-      { heading: `1. 재외국민의 법적 정의 및 근거`, content: `<div class="subsection-title">정의</div>
+      { heading: "1. 재외국민의 법적 정의 및 근거", content: `<div class="subsection-title">정의</div>
             <p>재외국민은 <strong>대한민국의 국적을 가지고 있으면서 외국정부로부터 영주권을 취득하였거나, 계속하여 장기간 외국에 체류하는 자</strong>를 말합니다.</p>
 
             <p>즉, 다음 두 조건을 모두 충족해야 재외국민입니다:</p>
@@ -5183,7 +4609,7 @@ const FOREIGN_TOPICS = [
                 <li><strong>주민등록법 제10조의2</strong><br>
                     재외국민의 주민등록 신고 방법</li>
             </ul>` },
-      { heading: `2. 외국인 / 재외국민 / 외국국적동포 비교표`, content: `<p>세 집단의 법적 지위와 부동산 등기 처리 방법을 정확히 구분하는 것이 중요합니다:</p>
+      { heading: "2. 외국인 / 재외국민 / 외국국적동포 비교표", content: `<p>세 집단의 법적 지위와 부동산 등기 처리 방법을 정확히 구분하는 것이 중요합니다:</p>
 
             <table>
                 <thead>
@@ -5243,7 +4669,7 @@ const FOREIGN_TOPICS = [
             <div class="info-box">
                 <strong>ℹ️ 가장 중요한 차이점:</strong> 재외국민은 한국 국적을 가지고 있으므로, 부동산 등기에서 내국인과 유사하게 취급됩니다. 외국인토지법이 적용되지 않으며, 부동산 취득·보유 신고도 하지 않습니다.
             </div>` },
-      { heading: `3. 재외국민의 부동산 등기 특징`, content: `<div class="subsection-title">내국인과 동일한 점</div>
+      { heading: "3. 재외국민의 부동산 등기 특징", content: `<div class="subsection-title">내국인과 동일한 점</div>
             <ul>
                 <li><strong>당사자능력:</strong> 부동산 매매, 상속, 증여 등기를 본인 이름으로 신청 가능</li>
                 <li><strong>취득·처분 신고:</strong> 외국인토지법 신고 불필요 (내국인 기준 적용)</li>
@@ -5292,7 +4718,7 @@ const FOREIGN_TOPICS = [
             <div class="info-box">
                 <strong>ℹ️ 번호 구성:</strong> 부동산등기용등록번호는 특수한 형식(예: 0000-00-000000)으로 지급되며, 이는 등기 신청 시 주민등록번호 자리에 기재됩니다.
             </div>` },
-      { heading: `4. 재외국민의 법적 지위를 판단하는 구체적 사례`, content: `<div class="case-box">
+      { heading: "4. 재외국민의 법적 지위를 판단하는 구체적 사례", content: `<div class="case-box">
                 <h4>사례 1: 미국 영주권자 홍길동 씨</h4>
                 <p><strong>상황:</strong> 미국에 정착한 지 10년, 미국 영주권(Green Card) 보유, 한국 국적은 유지 중</p>
                 <p><strong>재외국민 여부:</strong> YES (재외국민)</p>
@@ -5315,7 +4741,7 @@ const FOREIGN_TOPICS = [
                 <p><strong>이유:</strong> 한국 국적을 포기했으므로 재외국민이 아닙니다. 대신 한국 국적 자의 직계비속으로서 외국국적을 가진 "외국국적동포"로 분류됩니다.</p>
                 <p><strong>부동산 등기 처리:</strong> 외국인 기준으로 처리됩니다. 토지 취득 시 승인 필요 여부를 확인해야 하며, 인감증명이 불가하므로 공증을 제출합니다. 부동산 취득·보유 신고가 필요합니다.</p>
             </div>` },
-      { heading: `5. 나는 외국인? 재외국민? 외국국적동포? 판단 흐름도`, content: `<div class="info-box" style="background-color: #f0f4ff; border-left-color: #3b5bdb;">
+      { heading: "5. 나는 외국인? 재외국민? 외국국적동포? 판단 흐름도", content: `<div class="info-box" style="background-color: #f0f4ff; border-left-color: #3b5bdb;">
                 <p style="margin-bottom: 15px;"><strong>다음 질문에 차례대로 답해보세요:</strong></p>
                 <ol style="margin-left: 20px;">
                     <li style="margin-bottom: 12px;">
@@ -5367,7 +4793,7 @@ const FOREIGN_TOPICS = [
                     국내거소신고 제도가 폐지됨에 따라, 2016년 7월 1일부터는 모든 국내거소신고증의 효력이 상실되었습니다. 현재 재외국민은 재외국민등록번호나 등기용 번호를 사용합니다.
                 </div>
             </div>` },
-      { heading: `6. 주의사항`, content: `<div class="warning-box">
+      { heading: "6. 주의사항", content: `<div class="warning-box">
                 <strong>⚡ 소유권이전등기 신청 기한 (중요)</strong><br>
                 재외국민이 부동산을 매매하여 등기를 신청할 때는 <strong>반대급부(잔금) 이행 완료일로부터 60일 이내</strong>에 신청해야 합니다. 이 기한을 넘으면 등기신청이 거절되거나 나중에 경정등기 문제가 생길 수 있습니다. 특히 해외에서 서류를 준비하는 경우 시간이 오래 걸리므로 미리 계획을 세워야 합니다.
             </div>
@@ -5391,7 +4817,7 @@ const FOREIGN_TOPICS = [
                 <strong>⚠️ 재외국민등록과 부동산 등기의 관계</strong><br>
                 재외국민등록은 법적으로 부동산 등기의 <strong>필수 요건은 아닙니다</strong>. 다만 주소를 증명할 서류가 필요한 경우 재외국민등록부등본이 가장 간단합니다. 만약 재외국민등록을 하지 않은 경우, 체류국 관공서 발행 주소증명이나 공증인의 공증 주소증명으로 대체할 수 있습니다.
             </div>` },
-      { heading: `7. 자주 묻는 질문 (Q&A)`, content: `<div class="qa-item">
+      { heading: "7. 자주 묻는 질문 (Q&A)", content: `<div class="qa-item">
                 <strong>Q1. 재외국민이 한국 부동산을 매매할 때 외국인토지법이 적용되나요?</strong>
                 <div class="qa-answer">
                     <p>아니오, 적용되지 않습니다. 재외국민은 한국 국적을 가지고 있으므로 외국인토지법 제3조에 따른 "외국인"에 해당하지 않습니다. 따라서 토지 취득 승인이 필요 없고, 부동산 취득·보유 신고도 하지 않습니다. 이것이 외국국적동포와 재외국민의 가장 중요한 차이점입니다.</p>
@@ -5487,16 +4913,15 @@ const FOREIGN_TOPICS = [
 </body>
 </html>` },
     ],
-    laws: [
-    ],
+    laws: [],
     forms: [],
   },
   {
-    id: 'fi-15',
+    id: "fi-15",
     title: "재외국민등록 제도와 부동산 등기",
     meta: "",
     sections: [
-      { heading: `이런 분께 필요합니다`, content: `<div class="checklist-item">해외에 거주하면서 한국 부동산을 소유하고 있거나 취득하려는 한국 국민</div>
+      { heading: "이런 분께 필요합니다", content: `<div class="checklist-item">해외에 거주하면서 한국 부동산을 소유하고 있거나 취득하려는 한국 국민</div>
             <div class="checklist-item">재외공관에 등록되어 있지만 국내 주민등록이 말소된 상태</div>
             <div class="checklist-item">국내 인감증명서를 발급받을 수 없는 상황에서 부동산 등기를 진행해야 할 때</div>
             <div class="checklist-item">재외국민등록번호 또는 등기용 등록번호의 용도와 차이를 알고 싶은 분</div>
@@ -5510,7 +4935,7 @@ const FOREIGN_TOPICS = [
             <p><strong>재외국민등록</strong>은 해외에 거주하는 한국 국민이 재외공관(대사관·영사관)에 등록하는 제도로, 등록 시 <strong>재외국민등록번호</strong>를 부여받습니다.</p>
             <p>주민등록이 말소된 재외국민은 이 번호를 부동산 등기에 사용할 수 있습니다. 재외국민등록번호가 없는 경우, 등기소에서 별도의 <strong>등기용 등록번호</strong>를 부여합니다.</p>
             <p>국내 인감증명서를 받을 수 없는 재외국민은 <strong>재외공관 공증</strong>을 인감증명 대신 사용할 수 있으며, 이는 법적으로 동등한 효력을 인정받습니다.</p>` },
-      { heading: `재외국민등록 제도란?`, content: `<h3>정의 및 목적</h3>
+      { heading: "재외국민등록 제도란?", content: `<h3>정의 및 목적</h3>
         <p>재외국민등록은 <span class="highlight">재외국민등록법</span>에 따라 해외에 거주하는 한국 국민이 거주지 관할 재외공관(한국 대사관, 총영사관 등)에 등록하는 제도입니다.</p>
         <ul>
             <li><strong>등록 대상:</strong> 해외에 거주하며 한국 국적을 보유한 만 18세 이상의 자</li>
@@ -5527,7 +4952,7 @@ const FOREIGN_TOPICS = [
         </ul>
 
         <p>이는 <span class="highlight">등기예규 제1778호 제11조</span>에서 규정하고 있습니다.</p>` },
-      { heading: `재외국민 등록번호와 부동산 등기 관계`, content: `<h3>등기에 사용할 수 있는 번호</h3>
+      { heading: "재외국민 등록번호와 부동산 등기 관계", content: `<h3>등기에 사용할 수 있는 번호</h3>
         <p>재외국민이 부동산 등기를 신청할 때, 신청자의 신원을 확인하기 위해 다음 중 하나의 번호를 사용합니다:</p>
 
         <table>
@@ -5573,7 +4998,7 @@ const FOREIGN_TOPICS = [
             <li><strong>-:</strong> 하이픈</li>
             <li><strong>CCCCCCC:</strong> 일련번호 및 성별 정보 (7자리)</li>
         </ul>` },
-      { heading: `주민등록 말소 재외국민의 등기 처리`, content: `<h3>주민등록이 말소되는 경우</h3>
+      { heading: "주민등록 말소 재외국민의 등기 처리", content: `<h3>주민등록이 말소되는 경우</h3>
         <p>재외국민이 해외에 거주하다가 국내에 돌아오지 않으면, 일정 기간이 지난 후 국내 주민등록이 <strong>자동으로 말소</strong>됩니다.</p>
         <ul>
             <li><strong>말소 대상:</strong> 주민등록상 주소지에서 2년 이상 거주하지 않은 자</li>
@@ -5616,7 +5041,7 @@ const FOREIGN_TOPICS = [
             <li><strong>가족관계증명서:</strong> 대법원 가족관계등록정보시스템에서 발급</li>
             <li><strong>거주확인서:</strong> 재외공관에서 발급</li>
         </ul>` },
-      { heading: `재외공관 공증 = 인감증명 대체`, content: `<h3>문제 상황: 인감증명 발급 불가</h3>
+      { heading: "재외공관 공증 = 인감증명 대체", content: `<h3>문제 상황: 인감증명 발급 불가</h3>
         <p>주민등록이 말소된 재외국민은 국내에서 <strong>인감증명서를 발급받을 수 없습니다</strong>. 인감증명은 주민등록상 주소지에서 발급되는데, 등록이 말소되면 인감도 함께 관리되지 않기 때문입니다.</p>
 
         <div class="warning-box">
@@ -5654,7 +5079,7 @@ const FOREIGN_TOPICS = [
             <li><strong>영문 서류의 경우:</strong> 공증 사본이 영문인 경우, 등기소에서 요구 시 한글 번역공증을 추가로 받아야 할 수 있음</li>
             <li><strong>등기소 확인:</strong> 제출 전 해당 등기소의 서류 요건 확인 권고</li>
         </ul>` },
-      { heading: `법령 근거 및 예규`, content: `<div class="law-box">
+      { heading: "법령 근거 및 예규", content: `<div class="law-box">
             <h3>적용 법령</h3>
             <ul>
                 <li><strong>재외국민등록법:</strong> 재외국민의 등록 및 재외국민등록번호 부여에 관한 법령</li>
@@ -5676,18 +5101,15 @@ const FOREIGN_TOPICS = [
             </ul>
         </div>` },
     ],
-    laws: [
-      { name: `적용 법령`, desc: `` },
-      { name: `등기예규 제1778호의 핵심`, desc: `` },
-    ],
+    laws: [{"name":"적용 법령","desc":""},{"name":"등기예규 제1778호의 핵심","desc":""}],
     forms: [],
   },
   {
-    id: 'fi-16',
+    id: "fi-16",
     title: "재외국민의 한국 부동산 매수 등기",
     meta: "",
     sections: [
-      { heading: `이런 분께 필요합니다`, content: `<div class="checklist">
+      { heading: "이런 분께 필요합니다", content: `<div class="checklist">
                 <ul>
                     <li>한국 국적을 유지하면서 해외에 거주하는 재외국민</li>
                     <li>한국 부동산(주택, 상업용 부동산, 토지 등)을 매수하려는 경우</li>
@@ -5697,7 +5119,7 @@ const FOREIGN_TOPICS = [
                     <li>주민등록과 재외국민등록의 차이를 알고 싶은 경우</li>
                 </ul>
             </div>` },
-      { heading: `2. 핵심 요약`, content: `<div class="summary-box">
+      { heading: "2. 핵심 요약", content: `<div class="summary-box">
                 <h3>재외국민 부동산 취득의 3가지 핵심</h3>
                 <ul>
                     <li><span class="highlight">외국인토지법 미적용:</span> 재외국민은 한국 국적자이므로 토지취득신고·허가 불필요</li>
@@ -5705,7 +5127,7 @@ const FOREIGN_TOPICS = [
                     <li><span class="highlight">서류가 달라짐:</span> 주민등록 유무, 귀국 여부, 재외국민등록번호 여부에 따라 준비 서류 완전히 다름</li>
                 </ul>
             </div>` },
-      { heading: `3. 재외국민 취득의 기본 원칙`, content: `<h3>3-1. 외국인토지법의 적용을 받지 않습니다</h3>
+      { heading: "3. 재외국민 취득의 기본 원칙", content: `<h3>3-1. 외국인토지법의 적용을 받지 않습니다</h3>
             <p>재외국민은 대한민국 국적을 보유한 자이므로 <span class="highlight">외국인에 해당하지 않습니다.</span> 따라서 부동산 취득 시 다음이 불필요합니다.</p>
             <div class="document-title">불필요한 절차</div>
             <p style="margin-left: 20px;">
@@ -5727,7 +5149,7 @@ const FOREIGN_TOPICS = [
                 • 인감증명 또는 공증<br>
                 • 등록번호 기재 방식
             </p>` },
-      { heading: `4. 등기 절차 흐름도`, content: `<div class="flowchart">
+      { heading: "4. 등기 절차 흐름도", content: `<div class="flowchart">
                 <div class="flowchart-step">매도인·매수인 확인</div>
                 <div class="flowchart-step">계약금 결제</div>
                 <div class="flowchart-step">본금 결제</div>
@@ -5739,7 +5161,7 @@ const FOREIGN_TOPICS = [
             <p style="text-align: center; color: #666; margin-top: 20px; font-size: 0.95em;">
                 ※ 귀국 여부, 주민등록 유무에 따라 필요한 서류(5단계)가 달라집니다.
             </p>` },
-      { heading: `5. 내국인과 다른 첨부서류 항목`, content: `<h3>5-1. 신분 증명</h3>
+      { heading: "5. 내국인과 다른 첨부서류 항목", content: `<h3>5-1. 신분 증명</h3>
             <p><span class="highlight">귀국한 경우:</span> 여권 + 국내 도착 기록 확인</p>
             <p><span class="highlight">미귀국인 경우:</span> 여권 사본(재외공관 확인) + 재외국민등록부 사본</p>
 
@@ -5759,7 +5181,7 @@ const FOREIGN_TOPICS = [
             <h3>5-5. 등록번호</h3>
             <p><span class="highlight">주민등록번호 보유:</span> 일반 내국인과 동일하게 주민등록번호 기재</p>
             <p><span class="highlight">주민등록번호 없음:</span> 재외국민등록번호 또는 등기소가 부여하는 번호</p>` },
-      { heading: `6. 귀국 여부별 첨부서류 비교표`, content: `<table>
+      { heading: "6. 귀국 여부별 첨부서류 비교표", content: `<table>
                 <thead>
                     <tr>
                         <th>서류 항목</th>
@@ -5836,7 +5258,7 @@ const FOREIGN_TOPICS = [
                     </tr>
                 </tbody>
             </table>` },
-      { heading: `7. 재외국민 등록번호 처리`, content: `<h3>7-1. 등록번호가 꼭 필요한 이유</h3>
+      { heading: "7. 재외국민 등록번호 처리", content: `<h3>7-1. 등록번호가 꼭 필요한 이유</h3>
             <p>등기부에는 반드시 등록번호(주민등록번호 또는 재외국민등록번호)를 기재해야 합니다. 이는 등기의 법적 효력과 나중의 취급에 직접 영향을 미칩니다.</p>
 
             <h3>7-2. 세 가지 경우</h3>
@@ -5851,7 +5273,7 @@ const FOREIGN_TOPICS = [
 
             <h3>7-3. 등기 이후 등록번호 정정</h3>
             <p>나중에 주민등록이나 재외국민등록을 새로 하게 되면, 번호정정등기를 신청하여 등기부의 등록번호를 수정할 수 있습니다.</p>` },
-      { heading: `8. 주의사항`, content: `<div class="warning-box">
+      { heading: "8. 주의사항", content: `<div class="warning-box">
                 <h4>반드시 확인하세요</h4>
                 <ul>
                     <li><span class="highlight">미귀국인은 반드시 대리인 선임:</span> 직접 등기소에 가서 서명할 수 없으므로, 변호사·법무사 또는 신뢰할 수 있는 대리인을 반드시 선임해야 합니다.</li>
@@ -5865,7 +5287,7 @@ const FOREIGN_TOPICS = [
 
             <h3>귀국 예정자를 위한 팁</h3>
             <p>귀국 예정이라면 가능한 빨리 귀국하여 주민등록을 복원한 후 등기를 진행하는 것이 가장 단순합니다. 여권, 인감증명 등의 서류 준비가 훨씬 간편하기 때문입니다.</p>` },
-      { heading: `9. 관련 판례·예규`, content: `<div class="precedent-box">
+      { heading: "9. 관련 판례·예규", content: `<div class="precedent-box">
                 <h4>주요 등기예규</h4>
                 <ul>
                     <li><strong>등기예규 제1778호 제9조 제1항:</strong> "재외공관이 공증한 서류는 인감증명을 갈음한다." 미귀국인의 위임장을 공증으로 준비할 때의 근거</li>
@@ -5880,18 +5302,15 @@ const FOREIGN_TOPICS = [
                 <p>대법원은 일관되게 재외국민을 국적자로 보아 외국인토지법의 적용을 배제하고 있습니다. 다만 신분증명, 인감 등의 서류는 국내법의 원칙을 따르므로, 가능한 한 정식의 공증이나 영사 확인(apostille)을 받도록 유도하고 있습니다.</p>
             </div>` },
     ],
-    laws: [
-      { name: `주요 등기예규`, desc: `` },
-      { name: `참고: 판례 경향`, desc: `대법원은 일관되게 재외국민을 국적자로 보아 외국인토지법의 적용을 배제하고 있습니다. 다만 신분증명, 인감 등의 서류는 국내법의 원칙을 따르므로, 가능한 한 정식의 공증이나 영사 확인(apostille)을 받도록 유도하고 있습니다.` },
-    ],
+    laws: [{"name":"주요 등기예규","desc":""},{"name":"참고: 판례 경향","desc":"대법원은 일관되게 재외국민을 국적자로 보아 외국인토지법의 적용을 배제하고 있습니다. 다만 신분증명, 인감 등의 서류는 국내법의 원칙을 따르므로, 가능한 한 정식의 공증이나 영사 확인(apostille)을 받도록 유도하고 있습니다."}],
     forms: [],
   },
   {
-    id: 'fi-17',
+    id: "fi-17",
     title: "재외국민 미귀국 처분 — 위임장 공증 완벽 가이드",
     meta: "",
     sections: [
-      { heading: `개요: 재외국민 미귀국 처분의 핵심`, content: `<p>재외국민이 해외에서 계속 거주하면서 한국 부동산을 판매하려면, 다음과 같은 법적 요건을 충족해야 합니다.</p>
+      { heading: "개요: 재외국민 미귀국 처분의 핵심", content: `<p>재외국민이 해외에서 계속 거주하면서 한국 부동산을 판매하려면, 다음과 같은 법적 요건을 충족해야 합니다.</p>
 
             <h3>왜 재외공관 공증이 필요한가?</h3>
             <p>한국 부동산 등기는 <strong>인감증명서</strong>를 중심으로 이루어집니다. 그런데 재외국민은 한국에 호적이 없거나 현재 거주하지 않아 국내에서 인감증명을 받을 수 없습니다. 이를 해결하기 위해 재외공관(한국 대사관·영사관)의 공증을 받으면 인감증명서를 대체할 수 있습니다.</p>
@@ -5910,7 +5329,7 @@ const FOREIGN_TOPICS = [
                 <li>상속 부동산 처분</li>
                 <li>기타 처분 행위 일체 (위임장에 명시된 범위 내)</li>
             </ul>` },
-      { heading: `처분 절차 흐름도 (단계별)`, content: `<div class="flowchart">
+      { heading: "처분 절차 흐름도 (단계별)", content: `<div class="flowchart">
                 <div class="flowchart-step">
                     <div class="step-number">1</div>
                     <h4>국내 대리인 선임</h4>
@@ -5953,7 +5372,7 @@ const FOREIGN_TOPICS = [
                     <p>등기가 완료되면 국내 대리인을 통해 완료 사실을 통보받고, 필요시 등기부등본 사본을 요청합니다.</p>
                 </div>
             </div>` },
-      { heading: `재외공관 공증 위임장 작성 방법`, content: `<h3>기본 원칙</h3>
+      { heading: "재외공관 공증 위임장 작성 방법", content: `<h3>기본 원칙</h3>
             <p>재외공관 공증을 받을 위임장은 다음 요건을 충족해야 합니다:</p>
             <ul>
                 <li><strong>별도 문서 공증 불가:</strong> 위임장 자체에 공증을 받아야 하며, 별도의 공증문서를 첨부받으면 안 됨 (등기예규 제1778호 제9조 제3항)</li>
@@ -6027,7 +5446,7 @@ const FOREIGN_TOPICS = [
                 <h4>주의: 비용 및 기간</h4>
                 <p>공증 수수료는 공관별로 상이하며, 발급 기간도 국가·공관에 따라 수일에서 수 주까지 걸릴 수 있습니다. 여름 휴가 시즌이나 공휴일을 고려하여 여유 있게 신청하세요.</p>
             </div>` },
-      { heading: `재외공관 공증과 아포스티유: 어떻게 다른가`, content: `<p>재외국민이 미귀국 처분을 하려면 재외공관 공증과 아포스티유를 구분하는 것이 매우 중요합니다. 아포스티유를 받으면 한국 부동산 등기에 사용할 수 없습니다.</p>
+      { heading: "재외공관 공증과 아포스티유: 어떻게 다른가", content: `<p>재외국민이 미귀국 처분을 하려면 재외공관 공증과 아포스티유를 구분하는 것이 매우 중요합니다. 아포스티유를 받으면 한국 부동산 등기에 사용할 수 없습니다.</p>
 
             <table>
                 <thead>
@@ -6098,7 +5517,7 @@ const FOREIGN_TOPICS = [
                 <h4>주의: 혼동하면 등기 불가</h4>
                 <p>아포스티유만 받고 재외공관 공증을 받지 않으면, 한국 부동산 등기소에서는 이를 인감증명 대체로 인정하지 않아 등기 신청이 반려될 수 있습니다.</p>
             </div>` },
-      { heading: `첨부서류 상세 가이드`, content: `<p>부동산 처분 등기 신청 시 제출해야 할 서류는 재외국민이 귀국했는지 여부에 따라 크게 달라집니다.</p>
+      { heading: "첨부서류 상세 가이드", content: `<p>부동산 처분 등기 신청 시 제출해야 할 서류는 재외국민이 귀국했는지 여부에 따라 크게 달라집니다.</p>
 
             <h3>첨부서류 비교표: 귀국한 경우 vs 미귀국인 경우</h3>
 
@@ -6192,7 +5611,7 @@ const FOREIGN_TOPICS = [
                 <h4>주의: 서류 원본 vs 사본</h4>
                 <p>등기 신청 시 인장이 있는 공증 위임장은 반드시 <strong>원본</strong>을 제출해야 합니다. 여권 사본, 주소 증명 등은 사본이어도 되지만, 공증 위임장만은 원본이어야 합니다.</p>
             </div>` },
-      { heading: `주의사항`, content: `<h3>공증 유효 기간 엄격하게 준수</h3>
+      { heading: "주의사항", content: `<h3>공증 유효 기간 엄격하게 준수</h3>
             <p>재외공관 공증의 유효 기간은 공증일로부터 <strong>정확히 3개월</strong>입니다. 3개월을 초과하면 등기소에서 반려되므로, 공증 받은 직후 바로 등기 신청 절차를 시작해야 합니다.</p>
 
             <h3>위임장 표현의 명확성</h3>
@@ -6282,16 +5701,15 @@ const FOREIGN_TOPICS = [
 </body>
 </html>` },
     ],
-    laws: [
-    ],
+    laws: [],
     forms: [],
   },
   {
-    id: 'fi-18',
+    id: "fi-18",
     title: "재외국민 단독 상속",
     meta: "입국 여부에 따른 상속등기 신청 방법",
     sections: [
-      { heading: `이런 분께 필요합니다`, content: `<p>다음의 상황 중 해당되는 항목이 있다면 이 페이지를 꼭 읽어보세요.</p>
+      { heading: "이런 분께 필요합니다", content: `<p>다음의 상황 중 해당되는 항목이 있다면 이 페이지를 꼭 읽어보세요.</p>
             <div class="checklist">
                 <div class="checklist-item">
                     <input type="checkbox" id="check1">
@@ -6334,7 +5752,7 @@ const FOREIGN_TOPICS = [
                     <li>재외국민등록번호가 없다면 <span class="emphasis">부동산등기용등록번호를 먼저 부여받아야</span> 합니다.</li>
                 </ul>
             </div>` },
-      { heading: `재외국민 단독 상속의 법적 지위`, content: `<h3>재외국민의 정의</h3>
+      { heading: "재외국민 단독 상속의 법적 지위", content: `<h3>재외국민의 정의</h3>
             <p>재외국민은 <span class="emphasis">대한민국 국적을 가진 사람</span>입니다. 따라서 외국인이 아니며, <span class="emphasis">상속에 관한 한국 민법이 그대로 적용</span>됩니다.</p>
 
             <h3>왜 재외국민 상속이 특수한가</h3>
@@ -6373,7 +5791,7 @@ const FOREIGN_TOPICS = [
                     </tbody>
                 </table>
             </div>` },
-      { heading: `상속등기 절차 흐름 (입국 여부별)`, content: `<h3>입국한 재외국민</h3>
+      { heading: "상속등기 절차 흐름 (입국 여부별)", content: `<h3>입국한 재외국민</h3>
             <div class="flow-diagram">
                 <div class="flow-step">
                     <div class="flow-step-number">1</div>
@@ -6430,7 +5848,7 @@ const FOREIGN_TOPICS = [
             </div>
 
             <p style="margin-top: 20px; font-size: 14px; color: #6b7280;"><span class="icon">⏱</span>소요 기간: 입국한 경우 2~3주, 미귀국인 경우 3~4주 (서류 수집 기간 제외)</p>` },
-      { heading: `귀국한 재외국민의 절차`, content: `<p>한국에 입국하여 거주하고 있거나 재입국한 재외국민의 경우입니다.</p>
+      { heading: "귀국한 재외국민의 절차", content: `<p>한국에 입국하여 거주하고 있거나 재입국한 재외국민의 경우입니다.</p>
 
             <h3>Step 1: 주민등록 상태 확인</h3>
             <div class="step-box">
@@ -6483,7 +5901,7 @@ const FOREIGN_TOPICS = [
                 <p><span class="emphasis">피상속인 사망 후 6개월 이내</span>에 취득세를 지방세청에 신고해야 합니다. 이를 초과하면 과태료가 부과됩니다.</p>
                 <p><span class="emphasis">신고 방법</span>: 지방세 인터넷 납부시스템(주민세청 웹사이트) 또는 관할 구청 세무과에서 신고</p>
             </div>` },
-      { heading: `미귀국 재외국민의 절차`, content: `<p>해외에 거주 중이며 귀국하지 않은 재외국민의 경우입니다. <span class="emphasis">대리인을 통한 신청이 필수</span>입니다.</p>
+      { heading: "미귀국 재외국민의 절차", content: `<p>해외에 거주 중이며 귀국하지 않은 재외국민의 경우입니다. <span class="emphasis">대리인을 통한 신청이 필수</span>입니다.</p>
 
             <h3>Step 1: 재외공관에서 위임장 공증</h3>
             <p>한국에서 상속등기를 진행할 대리인(주로 법무사)을 선임하고, <span class="emphasis">재외공관(대사관 또는 영사관)에서 위임장을 공증</span>받아야 합니다.</p>
@@ -6543,7 +5961,7 @@ const FOREIGN_TOPICS = [
                 <p>미귀국인 경우에도 <span class="emphasis">피상속인 사망 후 6개월 이내</span> 취득세 신고가 필수입니다.</p>
                 <p><span class="emphasis">신고 방법</span>: 법무사가 대리하거나, 직접 한국 지방세청에 신고 가능</p>
             </div>` },
-      { heading: `첨부서류 상세 안내`, content: `<h3>입국한 재외국민</h3>
+      { heading: "첨부서류 상세 안내", content: `<h3>입국한 재외국민</h3>
             <table>
                 <thead>
                     <tr>
@@ -6664,7 +6082,7 @@ const FOREIGN_TOPICS = [
                 <p><span class="emphasis">아포스티유(Apostille)</span>는 헤이그 협약 가입국이 발급한 문서에 필요합니다. 체류국이 아포스티유 협약에 가입했는지 확인하고, 가입했다면 재외공관 공증 대신 아포스티유를 받아야 합니다.</p>
                 <p><span class="emphasis">확인 방법</span>: 해당국 법원 또는 관공서에 문의 / 한국 대사관 또는 총영사관에 문의</p>
             </div>` },
-      { heading: `주의사항 및 주요 포인트`, content: `<h3>주민등록이 말소된 재외국민의 주소 불명</h3>
+      { heading: "주의사항 및 주요 포인트", content: `<h3>주민등록이 말소된 재외국민의 주소 불명</h3>
             <div class="warning-box">
                 <p>재외국민등록부 등본을 발급받을 수 없거나 재외공관에서 주소증명을 할 수 없다면, <span class="emphasis">말소된 주민등록표 등본상의 최후 주소</span>로 상속등기를 신청할 수 있습니다. 이때 다음 서류를 첨부해야 합니다:</p>
                 <ul class="procedure-list">
@@ -6713,7 +6131,7 @@ const FOREIGN_TOPICS = [
                 <li>협의분할 또는 법정상속분 각자 신청 등을 검토해야 합니다.</li>
                 <li><span class="emphasis">법무사 상담이 필수</span>입니다.</li>
             </ul>` },
-      { heading: `관련 판례 및 예규`, content: `<div class="info-box">
+      { heading: "관련 판례 및 예규", content: `<div class="info-box">
                 <h3>등기예규 제1778호 (재외국민 부동산등기)</h3>
                 <ul class="procedure-list">
                     <li><span class="emphasis">제9조</span>: 재외공관 공증 요건 (위임장, 위임권 포기 등)</li>
@@ -6738,7 +6156,7 @@ const FOREIGN_TOPICS = [
                 <h3>부동산등기법 제49조 (등록번호 부여 절차)</h3>
                 <p>주민등록번호가 없는 재외국민의 경우, 서울중앙지방법원 등기국의 등기관이 부동산등기용등록번호를 부여합니다.</p>
             </div>` },
-      { heading: `자주 묻는 질문`, content: `<div class="faq-item">
+      { heading: "자주 묻는 질문", content: `<div class="faq-item">
                 <div class="faq-q">귀국했는데 주민등록이 말소되어 있으면 어떻게 하나요?</div>
                 <div class="faq-a">
                     <p>주민센터에서 주민등록 재등록을 신청할 수 있습니다. 그러나 상속등기는 말소된 주민등록번호 또는 새로운 부동산등기용등록번호로도 신청 가능하므로, 반드시 재등록할 필요는 없습니다. 상황에 따라 법무사와 상담하여 결정하면 됩니다.</p>
@@ -6794,20 +6212,15 @@ const FOREIGN_TOPICS = [
                 <div class="faq-disclaimer">위 내용은 일반적인 경우를 기준으로 한 것이며, 개별 사안에 따라 결론이 달라질 수 있습니다. 구체적인 상황은 법무사와 상담하시기 바랍니다.</div>
             </div>` },
     ],
-    laws: [
-      { name: `등기예규 제1778호 (재외국민 부동산등기)`, desc: `` },
-      { name: `등기선례 7-74 (현주소 불명 처리)`, desc: `"공동상속인 중 일부인 재외국민의 현 주소를 알 수 없을 때는 말소된 주민등록표등본상 최후 주소로 상속등기를 신청할 수 있다."` },
-      { name: `등기선례 제201012-2호 (아포스티유 대체 공증)`, desc: `체류국 관공서 발급 주소증명서에 원본 동일성 공증을 받은 경우, 재외공관 공증과 동일하게 인정될 수 있습니다.` },
-      { name: `부동산등기법 제49조 (등록번호 부여 절차)`, desc: `주민등록번호가 없는 재외국민의 경우, 서울중앙지방법원 등기국의 등기관이 부동산등기용등록번호를 부여합니다.` },
-    ],
+    laws: [{"name":"등기예규 제1778호 (재외국민 부동산등기)","desc":""},{"name":"등기선례 7-74 (현주소 불명 처리)","desc":"\"공동상속인 중 일부인 재외국민의 현 주소를 알 수 없을 때는 말소된 주민등록표등본상 최후 주소로 상속등기를 신청할 수 있다.\""},{"name":"등기선례 제201012-2호 (아포스티유 대체 공증)","desc":"체류국 관공서 발급 주소증명서에 원본 동일성 공증을 받은 경우, 재외공관 공증과 동일하게 인정될 수 있습니다."},{"name":"부동산등기법 제49조 (등록번호 부여 절차)","desc":"주민등록번호가 없는 재외국민의 경우, 서울중앙지방법원 등기국의 등기관이 부동산등기용등록번호를 부여합니다."}],
     forms: [],
   },
   {
-    id: 'fi-19',
+    id: "fi-19",
     title: "공동상속인 중 재외국민이 있을 때법정상속 등기",
     meta: "",
     sections: [
-      { heading: `이런 분께 필요합니다`, content: `<div class="checklist">
+      { heading: "이런 분께 필요합니다", content: `<div class="checklist">
                 <h3>이런 분께 필요합니다</h3>
                 <ul>
                     <li>상속인 중에 재외국민(해외 거주 한국국적자)이 있는 경우</li>
@@ -6818,7 +6231,7 @@ const FOREIGN_TOPICS = [
                     <li>다른 상속인이 협력을 거부할 때 혼자서 공동상속 등기를 신청할 수 있는지 확인하고 싶을 때</li>
                 </ul>
             </div>` },
-      { heading: `공동상속의 기본 원칙`, content: `<h3>공동상속이란</h3>
+      { heading: "공동상속의 기본 원칙", content: `<h3>공동상속이란</h3>
             <p>상속인이 2명 이상인 경우, 피상속인의 재산을 법정상속분에 따라 지분으로 나누어 공유하는 것입니다. 한국 상속법은 다음과 같은 원칙을 따릅니다.</p>
 
             <h3>법정상속분</h3>
@@ -6848,7 +6261,7 @@ const FOREIGN_TOPICS = [
                 <li><strong>입국 여부</strong>: 재외국민이 귀국했는지 여부에 따라 준비 서류가 달라집니다.</li>
                 <li><strong>인감증명</strong>: 귀국하지 않은 재외국민은 한국에서 인감증명서를 받을 수 없으므로 재외공관 공증으로 대체합니다.</li>
             </ul>` },
-      { heading: `공동상속 법정상속 등기 절차`, content: `<div class="flowchart">
+      { heading: "공동상속 법정상속 등기 절차", content: `<div class="flowchart">
                 <div class="flowchart-step">1단계: 피상속인의 사망 확인<br><small>사망 신고서, 사망진단서</small></div>
 
                 <div class="flowchart-arrow">↓</div>
@@ -6871,7 +6284,7 @@ const FOREIGN_TOPICS = [
 
                 <div class="flowchart-step">6단계: 등기부 등본 확인<br><small>공동상속 등기 완료</small></div>
             </div>` },
-      { heading: `재외국민 상속인 서류 준비 (귀국한 경우)`, content: `<p>재외국민이 한국으로 귀국한 후 주민등록을 신고했다면, 일반 상속인과 동일한 서류를 준비합니다.</p>
+      { heading: "재외국민 상속인 서류 준비 (귀국한 경우)", content: `<p>재외국민이 한국으로 귀국한 후 주민등록을 신고했다면, 일반 상속인과 동일한 서류를 준비합니다.</p>
 
             <h3>1단계: 신분증명</h3>
             <ul>
@@ -6915,7 +6328,7 @@ const FOREIGN_TOPICS = [
                 </ul>
                 <p>이 경우 A는 일반 상속인과 동일하게 취급되어 신청할 수 있습니다.</p>
             </div>` },
-      { heading: `재외국민 상속인 서류 준비 (미귀국인 경우)`, content: `<p>재외국민이 외국에 계속 거주하면서 귀국하지 않은 경우, 다음과 같이 서류를 준비합니다.</p>
+      { heading: "재외국민 상속인 서류 준비 (미귀국인 경우)", content: `<p>재외국민이 외국에 계속 거주하면서 귀국하지 않은 경우, 다음과 같이 서류를 준비합니다.</p>
 
             <h3>1단계: 위임장</h3>
             <ul>
@@ -6968,7 +6381,7 @@ const FOREIGN_TOPICS = [
                 </ul>
                 <p>B는 미국 변호사를 대리인으로 지정하거나, 한국의 친인척을 대리인으로 하는 위임장을 작성하여 진행했습니다.</p>
             </div>` },
-      { heading: `첨부서류 비교표`, content: `<p>재외국민 상속인을 포함한 공동상속 등기의 첨부서류를 귀국 여부별로 정리했습니다. 다른 상속인(한국 국적, 국내 거주)은 일반 상속 등기 서류를 따릅니다.</p>
+      { heading: "첨부서류 비교표", content: `<p>재외국민 상속인을 포함한 공동상속 등기의 첨부서류를 귀국 여부별로 정리했습니다. 다른 상속인(한국 국적, 국내 거주)은 일반 상속 등기 서류를 따릅니다.</p>
 
             <table>
                 <thead>
@@ -7011,7 +6424,7 @@ const FOREIGN_TOPICS = [
                     </tr>
                 </tbody>
             </table>` },
-      { heading: `주의사항`, content: `<h3>1. 협력을 거부하는 상속인이 있을 때</h3>
+      { heading: "주의사항", content: `<h3>1. 협력을 거부하는 상속인이 있을 때</h3>
             <ul>
                 <li>공동상속 등기는 보존행위로서 상속인 중 1인이 단독으로 신청할 수 있습니다.</li>
                 <li>다른 상속인이 협력을 거부해도 법정상속분에 따라 자신의 몫을 등기할 수 있습니다(등기선례 제201809-4호).</li>
@@ -7045,7 +6458,7 @@ const FOREIGN_TOPICS = [
             <div class="warning-box">
                 <strong>⚡ 기간 제한:</strong> 상속 등기에 특별한 기간 제한은 없지만, 증명서 효력이 3개월이므로 이 기간 내에 신청을 마쳐야 합니다.
             </div>` },
-      { heading: `관련 판례 및 예규`, content: `<div class="precedent-box">
+      { heading: "관련 판례 및 예규", content: `<div class="precedent-box">
                 <h4>등기예규 제1778호 제9조 제1항</h4>
                 <p>재외국민이 국내에 주소를 두지 아니하고 있는 경우 등기신청서에 대한 서명을 하지 아니하고, 대신 재외공관에서 공증을 받은 위임장을 제출하면, 이를 인감증명서에 갈음할 수 있다.</p>
             </div>
@@ -7099,20 +6512,15 @@ const FOREIGN_TOPICS = [
 </body>
 </html>` },
     ],
-    laws: [
-      { name: `등기예규 제1778호 제9조 제1항`, desc: `재외국민이 국내에 주소를 두지 아니하고 있는 경우 등기신청서에 대한 서명을 하지 아니하고, 대신 재외공관에서 공증을 받은 위임장을 제출하면, 이를 인감증명서에 갈음할 수 있다.` },
-      { name: `등기예규 제1778호 제11조`, desc: `재외국민의 등록번호를 알 수 없는 경우, 등기신청서에 '등록번호 미기재'로 표시하고 신청하면, 등기소에서 임시 번호를 부여하여 처리한다.` },
-      { name: `등기선례 7-74 (현주소 불명)`, desc: `상속인의 현주소를 알 수 없는 경우, 최후에 등록되어 있던 주소를 기재하여 등기신청을 할 수 있다. 재외국민의 경우 재외국민등록부에 등재된 주소를 사용한다.` },
-      { name: `등기선례 제201809-4호 (협력 거부 시 단독 신청)`, desc: `공동상속인 중 일부가 협력을 거부하는 경우, 협력하는 상속인이 자신의 법정상속분에 해당하는 부분에 대해 단독으로 공동상속 등기를 신청할 수 있다.` },
-    ],
+    laws: [{"name":"등기예규 제1778호 제9조 제1항","desc":"재외국민이 국내에 주소를 두지 아니하고 있는 경우 등기신청서에 대한 서명을 하지 아니하고, 대신 재외공관에서 공증을 받은 위임장을 제출하면, 이를 인감증명서에 갈음할 수 있다."},{"name":"등기예규 제1778호 제11조","desc":"재외국민의 등록번호를 알 수 없는 경우, 등기신청서에 '등록번호 미기재'로 표시하고 신청하면, 등기소에서 임시 번호를 부여하여 처리한다."},{"name":"등기선례 7-74 (현주소 불명)","desc":"상속인의 현주소를 알 수 없는 경우, 최후에 등록되어 있던 주소를 기재하여 등기신청을 할 수 있다. 재외국민의 경우 재외국민등록부에 등재된 주소를 사용한다."},{"name":"등기선례 제201809-4호 (협력 거부 시 단독 신청)","desc":"공동상속인 중 일부가 협력을 거부하는 경우, 협력하는 상속인이 자신의 법정상속분에 해당하는 부분에 대해 단독으로 공동상속 등기를 신청할 수 있다."}],
     forms: [],
   },
   {
-    id: 'fi-20',
+    id: "fi-20",
     title: "재외국민이 포함된 상속재산 협의분할 등기",
     meta: "",
     sections: [
-      { heading: `이런 분께 필요합니다`, content: `<div class="checklist">
+      { heading: "이런 분께 필요합니다", content: `<div class="checklist">
                 <ul>
                     <li>상속인 중 일부가 해외에 거주하는 재외국민</li>
                     <li>공동상속인 전원이 상속재산 분할에 동의하여 협의분할을 진행하려는 경우</li>
@@ -7136,7 +6544,7 @@ const FOREIGN_TOPICS = [
                     <li><strong>여러 장 서류의 간인</strong>: 공동상속인 전원 간인 + 공증인 직인 간인 필요</li>
                 </ul>
             </div>` },
-      { heading: `개요: 재외국민이 포함된 협의분할의 특수성`, content: `<h3>협의분할이란?</h3>
+      { heading: "개요: 재외국민이 포함된 협의분할의 특수성", content: `<h3>협의분할이란?</h3>
             <p>협의분할은 <strong>공동상속인 전원이 참가하여 상속재산의 분할 방법을 협의하는 것</strong>입니다. 법정상속분과 관계없이 상속인들이 원하는 대로 재산을 나누어 가질 수 있으며, 이를 등기하기 위해서는 협의분할서에 모든 상속인의 서명과 날인이 필요합니다.</p>
 
             <div class="warning-box">
@@ -7151,7 +6559,7 @@ const FOREIGN_TOPICS = [
                 <li><strong>대리위임의 활용</strong>: 재외국민이 직접 참가하지 않을 경우, 대리인에게 위임하는 방식이 있습니다.</li>
                 <li><strong>우편 송부 방식</strong>: 협의분할서를 재외국민에게 우편으로 보내 서명·날인 후 공증받아 받는 방식도 가능합니다.</li>
             </ul>` },
-      { heading: `협의분할 절차 흐름도`, content: `<h3>기본 절차 (재외국민 포함)</h3>
+      { heading: "협의분할 절차 흐름도", content: `<h3>기본 절차 (재외국민 포함)</h3>
             <div class="process-flow">
                 <div class="process-row">
                     <div class="process-step">상속 발생</div>
@@ -7200,7 +6608,7 @@ const FOREIGN_TOPICS = [
                 <li>공증 서류를 한국으로 반송</li>
                 <li>등기 신청</li>
             </ul>` },
-      { heading: `재외국민이 직접 참가하는 경우 (귀국)`, content: `<h3>기본 원칙</h3>
+      { heading: "재외국민이 직접 참가하는 경우 (귀국)", content: `<h3>기본 원칙</h3>
             <p>재외국민이 한국으로 귀국한 경우, 한국에 거주하는 상속인과 동일하게 취급됩니다. 협의분할서에 인감 날인을 하고 인감증명서를 발급받으면 됩니다.</p>
 
             <h3>절차</h3>
@@ -7244,7 +6652,7 @@ const FOREIGN_TOPICS = [
                     <li>협의분할서 + 인감증명서 + 기타 서류 → 등기소 신청</li>
                 </ul>
             </div>` },
-      { heading: `재외국민이 대리인을 통하는 경우 (미귀국)`, content: `<h3>개요</h3>
+      { heading: "재외국민이 대리인을 통하는 경우 (미귀국)", content: `<h3>개요</h3>
             <p>재외국민이 해외에 있으면서 한국으로 귀국하지 않은 경우, <strong>재외공관 공증을 받은 대리위임장</strong>을 통해 다른 상속인(또는 법무사)에게 협의분할서 작성 및 서명·날인을 위임할 수 있습니다.</p>
 
             <div class="cta-box">
@@ -7327,7 +6735,7 @@ const FOREIGN_TOPICS = [
                     <li>협의분할서 + 공증 위임장 + 인감증명서 → 등기소 신청</li>
                 </ul>
             </div>` },
-      { heading: `첨부서류 - 재외국민 상속인 기준`, content: `<p>협의분할 등기를 신청할 때 제출해야 할 서류입니다. 재외국민 상속인의 귀국 여부에 따라 다릅니다.</p>
+      { heading: "첨부서류 - 재외국민 상속인 기준", content: `<p>협의분할 등기를 신청할 때 제출해야 할 서류입니다. 재외국민 상속인의 귀국 여부에 따라 다릅니다.</p>
 
             <table>
                 <thead>
@@ -7387,7 +6795,7 @@ const FOREIGN_TOPICS = [
                 <li><strong>공증인 간인</strong>: 협의분할서가 여러 장이고 재외공관 공증을 받은 경우, 공증인 직인도 모든 장의 경계(간인)에 찍혀야 합니다. (등기선례 제201807-1호)</li>
                 <li><strong>한글 번역</strong>: 재외공관 공증서가 영문이면 반드시 한글 번역본을 첨부하고 번역자가 서명해야 합니다.</li>
             </ul>` },
-      { heading: `협의분할서 작성 방법 및 주의사항`, content: `<h3>협의분할서 작성의 기본 원칙</h3>
+      { heading: "협의분할서 작성 방법 및 주의사항", content: `<h3>협의분할서 작성의 기본 원칙</h3>
             <p><strong>협의분할서는 특정 형식이 법으로 정해져 있지 않습니다.</strong> 하지만 등기신청 시 명확하고 문제가 없도록 작성해야 합니다.</p>
 
             <h3>작성 항목</h3>
@@ -7473,7 +6881,7 @@ const FOREIGN_TOPICS = [
                 <p style="margin: 5px 0 5px 20px;">2) 차남 김□□(생년월일: 1958년 7월 22일)</p>
                 <p style="margin: 5px 0 5px 30px;">서울 강남구 □□동 □□번지 건물 150㎡</p>
             </div>` },
-      { heading: `판례·예규`, content: `<div class="case-box">
+      { heading: "판례·예규", content: `<div class="case-box">
                 <h4>등기예규 제1778호 제6조 (협의분할 대리위임장)</h4>
                 <p>"상속재산의 협의분할을 위한 대리위임장은 인감증명서와 함께 제출하여야 한다. 다만, 재외공관에서 공증을 받은 경우에는 공증서로 갈음할 수 있다."</p>
             </div>
@@ -7505,22 +6913,15 @@ const FOREIGN_TOPICS = [
                 <p>"재외공관에서 공증을 받은 협의분할서가 여러 장인 경우, 공증인 직인도 모든 페이지 경계에 간인되어야 한다."</p>
             </div>` },
     ],
-    laws: [
-      { name: `등기예규 제1778호 제6조 (협의분할 대리위임장)`, desc: `"상속재산의 협의분할을 위한 대리위임장은 인감증명서와 함께 제출하여야 한다. 다만, 재외공관에서 공증을 받은 경우에는 공증서로 갈음할 수 있다."` },
-      { name: `등기예규 제1778호 제9조 제1항 (재외공관 공증)`, desc: `"재외국민의 협의분할 대리위임장 또는 협의분할서는 재외공관의 공증을 받을 수 있으며, 이는 인감증명서 대신 효력이 있다."` },
-      { name: `등기예규 제1778호 제9조 제3항`, desc: `"협의분할권 위임장에 대해 공증을 받는 경우 위임장 자체에 공증인의 직인을 받아야 한다."` },
-      { name: `등기선례 제201805-9호 (재외국민의 위임 대상)`, desc: `"재외국민이 협의분할권을 위임할 때 위임인이 반드시 법무사일 필요는 없다. 다른 상속인(공동상속인)에게 위임하는 것도 가능하다."` },
-      { name: `등기선례 제201807-1호 (여러 장 서류의 간인)`, desc: `"협의분할서가 여러 장일 경우, 각 상속인은 모든 장의 경계에 간인해야 한다."` },
-      { name: `등기선례 제202001-1호 (공증인 간인)`, desc: `"재외공관에서 공증을 받은 협의분할서가 여러 장인 경우, 공증인 직인도 모든 페이지 경계에 간인되어야 한다."` },
-    ],
+    laws: [{"name":"등기예규 제1778호 제6조 (협의분할 대리위임장)","desc":"\"상속재산의 협의분할을 위한 대리위임장은 인감증명서와 함께 제출하여야 한다. 다만, 재외공관에서 공증을 받은 경우에는 공증서로 갈음할 수 있다.\""},{"name":"등기예규 제1778호 제9조 제1항 (재외공관 공증)","desc":"\"재외국민의 협의분할 대리위임장 또는 협의분할서는 재외공관의 공증을 받을 수 있으며, 이는 인감증명서 대신 효력이 있다.\""},{"name":"등기예규 제1778호 제9조 제3항","desc":"\"협의분할권 위임장에 대해 공증을 받는 경우 위임장 자체에 공증인의 직인을 받아야 한다.\""},{"name":"등기선례 제201805-9호 (재외국민의 위임 대상)","desc":"\"재외국민이 협의분할권을 위임할 때 위임인이 반드시 법무사일 필요는 없다. 다른 상속인(공동상속인)에게 위임하는 것도 가능하다.\""},{"name":"등기선례 제201807-1호 (여러 장 서류의 간인)","desc":"\"협의분할서가 여러 장일 경우, 각 상속인은 모든 장의 경계에 간인해야 한다.\""},{"name":"등기선례 제202001-1호 (공증인 간인)","desc":"\"재외공관에서 공증을 받은 협의분할서가 여러 장인 경우, 공증인 직인도 모든 페이지 경계에 간인되어야 한다.\""}],
     forms: [],
   },
   {
-    id: 'fi-21',
+    id: "fi-21",
     title: "재외국민의 부동산 증여 이전등기",
     meta: "완벽한 절차 가이드: 귀국 여부에 따른 서류 준비부터 등기 신청까지",
     sections: [
-      { heading: `이런 분께 필요합니다`, content: `<div class="checklist">
+      { heading: "이런 분께 필요합니다", content: `<div class="checklist">
                 <h3>다음 중 해당되시나요?</h3>
                 <div class="checklist-item">
                     <input type="checkbox"> 재외국민인 부모가 한국 부동산을 자녀에게 증여하려고 한다
@@ -7541,7 +6942,7 @@ const FOREIGN_TOPICS = [
                     <input type="checkbox"> 외국인 부동산 증여와 재외국민 증여의 차이점을 알고 싶다
                 </div>
             </div>` },
-      { heading: `이 절차가 왜 필요한가`, content: `<div class="summary-box">
+      { heading: "이 절차가 왜 필요한가", content: `<div class="summary-box">
                 <h3>부동산 증여 이전등기의 중요성</h3>
                 <p>
                     <strong>증여계약 체결만으로는 소유권이 이전되지 않습니다.</strong> 민법 제188조에 따라 부동산의 소유권이전은 등기에 의해서만 효력이 생깁니다. 따라서 증여계약 체결 후 반드시 등기소에 증여 이전등기를 신청해야 합니다.
@@ -7559,7 +6960,7 @@ const FOREIGN_TOPICS = [
                     <strong>재외국민이 증여자인 경우와 수증자인 경우 절차가 다릅니다.</strong> 특히 미귀국 상태에서 증여를 하는 경우 재외공관에서 발급받은 공증장을 첨부해야 합니다.
                 </p>
             </div>` },
-      { heading: `전체 절차 흐름`, content: `<h3>재외국민이 증여자인 경우 (해외에서 부동산을 팔거나 증여하는 경우)</h3>
+      { heading: "전체 절차 흐름", content: `<h3>재외국민이 증여자인 경우 (해외에서 부동산을 팔거나 증여하는 경우)</h3>
             <div class="procedure-flow">
                 <div class="flow-step">
                     <div style="font-size: 12px; color: #666; margin-bottom: 8px;">1단계</div>
@@ -7644,7 +7045,7 @@ const FOREIGN_TOPICS = [
                     <div style="font-size: 12px; margin-top: 8px; color: #333;">3개월 이내</div>
                 </div>
             </div>` },
-      { heading: `재외국민이 증여자인 경우 (처분 권한 위임)`, content: `<h3>재외국민의 법적 지위</h3>
+      { heading: "재외국민이 증여자인 경우 (처분 권한 위임)", content: `<h3>재외국민의 법적 지위</h3>
             <p>
                 재외국민은 한국 국적을 보유하고 해외에서 거주하는 사람입니다. 외국인과 달리 국적은 유지하고 있으므로, 한국 부동산 증여 시 외국인토지법의 제약을 받지 않습니다. 다만, 주민등록이 말소되어 있으므로 서류 준비에서 차이가 있습니다.
             </p>
@@ -7691,7 +7092,7 @@ const FOREIGN_TOPICS = [
                 <li>등기예규 제1778호 제5조 — 재외공관 공증 절차</li>
                 <li>등기예규 제1778호 제9조 제1항, 제3항 — 공증 요건 및 인감증명 대체</li>
             </ul>` },
-      { heading: `재외국민이 수증자인 경우 (취득)`, content: `<h3>등록번호 및 주소증명 준비</h3>
+      { heading: "재외국민이 수증자인 경우 (취득)", content: `<h3>등록번호 및 주소증명 준비</h3>
             <p>
                 재외국민이 부동산을 증여받는 경우, 등기소에 등록할 번호는 다음 중 하나입니다:
             </p>
@@ -7744,7 +7145,7 @@ const FOREIGN_TOPICS = [
             <p>
                 <span class="icon">⚡</span> <strong>증여받은 날로부터 3개월 이내에 국세청에 증여세 신고를 해야 합니다.</strong> 이 기간을 초과하면 가산세가 부과됩니다.
             </p>` },
-      { heading: `첨부서류`, content: `<h3>재외국민이 증여자인 경우</h3>
+      { heading: "첨부서류", content: `<h3>재외국민이 증여자인 경우</h3>
 
             <table>
                 <thead>
@@ -7875,7 +7276,7 @@ const FOREIGN_TOPICS = [
                     <li><strong>여권 사본 미인증:</strong> 미귀국인 경우 여권 사본을 공증받지 않아 등기소에서 보정명령 발부</li>
                 </ul>
             </div>` },
-      { heading: `비용 안내`, content: `<p>
+      { heading: "비용 안내", content: `<p>
                 증여로 인한 부동산 소유권이전등기 신청 시 다음과 같은 비용이 발생합니다. 정확한 금액은 부동산의 시가표준액 또는 공시지가에 따라 결정되므로, 국세청 위택스(www.wetax.go.kr)에서 확인하시기 바랍니다.
             </p>
             <ul>
@@ -7890,7 +7291,7 @@ const FOREIGN_TOPICS = [
             <p>
                 비용 계산: <a href="https://www.wetax.go.kr" style="color: #1a2e4a; text-decoration: underline;">위택스 홈페이지</a>에서 부동산 주소와 시가표준액을 입력하여 조회 가능
             </p>` },
-      { heading: `판례 및 예규`, content: `<div class="case-box">
+      { heading: "판례 및 예규", content: `<div class="case-box">
                 <h4>등기예규 제1778호 제5조 — 재외공관 공증 적용 기준</h4>
                 <p>
                     <strong>제1항:</strong> 재외국민이 국내 또는 국외에서 부동산의 증여권한을 대리인에게 수여한 경우, 대상 부동산과 증여의 목적이 되는 권리 및 대리인의 인적사항을 구체적으로 특정하여 작성한 대리위임장을 등기소에 첨부정보로 제공해야 한다.
@@ -7916,7 +7317,7 @@ const FOREIGN_TOPICS = [
                     위임장 멸실 시 공증을 받아야 할 서면은 법무사 등의 수임인에 대한 확인서면이 아닌 대리권한을 증명하는 서면인 증여 위임장이어야 한다. 공증 내용은 증여 위임장에 표시된 등기의무자의 작성부분(서명 또는 날인)이 등기의무자 자신이 작성한 것임을 확인하는 내용이어야 한다.
                 </p>
             </div>` },
-      { heading: `자주 발생하는 문제와 해결책`, content: `<div class="warning-box">
+      { heading: "자주 발생하는 문제와 해결책", content: `<div class="warning-box">
                 <h4><span class="icon">⚠️</span> 문제 1: 공증 방식 오류 (가장 빈번)</h4>
                 <p><strong>상황:</strong> 위임장을 재외공관에 보냈으나 "공증인의 확인서"만 받음</p>
                 <p><strong>원인:</strong> 재외공관에서 위임장 문서 자체에 공증 표시를 하지 않고, 별도의 확인서만 발급함</p>
@@ -7954,7 +7355,7 @@ const FOREIGN_TOPICS = [
                     <strong>협약 미가입국 (중국, 러시아, 동남아 일부):</strong> 아포스티유를 받을 수 없으므로, 현지 대사관·공사관에서 공증을 받아야 합니다.
                 </p>
             </div>` },
-      { heading: `자주 묻는 질문`, content: `<div class="qa-section">
+      { heading: "자주 묻는 질문", content: `<div class="qa-section">
                 <div class="qa-q">Q1. 재외국민이 한국 부동산을 증여하려면 반드시 귀국해야 하나요?</div>
                 <div class="qa-a">
                     아니요, 귀국할 필요가 없습니다. 재외국민이 미귀국 상태에서도 부동산을 증여할 수 있습니다. 다만, 위임장을 체류국의 대사관·공사관에서 공증을 받아야 하고, 이 공증된 위임장이 국내 인감증명을 대체합니다. 절차가 복잡하므로 법무사의 도움을 받으시는 것이 권장됩니다.
@@ -8024,19 +7425,15 @@ const FOREIGN_TOPICS = [
                 </div>
             </div>` },
     ],
-    laws: [
-      { name: `등기예규 제1778호 제5조 — 재외공관 공증 적용 기준`, desc: `제1항: 재외국민이 국내 또는 국외에서 부동산의 증여권한을 대리인에게 수여한 경우, 대상 부동산과 증여의 목적이 되는 권리 및 대리인의 인적사항을 구체적으로 특정하여 작성한 대리위임장을 등기소에 첨부정보로 제공해야 한다.` },
-      { name: `등기예규 제1778호 제9조 제1항 — 재외공관 공증의 인감증명 대체`, desc: `체류국을 관할하는 대한민국 재외공관에서 인감을 날인해야 하는 서면에 공증을 받았다면 인감증명을 제출할 필요가 없다.` },
-      { name: `등기선례 5-59 — 공증 대상 서면의 범위`, desc: `위임장 멸실 시 공증을 받아야 할 서면은 법무사 등의 수임인에 대한 확인서면이 아닌 대리권한을 증명하는 서면인 증여 위임장이어야 한다. 공증 내용은 증여 위임장에 표시된 등기의무자의 작성부분(서명 또는 날인)이 등기의무자 자신이 작성한 것임을 확인하는 내용이어야 한다.` },
-    ],
+    laws: [{"name":"등기예규 제1778호 제5조 — 재외공관 공증 적용 기준","desc":"제1항: 재외국민이 국내 또는 국외에서 부동산의 증여권한을 대리인에게 수여한 경우, 대상 부동산과 증여의 목적이 되는 권리 및 대리인의 인적사항을 구체적으로 특정하여 작성한 대리위임장을 등기소에 첨부정보로 제공해야 한다."},{"name":"등기예규 제1778호 제9조 제1항 — 재외공관 공증의 인감증명 대체","desc":"체류국을 관할하는 대한민국 재외공관에서 인감을 날인해야 하는 서면에 공증을 받았다면 인감증명을 제출할 필요가 없다."},{"name":"등기선례 5-59 — 공증 대상 서면의 범위","desc":"위임장 멸실 시 공증을 받아야 할 서면은 법무사 등의 수임인에 대한 확인서면이 아닌 대리권한을 증명하는 서면인 증여 위임장이어야 한다. 공증 내용은 증여 위임장에 표시된 등기의무자의 작성부분(서명 또는 날인)이 등기의무자 자신이 작성한 것임을 확인하는 내용이어야 한다."}],
     forms: [],
   },
   {
-    id: 'fi-22',
+    id: "fi-22",
     title: "경정등기",
     meta: "",
     sections: [
-      { heading: `이런 분께 필요합니다`, content: `<ul class="checklist">
+      { heading: "이런 분께 필요합니다", content: `<ul class="checklist">
                 <li>공동상속등기가 완료된 부동산을 협의분할로 처리하려는 경우</li>
                 <li>상속인 중 1인이 단독으로 부동산을 소유하기로 합의한 경우</li>
                 <li>외국인 또는 재외국민이 상속인에 포함되어 있는 경우</li>
@@ -8054,7 +7451,7 @@ const FOREIGN_TOPICS = [
                 <p>상속등기를 말소하고 새로 등기하는 것이 아니라, 등기부에 기재된 내용을 정정하므로 더욱 간편하고 비용 효율적입니다.</p>
                 <p><strong>외국인이나 재외국민이 포함된 경우</strong> 신분 확인 및 서명 인증 방식이 달라지므로, 국적·체류 자격·입국 여부에 따라 준비 서류를 달리해야 합니다.</p>
             </div>` },
-      { heading: `경정등기란?`, content: `<h3>공동상속등기 후 협의분할</h3>
+      { heading: "경정등기란?", content: `<h3>공동상속등기 후 협의분할</h3>
             <p>상속인이 2명 이상인 경우, 법정상속분에 따라 각 상속인이 공동으로 소유하는 등기(공동상속등기)가 먼저 완료됩니다. 이후 상속인들이 합의하여 특정 부동산을 1인이 단독으로 소유하기로 결정한 경우, 이를 반영하기 위해 이미 완료된 등기를 정정합니다.</p>
 
             <dl class="definition-list">
@@ -8075,7 +7472,7 @@ const FOREIGN_TOPICS = [
                     • 등기부의 연속성 유지
                 </dd>
             </dl>` },
-      { heading: `경정등기 절차 흐름도`, content: `<div class="flow-diagram">
+      { heading: "경정등기 절차 흐름도", content: `<div class="flow-diagram">
                 <div class="flow-step">공동상속<br/>등기 완료</div>
                 <div class="flow-arrow">↓</div>
                 <div class="flow-step">상속재산<br/>분할협의</div>
@@ -8106,7 +7503,7 @@ const FOREIGN_TOPICS = [
                     등기소에서 필요한 경우 추가 서류를 요청할 수 있으며, 모든 서류가 완비되면 경정등기가 완료됩니다.
                 </li>
             </ul>` },
-      { heading: `이해관계인 처리`, content: `<h3>이해관계인이란?</h3>
+      { heading: "이해관계인 처리", content: `<h3>이해관계인이란?</h3>
             <p>등기사항의 변경으로 인하여 불이익을 받을 수 있는 자를 의미합니다. 부동산에 설정된 근저당권, 가압류권, 압류권 등의 소유자가 해당됩니다.</p>
 
             <h3>이해관계인 승낙서의 필요 여부</h3>
@@ -8144,7 +7541,7 @@ const FOREIGN_TOPICS = [
                 <li><strong>해외 거주 외국인:</strong> 재외공관 공증 또는 아포스티유</li>
                 <li><strong>재외국민:</strong> 국가·체류 지역에 따라 공증 또는 아포스티유</li>
             </ul>` },
-      { heading: `첨부서류`, content: `<h3>국내 거주자 vs. 외국인·재외국민</h3>
+      { heading: "첨부서류", content: `<h3>국내 거주자 vs. 외국인·재외국민</h3>
             <table>
                 <thead>
                     <tr>
@@ -8190,7 +7587,7 @@ const FOREIGN_TOPICS = [
                 <strong>주의: 국가별 요구 서류 차이</strong>
                 <p>외국인·재외국민이 서명한 서류는 국가별로 요구되는 인증 방식이 다릅니다. 사전에 부동산 관할청 또는 법무사와 상담하여 정확한 서류를 준비해야 불필요한 재작성을 막을 수 있습니다.</p>
             </div>` },
-      { heading: `이해관계인 승낙서 처리`, content: `<h3>승낙서의 역할</h3>
+      { heading: "이해관계인 승낙서 처리", content: `<h3>승낙서의 역할</h3>
             <p>경정등기 신청 시 이해관계인이 존재하면, 이해관계인의 승낙서를 첨부해야 합니다. 이는 등기 변경으로 인한 불이익을 감수한다는 의사를 표시하는 중요한 서류입니다.</p>
 
             <h3>승낙서 작성 시 주의사항</h3>
@@ -8220,7 +7617,7 @@ const FOREIGN_TOPICS = [
                 <li><strong>담보권 말소:</strong> 사전에 근저당권 등을 말소하고 경정등기 신청</li>
                 <li><strong>대금 지급:</strong> 이해관계인과 합의하여 대금을 지급하고 승낙 취득</li>
             </ul>` },
-      { heading: `주의사항`, content: `<div class="warning-box">
+      { heading: "주의사항", content: `<div class="warning-box">
                 <strong>협의분할협의서의 효력</strong>
                 <p>상속재산분할협의는 모든 상속인의 서명과 인감증명이 필요합니다. 1인이라도 참여하지 않으면 협의 자체가 성립되지 않습니다.</p>
             </div>
@@ -8244,7 +7641,7 @@ const FOREIGN_TOPICS = [
                 <strong>조세 문제</strong>
                 <p>협의분할로 인한 이전등기 시 증여세나 양도소득세 등 세금 문제가 발생할 수 있습니다. 세무사와 함께 검토하여 세금 최소화 방안을 모색하시기 바랍니다.</p>
             </div>` },
-      { heading: `판례·예규`, content: `<div class="precedent-box">
+      { heading: "판례·예규", content: `<div class="precedent-box">
                 <strong>등기예규 제1675호</strong>
                 <p><strong>제목:</strong> 공동상속 후 협의분할에 의한 경정등기</p>
                 <p><strong>내용:</strong> 공동상속인이 상속재산분할협의를 통해 특정 부동산을 1인이 단독으로 소유하기로 합의한 경우, 이미 완료된 공동상속등기를 정정하는 경정등기로 처리한다는 기준을 제시하고 있습니다.</p>
@@ -8267,20 +7664,15 @@ const FOREIGN_TOPICS = [
                 <p><strong>핵심:</strong> 상속재산분할협의는 모든 상속인이 참여하여 합의한 경우에만 효력이 발생합니다. 일부 상속인을 제외한 협의는 무효입니다.</p>
             </div>` },
     ],
-    laws: [
-      { name: `등기예규 제1675호`, desc: `제목: 공동상속 후 협의분할에 의한 경정등기` },
-      { name: `등기예규 제1795호`, desc: `제목: 경정등기 관할에 관한 특례` },
-      { name: `등기예규 제1835호 제25조`, desc: `제목: 이해관계인의 승낙` },
-      { name: `대법원 판례 — 상속재산분할협의의 성립 요건`, desc: `핵심: 상속재산분할협의는 모든 상속인이 참여하여 합의한 경우에만 효력이 발생합니다. 일부 상속인을 제외한 협의는 무효입니다.` },
-    ],
+    laws: [{"name":"등기예규 제1675호","desc":"제목: 공동상속 후 협의분할에 의한 경정등기"},{"name":"등기예규 제1795호","desc":"제목: 경정등기 관할에 관한 특례"},{"name":"등기예규 제1835호 제25조","desc":"제목: 이해관계인의 승낙"},{"name":"대법원 판례 — 상속재산분할협의의 성립 요건","desc":"핵심: 상속재산분할협의는 모든 상속인이 참여하여 합의한 경우에만 효력이 발생합니다. 일부 상속인을 제외한 협의는 무효입니다."}],
     forms: [],
   },
   {
-    id: 'fi-23',
+    id: "fi-23",
     title: "외국인·재외국민 등기부변경·경정등기",
     meta: "",
     sections: [
-      { heading: `이런 분께 필요합니다`, content: `<div class="checklist">
+      { heading: "이런 분께 필요합니다", content: `<div class="checklist">
                 <h3>이런 분께 필요합니다</h3>
                 <div class="checklist-items">
                     <div class="checklist-item">외국 국적을 취득한 경우</div>
@@ -8291,7 +7683,7 @@ const FOREIGN_TOPICS = [
                     <div class="checklist-item">영문 성명 표기가 잘못된 경우</div>
                 </div>
             </div>` },
-      { heading: `변경등기 vs 경정등기`, content: `<table class="comparison-table">
+      { heading: "변경등기 vs 경정등기", content: `<table class="comparison-table">
                 <thead>
                     <tr>
                         <th>구분</th>
@@ -8327,7 +7719,7 @@ const FOREIGN_TOPICS = [
                     </tr>
                 </tbody>
             </table>` },
-      { heading: `변경·경정등기 절차 흐름`, content: `<h3>변경등기</h3>
+      { heading: "변경·경정등기 절차 흐름", content: `<h3>변경등기</h3>
             <div class="flowchart">
                 <div class="flow-step">상황 발생</div>
                 <div class="flow-arrow">→</div>
@@ -8356,7 +7748,7 @@ const FOREIGN_TOPICS = [
             <p style="text-align: center; font-size: 13px; color: #666; margin-top: 10px;">
                 (예: 영문 성명 오류 발견 → 여권 원본 제출 → 경정등기 신청)
             </p>` },
-      { heading: `국적 변경 등기`, content: `<h3>한국인이 외국 국적을 취득한 경우</h3>
+      { heading: "국적 변경 등기", content: `<h3>한국인이 외국 국적을 취득한 경우</h3>
 
             <h4>절차</h4>
             <ol>
@@ -8385,7 +7777,7 @@ const FOREIGN_TOPICS = [
                 <h4>사례: 외국 국적 취득 후 등기부 변경</h4>
                 <p>한국인 A가 미국 국적을 취득했습니다. A가 소유한 부동산의 등기부에는 여전히 한국 국적과 주민등록번호가 기재되어 있습니다. A는 미국 정부의 국적 취득 증명서(번역문)를 첨부하여 변경등기를 신청합니다. 등기관이 등기부상 국적 정보를 변경 처리하고, 주민등록번호를 삭제 또는 별도 표기합니다.</p>
             </div>` },
-      { heading: `주소 변경 등기`, content: `<h4>적용 대상</h4>
+      { heading: "주소 변경 등기", content: `<h4>적용 대상</h4>
             <p>외국인 또는 재외국민의 등기부상 주소가 다음 사항으로 변경된 경우에 적용됩니다:</p>
             <ul>
                 <li>국내 주소 변경 (시·도, 구·군 변경)</li>
@@ -8416,7 +7808,7 @@ const FOREIGN_TOPICS = [
                 <h4>사례: 국외 거주지 변경</h4>
                 <p>재외국민 B가 싱가포르에서 홍콩으로 이사했습니다. 등기부상의 싱가포르 주소를 홍콩 주소로 변경하고자 합니다. B는 홍콩의 재외국민등록부 등본 및 거주지 증명서(번역공증)를 첨부하여 주소 변경등기를 신청합니다.</p>
             </div>` },
-      { heading: `성명 변경 등기`, content: `<h3>개명으로 인한 성명 변경</h3>
+      { heading: "성명 변경 등기", content: `<h3>개명으로 인한 성명 변경</h3>
 
             <h4>절차</h4>
             <ol>
@@ -8445,7 +7837,7 @@ const FOREIGN_TOPICS = [
                 <h4>사례: 한자 성명 표기 오류 정정</h4>
                 <p>중국 국적 C는 '李'를 '李'가 아닌 다른 한자로 잘못 기재했습니다. C의 국내 여권 번역본 및 원본 여권을 첨부하여 경정등기를 신청합니다. 등기부상의 한자 성명이 정정됩니다.</p>
             </div>` },
-      { heading: `변경·경정등기 필수 첨부서류`, content: `<table class="document-table">
+      { heading: "변경·경정등기 필수 첨부서류", content: `<table class="document-table">
                 <thead>
                     <tr>
                         <th>변경/경정 사유</th>
@@ -8508,7 +7900,7 @@ const FOREIGN_TOPICS = [
                     </tr>
                 </tbody>
             </table>` },
-      { heading: `관련 판례 및 예규`, content: `<div class="regulation-box">
+      { heading: "관련 판례 및 예규", content: `<div class="regulation-box">
                 <h4>등기예규 제1675호</h4>
                 <p><code>외국인·재외국민의 성명·국적 정정등기 처리 기준</code></p>
                 <p>외국인 또는 재외국민이 등기부상의 성명, 국적, 주민등록번호 정정을 신청할 때의 처리 기준을 제시합니다. 여권, 국제공증, 번역공증 등 각종 증명서류의 효력과 처리 절차를 규정합니다.</p>
@@ -8526,19 +7918,15 @@ const FOREIGN_TOPICS = [
                 <p>변경·경정등기 시 다른 이해관계인(공동소유자, 저당권자 등)의 동의 또는 승낙 여부를 규정합니다. 경우에 따라 이해관계인 승낙서 준비가 필요할 수 있습니다.</p>
             </div>` },
     ],
-    laws: [
-      { name: `등기예규 제1675호`, desc: `외국인·재외국민의 성명·국적 정정등기 처리 기준` },
-      { name: `등기예규 제1795호`, desc: `외국인·재외국민의 주소 변경·경정등기 관할 특례` },
-      { name: `등기예규 제1835호 제25조`, desc: `이해관계인 동의 요건` },
-    ],
+    laws: [{"name":"등기예규 제1675호","desc":"외국인·재외국민의 성명·국적 정정등기 처리 기준"},{"name":"등기예규 제1795호","desc":"외국인·재외국민의 주소 변경·경정등기 관할 특례"},{"name":"등기예규 제1835호 제25조","desc":"이해관계인 동의 요건"}],
     forms: [],
   },
   {
-    id: 'fi-24',
+    id: "fi-24",
     title: "외국인·재외국민 관련 대위등기",
     meta: "",
     sections: [
-      { heading: `대위등기의 개념과 법적 근거`, content: `<h3>2-1. 대위등기란?</h3>
+      { heading: "대위등기의 개념과 법적 근거", content: `<h3>2-1. 대위등기란?</h3>
         <p><strong>대위등기</strong>는 채권자가 자신의 채권을 보전하기 위해 채무자의 등기신청 권리를 대신 행사하는 등기입니다. 다음과 같은 법적 근거에 따릅니다.</p>
 
         <h4>법령 근거</h4>
@@ -8597,7 +7985,7 @@ const FOREIGN_TOPICS = [
             <li><strong>비협력 방식 (②):</strong> 등기의무자가 협력하지 않는 경우, 채권자가 채무자를 상대로 소송을 제기하여 판결을 얻은 후 단독으로 신청</li>
             <li><strong>독립 방식 (③):</strong> 채무자 혼자 신청할 수 있는 등기(상속등기, 보존등기 등)를 대위 신청</li>
         </ul>` },
-      { heading: `외국인·재외국민 관련 대위등기 사례`, content: `<div class="case-box">
+      { heading: "외국인·재외국민 관련 대위등기 사례", content: `<div class="case-box">
             <h4>사례 1: 외국인 매도인 미협력 시 소유권이전등기</h4>
             <p><strong>상황:</strong> 한국에 거주하는 A씨가 미국 시민권자 B로부터 서울 아파트를 2023년 1월에 5억 원에 매수했습니다. 계약금과 중도금은 전액 지급했으나, B가 미국으로 돌아가 등기에 협력하지 않고 연락도 두절되었습니다. A씨는 B를 상대로 소유권이전등기청구 소송을 제기하여 승소 판결을 받았습니다.</p>
 
@@ -8634,7 +8022,7 @@ const FOREIGN_TOPICS = [
                 <li>상속등기 완료 후 즉시 가압류 신청</li>
             </ul>
         </div>` },
-      { heading: `대위등기의 요건`, content: `<p>대위등기가 성립하려면 다음 네 가지 요건을 모두 만족해야 합니다.</p>
+      { heading: "대위등기의 요건", content: `<p>대위등기가 성립하려면 다음 네 가지 요건을 모두 만족해야 합니다.</p>
 
         <h3>요건 1: 채권자가 채권을 가져야 함</h3>
         <p><strong>피보전채권</strong>의 종류:</p>
@@ -8699,7 +8087,7 @@ const FOREIGN_TOPICS = [
             <li>조건부 채권은 조건 성취 후 대위 가능</li>
             <li>외국인·재외국민과의 계약에서도 동일 원칙 적용</li>
         </ul>` },
-      { heading: `대위등기 신청 절차`, content: `<h3>Step 1: 대위 원인 명확히 하기</h3>
+      { heading: "대위등기 신청 절차", content: `<h3>Step 1: 대위 원인 명확히 하기</h3>
         <ul>
             <li>채권 증명 서류 준비 (계약서, 차용증, 판결문 등)</li>
             <li>외국인·재외국민의 신분 파악 (국적, 체류 자격, 입국 여부)</li>
@@ -8759,7 +8147,7 @@ const FOREIGN_TOPICS = [
             <li>온라인(등기로) 또는 방문 신청 가능</li>
             <li>외국인·재외국민의 신분 서류가 필요한 경우, 법무사를 통한 신청 권장</li>
         </ul>` },
-      { heading: `첨부 서류`, content: `<p>대위등기의 첨부 서류는 <strong>대위 원인과 채무자의 입국 여부에 따라</strong> 달라집니다.</p>
+      { heading: "첨부 서류", content: `<p>대위등기의 첨부 서류는 <strong>대위 원인과 채무자의 입국 여부에 따라</strong> 달라집니다.</p>
 
         <h3>6-1. 소유권이전등기 (매매대금채권 기반)</h3>
 
@@ -8869,7 +8257,7 @@ const FOREIGN_TOPICS = [
             </ul>
             <p>법무사 상담을 통해 구체적인 서류 목록을 확인하는 것이 필수입니다.</p>
         </div>` },
-      { heading: `판례·예규`, content: `<div class="precedent-box">
+      { heading: "판례·예규", content: `<div class="precedent-box">
             <h4>등기선례 8-32 (2005. 12. 23, 부동산등기과-2317)</h4>
             <p><strong>판시 내용:</strong> "채무자 갑이 제3자 을에 대하여 소유권이전등기청구권을 가지고 있고 을은 그 등기에 협조할 의사를 가진 경우, 갑에 대하여 금전채권을 가진 자는 대위등기의 절차에 따라 갑을 대위하여 등기의무자인 을과 공동으로 소유권이전등기를 신청할 수 있다."</p>
             <p><strong>실무 적용:</strong> 이 선례는 금전 채권(소비대차 등)을 기초로 한 대위등기를 명확히 인정합니다. 외국인·재외국민 채무자의 경우에도 동일하게 적용됩니다.</p>
@@ -8892,7 +8280,7 @@ const FOREIGN_TOPICS = [
             <p><strong>규정:</strong> 상속인이 상속포기 또는 한정승인을 할 수 있는 기간 내라도 상속인의 채권자는 대위에 의한 상속등기를 신청할 수 있다.</p>
             <p><strong>실무 적용:</strong> 외국인·재외국민 상속인에 대한 채권자도 포기 가능 기간 내에 대위등기를 신청할 수 있습니다.</p>
         </div>` },
-      { heading: `주의사항`, content: `<div class="warning-box">
+      { heading: "주의사항", content: `<div class="warning-box">
             <h4>⚡ 기간 제한 및 효과</h4>
             <p><strong>대위등기 자체는 기간 제한이 없습니다.</strong> 다만 다음의 기간 제한에 주의해야 합니다.</p>
             <ul>
@@ -8930,7 +8318,7 @@ const FOREIGN_TOPICS = [
                 <li><strong>번역공증:</strong> 외국 문서는 대부분 번역공증이 필요합니다 (특히 상속등기의 경우).</li>
             </ul>
         </div>` },
-      { heading: `자주 묻는 질문`, content: `<div class="qa-section">
+      { heading: "자주 묻는 질문", content: `<div class="qa-section">
             <div class="qa-item">
                 <div class="qa-question">Q1. 대위등기를 신청할 때 채무자(외국인·재외국민)의 동의가 필요한가요?</div>
                 <div class="qa-answer">
@@ -9020,20 +8408,15 @@ const FOREIGN_TOPICS = [
 </body>
 </html>` },
     ],
-    laws: [
-      { name: `등기선례 8-32 (2005. 12. 23, 부동산등기과-2317)`, desc: `판시 내용: "채무자 갑이 제3자 을에 대하여 소유권이전등기청구권을 가지고 있고 을은 그 등기에 협조할 의사를 가진 경우, 갑에 대하여 금전채권을 가진 자는 대위등기의 절차에 따라 갑을 대위하여 등기의무자인 을과 공동으로 소유권이전등기를 신청할 수 있다."` },
-      { name: `등기선례 7-132 (2002. 11. 29, 등기 3402-676)`, desc: `판시 내용: 피상속인에 대하여 채무를 가진 채권자가 대위로 상속등기를 한 경우, 상속인 중 일부 또는 모두가 상속포기를 하더라도 채권자는 후순위 상속인을 상속인으로 하는 새로운 상속등기를 신청할 수 있으며, 만약 후순위 상속인도 없으면 경정등기를 통해 말소할 수 있다.` },
-      { name: `등기선례 2-246 (1987. 9. 16, 등기 제554호)`, desc: `판시 내용: 상속인이 이미 상속포기를 한 경우, 채권자는 그 포기자를 대위하여 상속등기를 신청할 수 없다.` },
-      { name: `등기예규 1835호 제7조 제5항`, desc: `규정: 상속인이 상속포기 또는 한정승인을 할 수 있는 기간 내라도 상속인의 채권자는 대위에 의한 상속등기를 신청할 수 있다.` },
-    ],
+    laws: [{"name":"등기선례 8-32 (2005. 12. 23, 부동산등기과-2317)","desc":"판시 내용: \"채무자 갑이 제3자 을에 대하여 소유권이전등기청구권을 가지고 있고 을은 그 등기에 협조할 의사를 가진 경우, 갑에 대하여 금전채권을 가진 자는 대위등기의 절차에 따라 갑을 대위하여 등기의무자인 을과 공동으로 소유권이전등기를 신청할 수 있다.\""},{"name":"등기선례 7-132 (2002. 11. 29, 등기 3402-676)","desc":"판시 내용: 피상속인에 대하여 채무를 가진 채권자가 대위로 상속등기를 한 경우, 상속인 중 일부 또는 모두가 상속포기를 하더라도 채권자는 후순위 상속인을 상속인으로 하는 새로운 상속등기를 신청할 수 있으며, 만약 후순위 상속인도 없으면 경정등기를 통해 말소할 수 있다."},{"name":"등기선례 2-246 (1987. 9. 16, 등기 제554호)","desc":"판시 내용: 상속인이 이미 상속포기를 한 경우, 채권자는 그 포기자를 대위하여 상속등기를 신청할 수 없다."},{"name":"등기예규 1835호 제7조 제5항","desc":"규정: 상속인이 상속포기 또는 한정승인을 할 수 있는 기간 내라도 상속인의 채권자는 대위에 의한 상속등기를 신청할 수 있다."}],
     forms: [],
   },
   {
-    id: 'fi-25',
+    id: "fi-25",
     title: "아포스티유(Apostille) 완벽 가이드",
     meta: "",
     sections: [
-      { heading: `1. 아포스티유란?`, content: `<h3>개념과 목적</h3>
+      { heading: "1. 아포스티유란?", content: `<h3>개념과 목적</h3>
             <p><strong>아포스티유(Apostille)</strong>는 "외국 공문서에 대한 인증의 요구를 폐지하는 협약"이라는 국제협약에 따른 공문서 진정성 확인 제도입니다. 복잡한 영사 확인 절차를 생략하고, 공문서 발행국에서 발급한 증명서 하나로 협약 가입국 간에 문서의 효력을 인정받을 수 있게 합니다.</p>
 
             <div class="legal-box">
@@ -9047,7 +8430,7 @@ const FOREIGN_TOPICS = [
 
             <h3>국제협약의 성격</h3>
             <p>아포스티유 협약은 현재 <strong>세계 106개국 이상</strong>이 가입한 광범위한 국제협약입니다. 한국은 2007년 7월 14일에 가입하였습니다. 미국, 영국, 독일, 프랑스, 일본, 호주, 캐나다 등 주요 국가들이 모두 협약국이므로, 이들 국가의 공문서를 한국에 제출할 때는 아포스티유가 필수입니다.</p>` },
-      { heading: `2. 아포스티유 발급 방법 (한국에서 발급)`, content: `<h3>한국 발급 기관</h3>
+      { heading: "2. 아포스티유 발급 방법 (한국에서 발급)", content: `<h3>한국 발급 기관</h3>
             <p>한국에서 발급된 문서를 해외에서 사용할 때 아포스티유를 받아야 합니다. 발급 기관은 다음과 같습니다:</p>
 
             <table class="comparison-table">
@@ -9093,7 +8476,7 @@ const FOREIGN_TOPICS = [
                 <h4><span class="icon">⚠️</span>주의: 국내 문서 발급 시 아포스티유</h4>
                 <p>한국에서 발급된 공증서나 공문서를 해외에서 사용할 때 아포스티유를 받아야 합니다. 예를 들어, 한국 공증인이 공증한 위임장을 미국 법원에 제출하려면 한국 외교부에서 아포스티유를 받아야 미국에서 정당한 문서로 인정받습니다.</p>
             </div>` },
-      { heading: `3. 아포스티유 협약 가입국 여부 확인`, content: `<h3>가입국 확인의 중요성</h3>
+      { heading: "3. 아포스티유 협약 가입국 여부 확인", content: `<h3>가입국 확인의 중요성</h3>
             <p>외국 공문서를 한국의 등기소에 제출할 때, 그 문서 발행국이 아포스티유 협약 가입국인지 여부가 매우 중요합니다. 이에 따라 필요한 확인 방법이 완전히 달라집니다.</p>
 
             <div class="country-box">
@@ -9132,7 +8515,7 @@ const FOREIGN_TOPICS = [
                     </tr>
                 </tbody>
             </table>` },
-      { heading: `4. 부동산 등기에서 아포스티유가 필요한 경우 / 불필요한 경우`, content: `<h3>아포스티유가 필요한 경우</h3>
+      { heading: "4. 부동산 등기에서 아포스티유가 필요한 경우 / 불필요한 경우", content: `<h3>아포스티유가 필요한 경우</h3>
             <p>다음의 경우 외국 공문서에 아포스티유(협약 가입국) 또는 영사 확인(미가입국)이 필수입니다:</p>
 
             <ul class="regular-list">
@@ -9164,7 +8547,7 @@ const FOREIGN_TOPICS = [
                 <p><strong>사례 3: 중국 국적 외국인이 한국 주택을 매수</strong><br>
                 중국에서 발급받은 신분증 사본과 주소 증명서를 첨부할 때: <span class="highlight">영사 확인 필요</span> (중국은 협약 미가입국이므로 한국 대사관(중국) 영사과 확인 필요)</p>
             </div>` },
-      { heading: `5. 부동산등기 관련 판례·예규`, content: `<div class="legal-box">
+      { heading: "5. 부동산등기 관련 판례·예규", content: `<div class="legal-box">
                 <h4>부동산등기규칙 제46조 제9항 (아포스티유 규정)</h4>
                 <p>"첨부정보가 외국 공문서이거나 외국 공증인이 공증한 문서인 경우에는 재외공관 공증법 제30조제1항에 따라 공증담당영사로부터 문서의 확인을 받거나 외국공문서에 대한 인증의 요구를 폐지하는 협약에서 정하는 바에 따른 아포스티유(Apostille)를 붙여야 한다. 다만, 외국 공문서 등의 발행국이 대한민국과 수교하지 아니한 국가이면서 위 협약의 가입국이 아닌 경우와 같이 부득이한 사유로 문서의 확인을 받거나 아포스티유를 붙이는 것이 곤란한 경우에는 그러하지 아니하다."</p>
             </div>
@@ -9183,7 +8566,7 @@ const FOREIGN_TOPICS = [
                 <h4>등기예규 제1534호 (특별한 사정이 있는 경우)</h4>
                 <p>영사 확인이나 아포스티유를 제출할 수 없는 특별한 사정이 있고, 그 외국공문서가 적법하게 발급되었다고 인정할 만한 충분한 자료가 있는 경우에는 예외 처리가 가능합니다. 이 경우 등기관이 보정을 명할 수 있습니다.</p>
             </div>` },
-      { heading: `6. 주의사항`, content: `<div class="warning-box">
+      { heading: "6. 주의사항", content: `<div class="warning-box">
                 <h4><span class="icon">⚠️</span>법적 위험: 아포스티유 없이 등기 신청</h4>
                 <p>아포스티유 협약 가입국의 공문서를 아포스티유 없이 제출하면 등기관은 보정을 명합니다. 보정 기간 내에 아포스티유를 받아 제출하지 않으면 등기 신청이 반려됩니다. 특히 기간이 급할 때는 회복 불가능한 손실이 발생할 수 있습니다.</p>
             </div>
@@ -9197,7 +8580,7 @@ const FOREIGN_TOPICS = [
                 <h4><span class="icon">🌏</span>국가별 차이: 아포스티유 발급 기관이 국가마다 다름</h4>
                 <p>미국의 경우 각 주(State)마다 아포스티유 발급 기관이 다릅니다 (국무부, 법원, 교육청 등). 일본은 법원과 검찰청이, 영국은 외교부가 담당합니다. 따라서 어느 국가의 어느 기관에서 발급받을 문서인지 정확히 파악하고, 각 국가의 정확한 아포스티유 발급 절차를 확인해야 합니다.</p>
             </div>` },
-      { heading: `자주 묻는 질문 (Q&A)`, content: `<div class="qa-item">
+      { heading: "자주 묻는 질문 (Q&A)", content: `<div class="qa-item">
                 <div class="qa-question">Q1. 아포스티유는 어디서 받아야 하나요? 본국에서 받아야 하나요, 아니면 한국에서?</div>
                 <div class="qa-answer">
                     <p>외국 공문서에 아포스티유를 받을 때는 <strong>문서 발행국</strong>에서 받아야 합니다. 예를 들어, 미국에서 발급받은 판결문에 아포스티유를 붙이려면 미국의 해당 주(State)에서 받아야 합니다. 한국에서는 한국이 발급한 공문서(가족관계증명서, 공증서 등)에 대해서만 외교부나 법무부에서 아포스티유를 발급합니다.</p>
@@ -9282,19 +8665,15 @@ const FOREIGN_TOPICS = [
 </body>
 </html>` },
     ],
-    laws: [
-      { name: `부동산등기규칙 제46조 제9항 (아포스티유 규정)`, desc: `"첨부정보가 외국 공문서이거나 외국 공증인이 공증한 문서인 경우에는 재외공관 공증법 제30조제1항에 따라 공증담당영사로부터 문서의 확인을 받거나 외국공문서에 대한 인증의 요구를 폐지하는 협약에서 정하는 바에 따른 아포스티유(Apostille)를 붙여야 한다. 다만, 외국 공문서 등의 발행국이 대한민국과 수교하지 아니한 국가이면서 위 협약의 가입국이 아닌 경우와 같이 부득이한 사유로 문서의 확인을 받거나 아포스티유를 붙이는 것이 곤란한 경우에는 그러하지 아니하다."` },
-      { name: `등기예규 제1778호 제3조 (외국 공문서에 대한 확인)`, desc: `첨부정보가 외국에서 발행된 공문서(외국 공증인이 공증한 문서 포함)인 경우 다음과 같이 구분하여 처리합니다:` },
-      { name: `등기예규 제1534호 (특별한 사정이 있는 경우)`, desc: `영사 확인이나 아포스티유를 제출할 수 없는 특별한 사정이 있고, 그 외국공문서가 적법하게 발급되었다고 인정할 만한 충분한 자료가 있는 경우에는 예외 처리가 가능합니다. 이 경우 등기관이 보정을 명할 수 있습니다.` },
-    ],
+    laws: [{"name":"부동산등기규칙 제46조 제9항 (아포스티유 규정)","desc":"\"첨부정보가 외국 공문서이거나 외국 공증인이 공증한 문서인 경우에는 재외공관 공증법 제30조제1항에 따라 공증담당영사로부터 문서의 확인을 받거나 외국공문서에 대한 인증의 요구를 폐지하는 협약에서 정하는 바에 따른 아포스티유(Apostille)를 붙여야 한다. 다만, 외국 공문서 등의 발행국이 대한민국과 수교하지 아니한 국가이면서 위 협약의 가입국이 아닌 경우와 같이 부득이한 사유로 문서의 확인을 받거나 아포스티유를 붙이는 것이 곤란한 경우에는 그러하지 아니하다.\""},{"name":"등기예규 제1778호 제3조 (외국 공문서에 대한 확인)","desc":"첨부정보가 외국에서 발행된 공문서(외국 공증인이 공증한 문서 포함)인 경우 다음과 같이 구분하여 처리합니다:"},{"name":"등기예규 제1534호 (특별한 사정이 있는 경우)","desc":"영사 확인이나 아포스티유를 제출할 수 없는 특별한 사정이 있고, 그 외국공문서가 적법하게 발급되었다고 인정할 만한 충분한 자료가 있는 경우에는 예외 처리가 가능합니다. 이 경우 등기관이 보정을 명할 수 있습니다."}],
     forms: [],
   },
   {
-    id: 'fi-26',
+    id: "fi-26",
     title: "외국어 서류 번역문 첨부 기준과 공증 방법",
     meta: "등기 실무 완벽 정리",
     sections: [
-      { heading: `이런 분께 필요합니다`, content: `<div class="checklist-box">
+      { heading: "이런 분께 필요합니다", content: `<div class="checklist-box">
                 <h3>다음 중 하나라도 해당되나요?</h3>
                 <div class="checklist-item">
                     <input type="checkbox" id="check1">
@@ -9321,7 +8700,7 @@ const FOREIGN_TOPICS = [
                     <label for="check6">번역문 작성자 자격과 서명 방법에 대해 명확히 하고 싶은 분</label>
                 </div>
             </div>` },
-      { heading: `핵심 요약`, content: `<div class="summary-box">
+      { heading: "핵심 요약", content: `<div class="summary-box">
                 <h3>가장 중요한 3가지</h3>
                 <p><strong>1. 외국어 서류는 반드시 한국어 번역문을 첨부해야 합니다</strong></p>
                 <p style="margin-bottom: 20px;">부동산등기규칙 제46조 제8항에 따라, 등기소에 제출되는 외국어 서류는 반드시 한국어 번역문을 첨부해야 합니다. 번역이 없으면 등기신청이 반려됩니다.</p>
@@ -9332,7 +8711,7 @@ const FOREIGN_TOPICS = [
                 <p><strong>3. 공증 필요 여부는 서류의 종류와 출신 국가에 따라 다릅니다</strong></p>
                 <p>위임장, 외국 공증서, 아포스티유 문서 등 중요한 서류는 추가 공증이 필요한 경우가 많습니다. 아포스티유 협약 가입국 여부에 따라 처리 방법이 달라집니다.</p>
             </div>` },
-      { heading: `번역문 첨부 기준`, content: `<p>어떤 서류에 번역문이 필요한가?</p>
+      { heading: "번역문 첨부 기준", content: `<p>어떤 서류에 번역문이 필요한가?</p>
 
             <h3>반드시 번역문을 첨부해야 하는 경우</h3>
             <ul>
@@ -9350,7 +8729,7 @@ const FOREIGN_TOPICS = [
                 <li><strong>간단한 개인정보</strong> — 등기관이 '성명, 국적, 주소' 정도만 필요하다고 인정하는 경우 (예: 외국 여권, 신분증의 핵심 정보만)</li>
                 <li><strong>이미 한국어로 번역된 공식 번역본**</strong> — 외국 정부가 공식으로 제공하는 한국어 번역본</li>
             </ul>` },
-      { heading: `번역 방법 및 공증 기준`, content: `<h3>번역문 작성 방법</h3>
+      { heading: "번역 방법 및 공증 기준", content: `<h3>번역문 작성 방법</h3>
 
             <div class="example-box">
                 <h3>필수 기재 사항</h3>
@@ -9437,7 +8816,7 @@ const FOREIGN_TOPICS = [
                 </ul>
                 <p style="margin-top: 10px; color: #666; font-size: 0.9em;"><span class="icon">⚠</span>가장 복잡하고 시간 소요 (2-4주)</p>
             </div>` },
-      { heading: `번역 공증이 필요 없는 경우`, content: `<p>번역문을 아예 공증받지 않아도 되는 경우들을 정리했습니다.</p>
+      { heading: "번역 공증이 필요 없는 경우", content: `<p>번역문을 아예 공증받지 않아도 되는 경우들을 정리했습니다.</p>
 
             <table>
                 <thead>
@@ -9476,7 +8855,7 @@ const FOREIGN_TOPICS = [
                 <p>번역 공증이 불필요하다고 판단해도, 등기소의 최종 결정을 받기 전까지는 확실하지 않습니다.</p>
                 <p><strong>반드시 등기신청 전에 해당 등기소에 문의하여 필요 여부를 확인하세요.</strong></p>
             </div>` },
-      { heading: `국가별 서류 처리 방법`, content: `<p>아포스티유 협약 가입 여부에 따라 처리 방법이 크게 달라집니다.</p>
+      { heading: "국가별 서류 처리 방법", content: `<p>아포스티유 협약 가입 여부에 따라 처리 방법이 크게 달라집니다.</p>
 
             <h3>아포스티유 협약 가입국</h3>
             <p style="color: #555; font-size: 0.95em; margin-bottom: 20px;">미국, 일본, 중국, 독일, 프랑스, 영국, 캐나다, 호주, 러시아, 싱가포르, 홍콩, 스페인, 이탈리아 등 약 140개국</p>
@@ -9538,7 +8917,7 @@ const FOREIGN_TOPICS = [
                     <li>인증된 원문 + 번역문을 함께 제출</li>
                 </ul>
             </div>` },
-      { heading: `관련 법령 및 예규`, content: `<div class="case-box">
+      { heading: "관련 법령 및 예규", content: `<div class="case-box">
                 <h3>부동산등기규칙 제46조 제8항</h3>
                 <p>등기소에 제공하는 첨부정보가 외국어로 작성된 경우에는 번역문을 붙여야 한다.</p>
                 <p class="cite">부동산등기규칙 (2024년 현행)</p>
@@ -9596,20 +8975,15 @@ const FOREIGN_TOPICS = [
 </body>
 </html>` },
     ],
-    laws: [
-      { name: `부동산등기규칙 제46조 제8항`, desc: `등기소에 제공하는 첨부정보가 외국어로 작성된 경우에는 번역문을 붙여야 한다.` },
-      { name: `부동산등기규칙 제46조 제9항`, desc: `첨부정보가 외국 공문서이거나 외국 공증인이 공증한 문서인 경우에는 재외공관공증법 제30조제1항에 따라 공증담당영사로부터 문서의 확인을 받거나 아포스티유를 붙여야 한다.` },
-      { name: `등기예규 제1778호 제4조 (번역문의 첨부)`, desc: `제1항: 등기소에 제공하는 첨부정보가 외국어로 작성된 경우에는 규칙 제46조제8항에 따라 번역문을 붙여야 한다.` },
-      { name: `등기예규 제1778호 제4조 제1항 (번역문의 아포스티유 확인)`, desc: `번역문에 대해서도 아포스티유 확인이 필요한 경우, 원문 및 번역문에 대하여 각각 별도로 아포스티유 확인을 신청하여야 하며, 번역문은 공증사무소 공증을 먼저 받고 법무부의 아포스티유 확인을 신청해야 한다.` },
-    ],
+    laws: [{"name":"부동산등기규칙 제46조 제8항","desc":"등기소에 제공하는 첨부정보가 외국어로 작성된 경우에는 번역문을 붙여야 한다."},{"name":"부동산등기규칙 제46조 제9항","desc":"첨부정보가 외국 공문서이거나 외국 공증인이 공증한 문서인 경우에는 재외공관공증법 제30조제1항에 따라 공증담당영사로부터 문서의 확인을 받거나 아포스티유를 붙여야 한다."},{"name":"등기예규 제1778호 제4조 (번역문의 첨부)","desc":"제1항: 등기소에 제공하는 첨부정보가 외국어로 작성된 경우에는 규칙 제46조제8항에 따라 번역문을 붙여야 한다."},{"name":"등기예규 제1778호 제4조 제1항 (번역문의 아포스티유 확인)","desc":"번역문에 대해서도 아포스티유 확인이 필요한 경우, 원문 및 번역문에 대하여 각각 별도로 아포스티유 확인을 신청하여야 하며, 번역문은 공증사무소 공증을 먼저 받고 법무부의 아포스티유 확인을 신청해야 한다."}],
     forms: [],
   },
   {
-    id: 'fi-27',
+    id: "fi-27",
     title: "투자이민제도와 부동산 취득",
     meta: "공익사업 투자이민 대상·금액 기준",
     sections: [
-      { heading: `이런 분께 필요합니다`, content: `<div class="checklist-box">
+      { heading: "이런 분께 필요합니다", content: `<div class="checklist-box">
                 <h3>다음 중 해당되시나요?</h3>
                 <div class="checklist-item">외국인으로서 한국 부동산에 투자하여 거주자격을 취득하려는 경우</div>
                 <div class="checklist-item">공익사업(기업도시, 관광시설 등)에 투자하여 한국 체류를 원하는 경우</div>
@@ -9618,7 +8992,7 @@ const FOREIGN_TOPICS = [
                 <div class="checklist-item">투자이민 부동산 보유 중 주의사항과 법적 제약을 알고 싶은 경우</div>
                 <div class="checklist-item">은퇴자이거나 고액 투자자로서 특례 제도 적용 여부를 확인하려는 경우</div>
             </div>` },
-      { heading: `핵심 요약`, content: `<div class="summary-box">
+      { heading: "핵심 요약", content: `<div class="summary-box">
                 <h3>투자이민제도란?</h3>
                 <ul>
                     <li><strong>정의</strong>: 외국인이 한국 부동산, 공익펀드, 낙후지역 개발사업 등에 투자하면 경제활동이 자유로운 거주(F-2) 자격을 부여하고, 5년간 투자를 유지하면 영주(F-5) 자격으로 변경하는 제도</li>
@@ -9631,7 +9005,7 @@ const FOREIGN_TOPICS = [
             <div class="cta-box">
                 <p>이 내용이 해당되시나요? 첫 상담은 무료입니다.</p>
             </div>` },
-      { heading: `투자이민제도 개요`, content: `<h3>제도의 취지</h3>
+      { heading: "투자이민제도 개요", content: `<h3>제도의 취지</h3>
             <p>투자이민제도는 법무부가 외국인 투자유치를 통해 국내 경제 활성화를 도모하는 정책의 일환입니다. 일정 금액 이상의 부동산 또는 공익사업에 투자하는 외국인에게 한국 내 거주와 경제활동을 자유롭게 허용하고, 장기 투자를 유지하는 경우 영주권을 부여하는 방식으로 운영됩니다.</p>
 
             <h3>투자이민의 두 가지 유형</h3>
@@ -9670,7 +9044,7 @@ const FOREIGN_TOPICS = [
                     <li>법무부고시 제2023-319호: 투자금액 및 요건 기준 (2023. 6. 29. 시행)</li>
                 </ul>
             </div>` },
-      { heading: `공익사업 투자이민 종류 및 금액 기준`, content: `<h3>공익사업 투자이민의 분류</h3>
+      { heading: "공익사업 투자이민 종류 및 금액 기준", content: `<h3>공익사업 투자이민의 분류</h3>
             <p>공익사업에 대한 투자이민은 투자 규모와 투자자 나이에 따라 <strong>일반투자이민</strong>, <strong>은퇴투자이민</strong>, <strong>고액투자이민</strong>으로 구분됩니다.</p>
 
             <table>
@@ -9741,7 +9115,7 @@ const FOREIGN_TOPICS = [
                 <h4>예시</h4>
                 <p><strong>일반투자이민 신청 사례:</strong> A씨(독일 국적)는 기업도시 관광시설 개발사업에 15억 원을 투자하고 거주(F-2) 자격을 취득합니다. 5년간 투자금을 유지하면 영주(F-5) 자격으로 변경되어 한국에 무기한 거주할 수 있게 됩니다.</p>
             </div>` },
-      { heading: `투자 이후 절차: 거주(F-2) → 영주(F-5) 자격 취득`, content: `<h3>단계별 절차</h3>
+      { heading: "투자 이후 절차: 거주(F-2) → 영주(F-5) 자격 취득", content: `<h3>단계별 절차</h3>
             <ol>
                 <li>
                     <strong>투자 실행 및 체류자격 신청</strong>
@@ -9792,7 +9166,7 @@ const FOREIGN_TOPICS = [
                 <h4>투자 유지의 법적 의미</h4>
                 <p>"투자 유지"는 단순히 투자금을 사업에 예치해두는 것뿐 아니라, 투자 목적인 공익사업이 정상 진행되고 있어야 한다는 의미입니다. 만약 투자 대상 사업이 중단되거나 투자금이 회수된다면 투자이민 자격 취소 대상이 될 수 있습니다.</p>
             </div>` },
-      { heading: `부동산 등기와의 관계`, content: `<h3>투자이민 부동산의 등기</h3>
+      { heading: "부동산 등기와의 관계", content: `<h3>투자이민 부동산의 등기</h3>
             <p>투자이민으로 취득한 부동산의 등기 절차는 일반 외국인이 부동산을 취득하는 경우와 <strong>동일합니다</strong>. 투자이민 자격이 있다고 해서 특별한 등기 절차나 혜택이 추가로 주어지지는 않습니다.</p>
 
             <h4>투자이민 부동산 등기 시 필요한 절차</h4>
@@ -9833,7 +9207,7 @@ const FOREIGN_TOPICS = [
                     <li>출입국관리법 제34조: 체류자격 변경</li>
                 </ul>
             </div>` },
-      { heading: `주의사항`, content: `<h3>1. 투자금액 기준의 정확한 이해</h3>
+      { heading: "주의사항", content: `<h3>1. 투자금액 기준의 정확한 이해</h3>
             <div class="warning-box">
                 <h4>환율 변동에 대한 유의</h4>
                 <p>투자금액이 외화로 표시되는 경우, 환율 변동으로 인해 원화 기준 투자금액이 변할 수 있습니다. 투자 시점의 환율을 기준으로 하며, 이후 환율 변동으로 기준금액 이하로 내려가도 투자이민 자격은 유지됩니다(다만, 추가 투자나 갱신 시에는 영향을 받을 수 있음).</p>
@@ -9916,8 +9290,7 @@ const FOREIGN_TOPICS = [
 </body>
 </html>` },
     ],
-    laws: [
-    ],
+    laws: [],
     forms: [],
   }
 ];
