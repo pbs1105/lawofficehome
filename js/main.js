@@ -201,7 +201,18 @@ const CONTENT_DATA = {
   /* ---- 법인등기 ---- */
   corporation: {
     label: '법인등기',
-    get topics() { return typeof CORPORATION_TOPICS !== 'undefined' ? CORPORATION_TOPICS : []; }
+    subcategories: [
+      {
+        id: 'company',
+        name: '회사(상업등기)',
+        get topics() { return typeof CORPORATION_TOPICS !== 'undefined' ? CORPORATION_TOPICS : []; }
+      },
+      {
+        id: 'nonprofit',
+        name: '비영리·특수법인',
+        get topics() { return typeof NONPROFIT_TOPICS !== 'undefined' ? NONPROFIT_TOPICS : []; }
+      }
+    ]
   },
 
   /* ---- 민사소송 ---- */
@@ -861,7 +872,9 @@ function renderSubcategoryContent(catId, selectedSubId, selectedTopicId) {
   const data = CONTENT_DATA[catId];
   if (!data || !data.subcategories) return;
 
-  const activeSub = data.subcategories.find(s => s.id === selectedSubId) || data.subcategories[0];
+  const activeSub = data.subcategories.find(s => s.id === selectedSubId)
+    || (selectedTopicId && data.subcategories.find(s => (s.topics || []).some(t => t.id === selectedTopicId)))
+    || data.subcategories[0];
   const topics = activeSub.topics;
   const activeTopic = topics.find(t => t.id === selectedTopicId) || topics[0];
 
