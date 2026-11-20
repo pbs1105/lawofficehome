@@ -41,7 +41,7 @@ const OFFICE = {
 
 /* ---------- 1. 데이터 읽기 ---------- */
 const DATA_FILES = [
-  'corporation_topics_data.js', 'foreign_topics_data.js', 'preservation_topics_data.js', 'inheritance_topics_data.js',
+  'corporation_topics_data.js', 'nonprofit_topics_data.js', 'foreign_topics_data.js', 'preservation_topics_data.js', 'inheritance_topics_data.js',
   'enforcement_topics_data.js', 'civil_topics_data.js', 'insolvency_topics_data.js', 'main.js',
 ];
 const noop = () => {};
@@ -219,7 +219,7 @@ function page({ title, description, url, type = 'article', jsonld, body }) {
 ${body}
   <div id="footHolder"></div>
   <div id="modalHolder"></div>
-  <script src="/js/main.js?v=12"></script>
+  <script src="/js/main.js?v=14"></script>
 </body>
 </html>
 `;
@@ -375,9 +375,13 @@ for (const entry of catalog) {
       <nav class="geo-crumb" aria-label="현재 위치"><a href="/">홈</a> › <a href="/guide/">업무 안내</a> › <span>${esc(label)}</span></nav>
       <h1>${esc(label)} 업무 안내</h1>
       <p>${esc(OFFICE.name)}(${esc(OFFICE.region)} ${esc(OFFICE.locality)})가 법령·판례를 근거로 정리한 ${esc(label)} 안내 ${entry.topics.length}편입니다.</p>
-      <ul class="geo-list">
-${entry.topics.map(t => `        <li><a href="/guide/${cat.id}/${safeId(t.id)}.html">${esc(t.title)}</a><span class="m">${esc(stripTags(t.meta))}</span></li>`).join('\n')}
-      </ul>
+${(() => {   // 중분류가 있으면 중분류마다 제목을 달아 나눈다 (2026-11-21 법인등기 회사/비영리·특수법인 분리)
+  const li = t => `        <li><a href="/guide/${cat.id}/${safeId(t.id)}.html">${esc(t.title)}</a><span class="m">${esc(stripTags(t.meta))}</span></li>`;
+  const subs = [...new Map(entry.topics.filter(t => t.sub).map(t => [t.sub.id, t.sub])).values()];
+  if (!subs.length) return `      <ul class="geo-list">\n${entry.topics.map(li).join('\n')}\n      </ul>`;
+  return subs.map(s => { const ts = entry.topics.filter(t => t.sub && t.sub.id === s.id);
+    return `      <h2>${esc(s.name)} <small>(${ts.length}편)</small></h2>\n      <ul class="geo-list">\n${ts.map(li).join('\n')}\n      </ul>`; }).join('\n');
+})()}
     </article>
   </main>`;
   const jsonld = ld([officeNode, personNode,

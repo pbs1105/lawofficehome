@@ -8,7 +8,7 @@
 
 ## 업무 안내
 - [부동산등기](https://lawofficehome.vercel.app/guide/realestate/): 5편
-- [법인등기](https://lawofficehome.vercel.app/guide/corporation/): 12편
+- [법인등기](https://lawofficehome.vercel.app/guide/corporation/): 30편
 - [민사소송](https://lawofficehome.vercel.app/guide/lawsuit/): 17편
 - [보전처분](https://lawofficehome.vercel.app/guide/preservation/): 15편
 - [강제집행](https://lawofficehome.vercel.app/guide/enforcement/): 92편
@@ -34,6 +34,24 @@
 - [법인등기 — 주식 관련 등기 — 스톡옵션·액면분할·양도제한·종류주식·전환사채는 언제 등기하나요?](https://lawofficehome.vercel.app/guide/corporation/co-10.html)
 - [법인등기 — 회사 형태 고르기·바꾸기 — 주식회사·유한회사·유한책임회사는 무엇이 다르고, 어떻게 바꾸나요?](https://lawofficehome.vercel.app/guide/corporation/co-11.html)
 - [법인등기 — 법인인감과 등기부 — 인감 신고·변경, 인감증명서와 등기사항증명서는 어떻게 받나요?](https://lawofficehome.vercel.app/guide/corporation/co-12.html)
+- [법인등기 — 우리 단체는 어떤 법인이 맞나요? — 법인 아닌 사단·사단법인·재단법인·특수법인 비교](https://lawofficehome.vercel.app/guide/corporation/np-1.html)
+- [법인등기 — 사단법인·재단법인 설립 — 주무관청 허가부터 3주 안의 설립등기까지](https://lawofficehome.vercel.app/guide/corporation/np-2.html)
+- [법인등기 — 이사 변경등기 — 임기만료·중임·사임·대표권 있는 이사 변경은 언제까지, 어떻게 하나요?](https://lawofficehome.vercel.app/guide/corporation/np-3.html)
+- [법인등기 — 이사가 없거나 다툼이 있을 때 — 임시이사·직무대행자·특별대리인](https://lawofficehome.vercel.app/guide/corporation/np-4.html)
+- [법인등기 — 정관을 바꿨을 때 — 명칭·목적·주사무소 이전·분사무소 등기](https://lawofficehome.vercel.app/guide/corporation/np-5.html)
+- [법인등기 — 자산총액 변경등기 — 결산 후 해마다 해야 하나요?](https://lawofficehome.vercel.app/guide/corporation/np-6.html)
+- [법인등기 — 등기를 늦게 했을 때 — 과태료와 지금 할 일](https://lawofficehome.vercel.app/guide/corporation/np-7.html)
+- [법인등기 — 법인을 정리할 때 — 해산·청산인·청산종결 등기는 어떤 순서로 하나요?](https://lawofficehome.vercel.app/guide/corporation/np-8.html)
+- [법인등기 — 해산하고 방치된 법인 — 등기기록 직권폐쇄와 청산종결 후 남은 재산](https://lawofficehome.vercel.app/guide/corporation/np-9.html)
+- [법인등기 — 외국 비영리단체의 한국 사무소 — 분사무소 설치등기](https://lawofficehome.vercel.app/guide/corporation/np-10.html)
+- [법인등기 — 특수법인 등기 — 사단·재단법인과 무엇이 다른가요?](https://lawofficehome.vercel.app/guide/corporation/np-11.html)
+- [법인등기 — 공익법인 — 설립허가·임원 승인·기본재산](https://lawofficehome.vercel.app/guide/corporation/np-12.html)
+- [법인등기 — 사회복지법인 — 설립·이사 변경·기본재산 처분](https://lawofficehome.vercel.app/guide/corporation/np-13.html)
+- [법인등기 — 학교법인 — 임원 취임 승인과 등기](https://lawofficehome.vercel.app/guide/corporation/np-14.html)
+- [법인등기 — 의료법인 — 설립허가·임원 변경·정관변경](https://lawofficehome.vercel.app/guide/corporation/np-15.html)
+- [법인등기 — 영농조합법인 — 설립등기와 조합원·대표 변경](https://lawofficehome.vercel.app/guide/corporation/np-16.html)
+- [법인등기 — 도시개발조합·정비사업조합(재개발·재건축) — 설립인가 후 등기와 임원 변경](https://lawofficehome.vercel.app/guide/corporation/np-17.html)
+- [법인등기 — 협동조합·사회적협동조합 — 설립신고·인가와 등기](https://lawofficehome.vercel.app/guide/corporation/np-18.html)
 - [민사소송 — 돈을 못 받았을 때 — 지급명령·소액소송·정식소송·조정 중 무엇을 고르나](https://lawofficehome.vercel.app/guide/lawsuit/ms-01.html)
 - [민사소송 — 소송 전에 확인할 것 — 소멸시효·내용증명·증거 확보](https://lawofficehome.vercel.app/guide/lawsuit/ms-14.html)
 - [민사소송 — 지급명령 — 신청부터 확정까지](https://lawofficehome.vercel.app/guide/lawsuit/ms-12.html)
