@@ -233,15 +233,16 @@ const CONTENT_DATA = {
     get topics() { return typeof ENFORCEMENT_TOPICS !== 'undefined' ? ENFORCEMENT_TOPICS : []; }
   },
 
-    /* ---- 상속 ---- */
-  inheritance: {
-    label: '상속',
-    get topics() { return typeof INHERITANCE_TOPICS !== 'undefined' ? INHERITANCE_TOPICS : []; }
-  },
   /* ---- 상속 ---- */
   inheritance: {
     label: '상속',
-    get topics() { return typeof INHERITANCE_TOPICS !== 'undefined' ? INHERITANCE_TOPICS : []; }
+    subcategories: [
+      {
+        id: 'inheritance-general',
+        name: '상속 일반',
+        get topics() { return typeof INHERITANCE_TOPICS !== 'undefined' ? INHERITANCE_TOPICS : []; }
+      }
+    ]
   },
   /* ---- 회생파산 ---- */
   insolvency: {
@@ -256,6 +257,11 @@ const CONTENT_DATA = {
         id: 'foreign-realestate',
         name: '외국인등기 부동산등기',
         get topics() { return typeof FOREIGN_TOPICS !== 'undefined' ? FOREIGN_TOPICS : []; }
+      },
+      {
+        id: 'will-trust',
+        name: '신탁(유언대용신탁)',
+        get topics() { return typeof WILLTRUST_TOPICS !== 'undefined' ? WILLTRUST_TOPICS : []; }
       },
       {
         id: 'etc-general',

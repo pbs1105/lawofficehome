@@ -41,7 +41,7 @@ const OFFICE = {
 
 /* ---------- 1. 데이터 읽기 ---------- */
 const DATA_FILES = [
-  'corporation_topics_data.js', 'nonprofit_topics_data.js', 'foreign_topics_data.js', 'preservation_topics_data.js', 'inheritance_topics_data.js',
+  'corporation_topics_data.js', 'nonprofit_topics_data.js', 'foreign_topics_data.js', 'preservation_topics_data.js', 'inheritance_topics_data.js', 'willtrust_topics_data.js',
   'enforcement_topics_data.js', 'civil_topics_data.js', 'insolvency_topics_data.js', 'main.js',
 ];
 const noop = () => {};
@@ -219,7 +219,7 @@ function page({ title, description, url, type = 'article', jsonld, body }) {
 ${body}
   <div id="footHolder"></div>
   <div id="modalHolder"></div>
-  <script src="/js/main.js?v=14"></script>
+  <script src="/js/main.js?v=15"></script>
 </body>
 </html>
 `;
