@@ -6,15 +6,34 @@
 
 /* ---------- CATEGORY CONFIG ---------- */
 const CATEGORIES = [
-  { id: 'realestate', name: '부동산등기', icon: '🏠' },
-  { id: 'corporation', name: '법인등기',   icon: '🏢' },
-  { id: 'lawsuit',       name: '민사소송',   icon: '⚖️' },
-  { id: 'preservation', name: '보전처분',   icon: '🛡️' },
-  { id: 'enforcement',  name: '강제집행',   icon: '⚡' },
-  { id: 'inheritance',  name: '상속',       icon: '📜' },
-  { id: 'insolvency',   name: '회생파산',   icon: '💳' },
-  { id: 'etc',         name: '기타',       icon: '📁' },
+  // group 1: 특수분야 / group 2: 일반분야 — 네비바에서 두 묶음 사이에 간격(구분선)을 둔다 (2026-11-22 메뉴 개편)
+  { id: 'inheritance', name: '상속',            icon: '📜', group: 1 },
+  { id: 'willtrust',   name: '신탁',            icon: '🤝', group: 1 },
+  { id: 'foreign',     name: '외국인·재외국민', icon: '🌏', group: 1 },
+  { id: 'insolvency',  name: '회생·파산',       icon: '💳', group: 1 },
+  { id: 'realestate',  name: '부동산등기',      icon: '🏠', group: 2 },
+  { id: 'corporation', name: '법인등기',        icon: '🏢', group: 2 },
+  { id: 'lawsuit',     name: '민사소송',        icon: '⚖️', group: 2 },
+  { id: 'enforcement', name: '민사집행',        icon: '⚡', group: 2 },
 ];
+
+/* 옛 주소(cat=preservation, cat=etc) → 새 분야로 바꿔 읽기 (2026-11-22 메뉴 개편) */
+const LEGACY_SUB_TO_CAT = { 'foreign-realestate': 'foreign', 'will-trust': 'willtrust' };
+function normalizeLegacyParams(catId, subId, topicId) {
+  if (catId === 'preservation') return { catId: 'enforcement', subId: 'preservation', topicId };
+  if (catId === 'etc') {
+    if (topicId) {
+      for (const c of CATEGORIES) {
+        const d = CONTENT_DATA[c.id];
+        const groups = d.subcategories ? d.subcategories : [{ id: null, topics: d.topics || [] }];
+        for (const g of groups) if ((g.topics || []).some(t => t.id === topicId)) return { catId: c.id, subId: g.id, topicId };
+      }
+    }
+    if (LEGACY_SUB_TO_CAT[subId]) return { catId: LEGACY_SUB_TO_CAT[subId], subId: null, topicId };
+    return { catId: 'foreign', subId: null, topicId: null };
+  }
+  return { catId, subId, topicId };
+}
 
 /* ============================================================
    CONTENT DATA
@@ -215,22 +234,27 @@ const CONTENT_DATA = {
     ]
   },
 
-  /* ---- 민사소송 ---- */
+  /* ---- 민사소송 ---- (옛 '기타'의 내용증명 et-1 포함) */
   lawsuit: {
     label: '민사소송',
-    get topics() { return typeof CIVIL_TOPICS !== 'undefined' ? CIVIL_TOPICS : []; }
+    get topics() { return [...(typeof CIVIL_TOPICS !== 'undefined' ? CIVIL_TOPICS : []), ...legacyEtcTopics('et-1')]; }
   },
 
-  /* ---- 보전처분 ---- */
-  preservation: {
-    label: '보전처분',
-    get topics() { return typeof PRESERVATION_TOPICS !== 'undefined' ? PRESERVATION_TOPICS : []; }
-  },
-
-  /* ---- 강제집행 ---- */
+  /* ---- 민사집행 (보전처분 + 강제집행, 2026-11-22 통합) ---- */
   enforcement: {
-    label: '강제집행',
-    get topics() { return typeof ENFORCEMENT_TOPICS !== 'undefined' ? ENFORCEMENT_TOPICS : []; }
+    label: '민사집행',
+    subcategories: [
+      {
+        id: 'preservation',
+        name: '보전처분(가압류·가처분)',
+        get topics() { return typeof PRESERVATION_TOPICS !== 'undefined' ? PRESERVATION_TOPICS : []; }
+      },
+      {
+        id: 'enforcement-main',
+        name: '강제집행',
+        get topics() { return [...(typeof ENFORCEMENT_TOPICS !== 'undefined' ? ENFORCEMENT_TOPICS : []), ...legacyEtcTopics('et-2')]; }
+      }
+    ]
   },
 
   /* ---- 상속 ---- */
@@ -249,20 +273,21 @@ const CONTENT_DATA = {
     label: '회생파산',
     get subcategories() { return typeof INSOLVENCY_SUBCATEGORIES !== 'undefined' ? INSOLVENCY_SUBCATEGORIES : []; }
   },
-  /* ---- 기타 ---- */
-  etc: {
-    label: '기타',
+  /* ---- 신탁(유언대용신탁) — '기타'에서 분리 (2026-11-22) ---- */
+  willtrust: {
+    label: '신탁',
+    get topics() { return typeof WILLTRUST_TOPICS !== 'undefined' ? WILLTRUST_TOPICS : []; }
+  },
+  /* ---- 외국인·재외국민 — '기타'에서 분리 (2026-11-22) ---- */
+  foreign: {
+    label: '외국인·재외국민',
+    get topics() { return typeof FOREIGN_TOPICS !== 'undefined' ? FOREIGN_TOPICS : []; }
+  },
+  /* ---- 옛 '기타 일반' 주제 보관소 — 메뉴(CATEGORIES)에는 없음.
+     et-1 내용증명 → 민사소송, et-2 공정증서 → 민사집행(강제집행), et-3 확정일자 → 부동산등기 로 끼워 넣는다 ---- */
+  _legacyEtc: {
+    label: '옛 기타',
     subcategories: [
-      {
-        id: 'foreign-realestate',
-        name: '외국인등기 부동산등기',
-        get topics() { return typeof FOREIGN_TOPICS !== 'undefined' ? FOREIGN_TOPICS : []; }
-      },
-      {
-        id: 'will-trust',
-        name: '신탁(유언대용신탁)',
-        get topics() { return typeof WILLTRUST_TOPICS !== 'undefined' ? WILLTRUST_TOPICS : []; }
-      },
       {
         id: 'etc-general',
         name: '기타 일반',
@@ -341,6 +366,13 @@ const CONTENT_DATA = {
     ]
   }
 };
+
+function legacyEtcTopics(...ids) {
+  const list = CONTENT_DATA._legacyEtc.subcategories[0].topics;
+  return ids.map(id => list.find(t => t.id === id)).filter(Boolean);
+}
+// 확정일자(et-3) → 부동산등기 끝에 붙임
+CONTENT_DATA.realestate.topics.push(...legacyEtcTopics('et-3'));
 
 /* ============================================================
    BLOG DATA
@@ -459,7 +491,7 @@ const BLOG_DATA = [
   },
   // 강제집행
   {
-    id: 'b10', category: 'enforcement', catLabel: '강제집행',
+    id: 'b10', category: 'enforcement', catLabel: '민사집행',
     date: '2025-02-05',
     question: '판결을 받았는데 상대방이 재산이 없다고 합니다. 어떻게 해야 하나요?',
     preview: '재산명시신청 및 재산조회 제도를 활용하여 채무자의 재산을 파악할 수 있습니다...',
@@ -472,7 +504,7 @@ const BLOG_DATA = [
     <p>재산 확인 후 부동산 경매, 예금 압류, 급여 압류 등 적절한 집행 방법을 선택할 수 있습니다.</p>`,
   },
   {
-    id: 'b11', category: 'enforcement', catLabel: '강제집행',
+    id: 'b11', category: 'enforcement', catLabel: '민사집행',
     date: '2025-01-18',
     question: '임차인이 퇴거를 거부하면 강제로 내보낼 수 있나요?',
     preview: '명도소송을 통해 판결을 받아 강제집행(강제퇴거)을 신청할 수 있습니다...',
@@ -521,7 +553,7 @@ const BLOG_DATA = [
   },
   // 기타
   {
-    id: 'b15', category: 'etc', catLabel: '기타',
+    id: 'b15', category: 'lawsuit', catLabel: '민사소송',
     date: '2025-02-18',
     question: '내용증명을 받았습니다. 어떻게 대응해야 하나요?',
     preview: '내용증명은 법적 강제력이 없지만 무시하면 소송으로 이어질 수 있습니다...',
@@ -535,7 +567,7 @@ const BLOG_DATA = [
     <p>내용증명을 받으면 당황하지 말고, 전문가에게 내용을 검토받고 대응 방법을 결정하는 것이 현명합니다.</p>`,
   },
   {
-    id: 'b16', category: 'etc', catLabel: '기타',
+    id: 'b16', category: 'enforcement', catLabel: '민사집행',
     date: '2025-01-22',
     question: '공정증서를 작성하면 재판 없이 바로 집행이 가능한가요?',
     preview: '집행인낙 문언이 포함된 공정증서는 별도 소송 없이 강제집행이 가능합니다...',
@@ -555,7 +587,7 @@ const BLOG_DATA = [
    NAVBAR BUILDER
    ============================================================ */
 function buildNavbar(activePage) {
-  const catLinks = CATEGORIES.map(cat => {
+  const catLinks = CATEGORIES.map((cat, i) => {
     const data = CONTENT_DATA[cat.id];
     let dropItems = '';
     if (data && data.subcategories) {
@@ -567,7 +599,8 @@ function buildNavbar(activePage) {
         `<a href="content.html?cat=${cat.id}&topic=${t.id}">${t.title}</a>`
       ).join('');
     }
-    return `
+    const divider = i > 0 && CATEGORIES[i - 1].group !== cat.group ? '<li class="nav-divider" aria-hidden="true"></li>' : '';
+    return `${divider}
       <li class="nav-item">
         <a href="content.html?cat=${cat.id}" class="nav-link">
           ${cat.icon} ${cat.name} <span class="arrow">▾</span>
@@ -841,8 +874,18 @@ function initContentPage() {
   let subId  = params.get('sub');
   let topicId = params.get('topic');
 
-  const data = CONTENT_DATA[catId];
-  if (!data) { catId = 'realestate'; }
+  // 옛 주소(보전처분·기타) → 새 분야로 바꾸고 주소창도 고친다
+  const norm = normalizeLegacyParams(catId, subId, topicId);
+  if (norm.catId !== catId) {
+    ({ catId, subId, topicId } = norm);
+    const q = new URLSearchParams({ cat: catId });
+    if (subId) q.set('sub', subId);
+    if (topicId) q.set('topic', topicId);
+    window.history.replaceState({}, '', `content.html?${q}`);
+  }
+
+  let data = CONTENT_DATA[catId];
+  if (!data || catId.startsWith('_')) { catId = 'realestate'; data = CONTENT_DATA[catId]; }
 
   // Render category tabs
   const tabsEl = document.getElementById('catTabs');

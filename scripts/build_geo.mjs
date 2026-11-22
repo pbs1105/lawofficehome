@@ -36,7 +36,7 @@ const OFFICE = {
   fax: '055-312-9347',
   email: 'pbaesun@gmail.com',
   areaServed: ['김해시', '경상남도', '부산광역시'],
-  knowsAbout: ['상속', '부동산등기', '법인등기', '민사소송', '보전처분', '강제집행', '회생파산', '재외국민·외국인 부동산등기'],
+  knowsAbout: ['상속', '신탁(유언대용신탁)', '재외국민·외국인 부동산등기', '회생파산', '부동산등기', '법인등기', '민사소송', '민사집행(보전처분·강제집행)'],
 };
 
 /* ---------- 1. 데이터 읽기 ---------- */
@@ -219,7 +219,7 @@ function page({ title, description, url, type = 'article', jsonld, body }) {
 ${body}
   <div id="footHolder"></div>
   <div id="modalHolder"></div>
-  <script src="/js/main.js?v=15"></script>
+  <script src="/js/main.js?v=16"></script>
 </body>
 </html>
 `;
@@ -254,8 +254,10 @@ for (const cat of CATEGORIES) {
 const RD_PATH = path.join(ROOT, 'scripts', 'redirects.json');
 const redirectWarn = [];
 const activeRedirects = [];
+let RD_JSON = {};
 {
-  const rd = fs.existsSync(RD_PATH) ? JSON.parse(fs.readFileSync(RD_PATH, 'utf8')).redirects || [] : [];
+  const rdJson = RD_JSON = fs.existsSync(RD_PATH) ? JSON.parse(fs.readFileSync(RD_PATH, 'utf8')) : {};
+  const rd = rdJson.redirects || [];
   const findTopic = (catId, id) => (catalog.find(e => e.cat.id === catId)?.topics || []).find(t => t.id === id);
   const fromSet = new Set(rd.filter(r => r.active).map(r => `${r.cat}/${r.from}`));
   for (const r of rd.filter(r => r.active)) {
@@ -271,6 +273,22 @@ const activeRedirects = [];
     }
     if (findTopic(r.cat, r.from)) redirectWarn.push(`${r.from}: 데이터 파일에 아직 남아 있음 — content.html 목록에서도 빼려면 데이터에서 삭제`);
     activeRedirects.push({ ...r, toCat, dest: r.to === 'index' ? `/guide/${toCat}/` : `/guide/${toCat}/${safeId(r.to)}.html` });
+  }
+  /* 분야 이동(catMoves, 2026-11-22): 주제 ID는 그대로, 분야만 바뀐 경우 — 옛 분야의 정적 페이지를 새 분야로 넘긴다.
+     prefix 로 고른 주제(현재 데이터 + 새 분야 안의 넘김 표 from)를 모두 넘기고, 새 분야에서 다시 넘겨진 주제는 최종 목적지로 바로 보낸다. */
+  const plainActive = [...activeRedirects];
+  for (const m of (rdJson.catMoves || []).filter(m => m.active)) {
+    const e = catalog.find(x => x.cat.id === m.toCat);
+    if (!e) { redirectWarn.push(`분야 이동 ${m.cat} → ${m.toCat}: 받는 분야가 없음`); continue; }
+    const ids = new Set([
+      ...e.topics.map(t => t.id),
+      ...rd.filter(r => (r.cat === m.toCat) && r.from).map(r => r.from),
+    ].filter(id => id.startsWith(m.prefix)));
+    for (const id of ids) {
+      const again = plainActive.find(r => r.cat === m.toCat && r.from === id);
+      const dest = again ? again.dest : `/guide/${m.toCat}/${safeId(id)}.html`;
+      activeRedirects.push({ from: id, cat: m.cat, to: id, toCat: m.toCat, dest, catMove: true });
+    }
   }
   for (const r of activeRedirects) {      // 정적 출력에서 제외
     const e = catalog.find(x => x.cat.id === r.cat);
@@ -436,7 +454,7 @@ Sitemap: ${SITE}/sitemap.xml
 `);
   write('llms.txt', `# ${OFFICE.name}
 
-> ${OFFICE.region} ${OFFICE.locality}의 법무사 사무소(법무사 ${OFFICE.lawyer}). 상속·부동산등기·법인등기·민사소송·보전처분·강제집행·회생파산 업무를 합니다. 모든 안내는 법령·예규·판례를 근거로 작성하며, 각 페이지 하단에 근거 목록이 있습니다.
+> ${OFFICE.region} ${OFFICE.locality}의 법무사 사무소(법무사 ${OFFICE.lawyer}). 상속·신탁(유언대용신탁)·외국인·재외국민 부동산등기·회생파산과 부동산등기·법인등기·민사소송·민사집행(보전처분·강제집행) 업무를 합니다. 모든 안내는 법령·예규·판례를 근거로 작성하며, 각 페이지 하단에 근거 목록이 있습니다.
 
 - 주소: ${OFFICE.region} ${OFFICE.locality} ${OFFICE.street}
 - 전화: ${OFFICE.tel}
@@ -499,7 +517,7 @@ ${rows}
   <meta property="og:site_name" content="${OFFICE.name}" />
   <meta property="og:locale" content="ko_KR" />
   <meta property="og:title" content="${OFFICE.name} - 김해 상속·부동산등기·법인등기 법무사" />
-  <meta property="og:description" content="경남 김해시 ${OFFICE.name}. 상속, 부동산등기, 법인등기, 민사소송, 강제집행, 회생파산 — 법령·판례 근거 업무 안내." />
+  <meta property="og:description" content="경남 김해시 ${OFFICE.name}. 상속, 신탁, 외국인·재외국민 부동산등기, 회생파산, 부동산등기, 법인등기, 민사소송, 민사집행 — 법령·판례 근거 업무 안내." />
   <meta property="og:url" content="${SITE}/" />
   ${ld([officeNode, personNode, { '@type': 'WebSite', '@id': `${SITE}/#website`, name: OFFICE.name, url: `${SITE}/`, inLanguage: 'ko', publisher: { '@id': `${SITE}/#office` } }])}
   <!-- GEO:HEAD:END -->`;
@@ -516,7 +534,7 @@ ${rows}
   html = replaceOrInsert(html, 'GEO:HEAD:START', 'GEO:HEAD:END', headBlock, /<\/head>/, 'before');
   html = replaceOrInsert(html, 'GEO:H1:START', 'GEO:H1:END', bodyBlock, /<body[^>]*>/, 'after');
   html = replaceOrInsert(html, 'GEO:FOOT:START', 'GEO:FOOT:END', footBlock,
-    /<li><a href="content\.html\?cat=etc">📁 기타<\/a><\/li>/, 'after');
+    /<li><a href="content\.html\?cat=enforcement">⚡ 민사집행<\/a><\/li>/, 'after');
   fs.writeFileSync(idxPath, html, 'utf8');
 }
 
@@ -534,7 +552,19 @@ const removedPages = [];
     const list = [];
     for (const r of activeRedirects) {
       list.push({ source: `/guide/${r.cat}/${safeId(r.from)}.html`, destination: r.dest, permanent: true });
+      if (r.catMove) continue;  // 분야만 바뀐 주제는 content.html 이 옛 주소(cat=)를 스스로 새 분야로 바꿔 읽는다(main.js normalizeLegacyParams)
       list.push({ source: '/content.html', has: [{ type: 'query', key: 'topic', value: r.from }], destination: r.dest, permanent: true });
+    }
+    // 없어진 분야의 목차(indexMoves): /guide/<옛 분야>/ → 새 목차
+    for (const m of (RD_JSON.indexMoves || []).filter(m => m.active)) {
+      const dest = m.toCat ? `/guide/${m.toCat}/` : '/guide/';
+      list.push({ source: `/guide/${m.cat}`, destination: dest, permanent: true });
+      list.push({ source: `/guide/${m.cat}/`, destination: dest, permanent: true });
+      list.push({ source: `/guide/${m.cat}/index.html`, destination: dest, permanent: true });
+      const oldIdx = path.join(ROOT, 'guide', m.cat, 'index.html');
+      if (fs.existsSync(oldIdx)) { fs.rmSync(oldIdx); removedPages.push(`guide/${m.cat}/index.html`); }
+      const oldDir = path.join(ROOT, 'guide', m.cat);
+      if (fs.existsSync(oldDir) && fs.readdirSync(oldDir).length === 0) fs.rmdirSync(oldDir);
     }
     if (list.length) v.redirects = list; else delete v.redirects;
     fs.writeFileSync(vPath, JSON.stringify(v, null, 2) + '\n', 'utf8');

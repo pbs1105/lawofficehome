@@ -2576,3 +2576,13 @@ button { cursor: pointer; font-family: var(--font); }
 .content-article .execution-box h4 { color: #1a5c2e; margin: 0 0 10px 0; }
 .content-article .execution-box ul { margin-left: 20px; }
 .content-article .execution-box li { margin: 8px 0; }
+
+/* ---- 네비 두 묶음 구분선 (2026-11-22 메뉴 개편: 특수분야 | 일반분야) ---- */
+.nav-divider { list-style: none; width: 1px; height: 20px; background: rgba(255,255,255,0.28); margin: 0 6px; align-self: center; flex-shrink: 0; }
+.nav-menu .nav-link { padding: 0 9px; }
+@media (max-width: 1600px) { .nav-menu .nav-link { padding: 0 6px; font-size: 0.84rem; } .nav-divider { margin: 0 3px; } }
+@media (max-width: 1280px) { .nav-menu .nav-link { padding: 0 4px; font-size: 0.78rem; } .nav-link .arrow { display: none; } }
+@media (max-width: 768px) {
+  .nav-divider { width: auto; height: 1px; margin: 10px 24px; background: rgba(255,255,255,0.22); }
+  .nav-menu .nav-link { padding: 14px 24px; font-size: 0.88rem; }
+}
