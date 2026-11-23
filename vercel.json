@@ -1,0 +1,344 @@
+{
+  "redirects": [
+    {
+      "source": "/guide/etc/fi-01.html",
+      "destination": "/guide/foreign/fi-01.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-02.html",
+      "destination": "/guide/foreign/fi-02.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-03.html",
+      "destination": "/guide/foreign/fi-03.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-04.html",
+      "destination": "/guide/foreign/fi-04.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-05.html",
+      "destination": "/guide/foreign/fi-05.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-06.html",
+      "destination": "/guide/foreign/fi-06.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-07.html",
+      "destination": "/guide/foreign/fi-07.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-08.html",
+      "destination": "/guide/foreign/fi-08.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-09.html",
+      "destination": "/guide/foreign/fi-09.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-10.html",
+      "destination": "/guide/foreign/fi-10.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-11.html",
+      "destination": "/guide/foreign/fi-11.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-12.html",
+      "destination": "/guide/foreign/fi-12.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-13.html",
+      "destination": "/guide/foreign/fi-13.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-14.html",
+      "destination": "/guide/foreign/fi-14.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-15.html",
+      "destination": "/guide/foreign/fi-15.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-16.html",
+      "destination": "/guide/foreign/fi-16.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-17.html",
+      "destination": "/guide/foreign/fi-17.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-18.html",
+      "destination": "/guide/foreign/fi-18.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-19.html",
+      "destination": "/guide/foreign/fi-19.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-20.html",
+      "destination": "/guide/foreign/fi-20.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-21.html",
+      "destination": "/guide/foreign/fi-21.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-22.html",
+      "destination": "/guide/foreign/fi-22.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-23.html",
+      "destination": "/guide/foreign/fi-23.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-24.html",
+      "destination": "/guide/foreign/fi-24.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-25.html",
+      "destination": "/guide/foreign/fi-25.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-26.html",
+      "destination": "/guide/foreign/fi-26.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-27.html",
+      "destination": "/guide/foreign/fi-27.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-30.html",
+      "destination": "/guide/foreign/fi-30.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-31.html",
+      "destination": "/guide/foreign/fi-31.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-32.html",
+      "destination": "/guide/foreign/fi-32.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-33.html",
+      "destination": "/guide/foreign/fi-33.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-34.html",
+      "destination": "/guide/foreign/fi-34.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/fi-35.html",
+      "destination": "/guide/foreign/fi-35.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/wt-01.html",
+      "destination": "/guide/willtrust/wt-01.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/wt-02.html",
+      "destination": "/guide/willtrust/wt-02.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/wt-03.html",
+      "destination": "/guide/willtrust/wt-03.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/wt-04.html",
+      "destination": "/guide/willtrust/wt-04.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/wt-05.html",
+      "destination": "/guide/willtrust/wt-05.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/wt-06.html",
+      "destination": "/guide/willtrust/wt-06.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/wt-07.html",
+      "destination": "/guide/willtrust/wt-07.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/wt-08.html",
+      "destination": "/guide/willtrust/wt-08.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/wt-09.html",
+      "destination": "/guide/willtrust/wt-09.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/wt-10.html",
+      "destination": "/guide/willtrust/wt-10.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/wt-11.html",
+      "destination": "/guide/willtrust/wt-11.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/et-1.html",
+      "destination": "/guide/lawsuit/et-1.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/et-2.html",
+      "destination": "/guide/enforcement/et-2.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/et-3.html",
+      "destination": "/guide/realestate/et-3.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/preservation/pv-1.html",
+      "destination": "/guide/enforcement/pv-1.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/preservation/pv-2.html",
+      "destination": "/guide/enforcement/pv-2.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/preservation/pv-3.html",
+      "destination": "/guide/enforcement/pv-3.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/preservation/pv-4.html",
+      "destination": "/guide/enforcement/pv-4.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/preservation/pv-5.html",
+      "destination": "/guide/enforcement/pv-5.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/preservation/pv-6.html",
+      "destination": "/guide/enforcement/pv-6.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/preservation/pv-7.html",
+      "destination": "/guide/enforcement/pv-7.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/preservation/pv-8.html",
+      "destination": "/guide/enforcement/pv-8.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/preservation/pv-9.html",
+      "destination": "/guide/enforcement/pv-9.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/preservation/pv-10.html",
+      "destination": "/guide/enforcement/pv-10.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/preservation/pv-11.html",
+      "destination": "/guide/enforcement/pv-11.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/preservation/pv-12.html",
+      "destination": "/guide/enforcement/pv-12.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/preservation/pv-13.html",
+      "destination": "/guide/enforcement/pv-13.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/preservation/pv-14.html",
+      "destination": "/guide/enforcement/pv-14.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/preservation/pv-15.html",
+      "destination": "/guide/enforcement/pv-15.html",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc",
+      "destination": "/guide/",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/",
+      "destination": "/guide/",
+      "permanent": true
+    },
+    {
+      "source": "/guide/etc/index.html",
+      "destination": "/guide/",
+      "permanent": true
+    },
+    {
+      "source": "/guide/preservation",
+      "destination": "/guide/enforcement/",
+      "permanent": true
+    },
+    {
+      "source": "/guide/preservation/",
+      "destination": "/guide/enforcement/",
+      "permanent": true
+    },
+    {
+      "source": "/guide/preservation/index.html",
+      "destination": "/guide/enforcement/",
+      "permanent": true
+    }
+  ]
+}

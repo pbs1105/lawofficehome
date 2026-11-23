@@ -856,3 +856,13 @@ button.consult-modal-btn,
   .consult-form-card { padding: 24px 16px; }
   .cost-inner { padding: 24px 16px; }
 }
+
+/* ---- 네비 두 묶음 구분선 (2026-11-22 메뉴 개편: 특수분야 | 일반분야) ---- */
+.nav-menu .nav-divider { display: block; width: 1px; height: 20px; background: rgba(255,255,255,0.28); margin: 0 6px; align-self: center; flex-shrink: 0; }
+.nav-menu a { padding: 0 10px; }
+@media (max-width: 1280px) { .nav-menu a { padding: 0 7px; font-size: 0.84rem; } }
+@media (max-width: 1024px) { .nav-menu a { font-size: 0.76rem; padding: 0 5px; } }
+@media (max-width: 900px) {
+  .nav-menu .nav-divider { width: auto; height: 1px; margin: 10px 16px; background: rgba(255,255,255,0.22); }
+  .nav-menu a { padding: 14px 16px; font-size: 1rem; }
+}
