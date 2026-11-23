@@ -437,7 +437,7 @@ ${e.topics.map(t => `        <li><a href="/guide/${e.cat.id}/${safeId(t.id)}.htm
 
 /* ---------- 4. sitemap · robots · llms ---------- */
 {
-  const urls = [`${SITE}/`, `${SITE}/blog.html`, `${SITE}/guide/`,
+  const urls = [`${SITE}/`, `${SITE}/blog.html`, `${SITE}/cost-calculator.html`, `${SITE}/guide/`,
     ...catalog.map(e => `${SITE}/guide/${e.cat.id}/`),
     ...catalog.flatMap(e => e.topics.map(t => t.__url))];
   write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
@@ -534,7 +534,7 @@ ${rows}
   html = replaceOrInsert(html, 'GEO:HEAD:START', 'GEO:HEAD:END', headBlock, /<\/head>/, 'before');
   html = replaceOrInsert(html, 'GEO:H1:START', 'GEO:H1:END', bodyBlock, /<body[^>]*>/, 'after');
   html = replaceOrInsert(html, 'GEO:FOOT:START', 'GEO:FOOT:END', footBlock,
-    /<li><a href="content\.html\?cat=enforcement">⚡ 민사집행<\/a><\/li>/, 'after');
+    /<li><a href="cost-calculator\.html">🧮 등기비용 간이 계산기<\/a><\/li>/, 'after');
   fs.writeFileSync(idxPath, html, 'utf8');
 }
 

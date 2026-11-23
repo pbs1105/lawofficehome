@@ -665,6 +665,7 @@ function buildFooter() {
             <div class="footer-nav-title">업무 안내</div>
             <ul>${navLinks}
               <li><a href="blog.html">📝 전문가 Q&A</a></li>
+              <li><a href="cost-calculator.html">🧮 등기비용 간이 계산기</a></li>
             </ul>
           </div>
           <div class="footer-consult">
