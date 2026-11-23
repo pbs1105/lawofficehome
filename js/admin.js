@@ -90,10 +90,7 @@ const ADMIN_MENU = [
     items: [
       { id: 'calc-comprehensive', label: '공과금 자동생성 (취득세·국민주택채권·인지대·송달료 등)' },
       { id: 'calc-fee', label: '보수료 자동생성' },
-      { id: 'calc-acq', label: '취득세 계산기 (개별)' },
-      { id: 'calc-reg', label: '등록면허세 계산기 (개별)' },
       { id: 'calc-bond', label: '국민주택채권 계산기 (개별)' },
-      { id: 'calc-inhtax', label: '상속세 간이 계산기 (개별)' },
     ]
   },
   {
@@ -845,10 +842,8 @@ function renderCalculator(calcId) {
     case 'calc-acq-report':
       area.innerHTML = `<iframe src="../tools/취득세신고서_생성기.html" style="width:100%;height:calc(100vh - 120px);border:none;display:block;" title="취득세 신고서 자동작성"></iframe>`;
       break;
-    case 'calc-acq':  area.innerHTML = buildAcquisitionTaxCalc(); break;
-    case 'calc-reg':  area.innerHTML = buildRegistrationTaxCalc(); break;
     case 'calc-fee':  area.innerHTML = buildLawyerFeeCalc(); break;
-    case 'calc-inhtax': area.innerHTML = buildInheritanceTaxCalc(); break;
+    // 2026-11-23: 개별 취득세·등록면허세 계산기(오류)와 상속세 간이 계산기는 메뉴에서 내림 — 종합 계산기(fee_calculator)로 일원화
     case 'calc-bond':
       area.innerHTML = `<iframe src="../tools/bond_calculator.html" style="width:100%;height:calc(100vh - 120px);border:none;display:block;" title="국민주택채권 매입액 계산기"></iframe>`;
       break;

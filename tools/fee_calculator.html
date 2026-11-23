@@ -874,7 +874,7 @@
   <!-- 인쇄 푸터 -->
   <div class="print-footer" id="printFooter1">
     이 견적서는 참고용이며, 법무사의 최종 검토·확인 후 확정됩니다.<br>
-    법무사보수기준 시행일: 2024.9.12 | 세율 기준일: 2025.5.6<br>
+    법무사보수기준 부표 2024.9.12 (회칙 2026.8.20 개정 — 고난도 사건 가산 신설) | 세율·수수료·송달료 확인일: 2026.11.23<br>
     박배선 법무사 사무소 (부산)
   </div>
 </div>
@@ -978,7 +978,7 @@
 
   <div class="print-footer">
     이 견적서는 참고용이며, 법무사의 최종 검토·확인 후 확정됩니다.<br>
-    법무사보수기준 시행일: 2024.9.12 | 인지법 기준일: 2025.5.6<br>
+    법무사보수기준 부표 2024.9.12 (회칙 2026.8.20 개정) | 인지법·송달료 확인일: 2026.11.23<br>
     박배선 법무사 사무소 (부산)
   </div>
 </div>
@@ -1079,7 +1079,7 @@
 
   <div class="print-footer">
     이 견적서는 참고용이며, 법무사의 최종 검토·확인 후 확정됩니다.<br>
-    법무사보수기준 시행일: 2024.9.12 | 세율 기준일: 2025.5.6<br>
+    법무사보수기준 부표 2024.9.12 (회칙 2026.8.20 개정 — 고난도 사건 가산 신설) | 세율·수수료·송달료 확인일: 2026.11.23<br>
     박배선 법무사 사무소 (부산)
   </div>
 </div>
@@ -1501,9 +1501,11 @@ const TAX_LAWS = {
     ],
   },
   registrationFee: {
-    law: "등기신청수수료 규칙",
-    individual: 15_000,
-    corporation: 20_000,
+    // 등기사항증명서 등 수수료규칙 제5조의2·제5조의3·제5조의5 (2025. 8. 1. 시행) — 2026-11-23 원문 확인
+    law: "등기사항증명서 등 수수료규칙 제5조의2·제5조의5",
+    individual: 15_000,          // 부동산: 전자표준양식(e-Form) 매 부동산 (서면 18,000 · 전자신청 10,000)
+    corporation: 28_000,         // 상업등기 설립·관할 외 본점이전: e-Form 매 건 (서면 35,000 · 전자신청 20,000)
+    corporationOther: 5_000,     // 그 밖의 상업등기: e-Form 매 등기의 목적 (서면 7,000 · 전자신청 2,000)
   },
   courtStamp: {
     law: "민사소송 등 인지법 제2조",
@@ -1516,7 +1518,8 @@ const TAX_LAWS = {
   },
   deliveryFee: {
     law: "민사소송규칙 제19조",
-    perDelivery: 5_200,
+    perDelivery: 5_640,   // 2026. 7. 1.부터 1회분 5,640원 — 2026-11-23 확인
+    perDeliveryStamp: 5_420, // 우표가 사용되는 업무(공탁·등기 등) 1회분
   },
 };
 
@@ -1850,7 +1853,7 @@ function calcAcquisitionTax(price, propType, cause, houseCount, adjusted) {
       }
       law = `${p.house.law} (중과 취득세)`;
       formula = `${formatKRW(price)} × ${(rate*100).toFixed(0)}% (중과)`;
-      return { tax: price * rate, rate, law, formula, note };
+      return { tax: price * rate, rate, law, formula, note, heavy: true };
     }
     // 1주택 기본세율
     law = p.house.law;
@@ -1858,18 +1861,16 @@ function calcAcquisitionTax(price, propType, cause, houseCount, adjusted) {
       rate = 0.01;
       formula = `${formatKRW(price)} × 1%`;
     } else if (price <= 900_000_000) {
-      // 선형 보간: (취득가액 × 2/3억 - 3) / 1000
-      rate = (price * 2 / 3_000 - 3_000_000) / price; // 공식: (취득가액/3억 × 2 - 3) ÷ 1000 × 취득가액
-      const computed = (price / 100_000_000 * 2 / 3 - 0.003) * price;
-      // 실제 공식: 취득세 = 취득가액 × (취득가액 × 2/300,000,000 - 3) ÷ 1000
-      const linearTax = price * (price * 2 / 300_000_000 - 3) / 1000;
-      formula = `${formatKRW(price)} × (${formatKRW(price)} × 2/3억 - 3) ÷ 1000 (선형보간)`;
-      return { tax: linearTax, rate: linearTax/price, law, formula, note: '6억 초과~9억 구간 선형보간 세율' };
+      // 지방세법 제11조 제1항 제8호 나목: 세율 = (취득당시가액 × 2/3억원 − 3) × 1/100
+      // 소수점 이하 다섯째자리에서 반올림하여 넷째자리까지 (2026-11-23 수정 — 종전 /1000 오류로 1/10만 계산되던 것)
+      rate = Math.round(((price * 2 / 300_000_000) - 3) / 100 * 10000) / 10000;
+      formula = `${formatKRW(price)} × ${(rate * 100).toFixed(2)}% (6억 초과~9억 계산식 세율)`;
+      return { tax: price * rate, rate, law, formula, note: '6억 초과~9억: (취득가액×2/3억−3)×1/100', house8: true };
     } else {
       rate = 0.03;
       formula = `${formatKRW(price)} × 3%`;
     }
-    return { tax: price * rate, rate, law, formula, note };
+    return { tax: price * rate, rate, law, formula, note, house8: true };
   }
 
   // 비주거용, 공장, 토지
@@ -1880,25 +1881,30 @@ function calcAcquisitionTax(price, propType, cause, houseCount, adjusted) {
   return { tax: price * rate, rate, law, formula, note };
 }
 
-function calcAgriTax(acquisitionTax, propType, reductionApplied) {
-  // 농특세: 취득세의 10% (단, 비주거용·공장 등은 취득가액 × 0.2%)
-  // 창업감면 적용 시 면제
+function calcAgriTax(acquisitionTax, propType, reductionApplied, price, heavy) {
+  // 2026-11-23 수정: 농특세 = 취득세 표준세율을 2%로 적용한 세액의 10% → 과세표준 × 0.2%
+  // (종전: 취득세 × 10% — 주택 1%는 절반, 4%는 두 배로 계산되던 오류)
   if (reductionApplied) {
-    return { tax: 0, law: '농어촌특별세법 제4조 제4의2호', formula: '창업감면 적용 → 면제', note: '감면 적용으로 농특세 면제' };
+    return { tax: 0, law: '농어촌특별세법 제4조', formula: '창업감면 적용 → 면제', note: '감면 적용으로 농특세 면제' };
   }
-  if (propType === 'house') {
-    // 주택 85㎡ 이하 비과세 원칙, 여기서는 일반 주택 취득 기준
-    const tax = acquisitionTax * 0.10;
-    return { tax, law: '농어촌특별세법 제5조 제1항 제1호', formula: `취득세 ${formatKRW(acquisitionTax)} × 10%`, note: '85㎡ 이하 국민주택은 비과세' };
-  }
-  // 비주거용 등: 취득세의 10%
-  const tax = acquisitionTax * 0.10;
-  return { tax, law: '농어촌특별세법 제5조 제1항 제1호', formula: `취득세 ${formatKRW(acquisitionTax)} × 10%`, note: '' };
+  const tax = price * 0.02 * 0.10;
+  const note = propType === 'house'
+    ? '전용 85㎡ 이하 주택은 비과세(농특세법 제4조 제11호) — 해당하면 0원으로 처리' + (heavy ? ' · 중과 주택은 농특세도 가산되므로 별도 확인' : '')
+    : '';
+  return { tax, law: '농어촌특별세법 제5조 제1항 제6호', formula: `과세표준 ${formatKRW(price)} × 2% × 10%`, note };
 }
 
-function calcEduTax(registrationTax) {
-  const tax = registrationTax * 0.20;
-  return { tax, law: '지방세법 제151조 제1항 제2호', formula: `등록분 취득세 ${formatKRW(registrationTax)} × 20%` };
+function calcEduTax(at, price) {
+  // 2026-11-23 수정: 지방세법 제151조 제1항 제1호
+  //   일반: 과세표준 × (취득세율 − 2%) × 20%   /  유상거래 주택(제11조①8호): 과세표준 × (세율 × 50%) × 20%
+  //   중과(제13조의2): 과세표준 × (4% − 2%) × 20%
+  // (종전: 취득세 × 20% — 실제의 약 두 배로 계산되던 오류)
+  let rate, how;
+  if (at.heavy) { rate = (0.04 - 0.02) * 0.2; how = '(4% − 2%) × 20% (중과)'; }
+  else if (at.house8) { rate = at.rate * 0.5 * 0.2; how = `세율 ${(at.rate * 100).toFixed(2)}% × 50% × 20%`; }
+  else { rate = Math.max(at.rate - 0.02, 0) * 0.2; how = `(세율 ${(at.rate * 100).toFixed(1)}% − 2%) × 20%`; }
+  const tax = price * rate;
+  return { tax, law: '지방세법 제151조 제1항 제1호', formula: `과세표준 ${formatKRW(price)} × ${how}` };
 }
 
 function calcHousingBond(stdPrice, propType, region, discountRate) {
@@ -1928,8 +1934,12 @@ function calcStampTax(price) {
 }
 
 function calcCourtStamp(claimAmount, caseType) {
-  if (caseType === 'paymentOrder' || caseType === 'provisional') {
-    // 지급명령·보전처분: 본안의 1/10
+  if (caseType === 'provisional') {
+    // 민사소송 등 인지법 제9조 제2항 (2026-11-23 원문 확인 — 종전 '본안 1/10' 오류 수정)
+    return { stamp: 10_000, law: '민사소송 등 인지법 제9조 제2항', formula: '가압류·가처분 신청 정액 10,000원 (임시의 지위를 정하는 가처분은 본안 인지의 1/2, 상한 50만원 — 별도 계산)', label: '보전처분 인지' };
+  }
+  if (caseType === 'paymentOrder') {
+    // 지급명령: 본안의 1/10 (인지법 제7조 제2항)
     let baseStamp = 0;
     for (const r of TAX_LAWS.courtStamp.rates) {
       if (claimAmount <= r.priceMax) {
@@ -1939,8 +1949,8 @@ function calcCourtStamp(claimAmount, caseType) {
       }
     }
     const stamp = Math.max(Math.ceil(baseStamp / 10), 1_000);
-    const label = caseType === 'paymentOrder' ? '지급명령 인지' : '보전처분 인지';
-    return { stamp, law: '민사소송 등 인지법 제2조', formula: `본안 인지 ${formatKRW(baseStamp)} × 1/10 = ${formatKRW(stamp)}`, label };
+    const label = '지급명령 인지';
+    return { stamp, law: '민사소송 등 인지법 제7조 제2항', formula: `본안 인지 ${formatKRW(baseStamp)} × 1/10 = ${formatKRW(stamp)}`, label };
   }
   for (const r of TAX_LAWS.courtStamp.rates) {
     if (claimAmount <= r.priceMax) {
@@ -2106,7 +2116,7 @@ function runRealEstate() {
 
     // 농어촌특별세
     if (at.tax > 0) {
-      const agri = calcAgriTax(at.tax, propType, agriExempt);
+      const agri = calcAgriTax(at.tax, propType, agriExempt, price, at.heavy);
       const agriAfter = agriExempt ? 0 : (appliedReduction && appliedReduction.rate ? agri.tax * (1 - appliedReduction.rate) : agri.tax);
       rows.push({
         label: '농어촌특별세',
@@ -2116,9 +2126,8 @@ function runRealEstate() {
       });
       totalBefore += agri.tax; totalAfter += agriAfter;
 
-      // 지방교육세 (등록분 취득세 기준 — 주택 1%·비주거 4% 등록분)
-      const regTaxBase = at.tax; // 간략화: 취득세 전액 기준
-      const edu = calcEduTax(regTaxBase);
+      // 지방교육세 (지방세법 제151조 제1항 제1호)
+      const edu = calcEduTax(at, price);
       const eduAfter = appliedReduction && appliedReduction.rate
         ? edu.tax * (1 - appliedReduction.rate)
         : (appliedReduction && appliedReduction.fixedMax ? edu.tax : edu.tax);
@@ -2500,13 +2509,16 @@ function runCorporation() {
     totalTax += eduTax;
   }
 
-  // 등기신청수수료
-  const regFee = TAX_LAWS.registrationFee.corporation;
+  // 등기신청수수료 (수수료규칙 제5조의3·제5조의5 — e-Form 기준)
+  const isEstablishFee = corpType === 'establish';   // 본점이전은 관할 외 이전일 때만 28,000원 → 아래 메모로 안내
+  const regFee = isEstablishFee ? TAX_LAWS.registrationFee.corporation : TAX_LAWS.registrationFee.corporationOther;
   rows.push({
     label: '등기신청수수료',
     amount: regFee,
-    law: TAX_LAWS.registrationFee.law,
-    formula: `법인 건당 ${formatKRW(regFee)}`,
+    law: '등기사항증명서 등 수수료규칙 제5조의3·제5조의5',
+    formula: isEstablishFee
+      ? `설립등기 매 건 ${formatKRW(regFee)} (e-Form 기준, 서면 35,000원·전자 20,000원)`
+      : `매 등기의 목적 ${formatKRW(regFee)} (e-Form 기준, 서면 7,000원·전자 2,000원)${corpType === 'address' ? ' · 관할 외 본점이전은 28,000원' : ''} — 목적이 여럿이면 목적 수만큼`,
   });
   totalTax += regFee;
 
@@ -2599,13 +2611,13 @@ function runDeposit() {
   });
   totalTax += stampAmt;
 
-  // 공탁서 우편송달료 (피공탁자 수 × 5,200원)
-  const mailFee = counterparty * 5_200;
+  // 공탁서 우편송달료 (피공탁자 수 × 우표 업무 1회분)
+  const mailFee = counterparty * TAX_LAWS.deliveryFee.perDeliveryStamp;
   rows.push({
     label: '공탁 통지 우편료',
     amount: mailFee,
     law: '공탁사무처리규칙 제23조',
-    formula: `피공탁자 ${counterparty}명 × 5,200원`,
+    formula: `피공탁자 ${counterparty}명 × ${TAX_LAWS.deliveryFee.perDeliveryStamp.toLocaleString()}원`,
   });
   totalTax += mailFee;
 
@@ -2840,13 +2852,13 @@ function runInsolvency() {
     });
     totalTax += 15_000;
 
-    // 송달료 (채권자 수 × 2회 × 5,200원)
-    const mailFee = creditorCnt * 2 * 5_200;
+    // 송달료 (채권자 수 × 2회 × 1회분)
+    const mailFee = creditorCnt * 2 * TAX_LAWS.deliveryFee.perDelivery;
     rows.push({
       label: '송달료 예납',
       amount: mailFee,
       law: '민사소송규칙 제19조',
-      formula: `채권자 ${creditorCnt}명 × 2회 × 5,200원 = ${formatKRW(mailFee)}`,
+      formula: `채권자 ${creditorCnt}명 × 2회 × ${TAX_LAWS.deliveryFee.perDelivery.toLocaleString()}원 = ${formatKRW(mailFee)}`,
     });
     totalTax += mailFee;
 
@@ -2907,12 +2919,12 @@ function runInsolvency() {
     totalTax += 10_000;
 
     // 송달료
-    const mailFee = creditorCnt * 5_200;
+    const mailFee = creditorCnt * TAX_LAWS.deliveryFee.perDelivery;
     rows.push({
       label: '송달료 예납',
       amount: mailFee,
       law: '민사소송규칙 제19조',
-      formula: `채권자 ${creditorCnt}명 × 1회 × 5,200원 = ${formatKRW(mailFee)}`,
+      formula: `채권자 ${creditorCnt}명 × 1회 × ${TAX_LAWS.deliveryFee.perDelivery.toLocaleString()}원 = ${formatKRW(mailFee)}`,
     });
     totalTax += mailFee;
 

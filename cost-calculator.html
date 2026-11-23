@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme-key="theme-public" data-theme-default="system">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>부동산 등기비용 간이 계산기 | 박배선 법무사 사무소</title>
+  <meta name="description" content="매매·증여·근저당권 설정 등기에 드는 취득세·지방교육세·농어촌특별세·국민주택채권·인지세·등기신청수수료를 현행 법령 기준으로 간단히 계산해 봅니다." />
+  <link rel="canonical" href="https://lawofficehome.vercel.app/cost-calculator.html" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/dark-style.css" />
+  <script src="js/theme.js"></script>
+  <style>
+    /* ===== 등기비용 간이 계산기 (2026-11-22) — 이 페이지 전용 ===== */
+    .cc-hero { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: #fff; padding: 48px 0 40px; }
+    .cc-hero h1 { font-family: var(--font-serif); font-size: 1.9rem; margin: 0 0 10px; }
+    .cc-hero p { color: rgba(255,255,255,0.78); margin: 0; line-height: 1.7; }
+    .cc-wrap { display: grid; grid-template-columns: minmax(300px, 420px) 1fr; gap: 28px; padding: 36px 0 56px; align-items: start; }
+    .cc-card { background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow); }
+    .cc-card h2 { font-size: 1.08rem; margin: 0 0 16px; color: var(--primary); }
+    .cc-field { margin-bottom: 16px; }
+    .cc-field > label, .cc-field > .cc-lbl { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 6px; color: var(--text-dark); }
+    .cc-field small { display: block; color: var(--text-light); font-size: 0.78rem; margin-top: 4px; line-height: 1.5; }
+    .cc-input { width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 1rem; font-family: var(--font); background: var(--bg-white); color: var(--text-dark); box-sizing: border-box; }
+    .cc-input:focus { outline: 2px solid var(--secondary); outline-offset: 1px; }
+    .cc-seg { display: flex; flex-wrap: wrap; gap: 6px; }
+    .cc-seg label { flex: 1 1 auto; text-align: center; padding: 9px 10px; border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; font-size: 0.88rem; white-space: nowrap; color: var(--text-med); }
+    .cc-seg input { position: absolute; opacity: 0; pointer-events: none; }
+    .cc-seg input:checked + span { font-weight: 700; color: var(--primary); }
+    .cc-seg label:has(input:checked) { border-color: var(--secondary); background: var(--accent); }
+    .cc-seg input:focus-visible + span { outline: 2px solid var(--secondary); outline-offset: 2px; }
+    .cc-check { display: flex; gap: 8px; align-items: flex-start; font-size: 0.88rem; color: var(--text-med); cursor: pointer; }
+    .cc-check input { margin-top: 3px; }
+    .cc-hint { font-size: 0.8rem; color: var(--text-light); margin-top: 4px; }
+    .cc-won { font-size: 0.8rem; color: var(--primary-light); margin-top: 4px; min-height: 1em; }
+
+    .cc-total { display: flex; justify-content: space-between; align-items: baseline; padding: 16px 18px; border-radius: var(--radius); background: var(--accent); border-left: 4px solid var(--secondary); margin-bottom: 18px; }
+    .cc-total .t { font-weight: 700; color: var(--primary); }
+    .cc-total .v { font-size: 1.5rem; font-weight: 800; color: var(--primary); }
+    .cc-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .cc-table th, .cc-table td { padding: 10px 8px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+    .cc-table th { font-size: 0.8rem; color: var(--text-light); font-weight: 600; }
+    .cc-table td.amt { text-align: right; white-space: nowrap; font-weight: 700; color: var(--text-dark); }
+    .cc-table .how { display: block; font-size: 0.78rem; color: var(--text-light); margin-top: 3px; }
+    .cc-table tr.sub td { font-weight: 700; background: var(--bg-light); }
+    .ref-tags { margin-top: 5px; display: flex; flex-wrap: wrap; gap: 5px; }
+    .tag-law { display: inline-block; padding: 2px 9px; border-radius: 12px; font-size: 0.72rem; font-weight: 600; text-decoration: none; background: #eef2f8; color: #2d4a7a; border: 1px solid #2d4a7a; }
+    .tag-law:hover { background: #dce6f5; }
+
+    .cc-note { margin-top: 18px; padding: 14px 16px; border-radius: var(--radius); background: #f4f7fb; border-left: 4px solid #2d4a7a; font-size: 0.85rem; line-height: 1.7; color: var(--text-med); }
+    .cc-warn { margin-top: 14px; padding: 12px 16px; border-radius: var(--radius); background: #fff3e8; border-left: 4px solid #c05000; font-size: 0.86rem; line-height: 1.7; color: #6b3a10; display: none; }
+    .cc-warn.show { display: block; }
+    .cc-note ul, .cc-warn ul { margin: 6px 0 0; padding-left: 18px; }
+    .cc-cta { margin-top: 22px; padding: 20px; border-radius: var(--radius); background: #fdf6e9; border: 1px solid #c8a96e; text-align: center; }
+    .cc-cta p { margin: 0 0 12px; font-weight: 600; color: var(--primary); }
+    .cc-cta .btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .cc-cta a.kakao { display: inline-flex; align-items: center; padding: 11px 20px; border-radius: var(--radius); background: #fee500; color: #3c1e1e; font-weight: 700; text-decoration: none; }
+    .cc-cta small { display: block; margin-top: 10px; color: var(--text-light); }
+    .cc-basis { margin-top: 24px; font-size: 0.8rem; color: var(--text-light); line-height: 1.7; }
+    .cc-empty { color: var(--text-light); font-size: 0.9rem; padding: 18px 0; }
+
+    @media (max-width: 860px) { .cc-wrap { grid-template-columns: 1fr; } .cc-hero h1 { font-size: 1.5rem; } }
+
+    /* 어두운 화면 */
+    [data-theme="dark"] .cc-hero { background: linear-gradient(135deg, #131c29, #1d2b3d); }
+    [data-theme="dark"] .cc-card { background: #1a2433; border-color: #2c3a4f; box-shadow: none; }
+    [data-theme="dark"] .cc-card h2 { color: #c6d2e1; }
+    [data-theme="dark"] .cc-field > label, [data-theme="dark"] .cc-field > .cc-lbl { color: #d4d9e1; }
+    [data-theme="dark"] .cc-input { background: #121a26; border-color: #33435b; color: #dde1e7; }
+    [data-theme="dark"] .cc-seg label { border-color: #33435b; color: #b9c1cc; }
+    [data-theme="dark"] .cc-seg label:has(input:checked) { background: #24324a; border-color: #b09c65; }
+    [data-theme="dark"] .cc-seg input:checked + span { color: #d8c48d; }
+    [data-theme="dark"] .cc-check { color: #b9c1cc; }
+    [data-theme="dark"] .cc-won { color: #93acc9; }
+    [data-theme="dark"] .cc-total { background: #22304a; border-left-color: #b09c65; }
+    [data-theme="dark"] .cc-total .t, [data-theme="dark"] .cc-total .v { color: #d8c48d; }
+    [data-theme="dark"] .cc-table th, [data-theme="dark"] .cc-table td { border-bottom-color: #2c3a4f; }
+    [data-theme="dark"] .cc-table td.amt { color: #dde1e7; }
+    [data-theme="dark"] .cc-table tr.sub td { background: #1f2b3d; }
+    [data-theme="dark"] .tag-law { background: #1e2a3d; color: #a9bfdc; border-color: #4a6690; }
+    [data-theme="dark"] .cc-note { background: #1a2433; border-left-color: #4a6690; color: #b9c1cc; }
+    [data-theme="dark"] .cc-warn { background: #2e2218; border-left-color: #b8692a; color: #e2c4a6; }
+    [data-theme="dark"] .cc-cta { background: #262116; border-color: #7d6b45; }
+    [data-theme="dark"] .cc-cta p { color: #d8c48d; }
+  </style>
+</head>
+<body id="calcPage">
+
+  <div id="navHolder" data-page="calc"></div>
+
+  <section class="cc-hero">
+    <div class="container">
+      <h1>부동산 등기비용 간이 계산기</h1>
+      <p>매매·증여·근저당권 설정 등기에 드는 세금과 공과금을 현행 법령 기준으로 간단히 계산해 봅니다.<br>
+        결과는 참고용 어림값이며, 정확한 금액은 서류를 확인한 뒤 안내해 드립니다.</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="cc-wrap">
+
+      <!-- ===== 입력 ===== -->
+      <form class="cc-card" id="ccForm" onsubmit="return false;">
+        <h2>1. 조건 입력</h2>
+
+        <div class="cc-field">
+          <span class="cc-lbl">등기 종류</span>
+          <div class="cc-seg" role="radiogroup" aria-label="등기 종류">
+            <label><input type="radio" name="kind" value="buy" checked><span>매매</span></label>
+            <label><input type="radio" name="kind" value="gift"><span>증여</span></label>
+            <label><input type="radio" name="kind" value="mortgage"><span>근저당권 설정</span></label>
+          </div>
+        </div>
+
+        <div class="cc-field" data-for="buy gift">
+          <span class="cc-lbl">부동산 종류</span>
+          <div class="cc-seg" role="radiogroup" aria-label="부동산 종류">
+            <label><input type="radio" name="ptype" value="house" checked><span>주택</span></label>
+            <label><input type="radio" name="ptype" value="land"><span>토지</span></label>
+            <label><input type="radio" name="ptype" value="other"><span>상가·사무실 등</span></label>
+          </div>
+          <small>주택: 아파트·빌라·단독주택(부속토지 포함). 상가·사무실 등: 주택·토지 외 건물.</small>
+        </div>
+
+        <div class="cc-field" data-for="buy">
+          <label for="price">매매가격 (취득가액)</label>
+          <input class="cc-input" id="price" inputmode="numeric" placeholder="예: 350,000,000" autocomplete="off">
+          <div class="cc-won" id="priceWon"></div>
+        </div>
+
+        <div class="cc-field" data-for="buy gift">
+          <label for="std">시가표준액 <span style="font-weight:400" data-for="buy">(국민주택채권 계산용)</span></label>
+          <input class="cc-input" id="std" inputmode="numeric" placeholder="예: 240,000,000" autocomplete="off">
+          <div class="cc-won" id="stdWon"></div>
+          <small>공동주택가격·개별주택가격·개별공시지가 등 공시된 가격입니다(부동산공시가격 알리미에서 확인).
+            <span data-for="gift"> 증여는 이 금액으로 취득세도 어림합니다.</span><span data-for="buy"> 모르면 비워 두세요 — 채권 항목만 빠집니다.</span></small>
+        </div>
+
+        <div class="cc-field" data-for="mortgage">
+          <label for="claim">채권최고액</label>
+          <input class="cc-input" id="claim" inputmode="numeric" placeholder="예: 240,000,000" autocomplete="off">
+          <div class="cc-won" id="claimWon"></div>
+          <small>대출 약정서·근저당권설정계약서에 적힌 채권최고액(보통 대출금의 120~130%)입니다.</small>
+        </div>
+
+        <div class="cc-field" data-for="buy gift mortgage">
+          <span class="cc-lbl">부동산 소재지</span>
+          <div class="cc-seg" role="radiogroup" aria-label="소재지">
+            <label><input type="radio" name="region" value="metro" checked><span>특별시·광역시 (부산 등)</span></label>
+            <label><input type="radio" name="region" value="other"><span>그 밖의 지역 (창원·김해 등)</span></label>
+          </div>
+          <small>국민주택채권 매입률이 지역에 따라 다릅니다.</small>
+        </div>
+
+        <div class="cc-field" data-for="buy gift" data-ptype="house">
+          <label class="cc-check"><input type="checkbox" id="small85" checked> 전용면적 85㎡ 이하 주택 (농어촌특별세 비과세)</label>
+        </div>
+
+        <div class="cc-field" data-for="buy" data-ptype="land">
+          <label class="cc-check"><input type="checkbox" id="farm"> 농지 (전·답·과수원)</label>
+        </div>
+
+        <div class="cc-field" data-for="buy gift" data-ptype="house">
+          <label class="cc-check"><input type="checkbox" id="multi"> 취득 후 2주택 이상이 되거나, 법인 명의로 취득</label>
+          <small>중과세율이 적용될 수 있어 이 계산기로는 취득세를 정확히 낼 수 없습니다.</small>
+        </div>
+
+        <div class="cc-field">
+          <label for="cnt">부동산 개수</label>
+          <input class="cc-input" id="cnt" type="number" min="1" max="50" value="1">
+          <small>등기신청수수료는 부동산마다 붙습니다. 아파트 한 채는 1개, 단독주택은 보통 토지 1 + 건물 1 = 2개입니다.</small>
+        </div>
+
+        <div class="cc-field" data-for="buy gift mortgage">
+          <label for="disc">국민주택채권 즉시매도 할인율 (%) <span style="font-weight:400">— 선택</span></label>
+          <input class="cc-input" id="disc" inputmode="decimal" placeholder="그날 은행 고시율, 예: 10.5" autocomplete="off">
+          <small>채권은 사서 바로 은행에 되파는 경우가 대부분이고, 실제 부담은 할인액뿐입니다. 할인율은 날마다 바뀌므로 비워 두면 매입액만 표시합니다.</small>
+        </div>
+      </form>
+
+      <!-- ===== 결과 ===== -->
+      <section class="cc-card" aria-live="polite">
+        <h2>2. 예상 비용</h2>
+        <div id="ccResult"><p class="cc-empty">왼쪽에 금액을 넣으면 바로 계산됩니다.</p></div>
+
+        <div class="cc-warn" id="ccWarn"></div>
+
+        <div class="cc-note">
+          <b>이 계산에 들어가지 않은 것</b>
+          <ul>
+            <li><b>법무사 보수</b> — 대한법무사협회 법무사 보수기준에 따르며, 상담 시 사건별로 안내해 드립니다.</li>
+            <li><b>감면·중과</b> — 생애최초 주택 구입 감면, 다주택·법인 중과, 고급주택·조정대상지역 등은 반영하지 않았습니다.</li>
+            <li><b>그 밖의 비용</b> — 등기사항증명서·각종 증명서 발급 수수료, 증여의 경우 증여세(국세), 매매의 양도소득세(매도인) 등.</li>
+          </ul>
+        </div>
+
+        <div class="cc-cta">
+          <p>내 사건의 정확한 비용이 궁금하시면 상담을 신청하세요.</p>
+          <div class="btns">
+            <button type="button" class="btn-primary" onclick="openModal()">📞 온라인상담신청</button>
+            <a class="kakao" href="http://pf.kakao.com/_PZMNn" target="_blank" rel="noopener">💬 카카오톡 상담</a>
+          </div>
+          <small>채팅 상담 시간: 평일 09:00~18:00</small>
+        </div>
+
+        <div class="cc-basis">
+          이 계산기는 2026. 11. 22. 현재 시행 중인 법령을 기준으로 합니다 —
+          지방세법(2026. 7. 1. 시행), 농어촌특별세법(2026. 5. 12. 시행), 주택도시기금법 시행령 별표(부표 2025. 8. 26. 개정),
+          인지세법(2026. 1. 2. 시행), 등기사항증명서 등 수수료규칙(2025. 8. 1. 시행).
+          계산 결과는 일반적인 경우의 어림값으로, 실제 신고·납부 금액은 과세관청의 결정과 서류 내용에 따라 달라질 수 있습니다.
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="footHolder"></div>
+  <div id="modalHolder"></div>
+
+  <script src="js/main.js?v=16"></script>
+  <script>
+  (function () {
+    'use strict';
+    // ---------- 근거 링크 (국가법령정보센터 — 항상 현행 조문으로 연결) ----------
+    const L = (name, art, show) => ({ name: `${show || name} ${art}`, url: `https://www.law.go.kr/법령/${name}/${art}` });
+    const REF = {
+      acq:    L('지방세법', '제11조'),
+      edu:    L('지방세법', '제151조'),
+      reg:    L('지방세법', '제28조'),
+      agri:   L('농어촌특별세법', '제5조'),
+      agriEx: L('농어촌특별세법', '제4조'),
+      bond:   L('주택도시기금법', '제8조'),
+      bondT:  { name: '주택도시기금법 시행령 별표(제1종국민주택채권 매입대상 및 금액표)', url: 'https://www.law.go.kr/법령/주택도시기금법시행령' },
+      stamp:  L('인지세법', '제3조'),
+      stampEx:L('인지세법', '제6조'),
+      fee:    L('등기사항증명서등수수료규칙', '제5조의2', '등기사항증명서 등 수수료규칙'),
+      feeE:   L('등기사항증명서등수수료규칙', '제5조의5', '등기사항증명서 등 수수료규칙'),
+    };
+    const tags = (...rs) => `<div class="ref-tags">${rs.map(r =>
+      `<a class="tag-law" href="${r.url}" target="_blank" rel="noopener">📋 ${r.name}</a>`).join('')}</div>`;
+
+    // ---------- 숫자 ----------
+    const $ = id => document.getElementById(id);
+    const num = el => { const v = Number(String(el.value).replace(/[^0-9.]/g, '')); return isFinite(v) ? v : 0; };
+    const won = n => Math.round(n).toLocaleString('ko-KR') + '원';
+    const floor10 = n => Math.floor(n / 10) * 10;           // 세액 10원 미만 버림(어림)
+    function korean(n) {
+      if (!n) return '';
+      const eok = Math.floor(n / 1e8), man = Math.floor((n % 1e8) / 1e4), rest = Math.round(n % 1e4);
+      return [eok ? eok.toLocaleString() + '억' : '', man ? man.toLocaleString() + '만' : '', rest ? rest.toLocaleString() : ''].filter(Boolean).join(' ') + '원';
+    }
+    function fmtInput(el, outId) {
+      const raw = String(el.value).replace(/[^0-9]/g, '');
+      el.value = raw ? Number(raw).toLocaleString('ko-KR') : '';
+      $(outId).textContent = raw ? korean(Number(raw)) : '';
+    }
+
+    // ---------- 취득세율 (지방세법 제11조 제1항) ----------
+    function acqRate(kind, ptype, price, farm) {
+      if (kind === 'gift') return { r: 0.035, label: '무상취득(증여) 1천분의 35', house8: false };
+      if (ptype === 'house') {
+        if (price <= 6e8) return { r: 0.01, label: '유상거래 주택 6억원 이하 1천분의 10', house8: true };
+        if (price <= 9e8) {
+          // (취득당시가액 × 2/3억원 − 3) × 1/100, 소수점 이하 다섯째자리에서 반올림
+          const r = Math.round(((price * 2 / 3e8) - 3) / 100 * 10000) / 10000;
+          return { r, label: `유상거래 주택 6억원 초과 9억원 이하 — 계산식 세율 ${(r * 100).toFixed(2)}%`, house8: true };
+        }
+        return { r: 0.03, label: '유상거래 주택 9억원 초과 1천분의 30', house8: true };
+      }
+      if (ptype === 'land' && farm) return { r: 0.03, label: '그 밖의 원인 — 농지 1천분의 30', house8: false };
+      return { r: 0.04, label: '그 밖의 원인 — 농지 외 1천분의 40', house8: false };
+    }
+
+    // ---------- 국민주택채권 (주택도시기금법 시행령 별표 부표) ----------
+    const BOND = {
+      house: [[2e7, 5e7, 13, 13], [5e7, 1e8, 19, 14], [1e8, 1.6e8, 21, 16], [1.6e8, 2.6e8, 23, 18], [2.6e8, 6e8, 26, 21], [6e8, Infinity, 31, 26]],
+      land:  [[5e6, 5e7, 25, 20], [5e7, 1e8, 40, 35], [1e8, Infinity, 50, 45]],
+      other: [[1e7, 1.3e8, 10, 8], [1.3e8, 2.5e8, 16, 14], [2.5e8, Infinity, 20, 18]],
+      gift:  [[1e7, 5e7, 18, 14], [5e7, 1.5e8, 28, 25], [1.5e8, Infinity, 42, 39]],
+    };
+    function roundBond(a) {              // 1만원 미만 단수: 5천원 이상 올림, 미만 버림 · 최저 1만원
+      if (a <= 0) return 0;
+      const r = Math.floor(a / 1e4) * 1e4 + ((a % 1e4) >= 5e3 ? 1e4 : 0);
+      return Math.max(r, 1e4);
+    }
+    function bondFor(table, base, region) {
+      const row = table.find(([lo, hi]) => base >= lo && base < hi);
+      if (!row) return { amt: 0, rate: 0 };
+      const rate = region === 'metro' ? row[2] : row[3];
+      return { amt: roundBond(base * rate / 1000), rate };
+    }
+
+    // ---------- 인지세 (인지세법 제3조·제6조) ----------
+    function stampTax(price, ptype) {
+      if (ptype === 'house' && price <= 1e8) return { t: 0, how: '주택으로 기재금액 1억원 이하 — 비과세' };
+      if (price <= 1e7) return { t: 0, how: '기재금액 1천만원 이하 — 과세 대상 아님' };
+      if (price <= 3e7) return { t: 20000, how: '1천만원 초과 3천만원 이하' };
+      if (price <= 5e7) return { t: 40000, how: '3천만원 초과 5천만원 이하' };
+      if (price <= 1e8) return { t: 70000, how: '5천만원 초과 1억원 이하' };
+      if (price <= 1e9) return { t: 150000, how: '1억원 초과 10억원 이하' };
+      return { t: 350000, how: '10억원 초과' };
+    }
+
+    const FEE_EFORM = 15000;   // 전자표준양식(e-Form) 신청 — 수수료규칙 제5조의5
+    const FEE_PAPER = 18000;   // 서면 신청 — 제5조의2 제1항
+
+    // ---------- 화면 ----------
+    function val(name) { const el = document.querySelector(`input[name="${name}"]:checked`); return el ? el.value : ''; }
+    function toggle() {
+      const kind = val('kind'), ptype = val('ptype');
+      document.querySelectorAll('[data-for]').forEach(el => {
+        const okKind = el.dataset.for.split(' ').includes(kind);
+        const okType = !el.dataset.ptype || (kind !== 'mortgage' && el.dataset.ptype === ptype);
+        el.style.display = okKind && okType ? '' : 'none';
+      });
+    }
+
+    function row(name, how, amount, refs) {
+      return `<tr><td>${name}<span class="how">${how}</span>${refs ? tags(...refs) : ''}</td><td class="amt">${amount}</td></tr>`;
+    }
+
+    function calc() {
+      toggle();
+      const kind = val('kind'), ptype = val('ptype'), region = val('region');
+      const cnt = Math.max(1, Math.min(50, Math.floor(num($('cnt'))) || 1));
+      const disc = num($('disc'));
+      const warn = [];
+      let rows = '', taxSum = 0, bondAmt = 0, bondRows = '', other = 0;
+
+      if (kind === 'mortgage') {
+        const claim = num($('claim'));
+        if (!claim) { $('ccResult').innerHTML = '<p class="cc-empty">채권최고액을 넣어 주세요.</p>'; $('ccWarn').className = 'cc-warn'; return; }
+        const reg = Math.max(floor10(claim * 0.002), 6000);
+        const edu = floor10(reg * 0.2);
+        taxSum = reg + edu;
+        rows += row('등록면허세', `채권최고액 × 1천분의 2${claim * 0.002 < 6000 ? ' (최저 6,000원)' : ''}`, won(reg), [REF.reg]);
+        rows += row('지방교육세', '등록면허세 × 100분의 20', won(edu), [REF.edu]);
+        if (claim >= 2e7) {
+          bondAmt = roundBond(Math.min(claim * 0.01, 1e9));
+          bondRows = row('국민주택채권 매입액', '채권최고액 × 1천분의 10 (매입액 상한 10억원)', won(bondAmt), [REF.bond, REF.bondT]);
+        }
+      } else {
+        const std = num($('std'));
+        const price = kind === 'buy' ? num($('price')) : std;
+        if (!price) {
+          $('ccResult').innerHTML = `<p class="cc-empty">${kind === 'buy' ? '매매가격을' : '시가표준액을'} 넣어 주세요.</p>`;
+          $('ccWarn').className = 'cc-warn'; return;
+        }
+        const farm = ptype === 'land' && $('farm').checked;
+        const small85 = ptype === 'house' && $('small85').checked;
+        const multi = ptype === 'house' && $('multi').checked;
+        const a = acqRate(kind, ptype, price, farm);
+
+        const acq = floor10(price * a.r);
+        // 지방교육세: (표준세율 − 2%) × 20%, 유상거래 주택은 (세율 × 50%) × 20%
+        const eduRate = a.house8 ? a.r * 0.5 * 0.2 : Math.max(a.r - 0.02, 0) * 0.2;
+        const edu = floor10(price * eduRate);
+        // 농어촌특별세: 표준세율을 2%로 적용한 취득세액의 10% (85㎡ 이하 주택 비과세)
+        const agri = small85 ? 0 : floor10(price * 0.02 * 0.1);
+        taxSum = acq + edu + agri;
+
+        const base = kind === 'buy' ? '매매가격' : '시가표준액';
+        rows += row('취득세', `${base} × ${a.label}`, won(acq), [REF.acq]);
+        rows += row('지방교육세', a.house8 ? '취득세율의 50% × 100분의 20' : '(취득세율 − 2%) × 100분의 20', won(edu), [REF.edu]);
+        rows += row('농어촌특별세', small85 ? '전용 85㎡ 이하 주택 — 비과세' : `${base} × 2% × 100분의 10`, won(agri), small85 ? [REF.agriEx] : [REF.agri]);
+
+        if (multi) warn.push('취득 후 2주택 이상이 되거나 법인 명의로 취득하면 <b>중과세율(최고 1천분의 120)</b>이 적용될 수 있습니다. 위 취득세·지방교육세는 1주택 기준 어림값이니 꼭 상담으로 확인하세요.');
+        if (kind === 'gift') warn.push('증여 취득세는 원칙적으로 <b>시가인정액</b>(매매사례가액·감정가액 등)을 과세표준으로 합니다. 시가인정액이 시가표준액보다 높으면 취득세가 더 나옵니다. 증여세(국세)는 별도입니다.');
+        if (kind === 'gift' && ptype === 'house') warn.push('조정대상지역 안의 시가표준액 3억원 이상 주택을 증여받는 경우 등에는 증여 취득세가 중과될 수 있습니다.');
+        if (farm) warn.push('농지는 취득 자격(농지취득자격증명)과 감면 요건을 따로 확인해야 합니다.');
+
+        if (std) {
+          const tb = kind === 'gift' ? BOND.gift : BOND[ptype];
+          const b = bondFor(tb, std, region);
+          bondAmt = b.amt;
+          bondRows = b.amt
+            ? row('국민주택채권 매입액', `시가표준액 × 1천분의 ${b.rate} (${region === 'metro' ? '특별시·광역시' : '그 밖의 지역'}${kind === 'gift' ? ', 무상취득' : ''})`, won(b.amt), [REF.bond, REF.bondT])
+            : row('국민주택채권 매입액', '시가표준액이 매입 기준 금액 미만 — 매입 대상 아님', '0원', [REF.bondT]);
+        } else if (kind === 'buy') {
+          bondRows = row('국민주택채권', '시가표준액을 넣으면 계산됩니다', '—', null);
+        }
+
+        if (kind === 'buy') {
+          const s = stampTax(price, ptype);
+          other += s.t;
+          rows += row('인지세 (매매계약서)', s.how, won(s.t), s.t ? [REF.stamp] : [REF.stampEx]);
+        } else {
+          rows += row('인지세 (증여계약서)', '계약서 기재 내용에 따라 달라 별도 확인', '—', [REF.stamp]);
+        }
+      }
+
+      const fee = FEE_EFORM * cnt;
+      other += fee;
+      rows += row('등기신청수수료', `부동산 ${cnt}개 × ${won(FEE_EFORM)} (전자표준양식 기준 · 서면 신청은 ${won(FEE_PAPER)})`, won(fee), [REF.fee, REF.feeE]);
+
+      let bondCost = 0, bondCostRow = '';
+      if (bondAmt) {
+        if (disc > 0 && disc < 100) {
+          bondCost = roundTo10(bondAmt * disc / 100);
+          bondCostRow = row('　└ 즉시매도 시 부담액', `매입액 × 할인율 ${disc}% (어림)`, won(bondCost), null);
+        } else {
+          bondCostRow = row('　└ 즉시매도 시 부담액', '할인율을 넣으면 계산됩니다 (매입액 전부가 비용은 아닙니다)', '—', null);
+        }
+      }
+      function roundTo10(n) { return Math.round(n / 10) * 10; }
+
+      const total = taxSum + other + bondCost;
+      $('ccResult').innerHTML = `
+        <div class="cc-total"><span class="t">예상 합계 ${bondAmt && !bondCost ? '(채권 부담액 제외)' : ''}</span><span class="v">${won(total)}</span></div>
+        <table class="cc-table">
+          <thead><tr><th>항목 · 계산 방법 · 근거</th><th style="text-align:right">금액</th></tr></thead>
+          <tbody>
+            ${rows}
+            <tr class="sub"><td>세금·수수료 소계</td><td class="amt">${won(taxSum + other)}</td></tr>
+            ${bondRows}${bondCostRow}
+          </tbody>
+        </table>`;
+      const w = $('ccWarn');
+      w.innerHTML = warn.length ? `<b>⚠ 확인이 필요합니다</b><ul>${warn.map(x => `<li>${x}</li>`).join('')}</ul>` : '';
+      w.className = 'cc-warn' + (warn.length ? ' show' : '');
+    }
+
+    ['price', 'std', 'claim'].forEach(id => $(id).addEventListener('input', e => { fmtInput(e.target, id + 'Won'); calc(); }));
+    $('ccForm').addEventListener('input', calc);
+    $('ccForm').addEventListener('change', calc);
+    toggle();
+  })();
+  </script>
+</body>
+</html>
