@@ -28,6 +28,7 @@ html[data-theme="dark"] body { background: #12161d; color: #dde1e7; }
 [data-theme="dark"] .banner-slide .slide-badge { border: 1px solid #b09c65; color: #ccbf9b; }
 [data-theme="dark"] .banner-slide h2 { color: #ebebeb; }
 [data-theme="dark"] .banner-slide p { color: rgba(235,235,235,0.75); }
+[data-theme="dark"] .banner-slide .slide-badge.major { background: #897846; border-color: #897846; color: #fff; }
 [data-theme="dark"] .banner-dot { background: rgba(255,255,255,0.3); }
 [data-theme="dark"] .banner-dot.active { background: #897846; }
 [data-theme="dark"] .banner-arrow { background: rgba(255,255,255,0.1); color: #ebebeb; }
