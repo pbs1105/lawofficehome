@@ -803,7 +803,7 @@ function buildModal() {
               <div class="consult-type-name">양식상담</div>
               <div class="consult-type-desc">
                 <p>상담 신청서를 <strong>작성</strong>해 접수</p>
-                <span class="consult-type-note">※ 법인등기, 부동산등기, 민사소송, 민사집행, 상속, 회생파산 등 모든 업무 상담가능</span>
+                <span class="consult-type-note">※ 법인등기, 부동산등기, 민사소송, 민사집행, 상속, 신탁, 회생파산 등 모든 업무 상담가능</span>
               </div>
               <div class="consult-type-btn">양식상담 →</div>
             </button>
@@ -903,6 +903,20 @@ function initContentPage() {
     renderSubcategoryContent(catId, subId, topicId);
   } else {
     renderCategoryContent(catId, topicId);
+  }
+  // 주제 링크로 바로 들어온 경우 모바일에서는 본문으로 이동
+  if (topicId) requestAnimationFrame(scrollToArticleOrTop);
+}
+
+/* 모바일(900px 이하)에서는 목차가 본문 위에 오므로, 주제를 고르면 본문 시작으로 이동 (2026-11-27) */
+function scrollToArticleOrTop() {
+  const art = document.getElementById('articleContent');
+  if (art && window.matchMedia('(max-width: 900px)').matches) {
+    const header = document.querySelector('.header');
+    const offset = (header ? header.offsetHeight : 0) + 8;
+    window.scrollTo(0, art.getBoundingClientRect().top + window.scrollY - offset);
+  } else {
+    window.scrollTo(0, 0);
   }
 }
 
@@ -1030,7 +1044,7 @@ function selectSubTopic(catId, subId, topicId) {
   const newUrl = `content.html?cat=${catId}&sub=${subId}&topic=${topicId}`;
   window.history.pushState({}, '', newUrl);
   renderSubcategoryContent(catId, subId, topicId);
-  window.scrollTo(0, 0);
+  scrollToArticleOrTop();
 }
 
 /* ── 법령 조문 태그 인라인 클릭 활성화 ─────────────────── */
@@ -1200,7 +1214,7 @@ function selectTopic(catId, topicId) {
   const newUrl = `content.html?cat=${catId}&topic=${topicId}`;
   window.history.pushState({}, '', newUrl);
   renderCategoryContent(catId, topicId);
-  window.scrollTo(0, 0);
+  scrollToArticleOrTop();
 }
 
 /* ============================================================

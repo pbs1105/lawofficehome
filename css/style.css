@@ -1570,6 +1570,7 @@ button { cursor: pointer; font-family: var(--font); }
 }
 
 @media (max-width: 900px) {
+  .article-meta { flex-direction: column; gap: 4px; } /* 모바일 경로·설명 줄 찌그러짐 방지 (2026-11-27) */
   .content-3col { grid-template-columns: 1fr; }
   .toc-sidebar { position: relative; height: auto; top: 0; border-right: none; border-bottom: 1px solid var(--border); }
   .law-sidebar { position: relative; height: auto; top: 0; border-left: none; border-top: 1px solid var(--border); }
