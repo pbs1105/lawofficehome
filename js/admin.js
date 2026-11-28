@@ -112,7 +112,7 @@ const ADMIN_MENU = [
   { id: 'help-enforcement', icon: '🔨', label: '강제집행', group: '업무도우미', directNav: true, items: [] },
   { id: 'help-preservation', icon: '🚧', label: '가압류·가처분', group: '업무도우미', directNav: true, items: [] },
   { id: 'help-foreign', icon: '🌏', label: '외국인·재외국민 등기', group: '업무도우미', directNav: true, items: [] },
-  { id: 'help-etc', icon: '📎', label: '기타', group: '업무도우미', directNav: true, items: [] },
+  { id: 'help-etc', icon: '🏛️', label: '가사·공탁', group: '업무도우미', directNav: true, items: [] },
 
   /* ===== 3. 서식자료실 ===== */
   { id: 'form-list', icon: '📋', label: '서식 자료실', group: '서식자료실', directNav: true, items: [] },

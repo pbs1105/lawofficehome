@@ -15,6 +15,7 @@ const CATEGORIES = [
   { id: 'corporation', name: '법인등기',        icon: '🏢', group: 2 },
   { id: 'lawsuit',     name: '민사소송',        icon: '⚖️', group: 2 },
   { id: 'enforcement', name: '민사집행',        icon: '⚡', group: 2 },
+  { id: 'family',      name: '가사·공탁',       icon: '🏛️', group: 2 },  // 9번째 카테고리 (2026-11-28, 폴더·노션 9개 체계와 통일)
 ];
 
 /* 옛 주소(cat=preservation, cat=etc) → 새 분야로 바꿔 읽기 (2026-11-22 메뉴 개편) */
@@ -282,6 +283,23 @@ const CONTENT_DATA = {
   foreign: {
     label: '외국인·재외국민',
     get topics() { return typeof FOREIGN_TOPICS !== 'undefined' ? FOREIGN_TOPICS : []; }
+  },
+  /* ---- 가사·공탁 — 9번째 카테고리 (2026-11-28). 고객용 원고 작성 전까지 안내 페이지만 둔다 ---- */
+  family: {
+    label: '가사·공탁',
+    topics: [
+      {
+        id: 'fa-00', title: '가사·공탁 업무 안내',
+        meta: '안내 페이지 준비 중',
+        sections: [
+          {
+            heading: '안내 페이지를 준비하고 있습니다',
+            content: `<p>가사·공탁 분야의 업무 안내 페이지를 준비하고 있습니다. 이 분야 상담이 필요하시면 <strong>온라인상담신청</strong>이나 전화로 문의해 주십시오.</p>`
+          }
+        ],
+        laws: []
+      }
+    ]
   },
   /* ---- 옛 '기타 일반' 주제 보관소 — 메뉴(CATEGORIES)에는 없음.
      et-1 내용증명 → 민사소송, et-2 공정증서 → 민사집행(강제집행), et-3 확정일자 → 부동산등기 로 끼워 넣는다 ---- */
