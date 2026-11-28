@@ -1006,7 +1006,7 @@ input, textarea, select { font-family: inherit; }
 .ops-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
 .ops-head h3 { margin: 0; font-size: 17px; }
 .ops-head h3 b { font-size: 22px; }
-.ops-stages { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-bottom: 10px; }
+.ops-stages { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin-bottom: 10px; }
 .ops-row { display: grid; grid-template-columns: 2fr 1fr; gap: 10px; }
 .ops-stage, .ops-mini { display: flex; flex-direction: column; gap: 4px; padding: 10px 12px; border: 1px solid rgba(127, 127, 127, .22); border-left: 5px solid #2f8f9b; border-radius: var(--radius); text-decoration: none; color: inherit; }
 .ops-stage.has { border-left-color: #b0407a; }
