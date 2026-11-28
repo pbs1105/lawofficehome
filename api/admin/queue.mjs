@@ -193,8 +193,8 @@ async function accountQueues(token, casePagesActive) {
   const receiptTodo = prows.filter((r) => r.kind !== '발급대상 아님' && r.issue !== '발행완료' && (r.target >= RECEIPT_MIN || r.issue === '발행대기' || r.issue === '발행실패'));
   const defs = [
     { id: 'quote-wait', label: '견적 대기', todo: '통합계산기로 견적 → 회계DB에 행 추가(관련사건 연결, 단계=견적)', items: pick(crows) },
-    { id: 'deposit-wait', label: '입금 확인 대기', todo: '통장 확인 후 입금·증빙DB에 입금 1건씩 기록(자동 판정 없음)', items: pick(arows.filter((a) => a.stage === '확정' && a.fixed - a.paid > 0 && a.caseState !== '종결')) },
-    { id: 'receipt-wait', label: '증빙 미발급', todo: '10만 원 이상 현금·이체는 5일 안에 현금영수증(모르면 010-000-1234 자진발급)·세금계산서 발행 — 발행 버튼은 직원', items: pick(receiptTodo) },
+    { id: 'deposit-wait', label: '입금 확인 대기', todo: '통장 확인 후 회계 「입금·증빙 기록」에서 입금 1건씩 기록(자동 판정 없음)', items: pick(arows.filter((a) => a.stage === '확정' && a.fixed - a.paid > 0 && a.caseState !== '종결')) },
+    { id: 'receipt-wait', label: '증빙 미발급', todo: '10만 원 이상 현금·이체는 5일 안에 현금영수증(모르면 010-000-1234 자진발급)·세금계산서 발행 후 「입금·증빙 기록」에서 승인번호 기록', items: pick(receiptTodo) },
     { id: 'settle-wait', label: '정산 대기', todo: '종결 사건 — 입금·실비 대조 후 단계=정산완료', items: pick(arows.filter((a) => a.caseState === '종결' && a.stage !== '정산완료')) },
   ];
   return {

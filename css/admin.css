@@ -1050,3 +1050,4 @@ input, textarea, select { font-family: inherit; }
 .qc-w { font-size: 12px; color: #b0407a; margin: 4px 0; }
 .qc-act { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; margin-top: 12px; }
 .qc-act .qc-f { min-width: 200px; }
+.qc-s { font-size: 12px; opacity: .85; }
