@@ -1026,3 +1026,27 @@ input, textarea, select { font-family: inherit; }
 .dl-list b { display: inline-block; min-width: 46px; color: #2f8f9b; }
 .dl-list b.dl-hot { color: #b0407a; }
 .ops-sub.dl-hot, .ops-sub.dl-hot .q-icon { color: #b0407a; }
+
+/* ===== 견적 계산 (2026-11-28) ===== */
+.qc-wrap { display: grid; gap: 16px; }
+.qc-form { display: grid; gap: 10px; }
+.qc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px 14px; align-items: end; }
+.qc-f { display: flex; flex-direction: column; gap: 4px; font-size: 13px; }
+.qc-f input, .qc-f select { font-size: 16px; padding: 8px 10px; border-radius: 6px; border: 1px solid rgba(127,127,127,.35); background: transparent; color: inherit; min-height: 40px; }
+.qc-f select option { color: #111; }
+.qc-wide { max-width: 420px; }
+.qc-c { display: flex; align-items: center; gap: 8px; font-size: 14px; min-height: 40px; }
+.qc-c input { width: 18px; height: 18px; }
+.qc-sum { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 10px; }
+.qc-sum div { border: 1px solid rgba(127,127,127,.22); border-left: 5px solid #2f8f9b; border-radius: 8px; padding: 8px 12px; display: flex; flex-direction: column; }
+.qc-sum span { font-size: 12px; opacity: .8; }
+.qc-sum b { font-size: 18px; white-space: nowrap; }
+.qc-sum .qc-total b { font-size: 22px; }
+.qc-t { width: 100%; border-collapse: collapse; font-size: 14px; }
+.qc-t th, .qc-t td { padding: 7px 8px; border-bottom: 1px solid rgba(127,127,127,.2); text-align: left; vertical-align: top; }
+.qc-t .qc-n { text-align: right; white-space: nowrap; }
+.qc-t .qc-g, .qc-t .qc-s { font-size: 12px; opacity: .85; }
+.qc-pend .qc-n, .qc-pend .q-icon { color: #b0407a; }
+.qc-w { font-size: 12px; color: #b0407a; margin: 4px 0; }
+.qc-act { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; margin-top: 12px; }
+.qc-act .qc-f { min-width: 200px; }

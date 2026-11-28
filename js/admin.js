@@ -97,6 +97,7 @@ const ADMIN_MENU = [
     id: 'receipt', icon: '🧾', label: '회계', group: '업무',
     items: [
       { id: 'queue-account', label: '처리할 일 목록 (견적·입금 확인·증빙·정산)' },
+      { id: 'quote-calc', label: '견적 계산 (요율표 1.0 · 견적서 · 노션 저장)' },
       { id: 'calc-comprehensive', label: '공과금 자동생성 (취득세·국민주택채권·인지대·송달료 등)' },
       { id: 'calc-fee', label: '보수료 자동생성' },
       { id: 'calc-bond', label: '국민주택채권 계산기 (개별)' },
@@ -557,6 +558,8 @@ function navigateTo(pageId) {
     renderDoc(pageId);
   } else if (pageId.startsWith('tool-') || pageId.startsWith('submit-')) {
     renderTool(pageId);
+  } else if (pageId === 'quote-calc') {
+    renderQuoteCalc();
   } else if (pageId.startsWith('queue-')) {
     renderQueue(pageId);
   } else if (pageId.startsWith('help-')) {
@@ -751,6 +754,181 @@ async function renderQueue(pageId) {
       <p class="q-todo">노션 페이지에서 직접 확인할 수 있습니다. 반복되면 Vercel 환경변수 NOTION_TOKEN과 노션 통합 연결을 확인해 주세요.</p></div>`;
   }
   area.scrollTop = 0;
+}
+
+/* ============================================================
+   5-2. 견적 계산 (요율표 1.0 · 계산 엔진, 2026-11-28)
+   tools/calc/calc-engine.js + tools/rates/rates.json 으로 계산하고,
+   견적서(인쇄용 새 창)와 노션 저장(/admin/api/quote)을 제공한다.
+   저장값은 회계DB 단계=견적 · ⚠️ 미검증 — 확정금액은 직원이 넣는다.
+   ============================================================ */
+const QC_FIELDS = {
+  're.buy': [
+    ['price', '취득가액(원)', 'num', true], ['propertyKind', '부동산 종류', 'sel', true, [['house', '주택'], ['farm', '농지'], ['other', '그 밖(토지·건물·상가)']]],
+    ['standardValue', '시가표준액(원) — 채권용', 'num'], ['count', '부동산 수', 'num', false, null, 1], ['filing', '신청 방법', 'sel', false, [['e-Form', 'e-Form'], ['전자', '전자신청'], ['서면', '서면']]],
+    ['metro', '특별시·광역시 소재(채권)', 'chk'], ['houseUnder85', '전용 85㎡ 이하 주택(농특세 비과세)', 'chk'], ['heavy', '중과 대상', 'chk'], ['heavyRate', '중과 세율(%)', 'pct'],
+    ['bondDiscountRate', '채권 할인율(%)', 'pct'], ['foreignRate', '외국인·재외국민 가산(%)', 'pct'], ['deedAgency', '원인증서 작성·검인·거래신고 대행', 'chk', false, null, true],
+  ],
+  're.gift': [
+    ['value', '과세표준(시가인정액, 원)', 'num', true], ['propertyKind', '부동산 종류', 'sel', false, [['house', '주택'], ['other', '그 밖']]], ['standardValue', '시가표준액(원) — 채권용', 'num'],
+    ['count', '부동산 수', 'num', false, null, 1], ['filing', '신청 방법', 'sel', false, [['e-Form', 'e-Form'], ['전자', '전자신청'], ['서면', '서면']]], ['metro', '특별시·광역시 소재(채권)', 'chk'],
+    ['bondDiscountRate', '채권 할인율(%)', 'pct'], ['foreignRate', '외국인·재외국민 가산(%)', 'pct'], ['deedAgency', '원인증서 작성·검인 대행', 'chk', false, null, true],
+  ],
+  're.inherit': [
+    ['value', '과세표준(시가표준액, 원)', 'num', true], ['farm', '농지', 'chk'], ['standardValue', '채권 기준 시가표준액(비우면 과세표준)', 'num'], ['count', '부동산 수', 'num', false, null, 1],
+    ['filing', '신청 방법', 'sel', false, [['e-Form', 'e-Form'], ['서면', '서면']]], ['metro', '특별시·광역시 소재(채권)', 'chk'], ['bondDiscountRate', '채권 할인율(%)', 'pct'], ['foreignRate', '외국인·재외국민 가산(%)', 'pct'],
+  ],
+  're.mortgage': [
+    ['claim', '채권최고액(원)', 'num', true], ['count', '부동산 수', 'num', false, null, 1], ['filing', '신청 방법', 'sel', false, [['e-Form', 'e-Form'], ['전자', '전자신청'], ['서면', '서면']]],
+    ['additional', '추가설정(담보권 추가)', 'chk'], ['metro', '특별시·광역시 소재(채권)', 'chk'], ['bondDiscountRate', '채권 할인율(%)', 'pct'],
+  ],
+  're.trust': [['value', '신탁재산 가액(원)', 'num', true], ['count', '부동산 수', 'num', false, null, 1], ['filing', '신청 방법', 'sel', false, [['e-Form', 'e-Form'], ['전자', '전자신청'], ['서면', '서면']]]],
+  're.other': [['count', '등기 건수', 'num', false, null, 1], ['filing', '신청 방법', 'sel', false, [['e-Form', 'e-Form'], ['전자', '전자신청'], ['서면', '서면']]], ['bosuManual', '보수(원) — 직접 입력', 'num']],
+  'corp.establish': [['capital', '납입자본금(원)', 'num', true], ['filing', '신청 방법', 'sel', false, [['e-Form', 'e-Form'], ['전자', '전자신청'], ['서면', '서면']]], ['metro', '대도시 중과', 'chk'], ['nonprofit', '비영리법인', 'chk'], ['notary', '정관·의사록 인증 필요', 'chk']],
+  'corp.capital': [['increase', '증가 자본금(원)', 'num', true], ['filing', '신청 방법', 'sel', false, [['e-Form', 'e-Form'], ['전자', '전자신청'], ['서면', '서면']]], ['metro', '대도시 중과', 'chk'], ['notary', '의사록 인증 필요', 'chk']],
+  'corp.change': [['purposes', '등기 목적 수', 'num', false, null, 1], ['filing', '신청 방법', 'sel', false, [['e-Form', 'e-Form'], ['전자', '전자신청'], ['서면', '서면']]], ['bosuManual', '보수(원) — 직접 입력', 'num'], ['notary', '의사록 인증 필요', 'chk']],
+  'suit.complaint': [['value', '소가(원)', 'num', true], ['parties', '당사자 수', 'num', true, null, 2], ['paymentOrder', '지급명령', 'chk'], ['electronic', '전자소송', 'chk'], ['hardRate', '고난도 가산(%, 250 이내)', 'pct']],
+  'enf.provisional': [['claim', '청구금액(원)', 'num', true], ['bosuManual', '보수(원) — 직접 입력', 'num']],
+  'ins.personalRehab': [['debt', '채무 총액(원)', 'num', true], ['creditors', '채권자 수', 'num', true]],
+  'inh.renounce': [['persons', '신고인 수', 'num', true, null, 1], ['limited', '한정승인', 'chk'], ['bosuManual', '보수(원) — 직접 입력', 'num']],
+  'dep.deposit': [['amount', '공탁금(원)', 'num', true], ['notices', '통지 우편 회분', 'num'], ['execution', '집행공탁', 'chk']],
+};
+let QC = { calc: null, result: null, type: 're.buy' };
+const qcNum = (s) => { const v = String(s == null ? '' : s).replace(/[^\d.]/g, ''); return v === '' ? null : Number(v); };
+const qcWon = (n) => (n == null ? '확정 후 기재' : Number(n).toLocaleString('ko-KR') + '원');
+
+async function renderQuoteCalc() {
+  const area = document.getElementById('contentArea');
+  area.innerHTML = '<div class="content-header q-head"><h1>견적 계산</h1></div><p class="q-loading">요율표를 불러오는 중…</p>';
+  try {
+    if (!QC.calc) {
+      if (typeof LOASCalc === 'undefined') throw new Error('계산 엔진(tools/calc/calc-engine.js)을 불러오지 못했습니다');
+      const res = await fetch('/tools/rates/rates.json', { cache: 'no-store' });
+      if (!res.ok) throw new Error('요율표 응답 오류 ' + res.status);
+      QC.calc = LOASCalc.create(await res.json());
+    }
+  } catch (e) {
+    area.innerHTML = `<div class="q-box q-error"><h2><span class="q-icon">✖</span>견적 계산을 열 수 없습니다</h2><p>${qEsc(e.message)}</p></div>`;
+    return;
+  }
+  const opts = QC.calc.types.map(t => `<option value="${t.type}"${t.type === QC.type ? ' selected' : ''}>${qEsc(t.title)}</option>`).join('');
+  area.innerHTML = `
+    <div class="content-header q-head"><h1>견적 계산</h1>
+      <span class="q-meta">요율표 ${qEsc(QC.calc.version)}${QC.calc.approved ? ' · 승인' : ' · <b class="dl-hot">미승인</b>'}</span></div>
+    <div class="qc-wrap">
+      <form class="qc-form" id="qcForm" onsubmit="return false">
+        <label class="qc-f qc-wide"><span>사건 유형</span><select id="qcType" onchange="QC.type=this.value;qcFields();qcRun()">${opts}</select></label>
+        <div id="qcFields" class="qc-grid"></div>
+      </form>
+      <div id="qcOut"></div>
+    </div>`;
+  qcFields();
+  qcRun();
+}
+
+function qcFields() {
+  const box = document.getElementById('qcFields');
+  box.innerHTML = (QC_FIELDS[QC.type] || []).map(([k, label, t, req, choices, dflt]) => {
+    const id = 'qcf_' + k;
+    if (t === 'chk') return `<label class="qc-c"><input type="checkbox" id="${id}" data-k="${k}" data-t="chk"${dflt ? ' checked' : ''} onchange="qcRun()"> ${qEsc(label)}</label>`;
+    if (t === 'sel') return `<label class="qc-f"><span>${qEsc(label)}${req ? ' *' : ''}</span><select id="${id}" data-k="${k}" data-t="sel" onchange="qcRun()">${choices.map(([v, l]) => `<option value="${v}">${qEsc(l)}</option>`).join('')}</select></label>`;
+    return `<label class="qc-f"><span>${qEsc(label)}${req ? ' *' : ''}</span><input inputmode="decimal" id="${id}" data-k="${k}" data-t="${t}" value="${dflt != null ? dflt : ''}" oninput="qcFmt(this);qcRun()" autocomplete="off"></label>`;
+  }).join('');
+}
+
+function qcFmt(el) {
+  if (el.dataset.t !== 'num') return;
+  const v = qcNum(el.value);
+  if (v != null && v >= 1000) el.value = v.toLocaleString('ko-KR');
+}
+
+function qcInput() {
+  const inp = { type: QC.type };
+  document.querySelectorAll('#qcFields [data-k]').forEach(el => {
+    const k = el.dataset.k; const t = el.dataset.t;
+    if (t === 'chk') inp[k] = el.checked;
+    else if (t === 'sel') inp[k] = el.value;
+    else { const v = qcNum(el.value); if (v != null) inp[k] = t === 'pct' ? v / 100 : v; }
+  });
+  return inp;
+}
+
+function qcRun() {
+  const out = document.getElementById('qcOut');
+  if (!out) return;
+  let r;
+  try { r = QC.calc.quote(qcInput()); } catch (e) {
+    QC.result = null;
+    out.innerHTML = `<div class="q-box"><p class="q-empty">${qEsc(e.message.replace('입력 누락: ', '필수 입력을 채우면 계산합니다 — '))}</p></div>`;
+    return;
+  }
+  QC.result = r;
+  const groups = ['보수', '부가세', '공과금(대납)', '예납금', '기타실비'];
+  const rows = groups.flatMap(g => r.items.filter(i => i.group === g)).map(i => `
+    <tr class="${i.amount == null ? 'qc-pend' : ''}"><td>${qEsc(i.label)}${i.warnings.map(w => `<div class="qc-w">◆ ${qEsc(w)}</div>`).join('')}</td>
+      <td class="qc-g">${qEsc(i.group)}</td><td class="qc-n">${i.amount == null ? `<span class="q-icon">○</span> ${qEsc(i.pending)}` : qEsc(qcWon(i.amount))}</td>
+      <td class="qc-s">${qEsc(i.formula)}</td></tr>`).join('');
+  const t = r.totals;
+  out.innerHTML = `
+    <section class="q-box qc-res">
+      <div class="qc-sum"><div><span>보수</span><b>${qcWon(t.보수)}</b></div><div><span>부가세</span><b>${qcWon(t.부가세)}</b></div><div><span>공과금·실비</span><b>${qcWon(t.대납)}</b></div><div class="qc-total"><span>합계</span><b>${qcWon(t.합계)}</b></div></div>
+      ${t.확정후기재 ? `<p class="qc-w">○ 확정 후 기재 ${t.확정후기재}건은 합계에 들어 있지 않습니다.</p>` : ''}
+      ${r.warnings.map(w => `<p class="qc-w">◆ ${qEsc(w)}</p>`).join('')}
+      <div class="scroll"><table class="qc-t"><thead><tr><th>항목</th><th>구분</th><th>금액</th><th>산식·근거</th></tr></thead><tbody>${rows}</tbody></table></div>
+      <div class="qc-act">
+        <label class="qc-f"><span>사건번호(노션 저장용)</span><input id="qcCase" placeholder="예: 261124_02" autocomplete="off"></label>
+        <button class="q-refresh" onclick="qcPrint()">견적서 출력</button>
+        <button class="q-refresh qc-save" onclick="qcSave(this)">노션에 견적 저장</button>
+      </div>
+      <p class="q-meta" id="qcMsg"></p>
+    </section>`;
+}
+
+function qcPrint() {
+  const r = QC.result; if (!r) return;
+  const caseNo = (document.getElementById('qcCase') || {}).value || '';
+  const today = new Date().toLocaleDateString('ko-KR');
+  const sec = (g, title) => {
+    const its = r.items.filter(i => g.includes(i.group));
+    if (!its.length) return '';
+    return `<h3>${title}</h3><table><tbody>${its.map(i => `<tr><td>${qEsc(i.label)}</td><td class="n">${i.amount == null ? '확정 후 기재' : Number(i.amount).toLocaleString('ko-KR')}</td></tr>`).join('')}</tbody></table>`;
+  };
+  const t = r.totals;
+  const w = window.open('', '_blank');
+  if (!w) { alertMsg('팝업이 막혀 견적서를 열 수 없습니다 — 브라우저 팝업 허용 후 다시 눌러 주세요'); return; }
+  w.document.write(`<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><title>견적서 ${qEsc(caseNo)}</title>
+    <style>body{font:14px/1.6 'Noto Sans KR',sans-serif;color:#111;max-width:720px;margin:32px auto;padding:0 20px}h1{font-size:26px;text-align:center;letter-spacing:.3em;margin:0 0 4px}
+    .meta{display:flex;justify-content:space-between;border-bottom:2px solid #111;padding-bottom:8px;margin-bottom:16px}h3{font-size:15px;margin:18px 0 6px}
+    table{width:100%;border-collapse:collapse}td{border-bottom:1px solid #ccc;padding:6px 4px}.n{text-align:right;white-space:nowrap}.tot td{border-top:2px solid #111;font-weight:700;font-size:16px}
+    .note{font-size:12px;color:#444;margin-top:18px}.btn{margin:16px 0;text-align:right}@media print{.btn{display:none}}</style></head><body>
+    <div class="btn"><button onclick="window.print()">인쇄 · PDF 저장</button></div>
+    <h1>견 적 서</h1><div class="meta"><span>${qEsc(r.title)}${caseNo ? ' · 사건번호 ' + qEsc(caseNo) : ''}</span><span>${today}</span></div>
+    ${sec(['보수'], '법무사 보수')}${sec(['부가세'], '부가가치세')}${sec(['공과금(대납)'], '공과금(세금·수수료 — 대납)')}${sec(['예납금', '기타실비'], '예납금·실비')}
+    <table><tbody><tr class="tot"><td>합계</td><td class="n">${Number(t.합계).toLocaleString('ko-KR')}원</td></tr></tbody></table>
+    <p class="note">· 이 견적은 요율표 ${qEsc(r.ratesVersion)} 기준 예상 금액이며, 시가표준액·채권 할인율·법원 예납명령 등에 따라 실제 금액은 달라질 수 있습니다.<br>
+    ${t.확정후기재 ? '· "확정 후 기재" 항목 ' + t.확정후기재 + '건은 금액이 정해지면 따로 안내드리며 합계에 포함되지 않았습니다.<br>' : ''}· 공과금(세금·수수료)은 고객님을 대신해 납부하는 금액입니다.</p>
+    <p style="text-align:right;margin-top:28px">박배선 법무사 사무소</p></body></html>`);
+  w.document.close();
+}
+
+function alertMsg(m) { const el = document.getElementById('qcMsg'); if (el) el.textContent = m; }
+
+async function qcSave(btn) {
+  const r = QC.result; if (!r) return;
+  const caseNo = (document.getElementById('qcCase').value || '').trim();
+  if (!/^\d{6}_\d{2}$/.test(caseNo)) { alertMsg('사건번호를 261124_02 형식으로 넣어 주세요'); return; }
+  btn.disabled = true; alertMsg('노션에 저장하는 중…');
+  try {
+    const res = await fetch('/admin/api/quote', {
+      method: 'POST', credentials: 'same-origin', headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ caseNo, title: r.title, ratesVersion: r.ratesVersion, items: r.items.map(i => ({ label: i.label, group: i.group, kind: i.kind, amount: i.amount, pending: i.pending, formula: i.formula, rateIds: i.rateIds })) }),
+    });
+    const d = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(d.error || ('응답 오류 ' + res.status));
+    document.getElementById('qcMsg').innerHTML = `<span class="q-icon">✔</span> 저장했습니다 — ${qEsc(d.caseTitle)} · 세부항목 ${d.items}건 (⚠️ 미검증) <a href="${qEsc(d.url)}" target="_blank" rel="noopener">노션에서 열기</a>${d.existing ? ` · 이 사건의 회계 행이 이미 ${d.existing}건 있었습니다` : ''}`;
+  } catch (e) {
+    document.getElementById('qcMsg').innerHTML = `<span class="q-icon dl-hot">✖</span> ${qEsc(e.message)}`;
+  } finally { btn.disabled = false; }
 }
 
 /* ============================================================
