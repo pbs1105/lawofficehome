@@ -826,6 +826,25 @@ function renderDashboard() {
   loadDashOps();
 }
 
+/** 첫 화면 「기한 임박」 카드 — 지난 기한·D-7 이내, 대기 상태만 */
+function dashDeadlineCard(dl) {
+  const label = '<span class="ops-label">기한 임박 (지난 기한 + D-7 이내)</span>';
+  if (!dl || dl.connected === false) {
+    return `<div class="ops-mini ops-pending">${label}<span class="ops-num">–</span>
+      <span class="ops-sub">${qEsc((dl && dl.reason) || '기한DB 연결 후 표시됩니다')}</span></div>`;
+  }
+  if (dl.error) {
+    return `<div class="ops-mini ops-stage has">${label}<span class="ops-num"><span class="q-icon">✖</span>?</span><span class="ops-sub">${qEsc(dl.error)}</span></div>`;
+  }
+  const rows = (dl.items || []).map(it => {
+    const dd = it.dday < 0 ? `D+${-it.dday}` : (it.dday === 0 ? 'D-day' : `D-${it.dday}`);
+    return `<li><a href="${qEsc(it.url)}" target="_blank" rel="noopener"><b class="${it.dday <= 0 ? 'dl-hot' : ''}">${dd}</b> ${qEsc(it.title)}${it.caseTitle ? ` <span class="ops-sub">${qEsc(it.caseTitle)}</span>` : ''}</a></li>`;
+  }).join('');
+  return `<div class="ops-mini ops-stage ${dl.count ? 'has' : 'none'}">${label}
+    <span class="ops-num"><span class="q-icon">${dl.count ? '◆' : '✔'}</span>${dl.count}<small>건${dl.overdue ? ` · 지난 기한 ${dl.overdue}` : ''}</small></span>
+    ${rows ? `<ul class="dl-list">${rows}</ul>` : '<span class="ops-sub">임박한 기한이 없습니다</span>'}</div>`;
+}
+
 /** 첫 화면 — 오늘 할 일·단계별 건수·진행 사건 전체·기한 임박 (노션 건수만, 보기 전용) */
 async function loadDashOps() {
   const box = document.getElementById('dashOps');
@@ -854,10 +873,7 @@ async function loadDashOps() {
           <span class="ops-label">진행 사건 전체</span><span class="ops-num">${d.cases}<small>건</small></span>
           <span class="ops-cats">${cats}</span>
         </a>
-        <div class="ops-mini ops-pending">
-          <span class="ops-label">기한 임박 (D-7 이내)</span><span class="ops-num">–</span>
-          <span class="ops-sub">기한DB 연결 후 표시됩니다</span>
-        </div>
+${dashDeadlineCard(d.deadlines)}
       </div>`;
   } catch (e) {
     box.innerHTML = `<div class="q-box q-error"><h2><span class="q-icon">✖</span>오늘 할 일을 불러오지 못했습니다</h2><p>${qEsc(e.message)}</p></div>`;
