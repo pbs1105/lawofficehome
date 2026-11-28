@@ -1,5 +1,6 @@
 export const config = {
-  matcher: '/admin/:path*'
+  // /api/admin 은 직원포털 서버 함수(노션 읽기) — 같은 공용 계정으로 보호 (2026-11-28)
+  matcher: ['/admin/:path*', '/api/admin/:path*']
 };
 
 export default function middleware(request) {

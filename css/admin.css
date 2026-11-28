@@ -923,3 +923,30 @@ input, textarea, select { font-family: inherit; }
   z-index: 899;
 }
 .sidebar-overlay.show { display: block; }
+
+/* ===== 처리할 일 목록 (직원포털, 2026-11-28) — 완료 청록 ✔ / 대기·실패 자홍 ◆✖ + 좌측 레일 ===== */
+.q-head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.q-refresh { margin-left: auto; padding: 6px 12px; border: 1px solid var(--border); border-radius: var(--radius); background: transparent; color: inherit; cursor: pointer; }
+.q-loading, .q-meta { color: var(--text-med); font-size: 13px; margin: 8px 0 14px; }
+.q-summary { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.q-chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--border); border-left-width: 4px; text-decoration: none; color: inherit; font-size: 13px; }
+.q-chip.has { border-left-color: #b0407a; }
+.q-chip.none { border-left-color: #2f8f9b; opacity: .8; }
+.q-chip-icon { font-size: 11px; }
+.q-box { border: 1px solid var(--border); border-left: 5px solid #2f8f9b; border-radius: var(--radius); padding: 12px 16px; margin-bottom: 14px; }
+.q-box.has { border-left-color: #b0407a; }
+.q-box.q-error { border-left-color: #b0407a; }
+.q-box h2 { font-size: 16px; margin: 0 0 4px; display: flex; align-items: center; gap: 8px; }
+.q-icon { font-size: 13px; }
+.q-box.has .q-icon, .q-error .q-icon { color: #b0407a; }
+.q-box.none .q-icon { color: #2f8f9b; }
+.q-count { font-weight: 400; color: var(--text-med); font-size: 13px; }
+.q-todo { font-size: 13px; color: var(--text-med); margin: 0 0 8px; }
+.q-empty { font-size: 13px; color: #2f8f9b; margin: 0; }
+.q-list { list-style: none; margin: 0; padding: 0; }
+.q-list li a { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 8px 6px; border-top: 1px solid var(--border); text-decoration: none; color: inherit; }
+.q-list li a:hover { background: rgba(127,140,160,.10); }
+.q-title { font-weight: 600; flex: 1 1 260px; }
+.q-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.q-tag { font-size: 12px; padding: 2px 8px; border-radius: 6px; border: 1px solid var(--border); color: var(--text-med); }
+.q-idle { font-size: 12px; color: var(--text-med); min-width: 80px; text-align: right; }
