@@ -1025,3 +1025,4 @@ input, textarea, select { font-family: inherit; }
 .dl-list a:hover { text-decoration: underline; }
 .dl-list b { display: inline-block; min-width: 46px; color: #2f8f9b; }
 .dl-list b.dl-hot { color: #b0407a; }
+.ops-sub.dl-hot, .ops-sub.dl-hot .q-icon { color: #b0407a; }
