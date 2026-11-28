@@ -123,3 +123,7 @@ html[data-theme="dark"] body { background: #0f1115; color: #cfd3da; }
 
 /* ---- 인라인 style ---- */
 [data-theme="dark"] [style*="color: var(--secondary)"] { color: #c9bda6 !important; }
+[data-theme="dark"] .dash-ops { background: #181b22; }
+[data-theme="dark"] .dash-ops .ops-head h3, [data-theme="dark"] .ops-num { color: #e6e8ec; }
+[data-theme="dark"] .ops-label, [data-theme="dark"] .ops-sub, [data-theme="dark"] .ops-num small { color: #9aa1ad; }
+[data-theme="dark"] .ops-cats .q-tag { border-color: rgba(127, 127, 127, .3); color: #b7bcc6; }

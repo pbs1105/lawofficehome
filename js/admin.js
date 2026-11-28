@@ -62,9 +62,9 @@ function initLoginPage() {
    2. 사이드바 메뉴 데이터
    ============================================================ */
 const ADMIN_MENU = [
-  /* ===== 1. 업무 — 업무 순서(수임→관리→생성→제출→회계) (2026-11-28 개편, 통합 문서 5부) ===== */
+  /* ===== 1. 업무 — 업무 순서(접수→생성→제출, 회계는 전 단계에 걸쳐 번호 없음) (2026-11-28 재개편, 통합 문서 5부) ===== */
 {
-    id: 'intake', icon: '📥', label: '1 수임', group: '업무',
+    id: 'intake', icon: '📥', label: '1 접수', group: '업무',
     items: [
       { id: 'queue-intake', label: '처리할 일 목록 (검증·발송·수임 전환)' },
       { id: 'intake-offline', label: '직원 접수 (전화·방문 → PC폴더·노션DB 자동생성)', external: true, url: 'https://n8npark.app.n8n.cloud/form/2a8c595e-215b-439e-b35d-7a62aeacba4c' },
@@ -72,16 +72,10 @@ const ADMIN_MENU = [
     ]
   },
 {
-    id: 'docmanage', icon: '🗂️', label: '2 관리', group: '업무',
+    id: 'docgen', icon: '📝', label: '2 생성', group: '업무',
     items: [
-      { id: 'queue-manage', label: '처리할 일 목록 (추출·검증·담당)' },
+      { id: 'queue-generate', label: '처리할 일 목록 (담당·추출·검증·초안·검토)' },
       { id: 'tool-realestate-extract', label: '정부자료 노션DB 추출 (PC폴더·노션DB)' },
-    ]
-  },
-{
-    id: 'docgen', icon: '📝', label: '3 생성', group: '업무',
-    items: [
-      { id: 'queue-generate', label: '처리할 일 목록 (초안·검토·03확정)' },
       { id: 'doc-poa-gen', label: '위임장 자동생성' },
       { id: 'calc-sales-contract', label: '계약서 자동생성 (매매·증여 등)' },
       { id: 'calc-realestate-report', label: '실거래신고서 자동생성' },
@@ -90,8 +84,9 @@ const ADMIN_MENU = [
     ]
   },
 {
-    id: 'submit', icon: '📤', label: '4 제출', group: '업무',
+    id: 'submit', icon: '📤', label: '3 제출', group: '업무',
     items: [
+      { id: 'queue-submit', label: '처리할 일 목록 (제출 대기·접수증 확인)' },
       { id: 'submit-ecfs', label: '전자소송 신청' },
       { id: 'submit-ecfs-console', label: '전자소송 콘솔' },
       { id: 'submit-ecfs-install', label: '전자소송 자동화 설치 (직원 PC 1회)' },
@@ -99,7 +94,7 @@ const ADMIN_MENU = [
     ]
   },
 {
-    id: 'receipt', icon: '🧾', label: '5 회계', group: '업무',
+    id: 'receipt', icon: '🧾', label: '회계', group: '업무',
     items: [
       { id: 'calc-comprehensive', label: '공과금 자동생성 (취득세·국민주택채권·인지대·송달료 등)' },
       { id: 'calc-fee', label: '보수료 자동생성' },
@@ -688,8 +683,8 @@ function renderContentPage(pageId) {
    노션은 /admin/api/queue 서버 함수가 읽는다(비밀값은 Vercel 환경변수).
    이 화면은 보기 전용 — 검증·발송·전환은 노션 페이지에서 직원이 한다.
    ============================================================ */
-const QUEUE_STAGE_TITLE = { intake: '1 수임 — 처리할 일 목록', manage: '2 관리 — 처리할 일 목록', generate: '3 생성 — 처리할 일 목록' };
-const QUEUE_TOTAL_LABEL = { intake: '진행 중 상담', manage: '진행 사건(수임·진행중·제출완료)', generate: '진행 사건(수임·진행중·제출완료)' };
+const QUEUE_STAGE_TITLE = { intake: '1 접수 — 처리할 일 목록', generate: '2 생성 — 처리할 일 목록', submit: '3 제출 — 처리할 일 목록', overview: '진행 사건 전체' };
+const QUEUE_TOTAL_LABEL = { intake: '진행 중 상담', generate: '진행 사건(수임·진행중·제출완료)', submit: '진행 사건(수임·진행중·제출완료)', overview: '진행 사건(수임·진행중·제출완료)' };
 
 function qEsc(v) {
   return String(v == null ? '' : v).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -792,6 +787,7 @@ function renderDashboard() {
       <h2>안녕하세요, 관리자님 👋</h2>
       <p>${dateStr} — 오늘도 좋은 하루 되세요.</p>
     </div>
+    <div class="dash-ops" id="dashOps"><p class="q-loading">오늘 할 일을 불러오는 중…</p></div>
     <div class="dashboard-grid">
       <div class="dash-card">
         <h3>⭐ 즐겨찾기</h3>
@@ -810,6 +806,45 @@ function renderDashboard() {
         </div>
       </div>
     </div>`;
+  loadDashOps();
+}
+
+/** 첫 화면 — 오늘 할 일·단계별 건수·진행 사건 전체·기한 임박 (노션 건수만, 보기 전용) */
+async function loadDashOps() {
+  const box = document.getElementById('dashOps');
+  if (!box) return;
+  try {
+    const res = await fetch('/admin/api/queue?stage=summary', { credentials: 'same-origin', cache: 'no-store' });
+    const d = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(d.error || ('응답 오류 ' + res.status));
+    if (!document.body.contains(box)) return;
+    const when = new Date(d.generatedAt).toLocaleString('ko-KR', { hour: '2-digit', minute: '2-digit' });
+    const stageCards = d.stages.map(s => `
+      <a class="ops-stage ${s.todo ? 'has' : 'none'}" href="#" onclick="navigateTo('${qEsc(s.page)}');return false;">
+        <span class="ops-label">${qEsc(s.label)}</span>
+        <span class="ops-num"><span class="q-icon">${s.todo ? '◆' : '✔'}</span>${s.todo}<small>건 할 일</small></span>
+        <span class="ops-sub">${qEsc(s.totalLabel)} ${s.total}건</span>
+      </a>`).join('');
+    const cats = (d.byCategory || []).map(c => `<span class="q-tag">${qEsc(c.label)} ${c.count}</span>`).join('') || '<span class="q-empty">진행 사건이 없습니다.</span>';
+    box.innerHTML = `
+      <div class="ops-head">
+        <h3>오늘 할 일 <b>${d.todayTodo}</b>건</h3>
+        <span class="q-meta">${qEsc(when)} 기준 · <a href="#" onclick="loadDashOps();return false;">↻ 새로고침</a></span>
+      </div>
+      <div class="ops-stages">${stageCards}</div>
+      <div class="ops-row">
+        <a class="ops-mini" href="#" onclick="navigateTo('queue-overview');return false;">
+          <span class="ops-label">진행 사건 전체</span><span class="ops-num">${d.cases}<small>건</small></span>
+          <span class="ops-cats">${cats}</span>
+        </a>
+        <div class="ops-mini ops-pending">
+          <span class="ops-label">기한 임박 (D-7 이내)</span><span class="ops-num">–</span>
+          <span class="ops-sub">기한DB 연결 후 표시됩니다</span>
+        </div>
+      </div>`;
+  } catch (e) {
+    box.innerHTML = `<div class="q-box q-error"><h2><span class="q-icon">✖</span>오늘 할 일을 불러오지 못했습니다</h2><p>${qEsc(e.message)}</p></div>`;
+  }
 }
 
 /* ============================================================

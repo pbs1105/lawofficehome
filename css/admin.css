@@ -950,3 +950,23 @@ input, textarea, select { font-family: inherit; }
 .q-tags { display: flex; gap: 6px; flex-wrap: wrap; }
 .q-tag { font-size: 12px; padding: 2px 8px; border-radius: 6px; border: 1px solid var(--border); color: var(--text-med); }
 .q-idle { font-size: 12px; color: var(--text-med); min-width: 80px; text-align: right; }
+
+/* ===== 첫 화면 — 오늘 할 일·단계별 건수 (2026-11-28) ===== */
+.dash-ops { background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow); padding: 20px 24px; margin-bottom: 24px; }
+.ops-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+.ops-head h3 { margin: 0; font-size: 17px; }
+.ops-head h3 b { font-size: 22px; }
+.ops-stages { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-bottom: 10px; }
+.ops-row { display: grid; grid-template-columns: 2fr 1fr; gap: 10px; }
+.ops-stage, .ops-mini { display: flex; flex-direction: column; gap: 4px; padding: 10px 12px; border: 1px solid rgba(127, 127, 127, .22); border-left: 5px solid #2f8f9b; border-radius: var(--radius); text-decoration: none; color: inherit; }
+.ops-stage.has { border-left-color: #b0407a; }
+.ops-stage.has .q-icon { color: #b0407a; }
+.ops-stage.none .q-icon { color: #2f8f9b; }
+.ops-stage:hover, a.ops-mini:hover { background: rgba(127, 127, 127, .08); }
+.ops-label { font-size: 13px; color: var(--text-med); }
+.ops-num { font-size: 22px; font-weight: 700; display: flex; align-items: baseline; gap: 6px; }
+.ops-num small { font-size: 12px; font-weight: 400; color: var(--text-med); }
+.ops-sub { font-size: 12px; color: var(--text-med); }
+.ops-cats { display: flex; flex-wrap: wrap; gap: 4px; }
+.ops-pending { border-left-style: dashed; border-left-color: rgba(127, 127, 127, .35); }
+@media (max-width: 760px) { .ops-stages, .ops-row { grid-template-columns: 1fr; } }
