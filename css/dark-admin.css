@@ -25,6 +25,9 @@ html[data-theme="dark"] body { background: #0f1115; color: #cfd3da; }
 [data-theme="dark"] .portal-header .ph-datetime { color: rgba(230,232,236,0.6); }
 [data-theme="dark"] .portal-header .ph-theme, [data-theme="dark"] .portal-header .ph-home, [data-theme="dark"] .portal-header .ph-logout { background: rgba(255,255,255,0.1); color: rgba(230,232,236,0.8); }
 [data-theme="dark"] .portal-header .ph-theme:hover, [data-theme="dark"] .portal-header .ph-home:hover, [data-theme="dark"] .portal-header .ph-logout:hover { background: rgba(255,255,255,0.2); color: #e6e8ec; }
+[data-theme="dark"] .tn-item { color: rgba(230,232,236,0.8); }
+[data-theme="dark"] .tn-item:hover { background: rgba(255,255,255,0.1); color: #e6e8ec; }
+[data-theme="dark"] .tn-item.active { background: rgba(110,98,76,0.15); color: #c9bda6; box-shadow: inset 0 -2px 0 #827357; }
 [data-theme="dark"] .sidebar-toggle span { background: #181b22; }
 [data-theme="dark"] .sidebar { background: #2a2f3a; color: rgba(230,232,236,0.7); }
 [data-theme="dark"] .sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); }

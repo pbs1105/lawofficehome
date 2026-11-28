@@ -102,7 +102,7 @@ const ADMIN_MENU = [
     ]
   },
 
-  /* ===== 2. 지식 — 홈페이지와 같은 9개 카테고리·순서. 카테고리 클릭 시 허브로 이동 ===== */
+  /* ===== 2. 지식 — 홈페이지와 같은 9개 카테고리·순서. 상단 네비바에 표시(모바일은 사이드바), 클릭 시 허브로 이동 ===== */
   { id: 'help-inheritance', icon: '📜', label: '상속', group: '지식', directNav: true, items: [] },
   { id: 'help-willtrust', icon: '🤝', label: '신탁', group: '지식', directNav: true, items: [] },
   { id: 'help-foreign', icon: '🌏', label: '외국인·재외국민', group: '지식', directNav: true, items: [] },
@@ -429,6 +429,20 @@ const ADMIN_CONTENT = {
    4. 사이드바 렌더링 및 토글
    ============================================================ */
 
+/** 상단 네비바에 올리는 메뉴 그룹 (9개 업무 분야) */
+const TOP_NAV_GROUP = '지식';
+
+/** 상단 네비바 HTML 생성 — 9개 업무 분야 */
+function renderTopNav() {
+  const nav = document.getElementById('topNav');
+  if (!nav) return;
+
+  nav.innerHTML = ADMIN_MENU
+    .filter(cat => cat.group === TOP_NAV_GROUP)
+    .map(cat => `<button type="button" class="tn-item" data-id="${cat.id}" onclick="navigateTo('${cat.id}')">${cat.label}</button>`)
+    .join('');
+}
+
 /** 사이드바 메뉴 HTML 생성 */
 function renderSidebar() {
   const sidebar = document.getElementById('sidebar');
@@ -438,14 +452,17 @@ function renderSidebar() {
   let lastGroup = null;
 
   ADMIN_MENU.forEach(cat => {
+    // 지식 9개 분야는 상단 네비바로 이동 — 사이드바에는 상단바가 숨는 모바일에서만 표시
+    const mobileOnly = cat.group === TOP_NAV_GROUP ? ' sb-mobile-only' : '';
+
     if (cat.group && cat.group !== lastGroup) {
-      html += `<div class="sb-group-title">${cat.group}</div>`;
+      html += `<div class="sb-group-title${mobileOnly}">${cat.group}</div>`;
       lastGroup = cat.group;
     }
 
     if (cat.directNav) {
       // 카테고리 자체가 하나의 목적지로 바로 이동 (하위 목록은 콘텐츠 영역 허브에서 표시)
-      html += `<div class="sb-item sb-cat-direct" data-id="${cat.id}" onclick="navigateTo('${cat.id}')">`;
+      html += `<div class="sb-item sb-cat-direct${mobileOnly}" data-id="${cat.id}" onclick="navigateTo('${cat.id}')">`;
       html += `<span class="sb-icon">${cat.icon}</span>`;
       html += `<span>${cat.label}</span>`;
       html += `</div>`;
@@ -525,8 +542,8 @@ function navigateTo(pageId) {
   currentPage = pageId;
   window.location.hash = pageId;
 
-  // 사이드바 활성 표시 업데이트
-  document.querySelectorAll('.sb-item').forEach(el => {
+  // 사이드바·상단 네비바 활성 표시 업데이트
+  document.querySelectorAll('.sb-item, .tn-item').forEach(el => {
     el.classList.toggle('active', el.dataset.id === pageId);
   });
 
@@ -1358,8 +1375,9 @@ function initPortal() {
   // 인증 확인
   if (!checkAuth()) return;
 
-  // 사이드바 렌더링
+  // 사이드바·상단 네비바 렌더링
   renderSidebar();
+  renderTopNav();
 
   // 날짜·시간 업데이트 (1분마다)
   updateDateTime();
@@ -1425,8 +1443,8 @@ function openCategoryForItem(itemId) {
       else flat.push(entry);
     });
     if (flat.some(t => t.id === itemId)) {
-      const el = document.querySelector(`.sb-item[data-id="${catId}"]`);
-      if (el) el.classList.add('active');
+      document.querySelectorAll(`.sb-item[data-id="${catId}"], .tn-item[data-id="${catId}"]`)
+        .forEach(el => el.classList.add('active'));
       break;
     }
   }
