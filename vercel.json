@@ -340,5 +340,11 @@
       "destination": "/guide/enforcement/",
       "permanent": true
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/admin/api/:path*",
+      "destination": "/api/admin/:path*"
+    }
   ]
 }

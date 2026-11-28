@@ -66,6 +66,7 @@ const ADMIN_MENU = [
 {
     id: 'intake', icon: '📥', label: '1 수임', group: '업무',
     items: [
+      { id: 'queue-intake', label: '처리할 일 목록 (검증·발송·수임 전환)' },
       { id: 'intake-offline', label: '직원 접수 (전화·방문 → PC폴더·노션DB 자동생성)', external: true, url: 'https://n8npark.app.n8n.cloud/form/2a8c595e-215b-439e-b35d-7a62aeacba4c' },
       { id: 'intake-scan', label: '스캔자료 접수 (방문 상담 후 고객 자료 스캔)', external: true, url: 'https://n8npark.app.n8n.cloud/form/04018433-9aed-4c7c-a279-0547fe4d144d' },
     ]
@@ -541,6 +542,8 @@ function navigateTo(pageId) {
     renderDoc(pageId);
   } else if (pageId.startsWith('tool-') || pageId.startsWith('submit-')) {
     renderTool(pageId);
+  } else if (pageId.startsWith('queue-')) {
+    renderQueue(pageId);
   } else if (pageId.startsWith('help-')) {
     renderHelperHub(pageId);
   } else {
@@ -675,6 +678,64 @@ function renderContentPage(pageId) {
   });
 
   area.innerHTML = html;
+  area.scrollTop = 0;
+}
+
+/* ============================================================
+   5-1. 처리할 일 목록 (직원포털 컨트롤타워, 2026-11-28)
+   노션은 /admin/api/queue 서버 함수가 읽는다(비밀값은 Vercel 환경변수).
+   이 화면은 보기 전용 — 검증·발송·전환은 노션 페이지에서 직원이 한다.
+   ============================================================ */
+const QUEUE_STAGE_TITLE = { intake: '1 수임 — 처리할 일 목록' };
+
+function qEsc(v) {
+  return String(v == null ? '' : v).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+async function renderQueue(pageId) {
+  const area = document.getElementById('contentArea');
+  const stage = pageId.replace('queue-', '');
+  const head = `
+    <div class="content-header q-head">
+      <h1>${qEsc(QUEUE_STAGE_TITLE[stage] || getPageTitle(pageId))}</h1>
+      <button class="q-refresh" onclick="renderQueue('${qEsc(pageId)}')">↻ 새로고침</button>
+    </div>`;
+  area.innerHTML = head + '<p class="q-loading">노션에서 불러오는 중…</p>';
+  try {
+    const res = await fetch('/admin/api/queue?stage=' + encodeURIComponent(stage), { credentials: 'same-origin', cache: 'no-store' });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data.error || ('응답 오류 ' + res.status));
+    const when = new Date(data.generatedAt).toLocaleString('ko-KR', { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+    let html = head + `<p class="q-meta">진행 중 상담 ${data.total}건 · ${qEsc(when)} 기준 · 각 건을 누르면 노션 페이지가 새 탭으로 열립니다</p>`;
+    html += '<div class="q-summary">' + data.queues.map(q =>
+      `<a class="q-chip ${q.count ? 'has' : 'none'}" href="#q-${qEsc(q.id)}" onclick="document.getElementById('q-${qEsc(q.id)}').scrollIntoView({behavior:'smooth'});return false;">
+         <span class="q-chip-icon">${q.count ? '◆' : '✔'}</span>${qEsc(q.label)} <b>${q.count}</b></a>`).join('') + '</div>';
+    for (const q of data.queues) {
+      html += `<section class="q-box ${q.count ? 'has' : 'none'}" id="q-${qEsc(q.id)}">
+        <h2><span class="q-icon">${q.count ? '◆' : '✔'}</span>${qEsc(q.label)} <span class="q-count">${q.count}건</span></h2>
+        <p class="q-todo">할 일: ${qEsc(q.todo)}</p>`;
+      if (!q.count) {
+        html += '<p class="q-empty">처리할 건이 없습니다.</p>';
+      } else {
+        html += '<ul class="q-list">' + q.items.map(it => `
+          <li><a href="${qEsc(it.url)}" target="_blank" rel="noopener">
+            <span class="q-title">${qEsc(it.title || '(제목 없음)')}</span>
+            <span class="q-tags">
+              ${it.type ? `<span class="q-tag">${qEsc(it.type)}</span>` : ''}
+              ${it.route ? `<span class="q-tag">${qEsc(it.route)}</span>` : ''}
+              ${it.round ? `<span class="q-tag">보완 ${it.round}차</span>` : ''}
+              <span class="q-tag">${qEsc(it.analysis || '-')} · ${qEsc(it.verify || '-')} · ${qEsc(it.send || '-')}</span>
+            </span>
+            <span class="q-idle">${it.idleDays == null ? '' : (it.idleDays === 0 ? '오늘 변경' : it.idleDays + '일째 그대로')}</span>
+          </a></li>`).join('') + '</ul>';
+      }
+      html += '</section>';
+    }
+    area.innerHTML = html;
+  } catch (e) {
+    area.innerHTML = head + `<div class="q-box q-error"><h2><span class="q-icon">✖</span>목록을 불러오지 못했습니다</h2><p>${qEsc(e.message)}</p>
+      <p class="q-todo">노션 페이지에서 직접 확인할 수 있습니다. 반복되면 Vercel 환경변수 NOTION_TOKEN과 노션 통합 연결을 확인해 주세요.</p></div>`;
+  }
   area.scrollTop = 0;
 }
 
