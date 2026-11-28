@@ -1,0 +1,1555 @@
+{
+ "meta": {
+  "name": "법무사 사무소 공과금·보수 요율표",
+  "version": "1.0",
+  "generated": "2026-11-28",
+  "approved": true,
+  "approvedBy": "박배선 법무사",
+  "approvedAt": "2026-11-28",
+  "approvalNote": "○ 값 미정(todo) 항목은 사무소 기준값을 두지 않고 견적서·영수증에 \"법원 예납명령(공증인 수수료) 확정 후 기재\"로 표시한다. ◆ 2차 출처 항목은 수치 일치를 확인하고 승인. 법령·예규 개정 시 이 파일을 고치고 버전을 올린다.",
+  "rule": "세율·수수료·보수의 단일 출처. 법무사 승인 전 값은 계산기에 쓰지 않는다. status: ok=원문 확인 · check=2차 출처·부분 확인 · todo=값 미정"
+ },
+ "sources": {
+  "acq": {
+   "name": "지방세법 제11조(부동산 취득의 세율)",
+   "url": "https://www.law.go.kr/법령/지방세법/제11조",
+   "effective": "2026-07-01",
+   "checked": "2026-11-23",
+   "status": "ok",
+   "memo": "6억~9억 계산식은 원문이 그림 — 알려진 계산식 사용"
+  },
+  "acq9": {
+   "name": "지방세법 제9조 제3항(신탁 취득세 비과세)",
+   "url": "https://www.law.go.kr/법령/지방세법/제9조",
+   "effective": "2026-07-01",
+   "checked": "2026-11-23",
+   "status": "ok"
+  },
+  "reg": {
+   "name": "지방세법 제28조(등록면허세 세율)",
+   "url": "https://www.law.go.kr/법령/지방세법/제28조",
+   "effective": "2026-07-01",
+   "checked": "2026-11-23",
+   "status": "ok"
+  },
+  "edu": {
+   "name": "지방세법 제151조(지방교육세)",
+   "url": "https://www.law.go.kr/법령/지방세법/제151조",
+   "effective": "2026-07-01",
+   "checked": "2026-11-23",
+   "status": "ok"
+  },
+  "agri": {
+   "name": "농어촌특별세법 제5조(과세표준과 세율)",
+   "url": "https://www.law.go.kr/법령/농어촌특별세법/제5조",
+   "effective": "2026-05-12",
+   "checked": "2026-11-23",
+   "status": "check",
+   "memo": "세율표가 그림 — 표준세율 2% 기준 10% 산식은 실무 통례로 확인"
+  },
+  "agriEx": {
+   "name": "농어촌특별세법 제4조 제11호(서민주택 비과세)",
+   "url": "https://www.law.go.kr/법령/농어촌특별세법/제4조",
+   "effective": "2026-05-12",
+   "checked": "2026-11-23",
+   "status": "ok"
+  },
+  "bond": {
+   "name": "주택도시기금법 시행령 별표 부표(제1종국민주택채권 매입대상 및 금액표)",
+   "url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=170789201",
+   "effective": "2025-08-26",
+   "checked": "2026-11-23",
+   "status": "ok"
+  },
+  "stamp": {
+   "name": "인지세법 제3조·제6조",
+   "url": "https://www.law.go.kr/법령/인지세법/제3조",
+   "effective": "2026-01-02",
+   "checked": "2026-11-28",
+   "status": "check",
+   "memo": "제3조 금액표가 그림 — 11-28 외부 자료 3곳과 재대조(2만·4만·7만·15만·35만 일치). 제6조 제5호(주택 1억 이하 비과세)는 원문 확인"
+  },
+  "feeRe": {
+   "name": "등기사항증명서 등 수수료규칙 제5조의2·제5조의5",
+   "url": "https://www.law.go.kr/법령/등기사항증명서등수수료규칙/제5조의2",
+   "effective": "2025-08-01",
+   "checked": "2026-11-23",
+   "status": "ok"
+  },
+  "feeCo": {
+   "name": "등기사항증명서 등 수수료규칙 제5조의3·제5조의5",
+   "url": "https://www.law.go.kr/법령/등기사항증명서등수수료규칙/제5조의3",
+   "effective": "2025-08-01",
+   "checked": "2026-11-23",
+   "status": "ok"
+  },
+  "inji": {
+   "name": "민사소송 등 인지법(제2조·제3조·제7조·제9조·전자소송 특례)",
+   "url": "https://www.law.go.kr/법령/민사소송등인지법/제2조",
+   "effective": "2025-03-01",
+   "checked": "2026-11-23",
+   "status": "ok"
+  },
+  "gasa": {
+   "name": "가사소송수수료규칙 제3조",
+   "url": "https://www.law.go.kr/법령/가사소송수수료규칙/제3조",
+   "effective": "2016-07-01",
+   "checked": "2026-11-23",
+   "status": "ok"
+  },
+  "song": {
+   "name": "송달료규칙의 시행에 따른 업무처리요령(재일 87-4) 별표1",
+   "url": "https://korea.legal/실무자료/법원-송달료-1회분-5640원으로-인상-2026-07-01/",
+   "effective": "2026-07-01",
+   "checked": "2026-11-28",
+   "status": "check",
+   "memo": "법원 예규 원문 사이트 미접속. 11-28 재확인: 1회분 5,640원·공탁(우표) 5,420원·민사 가합/가단 15·가소 10·나 12·다 8회·상속포기 6회 — 정리 자료 수치와 일치"
+  },
+  "bosu": {
+   "name": "대한법무사협회 법무사 보수기준(2026. 8. 20. 개정본)",
+   "url": "https://korea.legal/wp-content/uploads/2026/10/법무사보수기준2026.8.20.pdf",
+   "effective": "2026-08-20",
+   "checked": "2026-11-28",
+   "status": "ok",
+   "memo": "11-28 개정본 PDF와 금액·요율 대조: 부동산 기본·담보권 추가설정·법인 설립·자본증감·소송서류·개인회생파산 6개 표 일치(구간 연결값까지 검산). 공탁 표는 1억~5억 구간 정정. 부동산 추가(2~10개) 금액은 원문에서 확인 안 됨"
+  },
+  "court": {
+   "name": "법원 예납 기준(부산지방법원·창원지방법원·부산회생법원)",
+   "url": "",
+   "effective": "",
+   "checked": "",
+   "status": "todo",
+   "memo": "사무소 최근 사건의 예납명령서로 기준값 확정"
+  }
+ },
+ "categories": [
+  {
+   "id": "inheritance",
+   "name": "상속",
+   "items": [
+    {
+     "id": "acq.inherit",
+     "label": "취득세 — 상속",
+     "kind": "table",
+     "value": {
+      "농지": 0.023,
+      "농지 외": 0.028
+     },
+     "unit": "세율",
+     "sources": [
+      "acq"
+     ],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "fee.re.inherit",
+     "label": "등기신청수수료 — 상속등기",
+     "kind": "table",
+     "value": {
+      "서면": 20000,
+      "e-Form": 17000
+     },
+     "unit": "원/부동산",
+     "sources": [
+      "feeRe"
+     ],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "gasa.ra",
+     "label": "인지 — 상속포기·한정승인 신고(라류 가사비송)",
+     "kind": "fixed",
+     "value": 5000,
+     "unit": "원/건",
+     "sources": [
+      "gasa"
+     ],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "song.renounce",
+     "label": "송달료 — 상속포기·한정승인(느단)",
+     "kind": "formula",
+     "value": "당사자 수×6회분×5,640원",
+     "unit": "산식",
+     "sources": [
+      "song"
+     ],
+     "note": "",
+     "status": "check"
+    },
+    {
+     "id": "bond.gratuitous",
+     "label": "국민주택채권 — 상속·증여 등 무상 이전",
+     "kind": "ref",
+     "value": "부동산등기 › 국민주택채권 기준표 › 무상취득",
+     "unit": "",
+     "sources": [
+      "bond"
+     ],
+     "note": "",
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "id": "willtrust",
+   "name": "신탁",
+   "items": [
+    {
+     "id": "acq.trust",
+     "label": "취득세 — 위탁자→수탁자 이전·신탁 종료로 위탁자 복귀·수탁자 변경",
+     "kind": "fixed",
+     "value": 0,
+     "unit": "비과세",
+     "sources": [
+      "acq9"
+     ],
+     "note": "주택조합 관련 제외. 수익자에게 이전하면 과세",
+     "status": "ok"
+    },
+    {
+     "id": "fee.trust",
+     "label": "등기신청수수료 — 신탁등기",
+     "kind": "table",
+     "value": {
+      "서면": 8000,
+      "e-Form": 6000,
+      "전자": 4000
+     },
+     "unit": "원/부동산",
+     "sources": [
+      "feeRe"
+     ],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "reg.trust",
+     "label": "등록면허세 — 신탁등기",
+     "kind": "fixed",
+     "value": 6000,
+     "unit": "원/건",
+     "sources": [
+      "reg"
+     ],
+     "note": "그 밖의 등기 건당 6,000원(제28조 제1항 제1호 마목) + 지방교육세 1,200원. 취득시기 전 신탁등기는 비과세(대법원 2021두61178)",
+     "status": "ok"
+    },
+    {
+     "id": "bond.trust",
+     "label": "국민주택채권 — 신탁·신탁 종료 이전",
+     "kind": "fixed",
+     "value": 0,
+     "unit": "매입 제외",
+     "sources": [
+      "bond"
+     ],
+     "note": "",
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "id": "foreign",
+   "name": "외국인·재외국민",
+   "items": [
+    {
+     "id": "ref.re",
+     "label": "공과금 — 부동산등기 항목 전부 공용",
+     "kind": "ref",
+     "value": "부동산등기",
+     "unit": "",
+     "sources": [],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "bosu.foreign.ref",
+     "label": "가산 — 외국인·재외국민 포함 등기",
+     "kind": "ref",
+     "value": "부동산등기 › 가산 — 외국인·재외국민",
+     "unit": "",
+     "sources": [
+      "bosu"
+     ],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "cost.apostille",
+     "label": "번역·공증·아포스티유 실비",
+     "kind": "baseline",
+     "value": null,
+     "unit": "원",
+     "sources": [
+      "court"
+     ],
+     "note": "사무소 실비 기준값 입력 필요",
+     "status": "todo"
+    }
+   ]
+  },
+  {
+   "id": "insolvency",
+   "name": "회생·파산",
+   "items": [
+    {
+     "id": "inji.rehab",
+     "label": "인지 — 개인회생·회생·간이회생·채권자 파산신청",
+     "kind": "fixed",
+     "value": 30000,
+     "unit": "원",
+     "sources": [
+      "inji"
+     ],
+     "note": "전자소송은 10분의 9",
+     "status": "ok"
+    },
+    {
+     "id": "song.personalRehab",
+     "label": "송달료 — 개인회생",
+     "kind": "formula",
+     "value": "(10회 + 채권자 수×8회)×5,640원",
+     "unit": "산식",
+     "sources": [
+      "song"
+     ],
+     "note": "기존 계산기는 채권자 수×2회 — 2단계 엔진에서 교체",
+     "status": "check"
+    },
+    {
+     "id": "court.rehabCommissioner",
+     "label": "예납 — 회생위원 보수(영업소득자 등)",
+     "kind": "baseline",
+     "value": 150000,
+     "unit": "원",
+     "sources": [
+      "court"
+     ],
+     "note": "2차 자료 값 — 부산회생법원 예납명령으로 확정",
+     "status": "todo"
+    },
+    {
+     "id": "court.bankruptcyTrustee",
+     "label": "예납 — 파산관재인 비용",
+     "kind": "baseline",
+     "value": null,
+     "unit": "원",
+     "sources": [
+      "court"
+     ],
+     "note": "부산회생법원 기준 입력 필요",
+     "status": "todo"
+    },
+    {
+     "id": "bosu.insolvency",
+     "label": "보수 — 개인회생·파산",
+     "kind": "table",
+     "value": {
+      "ranges": [
+       {
+        "prevMax": 0,
+        "max": 50000000,
+        "base": 1030000,
+        "rate": 0
+       },
+       {
+        "prevMax": 50000000,
+        "max": 300000000,
+        "base": 1030000,
+        "rate": 0.0008
+       },
+       {
+        "prevMax": 300000000,
+        "max": 500000000,
+        "base": 1230000,
+        "rate": 0.0007
+       },
+       {
+        "prevMax": 500000000,
+        "max": 1000000000,
+        "base": 1370000,
+        "rate": 0.0005
+       },
+       {
+        "prevMax": 1000000000,
+        "max": "Infinity",
+        "base": 1620000,
+        "rate": 0.0004
+       }
+      ],
+      "rehabilitation": [
+       {
+        "prevMax": 0,
+        "max": 50000000,
+        "base": 1030000,
+        "rate": 0
+       },
+       {
+        "prevMax": 50000000,
+        "max": 300000000,
+        "base": 1030000,
+        "rate": 0.0008
+       },
+       {
+        "prevMax": 300000000,
+        "max": 500000000,
+        "base": 1230000,
+        "rate": 0.0007
+       },
+       {
+        "prevMax": 500000000,
+        "max": 1000000000,
+        "base": 1370000,
+        "rate": 0.0005
+       },
+       {
+        "prevMax": 1000000000,
+        "max": "Infinity",
+        "base": 1620000,
+        "rate": 0.0004
+       }
+      ],
+      "bankruptcy": [
+       {
+        "prevMax": 0,
+        "max": 50000000,
+        "base": 1030000,
+        "rate": 0
+       },
+       {
+        "prevMax": 50000000,
+        "max": 300000000,
+        "base": 1030000,
+        "rate": 0.0008
+       },
+       {
+        "prevMax": 300000000,
+        "max": 500000000,
+        "base": 1230000,
+        "rate": 0.0007
+       },
+       {
+        "prevMax": 500000000,
+        "max": 1000000000,
+        "base": 1370000,
+        "rate": 0.0005
+       },
+       {
+        "prevMax": 1000000000,
+        "max": "Infinity",
+        "base": 1620000,
+        "rate": 0.0004
+       }
+      ]
+     },
+     "unit": "구간",
+     "sources": [
+      "bosu"
+     ],
+     "note": "",
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "id": "realestate",
+   "name": "부동산등기",
+   "items": [
+    {
+     "id": "acq.house.buy",
+     "label": "취득세 — 유상거래 주택",
+     "kind": "formula",
+     "value": {
+      "6억 이하": 0.01,
+      "6억 초과 9억 이하": "(가액×2/3억−3)×1/100, 소수점 이하 다섯째자리 반올림",
+      "9억 초과": 0.03
+     },
+     "unit": "세율",
+     "sources": [
+      "acq"
+     ],
+     "note": "다주택·법인 중과(제13조의2)는 별도 확인",
+     "status": "ok"
+    },
+    {
+     "id": "acq.other.buy",
+     "label": "취득세 — 그 밖의 유상(농지 외)",
+     "kind": "rate",
+     "value": 0.04,
+     "unit": "세율",
+     "sources": [
+      "acq"
+     ],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "acq.farm.buy",
+     "label": "취득세 — 농지 유상",
+     "kind": "rate",
+     "value": 0.03,
+     "unit": "세율",
+     "sources": [
+      "acq"
+     ],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "acq.gift",
+     "label": "취득세 — 증여 등 무상",
+     "kind": "rate",
+     "value": 0.035,
+     "unit": "세율",
+     "sources": [
+      "acq"
+     ],
+     "note": "과세표준은 시가인정액 원칙. 조정대상지역 시가표준액 3억 이상 주택 증여는 중과 가능",
+     "status": "ok"
+    },
+    {
+     "id": "acq.original",
+     "label": "취득세 — 원시취득(보존)",
+     "kind": "rate",
+     "value": 0.028,
+     "unit": "세율",
+     "sources": [
+      "acq"
+     ],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "acq.partition",
+     "label": "취득세 — 공유물 분할(본인 지분 이내)",
+     "kind": "rate",
+     "value": 0.023,
+     "unit": "세율",
+     "sources": [
+      "acq"
+     ],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "edu.acq",
+     "label": "지방교육세(취득분)",
+     "kind": "formula",
+     "value": "(취득세율−2%)×20% · 유상 주택은 (세율×50%)×20% · 중과는 (4%−2%)×20%",
+     "unit": "산식",
+     "sources": [
+      "edu"
+     ],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "agri.acq",
+     "label": "농어촌특별세(취득분)",
+     "kind": "formula",
+     "value": "과세표준×2%×10% (전용 85㎡ 이하 주택 비과세)",
+     "unit": "산식",
+     "sources": [
+      "agri",
+      "agriEx"
+     ],
+     "note": "",
+     "status": "check"
+    },
+    {
+     "id": "reg.mortgage",
+     "label": "등록면허세 — 저당권 설정·이전",
+     "kind": "rate",
+     "value": 0.002,
+     "unit": "채권금액의 비율",
+     "sources": [
+      "reg"
+     ],
+     "note": "최저 6,000원",
+     "status": "ok"
+    },
+    {
+     "id": "reg.lease",
+     "label": "등록면허세 — 전세권·임차권",
+     "kind": "rate",
+     "value": 0.002,
+     "unit": "전세금·월 임대차금액의 비율",
+     "sources": [
+      "reg"
+     ],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "reg.provisional",
+     "label": "등록면허세 — 경매신청·가압류·가처분·가등기",
+     "kind": "rate",
+     "value": 0.002,
+     "unit": "채권금액(가등기는 가액 또는 채권금액)의 비율",
+     "sources": [
+      "reg"
+     ],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "reg.other",
+     "label": "등록면허세 — 그 밖의 부동산 등기(말소·변경 등)",
+     "kind": "fixed",
+     "value": 6000,
+     "unit": "원/건",
+     "sources": [
+      "reg"
+     ],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "edu.reg",
+     "label": "지방교육세(등록분)",
+     "kind": "rate",
+     "value": 0.2,
+     "unit": "등록면허세의 비율",
+     "sources": [
+      "edu"
+     ],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "bond.table",
+     "label": "국민주택채권 매입 기준표",
+     "kind": "table",
+     "value": {
+      "cols": [
+       "특별시·광역시",
+       "그 밖의 지역"
+      ],
+      "unit": "시가표준액의 1천분의",
+      "house": [
+       [
+        20000000.0,
+        50000000.0,
+        13,
+        13
+       ],
+       [
+        50000000.0,
+        100000000.0,
+        19,
+        14
+       ],
+       [
+        100000000.0,
+        160000000.0,
+        21,
+        16
+       ],
+       [
+        160000000.0,
+        260000000.0,
+        23,
+        18
+       ],
+       [
+        260000000.0,
+        600000000.0,
+        26,
+        21
+       ],
+       [
+        600000000.0,
+        null,
+        31,
+        26
+       ]
+      ],
+      "land": [
+       [
+        5000000.0,
+        50000000.0,
+        25,
+        20
+       ],
+       [
+        50000000.0,
+        100000000.0,
+        40,
+        35
+       ],
+       [
+        100000000.0,
+        null,
+        50,
+        45
+       ]
+      ],
+      "other": [
+       [
+        10000000.0,
+        130000000.0,
+        10,
+        8
+       ],
+       [
+        130000000.0,
+        250000000.0,
+        16,
+        14
+       ],
+       [
+        250000000.0,
+        null,
+        20,
+        18
+       ]
+      ],
+      "gratuitous": [
+       [
+        10000000.0,
+        50000000.0,
+        18,
+        14
+       ],
+       [
+        50000000.0,
+        150000000.0,
+        28,
+        25
+       ],
+       [
+        150000000.0,
+        null,
+        42,
+        39
+       ]
+      ],
+      "mortgage": {
+       "min": 20000000.0,
+       "rate": 10,
+       "cap": 1000000000.0
+      },
+      "rounding": "1만원 미만 단수: 5천원 이상 올림·미만 버림, 최저 1만원",
+      "exempt": "공유지분대로 분할 이전, 신탁·신탁 종료에 따른 이전은 매입 제외"
+     },
+     "unit": "",
+     "sources": [
+      "bond"
+     ],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "stamp.transfer",
+     "label": "인지세 — 소유권 이전 증서",
+     "kind": "table",
+     "value": [
+      [
+       10000000.0,
+       0
+      ],
+      [
+       30000000.0,
+       20000
+      ],
+      [
+       50000000.0,
+       40000
+      ],
+      [
+       100000000.0,
+       70000
+      ],
+      [
+       1000000000.0,
+       150000
+      ],
+      [
+       null,
+       350000
+      ]
+     ],
+     "unit": "기재금액 상한 → 세액",
+     "sources": [
+      "stamp"
+     ],
+     "note": "주택은 기재금액 1억원 이하 비과세",
+     "status": "check"
+    },
+    {
+     "id": "fee.re",
+     "label": "등기신청수수료 — 부동산(보존·이전·설정·가등기)",
+     "kind": "table",
+     "value": {
+      "서면": 18000,
+      "e-Form": 15000,
+      "전자": 10000
+     },
+     "unit": "원/부동산",
+     "sources": [
+      "feeRe"
+     ],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "fee.re.other",
+     "label": "등기신청수수료 — 그 밖의 부동산등기(말소·변경 등)",
+     "kind": "table",
+     "value": {
+      "서면": 4000,
+      "e-Form": 3000,
+      "전자": 1000
+     },
+     "unit": "원/부동산",
+     "sources": [
+      "feeRe"
+     ],
+     "note": "표시변경·분필·합필 등은 면제",
+     "status": "ok"
+    },
+    {
+     "id": "bosu.re.base",
+     "label": "보수 — 부동산등기 기본보수(누진)",
+     "kind": "table",
+     "value": [
+      {
+       "prevMax": 0,
+       "max": 50000000,
+       "base": 210000,
+       "rate": 0
+      },
+      {
+       "prevMax": 50000000,
+       "max": 100000000,
+       "base": 210000,
+       "rate": 0.001
+      },
+      {
+       "prevMax": 100000000,
+       "max": 300000000,
+       "base": 260000,
+       "rate": 0.0009
+      },
+      {
+       "prevMax": 300000000,
+       "max": 500000000,
+       "base": 440000,
+       "rate": 0.0008
+      },
+      {
+       "prevMax": 500000000,
+       "max": 1000000000,
+       "base": 600000,
+       "rate": 0.0007
+      },
+      {
+       "prevMax": 1000000000,
+       "max": 2000000000,
+       "base": 950000,
+       "rate": 0.0005
+      },
+      {
+       "prevMax": 2000000000,
+       "max": 20000000000,
+       "base": 1450000,
+       "rate": 0.0004
+      },
+      {
+       "prevMax": 20000000000,
+       "max": "Infinity",
+       "base": 8650000,
+       "rate": 0.0001
+      }
+     ],
+     "unit": "구간",
+     "sources": [
+      "bosu"
+     ],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "bosu.re.mortgageAdd",
+     "label": "보수 — 담보권 추가설정",
+     "kind": "table",
+     "value": [
+      {
+       "prevMax": 0,
+       "max": 50000000,
+       "base": 105000,
+       "rate": 0
+      },
+      {
+       "prevMax": 50000000,
+       "max": 200000000,
+       "base": 105000,
+       "rate": 0.0005
+      },
+      {
+       "prevMax": 200000000,
+       "max": 1000000000,
+       "base": 180000,
+       "rate": 0.0002
+      },
+      {
+       "prevMax": 1000000000,
+       "max": 10000000000,
+       "base": 340000,
+       "rate": 0.0001
+      },
+      {
+       "prevMax": 10000000000,
+       "max": "Infinity",
+       "base": 1240000,
+       "rate": 5e-05
+      }
+     ],
+     "unit": "구간",
+     "sources": [
+      "bosu"
+     ],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "bosu.agency.deed",
+     "label": "대행료 — 등기원인증서 작성·검인·거래신고",
+     "kind": "fixed",
+     "value": 50000,
+     "unit": "원/건",
+     "sources": [
+      "bosu"
+     ],
+     "note": "개정 기준 제25조와 일치(2026-11-23 대조)",
+     "status": "ok"
+    },
+    {
+     "id": "bosu.agency.bond",
+     "label": "대행료 — 국민주택채권 매입·즉시매도",
+     "kind": "fixed",
+     "value": 40000,
+     "unit": "원/건",
+     "sources": [
+      "bosu"
+     ],
+     "note": "개정 기준 제25조와 일치(2026-11-23 대조)",
+     "status": "ok"
+    },
+    {
+     "id": "bosu.re.addProperty",
+     "label": "가산 — 부동산 추가",
+     "kind": "table",
+     "value": {
+      "2~10개(1개마다)": 30000,
+      "10개 초과분(1개마다)": 20000
+     },
+     "unit": "원/개",
+     "sources": [
+      "bosu"
+     ],
+     "note": "10개 초과분 20,000원은 원문(제10조 제1항) 확인. 2~10개 1개마다 30,000원은 법무사 결정(2026-11-28, 기존 계산기 금액 유지)",
+     "status": "ok"
+    },
+    {
+     "id": "bosu.foreign",
+     "label": "가산 — 외국인·재외국민 포함 등기",
+     "kind": "rate",
+     "value": 1.0,
+     "unit": "기본보수 대비 상한",
+     "sources": [
+      "bosu"
+     ],
+     "note": "100% 이내 재량 가산(제10조)",
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "id": "corporation",
+   "name": "법인등기",
+   "items": [
+    {
+     "id": "reg.corp.establish",
+     "label": "등록면허세 — 영리법인 설립·증자",
+     "kind": "rate",
+     "value": 0.004,
+     "unit": "납입금액의 비율",
+     "sources": [
+      "reg"
+     ],
+     "note": "최저 112,500원",
+     "status": "ok"
+    },
+    {
+     "id": "reg.corp.nonprofit",
+     "label": "등록면허세 — 비영리법인 설립·출자 증가",
+     "kind": "rate",
+     "value": 0.002,
+     "unit": "납입금액의 비율",
+     "sources": [
+      "reg"
+     ],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "reg.corp.hq",
+     "label": "등록면허세 — 본점·주사무소 이전",
+     "kind": "fixed",
+     "value": 112500,
+     "unit": "원/건",
+     "sources": [
+      "reg"
+     ],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "reg.corp.branch",
+     "label": "등록면허세 — 지점 설치",
+     "kind": "fixed",
+     "value": 40200,
+     "unit": "원/건",
+     "sources": [
+      "reg"
+     ],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "reg.corp.other",
+     "label": "등록면허세 — 그 밖의 법인등기(임원변경 등)",
+     "kind": "fixed",
+     "value": 40200,
+     "unit": "원/건",
+     "sources": [
+      "reg"
+     ],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "reg.corp.metro",
+     "label": "등록면허세 — 대도시 중과",
+     "kind": "rate",
+     "value": 3.0,
+     "unit": "해당 세율의 배수",
+     "sources": [
+      "reg"
+     ],
+     "note": "대도시 설립·지점 설치·대도시 전입(5년 내 증자 포함). 그 밖의 등기는 제외",
+     "status": "ok"
+    },
+    {
+     "id": "edu.corp",
+     "label": "지방교육세(등록분)",
+     "kind": "rate",
+     "value": 0.2,
+     "unit": "등록면허세의 비율",
+     "sources": [
+      "edu"
+     ],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "fee.corp.establish",
+     "label": "등기신청수수료 — 설립·관할 외 본점이전",
+     "kind": "table",
+     "value": {
+      "서면": 35000,
+      "e-Form": 28000,
+      "전자": 20000
+     },
+     "unit": "원/건",
+     "sources": [
+      "feeCo"
+     ],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "fee.corp.other",
+     "label": "등기신청수수료 — 그 밖의 상업등기",
+     "kind": "table",
+     "value": {
+      "서면": 7000,
+      "e-Form": 5000,
+      "전자": 2000
+     },
+     "unit": "원/등기 목적",
+     "sources": [
+      "feeCo"
+     ],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "cost.notary",
+     "label": "의사록 인증 공증료",
+     "kind": "baseline",
+     "value": null,
+     "unit": "원",
+     "sources": [
+      "court"
+     ],
+     "note": "공증인 수수료규칙 확인 후 기준값 입력",
+     "status": "todo"
+    },
+    {
+     "id": "bosu.corp.establish",
+     "label": "보수 — 설립",
+     "kind": "table",
+     "value": [
+      {
+       "prevMax": 0,
+       "max": 50000000,
+       "base": 420000,
+       "rate": 0
+      },
+      {
+       "prevMax": 50000000,
+       "max": 100000000,
+       "base": 420000,
+       "rate": 0.0022
+      },
+      {
+       "prevMax": 100000000,
+       "max": 300000000,
+       "base": 530000,
+       "rate": 0.0009
+      },
+      {
+       "prevMax": 300000000,
+       "max": 500000000,
+       "base": 710000,
+       "rate": 0.0008
+      },
+      {
+       "prevMax": 500000000,
+       "max": 1000000000,
+       "base": 870000,
+       "rate": 0.0007
+      },
+      {
+       "prevMax": 1000000000,
+       "max": 2000000000,
+       "base": 1220000,
+       "rate": 0.0006
+      },
+      {
+       "prevMax": 2000000000,
+       "max": 20000000000,
+       "base": 1820000,
+       "rate": 0.0004
+      },
+      {
+       "prevMax": 20000000000,
+       "max": "Infinity",
+       "base": 9020000,
+       "rate": 0.0001
+      }
+     ],
+     "unit": "구간",
+     "sources": [
+      "bosu"
+     ],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "bosu.corp.capital",
+     "label": "보수 — 자본증감",
+     "kind": "table",
+     "value": [
+      {
+       "prevMax": 0,
+       "max": 50000000,
+       "base": 300000,
+       "rate": 0
+      },
+      {
+       "prevMax": 50000000,
+       "max": 100000000,
+       "base": 300000,
+       "rate": 0.0019
+      },
+      {
+       "prevMax": 100000000,
+       "max": 300000000,
+       "base": 395000,
+       "rate": 0.0008
+      },
+      {
+       "prevMax": 300000000,
+       "max": 500000000,
+       "base": 555000,
+       "rate": 0.0007
+      },
+      {
+       "prevMax": 500000000,
+       "max": 1000000000,
+       "base": 695000,
+       "rate": 0.0006
+      },
+      {
+       "prevMax": 1000000000,
+       "max": 2000000000,
+       "base": 995000,
+       "rate": 0.0005
+      },
+      {
+       "prevMax": 2000000000,
+       "max": 20000000000,
+       "base": 1495000,
+       "rate": 0.0004
+      },
+      {
+       "prevMax": 20000000000,
+       "max": "Infinity",
+       "base": 8695000,
+       "rate": 0.0001
+      }
+     ],
+     "unit": "구간",
+     "sources": [
+      "bosu"
+     ],
+     "note": "",
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "id": "lawsuit",
+   "name": "민사소송",
+   "items": [
+    {
+     "id": "inji.complaint",
+     "label": "인지 — 소장",
+     "kind": "table",
+     "value": [
+      [
+       10000000.0,
+       "소가×50/10000"
+      ],
+      [
+       100000000.0,
+       "소가×45/10000+5,000"
+      ],
+      [
+       1000000000.0,
+       "소가×40/10000+55,000"
+      ],
+      [
+       null,
+       "소가×35/10000+555,000"
+      ]
+     ],
+     "unit": "소가 상한 → 산식",
+     "sources": [
+      "inji"
+     ],
+     "note": "1천원 미만은 1천원, 100원 미만 버림(기존 계산기는 올림 — 수정 대상). 항소 1.5배·상고 2배",
+     "status": "ok"
+    },
+    {
+     "id": "inji.electronic",
+     "label": "인지 — 전자소송 특례",
+     "kind": "rate",
+     "value": 0.9,
+     "unit": "인지액의 비율",
+     "sources": [
+      "inji"
+     ],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "inji.paymentOrder",
+     "label": "인지 — 지급명령",
+     "kind": "rate",
+     "value": 0.1,
+     "unit": "소장 인지의 비율",
+     "sources": [
+      "inji"
+     ],
+     "note": "1천원 미만은 1천원, 100원 미만 버림",
+     "status": "ok"
+    },
+    {
+     "id": "song.unit",
+     "label": "송달료 1회분",
+     "kind": "fixed",
+     "value": 5640,
+     "unit": "원",
+     "sources": [
+      "song"
+     ],
+     "note": "2026. 7. 1.부터",
+     "status": "check"
+    },
+    {
+     "id": "song.basis.civil",
+     "label": "송달료 납부 기준(민사)",
+     "kind": "table",
+     "value": {
+      "가합·가단": 15,
+      "가소": 10,
+      "항소(나)": 12,
+      "상고(다)": 8
+     },
+     "unit": "당사자 1인당 회분",
+     "sources": [
+      "song"
+     ],
+     "note": "",
+     "status": "check"
+    },
+    {
+     "id": "bosu.litigation",
+     "label": "보수 — 소장 등 서류 작성",
+     "kind": "table",
+     "value": {
+      "ranges": [
+       {
+        "prevMax": 0,
+        "max": 30000000,
+        "base": 560000,
+        "rate": 0
+       },
+       {
+        "prevMax": 30000000,
+        "max": 200000000,
+        "base": 560000,
+        "rate": 0.001
+       },
+       {
+        "prevMax": 200000000,
+        "max": 500000000,
+        "base": 730000,
+        "rate": 0.0009
+       },
+       {
+        "prevMax": 500000000,
+        "max": 1000000000,
+        "base": 1000000,
+        "rate": 0.0004
+       },
+       {
+        "prevMax": 1000000000,
+        "max": 2000000000,
+        "base": 1200000,
+        "rate": 0.0003
+       },
+       {
+        "prevMax": 2000000000,
+        "max": "Infinity",
+        "base": 1500000,
+        "rate": 0.0001
+       }
+      ],
+      "paymentOrder": [
+       {
+        "prevMax": 0,
+        "max": 30000000,
+        "base": 260000,
+        "rate": 0
+       },
+       {
+        "prevMax": 30000000,
+        "max": 200000000,
+        "base": 260000,
+        "rate": 0.0001
+       },
+       {
+        "prevMax": 200000000,
+        "max": 500000000,
+        "base": 277000,
+        "rate": 0.0005
+       },
+       {
+        "prevMax": 500000000,
+        "max": 1000000000,
+        "base": 427000,
+        "rate": 0.0004
+       },
+       {
+        "prevMax": 1000000000,
+        "max": 2000000000,
+        "base": 627000,
+        "rate": 0.0002
+       },
+       {
+        "prevMax": 2000000000,
+        "max": "Infinity",
+        "base": 827000,
+        "rate": 0.0001
+       }
+      ]
+     },
+     "unit": "구간",
+     "sources": [
+      "bosu"
+     ],
+     "note": "고난도 사건 250% 가산(제24조 제2항, 2026. 8. 20.)",
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "id": "enforcement",
+   "name": "민사집행",
+   "items": [
+    {
+     "id": "inji.provisional",
+     "label": "인지 — 가압류·가처분 신청",
+     "kind": "fixed",
+     "value": 10000,
+     "unit": "원",
+     "sources": [
+      "inji"
+     ],
+     "note": "임시지위 가처분은 본안 인지의 1/2, 상한 50만원",
+     "status": "ok"
+    },
+    {
+     "id": "inji.auction",
+     "label": "인지 — 부동산 경매 신청",
+     "kind": "fixed",
+     "value": 5000,
+     "unit": "원",
+     "sources": [
+      "inji"
+     ],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "inji.seizure",
+     "label": "인지 — 채권압류 등 강제집행 신청",
+     "kind": "fixed",
+     "value": 2000,
+     "unit": "원",
+     "sources": [
+      "inji"
+     ],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "reg.provisional.ref",
+     "label": "등록면허세 — 가압류·가처분·경매기입 등기",
+     "kind": "ref",
+     "value": "부동산등기 › 등록면허세 — 경매신청·가압류·가처분·가등기",
+     "unit": "",
+     "sources": [
+      "reg"
+     ],
+     "note": "",
+     "status": "ok"
+    },
+    {
+     "id": "court.auctionDeposit",
+     "label": "예납 — 부동산 경매 예납금(감정료·현황조사·매각수수료·신문공고료)",
+     "kind": "baseline",
+     "value": null,
+     "unit": "원",
+     "sources": [
+      "court"
+     ],
+     "note": "부산·창원지법 예납명령 기준으로 사무소 기준값 입력",
+     "status": "todo"
+    }
+   ]
+  },
+  {
+   "id": "family",
+   "name": "가사·공탁",
+   "items": [
+    {
+     "id": "song.deposit",
+     "label": "송달료 — 공탁(우표 사용 업무) 1회분",
+     "kind": "fixed",
+     "value": 5420,
+     "unit": "원",
+     "sources": [
+      "song"
+     ],
+     "note": "",
+     "status": "check"
+    },
+    {
+     "id": "bosu.deposit",
+     "label": "보수 — 공탁",
+     "kind": "table",
+     "value": {
+      "ranges": [
+       {
+        "prevMax": 0,
+        "max": 50000000,
+        "base": 150000,
+        "rate": 0
+       },
+       {
+        "prevMax": 50000000,
+        "max": 100000000,
+        "base": 150000,
+        "rate": 0.0009
+       },
+       {
+        "prevMax": 100000000,
+        "max": 300000000,
+        "base": 195000,
+        "rate": 0.0008
+       },
+       {
+        "prevMax": 300000000,
+        "max": 500000000,
+        "base": 355000,
+        "rate": 0.0006
+       },
+       {
+        "prevMax": 500000000,
+        "max": 1000000000,
+        "base": 475000,
+        "rate": 0.0005
+       },
+       {
+        "prevMax": 1000000000,
+        "max": 2000000000,
+        "base": 725000,
+        "rate": 0.0004
+       },
+       {
+        "prevMax": 2000000000,
+        "max": 10000000000,
+        "base": 1125000,
+        "rate": 0.0004
+       },
+       {
+        "prevMax": 10000000000,
+        "max": "Infinity",
+        "base": 4325000,
+        "rate": 0.0001
+       }
+      ],
+      "retrievalFee": 50000
+     },
+     "unit": "구간",
+     "sources": [
+      "bosu"
+     ],
+     "note": "11-28 개정본 원문 대조로 정정: 1억~3억 195,000+8/10,000, 3억~5억 355,000+6/10,000 (기존 계산기는 195,000+10/10,000·395,000+4/10,000 — 1억 초과 공탁 보수가 틀리게 나옴)",
+     "status": "ok"
+    }
+   ]
+  }
+ ]
+}
