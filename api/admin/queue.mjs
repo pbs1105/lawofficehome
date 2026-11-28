@@ -5,6 +5,7 @@
 
 const NOTION = 'https://api.notion.com/v1';
 const CONSULT_DB = '4020ce34-50b8-810b-ba4d-f2a47407a9fa'; // 상담DB
+const CASE_DB = '2f70ce34-50b8-8090-a77b-ef2ecdb1d20d'; // 사건부DB
 
 const json = (body, status = 200) =>
   new Response(JSON.stringify(body), {
@@ -17,6 +18,15 @@ const sel = (p, k) => (prop(p, k).select || {}).name || '';
 const num = (p, k) => (typeof prop(p, k).number === 'number' ? prop(p, k).number : 0);
 const date = (p, k) => (prop(p, k).date || {}).start || '';
 const title = (p, k) => (prop(p, k).title || []).map((t) => t.plain_text).join('');
+// 담당직원: 사람·선택·텍스트 어느 형식이든 이름만
+const who = (p, k) => {
+  const v = prop(p, k);
+  if (Array.isArray(v.people)) return v.people.map((x) => x.name || '').filter(Boolean).join(', ');
+  if (v.select) return v.select.name || '';
+  if (Array.isArray(v.multi_select)) return v.multi_select.map((x) => x.name).join(', ');
+  if (Array.isArray(v.rich_text)) return v.rich_text.map((t) => t.plain_text).join('');
+  return '';
+};
 
 const DAY = 86400000;
 const daysSince = (iso) => (iso ? Math.max(0, Math.floor((Date.now() - new Date(iso).getTime()) / DAY)) : null);
@@ -29,6 +39,22 @@ const INTAKE_QUEUES = [
   { id: 'send', label: '발송 대기', todo: '메일·카톡 발송 버튼', test: (r) => r.verify === '✅ 검증완료' && (r.send === '작성중' || r.send === '검토완료') },
   { id: 'supplement', label: '보완자료 도착', todo: '재분석 결과 확인', test: (r) => r.round > 0 && (r.analysis === '분석대기' || r.analysis === '분석중') },
   { id: 'convert', label: '수임 전환 대기', todo: '수임확정이면 사건부DB 전환·폴더 이동, 아니면 미수임종료', test: (r) => r.send === '발송완료' && r.analysis !== '분석대기' && r.analysis !== '분석중' },
+];
+
+// 2 관리 · 3 생성 — 사건부DB 상태가 수임·진행중·제출완료인 건 (상담·종결·미수임종료 제외)
+// 추출상태: 대기 / 추출중 / 추출완료(⚠️미검증) / 검증완료 / 오류,  생성상태: 미생성 / 초안생성 / 검토중 / 03확정
+const active = (r) => r.state === '수임' || r.state === '진행중';
+const MANAGE_QUEUES = [
+  { id: 'extract-error', label: '추출 오류', todo: '작업로그 확인 → 01 서류 정리 후 「추출시작」 다시', test: (r) => active(r) && r.extract === '오류' },
+  { id: 'extract-wait', label: '추출 대기', todo: '01 서류를 하위폴더에 정리한 뒤 「추출시작」', test: (r) => active(r) && r.extract === '대기' },
+  { id: 'extract-verify', label: '추출값 검증 대기', todo: '추출값DB에서 값 대조 → ✅', test: (r) => active(r) && r.extract.startsWith('추출완료') },
+  { id: 'no-owner', label: '담당 직원 미지정', todo: '사건부DB 담당직원 지정', test: (r) => active(r) && !r.owner },
+  { id: 'in-progress', label: '진행 사건 전체', todo: '카테고리·담당별 진행 확인', test: (r) => active(r) },
+];
+const GENERATE_QUEUES = [
+  { id: 'draft-wait', label: '초안 생성 대기', todo: '사무실 PC에서 Fill engine 실행 → 02 초안', test: (r) => active(r) && r.extract === '검증완료' && (!r.generate || r.generate === '미생성') },
+  { id: 'review', label: '검토 중', todo: '02 초안 검토 → 03 제출확정자료로 복사 후 「03확정」', test: (r) => active(r) && (r.generate === '초안생성' || r.generate === '검토중') },
+  { id: 'confirmed', label: '03 확정 — 제출 준비', todo: '4 제출 메뉴에서 작성 도구 실행(최종 제출은 직원)', test: (r) => active(r) && r.generate === '03확정' },
 ];
 
 async function queryAll(token, dbId, filter) {
@@ -54,24 +80,52 @@ export async function GET(request) {
   if (!token) return json({ error: 'NOTION_TOKEN 미설정 — Vercel 환경변수에 노션 통합 토큰을 넣어 주세요.' }, 503);
 
   const stage = new URL(request.url).searchParams.get('stage') || 'intake';
-  if (stage !== 'intake') return json({ error: `아직 만들지 않은 업무입니다: ${stage}` }, 400);
+  if (!['intake', 'manage', 'generate'].includes(stage)) return json({ error: `아직 만들지 않은 업무입니다: ${stage}` }, 400);
 
   try {
-    const pages = await queryAll(token, CONSULT_DB, { property: '상태', select: { equals: '상담중' } });
-    const rows = pages.map((p) => ({
-      url: p.url,
-      title: title(p, '상담번호-고객명-사건명'),
-      type: sel(p, '상담유형'),
-      route: sel(p, '접수경로'),
-      received: date(p, '접수일'),
-      analysis: sel(p, '분석상태'),
-      verify: sel(p, '검증상태'),
-      send: sel(p, '발송상태'),
-      round: num(p, '보완차수'),
-      idleDays: daysSince(p.last_edited_time),
-    }));
-    const queues = INTAKE_QUEUES.map((q) => {
-      const items = rows.filter(q.test).sort((a, b) => (b.idleDays ?? 0) - (a.idleDays ?? 0));
+    let rows, defs;
+    if (stage === 'intake') {
+      const pages = await queryAll(token, CONSULT_DB, { property: '상태', select: { equals: '상담중' } });
+      rows = pages.map((p) => {
+        const r = {
+          url: p.url,
+          title: title(p, '상담번호-고객명-사건명'),
+          analysis: sel(p, '분석상태'),
+          verify: sel(p, '검증상태'),
+          send: sel(p, '발송상태'),
+          round: num(p, '보완차수'),
+          idleDays: daysSince(p.last_edited_time),
+        };
+        r.tags = [sel(p, '상담유형'), sel(p, '접수경로'), r.round ? `보완 ${r.round}차` : ''].filter(Boolean);
+        r.status = [r.analysis || '-', r.verify || '-', r.send || '-'].join(' · ');
+        return r;
+      });
+      defs = INTAKE_QUEUES;
+    } else {
+      const pages = await queryAll(token, CASE_DB, {
+        and: ['상담', '종결', '미수임종료'].map((v) => ({ property: '상태', select: { does_not_equal: v } })),
+      });
+      rows = pages.map((p) => {
+        const r = {
+          url: p.url,
+          title: title(p, '사건번호-고객명-사건명'),
+          state: sel(p, '상태'),
+          extract: sel(p, '추출상태'),
+          generate: sel(p, '생성상태'),
+          owner: who(p, '담당직원'),
+          idleDays: daysSince(p.last_edited_time),
+        };
+        r.tags = [sel(p, '신규사건카테고리') || sel(p, '상담유형'), r.owner ? `담당 ${r.owner}` : '담당 미지정'].filter(Boolean);
+        r.status = [r.state || '-', '추출 ' + (r.extract || '-'), '생성 ' + (r.generate || '-')].join(' · ');
+        return r;
+      });
+      defs = stage === 'manage' ? MANAGE_QUEUES : GENERATE_QUEUES;
+    }
+    const queues = defs.map((q) => {
+      const items = rows
+        .filter(q.test)
+        .sort((a, b) => (b.idleDays ?? 0) - (a.idleDays ?? 0))
+        .map(({ url, title: t, tags, status, idleDays }) => ({ url, title: t, tags, status, idleDays }));
       return { id: q.id, label: q.label, todo: q.todo, count: items.length, items };
     });
     return json({ stage, generatedAt: new Date().toISOString(), total: rows.length, queues });
