@@ -6,6 +6,8 @@
 const NOTION = 'https://api.notion.com/v1';
 const CONSULT_DB = '4020ce34-50b8-810b-ba4d-f2a47407a9fa'; // 상담DB
 const CASE_DB = '2f70ce34-50b8-8090-a77b-ef2ecdb1d20d'; // 사건부DB
+const DEADLINE_DB = '02864565-80c7-44be-8624-1aa5aec17911'; // 기한DB (행 1개 = 기한 1개)
+const DEADLINE_DAYS = 7; // 첫 화면 「기한 임박」: 지난 기한 + 오늘부터 7일 이내
 
 const json = (body, status = 200) =>
   new Response(JSON.stringify(body), {
@@ -17,6 +19,7 @@ const prop = (p, k) => (p.properties || {})[k] || {};
 const sel = (p, k) => (prop(p, k).select || {}).name || '';
 const num = (p, k) => (typeof prop(p, k).number === 'number' ? prop(p, k).number : 0);
 const date = (p, k) => (prop(p, k).date || {}).start || '';
+const rel = (p, k) => (prop(p, k).relation || []).map((x) => x.id);
 const title = (p, k) => (prop(p, k).title || []).map((t) => t.plain_text).join('');
 // 담당직원: 사람·선택·텍스트 어느 형식이든 이름만
 const who = (p, k) => {
@@ -70,7 +73,7 @@ async function queryAll(token, dbId, filter) {
       headers: { authorization: `Bearer ${token}`, 'notion-version': '2022-06-28', 'content-type': 'application/json' },
       body: JSON.stringify({ page_size: 100, filter, ...(cursor ? { start_cursor: cursor } : {}) }),
     });
-    if (!res.ok) throw new Error(`노션 조회 실패 (${res.status})`);
+    if (!res.ok) { const e = new Error(`노션 조회 실패 (${res.status})`); e.status = res.status; throw e; }
     const j = await res.json();
     out.push(...(j.results || []));
     if (!j.has_more) break;
@@ -110,6 +113,42 @@ function caseRow(p) {
   return r;
 }
 
+// 한국 날짜 기준 오늘(YYYY-MM-DD)과 n일 뒤
+const kstDate = (plusDays = 0) => new Date(Date.now() + 9 * 3600000 + plusDays * DAY).toISOString().slice(0, 10);
+const daysUntil = (ymd, today) => Math.round((new Date(ymd + 'T00:00:00Z') - new Date(today + 'T00:00:00Z')) / DAY);
+
+// 기한DB — 처리상태가 대기(또는 비어 있음)이고 기한일이 7일 안에 들어오거나 이미 지난 건
+// 노션 통합이 이 DB에 연결되어 있지 않으면 connected:false 로 돌려준다(첫 화면은 그대로 뜬다)
+async function deadlineSummary(token, caseTitles) {
+  const today = kstDate();
+  try {
+    const pages = await queryAll(token, DEADLINE_DB, {
+      and: [
+        { property: '기한일', date: { on_or_before: kstDate(DEADLINE_DAYS) } },
+        { or: [{ property: '처리상태', select: { equals: '대기' } }, { property: '처리상태', select: { is_empty: true } }] },
+      ],
+    });
+    const items = pages
+      .map((p) => {
+        const due = date(p, '기한일').slice(0, 10);
+        const caseId = rel(p, '사건')[0];
+        return {
+          url: p.url,
+          title: title(p, '기한명') || '(기한명 없음)',
+          caseTitle: (caseId && caseTitles.get(caseId.replace(/-/g, ''))) || '',
+          due,
+          dday: due ? daysUntil(due, today) : null,
+        };
+      })
+      .filter((d) => d.due)
+      .sort((a, b) => a.dday - b.dday);
+    return { connected: true, days: DEADLINE_DAYS, count: items.length, overdue: items.filter((d) => d.dday < 0).length, items: items.slice(0, 8) };
+  } catch (e) {
+    if (e.status === 404 || e.status === 403) return { connected: false, reason: '노션 통합(n8n연결)이 기한DB에 연결되어 있지 않습니다' };
+    return { connected: true, error: String(e.message || e) };
+  }
+}
+
 const intakePages = (token) => queryAll(token, CONSULT_DB, { property: '상태', select: { equals: '상담중' } });
 const casePages = (token) => queryAll(token, CASE_DB, {
   and: ['상담', '종결', '미수임종료'].map((v) => ({ property: '상태', select: { does_not_equal: v } })),
@@ -147,16 +186,18 @@ export async function GET(request) {
         { id: 'generate', label: '2 생성', page: 'queue-generate', todo: todoCount(GENERATE_QUEUES, crows), total: crows.filter(active).length, totalLabel: '수임·진행중 사건' },
         { id: 'submit', label: '3 제출', page: 'queue-submit', todo: todoCount(SUBMIT_QUEUES, crows), total: crows.filter((r) => active(r) || r.state === '제출완료').length, totalLabel: '진행 사건' },
       ];
+      const caseTitles = new Map(cp.map((p) => [p.id.replace(/-/g, ''), title(p, '사건번호-고객명-사건명')]));
+      const deadlines = await deadlineSummary(token, caseTitles);
       const byCat = {};
       for (const r of crows) byCat[r.category || '미분류'] = (byCat[r.category || '미분류'] || 0) + 1;
       return json({
         stage, generatedAt,
-        todayTodo: stages.reduce((n, s) => n + s.todo, 0),
+        todayTodo: stages.reduce((n, s) => n + s.todo, 0) + (deadlines.count || 0),
         consultations: irows.length,
         cases: crows.length,
         byCategory: Object.entries(byCat).sort((a, b) => b[1] - a[1]).map(([label, count]) => ({ label, count })),
         stages,
-        deadlines: null, // 기한DB 연결 후 채움
+        deadlines,
       });
     }
     if (stage === 'intake') {
