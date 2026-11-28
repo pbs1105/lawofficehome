@@ -98,6 +98,7 @@ const ADMIN_MENU = [
     items: [
       { id: 'queue-account', label: '처리할 일 목록 (견적·입금 확인·증빙·정산)' },
       { id: 'quote-calc', label: '견적 계산 (요율표 1.0 · 견적서 · 노션 저장)' },
+      { id: 'pay-record', label: '입금·증빙 기록 (현금영수증·세금계산서 발급 관리)' },
       { id: 'calc-comprehensive', label: '공과금 자동생성 (취득세·국민주택채권·인지대·송달료 등)' },
       { id: 'calc-fee', label: '보수료 자동생성' },
       { id: 'calc-bond', label: '국민주택채권 계산기 (개별)' },
@@ -560,6 +561,8 @@ function navigateTo(pageId) {
     renderTool(pageId);
   } else if (pageId === 'quote-calc') {
     renderQuoteCalc();
+  } else if (pageId === 'pay-record') {
+    renderPayRecord();
   } else if (pageId.startsWith('queue-')) {
     renderQueue(pageId);
   } else if (pageId.startsWith('help-')) {
@@ -929,6 +932,151 @@ async function qcSave(btn) {
   } catch (e) {
     document.getElementById('qcMsg').innerHTML = `<span class="q-icon dl-hot">✖</span> ${qEsc(e.message)}`;
   } finally { btn.disabled = false; }
+}
+
+/* ============================================================
+   5-3. 입금·증빙 기록 (2026-11-28)
+   사건번호 → 회계(청구) 행과 입금 목록 → 입금 1건 기록, 증빙 발행 결과 기록.
+   법무사업은 현금영수증 의무발행업종: 10만 원 이상 현금·계좌이체는 5일 안에 발급
+   (인적사항 모르면 010-000-1234 자진발급). 판정·발행은 직원이 한다.
+   ============================================================ */
+let PAY = { data: null };
+const payToday = () => new Date(Date.now() + 9 * 3600000).toISOString().slice(0, 10);
+
+function renderPayRecord() {
+  const area = document.getElementById('contentArea');
+  area.innerHTML = `
+    <div class="content-header q-head"><h1>입금·증빙 기록</h1></div>
+    <p class="q-meta">통장에서 확인한 입금을 1건씩 기록합니다. 10만 원 이상 현금·계좌이체는 5일 안에 현금영수증(모르면 010-000-1234 자진발급)이나 세금계산서를 발급해야 합니다.</p>
+    <div class="qc-act"><label class="qc-f"><span>사건번호</span><input id="payCase" placeholder="예: 261124_02" autocomplete="off" onkeydown="if(event.key==='Enter')payLoad()"></label>
+      <button class="q-refresh" onclick="payLoad()">불러오기</button></div>
+    <div id="payOut"></div>`;
+}
+
+async function payLoad() {
+  const caseNo = (document.getElementById('payCase').value || '').trim();
+  const out = document.getElementById('payOut');
+  if (!/^\d{6}_\d{2}$/.test(caseNo)) { out.innerHTML = '<p class="qc-w">사건번호를 261124_02 형식으로 넣어 주세요</p>'; return; }
+  out.innerHTML = '<p class="q-loading">노션에서 불러오는 중…</p>';
+  try {
+    const res = await fetch('/admin/api/payment?caseNo=' + encodeURIComponent(caseNo), { credentials: 'same-origin', cache: 'no-store' });
+    const d = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(d.error || ('응답 오류 ' + res.status));
+    PAY.data = d;
+    payRender();
+  } catch (e) {
+    out.innerHTML = `<div class="q-box q-error"><h2><span class="q-icon">✖</span>불러오지 못했습니다</h2><p>${qEsc(e.message)}</p></div>`;
+  }
+}
+
+function payRender() {
+  const d = PAY.data; const out = document.getElementById('payOut');
+  const today = payToday();
+  if (!d.accounts.length) {
+    out.innerHTML = `<div class="q-box"><p>${qEsc(d.caseTitle)} — 회계 행이 없습니다. 먼저 「견적 계산」에서 견적을 저장하거나 노션 회계DB에 행을 만들어 주세요.</p></div>`;
+    return;
+  }
+  const accBlocks = d.accounts.map(a => {
+    const base = a.fixedTotal || a.quoteTotal;
+    const rest = base - a.paid;
+    const rows = a.payments.map(p => {
+      const needs = p.kind !== '발급대상 아님' && p.kind !== '카드결제' && p.issue !== '발행완료';
+      const late = needs && p.due && p.due < today;
+      return `<tr class="${late ? 'qc-pend' : ''}"><td>${qEsc(p.date || '-')}</td><td class="qc-n">${qcWon(p.amount)}</td><td>${qEsc(p.method || '-')}</td>
+        <td>${qEsc(p.kind || '-')}${p.target != null ? `<div class="qc-s">대상 ${qcWon(p.target)}</div>` : ''}</td>
+        <td>${p.issue === '발행완료' ? `<span class="q-icon">✔</span> 발행완료<div class="qc-s">${qEsc(p.approval)} · ${qEsc(p.issuedAt)}</div>` : needs ? `<span class="q-icon">${late ? '✖' : '◆'}</span> ${qEsc(p.issue || '발행대기')}<div class="qc-s">기한 ${qEsc(p.due || '-')}${late ? ' 지남' : ''}</div>` : '—'}</td>
+        <td>${needs ? `<button class="q-refresh" onclick="payIssueForm('${qEsc(p.id)}')">발행 결과 기록</button>` : ''} <a href="${qEsc(p.url)}" target="_blank" rel="noopener">노션</a></td></tr>
+        <tr id="payIssue_${qEsc(p.id)}" hidden><td colspan="6"></td></tr>`;
+    }).join('');
+    return `<section class="q-box ${rest > 0 ? 'has' : 'none'}">
+      <h2><span class="q-icon">${rest > 0 ? '◆' : '✔'}</span>${qEsc(a.title)} <span class="q-count">${qEsc(a.stage || '단계 미지정')}</span></h2>
+      <p class="q-todo">${a.fixedTotal ? '확정' : '견적'} 합계 ${qcWon(base)} · 입금 ${qcWon(a.paid)} · 남은 금액 ${qcWon(Math.max(rest, 0))} · 보수+부가세 ${qcWon(a.feeTotal + a.vatTotal)} <a href="${qEsc(a.url)}" target="_blank" rel="noopener">노션에서 열기</a></p>
+      ${a.payments.length ? `<div class="scroll"><table class="qc-t"><thead><tr><th>입금일</th><th>입금액</th><th>방법</th><th>증빙</th><th>발행</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>` : '<p class="q-empty">아직 기록된 입금이 없습니다.</p>'}
+    </section>`;
+  }).join('');
+  const accOpts = d.accounts.map(a => `<option value="${qEsc(a.id)}">${qEsc(a.title)}</option>`).join('');
+  out.innerHTML = `<p class="q-meta"><a href="${qEsc(d.caseUrl)}" target="_blank" rel="noopener">${qEsc(d.caseTitle)}</a></p>${accBlocks}
+    <section class="q-box"><h2>입금 1건 기록</h2>
+      <div class="qc-grid">
+        <label class="qc-f"><span>청구(회계 행)</span><select id="payAcc">${accOpts}</select></label>
+        <label class="qc-f"><span>입금일</span><input type="date" id="payDate" value="${today}" onchange="payCheck()"></label>
+        <label class="qc-f"><span>입금액(원) *</span><input inputmode="decimal" id="payAmt" data-t="num" oninput="qcFmt(this);payCheck()" autocomplete="off"></label>
+        <label class="qc-f"><span>입금자명</span><input id="payPayer" autocomplete="off"></label>
+        <label class="qc-f"><span>입금방법</span><select id="payMethod" onchange="payCheck()"><option>계좌이체</option><option>현금</option><option>카드</option></select></label>
+        <label class="qc-f"><span>증빙대상금액(원) — 보수+부가세 부분</span><input inputmode="decimal" id="payTarget" data-t="num" oninput="qcFmt(this);payCheck()" autocomplete="off"></label>
+        <label class="qc-f"><span>증빙종류</span><select id="payKind" onchange="payCheck()"><option>현금영수증(소득공제)</option><option>현금영수증(지출증빙)</option><option>현금영수증(자진발급)</option><option>세금계산서</option><option>카드결제</option><option>발급대상 아님</option></select></label>
+      </div>
+      <div id="payWarn"></div>
+      <div class="qc-act"><button class="q-refresh qc-save" onclick="paySave(this)">입금 기록</button></div>
+      <p class="q-meta" id="payMsg"></p>
+      <p class="qc-s">대납 공과금(세금·수수료)을 증빙대상금액에서 빼는 기준은 세무사 확인 전입니다 — 확인 전까지는 사무소 방침대로 직원이 넣습니다.</p>
+    </section>`;
+  payCheck();
+}
+
+function payCheck() {
+  const amt = qcNum(document.getElementById('payAmt').value);
+  const tgtEl = document.getElementById('payTarget');
+  const method = document.getElementById('payMethod').value;
+  const kindEl = document.getElementById('payKind');
+  if (method === '카드') kindEl.value = '카드결제';
+  const tgt = qcNum(tgtEl.value);
+  const date = document.getElementById('payDate').value;
+  const w = [];
+  const base = tgt != null ? tgt : amt;
+  if (method !== '카드' && base != null && base >= 100000 && kindEl.value === '발급대상 아님') w.push('✖ 10만 원 이상 현금·계좌이체는 현금영수증 의무발행 대상입니다 — 증빙종류를 고르세요');
+  if (method !== '카드' && kindEl.value === '카드결제') w.push('◆ 입금방법이 카드가 아닌데 증빙종류가 카드결제입니다');
+  if (tgt != null && amt != null && tgt > amt) w.push('◆ 증빙대상금액이 입금액보다 큽니다');
+  if (date && kindEl.value !== '발급대상 아님' && kindEl.value !== '카드결제') {
+    const due = new Date(new Date(date + 'T00:00:00Z').getTime() + 5 * 86400000).toISOString().slice(0, 10);
+    w.push('◆ 발급기한 ' + due + ' (입금일 + 5일)');
+  }
+  document.getElementById('payWarn').innerHTML = w.map(x => `<p class="qc-w">${qEsc(x)}</p>`).join('');
+  return !w.some(x => x.startsWith('✖'));
+}
+
+async function paySave(btn) {
+  const msg = document.getElementById('payMsg');
+  const amt = qcNum(document.getElementById('payAmt').value);
+  if (!amt) { msg.textContent = '입금액을 넣어 주세요'; return; }
+  if (!payCheck()) { msg.textContent = '경고를 먼저 해결해 주세요'; return; }
+  const body = {
+    caseNo: PAY.data.caseNo, accountId: document.getElementById('payAcc').value, date: document.getElementById('payDate').value,
+    amount: amt, payer: document.getElementById('payPayer').value.trim(), method: document.getElementById('payMethod').value,
+    target: qcNum(document.getElementById('payTarget').value), kind: document.getElementById('payKind').value,
+  };
+  btn.disabled = true; msg.textContent = '노션에 기록하는 중…';
+  try {
+    const res = await fetch('/admin/api/payment', { method: 'POST', credentials: 'same-origin', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) });
+    const d = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(d.error || ('응답 오류 ' + res.status));
+    await payLoad();
+    const m2 = document.getElementById('payMsg'); if (m2) m2.innerHTML = `<span class="q-icon">✔</span> 기록했습니다 — ${qEsc(d.name)}`;
+  } catch (e) { msg.innerHTML = `<span class="q-icon dl-hot">✖</span> ${qEsc(e.message)}`; btn.disabled = false; }
+}
+
+function payIssueForm(id) {
+  const row = document.getElementById('payIssue_' + id); if (!row) return;
+  row.hidden = !row.hidden;
+  row.firstElementChild.innerHTML = `<div class="qc-act">
+    <label class="qc-f"><span>결과</span><select id="pi_s_${id}"><option>발행완료</option><option>발행실패</option></select></label>
+    <label class="qc-f"><span>승인번호</span><input id="pi_a_${id}" autocomplete="off"></label>
+    <label class="qc-f"><span>발행일</span><input type="date" id="pi_d_${id}" value="${payToday()}"></label>
+    <label class="qc-f"><span>실패 사유</span><input id="pi_e_${id}" autocomplete="off"></label>
+    <button class="q-refresh qc-save" onclick="payIssueSave('${id}', this)">저장</button><span class="q-meta" id="pi_m_${id}"></span></div>`;
+}
+
+async function payIssueSave(id, btn) {
+  const m = document.getElementById('pi_m_' + id);
+  const body = { paymentId: id, issue: document.getElementById('pi_s_' + id).value, approval: document.getElementById('pi_a_' + id).value.trim(), issuedAt: document.getElementById('pi_d_' + id).value, error: document.getElementById('pi_e_' + id).value.trim() };
+  if (body.issue === '발행완료' && !body.approval) { m.textContent = '승인번호를 넣어 주세요'; return; }
+  btn.disabled = true; m.textContent = '저장 중…';
+  try {
+    const res = await fetch('/admin/api/payment', { method: 'PATCH', credentials: 'same-origin', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) });
+    const d = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(d.error || ('응답 오류 ' + res.status));
+    await payLoad();
+  } catch (e) { m.innerHTML = `<span class="q-icon dl-hot">✖</span> ${qEsc(e.message)}`; btn.disabled = false; }
 }
 
 /* ============================================================
