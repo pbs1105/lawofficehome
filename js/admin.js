@@ -74,12 +74,14 @@ const ADMIN_MENU = [
 {
     id: 'docmanage', icon: '🗂️', label: '2 관리', group: '업무',
     items: [
+      { id: 'queue-manage', label: '처리할 일 목록 (추출·검증·담당)' },
       { id: 'tool-realestate-extract', label: '정부자료 노션DB 추출 (PC폴더·노션DB)' },
     ]
   },
 {
     id: 'docgen', icon: '📝', label: '3 생성', group: '업무',
     items: [
+      { id: 'queue-generate', label: '처리할 일 목록 (초안·검토·03확정)' },
       { id: 'doc-poa-gen', label: '위임장 자동생성' },
       { id: 'calc-sales-contract', label: '계약서 자동생성 (매매·증여 등)' },
       { id: 'calc-realestate-report', label: '실거래신고서 자동생성' },
@@ -686,7 +688,8 @@ function renderContentPage(pageId) {
    노션은 /admin/api/queue 서버 함수가 읽는다(비밀값은 Vercel 환경변수).
    이 화면은 보기 전용 — 검증·발송·전환은 노션 페이지에서 직원이 한다.
    ============================================================ */
-const QUEUE_STAGE_TITLE = { intake: '1 수임 — 처리할 일 목록' };
+const QUEUE_STAGE_TITLE = { intake: '1 수임 — 처리할 일 목록', manage: '2 관리 — 처리할 일 목록', generate: '3 생성 — 처리할 일 목록' };
+const QUEUE_TOTAL_LABEL = { intake: '진행 중 상담', manage: '진행 사건(수임·진행중·제출완료)', generate: '진행 사건(수임·진행중·제출완료)' };
 
 function qEsc(v) {
   return String(v == null ? '' : v).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -706,7 +709,7 @@ async function renderQueue(pageId) {
     const data = await res.json().catch(() => ({}));
     if (!res.ok) throw new Error(data.error || ('응답 오류 ' + res.status));
     const when = new Date(data.generatedAt).toLocaleString('ko-KR', { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' });
-    let html = head + `<p class="q-meta">진행 중 상담 ${data.total}건 · ${qEsc(when)} 기준 · 각 건을 누르면 노션 페이지가 새 탭으로 열립니다</p>`;
+    let html = head + `<p class="q-meta">${qEsc(QUEUE_TOTAL_LABEL[stage] || '대상')} ${data.total}건 · ${qEsc(when)} 기준 · 각 건을 누르면 노션 페이지가 새 탭으로 열립니다</p>`;
     html += '<div class="q-summary">' + data.queues.map(q =>
       `<a class="q-chip ${q.count ? 'has' : 'none'}" href="#q-${qEsc(q.id)}" onclick="document.getElementById('q-${qEsc(q.id)}').scrollIntoView({behavior:'smooth'});return false;">
          <span class="q-chip-icon">${q.count ? '◆' : '✔'}</span>${qEsc(q.label)} <b>${q.count}</b></a>`).join('') + '</div>';
@@ -721,10 +724,8 @@ async function renderQueue(pageId) {
           <li><a href="${qEsc(it.url)}" target="_blank" rel="noopener">
             <span class="q-title">${qEsc(it.title || '(제목 없음)')}</span>
             <span class="q-tags">
-              ${it.type ? `<span class="q-tag">${qEsc(it.type)}</span>` : ''}
-              ${it.route ? `<span class="q-tag">${qEsc(it.route)}</span>` : ''}
-              ${it.round ? `<span class="q-tag">보완 ${it.round}차</span>` : ''}
-              <span class="q-tag">${qEsc(it.analysis || '-')} · ${qEsc(it.verify || '-')} · ${qEsc(it.send || '-')}</span>
+              ${(it.tags || []).map(t => `<span class="q-tag">${qEsc(t)}</span>`).join('')}
+              <span class="q-tag">${qEsc(it.status || '-')}</span>
             </span>
             <span class="q-idle">${it.idleDays == null ? '' : (it.idleDays === 0 ? '오늘 변경' : it.idleDays + '일째 그대로')}</span>
           </a></li>`).join('') + '</ul>';
