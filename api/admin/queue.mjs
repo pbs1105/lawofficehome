@@ -6,6 +6,7 @@
 const NOTION = 'https://api.notion.com/v1';
 const CONSULT_DB = '4020ce34-50b8-810b-ba4d-f2a47407a9fa'; // 상담DB
 const CASE_DB = '2f70ce34-50b8-8090-a77b-ef2ecdb1d20d'; // 사건부DB
+const ACCOUNT_DB = '220478ef-1ced-4fc8-aa11-80f2a64e7ed6'; // 회계DB (문서 1건 = 1행, 관련사건 → 사건부DB)
 const DEADLINE_DB = '02864565-80c7-44be-8624-1aa5aec17911'; // 기한DB (행 1개 = 기한 1개)
 const DEADLINE_DAYS = 7; // 첫 화면 「기한 임박」: 지난 기한 + 오늘부터 7일 이내
 
@@ -99,6 +100,7 @@ function intakeRow(p) {
 
 function caseRow(p) {
   const r = {
+    id: p.id.replace(/-/g, ''),
     url: p.url,
     title: title(p, '사건번호-고객명-사건명'),
     state: sel(p, '상태'),
@@ -149,6 +151,45 @@ async function deadlineSummary(token, caseTitles) {
   }
 }
 
+// 회계 — 회계DB 문서 + 사건부DB(진행·종결)로 4개 목록. 입금 확인·발행·정산 확정은 직원이 노션에서 한다.
+const settleOpen = (d) => d.settle !== '정산완료';
+const billDoc = (d) => d.docType === '견적서' || d.docType === '공과금내역서';
+async function accountQueues(token, casePagesActive) {
+  const [docs, closed] = await Promise.all([
+    queryAll(token, ACCOUNT_DB, undefined),
+    queryAll(token, CASE_DB, { property: '상태', select: { equals: '종결' } }),
+  ]);
+  const caseInfo = new Map();
+  for (const p of [...casePagesActive, ...closed]) caseInfo.set(p.id.replace(/-/g, ''), { title: title(p, '사건번호-고객명-사건명'), state: sel(p, '상태'), url: p.url });
+  const drows = docs.map((p) => {
+    const cid = (rel(p, '관련사건')[0] || '').replace(/-/g, '');
+    const c = caseInfo.get(cid);
+    const d = {
+      url: p.url,
+      title: title(p, '문서명') || '(문서명 없음)',
+      docType: sel(p, '문서유형'),
+      settle: sel(p, '정산상태'),
+      issue: sel(p, '발행상태'),
+      caseId: cid,
+      caseState: c ? c.state : '',
+      idleDays: daysSince(p.last_edited_time),
+    };
+    d.tags = [d.docType || '유형 미지정', c ? c.title : '사건 미연결'].filter(Boolean);
+    d.status = [d.settle || '정산상태 없음', d.issue ? '발행 ' + d.issue : ''].filter(Boolean).join(' · ');
+    return d;
+  });
+  const quoted = new Set(drows.filter((d) => d.docType === '견적서' && d.caseId).map((d) => d.caseId));
+  const crows = casePagesActive.map(caseRow).filter(active).filter((r) => !quoted.has(r.id));
+  const pick = (rows) => rows.sort((a, b) => (b.idleDays ?? 0) - (a.idleDays ?? 0)).map(({ url, title: t, tags, status, idleDays }) => ({ url, title: t, tags, status, idleDays }));
+  const defs = [
+    { id: 'quote-wait', label: '견적 대기', todo: '통합계산기로 견적 → 회계DB에 문서유형=견적서로 등록(관련사건 연결)', items: pick(crows) },
+    { id: 'deposit-wait', label: '입금 확인 대기', todo: '통장 확인 후 입금액·입금확인자 입력(자동 판정 없음)', items: pick(drows.filter((d) => billDoc(d) && settleOpen(d) && d.caseState !== '종결')) },
+    { id: 'issue-wait', label: '발행 대기', todo: '영수증·세금계산서 발행 버튼은 직원이 — 실패는 발행오류 확인', items: pick(drows.filter((d) => d.issue === '발행대기' || d.issue === '발행실패')) },
+    { id: 'settle-wait', label: '정산 대기', todo: '종결 사건 — 입금·실비 대조 후 정산상태=정산완료', items: pick(drows.filter((d) => d.caseState === '종결' && settleOpen(d))) },
+  ];
+  return { total: drows.length, queues: defs.map((q) => ({ id: q.id, label: q.label, todo: q.todo, count: q.items.length, items: q.items })) };
+}
+
 const intakePages = (token) => queryAll(token, CONSULT_DB, { property: '상태', select: { equals: '상담중' } });
 const casePages = (token) => queryAll(token, CASE_DB, {
   and: ['상담', '종결', '미수임종료'].map((v) => ({ property: '상태', select: { does_not_equal: v } })),
@@ -172,7 +213,7 @@ export async function GET(request) {
   if (!token) return json({ error: 'NOTION_TOKEN 미설정 — Vercel 환경변수에 노션 통합 토큰을 넣어 주세요.' }, 503);
 
   const stage = new URL(request.url).searchParams.get('stage') || 'intake';
-  if (!['intake', 'generate', 'submit', 'overview', 'summary'].includes(stage)) return json({ error: `아직 만들지 않은 업무입니다: ${stage}` }, 400);
+  if (!['intake', 'generate', 'submit', 'account', 'overview', 'summary'].includes(stage)) return json({ error: `아직 만들지 않은 업무입니다: ${stage}` }, 400);
 
   try {
     const generatedAt = new Date().toISOString();
@@ -186,6 +227,12 @@ export async function GET(request) {
         { id: 'generate', label: '2 생성', page: 'queue-generate', todo: todoCount(GENERATE_QUEUES, crows), total: crows.filter(active).length, totalLabel: '수임·진행중 사건' },
         { id: 'submit', label: '3 제출', page: 'queue-submit', todo: todoCount(SUBMIT_QUEUES, crows), total: crows.filter((r) => active(r) || r.state === '제출완료').length, totalLabel: '진행 사건' },
       ];
+      let acc;
+      try { acc = await accountQueues(token, cp); } catch (e) { acc = { error: String(e.message || e) }; }
+      if (acc.queues) {
+        const ids = new Set(acc.queues.flatMap((q) => q.items.map((i) => i.url)));
+        stages.push({ id: 'account', label: '회계', page: 'queue-account', todo: ids.size, total: acc.total, totalLabel: '회계 문서' });
+      }
       const caseTitles = new Map(cp.map((p) => [p.id.replace(/-/g, ''), title(p, '사건번호-고객명-사건명')]));
       const deadlines = await deadlineSummary(token, caseTitles);
       const byCat = {};
@@ -203,6 +250,10 @@ export async function GET(request) {
     if (stage === 'intake') {
       const rows = (await intakePages(token)).map(intakeRow);
       return json({ stage, generatedAt, total: rows.length, queues: buildQueues(INTAKE_QUEUES, rows) });
+    }
+    if (stage === 'account') {
+      const acc = await accountQueues(token, await casePages(token));
+      return json({ stage, generatedAt, total: acc.total, queues: acc.queues });
     }
     const rows = (await casePages(token)).map(caseRow);
     if (stage === 'overview') {
