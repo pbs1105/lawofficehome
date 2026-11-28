@@ -248,7 +248,7 @@ input, textarea, select { font-family: inherit; }
 .sidebar::-webkit-scrollbar-track { background: transparent; }
 .sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 3px; }
 
-/* 상위 그룹 구분 타이틀 (업무공간 / 업무도우미 / 서식자료실) */
+/* 상위 그룹 구분 타이틀 (업무 / 지식 / 도구) */
 .sb-group-title {
   margin: 18px 0 6px;
   padding: 0 20px;

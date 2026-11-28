@@ -62,21 +62,22 @@ function initLoginPage() {
    2. 사이드바 메뉴 데이터
    ============================================================ */
 const ADMIN_MENU = [
-  /* ===== 1. 업무공간 ===== */
-  {
-    id: 'intake', icon: '📥', label: '접수', group: '업무공간',
+  /* ===== 1. 업무 — 업무 순서(수임→관리→생성→제출→회계) (2026-11-28 개편, 통합 문서 5부) ===== */
+{
+    id: 'intake', icon: '📥', label: '1 수임', group: '업무',
     items: [
       { id: 'intake-offline', label: '직원 접수 (전화·방문 → PC폴더·노션DB 자동생성)', external: true, url: 'https://n8npark.app.n8n.cloud/form/2a8c595e-215b-439e-b35d-7a62aeacba4c' },
+      { id: 'intake-scan', label: '스캔자료 접수 (방문 상담 후 고객 자료 스캔)', external: true, url: 'https://n8npark.app.n8n.cloud/form/04018433-9aed-4c7c-a279-0547fe4d144d' },
     ]
   },
-  {
-    id: 'docmanage', icon: '🗂️', label: '문서관리', group: '업무공간',
+{
+    id: 'docmanage', icon: '🗂️', label: '2 관리', group: '업무',
     items: [
       { id: 'tool-realestate-extract', label: '정부자료 노션DB 추출 (PC폴더·노션DB)' },
     ]
   },
-  {
-    id: 'docgen', icon: '📝', label: '문서생성', group: '업무공간',
+{
+    id: 'docgen', icon: '📝', label: '3 생성', group: '업무',
     items: [
       { id: 'doc-poa-gen', label: '위임장 자동생성' },
       { id: 'calc-sales-contract', label: '계약서 자동생성 (매매·증여 등)' },
@@ -85,16 +86,8 @@ const ADMIN_MENU = [
       { id: 'doc-farmland-gen', label: '농지취득자격증명신청서 자동생성' },
     ]
   },
-  {
-    id: 'receipt', icon: '🧾', label: '영수증', group: '업무공간',
-    items: [
-      { id: 'calc-comprehensive', label: '공과금 자동생성 (취득세·국민주택채권·인지대·송달료 등)' },
-      { id: 'calc-fee', label: '보수료 자동생성' },
-      { id: 'calc-bond', label: '국민주택채권 계산기 (개별)' },
-    ]
-  },
-  {
-    id: 'submit', icon: '📤', label: '제출', group: '업무공간',
+{
+    id: 'submit', icon: '📤', label: '4 제출', group: '업무',
     items: [
       { id: 'submit-ecfs', label: '전자소송 신청' },
       { id: 'submit-ecfs-console', label: '전자소송 콘솔' },
@@ -102,20 +95,28 @@ const ADMIN_MENU = [
       { id: 'submit-eform', label: '이폼등기 신청' },
     ]
   },
+{
+    id: 'receipt', icon: '🧾', label: '5 회계', group: '업무',
+    items: [
+      { id: 'calc-comprehensive', label: '공과금 자동생성 (취득세·국민주택채권·인지대·송달료 등)' },
+      { id: 'calc-fee', label: '보수료 자동생성' },
+      { id: 'calc-bond', label: '국민주택채권 계산기 (개별)' },
+    ]
+  },
 
-  /* ===== 2. 업무도우미 — 카테고리 클릭 시 핵심절차개관·준비서류·주의할점 허브로 바로 이동 ===== */
-  { id: 'help-realestate', icon: '🏠', label: '부동산등기', group: '업무도우미', directNav: true, items: [] },
-  { id: 'help-corp', icon: '🏢', label: '법인등기', group: '업무도우미', directNav: true, items: [] },
-  { id: 'help-inheritance', icon: '📜', label: '상속', group: '업무도우미', directNav: true, items: [] },
-  { id: 'help-insolvency', icon: '💳', label: '회생파산', group: '업무도우미', directNav: true, items: [] },
-  { id: 'help-civil', icon: '⚖️', label: '민사소송', group: '업무도우미', directNav: true, items: [] },
-  { id: 'help-enforcement', icon: '🔨', label: '강제집행', group: '업무도우미', directNav: true, items: [] },
-  { id: 'help-preservation', icon: '🚧', label: '가압류·가처분', group: '업무도우미', directNav: true, items: [] },
-  { id: 'help-foreign', icon: '🌏', label: '외국인·재외국민 등기', group: '업무도우미', directNav: true, items: [] },
-  { id: 'help-etc', icon: '🏛️', label: '가사·공탁', group: '업무도우미', directNav: true, items: [] },
+  /* ===== 2. 지식 — 홈페이지와 같은 9개 카테고리·순서. 카테고리 클릭 시 허브로 이동 ===== */
+  { id: 'help-inheritance', icon: '📜', label: '상속', group: '지식', directNav: true, items: [] },
+  { id: 'help-willtrust', icon: '🤝', label: '신탁', group: '지식', directNav: true, items: [] },
+  { id: 'help-foreign', icon: '🌏', label: '외국인·재외국민', group: '지식', directNav: true, items: [] },
+  { id: 'help-insolvency', icon: '💳', label: '회생·파산', group: '지식', directNav: true, items: [] },
+  { id: 'help-realestate', icon: '🏠', label: '부동산등기', group: '지식', directNav: true, items: [] },
+  { id: 'help-corp', icon: '🏢', label: '법인등기', group: '지식', directNav: true, items: [] },
+  { id: 'help-civil', icon: '⚖️', label: '민사소송', group: '지식', directNav: true, items: [] },
+  { id: 'help-enforcement', icon: '⚡', label: '민사집행', group: '지식', directNav: true, items: [] },
+  { id: 'help-etc', icon: '🏛️', label: '가사·공탁', group: '지식', directNav: true, items: [] },
 
-  /* ===== 3. 서식자료실 ===== */
-  { id: 'form-list', icon: '📋', label: '서식 자료실', group: '서식자료실', directNav: true, items: [] },
+  /* ===== 3. 도구 ===== */
+  { id: 'form-list', icon: '📋', label: '서식 자료실', group: '도구', directNav: true, items: [] },
 ];
 
 /* ============================================================
@@ -131,6 +132,8 @@ const HELPER_TOPICS = {
     { id: 're-mortgage', label: '근저당권 설정등기' },
     { id: 're-lease', label: '전세권 설정등기' },
     { id: 're-cancel', label: '말소등기' },
+    { id: 'tax-req', label: '지방세 감면 요건 정리' },
+    { id: 'tax-proc', label: '지방세 감면 신청 절차' },
   ],
   'help-corp': [
     { id: 'co-establish', label: '주식회사 설립' },
@@ -212,7 +215,7 @@ const HELPER_TOPICS = {
       { id: 'doc-re-30', label: '자동차·선박·항공기 강제집행' },
     ]},
   ],
-  'help-preservation': [],
+  'help-willtrust': [],
   'help-insolvency': [
     { label: '공통 기초', items: [
       { id: 'doc-rh-c01', label: '업무범위와 수임 구조' },
@@ -255,10 +258,7 @@ const HELPER_TOPICS = {
     { id: 'for-no-reginfo', label: '등기필정보 없는 경우' },
     { id: 'for-disposal', label: '외국인 부동산 처분 안내' },
   ],
-  'help-etc': [
-    { id: 'tax-req', label: '지방세 감면 요건 정리' },
-    { id: 'tax-proc', label: '지방세 감면 신청 절차' },
-  ],
+  'help-etc': [],
 };
 
 /* ============================================================
