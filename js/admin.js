@@ -96,7 +96,7 @@ const ADMIN_MENU = [
 {
     id: 'receipt', icon: '🧾', label: '회계', group: '업무',
     items: [
-      { id: 'queue-account', label: '처리할 일 목록 (견적·입금 확인·발행·정산)' },
+      { id: 'queue-account', label: '처리할 일 목록 (견적·입금 확인·증빙·정산)' },
       { id: 'calc-comprehensive', label: '공과금 자동생성 (취득세·국민주택채권·인지대·송달료 등)' },
       { id: 'calc-fee', label: '보수료 자동생성' },
       { id: 'calc-bond', label: '국민주택채권 계산기 (개별)' },
@@ -702,7 +702,7 @@ function renderContentPage(pageId) {
    이 화면은 보기 전용 — 검증·발송·전환은 노션 페이지에서 직원이 한다.
    ============================================================ */
 const QUEUE_STAGE_TITLE = { intake: '1 접수 — 처리할 일 목록', generate: '2 생성 — 처리할 일 목록', submit: '3 제출 — 처리할 일 목록', account: '회계 — 처리할 일 목록', overview: '진행 사건 전체' };
-const QUEUE_TOTAL_LABEL = { intake: '진행 중 상담', generate: '진행 사건(수임·진행중·제출완료)', submit: '진행 사건(수임·진행중·제출완료)', account: '회계DB 문서', overview: '진행 사건(수임·진행중·제출완료)' };
+const QUEUE_TOTAL_LABEL = { intake: '진행 중 상담', generate: '진행 사건(수임·진행중·제출완료)', submit: '진행 사건(수임·진행중·제출완료)', account: '회계DB 사건 청구', overview: '진행 사건(수임·진행중·제출완료)' };
 
 function qEsc(v) {
   return String(v == null ? '' : v).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -860,7 +860,7 @@ async function loadDashOps() {
       <a class="ops-stage ${s.todo ? 'has' : 'none'}" href="#" onclick="navigateTo('${qEsc(s.page)}');return false;">
         <span class="ops-label">${qEsc(s.label)}</span>
         <span class="ops-num"><span class="q-icon">${s.todo ? '◆' : '✔'}</span>${s.todo}<small>건 할 일</small></span>
-        <span class="ops-sub">${qEsc(s.totalLabel)} ${s.total}건</span>
+        <span class="ops-sub">${qEsc(s.totalLabel)} ${s.total}건</span>${s.alert ? `<span class="ops-sub dl-hot"><span class="q-icon">✖</span> ${qEsc(s.alert)}</span>` : ''}
       </a>`).join('');
     const cats = (d.byCategory || []).map(c => `<span class="q-tag">${qEsc(c.label)} ${c.count}</span>`).join('') || '<span class="q-empty">진행 사건이 없습니다.</span>';
     box.innerHTML = `
